@@ -32,6 +32,8 @@ import net.minecraftforge.event.server.ServerStoppedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
@@ -53,12 +55,20 @@ public final class SustainedSwordArts {
         final ResourceKey<Level> dimension;
         final Vec3 origin, anchor;
         final long started;
-        long nextFuel, nextPulse;
+        long nextFuel, nextPulse, nextRain, lastTick=Long.MIN_VALUE;
+        int wave;
+        final List<RainSword> rain=new ArrayList<>();
         Cast(ServerPlayer player, String art, int slot, Vec3 anchor, long now) {
             this.art = art; this.slot = slot; this.anchor = anchor;
             dimension = player.level().dimension(); origin = player.position(); started = now;
-            nextFuel = now + 20; nextPulse = now + windupTicks(art);
+            nextFuel = now + 20; nextPulse = now + windupTicks(art); nextRain=nextPulse;
         }
+    }
+
+    private static final class RainSword {
+        Vec3 position,velocity=new Vec3(0,-.6,0);
+        UUID target; int age;
+        RainSword(Vec3 position,UUID target){this.position=position;this.target=target;}
     }
 
     public static boolean supports(String art) { return WANJIAN.equals(art) || JIUXIAO.equals(art); }
@@ -76,7 +86,7 @@ public final class SustainedSwordArts {
     }
     public static String description(String art, int mastery) {
         String effect = JIUXIAO.equals(art)
-                ? "定点半径10格剑雨，每秒造成单次天阶伤害的14%并减速"
+                ? "定点半径10格剑域，每秒造成单次天阶伤害的14%并减速；每0.25秒落下5把追踪剑"
                 : "自身周围6格万剑，每秒造成单次天阶伤害的18%";
         return effect + "；结印" + windupTicks(art)/20.0F + "秒后持续15秒；每秒消耗"
                 + ArtCatalog.fixedManaCost(art) + "点灵力+最大灵力" + ArtCatalog.percentageCost(art)
@@ -159,11 +169,13 @@ public final class SustainedSwordArts {
                 || (age < windupTicks(cast.art) && player.position().distanceToSqr(cast.origin) > 4)) {
             stop(player); return;
         }
+        if(cast.lastTick==now)return;cast.lastTick=now;
         // 先支付本秒供灵，再允许任何伤害；落后的刻不补发连击或集中扣费。
         if (now >= cast.nextFuel) {
             if (!pay(player,data,cast.art)) { stop(player); return; }
             cast.nextFuel = now + 20; GeneratedMod.sync(player);
         }
+        if(JIUXIAO.equals(cast.art)&&age>=windupTicks(cast.art))rain(player,cast,now);
         if (now < cast.nextPulse) return;
         cast.nextPulse = now + 20;
         Vec3 center = JIUXIAO.equals(cast.art) ? cast.anchor : player.position();
@@ -182,6 +194,40 @@ public final class SustainedSwordArts {
                     JIUXIAO.equals(cast.art) ? impact.add(0,8,0) : center.add(0,2,0),impact,1,(int)age);
             if (target.hurt(player.damageSources().playerAttack(player),damage) && JIUXIAO.equals(cast.art))
                 target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,30,0,false,true,true));
+        }
+    }
+    /** Source cadence, target combat authority: bounded transient swords, no second entity/account system. */
+    private static void rain(ServerPlayer player,Cast cast,long now){
+        var level=player.serverLevel();double range=radius(JIUXIAO);
+        var choices=level.getEntitiesOfClass(LivingEntity.class,new AABB(cast.anchor.add(-range,-3,-range),cast.anchor.add(range,8,range)),
+                target->allowedTarget(player,target)&&horizontalDistanceSqr(target.position(),cast.anchor)<=range*range);
+        choices.sort(Comparator.comparingDouble(target->target.distanceToSqr(cast.anchor)));
+        if(now>=cast.nextRain){
+            cast.nextRain=now+5;
+            for(int i=0;i<5&&cast.rain.size()<80;i++){
+                double angle=(cast.wave*5+i)*2.399963229728653;
+                var spawn=cast.anchor.add(Math.cos(angle)*range*.6,8+(i%3)*.5,Math.sin(angle)*range*.6);
+                var target=choices.isEmpty()?null:choices.get((cast.wave+i)%choices.size()).getUUID();
+                cast.rain.add(new RainSword(spawn,target));
+            }cast.wave++;
+        }
+        var iterator=cast.rain.iterator();
+        while(iterator.hasNext()){
+            var sword=iterator.next();if(++sword.age>60){iterator.remove();continue;}
+            LivingEntity victim=sword.target!=null&&level.getEntity(sword.target) instanceof LivingEntity living?living:null;
+            if(victim!=null&&(!allowedTarget(player,victim)||horizontalDistanceSqr(victim.position(),cast.anchor)>range*range
+                    ||victim.getY()<cast.anchor.y-3||victim.getY()>cast.anchor.y+8))victim=null;
+            if(victim==null&&sword.age%5==0&&!choices.isEmpty()){victim=choices.get((cast.wave+sword.age)%choices.size());sword.target=victim.getUUID();}
+            var desired=victim==null?new Vec3(0,-1,0):victim.getBoundingBox().getCenter().subtract(sword.position).normalize();
+            sword.velocity=sword.velocity.scale(.3).add(desired.scale(.7)).normalize().scale(.95);
+            var end=sword.position.add(sword.velocity);
+            var block=level.clip(new ClipContext(sword.position,end,ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,player));
+            var stop=block.getType()==HitResult.Type.MISS?end:block.getLocation();
+            boolean hit=victim!=null&&(victim.getBoundingBox().inflate(.2).contains(sword.position)
+                    ||victim.getBoundingBox().inflate(.2).clip(sword.position,stop).isPresent());
+            if(sword.age==1||sword.age%5==0||hit)emit(player,JIUXIAO,ArtVisualPacket.PROJECTILE,sword.position,stop,1,sword.age);
+            if(hit){victim.hurt(player.damageSources().playerAttack(player),pulseDamage(player,JIUXIAO));iterator.remove();}
+            else if(block.getType()!=HitResult.Type.MISS)iterator.remove();else sword.position=end;
         }
     }
     private static double horizontalDistanceSqr(Vec3 a, Vec3 b) {

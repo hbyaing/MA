@@ -25,7 +25,7 @@ import java.util.concurrent.CompletableFuture;
 public final class JeiCatalogCapture {
     static final boolean ENABLED=Boolean.getBoolean("wuxingxiantu.jeiCatalogCapture");
     static final Path OUT=Path.of(System.getProperty("wuxingxiantu.jeiOutput","../../reports/alchemy-followup-20261014/jei"));
-    static final CatalogIngredient[] CASES={new CatalogIngredient(null),new CatalogIngredient(PillCatalog.BERSERK),new CatalogIngredient(PillCatalog.CALMING),new CatalogIngredient(PillCatalog.CULTIVATION),new CatalogIngredient(PillCatalog.ROOT)};
+    static final CatalogIngredient[] CASES={new CatalogIngredient(null),new CatalogIngredient(PillCatalog.BERSERK),new CatalogIngredient(PillCatalog.CALMING),new CatalogIngredient(PillCatalog.CULTIVATION),new CatalogIngredient(PillCatalog.ROOT),new CatalogIngredient(PillCatalog.GATHER_QI),new CatalogIngredient(PillCatalog.MERIDIAN_EXPANSION)};
     static final List<Map<String,Object>> rows=new ArrayList<>();static final List<String> failures=new ArrayList<>();
     static final long START=System.nanoTime();static boolean opened,prepared,finished;static int tick,stage;
     static CompletableFuture<?> prepare;
@@ -34,6 +34,7 @@ public final class JeiCatalogCapture {
         try{
             Files.createDirectories(OUT);mc.setWindowActive(true);mc.options.pauseOnLostFocus=false;
             if((System.nanoTime()-START)/1e9>300)throw new AssertionError("JEI capture timeout");
+            if(!opened)Class.forName("cn.blockforge.generated.generatedmod.client.qa.myriad.PointerSafety");
             if(!opened&&mc.getOverlay()==null&&(mc.screen instanceof net.minecraft.client.gui.screens.TitleScreen||mc.screen instanceof net.minecraft.client.gui.screens.AccessibilityOnboardingScreen)){
                 opened=true;Files.deleteIfExists(OUT.resolve("failure.txt"));Files.deleteIfExists(OUT.resolve("complete.txt"));
                 mc.getWindow().setWindowed(1280,900);mc.options.guiScale().set(2);mc.resizeDisplay();org.lwjgl.glfw.GLFW.glfwHideWindow(mc.getWindow().getWindow());
@@ -42,15 +43,21 @@ public final class JeiCatalogCapture {
                 mc.createWorldOpenFlows().createFreshLevel("jei-catalog-"+System.currentTimeMillis(),new LevelSettings("JEI quality catalog acceptance",GameType.CREATIVE,false,net.minecraft.world.Difficulty.NORMAL,true,rules,WorldDataConfiguration.DEFAULT),new WorldOptions(7215,false,false),net.minecraft.world.level.levelgen.presets.WorldPresets::createNormalWorldDimensions);
             }
             if(!opened||mc.player==null||mc.getSingleplayerServer()==null||mc.getOverlay()!=null||WuXingJeiPlugin.runtime==null)return;
-            if(!prepared){prepared=true;var id=mc.player.getUUID();prepare=mc.getSingleplayerServer().submitAsync(()->{var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);p.setNoGravity(true);p.teleportTo(.5,180,.5);var d=GeneratedMod.data(p);d.wuxingxiantu$setRealm(8);d.wuxingxiantu$setAura(1_000_000);GeneratedMod.sync(p);});return;}
+            if(!prepared){mc.mouseHandler.grabMouse();Class.forName("cn.blockforge.generated.generatedmod.client.qa.myriad.PointerSafety").getMethod("verify").invoke(null);prepared=true;var id=mc.player.getUUID();prepare=mc.getSingleplayerServer().submitAsync(()->{var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);p.setNoGravity(true);p.teleportTo(.5,180,.5);var d=GeneratedMod.data(p);d.wuxingxiantu$setRealm(8);d.wuxingxiantu$setAura(1_000_000);GeneratedMod.sync(p);});return;}
             if(prepare!=null){if(!prepare.isDone())return;prepare.join();prepare=null;}
             if(mc.getMainRenderTarget().width!=1280||mc.getMainRenderTarget().height!=900){mc.getWindow().setWidth(1280);mc.getWindow().setHeight(900);mc.resizeDisplay();}
+            int guiScale=stage<CASES.length*2?2:3;
+            if(mc.options.guiScale().get()!=guiScale){mc.options.guiScale().set(guiScale);mc.resizeDisplay();}
             tick++;
             if(tick%35==1){
                 var runtime=WuXingJeiPlugin.runtime;var manager=runtime.getIngredientManager();
-                var all=manager.getAllIngredients(WuXingJeiPlugin.TYPE);check(all.size()==18&&all.stream().filter(CatalogIngredient::core).count()==1,"One merged core / 17 pills");
+                var all=manager.getAllIngredients(WuXingJeiPlugin.TYPE);check(all.size()==PillCatalog.values().length+1&&all.stream().filter(CatalogIngredient::core).count()==1,"One merged core and every current pill");
                 for(var entry:all){var item=manager.getIngredientHelper(WuXingJeiPlugin.TYPE).getCheatItemStack(entry);
                     check(entry.core()?item.is(WuXingItems.INNER_CORES[5].get()):PillData.read(item).grade()==(entry.pill()==PillCatalog.CALMING?PillData.Grade.LOW:PillData.Grade.PERFECT),"Catalog highest grade: "+entry.id());
+                    if(!entry.core()&&MedicineTier.imported(entry.pill())){
+                        check(MedicineTier.of(item)==5,"Imported cheat stack lost highest medicine tier");
+                        for(int rank=1;rank<=5;rank++){final int tier=rank;check(entry.variants().stream().filter(v->MedicineTier.of(v)==tier).count()==4,"Imported rank/grade variants missing");}
+                    }
                     check(entry.tooltip().stream().noneMatch(line->line.getString().contains("作弊")),"Cheat instruction leaked into tooltip");}
                 for(var stack:manager.getAllIngredients(VanillaTypes.ITEM_STACK))if(PillData.read(stack)!=null||WuXingJeiPlugin.isCore(stack)){
                     check(!runtime.getIngredientVisibility().isIngredientVisible(VanillaTypes.ITEM_STACK,stack,UidContext.Ingredient),"Duplicate list slot");
@@ -68,7 +75,7 @@ public final class JeiCatalogCapture {
                 }
             }
             if(tick%35==25){
-                var current=CASES[stage%CASES.length];var runtime=WuXingJeiPlugin.runtime;boolean expanded=stage>=CASES.length;
+                var current=CASES[stage%CASES.length];var runtime=WuXingJeiPlugin.runtime;boolean expanded=stage%(CASES.length*2)>=CASES.length;
                 check(runtime.getIngredientFilter().getFilteredIngredients(WuXingJeiPlugin.TYPE).size()==1,"Search must have exactly one catalog entry");
                 check(runtime.getIngredientFilter().getFilteredIngredients(VanillaTypes.ITEM_STACK).stream().noneMatch(s->PillData.read(s)!=null||WuXingJeiPlugin.isCore(s)),"Visible duplicate vanilla item");
                 var server=mc.getSingleplayerServer().submit(()->mc.getSingleplayerServer().getPlayerList().getPlayer(mc.player.getUUID()).getInventory().getItem(0).copy()).join();
@@ -77,22 +84,25 @@ public final class JeiCatalogCapture {
                 var text=current.tooltip(expanded,0).stream().map(Component::getString).toList();
                 long detail=text.stream().filter(line->line.matches("^(凡品|下品|中品|上品|极品|仙品)：.*")).count();
                 check(detail==(expanded?(current.core()?6:current.pill()==PillCatalog.CALMING?0:4):0),"Shift did not control quality details");
-                if(current.pill()==PillCatalog.BERSERK)check(text.contains("以猛烈药力催动气血，短时间换取爆发。")&&text.contains("限时力量与速度"),"Original introduction missing");
+                if(current.pill()==PillCatalog.BERSERK)check(text.contains(Component.translatable("tooltip.wuxingxiantu.intro.berserk_pill.lore").getString())&&text.contains(Component.translatable("pill.wuxingxiantu.effect.berserk_pill").getString()),"Original introduction missing");
                 var palette=new ArrayList<Integer>();for(int i=0;i<(current.core()?6:current.pill()==PillCatalog.CALMING?1:4);i++){
                     int color=current.name(i*40.).getStyle().getColor().getValue();palette.add(color);
                     check(current.name(i*40.).getSiblings().isEmpty(),"Per-character spatial gradient returned");
                     int expected=current.core()?new int[]{0xB7B0A3,0x79C58B,0x80D9F2,0xE2A7F5,0xFFC94A,0xFF6B6B}[i]:current.pill()==PillCatalog.CALMING?0xC99CEB:cn.blockforge.generated.generatedmod.text.ItemTextPalette.pillGrade(i);
                     check(color==expected,"Time cycle missed grade color");
                 }
-                try(var image=Screenshot.takeScreenshot(mc.getMainRenderTarget())){image.writeToFile(OUT.resolve(current.id()+(expanded?"-shift":"")+".png"));}
-                var row=new LinkedHashMap<String,Object>();row.put("id",current.id());row.put("expanded",expanded);row.put("listEntries",1);row.put("cheatStack",server.save(new net.minecraft.nbt.CompoundTag()).toString());row.put("tooltip",text);row.put("cycleColors",palette);row.put("glError",gl);rows.add(row);stage++;
-                if(stage==CASES.length*2)finish(mc);
+                try(var image=Screenshot.takeScreenshot(mc.getMainRenderTarget())){image.writeToFile(OUT.resolve(current.id()+(expanded?"-shift":"")+"-scale"+guiScale+".png"));}
+                var row=new LinkedHashMap<String,Object>();row.put("id",current.id());row.put("expanded",expanded);row.put("guiScale",guiScale);row.put("listEntries",1);row.put("cheatStack",server.save(new net.minecraft.nbt.CompoundTag()).toString());row.put("tooltip",text);row.put("cycleColors",palette);row.put("glError",gl);rows.add(row);stage++;
+                if(stage==CASES.length*4)finish(mc);
             }
         }catch(Throwable e){failures.add(e.toString());com.mojang.logging.LogUtils.getLogger().error("JEI_CATALOG_CAPTURE",e);finish(mc);}
     }
-    @SubscribeEvent public static void tooltip(ScreenEvent.Render.Post event){if(!ENABLED||finished||!prepared||stage>=CASES.length*2||WuXingJeiPlugin.runtime==null)return;
+    @SubscribeEvent public static void tooltip(ScreenEvent.Render.Post event){if(!ENABLED||finished||!prepared||stage>=CASES.length*4||WuXingJeiPlugin.runtime==null)return;
         var mc=Minecraft.getInstance();var value=CASES[stage%CASES.length];
-        event.getGuiGraphics().renderComponentTooltip(mc.font,stage<CASES.length?WuXingJeiPlugin.runtime.getIngredientManager().getIngredientRenderer(WuXingJeiPlugin.TYPE).getTooltip(value,TooltipFlag.NORMAL):value.tooltip(true,mc.level.getGameTime()+mc.getFrameTime()),12,40);}
+        event.getGuiGraphics().renderComponentTooltip(mc.font,stage%(CASES.length*2)<CASES.length?WuXingJeiPlugin.runtime.getIngredientManager().getIngredientRenderer(WuXingJeiPlugin.TYPE).getTooltip(value,TooltipFlag.NORMAL):value.tooltip(true,mc.level.getGameTime()+mc.getFrameTime()),12,40);}
     static void check(boolean value,String message){if(!value)throw new AssertionError(message);}
-    static void finish(Minecraft mc){if(finished)return;finished=true;try{Files.writeString(OUT.resolve("verification.json"),new com.google.gson.GsonBuilder().setPrettyPrinting().create().toJson(Map.of("cases",rows,"failures",failures)));Files.writeString(OUT.resolve(failures.isEmpty()?"complete.txt":"failure.txt"),failures.isEmpty()?"PASS":String.join("\n",failures));}catch(Exception e){throw new RuntimeException(e);}mc.stop();}
+    static void finish(Minecraft mc){if(finished)return;finished=true;try{
+        var safety=(Map<?,?>)Class.forName("cn.blockforge.generated.generatedmod.client.qa.myriad.PointerSafety").getMethod("snapshot").invoke(null);
+        if(!Boolean.TRUE.equals(safety.get("passed")))failures.add("Pointer safety: "+safety);
+        Files.writeString(OUT.resolve("verification.json"),new com.google.gson.GsonBuilder().setPrettyPrinting().create().toJson(Map.of("cases",rows,"failures",failures,"pointerSafety",safety)));Files.writeString(OUT.resolve(failures.isEmpty()?"complete.txt":"failure.txt"),failures.isEmpty()?"PASS":String.join("\n",failures));}catch(Exception e){throw new RuntimeException(e);}mc.stop();}
 }

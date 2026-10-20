@@ -15,8 +15,11 @@ import java.util.*;
 public record CatalogIngredient(PillCatalog pill) {
     public boolean core(){return pill==null;}
     public String id(){return core()?"inner_core":pill.id;}
-    public ItemStack cheat(){return core()?new ItemStack(WuXingItems.INNER_CORES[5].get()):
-            PillData.create(pill,PillData.Grade.PERFECT,PillData.Element.METAL,0);}
+    public ItemStack cheat(){
+        if(core())return new ItemStack(WuXingItems.INNER_CORES[5].get());
+        var result=PillData.create(pill,PillData.Grade.PERFECT,PillData.Element.METAL,0);
+        return MedicineTier.imported(pill)?MedicineTier.set(result,5):result;
+    }
     public List<ItemStack> variants(){
         List<ItemStack> result=new ArrayList<>();
         if(core()){for(var core:WuXingItems.INNER_CORES)result.add(new ItemStack(core.get()));return result;}
@@ -24,7 +27,9 @@ public record CatalogIngredient(PillCatalog pill) {
             if(pill==PillCatalog.CALMING&&grade!=PillData.Grade.LOW)continue;
             for(int element=0;element<(pill==PillCatalog.ROOT?5:1);element++)
                 for(int tier=0;tier<(pill==PillCatalog.CULTIVATION?9:1);tier++)
-                    result.add(PillData.create(pill,grade,PillData.Element.values()[element],tier));
+                    if(MedicineTier.imported(pill)){
+                        for(int rank=1;rank<=5;rank++)result.add(MedicineTier.set(PillData.create(pill,grade,PillData.Element.values()[element],tier),rank));
+                    }else result.add(PillData.create(pill,grade,PillData.Element.values()[element],tier));
         }
         return result;
     }
@@ -50,6 +55,7 @@ public record CatalogIngredient(PillCatalog pill) {
     public List<Component> tooltip(boolean expanded,double ticks){
         List<Component> lines=new ArrayList<>();lines.add(name(ticks));
         lines.add(tint(Component.literal(core()?"品阶：凡品～仙品":pill==PillCatalog.CALMING?"品质：特殊":"品质：下品～极品"),ticks));
+        if(!core()&&MedicineTier.imported(pill))lines.add(tint(Component.literal("丹阶：").append(MedicineTier.name(1)).append("～").append(MedicineTier.name(5)).append("；与品质分别计算"),ticks));
         var intro=cn.blockforge.generated.generatedmod.text.ItemTextCatalog.resolve(core()?new ItemStack(WuXingItems.INNER_CORES[0].get()):cheat());
         if(intro!=null){lines.add(tint(intro.text("lore"),ticks));for(int i=0;i<intro.actions();i++)lines.add(tint(intro.text("action."+i),ticks));}
         if(!core()){

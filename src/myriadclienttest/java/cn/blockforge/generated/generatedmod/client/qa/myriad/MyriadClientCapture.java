@@ -63,7 +63,7 @@ public final class MyriadClientCapture {
     private static volatile int normalBoarId,kingBoarId;
     private static boolean sideContentRequested;
     private static boolean artifactContentRequested;
-    private static boolean compassRequested,qteRequested;
+    private static boolean compassRequested,qteRequested,qteStarted;
     private static volatile List<Integer> artifactStandIds=List.of();
     private static volatile List<Map<String,Object>> sideContentServerEvidence=List.of();
     private static boolean shaderActive;
@@ -150,9 +150,16 @@ public final class MyriadClientCapture {
                     var state=WuXingBlocks.MEDITATION_CUSHION.get().defaultBlockState();level.setBlock(BATH,state,3);
                     var hit=new BlockHitResult(Vec3.atCenterOf(BATH),Direction.UP,BATH,false);
                     state.use(level,player,InteractionHand.MAIN_HAND,hit);
-                    if(!cn.blockforge.generated.generatedmod.meditationqte.MeditationQte.start(player))throw new AssertionError("Real cushion QTE entry rejected");
                     GeneratedMod.sync(player);
                 });qteRequested=true;return;}
+                // Wait for the real seat spawn/passenger packets before sending the normal K action.
+                if(!qteStarted&&minecraft.player.getVehicle() instanceof MeditationSeatEntity&&phaseTicks>=12){
+                    cn.blockforge.generated.generatedmod.Network.CHANNEL.sendToServer(
+                        new cn.blockforge.generated.generatedmod.meditationqte.QteActionPacket(
+                            cn.blockforge.generated.generatedmod.meditationqte.QteActionPacket.START,
+                            cn.blockforge.generated.generatedmod.meditationqte.QteActionPacket.NONE,0));
+                    qteStarted=true;phaseTicks=0;
+                }
                 if(minecraft.screen instanceof cn.blockforge.generated.generatedmod.meditationqte.client.QteScreen&&phaseTicks>=12)requested=true;
             }
         }catch(Throwable error){fail("SETUP phase="+phase,error);}

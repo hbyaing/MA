@@ -34,7 +34,7 @@ if (project.hasProperty('myriadCapture')) {
             workingDirectory project.file('build/myriad-client')
             jvmArgs '-Xmx2G', '-XX:ActiveProcessorCount=4', '-XX:CICompilerCount=2'
             args '--mixin', 'wuxingxiantu.myriad-qa-pointer.mixins.json'
-            property 'wuxingxiantu.myriadCapture', (!project.hasProperty('myriadWorldgen')).toString()
+            property 'wuxingxiantu.myriadCapture', (!project.hasProperty('myriadWorldgen') && !project.hasProperty('myriadUiOnly')).toString()
             if (project.hasProperty('myriadWorldgen')) property 'wuxingxiantu.myriadWorldgen', 'true'
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', file('build/createSrgToMcp/output.srg').absolutePath
@@ -83,6 +83,8 @@ if (project.hasProperty('domainUiCapture') || project.hasProperty('alchemyReserv
         client {
             workingDirectory project.file(project.hasProperty('alchemyReservationCapture') ? 'build/alchemy-reservation-client' : 'build/domain-ui-client')
             property 'wuxingxiantu.domainUiCapture', 'true'
+            property 'wuxingxiantu.jeiCatalogCapture', project.hasProperty('jeiCapture').toString()
+            if (project.hasProperty('jeiOutput')) property 'wuxingxiantu.jeiOutput', project.property('jeiOutput')
             property 'wuxingxiantu.alchemyReservationCapture', project.hasProperty('alchemyReservationCapture').toString()
             property 'wuxingxiantu.anvilUiCapture', project.hasProperty('anvilUiCapture').toString()
             property 'wuxingxiantu.detailsUiCapture', project.hasProperty('detailsUiCapture').toString()

@@ -181,4 +181,34 @@ public final class SustainedSwordArtsGameTests {
         }
         helper.succeed();
     }
+    @SuppressWarnings("unchecked") private static Object rainField(GameTestPlayer player,String name){
+        try{var active=SustainedSwordArts.class.getDeclaredField("ACTIVE");active.setAccessible(true);
+            var cast=((java.util.Map<java.util.UUID,?>)active.get(null)).get(player.getUUID());
+            if(cast==null)return null;var field=cast.getClass().getDeclaredField(name);field.setAccessible(true);return field.get(cast);
+        }catch(ReflectiveOperationException e){throw new AssertionError(e);}
+    }
+    @GameTest(template="empty",timeoutTicks=120)
+    public static void jiuxiaoEmitsFiveEveryFiveTicksWithoutCatchupOrSameTickReplay(GameTestHelper h){
+        var player=player(h,0);player.cleanupAfter(h,()->SustainedSwordArts.stop(player));prepare(player,SustainedSwordArts.JIUXIAO);
+        player.setXRot(45);h.assertTrue(SustainedSwordArts.releaseSlot(player,0),"Rain cast failed");
+        int ready=SustainedSwordArts.windupTicks(SustainedSwordArts.JIUXIAO);
+        h.runAfterDelay(ready,()->{SustainedSwordArts.tick(player);h.assertTrue((int)rainField(player,"wave")==1&&((java.util.List<?>)rainField(player,"rain")).size()==5,"First rain wave is not five swords");SustainedSwordArts.tick(player);h.assertTrue((int)rainField(player,"wave")==1,"Same tick spawned twice");});
+        h.runAfterDelay(ready+4,()->{SustainedSwordArts.tick(player);h.assertTrue((int)rainField(player,"wave")==1,"Rain spawned before five ticks");});
+        h.runAfterDelay(ready+5,()->{SustainedSwordArts.tick(player);h.assertTrue((int)rainField(player,"wave")==2&&((java.util.List<?>)rainField(player,"rain")).size()==10,"Second wave not five swords");});
+        h.runAfterDelay(ready+17,()->{SustainedSwordArts.tick(player);h.assertTrue((int)rainField(player,"wave")==3,"Lag burst caught up skipped waves");player.setShiftKeyDown(true);SustainedSwordArts.tick(player);h.assertTrue(!SustainedSwordArts.active(player),"Cancellation retained rain");h.succeed();});
+    }
+    @GameTest(template="empty",timeoutTicks=125)
+    public static void homingRainHitsMovingEnemyBetweenAreaPulses(GameTestHelper h){
+        var player=player(h,0);prepare(player,SustainedSwordArts.JIUXIAO);player.setXRot(45);player.setYRot(0);
+        var anchor=player.getEyePosition().add(player.getLookAngle().scale(24));
+        var victim=EntityType.ZOMBIE.create(h.getLevel());victim.setPos(anchor);victim.setNoAi(true);victim.setNoGravity(true);victim.setPersistenceRequired();victim.getAttribute(Attributes.MAX_HEALTH).setBaseValue(2000);victim.setHealth(2000);h.getLevel().addFreshEntity(victim);player.keepTicking(h.getLevel(),victim.blockPosition());
+        player.cleanupAfter(h,()->{SustainedSwordArts.stop(player);victim.discard();});h.assertTrue(SustainedSwordArts.releaseSlot(player,0),"Rain cast failed");float[] afterArea={0};
+        int ready=SustainedSwordArts.windupTicks(SustainedSwordArts.JIUXIAO);
+        for(int offset=0;offset<=18;offset++){final int step=offset;h.runAfterDelay(ready+offset,()->{
+            if(step==3)victim.setPos(victim.position().add(2,0,0));SustainedSwordArts.tick(player);
+            if(step==0){afterArea[0]=victim.getHealth();h.assertTrue(afterArea[0]<2000,"Persistent area damage was removed");}
+            if(step==18){h.assertTrue(victim.getHealth()<afterArea[0]&&victim.getLastHurtByMob()==player,"Tracking swords did not hit a moved enemy between area pulses");h.succeed();}
+        });}
+    }
+
 }

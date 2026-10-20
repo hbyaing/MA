@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-21",
+  "baseline": "915473cbf9ca17ed7eca947c93bc6b0160f63ae7",
+  "ordinaryLightOnly": true,
+  "clientCaseCount": 10,
+  "jeiCaseCount": 28,
+  "rawClientOutput": "work/myriad-steps12-client-retry/run-1792523975626",
+  "rawJeiOutput": "work/myriad-step12-jei-retry",
+  "files": [
+    {
+      "file": "01-bag-normal.png",
+      "bytes": 222710,
+      "sha256": "4fe3daddf709bc07535edd4e4482127eb3fb25c7181f54517205be35510d38be"
+    },
+    {
+      "file": "02-bag-filtered.png",
+      "bytes": 197150,
+      "sha256": "7ba41a1555a677b17db831fca109c86fb7b7d681488e2179b2ca8a63dff6f1d1"
+    },
+    {
+      "file": "10-real-cushion-qte.png",
+      "bytes": 106708,
+      "sha256": "097fc1672e0706ba46cc9d42419ce8cfe58fa0e3557bbd2177a81c4b2eb317e7"
+    },
+    {
+      "file": "client-captures.json",
+      "bytes": 6304,
+      "sha256": "ca293b818bfc7e7873e25a08f4537435600a857166a7ea9c93aac8b0c58fa31b"
+    },
+    {
+      "file": "client-first-attempt-failed.json",
+      "bytes": 6077,
+      "sha256": "208568df583c18ae5e6c43a93659b0a1f57ada5b0771f164966ba28c99686cc0"
+    },
+    {
+      "file": "gather_qi_pill-scale2.png",
+      "bytes": 168695,
+      "sha256": "9e4dca9435e96ae9c67d3d35e5212dbfed097b1aa4c1f4dc46dc9c931e89f570"
+    },
+    {
+      "file": "jei-first-attempt-failed.json",
+      "bytes": 1020,
+      "sha256": "9bb540ff8753cf348e3e48cc84718c14ba9993c21247fa96ade2325d87731c61"
+    },
+    {
+      "file": "jei-verification.json",
+      "bytes": 25520,
+      "sha256": "1f35a85bc5fc0620cc78cde9a4490fc262a15a39746b44fd54371ee73d623c8e"
+    },
+    {
+      "file": "meridian_expansion_pill-shift-scale3.png",
+      "bytes": 178206,
+      "sha256": "c4956bab7c9788d9bbdfdc46ddbabf312ff3ac1c5ec4b876b3550685727f33e7"
+    }
+  ]
+}

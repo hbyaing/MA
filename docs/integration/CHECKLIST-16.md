@@ -6,19 +6,19 @@
 
 | 顺序 | 工作项目 | 实际源码/测试入口 | 状态与剩余验收 |
 |---|---|---|---|
-| 1 | 整理融合源码与分支 | RECOVERY.md、verify_recovery_bundle.py | 已完成恢复验证；原恢复包缺失父提交问题保留，老UI/新UI/早期融合分支独立保留；PR #1尚未合并 |
+| 1 | 整理融合源码与分支 | RECOVERY.md、verify_recovery_bundle.py | 已完成恢复验证；原恢复包缺失父提交问题保留，老UI/新UI/早期融合分支独立保留；误推main已通过cfe6fee恢复为41ae51d同一文件树 |
 | 2 | 统一融合进度表 | 本表、accepted-decisions.json、SOURCE_CONTENT_COVERAGE.md | 本轮建立16项执行映射；D01–D30是已确认决策，历史“已接入”不当作全部验收 |
 | 3 | 统一底层数据与存档 | CultivationDataImpl.java、event/PlayerLifecycleEvents.java、progression/PlayerCrafts.java、crafting/EquipmentBond.java；IntegrationDataGameTests.java | 已核对唯一数据入口及兼容边界，新增4项测试通过；真实磁盘重载/旧存档仍归第15项，见DATA_AND_SAVE_AUDIT.md |
 | 4 | 统一灵石与经济 | economy/SpiritCurrency.java、SpiritTradePayments.java、crafting/EquipmentCrafting.java、formation/SwordArrayUpkeep.java；MyriadFoundationGameTests.java、SpiritTradeCurrencyGameTests.java | 四档与原子找零已接入；主要扣费/兑换/交易入口已核对，见ECONOMY_AUDIT.md；新增兑换与混合付款测试，实机/完整退款仍待验收；剑阵5极品等值结算是已确认规则 |
 | 5 | 完善灵脉与草药 | world/SpiritVeinFeature.java、SpiritVeinData.java、plants/ImportedHerbs.java、HerbCultivationData.java、divinesurvey/DivineSurvey.java；MyriadFoundationGameTests.java、VeinCompassGameTests.java | 18来源草药资源链已逐项核对；已修复新矿脉跨入旧邻区块的写入边界，新增4项回归通过；自然分布/原档边界实测待第15项，见HERBS_VEINS_AUDIT.md |
 | 6 | 完善炼丹融合 | alchemy/FormulaKnowledge.java、alchemy/auxiliary/AuxiliaryAlchemy.java、network/service/AlchemyService.java；AuxiliaryAlchemyGameTests.java、AlchemyMaterialTransferGameTests.java | 本轮核对140条丹方/25条分阶配方、成色/知识/传承与D30；新增3项真实施法/满包退款/失败结算回归通过，交互实机待做，见ALCHEMY_AUDIT.md |
 | 7 | 完善炼器与法宝 | crafting/RefiningOperation.java、EquipmentBond.java、artifacts/ArtifactAux.java、ArtifactInfusion.java；EquipmentCraftingGameTests.java、BoundEquipmentCraftingGameTests.java、ArtifactNamingGameTests.java | 本轮核对15器方/6器型/15辅材、主人/成长/赐名/托管，新增3项边界回归通过；实机待做，见REFINING_ARTIFACT_AUDIT.md |
-| 8 | 完善修炼与保命机制 | meditationqte/MeditationQte.java、soulpreservation/SoulPreservation.java；meditationqte/QteGameTests.java、SoulPreservationGameTests.java | D28–D29自动测试通过；K键小游戏、特殊死亡及冷却实机未验收 |
-| 9 | 完善术法融合 | arts/SustainedSwordArts.java、ArtCatalog.java；SustainedSwordArtsGameTests.java | 原功法槽/学习/耗能已接入；与原有技能定位及参数、客户端取消/换维度待专项验收 |
-| 10 | 完善诛仙剑阵 | formation/SwordArrayServer.java、SwordArrayUpkeep.java、formation/client/SwordArrayClient.java；formation/SwordArrayGameTests.java | 已有固定阵位/动画/清理/等值收费；动画与预览对齐需实机；实际防御/伤害仍是另立设计任务 |
-| 11 | 完善储物袋与内容物品 | storage/StorageBagItem.java、BagMagnetRules.java、importedcontent/SpiritBathBlockEntity.java、LaoyangDollBlock.java；StorageBagGameTests.java、ImportedCreaturesGameTests.java、ImportedContentGameTests.java | 已接入内容和测试存在；获取/用途/死亡/离线/容器嵌套等生命周期仍需专项验收 |
-| 12 | 统一老UI与说明 | knowledge/KnowledgeItems.java、client/HerbProcessingTableScreen.java、client/EquipmentWorkstationScreen.java；EntryUiGameTests.java、KnowledgeIntegrationGameTests.java | 老UI交付、新UI暂存；历史截图非本次验收；按钮/说明/JEI需实机 |
-| 13 | 完整服务端回归 | verifyFull、tools/verify_gametest_log.py | 基线321项通过，数据经济轮327项通过；第5项331项、第6项334项、第7项新增3项后337项通过；先前清洁构建325项/警告119通过，最新远程CI待确认 |
+| 8 | 完善修炼与保命机制 | meditationqte/MeditationQte.java、soulpreservation/SoulPreservation.java；meditationqte/QteGameTests.java、SoulPreservationGameTests.java | D28–D29开发核对及13项专项通过；真实蒲团界面隔离截图通过；完整特殊死亡/重连实机仍待第15项，见CULTIVATION_SURVIVAL_AUDIT.md |
+| 9 | 完善术法融合 | arts/SustainedSwordArts.java、ArtCatalog.java；SustainedSwordArtsGameTests.java | 补齐每5tick五把追踪剑并保留范围伤害，新增2项回归；学习/槽/敌我/供灵共用主框架，见SWORD_ARTS_AUDIT.md；客户端光影留第14项 |
+| 10 | 完善诛仙剑阵 | formation/SwordArrayServer.java、SwordArrayUpkeep.java、formation/client/SwordArrayClient.java；formation/SwordArrayGameTests.java | 固定阵位/半径15/四剑到剑幕时序/旋转/等值付费/清理已核对，6项专项通过；实际防御与伤害仍独立设计，见FORMATION_AUDIT.md |
+| 11 | 完善储物袋与内容物品 | storage/StorageBagItem.java、BagMagnetRules.java、importedcontent/SpiritBathBlockEntity.java、LaoyangDollBlock.java；StorageBagGameTests.java、ImportedCreaturesGameTests.java、ImportedContentGameTests.java | 袋/磁铁/妖兽/药浴/玩偶及16项专项已核对；实际袋/筛选/内容模型截图通过，真实重启多人仍待第15项，见STORAGE_CONTENT_AUDIT.md |
+| 12 | 统一老UI与说明 | knowledge/KnowledgeItems.java、client/HerbProcessingTableScreen.java、client/EquipmentWorkstationScreen.java；EntryUiGameTests.java、KnowledgeIntegrationGameTests.java | 老UI布局保留；补齐JEI五丹阶×四品质，隔离客户端10张截图通过；JEI双缩放专项结果见UI_INTEGRATION_AUDIT.md与本轮验证报告；非全部客户端状态验收 |
+| 13 | 完整服务端回归 | verifyFull、tools/verify_gametest_log.py | 最终339/339必需测试通过，28任务全部重跑；119/119警告、6项日志门禁测试及154非生产类型排除检查通过；见VALIDATION-STEPS-8-13-20261021.md |
 | 14 | 客户端与光影验收 | ACCEPTANCE.md | 尚未执行本轮无/有光影模型、护罩、遮挡与渲染状态恢复验收 |
 | 15 | 自然生成、存档与多人验收 | DATA_AND_SAVE_AUDIT.md、ACCEPTANCE.md | 尚未执行真实自然生成、磁盘重载、旧档、多人全矩阵；NBT往返不等于此项通过 |
 | 16 | 正式打包与发布 | build.gradle、jar-audit-20261021.json | 基线QA排除检查通过；只有恢复快照，无正式完成包；后续改动后重新核验客户端/服务端版本 |

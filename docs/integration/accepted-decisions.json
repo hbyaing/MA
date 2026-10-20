@@ -350,14 +350,14 @@
       "status": "confirmed",
       "decision": "保留三关游标小游戏，奖励与15分钟走火减半统一五行修为结算，服从突破与心魔门槛",
       "relation": "源活跃小游戏补修为和15分钟走火减半，与目标打坐/心魔结算重叠；已逐项询问",
-      "latestAcceptance": "pending current complete server/client acceptance"
+      "latestAcceptance": "2026-10-21: server regression included; see VALIDATION-STEPS-8-13-20261021.md. Real reconnect/world/client matrix remains separate acceptance."
     },
     {
       "id": "D29",
       "topic": "元婴保命与近战被动",
       "status": "confirmed",
       "decision": "加入元婴致命伤自动遁逃保命，25分钟冷却；伤害与破盾沿用五行，不叠来源被动",
-      "latestAcceptance": "pending current complete server/client acceptance"
+      "latestAcceptance": "2026-10-21: server regression included; see VALIDATION-STEPS-8-13-20261021.md. Real reconnect/world/client matrix remains separate acceptance."
     },
     {
       "id": "D30",
@@ -365,7 +365,7 @@
       "status": "confirmed",
       "decision": "保留副药组合，统一五行结算，加入独有冰火毒附击；每角色一株；天地炉明确选择。",
       "implementation": "已接入旧UI与服务端托管，编译通过后仍需执行入口测试及实机验收。",
-      "latestAcceptance": "pending current complete server/client acceptance"
+      "latestAcceptance": "2026-10-21: server regression included; see VALIDATION-STEPS-8-13-20261021.md. Real reconnect/world/client matrix remains separate acceptance."
     }
   ],
   "herbCandidates": [
