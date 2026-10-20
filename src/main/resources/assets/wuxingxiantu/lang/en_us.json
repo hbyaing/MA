@@ -2463,5 +2463,15 @@
   "screen.wuxingxiantu.heavenly_aux.output": "Yield herb",
   "screen.wuxingxiantu.heavenly_aux.herb": "%s · %sy",
   "screen.wuxingxiantu.heavenly_aux.summary": "Optional herbs: 1 each; none by default",
-  "screen.wuxingxiantu.heavenly_aux.instruction": "Click to cycle matching source herbs aged at least 500 years. Age follows the name. Each selected role consumes 1 herb.\nRoles cannot reuse one inventory slot. Refining uses no auxiliary herbs."
+  "screen.wuxingxiantu.heavenly_aux.instruction": "Click to cycle matching source herbs aged at least 500 years. Age follows the name. Each selected role consumes 1 herb.\nRoles cannot reuse one inventory slot. Refining uses no auxiliary herbs.",
+  "itemGroup.wuxingxiantu.cultivation": "Myriad Ascension: Cultivation",
+  "itemGroup.wuxingxiantu.arts": "Myriad Ascension: Arts",
+  "itemGroup.wuxingxiantu.herbs": "Myriad Ascension: Herbs",
+  "itemGroup.wuxingxiantu.pills": "Myriad Ascension: Pills",
+  "itemGroup.wuxingxiantu.alchemy": "Myriad Ascension: Alchemy",
+  "itemGroup.wuxingxiantu.refining": "Myriad Ascension: Refining",
+  "itemGroup.wuxingxiantu.talismans": "Myriad Ascension: Talismans",
+  "itemGroup.wuxingxiantu.formations": "Myriad Ascension: Formations",
+  "itemGroup.wuxingxiantu.materials": "Myriad Ascension: Materials",
+  "itemGroup.wuxingxiantu.misc": "Myriad Ascension: Miscellany"
 }

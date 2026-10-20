@@ -34,7 +34,8 @@ if (project.hasProperty('myriadCapture')) {
             workingDirectory project.file('build/myriad-client')
             jvmArgs '-Xmx2G', '-XX:ActiveProcessorCount=4', '-XX:CICompilerCount=2'
             args '--mixin', 'wuxingxiantu.myriad-qa-pointer.mixins.json'
-            property 'wuxingxiantu.myriadCapture', (!project.hasProperty('myriadWorldgen') && !project.hasProperty('myriadUiOnly')).toString()
+            property 'wuxingxiantu.myriadCapture', (!project.hasProperty('myriadWorldgen') && !project.hasProperty('myriadUiOnly') && !project.hasProperty('creativeTabsCapture')).toString()
+            if (project.hasProperty('creativeTabsCapture')) property 'wuxingxiantu.creativeTabsCapture', 'true'
             if (project.hasProperty('myriadWorldgen')) property 'wuxingxiantu.myriadWorldgen', 'true'
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', file('build/createSrgToMcp/output.srg').absolutePath

@@ -2463,5 +2463,15 @@
   "screen.wuxingxiantu.heavenly_aux.output": "产量副药",
   "screen.wuxingxiantu.heavenly_aux.herb": "%s · %s年",
   "screen.wuxingxiantu.heavenly_aux.summary": "可选副药 · 每项1株，默认不选",
-  "screen.wuxingxiantu.heavenly_aux.instruction": "点击循环背包中对应来源副药，需满500年；名称后为药龄，每项消耗1株。\n三项不可复用同一背包格；炼器不使用副药。"
+  "screen.wuxingxiantu.heavenly_aux.instruction": "点击循环背包中对应来源副药，需满500年；名称后为药龄，每项消耗1株。\n三项不可复用同一背包格；炼器不使用副药。",
+  "itemGroup.wuxingxiantu.cultivation": "万界仙途·修炼",
+  "itemGroup.wuxingxiantu.arts": "万界仙途·术法",
+  "itemGroup.wuxingxiantu.herbs": "万界仙途·灵植",
+  "itemGroup.wuxingxiantu.pills": "万界仙途·丹药",
+  "itemGroup.wuxingxiantu.alchemy": "万界仙途·炼丹",
+  "itemGroup.wuxingxiantu.refining": "万界仙途·炼器",
+  "itemGroup.wuxingxiantu.talismans": "万界仙途·符箓",
+  "itemGroup.wuxingxiantu.formations": "万界仙途·阵道",
+  "itemGroup.wuxingxiantu.materials": "万界仙途·材料",
+  "itemGroup.wuxingxiantu.misc": "万界仙途·杂物"
 }
