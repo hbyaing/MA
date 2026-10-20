@@ -156,7 +156,9 @@ public final class FlyingSwordGameTests {
         try{
             YujianController.cast(p,YujianController.FLIGHT,0);var sword=root(h,p);ticks(sword,p,12);
             input(p,false,false,true,false,false);loadedSkyTicks(sword,p,25);
+            returnToFixtureAir(h,p,sword);
             var straightTarget=ironGolem(h,sword.position().add(0,0,2.0));
+            assertVisible(h,straightTarget);
             float health=straightTarget.getHealth();loadedSkyTicks(sword,p,1);
             h.assertTrue(straightTarget.getHealth()==health,"Straight flight caused charge damage without rolling");
             straightTarget.discard();
@@ -164,18 +166,34 @@ public final class FlyingSwordGameTests {
             h.assertTrue(sword.flightSpeed()>=cn.blockforge.generated.generatedmod.yujian.FlyingSwordConfig.CHARGE_SPEED.get()
                             &&Math.abs(sword.angularSpeed())>=cn.blockforge.generated.generatedmod.yujian.FlyingSwordConfig.CHARGE_ROLL.get(),
                     "Charge fixture never reached speed/roll threshold: speed="+sword.flightSpeed()+" roll="+sword.angularSpeed());
+            returnToFixtureAir(h,p,sword);
             var chargeTarget=ironGolem(h,sword.position().add(0,0,2.0));
+            assertVisible(h,chargeTarget);
             float chargeHealth=chargeTarget.getHealth();
             try{
                 h.assertTrue(chargeTarget.isAddedToWorld()&&!chargeTarget.isRemoved(),"Charge fixture target was removed before collision: "+chargeTarget.position());
+                var beforeCharge=sword.position();
                 loadedSkyTicks(sword,p,1);
-                h.assertTrue(chargeTarget.getHealth()<chargeHealth,"Swept sword tip missed charge target");
+                h.assertTrue(chargeTarget.getHealth()<chargeHealth,"Swept sword tip missed a query-visible charge target");
                 float after=chargeTarget.getHealth();chargeTarget.invulnerableTime=0;
+                // Re-enter the same swept segment while the target cooldown is still active.
+                sword.setPos(beforeCharge);sword.positionRider(p);p.tickCount++;
                 loadedSkyTicks(sword,p,1);
                 h.assertTrue(chargeTarget.getHealth()==after,"Charge ignored per-target cooldown");
                 h.succeed();
             }finally{YujianController.stop(p);chargeTarget.discard();p.discard();}
         }catch(Throwable error){YujianController.stop(p);p.discard();throw error;}
+    }
+
+    /** Keep collision targets in the GameTest's entity-visible chunk, not in manually generated far chunks. */
+    private static void returnToFixtureAir(GameTestHelper h,FakePlayer player,ControlledSwordEntity sword) {
+        var at=h.absolutePos(new net.minecraft.core.BlockPos(3,200,3));
+        sword.setPos(at.getX()+.5,at.getY(),at.getZ()+.5);
+        sword.positionRider(player);
+    }
+    private static void assertVisible(GameTestHelper h,net.minecraft.world.entity.animal.IronGolem target) {
+        h.assertTrue(h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.animal.IronGolem.class,
+                target.getBoundingBox().inflate(.01)).contains(target),"Charge target must be query-visible before collision is tested");
     }
 
     /** Flight behavior fixtures need a loaded path; unloaded-boundary tests keep using ticks(). */
@@ -226,24 +244,24 @@ public final class FlyingSwordGameTests {
     @GameTest(template="furnace_empty",timeoutTicks=100)
     public static void wallStopsChargeAndProtectsTarget(GameTestHelper h){
         var p=player(h);var blocks=new java.util.ArrayList<net.minecraft.core.BlockPos>();
-        var target=net.minecraft.world.entity.EntityType.IRON_GOLEM.create(h.getLevel());
-        target.setNoAi(true);target.setNoGravity(true);h.getLevel().addFreshEntity(target);
+        net.minecraft.world.entity.animal.IronGolem target=null;
         try{
             YujianController.cast(p,YujianController.FLIGHT,0);var sword=root(h,p);ticks(sword,p,12);
             input(p,false,false,true,false,true);ticks(sword,p,25);
             float cruise=sword.flightSpeed();
+            returnToFixtureAir(h,p,sword);
             var center=sword.blockPosition().offset(0,0,2);
             for(int x=-2;x<=2;x++)for(int y=-3;y<=4;y++){
                 var pos=center.offset(x,y,0);blocks.add(pos);
                 h.getLevel().setBlockAndUpdate(pos,net.minecraft.world.level.block.Blocks.STONE.defaultBlockState());
             }
-            target=ironGolem(h,sword.position().add(0,0,4));float health=target.getHealth();
+            target=ironGolem(h,sword.position().add(0,0,4));assertVisible(h,target);float health=target.getHealth();
             ticks(sword,p,5);
             h.assertTrue(sword.getZ()<center.getZ(),"Flight crossed the wall");
             h.assertTrue(sword.flightSpeed()<cruise*0.4&&sword.impact()>0,"Wall did not interrupt charge: speed="+sword.flightSpeed()+" impact="+sword.impact()+" pos="+sword.position()+" wall="+center);
             h.assertTrue(target.getHealth()==health,"Charge damaged target through wall");
         }finally{
-            YujianController.stop(p);target.discard();p.discard();
+            YujianController.stop(p);if(target!=null)target.discard();p.discard();
             for(var pos:blocks)h.getLevel().setBlockAndUpdate(pos,net.minecraft.world.level.block.Blocks.AIR.defaultBlockState());
         }
         h.succeed();

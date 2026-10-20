@@ -1,30 +1,31 @@
-# 万界仙途 · Myriad Ascension — Forge 1.20.1
+# 万界仙途 / Myriad Ascension
 
-基于《五行仙途》0.2.1 已发布源码继续开发。《仙途 · Path of Immortality》的内容迁移正在逐项确认，融合尚未完成。当前名称修改保留 `wuxingxiantu` 注册 ID、资源路径与持久化键。
+**开发进度快照，尚未完成整体验收。** 以五行仙途为主框架，仙途r115为内容补充。保留modId `wuxingxiantu`、老UI交付路线和既有统一账户；重复项由用户确认后取舍。
 
-构建产物为 `build/libs/myriad-ascension-0.2.jar`。安装时用新包替换旧的《五行仙途》包，二者使用同一模组 ID。
+## 源码与协作
 
-合并前历史测试安装成品：`wuxingxiantu-0.2-20261008-project-build.jar`。当时源码完整构建通过，包含 UI 与 JEI 调整及近期灵植素材；发光蓝蘑菇采用单一外观和小蘑菇式扩散。历史记录不作为本次融合的验收结论。
+当前工作分支：`codex/myriad-integration-foundation-20261021`。老UI、新UI和早期整合快照分别保留，详见[恢复与分支说明](docs/integration/RECOVERY.md)。原始进度Release保持不变；原恢复包缺失历史父提交的问题已记录，不因SHA256或bundle verify通过而视为可完整恢复。
 
-源码当前说明见 [CURRENT_STATUS.md](CURRENT_STATUS.md)，实现入口见 [AI_SOURCE_MAP.md](AI_SOURCE_MAP.md)。历史构建测试结果仅代表对应版本，不能作为当前版本的全量验证结论。
+- [固定基线与依赖](docs/integration/acceptance-baseline.json)
+- [验收清单](docs/integration/ACCEPTANCE.md)
+- [已确认融合决策](docs/integration/accepted-decisions.json)
+- [内容覆盖账本](SOURCE_CONTENT_COVERAGE.md)
+- [项目协作规则](AGENTS.md)
 
-安装时将构建产物放入 Forge 1.20.1 实例的 `mods` 目录，替换旧版模组包。当前源码仓库不包含自动安装脚本。
+## 构建和完整服务端验证
 
-旧版发布叙述与本次清理前完整说明保存在 `docs/archive/20261008-document-cleanup/`。
+JDK17、Gradle8.8、ForgeGradle6.0.54、Minecraft1.20.1、Forge47.4.10、GeckoLib4.8.4；测试资源检查需要Python和Pillow>=10,<12。
 
-Java 17、Forge 47.4.10、GeckoLib 4.8.4。构建：Windows 执行 `gradlew.bat build`，Linux/macOS 执行 `./gradlew build`。成品位于 `build/libs/`。
+```powershell
+python -m pip install -r tools/requirements-qa.txt
+.\gradlew.bat verifyFull -PpythonExecutable=python --console=plain
+```
 
-资源检查：`python tools/check_resources.py`，也已接入 Gradle `check` / `build`。专项图像检查需要 Python 3 与 Pillow（`python -m pip install 'Pillow>=10,<12'`）；Python 不在 PATH 时传入 `-PpythonExecutable=绝对路径`。CI 安装依赖后执行完整验证；编译不能代替客户端、专用服务器与联机测试。
+Linux/macOS使用`./gradlew`。首次解析依赖需联网；依赖已就绪时可使用`--offline`。服务端完整验证不能带`myriadExternalShaders`，客户端光影应单独运行。构建/编译成功不能代替本次GameTests明确完成且全部必需测试通过。
 
-审计记录保存在 `docs/audits/`。历次报告保存在 `docs/archive/`，属于历史记录，不能作为当前验证证据。当前实现入口见 `AI_SOURCE_MAP.md`，验证和未验收事项见 `CURRENT_STATUS.md`。原始模型、美术与设计约束仍在 `reference_assets/` 和 `source-assets/`。
+## 当前规则说明
 
-
-
-
-完整验证入口为 `verifyFull`；默认数值报表由 `balanceReport` 输出至 `reports/balance/`，也接入 `check/build`。服务端灵力、司南、渡劫和魂仆设置位于世界 `serverconfig/wuxingxiantu-gameplay-server.toml`。管理员可执行 `/wuxing audit acquisition` 导出当前数据包的获取来源证据；未收录来源不等于无法获得。
-
-丹道需研读“丹道入门”明确解锁。分类丹书传授指定丹方，全书从 PillCatalog 动态读取全部丹方且仅供创造/管理员使用。管理命令：`/wuxing alchemy <玩家> unlock|all|reset|learn <丹方ID>`，要求权限等级 2。
-
-心境异常恢复：`/wuxing mindscape force_restore`，权限等级 2；必须存在有效、未恢复的外界快照。恢复记录仅在操作成功后标记完成。
-
-心境使用 64 个持久化实例槽；离线玩家仍占用租约。首次进入时初始化竞技场，后续复用。
+- 剑阵维持费为每分钟5块极品灵石的等值金额，使用五行统一货币结算；当前5极品=3645下品价值。这是已确认方案。
+- 剑阵护罩目前为视觉效果，未接实际防御或阵法伤害。
+- 最新客户端、外部光影、自然生成、保存重载和多人验收各自记录，不能由历史255项测试或9项截图推导通过。
+- 协作使用功能分支和PR，不强推覆盖，不丢弃其他人的改动，不将测试保护或QA代码打入正式jar。

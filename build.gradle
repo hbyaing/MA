@@ -1,5 +1,13 @@
-plugins { id 'java'; id 'net.minecraftforge.gradle' version '[6.0,6.2)' }
+plugins { id 'java'; id 'net.minecraftforge.gradle' version '6.0.54' }
 version = '0.2'
+
+// Server acceptance must not resolve client-only shader mods onto its shared runtime.
+if (project.hasProperty('myriadExternalShaders') && gradle.startParameter.taskNames.any {
+    it.tokenize(':').last() in ['verifyFull', 'runGameTestServer']
+}) {
+    throw new GradleException('Run verifyFull without myriadExternalShaders; validate external shaders in a separate runClient invocation.')
+}
+
 group = 'cn.blockforge.generated.generatedmod'
 base { archivesName = 'myriad-ascension' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)

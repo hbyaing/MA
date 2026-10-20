@@ -24,7 +24,8 @@
       "targetEvidence": "WuXingItems.java",
       "status": "confirmed",
       "decision": "四级灵石；旧 spirit_stone 保留为下品；统一价值结算，兑换比例作为待平衡参数。",
-      "implementation": "已接入四级货币、兑换与锻造统一价值；其余直接扣费入口继续整合"
+      "implementation": "已接入四级货币、兑换与锻造统一价值；其余直接扣费入口继续整合",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D02",
@@ -36,7 +37,8 @@
       "targetEvidence": "data/wuxingxiantu/worldgen/",
       "status": "confirmed",
       "decision": "五行世界生成管理接入仙途分级、连续洞壁矿脉、实际生成记录与探测；矿物贴图保留五行。只作用于新区块。",
-      "implementation": "生成、探测、灵气场及存档已接入，逻辑测试通过；自然世界分布待实测"
+      "implementation": "生成、探测、灵气场及存档已接入，逻辑测试通过；自然世界分布待实测",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D03",
@@ -48,7 +50,8 @@
       "targetEvidence": "assets/wuxingxiantu/lang/zh_cn.json",
       "status": "confirmed",
       "decision": "保留六档与旧注册 ID、条件；展示名映射凡、黄、玄、地、天、仙。",
-      "implementation": "已完成；六档数字与旧 ID 不变"
+      "implementation": "已完成；六档数字与旧 ID 不变",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D04",
@@ -60,7 +63,8 @@
       "targetEvidence": "AlchemyFurnaceBlockEntity.java",
       "status": "confirmed",
       "decision": "按用户后续明确答复：先保留五行外观，仙途模型作为后续候选，不在本轮替换。",
-      "implementation": "已按最终选择保留五行外观"
+      "implementation": "已按最终选择保留五行外观",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D05",
@@ -72,7 +76,9 @@
       "targetEvidence": "alchemy/FreeAlchemy.java",
       "status": "confirmed",
       "decision": "五行丹方、药性、灵力、异火与丹炉门槛为权威；吸收药槽与控火，温炉—淬药—融药—凝丹。",
-      "implementation": "四阶段、原生布局与服务端控火已通过235项完整回归和15个中文实机场景；四类药槽加成待继续适配"
+      "implementation": "老UI交付；四阶段新UI保留独立分支，不能把新UI历史验收当老UI最新验收。",
+      "previousImplementationNote": "四阶段、原生布局与服务端控火已通过235项完整回归和15个中文实机场景；四类药槽加成待继续适配",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D06",
@@ -84,7 +90,9 @@
       "targetEvidence": "AI_SOURCE_MAP.md",
       "status": "confirmed",
       "decision": "五行唯一丹道职业成长；丹方、传承卷轴与遗迹获得知识；熟练度决定掌握程度。",
-      "implementation": "沿用唯一职业与丹方学习；传承卷轴、遗迹获取待接入"
+      "implementation": "已接传承卷轴与唯一丹道职业；阶段2记录255项通过，最新整体待复验。",
+      "previousImplementationNote": "沿用唯一职业与丹方学习；传承卷轴、遗迹获取待接入",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D07",
@@ -96,7 +104,8 @@
       "targetEvidence": "alchemy/PillData.java",
       "status": "confirmed",
       "decision": "黄玄地天仙丹阶＋下中上极品成色＋五行药性；不叠加一至九品。",
-      "implementation": "五丹阶与四成色框架、新增丹方已接入；旧丹方保留兼容"
+      "implementation": "五丹阶与四成色框架、新增丹方已接入；旧丹方保留兼容",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D08",
@@ -108,7 +117,8 @@
       "targetEvidence": "alchemy/PillEffects.java",
       "status": "confirmed",
       "decision": "保留战斗即时回灵丹；新增持续回气的聚气丹。",
-      "implementation": "已实现并通过 GameTest"
+      "implementation": "已实现并通过 GameTest",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D09",
@@ -120,7 +130,8 @@
       "targetEvidence": "alchemy/PillEffects.java",
       "status": "confirmed",
       "decision": "修为丹有限直接补修为；凝元丹打坐期间缓慢炼化药力；均受五行突破门槛。",
-      "implementation": "已实现并通过 GameTest"
+      "implementation": "已实现并通过 GameTest",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D10",
@@ -132,7 +143,8 @@
       "targetEvidence": "alchemy/PillEffects.java",
       "status": "confirmed",
       "decision": "洗髓丹保留重塑体质；来源容量丹改名拓脉丹，按境界或次数设收益上限。",
-      "implementation": "已实现并通过 GameTest"
+      "implementation": "已实现并通过 GameTest",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D11",
@@ -144,7 +156,8 @@
       "targetEvidence": "alchemy/PillEffects.java",
       "status": "confirmed",
       "decision": "渡劫丹保持劫中用途；来源突破辅助丹改名破境丹，服从五行突破规则。",
-      "implementation": "已实现并通过 GameTest"
+      "implementation": "已实现并通过 GameTest",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D12",
@@ -156,7 +169,8 @@
       "targetEvidence": "alchemy/PillEffects.java",
       "status": "confirmed",
       "decision": "金创丹即时急救；回春丹持续恢复。",
-      "implementation": "已实现并通过 GameTest"
+      "implementation": "已实现并通过 GameTest",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D13",
@@ -168,7 +182,8 @@
       "targetEvidence": "items/CreationPillItem.java",
       "status": "confirmed",
       "decision": "保留五行创造测试入口；来源直升丹不进生存经济。小说式九转金丹另行设计，不自行添加。",
-      "implementation": "已保持原入口，未引入生存直升丹"
+      "implementation": "已保持原入口，未引入生存直升丹",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D14",
@@ -180,7 +195,8 @@
       "targetEvidence": "alchemy/PillCatalog.java",
       "status": "confirmed",
       "decision": "丹灰有限培土；废丹辨药研究或有损回收；禁止失败回收套利。",
-      "implementation": "已实现有限培土与有损回收，231 项回归通过"
+      "implementation": "已实现有限培土与有损回收，231 项回归通过",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D15",
@@ -192,7 +208,8 @@
       "targetEvidence": "plants/SpiritPlantCatalog.java",
       "status": "confirmed",
       "decision": "加入来源18种草药与药龄；保留五行物种、生境、药性、培养条件；久放不自动升级，高阶药龄需要灵地与培养。",
-      "implementation": "18 种药材、药龄及环境上限已接入；自然生境体验待实测"
+      "implementation": "18 种药材、药龄及环境上限已接入；自然生境体验待实测",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D16",
@@ -204,7 +221,8 @@
       "targetEvidence": "plants/SpiritPlantCatalog.java",
       "status": "confirmed",
       "decision": "目标疾风草保留，来源 herb_jifeng 展示为风息草，物种各自保留。",
-      "implementation": "已分别保留并更名风息草"
+      "implementation": "已分别保留并更名风息草",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D17",
@@ -216,7 +234,9 @@
       "targetEvidence": "RefiningRecipe.java",
       "status": "confirmed",
       "decision": "五行配方、材料、灵力、异火结算；引入烧胚、塑形、锻打、淬炼、铭纹，操作影响成色。",
-      "implementation": "待实施"
+      "implementation": "已接原炼器任务的多阶段操作与既有精炼结算；最新整体待复验。",
+      "previousImplementationNote": "待实施",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D18",
@@ -228,7 +248,9 @@
       "targetEvidence": "combat/HeartForgeContracts.java",
       "status": "confirmed",
       "decision": "唯一主人；灵剑心铸保留，其他器型可认主、温养、本命祭炼。",
-      "implementation": "待实施"
+      "implementation": "已接唯一主人、认主、温养与本命祭炼；最新整体待复验。",
+      "previousImplementationNote": "待实施",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D19",
@@ -240,7 +262,9 @@
       "targetEvidence": "ArtCatalog.java",
       "status": "confirmed",
       "decision": "万剑诀短时爆发，万剑归宗持续供灵高阶攻势，两者保留。",
-      "implementation": "待实施"
+      "implementation": "已接万剑归宗秘籍及五行功法槽，保留原万剑诀；最新整体待复验。",
+      "previousImplementationNote": "待实施",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D20",
@@ -252,7 +276,9 @@
       "targetEvidence": "ArtCatalog.java",
       "status": "confirmed",
       "decision": "太虚落剑诀集中打击，九霄剑决持续区域覆盖，两者保留。",
-      "implementation": "待实施"
+      "implementation": "已接九霄剑诀秘籍及五行功法槽，保留原太虚落剑诀；最新整体待复验。",
+      "previousImplementationNote": "待实施",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D21",
@@ -264,7 +290,9 @@
       "targetEvidence": "assets/wuxingxiantu/lang/zh_cn.json",
       "status": "confirmed",
       "decision": "静心、灵蕴功能阶梯保留，吸收来源坐姿与外观；修炼增益统一结算。",
-      "implementation": "待实施"
+      "implementation": "已接来源编织蒲团与目标修炼体系；最新整体待复验。",
+      "previousImplementationNote": "待实施",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D22",
@@ -276,58 +304,68 @@
       "targetEvidence": "AI_SOURCE_MAP.md",
       "status": "confirmed",
       "decision": "万界仙典统一入口；草木、丹道、器道、术法、法宝、剑阵；读取五行知识解锁状态。",
-      "implementation": "待实施"
+      "implementation": "已接万界仙典六章与目标知识读取；最新整体待复验。",
+      "previousImplementationNote": "待实施",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D23",
       "topic": "来源法宝锋锐与目标锋锐胚性",
       "decision": "confirmed: unified attack bonus; source auxiliaries are another acquisition/upgrade route for target enhancement, no extra independent attack multiplier",
-      "userAnswer": "统一攻击增益，辅材作为现有强化的另一获得方式（推荐）"
+      "userAnswer": "统一攻击增益，辅材作为现有强化的另一获得方式（推荐）",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D24",
       "topic": "来源坚壁与目标坚固/坚韧",
       "decision": "最大耐久统一五行坚固，辅材提供同一胚性候选；坚韧减耗独立保留",
-      "status": "confirmed"
+      "status": "confirmed",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D25",
       "topic": "神识探查",
       "status": "confirmed",
-      "decision": "保留五行识海/耗能/辨识/锁定；加入化神期矿物及结构探查；生灵感知沿用五行，不叠加仙途持续穿墙敌人高亮"
+      "decision": "保留五行识海/耗能/辨识/锁定；加入化神期矿物及结构探查；生灵感知沿用五行，不叠加仙途持续穿墙敌人高亮",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D26",
       "topic": "护器辅材",
       "status": "confirmed",
       "decision": "护纹玉符与额外琉璃晶二选一，沿用五行精炼规则",
-      "relation": "仙途护纹玉符保级与五行额外琉璃晶护器重复；已询问是否作为同一策略的替代耗材"
+      "relation": "仙途护纹玉符保级与五行额外琉璃晶护器重复；已询问是否作为同一策略的替代耗材",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D27",
       "topic": "法宝赐名",
       "status": "confirmed",
-      "decision": "交付沿用现有铁砧命名、名称与唯一主人；专用赐名界面暂存"
+      "decision": "交付沿用现有铁砧命名、名称与唯一主人；专用赐名界面暂存",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D28",
       "topic": "蒲团三关游标与五行打坐/道心",
       "status": "confirmed",
       "decision": "保留三关游标小游戏，奖励与15分钟走火减半统一五行修为结算，服从突破与心魔门槛",
-      "relation": "源活跃小游戏补修为和15分钟走火减半，与目标打坐/心魔结算重叠；已逐项询问"
+      "relation": "源活跃小游戏补修为和15分钟走火减半，与目标打坐/心魔结算重叠；已逐项询问",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D29",
       "topic": "元婴保命与近战被动",
       "status": "confirmed",
-      "decision": "加入元婴致命伤自动遁逃保命，25分钟冷却；伤害与破盾沿用五行，不叠来源被动"
+      "decision": "加入元婴致命伤自动遁逃保命，25分钟冷却；伤害与破盾沿用五行，不叠来源被动",
+      "latestAcceptance": "pending current complete server/client acceptance"
     },
     {
       "id": "D30",
       "topic": "炼丹副药",
       "status": "confirmed",
       "decision": "保留副药组合，统一五行结算，加入独有冰火毒附击；每角色一株；天地炉明确选择。",
-      "implementation": "已接入旧UI与服务端托管，编译通过后仍需执行入口测试及实机验收。"
+      "implementation": "已接入旧UI与服务端托管，编译通过后仍需执行入口测试及实机验收。",
+      "latestAcceptance": "pending current complete server/client acceptance"
     }
   ],
   "herbCandidates": [
@@ -388,5 +426,8 @@
       "decision": null
     }
   ],
-  "localOnly": true
+  "localOnly": true,
+  "reviewedAt": "2026-10-21",
+  "deliveryBranch": "codex/myriad-ascension-delivery-old-ui",
+  "statusNote": "Implementation presence is not current acceptance. See acceptance-baseline.json and ACCEPTANCE.md."
 }

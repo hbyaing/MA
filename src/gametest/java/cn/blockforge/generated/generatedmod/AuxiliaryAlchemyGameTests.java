@@ -73,13 +73,16 @@ public final class AuxiliaryAlchemyGameTests {
         try(var p=player(h)){
             var poison=AuxiliaryAlchemy.finish(pill(),plan(herb("xingchen",500,1),herb("duzhen",500,1),ItemStack.EMPTY));
             AuxiliaryAlchemyEffects.applyPill(p,poison);h.assertTrue(!p.hasEffect(MobEffects.POISON),"Purity failed to balance the venom backlash");
-            var zombie=target(h,p,EntityType.ZOMBIE);var wolf=target(h,p,EntityType.WOLF);wolf.setOwnerUUID(p.getUUID());wolf.setTame(true);
-            var cow=target(h,p,EntityType.COW);var servant=target(h,p,EntityType.ZOMBIE);var n=servant.getPersistentData();n.putUUID("HumanEmperorBannerOwner",p.getUUID());n.putUUID("HumanEmperorBannerId",UUID.randomUUID());n.putString("HumanEmperorBannerType","minecraft:zombie");
+            var enemy=target(h,p,EntityType.CREEPER);var wolf=target(h,p,EntityType.WOLF);wolf.setOwnerUUID(p.getUUID());wolf.setTame(true);
+            var cow=target(h,p,EntityType.COW);var servant=target(h,p,EntityType.CREEPER);var n=servant.getPersistentData();n.putUUID("HumanEmperorBannerOwner",p.getUUID());n.putUUID("HumanEmperorBannerId",UUID.randomUUID());n.putString("HumanEmperorBannerType","minecraft:creeper");
             for(var protectedTarget:new LivingEntity[]{wolf,cow,servant}){hit(p,protectedTarget);h.assertTrue(!protectedTarget.hasEffect(MobEffects.POISON),"A protected creature received secondary poison");}
-            var arrow=new net.minecraft.world.entity.projectile.Arrow(p.level(),p);AuxiliaryAlchemyEffects.hurt(new LivingHurtEvent(zombie,p.damageSources().arrow(arrow,p),5));h.assertTrue(!zombie.hasEffect(MobEffects.POISON),"A projectile received melee-only secondary effects");
-            hit(p,zombie);h.assertTrue(zombie.hasEffect(MobEffects.POISON),"A valid enemy melee did not receive venom");zombie.removeEffect(MobEffects.POISON);
-            var state=MedicineProgress.state(p).getCompound("AuxiliaryStrikes");state.putLong("Until",p.level().getGameTime());hit(p,zombie);
-            h.assertTrue(!zombie.hasEffect(MobEffects.POISON),"Expired secondary power still triggered");
+            var arrow=new net.minecraft.world.entity.projectile.Arrow(p.level(),p);AuxiliaryAlchemyEffects.hurt(new LivingHurtEvent(enemy,p.damageSources().arrow(arrow,p),5));h.assertTrue(!enemy.hasEffect(MobEffects.POISON),"A projectile received melee-only secondary effects");
+            hit(p,enemy);h.assertTrue(enemy.hasEffect(MobEffects.POISON),"A valid enemy melee did not receive venom");enemy.removeEffect(MobEffects.POISON);
+            // Preserve vanilla undead immunity rather than requiring poison on an immune zombie.
+            var undead=target(h,p,EntityType.ZOMBIE);hit(p,undead);
+            h.assertTrue(!undead.hasEffect(MobEffects.POISON),"Secondary venom bypassed vanilla undead immunity");
+            var state=MedicineProgress.state(p).getCompound("AuxiliaryStrikes");state.putLong("Until",p.level().getGameTime());hit(p,enemy);
+            h.assertTrue(!enemy.hasEffect(MobEffects.POISON),"Expired secondary power still triggered");
         }h.succeed();
     }
 

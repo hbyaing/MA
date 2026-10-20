@@ -66,7 +66,14 @@ public final class SoulPreservationGameTests {
             player.setItemSlot(EquipmentSlot.CHEST,new ItemStack(Items.DIAMOND_CHESTPLATE));
             player.setItemSlot(EquipmentSlot.LEGS,new ItemStack(Items.DIAMOND_LEGGINGS));
             player.setItemSlot(EquipmentSlot.FEET,new ItemStack(Items.DIAMOND_BOOTS));
-            player.hurt(player.damageSources().generic(),6);
+            // Vanilla installs equipment attribute modifiers during the equipment-change tick.
+            player.tick();
+            h.assertTrue(player.getArmorValue()==20,"Diamond equipment attributes were not applied by the fixture");
+            player.setHealth(4);player.setAbsorptionAmount(0);
+            var attacker=EntityType.ZOMBIE.create(h.getLevel());
+            var armoredHit=player.damageSources().mobAttack(attacker);
+            h.assertTrue(!armoredHit.is(net.minecraft.tags.DamageTypeTags.BYPASSES_ARMOR),"Armor regression must use an armor-mitigated source");
+            player.hurt(armoredHit,6);
             h.assertTrue(player.isAlive()&&player.getHealth()>0&&player.getHealth()<4&&SoulPreservation.cooldown(player)==0,
                     "Raw pre-armor fatal amount incorrectly consumed the escape");
         }h.succeed();

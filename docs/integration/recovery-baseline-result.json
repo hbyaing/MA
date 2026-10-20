@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "date": "2026-10-21",
+  "bundle": "myriad-recovered-baseline-20261021.bundle",
+  "sha256": "545e323101e193e7334168107f8d5210f773b9fdc5cc812048df90d47fd98ffc",
+  "checks": {
+    "independentClone": true,
+    "fsckFull": true,
+    "oldUiTreeMatchesOriginal": true
+  },
+  "sourceTree": "ff694bed57e5d350fe55937798ad5143f4610d33",
+  "scope": "Clean source-history import, not reconstruction of the original missing ancestors. Baseline bundle predates the acceptance fixes."
+}

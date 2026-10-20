@@ -78,6 +78,10 @@ public final class RecheckGameTests {
     @GameTest(template="empty") public static void ordinaryLethalDamageWithoutShieldDies(GameTestHelper h) {
         var p=player(h);
         try {
+            // D29 explicitly adds a Nascent Soul passive; this regression isolates mana alone below that gate.
+            GeneratedMod.data(p).wuxingxiantu$setRealm(2);
+            h.assertTrue(!cn.blockforge.generated.generatedmod.soulpreservation.SoulPreservation.eligible(p,p.damageSources().generic()),
+                    "Mana-only fixture unexpectedly qualifies for the confirmed Nascent Soul passive");
             p.hurt(p.damageSources().generic(),1000000);
             h.assertTrue(p.getHealth()<=0.0F||p.isDeadOrDying(),"Mana alone must not grant a death-prevention passive");
         } finally {p.close();}

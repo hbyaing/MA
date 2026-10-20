@@ -1,3 +1,5 @@
+> 2026-10-21继续：项目仍为开发进度快照。当前功能分支为codex/myriad-integration-foundation-20261021；恢复问题、实际克隆证据及本轮验收进展见docs/integration/RECOVERY.md与ACCEPTANCE.md。以下2026-10-20交接记录保留，不作为最新整体验收通过结论。
+
 # 万界仙途 · Myriad Ascension 进度交接（2026-10-20）
 
 用户要求因额度不足快速收尾，停止扩展。本提交是开发进度快照，**不是已经完整验收的发布版**。
