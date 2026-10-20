@@ -14,11 +14,15 @@ public final class SpiritVeinData extends SavedData {
     private final Map<Long,Entry> veins=new ConcurrentHashMap<>();
     private final Set<Long> pending=ConcurrentHashMap.newKeySet();
     private final Set<Long> attempted=ConcurrentHashMap.newKeySet();
+    private final Set<Long> decorationChunks=ConcurrentHashMap.newKeySet();
     public static SpiritVeinData get(ServerLevel level) {
         synchronized(level.getDataStorage()) {
             return level.getDataStorage().computeIfAbsent(SpiritVeinData::load,SpiritVeinData::new,"wuxingxiantu_spirit_veins");
         }
     }
+    /** Only a real feature decoration callback can authorize terrain writes. Old saves fail closed. */
+    public void markDecorationChunk(ChunkPos pos) {if(decorationChunks.add(pos.toLong()))setDirty();}
+    public boolean canDecorate(ChunkPos pos) {return decorationChunks.contains(pos.toLong());}
     public void queue(ChunkPos pos) {long key=pos.toLong();if(!attempted.contains(key)&&pending.add(key))setDirty();}
     public Set<Long> pending() {return Set.copyOf(pending);}
     public int grade(int x,int z) {var e=veins.get(ChunkPos.asLong(x,z));return e==null?0:e.grade();}
@@ -46,6 +50,7 @@ public final class SpiritVeinData extends SavedData {
             if(grade>=1&&grade<=5&&count>0&&n.contains("Center"))
                 data.veins.put(n.getLong("Chunk"),new Entry(grade,BlockPos.of(n.getLong("Center")),count));
         }
+        for(long key:tag.getLongArray("DecorationChunks"))data.decorationChunks.add(key);
         for(long key:tag.getLongArray("Attempted"))data.attempted.add(key);
         for(long key:tag.getLongArray("Pending"))if(!data.attempted.contains(key))data.pending.add(key);
         return data;
@@ -55,6 +60,7 @@ public final class SpiritVeinData extends SavedData {
         veins.forEach((key,e)->{var n=new CompoundTag();n.putLong("Chunk",key);n.putInt("Grade",e.grade());
             n.putLong("Center",e.center().asLong());n.putInt("Count",e.count());list.add(n);});
         tag.put("Veins",list);tag.putLongArray("Pending",pending.stream().mapToLong(Long::longValue).toArray());
+        tag.putLongArray("DecorationChunks",decorationChunks.stream().mapToLong(Long::longValue).toArray());
         tag.putLongArray("Attempted",attempted.stream().mapToLong(Long::longValue).toArray());return tag;
     }
 }
