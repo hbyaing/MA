@@ -21,7 +21,7 @@ public final class HeavenlyFurnaceGameTests {
         h.assertTrue(!HeavenlyFurnace.withinCastingRange(origin.add(0,24.01,0),origin),"Vertical overflow rejected");
         h.assertTrue(!HeavenlyFurnace.withinCastingRange(origin.add(24,0,24),origin),"Radius is circular");h.succeed();
     }
-    private static AlchemyRecipe recipe(GameTestHelper h){return (AlchemyRecipe)h.getLevel().getRecipeManager().byKey(new ResourceLocation("wuxingxiantu:alchemy_aura_pill_low")).orElseThrow();}
+    private static AlchemyRecipe recipe(GameTestHelper h){return (AlchemyRecipe)h.getLevel().getRecipeManager().byKey(ResourceLocation.parse("wuxingxiantu:alchemy_aura_pill_low")).orElseThrow();}
     private static GameTestPlayer player(GameTestHelper h){
         var p=new GameTestPlayer(h.getLevel());p.join();p.setPos(h.absolutePos(net.minecraft.core.BlockPos.ZERO).getX()+.5,210,h.absolutePos(net.minecraft.core.BlockPos.ZERO).getZ()+.5);
         var d=GeneratedMod.data(p);d.wuxingxiantu$setRealm(3);d.wuxingxiantu$setAura(3200);d.wuxingxiantu$learnDivineArt(HeavenlyFurnace.ID);d.wuxingxiantu$learnFire(1);d.wuxingxiantu$setEquippedFire(1);FormulaKnowledge.learnAll(p);return p;
@@ -34,7 +34,7 @@ public final class HeavenlyFurnaceGameTests {
     private static int count(GameTestPlayer p){return p.getInventory().items.stream().mapToInt(ItemStack::getCount).sum();}
     @GameTest(template="empty") public static void matchingReassignsOverlappingIngredientsAndUsesWholeBackpack(GameTestHelper h){
         var in=NonNullList.<Ingredient>create();in.add(Ingredient.of(Items.APPLE,Items.CARROT));in.add(Ingredient.of(Items.APPLE));
-        var r=new AlchemyRecipe(new ResourceLocation("wuxingxiantu:test_flow"),in,List.of(2,2),new ItemStack(Items.DIAMOND),0,20,0,false);
+        var r=new AlchemyRecipe(ResourceLocation.parse("wuxingxiantu:test_flow"),in,List.of(2,2),new ItemStack(Items.DIAMOND),0,20,0,false);
         var inventory=new SimpleContainer(36);inventory.setItem(1,new ItemStack(Items.APPLE,2));inventory.setItem(35,new ItemStack(Items.CARROT,2));
         int[] used=HeavenlyFurnace.allocation(r,inventory);h.assertTrue(used!=null&&used[1]==2&&used[35]==2,"Overlapping ingredients not reassigned across entire backpack");
         h.assertTrue(inventory.getItem(1).getCount()==2,"Read-only match mutated inventory");inventory.getItem(35).shrink(1);h.assertTrue(HeavenlyFurnace.allocation(r,inventory)==null,"One missing item accepted");h.succeed();

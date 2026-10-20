@@ -62,7 +62,7 @@ public final class KnowledgeIntegrationGameTests {
         var a=FakePlayerFactory.get(h.getLevel(),new GameProfile(UUID.randomUUID(),"ScholarA"));
         var b=FakePlayerFactory.get(h.getLevel(),new GameProfile(UUID.randomUUID(),"ScholarB"));
         FormulaKnowledge.unlock(a);
-        FormulaKnowledge.learn(a,new ResourceLocation(GeneratedMod.MOD_ID,PillCatalog.AURA.id),false);
+        FormulaKnowledge.learn(a,ResourceLocation.fromNamespaceAndPath(GeneratedMod.MOD_ID,PillCatalog.AURA.id),false);
         GeneratedMod.data(a).wuxingxiantu$learnArt("art_sword_aura");
         var token=new ItemStack(KnowledgeItems.MYRIAD_COMPENDIUM.get());
         a.setItemInHand(InteractionHand.MAIN_HAND,token);
@@ -92,8 +92,8 @@ public final class KnowledgeIntegrationGameTests {
     @GameTest(template="empty")
     public static void inheritanceHasSelectiveRealRuinSources(GameTestHelper h) {
         String[] tables={"simple_dungeon","stronghold_library","ancient_city","end_city_treasure"};
-        for(int tier=0;tier<4;tier++)h.assertTrue(KnowledgeLoot.scrollTier(new ResourceLocation("minecraft","chests/"+tables[tier]))==tier,"Incorrect ruin tier");
-        h.assertTrue(KnowledgeLoot.scrollTier(new ResourceLocation("minecraft","chests/village/village_toolsmith"))<0,"Every village became a scroll source");
+        for(int tier=0;tier<4;tier++)h.assertTrue(KnowledgeLoot.scrollTier(ResourceLocation.fromNamespaceAndPath("minecraft","chests/"+tables[tier]))==tier,"Incorrect ruin tier");
+        h.assertTrue(KnowledgeLoot.scrollTier(ResourceLocation.fromNamespaceAndPath("minecraft","chests/village/village_toolsmith"))<0,"Every village became a scroll source");
         var sources=new HashMap<ResourceLocation,Integer>();
         KnowledgeLoot.sources(new cn.blockforge.generated.generatedmod.acquisition.AcquisitionSourcesEvent((item,evidence)->sources.merge(item,1,Integer::sum)));
         for(var scroll:KnowledgeItems.SCROLLS)h.assertTrue(sources.containsKey(scroll.getId()),"Scroll missing from survival acquisition audit");

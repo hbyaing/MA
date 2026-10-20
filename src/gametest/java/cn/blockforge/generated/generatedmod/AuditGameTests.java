@@ -44,11 +44,11 @@ public final class AuditGameTests {
         if(!value.isJsonObject())return;
         var object=value.getAsJsonObject();
         if(object.has("item")&&object.get("item").isJsonPrimitive())
-            helper.assertTrue(net.minecraftforge.registries.ForgeRegistries.ITEMS.containsKey(new ResourceLocation(object.get("item").getAsString())),source+": unknown item "+object.get("item"));
+            helper.assertTrue(net.minecraftforge.registries.ForgeRegistries.ITEMS.containsKey(ResourceLocation.parse(object.get("item").getAsString())),source+": unknown item "+object.get("item"));
         if(object.has("type")&&object.get("type").isJsonPrimitive()&&"minecraft:item".equals(object.get("type").getAsString())&&object.has("name"))
-            helper.assertTrue(net.minecraftforge.registries.ForgeRegistries.ITEMS.containsKey(new ResourceLocation(object.get("name").getAsString())),source+": unknown loot item "+object.get("name"));
+            helper.assertTrue(net.minecraftforge.registries.ForgeRegistries.ITEMS.containsKey(ResourceLocation.parse(object.get("name").getAsString())),source+": unknown loot item "+object.get("name"));
         if(object.has("block")&&object.get("block").isJsonPrimitive())
-            helper.assertTrue(net.minecraftforge.registries.ForgeRegistries.BLOCKS.containsKey(new ResourceLocation(object.get("block").getAsString())),source+": unknown block "+object.get("block"));
+            helper.assertTrue(net.minecraftforge.registries.ForgeRegistries.BLOCKS.containsKey(ResourceLocation.parse(object.get("block").getAsString())),source+": unknown block "+object.get("block"));
         for(var entry:object.entrySet())checkReferences(helper,entry.getValue(),source);
     }
     private static FakePlayer player(GameTestHelper helper) {
@@ -76,7 +76,7 @@ public final class AuditGameTests {
     }
     @GameTest(template="empty") public static void knowledgeIsExplicitEvenInCreative(GameTestHelper helper) {
         var player=player(helper);player.getAbilities().instabuild=true;
-        var formula=new ResourceLocation(GeneratedMod.MOD_ID,PillCatalog.values()[0].id);
+        var formula=ResourceLocation.fromNamespaceAndPath(GeneratedMod.MOD_ID,PillCatalog.values()[0].id);
         FormulaKnowledge.reset(player);
         helper.assertTrue(!FormulaKnowledge.knows(player,formula)&&!FormulaKnowledge.unlocked(player),"new/reset knowledge is empty even in creative");
         FormulaKnowledge.unlock(player);FormulaKnowledge.learn(player,formula);

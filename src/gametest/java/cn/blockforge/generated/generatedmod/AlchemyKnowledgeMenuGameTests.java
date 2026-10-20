@@ -30,7 +30,7 @@ public final class AlchemyKnowledgeMenuGameTests {
             });
             for(var learned:PillCatalog.values()) {
                 FormulaKnowledge.reset(player);FormulaKnowledge.unlock(player);
-                var id=new net.minecraft.resources.ResourceLocation("wuxingxiantu",learned.id);
+                var id=net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("wuxingxiantu",learned.id);
                 FormulaKnowledge.learn(player,id,false);server.broadcastChanges();
                 var client=new AlchemyFurnaceMenu(2,player.getInventory(),furnace);
                 for(int i=0;i<packet.length;i++)client.setData(i,packet[i]);
@@ -39,7 +39,7 @@ public final class AlchemyKnowledgeMenuGameTests {
                 h.assertTrue(client.formulaUnlocked(),"Unlocked flag lost in transport");
                 for(var candidate:PillCatalog.values()) {
                     var ingredients=NonNullList.<Ingredient>create();ingredients.add(Ingredient.of(Items.APPLE));
-                    var candidateId=new net.minecraft.resources.ResourceLocation("wuxingxiantu",candidate.id);
+                    var candidateId=net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("wuxingxiantu",candidate.id);
                     var recipe=new AlchemyRecipe(candidateId,ingredients,java.util.List.of(1),new ItemStack(Items.APPLE),0,20,1,false,
                             candidateId,1,0,0,1,1);
                     h.assertTrue(client.knowsFormula(recipe)==(candidate==learned),"Formula bit changed: "+candidate);
