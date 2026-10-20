@@ -46,17 +46,19 @@ public final class CultivationMainScreen extends InventoryScreen {
         return close.isMouseOver(x,y)||(recipeButton!=null&&recipeButton.isMouseOver(x,y))
                 ||navButtons.stream().anyMatch(b->b.isMouseOver(x,y));
     }
-    // Reserve the functional inventory only. JEI draws its overlays after the screen;
-    // reserving the decorative outer frame unnecessarily compresses its ingredient list.
-    // Native slot and recipe positions still use leftPos/topPos and the explicit book init below.
-    @Override public int getGuiLeft() { return leftPos; }
-    @Override public int getGuiTop() { return topPos; }
-    @Override public int getXSize() { return imageWidth; }
-    @Override public int getYSize() { return imageHeight; }
+    // Forge/JEI must reserve all three columns, including navigation and the overview.
+    // Actual inventory slots keep their own leftPos/topPos and imageWidth/imageHeight.
+    @Override public int getGuiLeft() { return layout==null ? leftPos : panelX; }
+    @Override public int getGuiTop() { return layout==null ? topPos : panelY; }
+    @Override public int getXSize() { return layout==null ? imageWidth : panelW; }
+    @Override public int getYSize() { return layout==null ? imageHeight : panelH; }
     @Override public net.minecraft.world.inventory.Slot getSlotUnderMouse() {
         return inventory()&&!getRecipeBookComponent().isVisible() ? super.getSlotUnderMouse() : null;
     }
     @Override protected void init() {
+        InventoryResolutionFit.apply(minecraft);
+        width=minecraft.getWindow().getGuiScaledWidth();
+        height=minecraft.getWindow().getGuiScaledHeight();
         // Use vanilla's modal recipe rendering, but give it a dedicated page instead of covering slots.
         int screenWidth = width;
         width = Math.min(width, 378);
@@ -528,5 +530,8 @@ public final class CultivationMainScreen extends InventoryScreen {
         if (x >= panelX && x < panelX + panelW && y >= panelY && y < panelY + panelH) return false;
         return super.hasClickedOutside(x, y, left, top, button);
     }
-    @Override public void removed() { restoreInventorySlots(); if (page != null) page.removed(); super.removed(); }
+    @Override public void removed() {
+        try { restoreInventorySlots(); if (page != null) page.removed(); super.removed(); }
+        finally { InventoryResolutionFit.restore(minecraft); }
+    }
 }
