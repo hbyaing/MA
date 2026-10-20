@@ -1,0 +1,34 @@
+{
+  "type": "wuxingxiantu:alchemy",
+  "formula_id": "wuxingxiantu:root_awakening_pill",
+  "furnace_tier": 2,
+  "min_fire_tier": 2,
+  "minimum_realm": 1,
+  "ingredients": [
+    {
+      "item": "wuxingxiantu:spirit_ginseng",
+      "count": 4
+    },
+    {
+      "item": "wuxingxiantu:clear_heart_lotus",
+      "count": 4
+    },
+    {
+      "item": "minecraft:amethyst_shard",
+      "count": 2
+    },
+    {
+      "item": "wuxingxiantu:gale_grass",
+      "count": 4
+    }
+  ],
+  "aura_cost": 24,
+  "time": 4140,
+  "fire_essence_multiplier": 1.125,
+  "result": {
+    "item": "wuxingxiantu:root_awakening_pill",
+    "count": 1
+  },
+  "result_grade": "MID",
+  "element": "WOOD"
+}

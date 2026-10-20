@@ -1,0 +1,148 @@
+{
+  "elements": 2873,
+  "bones": 140,
+  "animations": [
+    "animation.pengjiao.prismatic_core",
+    "animation.pengjiao.fivefold_orbit",
+    "animation.pengjiao.restless_desire",
+    "animation.pengjiao.split_manifest",
+    "animation.pengjiao.fivefold_assault",
+    "animation.pengjiao.mirage_convergence",
+    "animation.pengjiao.severed_illusion",
+    "animation.pengjiao.ghost_shroud_drift"
+  ],
+  "embedded": true,
+  "orbitRemainsUpright": true,
+  "samples": [
+    {
+      "clip": "fivefold_orbit",
+      "time": 4.5,
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948966,
+        "ZYX"
+      ],
+      "worldQuaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        -47,
+        17,
+        -2
+      ]
+    },
+    {
+      "clip": "split_manifest",
+      "time": 0,
+      "rotation": [
+        0,
+        0,
+        0,
+        "ZYX"
+      ],
+      "worldQuaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.030000000000000027,
+        0.030000000000000027,
+        0.030000000000000027
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "clip": "mirage_convergence",
+      "time": 2.3,
+      "rotation": [
+        0,
+        0,
+        0,
+        "ZYX"
+      ],
+      "worldQuaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1.65,
+        1.65,
+        1.65
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "clip": "fivefold_assault",
+      "time": 1.1,
+      "rotation": [
+        0,
+        0,
+        0,
+        "ZYX"
+      ],
+      "worldQuaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        -24.044055717525104,
+        -33.94978943958536,
+        -32.72691933916424
+      ]
+    },
+    {
+      "clip": "ghost_shroud_drift",
+      "time": 2,
+      "rotation": [
+        0.03490658503988659,
+        0,
+        -0.03490658503988659,
+        "ZYX"
+      ],
+      "worldQuaternion": [
+        0.017449748351250488,
+        -0.000304586490452135,
+        -0.017449748351250488,
+        0.9996954135095478
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        0,
+        -3,
+        0
+      ]
+    }
+  ]
+}

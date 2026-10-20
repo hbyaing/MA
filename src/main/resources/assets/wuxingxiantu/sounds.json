@@ -1,0 +1,10 @@
+{
+  "pill_swallow": {
+    "sounds": [
+      {
+        "name": "wuxingxiantu:pill_swallow",
+        "stream": false
+      }
+    ]
+  }
+}

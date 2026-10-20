@@ -1,0 +1,1080 @@
+{
+  "source": "source-assets/heart_sword.bbmodel",
+  "source_sha256": "9994e56896ff4be82743b91097fe2cbd21d97e6314e29884274be0f3b51b4d8d",
+  "source_model_name": "心剑2.0_优化版",
+  "format": {
+    "format_version": "5.0",
+    "model_format": "free",
+    "box_uv": false
+  },
+  "archive": "source-assets/archive/heart_sword_v1",
+  "normalization": {
+    "source_grip": [
+      0.0,
+      -2.75,
+      0.0
+    ],
+    "runtime_grip": [
+      0.0,
+      -0.2,
+      0.0
+    ],
+    "scale": 0.0624877940508954,
+    "translation": [
+      0.0,
+      -0.028158566360037662,
+      0.0
+    ],
+    "length": 1.875,
+    "axes": {
+      "tip": "+Y",
+      "width": "+X",
+      "front_back": "+/-Z"
+    }
+  },
+  "source_bounds": [
+    [
+      -1.853,
+      -6.17569,
+      -0.263
+    ],
+    [
+      1.853,
+      23.83017,
+      0.263
+    ]
+  ],
+  "runtime_bounds": [
+    [
+      -0.11578988237630918,
+      -0.4140638112022119,
+      -0.01643428983538549
+    ],
+    [
+      0.11578988237630918,
+      1.4609361887977883,
+      0.01643428983538549
+    ]
+  ],
+  "counts": {
+    "vertices": 9646,
+    "faces": 9348,
+    "triangles": 18408,
+    "uvs": 37104
+  },
+  "materials": [
+    {
+      "index": 0,
+      "name": "heart_sword",
+      "source_name": "xinjian_shell.png",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/item/heart_sword.png",
+      "size": [
+        256,
+        256
+      ],
+      "alpha_range": [
+        45,
+        93
+      ],
+      "emissive": false,
+      "double_sided": true,
+      "sha256": "c4cc53a1abc6bf3036e71e4910f64b950c4bd64c3d54e243cdfd3340920465d9"
+    },
+    {
+      "index": 1,
+      "name": "heart_sword_crystal",
+      "source_name": "xinjian_crystal.png",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/item/heart_sword_crystal.png",
+      "size": [
+        256,
+        256
+      ],
+      "alpha_range": [
+        134,
+        186
+      ],
+      "emissive": false,
+      "double_sided": true,
+      "sha256": "1ff34144c7c89a02a40f153dc75858d6c12671d01e5c408b52f870b897354cf5"
+    },
+    {
+      "index": 2,
+      "name": "heart_sword_light",
+      "source_name": "xinjian_light.png",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/item/heart_sword_light.png",
+      "size": [
+        256,
+        256
+      ],
+      "alpha_range": [
+        10,
+        10
+      ],
+      "emissive": true,
+      "double_sided": true,
+      "sha256": "ff9a6ed420daa12a7b7094ed72ad0b22942d8427d0e447b1e32315008b6cf39f"
+    },
+    {
+      "index": 3,
+      "name": "heart_sword_gem",
+      "source_name": "xinjian_gem.png",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/item/heart_sword_gem.png",
+      "size": [
+        256,
+        256
+      ],
+      "alpha_range": [
+        24,
+        24
+      ],
+      "emissive": true,
+      "double_sided": true,
+      "sha256": "6a1f0bc2addc3d50dd94b0c667eea39c94b6cf1afed9c8282bb0cf1c5378455d"
+    }
+  ],
+  "meshes": [
+    {
+      "name": "blade_translucent_facets",
+      "groups": [
+        "root",
+        "sword",
+        "01_blade_crystal"
+      ],
+      "vertices": 120,
+      "faces": {
+        "heart_sword": 124
+      },
+      "bounds": [
+        [
+          -0.02999414114442979,
+          -0.013161495787822747,
+          -0.009060730137379833
+        ],
+        [
+          0.02999414114442979,
+          1.4609255658727995,
+          0.009060730137379833
+        ]
+      ],
+      "center": [
+        0.0,
+        0.7238820350424884,
+        0.0
+      ]
+    },
+    {
+      "name": "blade_inner_prism",
+      "groups": [
+        "root",
+        "sword",
+        "01_blade_crystal"
+      ],
+      "vertices": 120,
+      "faces": {
+        "heart_sword_crystal": 124
+      },
+      "bounds": [
+        [
+          -0.011397773634883321,
+          -0.013161495787822747,
+          -0.004530365068689916
+        ],
+        [
+          0.011397773634883321,
+          1.4609255658727995,
+          0.004530365068689916
+        ]
+      ],
+      "center": [
+        0.0,
+        0.7238820350424884,
+        0.0
+      ]
+    },
+    {
+      "name": "blade_inner_light_ribbons",
+      "groups": [
+        "root",
+        "sword",
+        "02_blade_light"
+      ],
+      "vertices": 784,
+      "faces": {
+        "heart_sword_gem": 776
+      },
+      "bounds": [
+        [
+          -0.016429290811861418,
+          0.049946177180057505,
+          -0.00917070865490941
+        ],
+        [
+          0.016429290811861418,
+          1.4609299400183833,
+          0.00917070865490941
+        ]
+      ],
+      "center": [
+        0.0,
+        0.7554380585992204,
+        0.0
+      ]
+    },
+    {
+      "name": "blade_central_crystal_stream",
+      "groups": [
+        "root",
+        "sword",
+        "02_blade_light"
+      ],
+      "vertices": 390,
+      "faces": {
+        "heart_sword_gem": 128,
+        "heart_sword_light": 128
+      },
+      "bounds": [
+        [
+          -0.008333997092567918,
+          -0.010037106085277997,
+          -0.005335832734005958
+        ],
+        [
+          0.009375668619396345,
+          1.4609255658727995,
+          0.005335832734005958
+        ]
+      ],
+      "center": [
+        0.0005208357634142137,
+        0.7254442298937608,
+        0.0
+      ]
+    },
+    {
+      "name": "blade_silver_edges",
+      "groups": [
+        "root",
+        "sword",
+        "02_blade_light"
+      ],
+      "vertices": 120,
+      "faces": {
+        "heart_sword_light": 116
+      },
+      "bounds": [
+        [
+          -0.031000194628649207,
+          -0.013187115783383635,
+          -0.001124780292916117
+        ],
+        [
+          0.031000194628649207,
+          1.4609361887977883,
+          0.001124780292916117
+        ]
+      ],
+      "center": [
+        0.0,
+        0.7238745365072023,
+        0.0
+      ]
+    },
+    {
+      "name": "blade_flowing_meridians",
+      "groups": [
+        "root",
+        "sword",
+        "02_blade_light"
+      ],
+      "vertices": 1336,
+      "faces": {
+        "heart_sword_light": 1324
+      },
+      "bounds": [
+        [
+          -0.021884475232504585,
+          0.03431735500998806,
+          -0.01010177678626775
+        ],
+        [
+          0.021884475232504585,
+          1.4609343141639668,
+          0.01010177678626775
+        ]
+      ],
+      "center": [
+        0.0,
+        0.7476258345869774,
+        0.0
+      ]
+    },
+    {
+      "name": "heart_node_1",
+      "groups": [
+        "root",
+        "sword",
+        "03_heart_nodes"
+      ],
+      "vertices": 62,
+      "faces": {
+        "heart_sword_gem": 72
+      },
+      "bounds": [
+        [
+          -0.01031048601839774,
+          0.11047060474187381,
+          -0.01249755881017908
+        ],
+        [
+          0.01031048601839774,
+          0.13315367398234879,
+          0.01249755881017908
+        ]
+      ],
+      "center": [
+        0.0,
+        0.1218121393621113,
+        0.0
+      ]
+    },
+    {
+      "name": "heart_node_1_eye_setting",
+      "groups": [
+        "root",
+        "sword",
+        "03_heart_nodes"
+      ],
+      "vertices": 680,
+      "faces": {
+        "heart_sword_light": 652
+      },
+      "bounds": [
+        [
+          -0.020183557478439213,
+          0.06456707123208605,
+          -0.01237258322207729
+        ],
+        [
+          0.020183557478439213,
+          0.1790572074921366,
+          0.01237258322207729
+        ]
+      ],
+      "center": [
+        0.0,
+        0.12181213936211133,
+        0.0
+      ]
+    },
+    {
+      "name": "heart_node_1_light",
+      "groups": [
+        "root",
+        "sword",
+        "03_heart_nodes"
+      ],
+      "vertices": 62,
+      "faces": {
+        "heart_sword_light": 72
+      },
+      "bounds": [
+        [
+          -0.004949033288830916,
+          0.1158320574714406,
+          -0.013434875720942511
+        ],
+        [
+          0.004949033288830916,
+          0.12779222125278195,
+          0.013434875720942511
+        ]
+      ],
+      "center": [
+        0.0,
+        0.12181213936211127,
+        0.0
+      ]
+    },
+    {
+      "name": "heart_node_2",
+      "groups": [
+        "root",
+        "sword",
+        "03_heart_nodes"
+      ],
+      "vertices": 62,
+      "faces": {
+        "heart_sword_gem": 72
+      },
+      "bounds": [
+        [
+          -0.008935754549278042,
+          0.46816323544800925,
+          -0.01249755881017908
+        ],
+        [
+          0.008935754549278042,
+          0.4878218954564209,
+          0.01249755881017908
+        ]
+      ],
+      "center": [
+        0.0,
+        0.4779925654522151,
+        0.0
+      ]
+    },
+    {
+      "name": "heart_node_2_eye_setting",
+      "groups": [
+        "root",
+        "sword",
+        "03_heart_nodes"
+      ],
+      "vertices": 680,
+      "faces": {
+        "heart_sword_light": 652
+      },
+      "bounds": [
+        [
+          -0.020183557478439213,
+          0.4207474973221899,
+          -0.01237258322207729
+        ],
+        [
+          0.020183557478439213,
+          0.5352376335822404,
+          0.01237258322207729
+        ]
+      ],
+      "center": [
+        0.0,
+        0.47799256545221513,
+        0.0
+      ]
+    },
+    {
+      "name": "heart_node_2_light",
+      "groups": [
+        "root",
+        "sword",
+        "03_heart_nodes"
+      ],
+      "vertices": 62,
+      "faces": {
+        "heart_sword_light": 72
+      },
+      "bounds": [
+        [
+          -0.0042891621836534605,
+          0.47280982781363384,
+          -0.013434875720942511
+        ],
+        [
+          0.0042891621836534605,
+          0.4831753030907963,
+          0.013434875720942511
+        ]
+      ],
+      "center": [
+        0.0,
+        0.4779925654522151,
+        0.0
+      ]
+    },
+    {
+      "name": "heart_node_3",
+      "groups": [
+        "root",
+        "sword",
+        "03_heart_nodes"
+      ],
+      "vertices": 62,
+      "faces": {
+        "heart_sword_gem": 72
+      },
+      "bounds": [
+        [
+          -0.008935754549278042,
+          0.8305924409432026,
+          -0.01249755881017908
+        ],
+        [
+          0.008935754549278042,
+          0.850251100951614,
+          0.01249755881017908
+        ]
+      ],
+      "center": [
+        0.0,
+        0.8404217709474083,
+        0.0
+      ]
+    },
+    {
+      "name": "heart_node_3_eye_setting",
+      "groups": [
+        "root",
+        "sword",
+        "03_heart_nodes"
+      ],
+      "vertices": 680,
+      "faces": {
+        "heart_sword_light": 652
+      },
+      "bounds": [
+        [
+          -0.020183557478439213,
+          0.783176702817383,
+          -0.01237258322207729
+        ],
+        [
+          0.020183557478439213,
+          0.8976668390774336,
+          0.01237258322207729
+        ]
+      ],
+      "center": [
+        0.0,
+        0.8404217709474083,
+        0.0
+      ]
+    },
+    {
+      "name": "heart_node_3_light",
+      "groups": [
+        "root",
+        "sword",
+        "03_heart_nodes"
+      ],
+      "vertices": 62,
+      "faces": {
+        "heart_sword_light": 72
+      },
+      "bounds": [
+        [
+          -0.0042891621836534605,
+          0.8352390333088271,
+          -0.013434875720942511
+        ],
+        [
+          0.0042891621836534605,
+          0.8456045085859896,
+          0.013434875720942511
+        ]
+      ],
+      "center": [
+        0.0,
+        0.8404217709474083,
+        0.0
+      ]
+    },
+    {
+      "name": "tip_converging_crystal",
+      "groups": [
+        "root",
+        "sword",
+        "01_blade_crystal"
+      ],
+      "vertices": 40,
+      "faces": {
+        "heart_sword_crystal": 36
+      },
+      "bounds": [
+        [
+          -0.020027337993311977,
+          1.2028497266867206,
+          -0.0022183166888067865
+        ],
+        [
+          0.020027337993311977,
+          1.4609286902625023,
+          0.0022183166888067865
+        ]
+      ],
+      "center": [
+        0.0,
+        1.3318892084746115,
+        0.0
+      ]
+    },
+    {
+      "name": "guard_heart_crystal",
+      "groups": [
+        "root",
+        "sword",
+        "04_floating_guard"
+      ],
+      "vertices": 62,
+      "faces": {
+        "heart_sword_gem": 72
+      },
+      "bounds": [
+        [
+          -0.016996679981843548,
+          -0.04628002663479733,
+          -0.015309509542469372
+        ],
+        [
+          0.016996679981843548,
+          -0.010037106085277997,
+          0.015309509542469372
+        ]
+      ],
+      "center": [
+        0.0,
+        -0.028158566360037662,
+        0.0
+      ]
+    },
+    {
+      "name": "guard_heartlight",
+      "groups": [
+        "root",
+        "sword",
+        "04_floating_guard"
+      ],
+      "vertices": 62,
+      "faces": {
+        "heart_sword_light": 72
+      },
+      "bounds": [
+        [
+          -0.007810974256361925,
+          -0.03753173546767197,
+          -0.01643428983538549
+        ],
+        [
+          0.007810974256361925,
+          -0.018785397252403357,
+          0.01643428983538549
+        ]
+      ],
+      "center": [
+        0.0,
+        -0.028158566360037662,
+        0.0
+      ]
+    },
+    {
+      "name": "guard_star_lattice",
+      "groups": [
+        "root",
+        "sword",
+        "04_floating_guard"
+      ],
+      "vertices": 1040,
+      "faces": {
+        "heart_sword_light": 968,
+        "heart_sword_crystal": 24
+      },
+      "bounds": [
+        [
+          -0.06139738204470727,
+          -0.09963960373073794,
+          -0.01249755881017908
+        ],
+        [
+          0.06139800692264778,
+          0.04332247101066261,
+          0.01249755881017908
+        ]
+      ],
+      "center": [
+        3.1243897025481915e-07,
+        -0.028158566360037662,
+        0.0
+      ]
+    },
+    {
+      "name": "guard_crystal_petals",
+      "groups": [
+        "root",
+        "sword",
+        "04_floating_guard"
+      ],
+      "vertices": 20,
+      "faces": {
+        "heart_sword": 12
+      },
+      "bounds": [
+        [
+          -0.06123803816987749,
+          -0.09939465157805841,
+          0.0
+        ],
+        [
+          0.06123803816987749,
+          0.043077518857983055,
+          0.00624877940508954
+        ]
+      ],
+      "center": [
+        0.0,
+        -0.028158566360037676,
+        0.00312438970254477
+      ]
+    },
+    {
+      "name": "crescent_left",
+      "groups": [
+        "root",
+        "sword",
+        "04_floating_guard"
+      ],
+      "vertices": 68,
+      "faces": {
+        "heart_sword_crystal": 64
+      },
+      "bounds": [
+        [
+          -0.11497754105364753,
+          -0.0737746560171913,
+          -0.007311071903954762
+        ],
+        [
+          -0.08123413226616402,
+          0.017457523297115973,
+          0.007311071903954762
+        ]
+      ],
+      "center": [
+        -0.09810583665990577,
+        -0.028158566360037662,
+        0.0
+      ]
+    },
+    {
+      "name": "crescent_left_rim",
+      "groups": [
+        "root",
+        "sword",
+        "04_floating_guard"
+      ],
+      "vertices": 536,
+      "faces": {
+        "heart_sword_light": 516
+      },
+      "bounds": [
+        [
+          -0.11578988237630918,
+          -0.07410459156978003,
+          -0.007935949844463715
+        ],
+        [
+          -0.08085858062391814,
+          0.0177874588497047,
+          0.007935949844463715
+        ]
+      ],
+      "center": [
+        -0.09832423150011366,
+        -0.028158566360037662,
+        0.0
+      ]
+    },
+    {
+      "name": "crescent_right",
+      "groups": [
+        "root",
+        "sword",
+        "04_floating_guard"
+      ],
+      "vertices": 68,
+      "faces": {
+        "heart_sword_crystal": 64
+      },
+      "bounds": [
+        [
+          0.08123413226616402,
+          -0.0737746560171913,
+          -0.007311071903954762
+        ],
+        [
+          0.11497754105364753,
+          0.017457523297115973,
+          0.007311071903954762
+        ]
+      ],
+      "center": [
+        0.09810583665990577,
+        -0.028158566360037662,
+        0.0
+      ]
+    },
+    {
+      "name": "crescent_right_rim",
+      "groups": [
+        "root",
+        "sword",
+        "04_floating_guard"
+      ],
+      "vertices": 536,
+      "faces": {
+        "heart_sword_light": 516
+      },
+      "bounds": [
+        [
+          0.08085858062391814,
+          -0.07410459156978003,
+          -0.007935949844463715
+        ],
+        [
+          0.11578988237630918,
+          0.0177874588497047,
+          0.007935949844463715
+        ]
+      ],
+      "center": [
+        0.09832423150011366,
+        -0.028158566360037662,
+        0.0
+      ]
+    },
+    {
+      "name": "grip_tapered_prism",
+      "groups": [
+        "root",
+        "sword",
+        "05_crystal_grip"
+      ],
+      "vertices": 64,
+      "faces": {
+        "heart_sword_crystal": 68
+      },
+      "bounds": [
+        [
+          -0.013122436750688034,
+          -0.3749658233425071,
+          -0.008123413226616402
+        ],
+        [
+          0.013122436750688034,
+          -0.04315563693225258,
+          0.008123413226616402
+        ]
+      ],
+      "center": [
+        0.0,
+        -0.20906073013737986,
+        0.0
+      ]
+    },
+    {
+      "name": "guard_crystal_transitions",
+      "groups": [
+        "root",
+        "sword",
+        "04_floating_guard"
+      ],
+      "vertices": 72,
+      "faces": {
+        "heart_sword_gem": 20,
+        "heart_sword_light": 40
+      },
+      "bounds": [
+        [
+          -0.01412161657756185,
+          -0.09814489569704052,
+          -0.003311853084697456
+        ],
+        [
+          0.01412161657756185,
+          0.041827762976965194,
+          0.004873423058029332
+        ]
+      ],
+      "center": [
+        0.0,
+        -0.028158566360037662,
+        0.000780784986665938
+      ]
+    },
+    {
+      "name": "grip_flowing_filigree",
+      "groups": [
+        "root",
+        "sword",
+        "05_crystal_grip"
+      ],
+      "vertices": 1344,
+      "faces": {
+        "heart_sword_light": 1316
+      },
+      "bounds": [
+        [
+          -0.016371802041334597,
+          -0.3828780278252315,
+          -0.011247802929161171
+        ],
+        [
+          0.016371802041334597,
+          -0.04148658795315316,
+          0.011247802929161171
+        ]
+      ],
+      "center": [
+        0.0,
+        -0.21218230788919235,
+        0.0
+      ]
+    },
+    {
+      "name": "pommel_heart_crystal",
+      "groups": [
+        "root",
+        "sword",
+        "06_pommel"
+      ],
+      "vertices": 62,
+      "faces": {
+        "heart_sword_gem": 72
+      },
+      "bounds": [
+        [
+          -0.01274750998638266,
+          -0.39496191743879366,
+          -0.011372778517262962
+        ],
+        [
+          0.01274750998638266,
+          -0.36746728805639967,
+          0.011372778517262962
+        ]
+      ],
+      "center": [
+        0.0,
+        -0.38121460274759666,
+        0.0
+      ]
+    },
+    {
+      "name": "pommel_heartlight",
+      "groups": [
+        "root",
+        "sword",
+        "06_pommel"
+      ],
+      "vertices": 62,
+      "faces": {
+        "heart_sword_light": 72
+      },
+      "bounds": [
+        [
+          -0.0056239014645805855,
+          -0.3874633821526862,
+          -0.012185119839924603
+        ],
+        [
+          0.0056239014645805855,
+          -0.3749658233425071,
+          0.012185119839924603
+        ]
+      ],
+      "center": [
+        0.0,
+        -0.38121460274759666,
+        0.0
+      ]
+    },
+    {
+      "name": "pommel_fourpoint_crown",
+      "groups": [
+        "root",
+        "sword",
+        "06_pommel"
+      ],
+      "vertices": 328,
+      "faces": {
+        "heart_sword_light": 308
+      },
+      "bounds": [
+        [
+          -0.03342597079370496,
+          -0.4140638112022119,
+          -0.007810974256361925
+        ],
+        [
+          0.03342597079370496,
+          -0.3483653942929815,
+          0.007810974256361925
+        ]
+      ],
+      "center": [
+        0.0,
+        -0.3812146027475967,
+        0.0
+      ]
+    }
+  ],
+  "anchors": {
+    "heart_node_1": [
+      0.0,
+      0.1218121393621113,
+      0.0
+    ],
+    "heart_node_2": [
+      0.0,
+      0.4779925654522151,
+      0.0
+    ],
+    "heart_node_3": [
+      0.0,
+      0.8404217709474083,
+      0.0
+    ],
+    "guard_heart_crystal": [
+      0.0,
+      -0.028158566360037662,
+      0.0
+    ],
+    "crescent_left": [
+      -0.09810583665990577,
+      -0.028158566360037662,
+      0.0
+    ],
+    "crescent_right": [
+      0.09810583665990577,
+      -0.028158566360037662,
+      0.0
+    ],
+    "pommel_heart_crystal": [
+      0.0,
+      -0.38121460274759666,
+      0.0
+    ]
+  },
+  "inventory_icon": {
+    "size": [
+      64,
+      64
+    ],
+    "source": "native mesh and UV rasterization",
+    "view_rotation": [
+      0,
+      12,
+      -42
+    ],
+    "outline": "one pixel blue-black",
+    "emission_alpha_gain": {
+      "light": 21,
+      "gem": 9
+    }
+  },
+  "output_sha256": {
+    "source-assets/heart_sword.bbmodel": "9994e56896ff4be82743b91097fe2cbd21d97e6314e29884274be0f3b51b4d8d",
+    "src/main/resources/assets/wuxingxiantu/models/item/heart_sword.obj": "587f05734c93324144c11eae75717443034a7bf83ee2f2a1215fc40b3f550962",
+    "src/main/resources/assets/wuxingxiantu/models/item/heart_sword.mtl": "724a767323c6ac979004c61ff3330e02f46eb7fdc0b3a20981e16cc11a072e67",
+    "src/main/resources/assets/wuxingxiantu/textures/item/heart_sword_inventory.png": "c7e4e3b3e00001cee006bb88cf4db01907c72fc6812ce8ff272e6b1cebf6ad42",
+    "src/main/resources/assets/wuxingxiantu/textures/item/heart_sword.png": "c4cc53a1abc6bf3036e71e4910f64b950c4bd64c3d54e243cdfd3340920465d9",
+    "src/main/resources/assets/wuxingxiantu/textures/item/heart_sword_crystal.png": "1ff34144c7c89a02a40f153dc75858d6c12671d01e5c408b52f870b897354cf5",
+    "src/main/resources/assets/wuxingxiantu/textures/item/heart_sword_light.png": "ff9a6ed420daa12a7b7094ed72ad0b22942d8427d0e447b1e32315008b6cf39f",
+    "src/main/resources/assets/wuxingxiantu/textures/item/heart_sword_gem.png": "6a1f0bc2addc3d50dd94b0c667eea39c94b6cf1afed9c8282bb0cf1c5378455d"
+  },
+  "notes": [
+    "No mesh simplification or atlas repainting.",
+    "Original display transforms retained.",
+    "The low authored light/gem alpha requires emissive rendering, not opaque cutout.",
+    "No build, tests, or game launch performed by this importer."
+  ]
+}

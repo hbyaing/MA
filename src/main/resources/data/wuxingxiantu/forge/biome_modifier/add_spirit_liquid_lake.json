@@ -1,0 +1,15 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:forest",
+    "minecraft:birch_forest",
+    "minecraft:dark_forest",
+    "minecraft:jungle",
+    "minecraft:sparse_jungle",
+    "minecraft:swamp",
+    "minecraft:bamboo_jungle",
+    "minecraft:flower_forest"
+  ],
+  "features": "wuxingxiantu:spirit_liquid_lake",
+  "step": "lakes"
+}

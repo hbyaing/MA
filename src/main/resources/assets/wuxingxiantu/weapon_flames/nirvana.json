@@ -1,0 +1,30 @@
+{
+  "type": "fire",
+  "colors": {
+    "coreColor": "#F4FFFF",
+    "bodyColor": "#40E0D0",
+    "edgeColor": "#235B68",
+    "sparkColor": "#F4FFFF",
+    "glowColor": "#40E0D0"
+  },
+  "shape": {
+    "flameWidth": 0.17,
+    "flameHeight": 0.045,
+    "coilRadius": 1.1,
+    "coilTurns": 1.1,
+    "attachmentSize": 0.06
+  },
+  "motion": {
+    "flowSpeed": 0.65,
+    "coilSpeed": 0.32,
+    "flickerStrength": 0.07,
+    "turbulence": 0.04
+  },
+  "combat": {
+    "attackStretch": 0.18,
+    "trailLength": 0.12,
+    "trailFadeTime": 3,
+    "hitPeelAmount": 2,
+    "scatterAmount": 1
+  }
+}

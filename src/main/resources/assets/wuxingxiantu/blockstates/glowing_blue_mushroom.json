@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "age=0,waterlogged=false": {
+      "model": "wuxingxiantu:block/glowing_blue_mushroom"
+    },
+    "age=0,waterlogged=true": {
+      "model": "wuxingxiantu:block/glowing_blue_mushroom"
+    },
+    "age=1,waterlogged=false": {
+      "model": "wuxingxiantu:block/glowing_blue_mushroom"
+    },
+    "age=1,waterlogged=true": {
+      "model": "wuxingxiantu:block/glowing_blue_mushroom"
+    },
+    "age=2,waterlogged=false": {
+      "model": "wuxingxiantu:block/glowing_blue_mushroom"
+    },
+    "age=2,waterlogged=true": {
+      "model": "wuxingxiantu:block/glowing_blue_mushroom"
+    },
+    "age=3,waterlogged=false": {
+      "model": "wuxingxiantu:block/glowing_blue_mushroom"
+    },
+    "age=3,waterlogged=true": {
+      "model": "wuxingxiantu:block/glowing_blue_mushroom"
+    },
+    "age=4,waterlogged=false": {
+      "model": "wuxingxiantu:block/glowing_blue_mushroom"
+    },
+    "age=4,waterlogged=true": {
+      "model": "wuxingxiantu:block/glowing_blue_mushroom"
+    },
+    "age=5,waterlogged=false": {
+      "model": "wuxingxiantu:block/glowing_blue_mushroom"
+    },
+    "age=5,waterlogged=true": {
+      "model": "wuxingxiantu:block/glowing_blue_mushroom"
+    },
+    "age=6,waterlogged=false": {
+      "model": "wuxingxiantu:block/glowing_blue_mushroom"
+    },
+    "age=6,waterlogged=true": {
+      "model": "wuxingxiantu:block/glowing_blue_mushroom"
+    },
+    "age=7,waterlogged=false": {
+      "model": "wuxingxiantu:block/glowing_blue_mushroom"
+    },
+    "age=7,waterlogged=true": {
+      "model": "wuxingxiantu:block/glowing_blue_mushroom"
+    }
+  }
+}

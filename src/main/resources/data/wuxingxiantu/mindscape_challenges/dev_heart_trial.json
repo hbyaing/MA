@@ -1,0 +1,4 @@
+{
+  "challenge_id": "wuxingxiantu:dev_heart_trial", "boss_entity_id": "wuxingxiantu:heart_demon",
+  "required_realm": 0, "trigger_stage": "manual_test", "arena_id": "test_platform", "is_final": true
+}

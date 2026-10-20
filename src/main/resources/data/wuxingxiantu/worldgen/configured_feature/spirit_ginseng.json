@@ -1,0 +1,12 @@
+{
+  "type": "wuxingxiantu:spirit_plant",
+  "config": {
+    "place": { "state": { "Name": "wuxingxiantu:spirit_ginseng" } },
+    "rule": "FOREST_FLOOR",
+    "biome_tag": "wuxingxiantu:spirit_ginseng_habitat",
+    "retries": 6,
+    "xz_spread": 7,
+    "y_range": 6,
+    "random_age": true
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "cross": "wuxingxiantu:block/clear_heart_lotus_young",
+    "particle": "#cross"
+  },
+  "elements": [
+    {
+      "from": [
+        3.05,
+        0,
+        8
+      ],
+      "to": [
+        12.95,
+        11,
+        8
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": 45,
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#cross"
+        },
+        "south": {
+          "uv": [
+            16,
+            0,
+            0,
+            16
+          ],
+          "texture": "#cross"
+        }
+      }
+    },
+    {
+      "from": [
+        3.05,
+        0,
+        8
+      ],
+      "to": [
+        12.95,
+        11,
+        8
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": -45,
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#cross"
+        },
+        "south": {
+          "uv": [
+            16,
+            0,
+            0,
+            16
+          ],
+          "texture": "#cross"
+        }
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout"
+}

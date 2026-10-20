@@ -1,0 +1,37 @@
+{
+  "type": "wuxingxiantu:alchemy",
+  "formula_id": "wuxingxiantu:breakthrough_pill",
+  "furnace_tier": 4,
+  "min_fire_tier": 4,
+  "minimum_realm": 3,
+  "ingredients": [
+    {
+      "item": "wuxingxiantu:spirit_ginseng",
+      "count": 8
+    },
+    {
+      "item": "wuxingxiantu:vein_mending_vine",
+      "count": 8
+    },
+    {
+      "item": "wuxingxiantu:red_sun_grass",
+      "count": 8
+    },
+    {
+      "item": "minecraft:amethyst_shard",
+      "count": 4
+    },
+    {
+      "item": "wuxingxiantu:dragon_scale_grass",
+      "count": 2
+    }
+  ],
+  "aura_cost": 192,
+  "time": 4360,
+  "fire_essence_multiplier": 1.875,
+  "result": {
+    "item": "wuxingxiantu:breakthrough_pill",
+    "count": 1
+  },
+  "result_grade": "PERFECT"
+}

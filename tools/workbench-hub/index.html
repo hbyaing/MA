@@ -1,0 +1,4 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>本地工作台</title>
+<style>body{margin:48px auto;max-width:960px;background:#091820;color:#e9dcc0;font:18px system-ui}h1{font-weight:500}a{display:block;padding:24px;margin:18px 0;border:1px solid #8e7549;border-radius:12px;color:#e9c77c;text-decoration:none;background:#122a34}p{color:#a4b9ba}small{display:block;color:#a4b9ba;margin-top:10px}</style>
+<h1>本地工作台</h1><p>所有工具从这个统一入口打开。文件保存在本机。</p><main id="tools">正在读取工作台…</main>
+<script>async function refresh(){const entries=await(await fetch('/registry.json')).json();tools.replaceChildren();for(const entry of entries){const a=document.createElement('a');a.href=entry.url;a.textContent=entry.name;const s=document.createElement('small');s.textContent=entry.description||'';a.append(s);tools.append(a)}if(!entries.length)tools.textContent='工作台尚在建立；完成后刷新此页即可。'}refresh();</script></html>

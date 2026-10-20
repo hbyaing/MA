@@ -1,0 +1,25 @@
+{
+  "source_size": [
+    1254,
+    1254
+  ],
+  "crop_bounds": [
+    127,
+    97,
+    1175,
+    1209
+  ],
+  "crop_size": [
+    1048,
+    1112
+  ],
+  "icon_size": [
+    57,
+    60
+  ],
+  "texture_size": [
+    64,
+    64
+  ],
+  "resampling": "NEAREST"
+}

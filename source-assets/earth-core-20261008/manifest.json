@@ -1,0 +1,110 @@
+{
+  "low_earth_core": {
+    "source_box": [
+      0,
+      0,
+      627,
+      564
+    ],
+    "crop_bounds": [
+      138,
+      147,
+      534,
+      507
+    ],
+    "crop_size": [
+      396,
+      360
+    ],
+    "texture_size": [
+      32,
+      32
+    ],
+    "resampling": "NEAREST",
+    "icon_size": [
+      30,
+      27
+    ]
+  },
+  "mid_earth_core": {
+    "source_box": [
+      627,
+      0,
+      1254,
+      564
+    ],
+    "crop_bounds": [
+      27,
+      84,
+      565,
+      555
+    ],
+    "crop_size": [
+      538,
+      471
+    ],
+    "texture_size": [
+      32,
+      32
+    ],
+    "resampling": "NEAREST",
+    "icon_size": [
+      30,
+      26
+    ]
+  },
+  "high_earth_core": {
+    "source_box": [
+      0,
+      564,
+      627,
+      1254
+    ],
+    "crop_bounds": [
+      41,
+      42,
+      627,
+      617
+    ],
+    "crop_size": [
+      586,
+      575
+    ],
+    "texture_size": [
+      32,
+      32
+    ],
+    "resampling": "NEAREST",
+    "icon_size": [
+      30,
+      29
+    ]
+  },
+  "perfect_earth_core": {
+    "source_box": [
+      627,
+      564,
+      1254,
+      1254
+    ],
+    "crop_bounds": [
+      0,
+      23,
+      603,
+      639
+    ],
+    "crop_size": [
+      603,
+      616
+    ],
+    "texture_size": [
+      32,
+      32
+    ],
+    "resampling": "NEAREST",
+    "icon_size": [
+      29,
+      30
+    ]
+  }
+}

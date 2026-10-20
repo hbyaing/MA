@@ -1,0 +1,12 @@
+{
+  "families": 9,
+  "formations": 36,
+  "materials": 108,
+  "animatedMaterials": 36,
+  "formationLayerAtlases": 180,
+  "recipes": 36,
+  "nativeFx": 144,
+  "nativeProjects": 144,
+  "minecraftRendered": false,
+  "productionIntegrated": false
+}

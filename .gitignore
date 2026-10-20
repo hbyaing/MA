@@ -1,0 +1,13 @@
+build/
+.gradle/
+run/
+logs/
+*.class
+deliverables/
+reports/
+exports/
+output/
+mcp-classes/
+mcp-debug/
+.gradle-local/
+*.tmp

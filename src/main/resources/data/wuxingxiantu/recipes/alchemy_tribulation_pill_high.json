@@ -1,0 +1,37 @@
+{
+  "type": "wuxingxiantu:alchemy",
+  "formula_id": "wuxingxiantu:tribulation_pill",
+  "furnace_tier": 3,
+  "min_fire_tier": 3,
+  "minimum_realm": 2,
+  "ingredients": [
+    {
+      "item": "wuxingxiantu:thunder_vein_grass",
+      "count": 6
+    },
+    {
+      "item": "wuxingxiantu:adamantine_vine",
+      "count": 6
+    },
+    {
+      "item": "wuxingxiantu:clear_heart_lotus",
+      "count": 6
+    },
+    {
+      "item": "minecraft:quartz",
+      "count": 3
+    },
+    {
+      "item": "wuxingxiantu:spirit_ginseng",
+      "count": 4
+    }
+  ],
+  "aura_cost": 60,
+  "time": 4680,
+  "fire_essence_multiplier": 1.5,
+  "result": {
+    "item": "wuxingxiantu:tribulation_pill",
+    "count": 1
+  },
+  "result_grade": "HIGH"
+}

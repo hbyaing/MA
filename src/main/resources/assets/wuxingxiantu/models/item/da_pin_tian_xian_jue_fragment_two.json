@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "wuxingxiantu:item/da_pin_tian_xian_jue_fragment_two"
+  }
+}

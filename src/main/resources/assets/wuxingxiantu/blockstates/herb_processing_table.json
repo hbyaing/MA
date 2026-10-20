@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "wuxingxiantu:block/herb_processing_table",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "wuxingxiantu:block/herb_processing_table",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "wuxingxiantu:block/herb_processing_table",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "wuxingxiantu:block/herb_processing_table",
+      "y": 270
+    }
+  }
+}

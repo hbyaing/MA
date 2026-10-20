@@ -1,0 +1,77 @@
+{
+  "id": "bind",
+  "name": "定身 / 符锁",
+  "layers": [
+    {
+      "material": "chain_link",
+      "motion": "orbit",
+      "count": 12,
+      "sizeBlocks": 0.42,
+      "delayTicks": 0,
+      "lifetimeTicks": 40
+    },
+    {
+      "material": "seal_glyph",
+      "motion": "ground",
+      "count": 1,
+      "sizeBlocks": 2.3,
+      "delayTicks": 0,
+      "lifetimeTicks": 40
+    },
+    {
+      "material": "electric_arc",
+      "motion": "burst",
+      "count": 3,
+      "sizeBlocks": 1.2,
+      "delayTicks": 0,
+      "lifetimeTicks": 22
+    }
+  ],
+  "defaultPalette": "spirit",
+  "curves": {
+    "alpha": [
+      [
+        0,
+        0
+      ],
+      [
+        0.08,
+        1
+      ],
+      [
+        0.68,
+        0.8
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "size": [
+      [
+        0,
+        0.35
+      ],
+      [
+        0.18,
+        1
+      ],
+      [
+        0.8,
+        1.15
+      ],
+      [
+        1,
+        0.7
+      ]
+    ]
+  },
+  "durationTicks": 40,
+  "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+  "quality": {
+    "low": 0.35,
+    "medium": 0.65,
+    "high": 1.0
+  },
+  "recommendedMaxParticles": 128
+}

@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["SAS","ARA","SAS"],"key":{"S":{"item":"minecraft:stone"},"A":{"item":"wuxingxiantu:aura_crystal"},"R":{"item":"minecraft:redstone"}},"result":{"item":"wuxingxiantu:rune_stone","count":4}}

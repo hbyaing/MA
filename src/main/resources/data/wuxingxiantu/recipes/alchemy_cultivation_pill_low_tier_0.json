@@ -1,0 +1,30 @@
+{
+  "type": "wuxingxiantu:alchemy",
+  "formula_id": "wuxingxiantu:cultivation_pill",
+  "furnace_tier": 0,
+  "min_fire_tier": 1,
+  "minimum_realm": 0,
+  "ingredients": [
+    {
+      "item": "wuxingxiantu:spirit_ginseng",
+      "count": 2
+    },
+    {
+      "item": "wuxingxiantu:red_sun_grass",
+      "count": 2
+    },
+    {
+      "item": "minecraft:lapis_lazuli",
+      "count": 1
+    }
+  ],
+  "aura_cost": 6,
+  "time": 1200,
+  "fire_essence_multiplier": 0.75,
+  "result": {
+    "item": "wuxingxiantu:cultivation_pill",
+    "count": 1
+  },
+  "result_grade": "LOW",
+  "cultivation_tier": 0
+}
