@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#wuxingxiantu:fire_source_cold_ash",
-  "features": "wuxingxiantu:fire_source_cold_ash",
-  "step": "vegetal_decoration"
-}

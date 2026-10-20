@@ -1,9 +1,0 @@
-{
-  "blend":{"func":"add","srcrgb":"srcalpha","dstrgb":"1-srcalpha"},
-  "vertex":"wuxingxiantu:dipper_ritual_post","fragment":"wuxingxiantu:dipper_ritual_post",
-  "attributes":["Position","UV0","Color"],"samplers":[{"name":"Sampler0"},{"name":"Sampler1"}],
-  "uniforms":[
-    {"name":"TrailProjection","type":"matrix4x4","count":16,"values":[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]},
-    {"name":"OutputSize","type":"float","count":2,"values":[1,1]}
-  ]
-}

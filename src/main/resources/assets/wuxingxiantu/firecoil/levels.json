@@ -1,7 +1,0 @@
-[
- {"level":1,"strands":0.5,"width":0.68,"speed":0.70,"wisps":0.30,"embers":0.35,"intensity":0.82,"weaponWidth":0.65,"weaponStrength":0.72,"turns":0.78},
- {"level":2,"strands":0.5,"width":0.82,"speed":0.85,"wisps":0.55,"embers":0.60,"intensity":0.90,"weaponWidth":0.80,"weaponStrength":0.86,"turns":0.90},
- {"level":3,"strands":1.0,"width":0.92,"speed":1.00,"wisps":0.80,"embers":0.85,"intensity":1.00,"weaponWidth":0.92,"weaponStrength":1.00,"turns":1.00},
- {"level":4,"strands":1.0,"width":1.00,"speed":1.12,"wisps":1.00,"embers":1.00,"intensity":1.06,"weaponWidth":1.00,"weaponStrength":1.10,"turns":1.10},
- {"level":5,"strands":1.5,"width":1.06,"speed":1.24,"wisps":1.25,"embers":1.20,"intensity":1.12,"weaponWidth":1.06,"weaponStrength":1.20,"turns":1.22}
-]

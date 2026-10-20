@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "top": "wuxingxiantu:block/soul_refining_furnace_side",
-    "front": "wuxingxiantu:block/soul_refining_furnace_front_lit",
-    "side": "wuxingxiantu:block/soul_refining_furnace_side",
-    "particle": "wuxingxiantu:block/soul_refining_furnace_side"
-  }
-}

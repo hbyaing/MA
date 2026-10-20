@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "wuxingxiantu:block/peach_planks",
-    "top": "wuxingxiantu:block/peach_planks",
-    "side": "wuxingxiantu:block/peach_planks"
-  }
-}

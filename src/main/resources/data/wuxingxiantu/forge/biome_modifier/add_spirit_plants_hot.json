@@ -1,8 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#wuxingxiantu:spirit_plants_hot",
-  "features": [
-    "wuxingxiantu:red_sun_grass"
-  ],
-  "step": "vegetal_decoration"
-}

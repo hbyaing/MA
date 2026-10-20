@@ -1,8 +1,0 @@
-本模组使用了用户提供的 Occultism 1.20.1-1.158.0 灵火动画素材。
-原项目：https://github.com/klikli-dev/occultism
-版权：Copyright 2020 klikli-dev
-许可：MIT，完整许可见同目录 Occultism-MIT.txt。
-
-涉及素材：spirit_fire_0.png、spirit_fire_1.png、spirit_fire_flame.png，
-以及灵火方块的火片组合方式。运行时将原始素材调色为九阶异火。
-本模组不要求安装 Occultism，也不包含其其他玩法。

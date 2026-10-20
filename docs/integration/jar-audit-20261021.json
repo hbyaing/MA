@@ -1,8 +1,0 @@
-{
-  "passed": true,
-  "jar": "myriad-ascension-0.2.jar",
-  "sha256": "957cc06561b7b4b43990a366b6c3de92f09672b17b0c0a36496bcd0829e8e018",
-  "qaClassesExcluded": true,
-  "geckolibStubsExcluded": true,
-  "status": "development snapshot, not client-accepted release"
-}

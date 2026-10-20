@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom_left",
-  "textures": {
-    "bottom": "wuxingxiantu:block/peach_door_bottom",
-    "top": "wuxingxiantu:block/peach_door_top",
-    "particle": "wuxingxiantu:block/peach_planks"
-  }
-}

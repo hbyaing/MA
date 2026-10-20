@@ -1,3 +1,0 @@
-import fs from'node:fs/promises';import{connect,call,getText}from'./mcp.mjs';await connect();const dir='E:/五行仙途/source-assets/spirit-eater-beetle';
-for(const[name,position]of [['left_tail',[-18,6,8]],['right_tail',[18,6,8]]]){const r=await call('set_camera_angle',{position,target:[0,2.6,2.5],zoom:2.8,projection:'orthographic'});let p=r.content.find(c=>c.type==='image');if(p)await fs.writeFile(dir+'/work/'+name+'.png',Buffer.from(p.data,'base64'));}
-console.log(getText(await call('risky_eval',{code:"(()=>{return Mesh.all.filter(m=>m.name.includes('尾端护片')||m.name.includes('尾侧甲')).map(m=>({name:m.name,uuid:m.uuid,origin:m.origin,rotation:m.rotation,vertices:m.vertices}));})()"})));

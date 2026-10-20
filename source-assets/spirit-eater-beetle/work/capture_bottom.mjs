@@ -1,2 +1,0 @@
-import fs from 'node:fs/promises';import{connect,call}from'./mcp.mjs';await connect();
-for(const [name,position,target]of [['bottom',[0,-20,0],[0,2,0]],['bottom_oblique',[-12,-8,12],[0,2,0]]]){const r=await call('set_camera_angle',{position,target,projection:'orthographic',zoom:1.5});const p=r.content.find(c=>c.type==='image');if(p)await fs.writeFile('E:/五行仙途/source-assets/spirit-eater-beetle/'+name+'.png',Buffer.from(p.data,'base64'));}

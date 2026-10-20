@@ -1,7 +1,0 @@
-{
-  "tool": "built-in image_gen",
-  "id": "gale_grass",
-  "prompt": "Use case: stylized-concept. Asset: single Minecraft cultivation plant texture, mature gale_grass / 疾风草. Current texture is only species/color reference. Redesign into ONE fully mature botanical tuft of wind-bent grass. Strict 32x32 pixel-art sprite design (about 7 colors, hard flat square pixels, no finer microdetails), render the 32x32 logical grid as enlarged square blocks if a bigger image is required. A graceful fan of 7 long narrow teal/jade green sword-like blades all swept toward the upper right, dark blue-green bases, mint-green center veins, white silver 1-2 pixel terminal tips. Each blade tapers, thin transparent gaps between distinct blades, naturally rooted central base. No flowers or seed grain, no ribbons, swoosh lines or external wind symbols. Flat frontal view, no perspective, centered entire plant, occupies 27x28 logical pixels in a square canvas with a 1-pixel clear border and roots on y30. Real transparent RGBA background; hard opaque plant pixels. A final 32x32 cutout must remain readable with a dominant diagonal windward silhouette. Match vanilla Minecraft flora sprite craft, no painterly shading, no cast shadow, glow, detached particles, soil, pot, ground, background, labels, extra plants, panels, lettering or watermark.",
-  "original": "C:\\Users\\Nostzephert\\.codex\\generated_images\\01a10c01-777d-7cd2-adf4-0a07f9c554ec\\exec-62c8ff94-6a4a-40cb-8814-5d9e7b7d68c6.png",
-  "status": "review only; not installed"
-}

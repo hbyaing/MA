@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "wuxingxiantu:waste_pill"
-  },
-  "result": "wuxingxiantu:pill_ash",
-  "experience": 0,
-  "cookingtime": 200
-}

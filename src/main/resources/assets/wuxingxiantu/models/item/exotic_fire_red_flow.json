@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "wuxingxiantu:block/exotic_fire_red_flow_0"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "screen.wuxingxiantu.heavenly_aux.none": "None",
-  "screen.wuxingxiantu.heavenly_aux.chance": "Catalyst",
-  "screen.wuxingxiantu.heavenly_aux.effect": "Effect herb",
-  "screen.wuxingxiantu.heavenly_aux.output": "Yield herb",
-  "screen.wuxingxiantu.heavenly_aux.herb": "%s · %sy",
-  "screen.wuxingxiantu.heavenly_aux.summary": "Optional herbs: 1 each; none by default",
-  "screen.wuxingxiantu.heavenly_aux.instruction": "Click to cycle matching source herbs aged at least 500 years. Age follows the name. Each selected role consumes 1 herb.\nRoles cannot reuse one inventory slot. Refining uses no auxiliary herbs."
-}

@@ -1,9 +1,0 @@
-{
-  "restored_plates": 16,
-  "original_geometry_matches": true,
-  "protected_parts_unchanged": true,
-  "mesh_count": 100,
-  "eyes": 2,
-  "notes": "Restored original 16 plate meshes by name; Blockbench assigned new UUIDs. Geometry and topology compared directly. UVs repaired only; abdomen upper reference UV restored with 8 alpha-hole face repairs. Underside repairs preserved.",
-  "invalid_vertices": 0
-}
