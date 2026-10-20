@@ -37,6 +37,10 @@ public final class ModTabs {
             var builder=CreativeModeTab.builder()
                 .title(Component.translatable("itemGroup.wuxingxiantu." + category.name().toLowerCase(java.util.Locale.ROOT)))
                 .icon(icon)
+                .withBackgroundLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(GeneratedMod.MOD_ID,"textures/gui/creative/panel.png"))
+                .withTabsImage(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(GeneratedMod.MOD_ID,"textures/gui/creative/tabs.png"))
+                .withLabelColor(0x292A26)
+                .withSlotColor(0x33C6A665)
                 .displayItems((parameters, output) -> fillAll((stack, visibility) -> {
                     if (category(stack) == category) output.accept(stack, visibility);
                 }));
