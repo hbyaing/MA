@@ -1,0 +1,1274 @@
+{
+  "scope": "static recipe audit, not client acceptance",
+  "alchemyRecipes": 140,
+  "rankedRecipes": 25,
+  "rankedPerTier": {
+    "1": 5,
+    "2": 5,
+    "3": 5,
+    "4": 5,
+    "5": 5
+  },
+  "recipes": [
+    {
+      "recipe": "alchemy_aura_pill_high",
+      "formula": "wuxingxiantu:aura_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:aura_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_aura_pill_low",
+      "formula": "wuxingxiantu:aura_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:aura_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "alchemy_aura_pill_mid",
+      "formula": "wuxingxiantu:aura_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:aura_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_aura_pill_perfect",
+      "formula": "wuxingxiantu:aura_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:aura_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_berserk_pill_high",
+      "formula": "wuxingxiantu:berserk_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:berserk_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_berserk_pill_low",
+      "formula": "wuxingxiantu:berserk_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:berserk_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_berserk_pill_mid",
+      "formula": "wuxingxiantu:berserk_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:berserk_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_berserk_pill_perfect",
+      "formula": "wuxingxiantu:berserk_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:berserk_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_bigu_pill_high",
+      "formula": "wuxingxiantu:bigu_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:bigu_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_bigu_pill_low",
+      "formula": "wuxingxiantu:bigu_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:bigu_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "alchemy_bigu_pill_mid",
+      "formula": "wuxingxiantu:bigu_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:bigu_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_bigu_pill_perfect",
+      "formula": "wuxingxiantu:bigu_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:bigu_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_boar_blood_guard",
+      "formula": "wuxingxiantu:diamond_body_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:diamond_body_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_calming_pill",
+      "formula": "wuxingxiantu:calming_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:calming_pill",
+      "grade": null,
+      "furnaceTier": 0,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_clear_heart_pill_high",
+      "formula": "wuxingxiantu:clear_heart_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:clear_heart_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_clear_heart_pill_low",
+      "formula": "wuxingxiantu:clear_heart_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:clear_heart_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "alchemy_clear_heart_pill_mid",
+      "formula": "wuxingxiantu:clear_heart_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:clear_heart_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_clear_heart_pill_perfect",
+      "formula": "wuxingxiantu:clear_heart_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:clear_heart_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_continue_vein_pill_high",
+      "formula": "wuxingxiantu:continue_vein_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:continue_vein_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_continue_vein_pill_low",
+      "formula": "wuxingxiantu:continue_vein_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:continue_vein_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_continue_vein_pill_mid",
+      "formula": "wuxingxiantu:continue_vein_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:continue_vein_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_continue_vein_pill_perfect",
+      "formula": "wuxingxiantu:continue_vein_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:continue_vein_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_high_tier_0",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "HIGH",
+      "furnaceTier": 0,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_high_tier_1",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "HIGH",
+      "furnaceTier": 1,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_high_tier_2",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "HIGH",
+      "furnaceTier": 2,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_high_tier_3",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_high_tier_4",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "HIGH",
+      "furnaceTier": 4,
+      "minimumRealm": 4
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_high_tier_5",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "HIGH",
+      "furnaceTier": 5,
+      "minimumRealm": 5
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_high_tier_6",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "HIGH",
+      "furnaceTier": 5,
+      "minimumRealm": 6
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_high_tier_7",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "HIGH",
+      "furnaceTier": 5,
+      "minimumRealm": 7
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_high_tier_8",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "HIGH",
+      "furnaceTier": 5,
+      "minimumRealm": 8
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_low_tier_0",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_low_tier_1",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "LOW",
+      "furnaceTier": 1,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_low_tier_2",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "LOW",
+      "furnaceTier": 2,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_low_tier_3",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "LOW",
+      "furnaceTier": 3,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_low_tier_4",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "LOW",
+      "furnaceTier": 4,
+      "minimumRealm": 4
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_low_tier_5",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "LOW",
+      "furnaceTier": 5,
+      "minimumRealm": 5
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_low_tier_6",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "LOW",
+      "furnaceTier": 5,
+      "minimumRealm": 6
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_low_tier_7",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "LOW",
+      "furnaceTier": 5,
+      "minimumRealm": 7
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_low_tier_8",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "LOW",
+      "furnaceTier": 5,
+      "minimumRealm": 8
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_mid_tier_0",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "MID",
+      "furnaceTier": 0,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_mid_tier_1",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "MID",
+      "furnaceTier": 1,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_mid_tier_2",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_mid_tier_3",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "MID",
+      "furnaceTier": 3,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_mid_tier_4",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "MID",
+      "furnaceTier": 4,
+      "minimumRealm": 4
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_mid_tier_5",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "MID",
+      "furnaceTier": 5,
+      "minimumRealm": 5
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_mid_tier_6",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "MID",
+      "furnaceTier": 5,
+      "minimumRealm": 6
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_mid_tier_7",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "MID",
+      "furnaceTier": 5,
+      "minimumRealm": 7
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_mid_tier_8",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "MID",
+      "furnaceTier": 5,
+      "minimumRealm": 8
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_perfect_tier_0",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 0,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_perfect_tier_1",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 1,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_perfect_tier_2",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 2,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_perfect_tier_3",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 3,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_perfect_tier_4",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 4
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_perfect_tier_5",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 5,
+      "minimumRealm": 5
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_perfect_tier_6",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 5,
+      "minimumRealm": 6
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_perfect_tier_7",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 5,
+      "minimumRealm": 7
+    },
+    {
+      "recipe": "alchemy_cultivation_pill_perfect_tier_8",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:cultivation_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 5,
+      "minimumRealm": 8
+    },
+    {
+      "recipe": "alchemy_diamond_body_pill_high",
+      "formula": "wuxingxiantu:diamond_body_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:diamond_body_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_diamond_body_pill_low",
+      "formula": "wuxingxiantu:diamond_body_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:diamond_body_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_diamond_body_pill_mid",
+      "formula": "wuxingxiantu:diamond_body_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:diamond_body_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_diamond_body_pill_perfect",
+      "formula": "wuxingxiantu:diamond_body_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:diamond_body_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_foundation_pill_high",
+      "formula": "wuxingxiantu:foundation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:foundation_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_foundation_pill_low",
+      "formula": "wuxingxiantu:foundation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:foundation_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "alchemy_foundation_pill_mid",
+      "formula": "wuxingxiantu:foundation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:foundation_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_foundation_pill_perfect",
+      "formula": "wuxingxiantu:foundation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:foundation_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_gale_pill_high",
+      "formula": "wuxingxiantu:gale_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:gale_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_gale_pill_low",
+      "formula": "wuxingxiantu:gale_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:gale_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_gale_pill_mid",
+      "formula": "wuxingxiantu:gale_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:gale_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_gale_pill_perfect",
+      "formula": "wuxingxiantu:gale_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:gale_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_gathering_pill_high",
+      "formula": "wuxingxiantu:gathering_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:gathering_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_gathering_pill_low",
+      "formula": "wuxingxiantu:gathering_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:gathering_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "alchemy_gathering_pill_mid",
+      "formula": "wuxingxiantu:gathering_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:gathering_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_gathering_pill_perfect",
+      "formula": "wuxingxiantu:gathering_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:gathering_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_golden_wound_pill_high",
+      "formula": "wuxingxiantu:golden_wound_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:golden_wound_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_golden_wound_pill_low",
+      "formula": "wuxingxiantu:golden_wound_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:golden_wound_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "alchemy_golden_wound_pill_mid",
+      "formula": "wuxingxiantu:golden_wound_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:golden_wound_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_golden_wound_pill_perfect",
+      "formula": "wuxingxiantu:golden_wound_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:golden_wound_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_king_blood_guard",
+      "formula": "wuxingxiantu:diamond_body_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:diamond_body_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_physique_reset_pill_high",
+      "formula": "wuxingxiantu:physique_reset_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:physique_reset_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_physique_reset_pill_low",
+      "formula": "wuxingxiantu:physique_reset_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:physique_reset_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_physique_reset_pill_mid",
+      "formula": "wuxingxiantu:physique_reset_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:physique_reset_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_physique_reset_pill_perfect",
+      "formula": "wuxingxiantu:physique_reset_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:physique_reset_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_profound_water_pill_high",
+      "formula": "wuxingxiantu:profound_water_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:profound_water_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_profound_water_pill_low",
+      "formula": "wuxingxiantu:profound_water_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:profound_water_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_profound_water_pill_mid",
+      "formula": "wuxingxiantu:profound_water_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:profound_water_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_profound_water_pill_perfect",
+      "formula": "wuxingxiantu:profound_water_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:profound_water_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_root_earth_high",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_root_earth_low",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "alchemy_root_earth_mid",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_root_earth_perfect",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_root_fire_high",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_root_fire_low",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "alchemy_root_fire_mid",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_root_fire_perfect",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_root_gold_high",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_root_gold_low",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "alchemy_root_gold_mid",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_root_gold_perfect",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_root_water_high",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_root_water_low",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "alchemy_root_water_mid",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_root_water_perfect",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_root_wood_high",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_root_wood_low",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "alchemy_root_wood_mid",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_root_wood_perfect",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:root_awakening_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "alchemy_tribulation_pill_high",
+      "formula": "wuxingxiantu:tribulation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:tribulation_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "alchemy_tribulation_pill_low",
+      "formula": "wuxingxiantu:tribulation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:tribulation_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "alchemy_tribulation_pill_mid",
+      "formula": "wuxingxiantu:tribulation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:tribulation_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "alchemy_tribulation_pill_perfect",
+      "formula": "wuxingxiantu:tribulation_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:tribulation_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "breakthrough_pill_high",
+      "formula": "wuxingxiantu:breakthrough_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:breakthrough_pill",
+      "grade": "HIGH",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "breakthrough_pill_low",
+      "formula": "wuxingxiantu:breakthrough_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:breakthrough_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "breakthrough_pill_mid",
+      "formula": "wuxingxiantu:breakthrough_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:breakthrough_pill",
+      "grade": "MID",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "breakthrough_pill_perfect",
+      "formula": "wuxingxiantu:breakthrough_pill",
+      "medicineTier": null,
+      "result": "wuxingxiantu:breakthrough_pill",
+      "grade": "PERFECT",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "myriad_barrier_preparation_pill_tier_1",
+      "formula": "wuxingxiantu:barrier_preparation_pill",
+      "medicineTier": 1,
+      "result": "wuxingxiantu:barrier_preparation_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "myriad_barrier_preparation_pill_tier_2",
+      "formula": "wuxingxiantu:barrier_preparation_pill",
+      "medicineTier": 2,
+      "result": "wuxingxiantu:barrier_preparation_pill",
+      "grade": "LOW",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "myriad_barrier_preparation_pill_tier_3",
+      "formula": "wuxingxiantu:barrier_preparation_pill",
+      "medicineTier": 3,
+      "result": "wuxingxiantu:barrier_preparation_pill",
+      "grade": "LOW",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "myriad_barrier_preparation_pill_tier_4",
+      "formula": "wuxingxiantu:barrier_preparation_pill",
+      "medicineTier": 4,
+      "result": "wuxingxiantu:barrier_preparation_pill",
+      "grade": "LOW",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "myriad_barrier_preparation_pill_tier_5",
+      "formula": "wuxingxiantu:barrier_preparation_pill",
+      "medicineTier": 5,
+      "result": "wuxingxiantu:barrier_preparation_pill",
+      "grade": "LOW",
+      "furnaceTier": 5,
+      "minimumRealm": 4
+    },
+    {
+      "recipe": "myriad_gather_qi_pill_tier_1",
+      "formula": "wuxingxiantu:gather_qi_pill",
+      "medicineTier": 1,
+      "result": "wuxingxiantu:gather_qi_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "myriad_gather_qi_pill_tier_2",
+      "formula": "wuxingxiantu:gather_qi_pill",
+      "medicineTier": 2,
+      "result": "wuxingxiantu:gather_qi_pill",
+      "grade": "LOW",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "myriad_gather_qi_pill_tier_3",
+      "formula": "wuxingxiantu:gather_qi_pill",
+      "medicineTier": 3,
+      "result": "wuxingxiantu:gather_qi_pill",
+      "grade": "LOW",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "myriad_gather_qi_pill_tier_4",
+      "formula": "wuxingxiantu:gather_qi_pill",
+      "medicineTier": 4,
+      "result": "wuxingxiantu:gather_qi_pill",
+      "grade": "LOW",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "myriad_gather_qi_pill_tier_5",
+      "formula": "wuxingxiantu:gather_qi_pill",
+      "medicineTier": 5,
+      "result": "wuxingxiantu:gather_qi_pill",
+      "grade": "LOW",
+      "furnaceTier": 5,
+      "minimumRealm": 4
+    },
+    {
+      "recipe": "myriad_meridian_expansion_pill_tier_1",
+      "formula": "wuxingxiantu:meridian_expansion_pill",
+      "medicineTier": 1,
+      "result": "wuxingxiantu:meridian_expansion_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "myriad_meridian_expansion_pill_tier_2",
+      "formula": "wuxingxiantu:meridian_expansion_pill",
+      "medicineTier": 2,
+      "result": "wuxingxiantu:meridian_expansion_pill",
+      "grade": "LOW",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "myriad_meridian_expansion_pill_tier_3",
+      "formula": "wuxingxiantu:meridian_expansion_pill",
+      "medicineTier": 3,
+      "result": "wuxingxiantu:meridian_expansion_pill",
+      "grade": "LOW",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "myriad_meridian_expansion_pill_tier_4",
+      "formula": "wuxingxiantu:meridian_expansion_pill",
+      "medicineTier": 4,
+      "result": "wuxingxiantu:meridian_expansion_pill",
+      "grade": "LOW",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "myriad_meridian_expansion_pill_tier_5",
+      "formula": "wuxingxiantu:meridian_expansion_pill",
+      "medicineTier": 5,
+      "result": "wuxingxiantu:meridian_expansion_pill",
+      "grade": "LOW",
+      "furnaceTier": 5,
+      "minimumRealm": 4
+    },
+    {
+      "recipe": "myriad_origin_condensing_pill_tier_1",
+      "formula": "wuxingxiantu:origin_condensing_pill",
+      "medicineTier": 1,
+      "result": "wuxingxiantu:origin_condensing_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "myriad_origin_condensing_pill_tier_2",
+      "formula": "wuxingxiantu:origin_condensing_pill",
+      "medicineTier": 2,
+      "result": "wuxingxiantu:origin_condensing_pill",
+      "grade": "LOW",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "myriad_origin_condensing_pill_tier_3",
+      "formula": "wuxingxiantu:origin_condensing_pill",
+      "medicineTier": 3,
+      "result": "wuxingxiantu:origin_condensing_pill",
+      "grade": "LOW",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "myriad_origin_condensing_pill_tier_4",
+      "formula": "wuxingxiantu:origin_condensing_pill",
+      "medicineTier": 4,
+      "result": "wuxingxiantu:origin_condensing_pill",
+      "grade": "LOW",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "myriad_origin_condensing_pill_tier_5",
+      "formula": "wuxingxiantu:origin_condensing_pill",
+      "medicineTier": 5,
+      "result": "wuxingxiantu:origin_condensing_pill",
+      "grade": "LOW",
+      "furnaceTier": 5,
+      "minimumRealm": 4
+    },
+    {
+      "recipe": "myriad_rejuvenation_pill_tier_1",
+      "formula": "wuxingxiantu:rejuvenation_pill",
+      "medicineTier": 1,
+      "result": "wuxingxiantu:rejuvenation_pill",
+      "grade": "LOW",
+      "furnaceTier": 0,
+      "minimumRealm": 0
+    },
+    {
+      "recipe": "myriad_rejuvenation_pill_tier_2",
+      "formula": "wuxingxiantu:rejuvenation_pill",
+      "medicineTier": 2,
+      "result": "wuxingxiantu:rejuvenation_pill",
+      "grade": "LOW",
+      "furnaceTier": 2,
+      "minimumRealm": 1
+    },
+    {
+      "recipe": "myriad_rejuvenation_pill_tier_3",
+      "formula": "wuxingxiantu:rejuvenation_pill",
+      "medicineTier": 3,
+      "result": "wuxingxiantu:rejuvenation_pill",
+      "grade": "LOW",
+      "furnaceTier": 3,
+      "minimumRealm": 2
+    },
+    {
+      "recipe": "myriad_rejuvenation_pill_tier_4",
+      "formula": "wuxingxiantu:rejuvenation_pill",
+      "medicineTier": 4,
+      "result": "wuxingxiantu:rejuvenation_pill",
+      "grade": "LOW",
+      "furnaceTier": 4,
+      "minimumRealm": 3
+    },
+    {
+      "recipe": "myriad_rejuvenation_pill_tier_5",
+      "formula": "wuxingxiantu:rejuvenation_pill",
+      "medicineTier": 5,
+      "result": "wuxingxiantu:rejuvenation_pill",
+      "grade": "LOW",
+      "furnaceTier": 5,
+      "minimumRealm": 4
+    }
+  ]
+}
