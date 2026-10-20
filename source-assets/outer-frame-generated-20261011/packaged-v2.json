@@ -1,0 +1,40 @@
+{
+  "source": "frame-preview-v2.png",
+  "pieces": {
+    "tl": [
+      39,
+      39
+    ],
+    "tr": [
+      39,
+      39
+    ],
+    "bl": [
+      39,
+      39
+    ],
+    "br": [
+      39,
+      39
+    ],
+    "top": [
+      200,
+      9
+    ],
+    "bottom": [
+      200,
+      9
+    ],
+    "left": [
+      9,
+      200
+    ],
+    "right": [
+      9,
+      200
+    ]
+  },
+  "gui_corner": 13,
+  "gui_edge": 3,
+  "scope": "main UI outer frame only"
+}

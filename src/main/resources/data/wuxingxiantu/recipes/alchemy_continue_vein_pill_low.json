@@ -1,0 +1,33 @@
+{
+  "type": "wuxingxiantu:alchemy",
+  "formula_id": "wuxingxiantu:continue_vein_pill",
+  "furnace_tier": 0,
+  "min_fire_tier": 1,
+  "minimum_realm": 1,
+  "ingredients": [
+    {
+      "item": "wuxingxiantu:vein_mending_vine",
+      "count": 2
+    },
+    {
+      "item": "wuxingxiantu:dew_drop_flower",
+      "count": 2
+    },
+    {
+      "item": "wuxingxiantu:blood_spirit_flower",
+      "count": 2
+    },
+    {
+      "item": "minecraft:honeycomb",
+      "count": 1
+    }
+  ],
+  "aura_cost": 12,
+  "time": 1800,
+  "fire_essence_multiplier": 0.5,
+  "result": {
+    "item": "wuxingxiantu:continue_vein_pill",
+    "count": 1
+  },
+  "result_grade": "LOW"
+}

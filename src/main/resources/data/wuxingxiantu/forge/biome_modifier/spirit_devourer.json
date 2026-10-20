@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#wuxingxiantu:spirit_devourer_habitat",
+  "spawners": {
+    "type": "wuxingxiantu:spirit_devourer",
+    "weight": 6,
+    "minCount": 2,
+    "maxCount": 3
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "wuxingxiantu:block/jing_zhu_tai_top",
+    "side": "wuxingxiantu:block/jing_zhu_tai_side",
+    "bottom": "wuxingxiantu:block/jing_zhu_tai_bottom"
+  }
+}

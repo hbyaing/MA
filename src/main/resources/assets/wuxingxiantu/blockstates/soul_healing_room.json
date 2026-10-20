@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": {"model": "wuxingxiantu:block/soul_healing_room"},
+    "facing=east": {"model": "wuxingxiantu:block/soul_healing_room", "y": 90},
+    "facing=south": {"model": "wuxingxiantu:block/soul_healing_room", "y": 180},
+    "facing=west": {"model": "wuxingxiantu:block/soul_healing_room", "y": 270}
+  }
+}

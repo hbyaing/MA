@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "wuxingxiantu:item/bixue_yinqiang"
+  },
+  "gui_light": "front"
+}

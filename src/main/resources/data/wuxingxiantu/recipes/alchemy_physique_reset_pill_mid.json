@@ -1,0 +1,37 @@
+{
+  "type": "wuxingxiantu:alchemy",
+  "formula_id": "wuxingxiantu:physique_reset_pill",
+  "furnace_tier": 2,
+  "min_fire_tier": 2,
+  "minimum_realm": 3,
+  "ingredients": [
+    {
+      "item": "wuxingxiantu:dragon_scale_grass",
+      "count": 4
+    },
+    {
+      "item": "wuxingxiantu:adamantine_vine",
+      "count": 4
+    },
+    {
+      "item": "wuxingxiantu:blood_spirit_flower",
+      "count": 4
+    },
+    {
+      "item": "wuxingxiantu:vein_mending_vine",
+      "count": 4
+    },
+    {
+      "item": "minecraft:ghast_tear",
+      "count": 2
+    }
+  ],
+  "aura_cost": 256,
+  "time": 5520,
+  "fire_essence_multiplier": 1.125,
+  "result": {
+    "item": "wuxingxiantu:physique_reset_pill",
+    "count": 1
+  },
+  "result_grade": "MID"
+}

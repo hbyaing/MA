@@ -1,0 +1,25 @@
+{
+  "type": "wuxingxiantu:alchemy",
+  "formula_id": "wuxingxiantu:bigu_pill",
+  "furnace_tier": 2,
+  "min_fire_tier": 2,
+  "minimum_realm": 1,
+  "ingredients": [
+    {
+      "item": "wuxingxiantu:spirit_sprout_grass",
+      "count": 4
+    },
+    {
+      "item": "minecraft:wheat",
+      "count": 2
+    }
+  ],
+  "aura_cost": 12,
+  "time": 1380,
+  "fire_essence_multiplier": 0.75,
+  "result": {
+    "item": "wuxingxiantu:bigu_pill",
+    "count": 1
+  },
+  "result_grade": "MID"
+}

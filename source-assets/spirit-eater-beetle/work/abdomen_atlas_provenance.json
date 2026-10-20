@@ -1,0 +1,14 @@
+{
+  "size": [
+    1024,
+    512
+  ],
+  "sources": [
+    "背面新参考.png",
+    "reference.png"
+  ],
+  "method": "continuous lat-long bake, manually isolated skin masks, blended reference pixels",
+  "added_artwork": false,
+  "uv_seam": "front, under thorax",
+  "opaque_skin": true
+}

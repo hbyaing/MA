@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "wuxingxiantu:block/spirit_dismantling_furnace_side",
+    "front": "wuxingxiantu:block/spirit_dismantling_furnace_front",
+    "side": "wuxingxiantu:block/spirit_dismantling_furnace_side",
+    "particle": "wuxingxiantu:block/spirit_dismantling_furnace_side"
+  }
+}

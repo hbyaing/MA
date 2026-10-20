@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "wuxingxiantu:item/origin_condensing_pill"
+  }
+}

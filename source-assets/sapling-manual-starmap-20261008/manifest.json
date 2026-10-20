@@ -1,0 +1,107 @@
+{
+  "peach_sapling": {
+    "source_size": [
+      1254,
+      1254
+    ],
+    "crop_bounds": [
+      323,
+      287,
+      1050,
+      1053
+    ],
+    "icon_size": [
+      57,
+      60
+    ],
+    "texture_size": [
+      64,
+      64
+    ],
+    "resampling": "NEAREST"
+  },
+  "wanfa_guizong": {
+    "source_size": [
+      1254,
+      1254
+    ],
+    "crop_bounds": [
+      111,
+      93,
+      1186,
+      1119
+    ],
+    "icon_size": [
+      60,
+      57
+    ],
+    "texture_size": [
+      64,
+      64
+    ],
+    "resampling": "NEAREST"
+  },
+  "gangdou_starmap": {
+    "source_size": [
+      1254,
+      1254
+    ],
+    "crop_bounds": [
+      18,
+      177,
+      1238,
+      1080
+    ],
+    "icon_size": [
+      60,
+      44
+    ],
+    "texture_size": [
+      64,
+      64
+    ],
+    "resampling": "NEAREST"
+  },
+  "ri_yue_ting_lun_fragment": {
+    "source_size": [
+      1254,
+      1254
+    ],
+    "crop_bounds": [
+      43,
+      67,
+      1234,
+      1206
+    ],
+    "icon_size": [
+      60,
+      57
+    ],
+    "texture_size": [
+      64,
+      64
+    ],
+    "resampling": "NEAREST"
+  },
+  "zhonglv_fragment": {
+    "source_size": [
+      1254,
+      1254
+    ],
+    "crop_bounds": [
+      167,
+      8,
+      1215,
+      1231
+    ],
+    "icon_size": [
+      103,
+      120
+    ],
+    "texture_size": [
+      128,
+      128
+    ],
+    "resampling": "NEAREST"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "low_gold_marrow": {
+    "source_box": [
+      0,
+      0,
+      520,
+      724
+    ],
+    "crop_bounds": [
+      65,
+      195,
+      405,
+      570
+    ],
+    "crop_size": [
+      340,
+      375
+    ],
+    "texture_size": [
+      32,
+      32
+    ],
+    "resampling": "NEAREST"
+  },
+  "mid_gold_marrow": {
+    "source_box": [
+      520,
+      0,
+      1060,
+      724
+    ],
+    "crop_bounds": [
+      57,
+      145,
+      459,
+      603
+    ],
+    "crop_size": [
+      402,
+      458
+    ],
+    "texture_size": [
+      32,
+      32
+    ],
+    "resampling": "NEAREST"
+  },
+  "high_gold_marrow": {
+    "source_box": [
+      1060,
+      0,
+      1600,
+      724
+    ],
+    "crop_bounds": [
+      53,
+      98,
+      485,
+      619
+    ],
+    "crop_size": [
+      432,
+      521
+    ],
+    "texture_size": [
+      32,
+      32
+    ],
+    "resampling": "NEAREST"
+  },
+  "perfect_gold_marrow": {
+    "source_box": [
+      1600,
+      0,
+      2172,
+      724
+    ],
+    "crop_bounds": [
+      38,
+      48,
+      543,
+      648
+    ],
+    "crop_size": [
+      505,
+      600
+    ],
+    "texture_size": [
+      32,
+      32
+    ],
+    "resampling": "NEAREST"
+  }
+}

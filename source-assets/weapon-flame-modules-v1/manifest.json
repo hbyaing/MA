@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "created": "2026-09-28",
+  "generator": "built-in image_gen",
+  "status": "integrated into Java weapon flame renderer; modular-v1 client capture completed",
+  "sprites": [
+    {
+      "file": "main_arc.png",
+      "size": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        25,
+        9,
+        2106,
+        702
+      ],
+      "region_px_exclusive_max": [
+        95,
+        84,
+        2078,
+        690
+      ],
+      "uv_top_left_origin": [
+        0.043738,
+        0.116022,
+        0.956722,
+        0.953039
+      ],
+      "pivot_in_full_image_uv": [
+        0.50023,
+        0.53453
+      ],
+      "region_aspect_ratio": 3.272277,
+      "suggested_visible_length_relative_to_main": 1.0,
+      "transparent_fraction": 0.653511,
+      "sha256": "828c8dc598b41f2deac5b422e89f456de920d4a0f6769476c5233055a51d6043"
+    },
+    {
+      "file": "transition_arc.png",
+      "size": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        145,
+        21,
+        1655,
+        808
+      ],
+      "region_px_exclusive_max": [
+        146,
+        232,
+        1628,
+        675
+      ],
+      "uv_top_left_origin": [
+        0.0823,
+        0.261556,
+        0.9177,
+        0.760992
+      ],
+      "pivot_in_full_image_uv": [
+        0.5,
+        0.511274
+      ],
+      "region_aspect_ratio": 3.345372,
+      "suggested_visible_length_relative_to_main": 0.6,
+      "transparent_fraction": 0.768653,
+      "sha256": "1bc396c7029fcecc195ca42966220a52ba7ee827f2261820a961803878333878"
+    },
+    {
+      "file": "tail_fragment.png",
+      "size": [
+        1585,
+        992
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        593,
+        308,
+        1317,
+        644
+      ],
+      "region_px_exclusive_max": [
+        593,
+        388,
+        992,
+        644
+      ],
+      "uv_top_left_origin": [
+        0.374132,
+        0.391129,
+        0.625868,
+        0.649194
+      ],
+      "pivot_in_full_image_uv": [
+        0.5,
+        0.520161
+      ],
+      "region_aspect_ratio": 1.558594,
+      "suggested_visible_length_relative_to_main": 0.22,
+      "transparent_fraction": 0.959777,
+      "sha256": "e3abf2ea290d8d2abc78761bdf06c6ada549218186b2c24da946898262f3d923"
+    },
+    {
+      "file": "scatter_particle.png",
+      "size": [
+        1484,
+        1060
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        170,
+        151,
+        1454,
+        970
+      ],
+      "region_px_exclusive_max": [
+        375,
+        225,
+        1186,
+        831
+      ],
+      "uv_top_left_origin": [
+        0.252695,
+        0.212264,
+        0.799191,
+        0.783962
+      ],
+      "pivot_in_full_image_uv": [
+        0.525943,
+        0.498113
+      ],
+      "region_aspect_ratio": 1.338284,
+      "suggested_visible_length_relative_to_main": 0.12,
+      "transparent_fraction": 0.832668,
+      "sha256": "277089e8fc43855c88d5e8d01f92be1f7b691534ddbd206376d33e3abee42d24"
+    }
+  ]
+}

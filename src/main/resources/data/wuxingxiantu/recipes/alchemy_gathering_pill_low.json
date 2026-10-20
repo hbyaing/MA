@@ -1,0 +1,29 @@
+{
+  "type": "wuxingxiantu:alchemy",
+  "formula_id": "wuxingxiantu:gathering_pill",
+  "furnace_tier": 0,
+  "min_fire_tier": 1,
+  "minimum_realm": 0,
+  "ingredients": [
+    {
+      "item": "wuxingxiantu:spirit_ginseng",
+      "count": 2
+    },
+    {
+      "item": "wuxingxiantu:spirit_sprout_grass",
+      "count": 2
+    },
+    {
+      "item": "minecraft:lapis_lazuli",
+      "count": 1
+    }
+  ],
+  "aura_cost": 4,
+  "time": 1800,
+  "fire_essence_multiplier": 0.5,
+  "result": {
+    "item": "wuxingxiantu:gathering_pill",
+    "count": 1
+  },
+  "result_grade": "LOW"
+}

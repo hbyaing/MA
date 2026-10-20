@@ -1,0 +1,19 @@
+{
+  "blend": {"func": "add", "srcrgb": "srcalpha", "dstrgb": "one"},
+  "vertex": "wuxingxiantu:spirit_guard_cloud",
+  "fragment": "wuxingxiantu:spirit_guard_cloud",
+  "attributes": ["Position", "Color", "UV0", "UV1", "UV2", "Normal"],
+  "samplers": [{"name": "Sampler0"}, {"name": "Sampler1"}, {"name":"SceneDepth"}],
+  "uniforms": [
+    {"name":"SceneDepthEnabled","type":"float","count":1,"values":[0]},
+    {"name":"GuardClipMat","type":"matrix4x4","count":16,"values":[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]},
+    {"name":"ColorModulator","type":"float","count":4,"values":[1,1,1,1]},
+    {"name":"EffectTime","type":"float","count":1,"values":[0]},
+    {"name":"HitAge","type":"float","count":1,"values":[-1]},
+    {"name":"HitPosition","type":"float","count":3,"values":[0,0,0]},
+    {"name":"HitNormal","type":"float","count":3,"values":[0,0,1]},
+    {"name":"Intensity","type":"float","count":1,"values":[1]},
+    {"name":"CloudEnabled","type":"float","count":1,"values":[1]},
+    {"name":"GuardLevel","type":"float","count":1,"values":[3]}
+  ]
+}

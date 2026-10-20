@@ -1,0 +1,7 @@
+Built-in image_gen
+
+First pass:
+Create a production-ready isolated OUTERMOST WINDOW BORDER asset for the Chinese cultivation game UI in the reference. The reference screenshot is STYLE REFERENCE ONLY. Output ONLY one elegant rectangular gold frame, landscape aspect ratio about 1.65:1, viewed perfectly straight-on. Entire inner area and exterior must be genuine transparent alpha. No screenshot content, no text, no icons, no scenery, no opaque backing. Refined warm antique gold, delicate continuous double hairline rails, subtle restrained metallic bevel, clean sharp edges, uniform thin thickness on all four sides. Four modest Chinese geometric cloud/meander corner ornaments, EXACT mirrored symmetry: same motif reflected across horizontal and vertical axes, about 3% of frame width each, fully inside rectangular footprint. Straight rails connect corners cleanly without breaks. No center diamonds or middle ornaments. No broad solid bands, no chunky pixel noise, no heavy bloom or shadow. Spacious empty transparent center. Design must remain readable as a thin outer border on existing dark blue and parchment panels. Leave small transparent margin around full frame so nothing clipped. This is a reusable game sprite, not a UI mockup.
+
+Refinement:
+undefined

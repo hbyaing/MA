@@ -1,0 +1,16 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>万界仙途 · 炼丹工作台</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;padding:24px;background:#07151c;color:#e6d9bc;font:15px system-ui}header{display:flex;gap:24px;align-items:baseline}a{color:#dfbd77}h1{font-size:22px;font-weight:500}main{display:grid;grid-template-columns:minmax(700px,1fr) 260px;gap:24px}.preview{overflow:auto}#stage{position:relative;width:840px;height:640px}canvas{image-rendering:pixelated;display:block}#controls{position:absolute;inset:0;pointer-events:none}#controls button{position:absolute;pointer-events:auto;background:transparent;border:0;color:transparent;cursor:pointer}#controls button:focus-visible{outline:2px solid #8cdee3;outline-offset:-4px}#controls button:disabled{cursor:default}aside{border:1px solid #5e5136;border-radius:10px;padding:18px;background:#10232c}label{display:block;margin-bottom:16px}select,input{display:block;width:100%;margin-top:8px}aside button{background:#233c43;border:1px solid #9c804c;color:#ebd29d;padding:10px;margin:4px 0;width:100%;border-radius:5px}#status{line-height:1.8;color:#a7c7c7}.note{color:#9eb1b1;line-height:1.7}details{margin-top:24px}#ref{max-width:960px;width:100%}#crops{display:flex;gap:16px;flex-wrap:wrap;margin:20px 0}#crops figure{margin:0;background:#122832;padding:10px}#crops canvas{margin-top:8px}footer{color:#90a7a7;margin-top:24px} @media(max-width:1100px){main{display:block}aside{margin-top:20px;max-width:840px}}
+</style>
+<header><h1>万界仙途 · 炼丹工作台</h1><a href="/">返回统一入口</a></header>
+<style>#stage{max-width:100%}#view{width:100%;height:100%}</style>
+<p class="note">使用游戏正式部件与相同坐标；此处为交互预览，实机文字由 Minecraft 原生控件绘制。</p>
+<main><section class="preview"><div id="stage"><canvas id="view" width="840" height="640" aria-label="炼丹界面预览"></canvas><div id="controls"></div></div><div id="crops"></div></section>
+<aside><label>显示缩放<select id="scale"><option value="1">1 倍</option><option value="2" selected>2 倍</option><option value="3">3 倍</option></select></label>
+<label>界面状态<select id="state"><option value="ready">准备就绪</option><option value="brewing">炼制中</option><option value="missing">材料不足</option><option value="lowfuel">异火将熄</option><option value="complete">炼制完成</option></select></label>
+<label>炼制进度<input id="progress" type="range" min="0" max="1000" value="330"></label>
+<label>按钮检查<select id="appearance"><option value="normal">普通</option><option value="hover">悬停</option><option value="disabled">禁用</option><option value="focus">键盘焦点</option></select></label>
+<button id="play">播放 / 暂停</button><button id="restart">重置一炉</button><button id="save">导出当前预览 PNG</button><button id="export">导出状态 JSON</button><p id="status"></p>
+<p class="note">阶段：温炉 → 淬药 → 融药 → 凝丹。每阶段一次控火，指针进入金色区间时操作；长按注灵独立保留。预览结果不写入游戏。</p></aside></main>
+<details><summary>已批准设计参考</summary><img id="ref" src="approved-preview.png" alt="用户批准的炼丹控火布局概念图"></details>
+<footer>版本来源：本地五行仙途正式资源。保留八槽、三栏、外框与丹炉规则。</footer><script src="workbench.js"></script></html>

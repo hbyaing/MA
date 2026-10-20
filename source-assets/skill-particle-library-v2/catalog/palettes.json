@@ -1,0 +1,170 @@
+{
+  "spirit": [
+    "灵力白青",
+    "#A7F0FF",
+    "#EFFFFF",
+    "#377DC8"
+  ],
+  "metal": [
+    "金",
+    "#FFD167",
+    "#FFF3BD",
+    "#AA702D"
+  ],
+  "wood": [
+    "木",
+    "#79DFA0",
+    "#E2FFD5",
+    "#2A886F"
+  ],
+  "water": [
+    "水",
+    "#64CFEF",
+    "#DEF8FF",
+    "#356EC5"
+  ],
+  "fire": [
+    "火",
+    "#FF793D",
+    "#FFF0AA",
+    "#BA293B"
+  ],
+  "earth": [
+    "土",
+    "#D1AC70",
+    "#FFF0C3",
+    "#775843"
+  ],
+  "thunder": [
+    "雷",
+    "#A88DFF",
+    "#F0EEFF",
+    "#5B65D5"
+  ],
+  "wind": [
+    "风",
+    "#B6E4D9",
+    "#F0FFFF",
+    "#4C9EAF"
+  ],
+  "blood": [
+    "气血",
+    "#EE5870",
+    "#FFD5AF",
+    "#882D50"
+  ],
+  "muyan": [
+    "目魇·幻虹",
+    "#DA78FF",
+    "#D5FDFF",
+    "#7545C3"
+  ],
+  "ermei": [
+    "耳魅·声纹",
+    "#76DAE8",
+    "#E8FFFF",
+    "#4276B8"
+  ],
+  "bichen": [
+    "鼻嗔·毒瘴",
+    "#8FC657",
+    "#E8EAB6",
+    "#5C7140"
+  ],
+  "shetao": [
+    "舌饕·五味",
+    "#F18A86",
+    "#FFDA9D",
+    "#AA475D"
+  ],
+  "shenyin": [
+    "身淫·晶莲",
+    "#EE9DDF",
+    "#F5EDFF",
+    "#AA64BC"
+  ],
+  "yihuo": [
+    "意惑·镜念",
+    "#AB83E8",
+    "#E9E6FF",
+    "#614986"
+  ],
+  "pengju": [
+    "彭倨·金颅",
+    "#FFD167",
+    "#FFF1AC",
+    "#AE7B36"
+  ],
+  "pengzhi": [
+    "彭质·腐酿",
+    "#CC786A",
+    "#F3C193",
+    "#75444D"
+  ],
+  "pengjiao": [
+    "彭矫·五气",
+    "#97DCF2",
+    "#E6FFFF",
+    "#5689AD"
+  ],
+  "heart_demon": [
+    "心魔·无相",
+    "#C786ED",
+    "#FFD9EF",
+    "#69386D"
+  ],
+  "fire_red_flow": [
+    "异火·赤炎流火",
+    "#FF7420",
+    "#FFF0BB",
+    "#B92B16"
+  ],
+  "fire_molten_gold": [
+    "异火·熔金淬火",
+    "#FFAA28",
+    "#FFF6AC",
+    "#AD5216"
+  ],
+  "fire_cold_ash": [
+    "异火·枯骨冷火",
+    "#D2D2B4",
+    "#E1E1D0",
+    "#777D83"
+  ],
+  "fire_azure_wood": [
+    "异火·青木灵火",
+    "#3CC882",
+    "#C2FFD8",
+    "#17634D"
+  ],
+  "fire_cobalt_sea": [
+    "异火·碧海沧火",
+    "#32A0FF",
+    "#E8FBFF",
+    "#1C477C"
+  ],
+  "fire_violet_thunder": [
+    "异火·紫霄雷火",
+    "#AA50FF",
+    "#EACDFF",
+    "#472074"
+  ],
+  "fire_sun_saint": [
+    "异火·大日圣火",
+    "#FFFADC",
+    "#FFFFFF",
+    "#B49349"
+  ],
+  "fire_nether_void": [
+    "异火·九幽冥火",
+    "#280A3C",
+    "#764897",
+    "#10051B"
+  ],
+  "fire_nirvana": [
+    "异火·涅槃神火",
+    "#40E0D0",
+    "#F4FFFF",
+    "#235B68"
+  ]
+}

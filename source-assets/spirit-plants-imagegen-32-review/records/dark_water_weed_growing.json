@@ -1,0 +1,12 @@
+{
+  "id": "dark_water_weed_growing",
+  "stage": "growing",
+  "tool": "built-in image_gen",
+  "prompt": "Use case: stylized-concept. Generate exactly ONE growing (middle, not mature) Minecraft plant texture of dark_water_weed 玄水藻 using the provided NEW mature sprite as the identity and palette reference. This is a separate independent sprite. Dark navy stems, cobalt blue frond edges, pale icy cyan frond tips; 4-5 medium curling main fronds and developing forked side shoots, less branching and less height than the mature reference, fuller than a seedling. Genuine 32×32 logical-pixel art displayed large by nearest-neighbor enlargement: big consistent square pixels, each colored tile exactly one cell of a 32x32 grid; compact 8-12 solid colors, opaque pixels, hard stair-step silhouette, simple readable pixel clusters. Single frontal complete plant on actual transparent square canvas; root base at logical (16,30); height 26 logical pixels, top at logical y5, matching the reference bottom alignment. No detached motifs. No ground, shadows, water, scenery, text, grid, labels, border, aura, haze, particles, anti-aliasing, translucent outlines, gradients, smooth illustration or multiple plants. Preserve species visual identity while showing clear middle-stage development.",
+  "reference_paths": [
+    "E:\\五行仙途\\source-assets\\spirit-plants-imagegen-32-review\\generated\\dark_water_weed.png"
+  ],
+  "original_path": "C:\\Users\\Nostzephert\\.codex\\generated_images\\01a10c03-6518-7610-a181-300634dc795b\\exec-8308c535-5c92-4fa9-87c3-2acf929d7909.png",
+  "saved_path": "E:\\五行仙途\\source-assets\\spirit-plants-imagegen-32-review\\generated\\dark_water_weed_growing.png",
+  "status": "generated; source untouched"
+}

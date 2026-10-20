@@ -1,0 +1,4628 @@
+{
+  "schemaVersion": 1,
+  "sourceDate": "2026-09-29",
+  "entries": [
+    {
+      "id": "art_sword_aura",
+      "name": "剑气斩",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 21,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 1,
+        "type": "ATTACK",
+        "description": "剑气凝于身前，对前方敌对生物造成斩击伤害。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "sword_cut",
+        "palette": "spirit",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_renewal",
+      "name": "回春术",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 22,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 1,
+        "type": "HEALING",
+        "description": "引导木灵力，恢复自身生命。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "heal",
+        "palette": "wood",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_spirit_shield",
+      "name": "灵力护盾",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 23,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 1,
+        "type": "DEFENSE",
+        "description": "凝聚灵力护盾，吸收即将受到的伤害。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "shield",
+        "palette": "spirit",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_immobilize",
+      "name": "定身咒",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 24,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 1,
+        "type": "CONTROL",
+        "description": "以灵力束缚目标，使前方敌对生物短暂定身。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "bind",
+        "palette": "metal",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_light_body",
+      "name": "轻身术",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 25,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 1,
+        "type": "BUFF",
+        "description": "减轻身躯，短时间提升移动速度。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "wind",
+        "palette": "wind",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_golden_bell",
+      "name": "金钟罩",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 26,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 2,
+        "type": "DEFENSE",
+        "description": "金钟护体，获得更强的吸收护盾。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "shield",
+        "palette": "metal",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_ice_spike",
+      "name": "冰锥术",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 27,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 2,
+        "type": "ATTACK",
+        "description": "凝结冰刺，对范围内敌对生物造成伤害并减速。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "ice",
+        "palette": "water",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_spirit_gathering",
+      "name": "聚灵术",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 28,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 2,
+        "type": "BUFF",
+        "description": "聚拢周身灵力，获得持续恢复效果。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "gather",
+        "palette": "wood",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_armor_break",
+      "name": "破甲斩",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 29,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 2,
+        "type": "ATTACK",
+        "description": "以锋锐灵力破开护甲，对敌对生物造成伤害。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "sword_cut",
+        "palette": "metal",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_flame_wave",
+      "name": "烈焰波",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 30,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 3,
+        "type": "ATTACK",
+        "description": "释放环形烈焰，灼烧范围内敌对生物。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "flame",
+        "palette": "fire",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_flash_step",
+      "name": "闪现",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 31,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 3,
+        "type": "SPECIAL",
+        "description": "借空间灵力向视线方向闪身，并获得短暂迅捷。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "blink",
+        "palette": "thunder",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_purification",
+      "name": "净化术",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 32,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 3,
+        "type": "HEALING",
+        "description": "净化自身伤势并恢复生命。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "heal",
+        "palette": "spirit",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_bloodlust",
+      "name": "嗜血术",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 33,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 3,
+        "type": "BUFF",
+        "description": "激发血气，短时间提高攻击威力。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "blood",
+        "palette": "blood",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_thunder",
+      "name": "雷霆万钧",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 34,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 3,
+        "type": "CONTROL",
+        "description": "引落雷霆，打击并强力迟滞范围内敌对生物。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "thunder",
+        "palette": "thunder",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_myriad_swords",
+      "name": "万剑诀",
+      "category": "御剑剑技",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 35,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 4,
+        "type": "ATTACK",
+        "description": "召来万剑，对大范围敌对生物造成重击。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。",
+        "sword_technique": {
+          "name": "万剑诀",
+          "description": "顶级多目标剑阵",
+          "requiredTier": 5,
+          "requiredStage": 4,
+          "mana": 48,
+          "cooldown": 120,
+          "maxShadows": 12
+        }
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/yujian/SwordTechniqueRegistry.java",
+        "line": 15,
+        "sha256": "712be6ec23c3c3d7d231897007f6cbee8e5c967e58bc3785962eb5ce7b65dec5"
+      },
+      "design": {
+        "recipe": "sword_rain",
+        "palette": "metal",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_immovable_mountain",
+      "name": "不动如山",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 36,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 4,
+        "type": "DEFENSE",
+        "description": "山岳之势护体，获得强力吸收护盾。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "earth",
+        "palette": "earth",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_human_harmony",
+      "name": "天人合一",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 37,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 4,
+        "type": "BUFF",
+        "description": "天人相合，短时间提升自身攻击威力。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "gather",
+        "palette": "wood",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_five_elements",
+      "name": "五行灭世",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 38,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 4,
+        "type": "ATTACK",
+        "description": "五行合击，对大范围敌对生物释放毁灭性灵力。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "five_elements",
+        "palette": "pengjiao",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_sword_pierce",
+      "name": "飞星贯日诀",
+      "category": "御剑剑技",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 39,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 1,
+        "type": "ATTACK",
+        "description": "飞星贯日：役使背包中最多六把剑，离阵抬升后突刺准心目标，命中后归阵。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。",
+        "sword_technique": {
+          "name": "飞星贯日",
+          "description": "远程单体追击与贯穿",
+          "requiredTier": 0,
+          "requiredStage": 0,
+          "mana": 12,
+          "cooldown": 24,
+          "maxShadows": 1
+        }
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/yujian/SwordTechniqueRegistry.java",
+        "line": 11,
+        "sha256": "712be6ec23c3c3d7d231897007f6cbee8e5c967e58bc3785962eb5ce7b65dec5"
+      },
+      "design": {
+        "recipe": "sword_pierce",
+        "palette": "spirit",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_sword_sweep",
+      "name": "回风环刃诀",
+      "category": "御剑剑技",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 40,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 2,
+        "type": "ATTACK",
+        "description": "回风环刃：最多六剑环绕三周，斩击附近敌人后归阵。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。",
+        "sword_technique": {
+          "name": "回风环刃",
+          "description": "近身范围环斩",
+          "requiredTier": 1,
+          "requiredStage": 0,
+          "mana": 18,
+          "cooldown": 32,
+          "maxShadows": 6
+        }
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/yujian/SwordTechniqueRegistry.java",
+        "line": 12,
+        "sha256": "712be6ec23c3c3d7d231897007f6cbee8e5c967e58bc3785962eb5ce7b65dec5"
+      },
+      "design": {
+        "recipe": "sword_orbit",
+        "palette": "wind",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_sword_guard",
+      "name": "六御金罡诀",
+      "category": "御剑剑技",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 41,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 2,
+        "type": "DEFENSE",
+        "description": "六御金罡：最多六剑护身8秒，减免伤害并反弹投射物；灵剑不消耗耐久。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。",
+        "sword_technique": {
+          "name": "六御金罡",
+          "description": "防御剑阵",
+          "requiredTier": 1,
+          "requiredStage": 1,
+          "mana": 20,
+          "cooldown": 48,
+          "maxShadows": 6
+        }
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/yujian/SwordTechniqueRegistry.java",
+        "line": 13,
+        "sha256": "712be6ec23c3c3d7d231897007f6cbee8e5c967e58bc3785962eb5ce7b65dec5"
+      },
+      "design": {
+        "recipe": "sword_orbit",
+        "palette": "metal",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_sword_array",
+      "name": "太虚落剑诀",
+      "category": "御剑剑技",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 42,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 4,
+        "type": "ATTACK",
+        "description": "太虚落剑：最多六剑在准心处结阵、轮流降下，末段聚击后归阵。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。",
+        "sword_technique": {
+          "name": "太虚落剑",
+          "description": "区域连续落剑",
+          "requiredTier": 2,
+          "requiredStage": 2,
+          "mana": 48,
+          "cooldown": 72,
+          "maxShadows": 6
+        }
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/yujian/SwordTechniqueRegistry.java",
+        "line": 14,
+        "sha256": "712be6ec23c3c3d7d231897007f6cbee8e5c967e58bc3785962eb5ce7b65dec5"
+      },
+      "design": {
+        "recipe": "sword_rain",
+        "palette": "thunder",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "art_sword_flight",
+      "name": "御剑凌霄诀",
+      "category": "功法",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java",
+        "line": 45,
+        "sha256": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6"
+      },
+      "facts": {
+        "tier": 2,
+        "type": "SPECIAL",
+        "description": "御剑凌霄：手持灵剑御剑飞行，凌空能力由灵剑的高级御剑阶段决定。",
+        "implementation": "network/packet/cultivation/ArtReleasePacket.java",
+        "reality_note": "普通攻击分支使用玩家 AABB 扩张范围结算；粒子造型不代表新增弹道。御剑剑技走独立控制器。"
+      },
+      "design": {
+        "recipe": "wind",
+        "palette": "spirit",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "fa_tian_xiang_di",
+      "name": "法天象地",
+      "category": "神通",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/DivineArtCatalog.java",
+        "line": 12,
+        "sha256": "0330a18f75f626525317549cf9f1c19a44ece245de7a743b5cd3bb338cc20692"
+      },
+      "facts": {
+        "requiredRealm": 3,
+        "cooldownTicks": 12000,
+        "item": "daode_jing_fragment",
+        "description": "体型、跳跃高度与触及距离×5；伤害+50%，生命+100%，护甲+20，抗性IV，免疫击退；移速-30%且无法疾跑。启动消耗%1$s灵力，维持每秒%2$s灵力。",
+        "implementation": "DivineArtLogic.java"
+      },
+      "design": {
+        "recipe": "earth",
+        "palette": "metal",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "ta_gang_bu_dou",
+      "name": "踏罡步斗",
+      "category": "神通",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/DivineArtCatalog.java",
+        "line": 13,
+        "sha256": "0330a18f75f626525317549cf9f1c19a44ece245de7a743b5cd3bb338cc20692"
+      },
+      "facts": {
+        "requiredRealm": 2,
+        "cooldownTicks": 6000,
+        "item": "gangdou_starmap",
+        "description": "踏罡七星，依次走过七星改变晴天、雨天与雷暴；星环持续15秒。释放消耗%1$s灵力。",
+        "implementation": "DivineArtLogic.java"
+      },
+      "design": {
+        "recipe": "dipper",
+        "palette": "thunder",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "yuan_shen_chu_qiao",
+      "name": "元神出窍",
+      "category": "神通",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/DivineArtCatalog.java",
+        "line": 14,
+        "sha256": "0330a18f75f626525317549cf9f1c19a44ece245de7a743b5cd3bb338cc20692"
+      },
+      "facts": {
+        "requiredRealm": 4,
+        "cooldownTicks": 6000,
+        "item": "zhonglv_fragment",
+        "description": "灵魂离体，可飞行和穿越地形，不可攻击或交互。启动%1$s灵力，维持每秒%2$s灵力，距本体最远128格。",
+        "implementation": "DivineArtLogic.java"
+      },
+      "design": {
+        "recipe": "soul",
+        "palette": "spirit",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "yi_hun_ji_po",
+      "name": "移魂寄魄",
+      "category": "神通",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/DivineArtCatalog.java",
+        "line": 15,
+        "sha256": "0330a18f75f626525317549cf9f1c19a44ece245de7a743b5cd3bb338cc20692"
+      },
+      "facts": {
+        "requiredRealm": 5,
+        "cooldownTicks": 12000,
+        "item": "yin_fu_jing_yi_shen_fragment",
+        "description": "留下一个本体，以半透明灵魂移动；右键生灵寄魄，按X解除附身。游离时右键自己的本体可收束神通。启动%1$s灵力，维持每秒%2$s灵力，距本体最远128格。",
+        "implementation": "DivineArtLogic.java"
+      },
+      "design": {
+        "recipe": "tether",
+        "palette": "thunder",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "qi_shi_er_bian",
+      "name": "七十二变",
+      "category": "神通",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/DivineArtCatalog.java",
+        "line": 16,
+        "sha256": "0330a18f75f626525317549cf9f1c19a44ece245de7a743b5cd3bb338cc20692"
+      },
+      "facts": {
+        "requiredRealm": 5,
+        "cooldownTicks": 6000,
+        "item": "da_pin_tian_xian_jue_fragment_one",
+        "description": "变化为移魂寄魄记录的生灵；按Z收束，按C切换形态。确认变化消耗%1$s灵力。",
+        "implementation": "DivineArtLogic.java"
+      },
+      "design": {
+        "recipe": "mirror",
+        "palette": "wood",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "jin_dou_yun",
+      "name": "筋斗云",
+      "category": "神通",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/DivineArtCatalog.java",
+        "line": 17,
+        "sha256": "0330a18f75f626525317549cf9f1c19a44ece245de7a743b5cd3bb338cc20692"
+      },
+      "facts": {
+        "requiredRealm": 5,
+        "cooldownTicks": 6000,
+        "item": "da_pin_tian_xian_jue_fragment_two",
+        "description": "驾云飞行，飞行速度提高1000%；再次释放收束。启动消耗%1$s灵力。",
+        "implementation": "DivineArtLogic.java"
+      },
+      "design": {
+        "recipe": "cloud",
+        "palette": "wind",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "ri_yue_ting_lun",
+      "name": "日月停轮",
+      "category": "神通",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/DivineArtCatalog.java",
+        "line": 18,
+        "sha256": "0330a18f75f626525317549cf9f1c19a44ece245de7a743b5cd3bb338cc20692"
+      },
+      "facts": {
+        "requiredRealm": 5,
+        "cooldownTicks": 12000,
+        "item": "ri_yue_ting_lun_fragment",
+        "description": "日月停轮：使半径24格内非玩家实体停止行动6秒；施术者仍可移动攻击，再次释放收束。启动消耗%1$s灵力。",
+        "implementation": "DivineArtLogic.java"
+      },
+      "design": {
+        "recipe": "eclipse",
+        "palette": "metal",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "heart_method_yuan_hun",
+      "name": "心法·混元心法",
+      "category": "心法·被动",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java",
+        "line": 10,
+        "sha256": "4cd9e382c3288d2d35e1b5165fbfdebc49e781e4e4b5674af9c5a6a00835fda2"
+      },
+      "facts": {
+        "description": "灵力上限与修为获取略有提升",
+        "reality_note": "心法为被动系统；本库提供修炼/激活外观建议，不声称源码已有主动施放技能。"
+      },
+      "design": {
+        "recipe": "gather",
+        "palette": "spirit",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "heart_method_gathering",
+      "name": "心法·聚灵心法",
+      "category": "心法·被动",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java",
+        "line": 10,
+        "sha256": "4cd9e382c3288d2d35e1b5165fbfdebc49e781e4e4b5674af9c5a6a00835fda2"
+      },
+      "facts": {
+        "description": "打坐时灵力与修为获取提升",
+        "reality_note": "心法为被动系统；本库提供修炼/激活外观建议，不声称源码已有主动施放技能。"
+      },
+      "design": {
+        "recipe": "gather",
+        "palette": "wood",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "heart_method_tiangang",
+      "name": "心法·天罡心法",
+      "category": "心法·被动",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java",
+        "line": 10,
+        "sha256": "4cd9e382c3288d2d35e1b5165fbfdebc49e781e4e4b5674af9c5a6a00835fda2"
+      },
+      "facts": {
+        "description": "攻击力提升，受到伤害略微降低",
+        "reality_note": "心法为被动系统；本库提供修炼/激活外观建议，不声称源码已有主动施放技能。"
+      },
+      "design": {
+        "recipe": "shield",
+        "palette": "metal",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "heart_method_xuanshui",
+      "name": "心法·玄水心法",
+      "category": "心法·被动",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java",
+        "line": 10,
+        "sha256": "4cd9e382c3288d2d35e1b5165fbfdebc49e781e4e4b5674af9c5a6a00835fda2"
+      },
+      "facts": {
+        "description": "受到的伤害降低，水下行动更强",
+        "reality_note": "心法为被动系统；本库提供修炼/激活外观建议，不声称源码已有主动施放技能。"
+      },
+      "design": {
+        "recipe": "ring",
+        "palette": "water",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "heart_method_nine_turns",
+      "name": "心法·九转心法",
+      "category": "心法·被动",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java",
+        "line": 10,
+        "sha256": "4cd9e382c3288d2d35e1b5165fbfdebc49e781e4e4b5674af9c5a6a00835fda2"
+      },
+      "facts": {
+        "description": "修为获取提升，突破消耗略有降低",
+        "reality_note": "心法为被动系统；本库提供修炼/激活外观建议，不声称源码已有主动施放技能。"
+      },
+      "design": {
+        "recipe": "gather",
+        "palette": "metal",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "heart_method_burning_heaven",
+      "name": "心法·焚天心法",
+      "category": "心法·被动",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java",
+        "line": 11,
+        "sha256": "4cd9e382c3288d2d35e1b5165fbfdebc49e781e4e4b5674af9c5a6a00835fda2"
+      },
+      "facts": {
+        "description": "火焰伤害提升，攻击附带灼热之力",
+        "reality_note": "心法为被动系统；本库提供修炼/激活外观建议，不声称源码已有主动施放技能。"
+      },
+      "design": {
+        "recipe": "flame",
+        "palette": "fire",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "heart_method_thick_earth",
+      "name": "心法·厚土心法",
+      "category": "心法·被动",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java",
+        "line": 11,
+        "sha256": "4cd9e382c3288d2d35e1b5165fbfdebc49e781e4e4b5674af9c5a6a00835fda2"
+      },
+      "facts": {
+        "description": "生命与抗性提升，身形稳固",
+        "reality_note": "心法为被动系统；本库提供修炼/激活外观建议，不声称源码已有主动施放技能。"
+      },
+      "design": {
+        "recipe": "shield",
+        "palette": "earth",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "heart_method_taixu",
+      "name": "心法·太虚心法",
+      "category": "心法·被动",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java",
+        "line": 11,
+        "sha256": "4cd9e382c3288d2d35e1b5165fbfdebc49e781e4e4b5674af9c5a6a00835fda2"
+      },
+      "facts": {
+        "description": "灵力恢复效率提升，身法更加轻灵",
+        "reality_note": "心法为被动系统；本库提供修炼/激活外观建议，不声称源码已有主动施放技能。"
+      },
+      "design": {
+        "recipe": "soul",
+        "palette": "thunder",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "heart_method_wanling",
+      "name": "心法·万灵心法",
+      "category": "心法·被动",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java",
+        "line": 11,
+        "sha256": "4cd9e382c3288d2d35e1b5165fbfdebc49e781e4e4b5674af9c5a6a00835fda2"
+      },
+      "facts": {
+        "description": "全属性与灵力恢复效率提升",
+        "reality_note": "心法为被动系统；本库提供修炼/激活外观建议，不声称源码已有主动施放技能。"
+      },
+      "design": {
+        "recipe": "heal",
+        "palette": "wood",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "heart_method_beast_taming",
+      "name": "心法·驭兽心法",
+      "category": "心法·被动",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java",
+        "line": 11,
+        "sha256": "4cd9e382c3288d2d35e1b5165fbfdebc49e781e4e4b5674af9c5a6a00835fda2"
+      },
+      "facts": {
+        "description": "空手右键动物消耗固定灵力，加快成长并提升亲密度与驯服概率",
+        "reality_note": "心法为被动系统；本库提供修炼/激活外观建议，不声称源码已有主动施放技能。"
+      },
+      "design": {
+        "recipe": "bind",
+        "palette": "wood",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "muyan_01",
+      "name": "七彩幻光",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 52,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "muyan",
+        "bossName": "观色魔·目魇",
+        "color": "#DA78FF",
+        "phase": 1,
+        "windupTicks": 24,
+        "recoveryTicks": 20,
+        "cooldownTicks": 160,
+        "hint": "瞳孔收缩后射出光束，横移离开亮线",
+        "program": "case 1->{for(int i=0;i<3;i++)c.later(i*16,()->c.projectile(c.origin(),c.target(),w,.65,false,.075F));}",
+        "operations": [
+          "projectile"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 28,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "beam",
+        "palette": "muyan",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "muyan_02",
+      "name": "扫界虹光",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 53,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "muyan",
+        "bossName": "观色魔·目魇",
+        "color": "#DA78FF",
+        "phase": 1,
+        "windupTicks": 32,
+        "recoveryTicks": 28,
+        "cooldownTicks": 220,
+        "hint": "看清光束扫动方向，绕到目魇侧后方",
+        "program": "case 2->{sweep(c,p,d,22,7,-65,65,w,.07F);if(c.phase()>1)c.later(w+70,()->c.line(c.point(-19,0),c.target(),1.4,28,.08F));}",
+        "operations": [
+          "line",
+          "sweep"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 29,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "beam",
+        "palette": "muyan",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "muyan_03",
+      "name": "虹环震荡",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 54,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "muyan",
+        "bossName": "观色魔·目魇",
+        "color": "#DA78FF",
+        "phase": 1,
+        "windupTicks": 30,
+        "recoveryTicks": 24,
+        "cooldownTicks": 260,
+        "hint": "虹环贴地扩散，起跳越过环线",
+        "program": "case 3->{wave(c,p,w,.085F,false);if(c.phase()>1)c.later(w+65,()->wave(c,p,24,.07F,true));}",
+        "operations": [
+          "wave"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 30,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "ring",
+        "palette": "muyan",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "muyan_04",
+      "name": "幻影分身",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 55,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "muyan",
+        "bossName": "观色魔·目魇",
+        "color": "#DA78FF",
+        "phase": 2,
+        "windupTicks": 40,
+        "recoveryTicks": 32,
+        "cooldownTicks": 400,
+        "hint": "稳定瞳光与脚下符纹指向真身，先避交叉射线",
+        "program": "case 4->{mirrors(c,2,w,130);c.later(w+85,()->c.expose(60));}",
+        "operations": [
+          "mirrors"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 31,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "mirror",
+        "palette": "muyan",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "muyan_05",
+      "name": "目魇凝视",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 56,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "muyan",
+        "bossName": "观色魔·目魇",
+        "color": "#DA78FF",
+        "phase": 2,
+        "windupTicks": 60,
+        "recoveryTicks": 50,
+        "cooldownTicks": 600,
+        "hint": "聚光结束前背对目魇，或躲入棱镜背后",
+        "program": "case 5->c.gaze(w,.20F);",
+        "operations": [
+          "gaze"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 32,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "gaze",
+        "palette": "muyan",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "ermei_01",
+      "name": "声刃扇击",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 59,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "ermei",
+        "bossName": "闻声魔·耳魅",
+        "color": "#76DAE8",
+        "phase": 1,
+        "windupTicks": 24,
+        "recoveryTicks": 20,
+        "cooldownTicks": 160,
+        "hint": "双臂后张即将释放扇形声刃，向侧后方躲开",
+        "program": "case 1->c.cone(p,p.add(d),17,95,w,.09F);",
+        "operations": [
+          "cone"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 39,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "sound",
+        "palette": "ermei",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "ermei_02",
+      "name": "低鸣震环",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 60,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "ermei",
+        "bossName": "闻声魔·耳魅",
+        "color": "#76DAE8",
+        "phase": 1,
+        "windupTicks": 30,
+        "recoveryTicks": 24,
+        "cooldownTicks": 220,
+        "hint": "腹部收紧后音环扩散，起跳越过地面波纹",
+        "program": "case 2->{wave(c,p,w,.085F,false);if(c.phase()>1)c.later(w+65,()->wave(c,p,28,.07F,true));}",
+        "operations": [
+          "wave"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 40,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "sound",
+        "palette": "ermei",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "ermei_03",
+      "name": "声纹追猎",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 61,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "ermei",
+        "bossName": "闻声魔·耳魅",
+        "color": "#76DAE8",
+        "phase": 1,
+        "windupTicks": 32,
+        "recoveryTicks": 24,
+        "cooldownTicks": 260,
+        "hint": "缓转声弹持续追踪，横向绕行或借石笋挡住声弹",
+        "program": "case 3->c.projectile(p,c.aim(),w,.28,true,.12F);",
+        "operations": [
+          "projectile"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 41,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "sound",
+        "palette": "ermei",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "ermei_04",
+      "name": "三拍震地",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 62,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "ermei",
+        "bossName": "闻声魔·耳魅",
+        "color": "#76DAE8",
+        "phase": 1,
+        "windupTicks": 36,
+        "recoveryTicks": 40,
+        "cooldownTicks": 300,
+        "hint": "按三次抬臂节奏换位，避开依次亮起的震区",
+        "program": "case 4->{for(int i=0;i<3;i++)c.later(i*22,()->c.circle(c.target(),3.2,w,.08F));}",
+        "operations": [
+          "circle"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 42,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "earth",
+        "palette": "ermei",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "ermei_05",
+      "name": "双壁合鸣",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 63,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "ermei",
+        "bossName": "闻声魔·耳魅",
+        "color": "#76DAE8",
+        "phase": 2,
+        "windupTicks": 44,
+        "recoveryTicks": 32,
+        "cooldownTicks": 400,
+        "hint": "两侧声墙向内合拢，从波纹缺口穿过",
+        "program": "case 5->walls(c,w,c.aim().z-c.middle().z,7);",
+        "operations": [
+          "walls"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 43,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "sound",
+        "palette": "ermei",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "ermei_06",
+      "name": "寂静终曲",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 64,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "ermei",
+        "bossName": "闻声魔·耳魅",
+        "color": "#76DAE8",
+        "phase": 2,
+        "windupTicks": 64,
+        "recoveryTicks": 56,
+        "cooldownTicks": 660,
+        "hint": "辨认波纹前奏，起跳越过音环，或启动场边符台打断",
+        "program": "case 6->{wave(c,p,w,.075F,false);c.later(w+60,()->wave(c,p,30,.075F,true));c.later(w+120,()->{wave(c,p,30,.08F,false);c.later(75,()->c.expose(80));});}",
+        "operations": [
+          "wave"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 44,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "sound",
+        "palette": "ermei",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "bichen_01",
+      "name": "腐液三吐",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 67,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "bichen",
+        "bossName": "嗅香魔·鼻嗔",
+        "color": "#8FC657",
+        "phase": 1,
+        "windupTicks": 26,
+        "recoveryTicks": 24,
+        "cooldownTicks": 180,
+        "hint": "鼻孔鼓起后连吐三弹，向空地横移引导落点",
+        "program": "case 1->{for(int i=0;i<3;i++)c.later(i*20,()->{Vec3 at=c.target();c.circle(at,2.5,w,.06F);c.zone(at,2.5,w+6,90,.025F,\"poison\");});}",
+        "operations": [
+          "circle",
+          "zone"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 51,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "poison",
+        "palette": "bichen",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "bichen_02",
+      "name": "瘴息横扫",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 68,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "bichen",
+        "bossName": "嗅香魔·鼻嗔",
+        "color": "#8FC657",
+        "phase": 1,
+        "windupTicks": 34,
+        "recoveryTicks": 28,
+        "cooldownTicks": 240,
+        "hint": "头部偏转后横扫毒息，绕到背侧或离开扇面",
+        "program": "case 2->sweep(c,p,d,15,6,-65,65,w,.075F);",
+        "operations": [
+          "sweep"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 52,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "poison",
+        "palette": "bichen",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "bichen_03",
+      "name": "毒腺排射",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 69,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "bichen",
+        "bossName": "嗅香魔·鼻嗔",
+        "color": "#8FC657",
+        "phase": 1,
+        "windupTicks": 32,
+        "recoveryTicks": 28,
+        "cooldownTicks": 280,
+        "hint": "毒腺依次鼓起，从放射毒刺之间的缺口通过",
+        "program": "case 3->{radial(c,p,w,8,0,.07F);if(c.phase()>1)c.later(w+32,()->radial(c,p,24,8,22.5,.065F));}",
+        "operations": [
+          "radial"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 53,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "poison",
+        "palette": "bichen",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "bichen_04",
+      "name": "循香扑压",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 70,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "bichen",
+        "bossName": "嗅香魔·鼻嗔",
+        "color": "#8FC657",
+        "phase": 1,
+        "windupTicks": 36,
+        "recoveryTicks": 34,
+        "cooldownTicks": 300,
+        "hint": "闻香低伏后锁定扑击落点，横移让扑击落空",
+        "program": "case 4->{c.dash(c.aim(),w,14,4,.13F);c.later(w+18,()->c.expose(40));}",
+        "operations": [
+          "dash"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 54,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "earth",
+        "palette": "bichen",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "bichen_05",
+      "name": "吸瘴逆流",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 71,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "bichen",
+        "bossName": "嗅香魔·鼻嗔",
+        "color": "#8FC657",
+        "phase": 2,
+        "windupTicks": 44,
+        "recoveryTicks": 40,
+        "cooldownTicks": 420,
+        "hint": "瘴气沿地面收回，避开流路并攻击鼓胀毒腺",
+        "program": "case 5->{for(int i=0;i<5;i++){Vec3 from=c.point(Math.sin(i*Math.PI*2/5)*19,Math.cos(i*Math.PI*2/5)*19);c.line(from,p,2,w,.065F);}c.later(w+8,()->{c.drainZones(\"poison\");c.pressure(c.pressure()+1);radial(c,c.origin(),32,8,15,.075F+c.pressure()*.008F);});}",
+        "operations": [
+          "line",
+          "radial"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 55,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "vortex",
+        "palette": "bichen",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "bichen_06",
+      "name": "百瘴封庭",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 72,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "bichen",
+        "bossName": "嗅香魔·鼻嗔",
+        "color": "#8FC657",
+        "phase": 2,
+        "windupTicks": 64,
+        "recoveryTicks": 54,
+        "cooldownTicks": 680,
+        "hint": "毒雾分区逼近，朝净化炉和未亮起的地面转移",
+        "program": "case 6->{for(int i=0;i<5;i++){Vec3 at=c.point(Math.sin(i*Math.PI*2/5)*15,Math.cos(i*Math.PI*2/5)*15);c.zone(at,6,w+i*10,140,.03F,\"poison\");}c.later(w+55,()->c.expose(70));}",
+        "operations": [
+          "zone"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 56,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "poison",
+        "palette": "bichen",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "shetao_01",
+      "name": "舌刃三叠",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 75,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "shetao",
+        "bossName": "贪味魔·舌饕",
+        "color": "#F18A86",
+        "phase": 1,
+        "windupTicks": 24,
+        "recoveryTicks": 34,
+        "cooldownTicks": 160,
+        "hint": "沿未出舌的一侧绕行，最后直刺落空后反击",
+        "program": "case 1->{c.cone(p,p.add(rotate(d,-40)),7,100,w,.075F);c.cone(p,p.add(rotate(d,40)),8,100,w+25,.075F);c.line(p,p.add(d.scale(16)),1.6,w+55,.10F);if(c.phase()>1)c.line(p,p.add(rotate(d,22).scale(16)),1.5,w+55,.08F);}",
+        "operations": [
+          "cone",
+          "line"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 63,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "sword_cut",
+        "palette": "shetao",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "shetao_02",
+      "name": "卷舌夺食",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 76,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "shetao",
+        "bossName": "贪味魔·舌饕",
+        "color": "#F18A86",
+        "phase": 1,
+        "windupTicks": 30,
+        "recoveryTicks": 28,
+        "cooldownTicks": 220,
+        "hint": "舌尖卷起后伸出，横移躲开或攻击外伸舌头",
+        "program": "case 2->{c.line(p,c.aim(),1.4,w,.075F);c.node(\"weak\",p.add(d.scale(5)),w+65,()->c.interrupt(70));c.later(w+6,()->{if(horizontal(c.target().subtract(p)).dot(d)>.9)c.pull(p,20,24,.12,16);});}",
+        "operations": [
+          "line",
+          "pull"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 64,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "tether",
+        "palette": "shetao",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "shetao_03",
+      "name": "酸雨落盘",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 77,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "shetao",
+        "bossName": "贪味魔·舌饕",
+        "color": "#F18A86",
+        "phase": 1,
+        "windupTicks": 36,
+        "recoveryTicks": 28,
+        "cooldownTicks": 280,
+        "hint": "把酸液落点引向外圈，离开标记后不要折返",
+        "program": "case 3->{for(int i=0;i<4;i++)c.later(i*18,()->c.zone(c.target(),3,w,110,.025F,\"acid\"));}",
+        "operations": [
+          "zone"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 65,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "poison",
+        "palette": "shetao",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "shetao_04",
+      "name": "辣火长嗝",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 78,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "shetao",
+        "bossName": "贪味魔·舌饕",
+        "color": "#F18A86",
+        "phase": 1,
+        "windupTicks": 40,
+        "recoveryTicks": 34,
+        "cooldownTicks": 320,
+        "hint": "腹部发红后喷火，绕到侧面或借食台挡火",
+        "program": "case 4->sweep(c,p,d,14,5,-25,25,w,.07F);",
+        "operations": [
+          "sweep"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 66,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "flame",
+        "palette": "shetao",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "shetao_05",
+      "name": "贪尝百味",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 79,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "shetao",
+        "bossName": "贪味魔·舌饕",
+        "color": "#F18A86",
+        "phase": 1,
+        "windupTicks": 44,
+        "recoveryTicks": 42,
+        "cooldownTicks": 440,
+        "hint": "击毁供养甜食，将舌饕的卷舌引向苦根",
+        "program": "case 5->feast(c,w);",
+        "operations": [
+          "feast"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 67,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "gather",
+        "palette": "shetao",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "shetao_06",
+      "name": "滚腹压席",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 80,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "shetao",
+        "bossName": "贪味魔·舌饕",
+        "color": "#F18A86",
+        "phase": 2,
+        "windupTicks": 36,
+        "recoveryTicks": 38,
+        "cooldownTicks": 380,
+        "hint": "身体收圆后翻滚，横移或诱导它撞向食台",
+        "program": "case 6->{c.dash(c.aim().add(d.scale(5)),w,20,5,.14F);c.later(w+23,()->c.expose(60));}",
+        "operations": [
+          "dash"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 68,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "earth",
+        "palette": "shetao",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "shetao_07",
+      "name": "五味翻涌",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 81,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "shetao",
+        "bossName": "贪味魔·舌饕",
+        "color": "#F18A86",
+        "phase": 2,
+        "windupTicks": 64,
+        "recoveryTicks": 56,
+        "cooldownTicks": 700,
+        "hint": "五味扇区依次喷发，转移到已经喷发完的区域",
+        "program": "case 7->{sectors(c,p,w,5,.085F);if(c.phase()>1)c.later(w+120,()->c.dash(c.target(),36,16,4,.10F));c.later(w+165,()->c.expose(80));}",
+        "operations": [
+          "dash",
+          "sectors"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 69,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "five_elements",
+        "palette": "shetao",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "shenyin_01",
+      "name": "晶须点刺",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 84,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "shenyin",
+        "bossName": "触欲魔·身淫",
+        "color": "#EE9DDF",
+        "phase": 1,
+        "windupTicks": 24,
+        "recoveryTicks": 22,
+        "cooldownTicks": 160,
+        "hint": "晶纹记录落脚点，持续移动并避开旧标记",
+        "program": "case 1->{for(int i=0;i<4;i++)c.later(i*14,()->c.column(c.target(),2,w,.07F));}",
+        "operations": [
+          "column"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 76,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "crystal",
+        "palette": "shenyin",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "shenyin_02",
+      "name": "触臂横断",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 85,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "shenyin",
+        "bossName": "触欲魔·身淫",
+        "color": "#EE9DDF",
+        "phase": 1,
+        "windupTicks": 30,
+        "recoveryTicks": 30,
+        "cooldownTicks": 220,
+        "hint": "观察触臂抬起位置，按先近或先远顺序内外换位",
+        "program": "case 2->{if(c.phase()==1){c.circle(p,6,w,.10F);c.ring(p,13,6,w+35,.10F,false);}else{c.ring(p,13,6,w,.10F,false);c.circle(p,6,w+35,.10F);}}",
+        "operations": [
+          "circle",
+          "ring"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 77,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "ring",
+        "palette": "shenyin",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "shenyin_03",
+      "name": "引力心潮",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 86,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "shenyin",
+        "bossName": "触欲魔·身淫",
+        "color": "#EE9DDF",
+        "phase": 1,
+        "windupTicks": 40,
+        "recoveryTicks": 38,
+        "cooldownTicks": 360,
+        "hint": "核心收拢后牵引，借晶簇阻挡并在收招时攻击核心",
+        "program": "case 3->{c.pull(p,w,75,.10,18);c.circle(p,3,w+65,.12F);c.later(w+80,()->c.expose(100));}",
+        "operations": [
+          "circle",
+          "pull"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 78,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "vortex",
+        "palette": "shenyin",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "shenyin_04",
+      "name": "掷晶成林",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 87,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "shenyin",
+        "bossName": "触欲魔·身淫",
+        "color": "#EE9DDF",
+        "phase": 1,
+        "windupTicks": 34,
+        "recoveryTicks": 28,
+        "cooldownTicks": 280,
+        "hint": "把晶块落点引到场边，落地晶簇可作为掩体",
+        "program": "case 4->{for(int i=0;i<3;i++){Vec3 at=c.clamp(c.aim().add(rotate(d,i*120).scale(3)));c.circle(at,2,w+i*15,.085F);c.later(w+i*15+6,()->c.node(\"crystal\",at,360,null));}}",
+        "operations": [
+          "circle"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 79,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "crystal",
+        "palette": "shenyin",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "shenyin_05",
+      "name": "晶牢合拢",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 88,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "shenyin",
+        "bossName": "触欲魔·身淫",
+        "color": "#EE9DDF",
+        "phase": 1,
+        "windupTicks": 46,
+        "recoveryTicks": 36,
+        "cooldownTicks": 420,
+        "hint": "晶牢升起前离开圈线，或从明显裂口脱出",
+        "program": "case 5->{Vec3 at=c.aim();for(int i=0;i<4;i++){Vec3 side=rotate(new Vec3(1,0,0),i*90);if(i!=1)c.line(at.add(side.scale(4)).add(rotate(side,90).scale(-4)),at.add(side.scale(4)).add(rotate(side,90).scale(4)),1.5,w,.09F);}var crack=c.node(\"knot\",at.add(0,0,4),w+100,()->c.interrupt(65));c.later(w,()->{if(crack.active())c.ring(at,4,1.5,35,.13F,false);});}",
+        "operations": [
+          "line",
+          "ring"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 80,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "crystal",
+        "palette": "shenyin",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "shenyin_06",
+      "name": "缠身刺链",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 89,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "shenyin",
+        "bossName": "触欲魔·身淫",
+        "color": "#EE9DDF",
+        "phase": 2,
+        "windupTicks": 40,
+        "recoveryTicks": 40,
+        "cooldownTicks": 460,
+        "hint": "晶链亮起后靠近攻击根部，或借晶柱切断连线",
+        "program": "case 6->tether(c,p,w,80);",
+        "operations": [
+          "tether"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 81,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "tether",
+        "palette": "shenyin",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "shenyin_07",
+      "name": "五触莲华",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 90,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "shenyin",
+        "bossName": "触欲魔·身淫",
+        "color": "#EE9DDF",
+        "phase": 2,
+        "windupTicks": 66,
+        "recoveryTicks": 58,
+        "cooldownTicks": 720,
+        "hint": "沿五次穿刺的空隙转移，最后一击前退出中心",
+        "program": "case 7->{sectors(c,p,w,5,.08F);c.circle(p,7,w+130,.16F);c.later(w+138,()->c.expose(120));}",
+        "operations": [
+          "circle",
+          "sectors"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 82,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "crystal",
+        "palette": "shenyin",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "yihuo_01",
+      "name": "念刃追问",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 93,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "yihuo",
+        "bossName": "妄意魔·意惑",
+        "color": "#AB83E8",
+        "phase": 1,
+        "windupTicks": 26,
+        "recoveryTicks": 22,
+        "cooldownTicks": 160,
+        "hint": "稳定符纹标记实体念刃，横移避开实线方向",
+        "program": "case 1->{c.fx(1,p,p.add(rotate(d,-22).scale(20)),0,1.5F,SAFE,w,w+8,\"\");c.line(p,p.add(d.scale(24)),1.5,w+16,.09F);c.fx(1,p,p.add(rotate(d,22).scale(20)),0,1.5F,SAFE,w+8,w+16,\"\");}",
+        "operations": [
+          "line"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 89,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "sword_cut",
+        "palette": "yihuo",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "yihuo_02",
+      "name": "镜步袭心",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 94,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "yihuo",
+        "bossName": "妄意魔·意惑",
+        "color": "#AB83E8",
+        "phase": 1,
+        "windupTicks": 32,
+        "recoveryTicks": 28,
+        "cooldownTicks": 220,
+        "hint": "先看镜痕终点，侧移避开显形后的突袭",
+        "program": "case 2->{Vec3 to=c.clamp(c.aim().add(rotate(d,90).scale(5)));c.fx(1,p,to,0,1,SAFE,w,w+4,\"\");c.later(w,()->{c.teleport(to);c.cone(c.origin(),c.target(),9,85,28,.12F);});}",
+        "operations": [
+          "cone"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 90,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "blink",
+        "palette": "yihuo",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "yihuo_03",
+      "name": "旧影回放",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 95,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "yihuo",
+        "bossName": "妄意魔·意惑",
+        "color": "#AB83E8",
+        "phase": 1,
+        "windupTicks": 38,
+        "recoveryTicks": 32,
+        "cooldownTicks": 300,
+        "hint": "旧影将重走先前路线，离开地面记录的足迹",
+        "program": "case 3->{List<Vec3> old=c.history();for(int i=1;i<old.size();i++)c.line(old.get(i-1),old.get(i),2,w+i*4,.08F);if(old.size()<2)c.circle(c.aim(),3,w,.09F);if(c.phase()>1)c.later(w+old.size()*4+20,()->{Vec3 to=c.clamp(c.target().add(5,0,0));c.teleport(to);c.cone(to,c.target(),9,75,32,.08F);});}",
+        "operations": [
+          "circle",
+          "cone",
+          "line"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 91,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "mirror",
+        "palette": "yihuo",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "yihuo_04",
+      "name": "真假易位",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 96,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "yihuo",
+        "bossName": "妄意魔·意惑",
+        "color": "#AB83E8",
+        "phase": 1,
+        "windupTicks": 40,
+        "recoveryTicks": 34,
+        "cooldownTicks": 360,
+        "hint": "换位后稳定脚下符纹才是真身，先避交叉攻击",
+        "program": "case 4->{mirrors(c,2,w,140);c.later(w+90,()->c.expose(70));}",
+        "operations": [
+          "mirrors"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 92,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "mirror",
+        "palette": "yihuo",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "yihuo_05",
+      "name": "妄界割裂",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 97,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "yihuo",
+        "bossName": "妄意魔·意惑",
+        "color": "#AB83E8",
+        "phase": 2,
+        "windupTicks": 46,
+        "recoveryTicks": 36,
+        "cooldownTicks": 420,
+        "hint": "镜墙成形前进入明亮通道，避开碎裂的墙面",
+        "program": "case 5->walls(c,w,c.aim().z-c.middle().z,6);",
+        "operations": [
+          "walls"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 93,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "mirror",
+        "palette": "yihuo",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "yihuo_06",
+      "name": "观心反制",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 98,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "yihuo",
+        "bossName": "妄意魔·意惑",
+        "color": "#AB83E8",
+        "phase": 2,
+        "windupTicks": 40,
+        "recoveryTicks": 38,
+        "cooldownTicks": 400,
+        "hint": "按施法时远近变招，看清圈线或落点后换位反击",
+        "program": "case 6->{double distance=p.distanceTo(c.aim());if(distance<7)c.ring(p,9,7,w,.12F,false);else if(distance<16){c.line(p,c.aim(),2,w,.12F);c.later(w+20,()->c.expose(50));}else{c.column(c.aim(),4,w,.10F);c.later(w+10,()->c.dash(c.target(),30,20,3,.085F));}}",
+        "operations": [
+          "column",
+          "dash",
+          "line",
+          "ring"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 94,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "ring",
+        "palette": "yihuo",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "yihuo_07",
+      "name": "念锁同心",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 99,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "yihuo",
+        "bossName": "妄意魔·意惑",
+        "color": "#AB83E8",
+        "phase": 3,
+        "windupTicks": 46,
+        "recoveryTicks": 42,
+        "cooldownTicks": 480,
+        "hint": "念锁连线亮起后攻击心结，或借镜墙截断连线",
+        "program": "case 7->{Vec3 knot=c.clamp(c.aim().add(-4,0,3));tether(c,knot,w,90);}",
+        "operations": [
+          "tether"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 95,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "tether",
+        "palette": "yihuo",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "yihuo_08",
+      "name": "心境倒映",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 100,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "yihuo",
+        "bossName": "妄意魔·意惑",
+        "color": "#AB83E8",
+        "phase": 3,
+        "windupTicks": 70,
+        "recoveryTicks": 60,
+        "cooldownTicks": 760,
+        "hint": "跟随预告的实体化区域转移，倒映结束后攻击真身",
+        "program": "case 8->{Vec3 mid=c.middle();for(int i=0;i<4;i++){Vec3 side=new Vec3(i%2==0?1:-1,0,0);c.cone(mid,mid.add(side),35,176,w+i*30,.085F);}if(c.phase()>2)c.later(w+55,()->c.circle(c.target(),2.5,32,.07F));c.later(w+126,()->c.expose(110));}",
+        "operations": [
+          "circle",
+          "cone"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 96,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "mirror",
+        "palette": "yihuo",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengju_01",
+      "name": "金颅啄击",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 103,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengju",
+        "bossName": "彭倨·天嗔之相",
+        "color": "#FFD167",
+        "phase": 1,
+        "windupTicks": 24,
+        "recoveryTicks": 24,
+        "cooldownTicks": 160,
+        "hint": "头颅后仰后连啄两次，绕侧并在第二击后反击",
+        "program": "case 1->{c.cone(p,p.add(d),7,75,w,.085F);c.cone(p,p.add(d),8,90,w+26,.09F);}",
+        "operations": [
+          "cone"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 103,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "sword_cut",
+        "palette": "pengju",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengju_02",
+      "name": "逐利冲锋",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 104,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengju",
+        "bossName": "彭倨·天嗔之相",
+        "color": "#FFD167",
+        "phase": 1,
+        "windupTicks": 30,
+        "recoveryTicks": 28,
+        "cooldownTicks": 220,
+        "hint": "金甲亮起后锁定冲线，横移让头颅撞空",
+        "program": "case 2->{c.dash(c.aim().add(d.scale(3)),w,14,4,.13F);if(c.phase()>1)c.later(w+35,()->c.dash(c.target(),32,14,4,.10F));}",
+        "operations": [
+          "dash"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 104,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "beam",
+        "palette": "pengju",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengju_03",
+      "name": "散财飞刃",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 105,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengju",
+        "bossName": "彭倨·天嗔之相",
+        "color": "#FFD167",
+        "phase": 1,
+        "windupTicks": 28,
+        "recoveryTicks": 24,
+        "cooldownTicks": 240,
+        "hint": "口中聚金后扇射飞刃，穿过间隙或绕到侧后方",
+        "program": "case 3->{for(int i=-2;i<=2;i++)c.projectile(p,p.add(rotate(d,i*16).scale(24)),w,.72,false,.085F);}",
+        "operations": [
+          "projectile"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 105,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "sword_cut",
+        "palette": "pengju",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengju_04",
+      "name": "金印镇身",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 106,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengju",
+        "bossName": "彭倨·天嗔之相",
+        "color": "#FFD167",
+        "phase": 1,
+        "windupTicks": 36,
+        "recoveryTicks": 28,
+        "cooldownTicks": 300,
+        "hint": "金印固定落点后立即离开，落地重印可作掩体",
+        "program": "case 4->{Vec3 at=c.aim();c.column(at,3,w,.13F);c.later(w+8,()->c.node(\"cover\",at,260,null));}",
+        "operations": [
+          "column"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 106,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "gold_seal",
+        "palette": "pengju",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengju_05",
+      "name": "落金连雨",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 107,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengju",
+        "bossName": "彭倨·天嗔之相",
+        "color": "#FFD167",
+        "phase": 1,
+        "windupTicks": 40,
+        "recoveryTicks": 42,
+        "cooldownTicks": 360,
+        "hint": "三批落金追逐旧位置，持续移动且不要走回旧落点",
+        "program": "case 5->{for(int i=0;i<3;i++){final int wave=i;c.later(i*26,()->{Vec3 at=c.target();if(c.phase()>1&&wave==2)c.ring(at,6,2,w,.10F,false);else c.column(at,3.2,w,.10F);});}c.later(w+85,()->c.expose(65));}",
+        "operations": [
+          "column",
+          "ring"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 107,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "gold_seal",
+        "palette": "pengju",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengju_06",
+      "name": "聚宝旋环",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 108,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengju",
+        "bossName": "彭倨·天嗔之相",
+        "color": "#FFD167",
+        "phase": 1,
+        "windupTicks": 42,
+        "recoveryTicks": 36,
+        "cooldownTicks": 380,
+        "hint": "两条金环之间留有安全带，按轨迹调整远近",
+        "program": "case 6->{c.ring(p,8,2.3,w,.085F,false);c.ring(p,16,2.3,w,.085F,false);c.ring(p,11,2.3,w+36,.085F,false);c.ring(p,20,2.3,w+36,.085F,false);}",
+        "operations": [
+          "ring"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 108,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "ring",
+        "palette": "pengju",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengju_07",
+      "name": "宝甲反震",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 109,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengju",
+        "bossName": "彭倨·天嗔之相",
+        "color": "#FFD167",
+        "phase": 2,
+        "windupTicks": 38,
+        "recoveryTicks": 34,
+        "cooldownTicks": 400,
+        "hint": "正面金甲合拢将反震，绕背或等冲击落空后反击",
+        "program": "case 7->{c.guard(w+35);c.cone(p,p.add(d),12,100,w,.13F);c.later(w+10,()->c.expose(65));}",
+        "operations": [
+          "cone"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 109,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "shield",
+        "palette": "pengju",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengju_08",
+      "name": "贪念索命",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 110,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengju",
+        "bossName": "彭倨·天嗔之相",
+        "color": "#FFD167",
+        "phase": 2,
+        "windupTicks": 46,
+        "recoveryTicks": 40,
+        "cooldownTicks": 460,
+        "hint": "左右金印夹击前先诱导朝向，再穿过侧面缺口",
+        "program": "case 8->{Vec3 left=c.clamp(c.aim().add(rotate(d,90).scale(7))),right=c.clamp(c.aim().add(rotate(d,-90).scale(7)));c.fx(4,left.add(0,1,0),left,1,1,c.profile.color(),w,w+55,\"\");c.fx(4,right.add(0,1,0),right,1,1,c.profile.color(),w,w+55,\"\");c.later(w,()->{Vec3 aim=c.target();c.line(left,aim.add(horizontal(aim.subtract(left)).scale(9)),2,30,.11F);c.line(right,aim.add(horizontal(aim.subtract(right)).scale(9)),2,30,.11F);});}",
+        "operations": [
+          "line"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 110,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "tether",
+        "palette": "pengju",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengju_09",
+      "name": "万金崩殿",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 111,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengju",
+        "bossName": "彭倨·天嗔之相",
+        "color": "#FFD167",
+        "phase": 3,
+        "windupTicks": 70,
+        "recoveryTicks": 60,
+        "cooldownTicks": 800,
+        "hint": "依次躲分区落金、俯冲和金环，甲裂后集中反击",
+        "program": "case 9->{for(int i=0;i<3;i++)c.column(c.point(-12+i*12,6),5,w+i*22,.09F);c.later(w+70,()->c.dash(c.target(),36,18,5,.12F));c.later(w+130,()->wave(c,c.origin(),26,.085F,false));c.later(w+220,()->c.expose(130));}",
+        "operations": [
+          "column",
+          "dash",
+          "wave"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 111,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "gold_seal",
+        "palette": "pengju",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengzhi_01",
+      "name": "双触重拍",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 114,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengzhi",
+        "bossName": "彭质·腹欲之魔",
+        "color": "#CC786A",
+        "phase": 1,
+        "windupTicks": 26,
+        "recoveryTicks": 28,
+        "cooldownTicks": 180,
+        "hint": "左右触手交替重拍，第一拍后换到另一侧空隙",
+        "program": "case 1->{c.cone(p,p.add(rotate(d,-35)),9,75,w,.09F);c.cone(p,p.add(rotate(d,35)),11,100,w+30,.09F);}",
+        "operations": [
+          "cone"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 119,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "earth",
+        "palette": "pengzhi",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengzhi_02",
+      "name": "拖地横扫",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 115,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengzhi",
+        "bossName": "彭质·腹欲之魔",
+        "color": "#CC786A",
+        "phase": 1,
+        "windupTicks": 32,
+        "recoveryTicks": 30,
+        "cooldownTicks": 240,
+        "hint": "触手压低后横扫，起跳或提前退到扫击范围外",
+        "program": "case 2->{wave(c,p,w,.10F,false);c.later(w+55,()->c.expose(50));}",
+        "operations": [
+          "wave"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 120,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "ring",
+        "palette": "pengzhi",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengzhi_03",
+      "name": "压腹震地",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 116,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengzhi",
+        "bossName": "彭质·腹欲之魔",
+        "color": "#CC786A",
+        "phase": 1,
+        "windupTicks": 38,
+        "recoveryTicks": 38,
+        "cooldownTicks": 300,
+        "hint": "腹部鼓起后跃压，先离开落点再越过扩散冲击",
+        "program": "case 3->{Vec3 at=c.aim();c.circle(at,4,w,.12F);c.later(w,()->c.teleport(at));c.later(w+10,()->wave(c,at,25,.08F,false));}",
+        "operations": [
+          "circle",
+          "wave"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 121,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "earth",
+        "palette": "pengzhi",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengzhi_04",
+      "name": "腐酿喷柱",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 117,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengzhi",
+        "bossName": "彭质·腹欲之魔",
+        "color": "#CC786A",
+        "phase": 1,
+        "windupTicks": 34,
+        "recoveryTicks": 32,
+        "cooldownTicks": 280,
+        "hint": "喉部发亮后缓慢转向喷吐，绕侧或持续横移",
+        "program": "case 4->{sweep(c,p,d,23,7,-30,30,w,.075F);c.zone(c.aim(),3,w+20,140,.025F,\"wine\");}",
+        "operations": [
+          "sweep",
+          "zone"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 122,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "poison",
+        "palette": "pengzhi",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengzhi_05",
+      "name": "吞天吸息",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 118,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengzhi",
+        "bossName": "彭质·腹欲之魔",
+        "color": "#CC786A",
+        "phase": 1,
+        "windupTicks": 42,
+        "recoveryTicks": 40,
+        "cooldownTicks": 380,
+        "hint": "张口吸气后正面喷吐，横向脱离锥面或借掩体截断",
+        "program": "case 5->{c.pull(p,w,70,.11,19);c.cone(p,p.add(d),24,70,w+95,.14F);}",
+        "operations": [
+          "cone",
+          "pull"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 123,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "vortex",
+        "palette": "pengzhi",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengzhi_06",
+      "name": "探触擒摔",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 119,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengzhi",
+        "bossName": "彭质·腹欲之魔",
+        "color": "#CC786A",
+        "phase": 2,
+        "windupTicks": 36,
+        "recoveryTicks": 34,
+        "cooldownTicks": 360,
+        "hint": "独立触手抬起后直抓，侧移诱使触手插地",
+        "program": "case 6->{c.line(p,c.aim(),1.5,w,.10F);c.node(\"weak\",p.add(d.scale(5)),w+80,()->c.interrupt(75));c.later(w+5,()->{if(horizontal(c.target().subtract(p)).dot(d)>.94){c.pull(p,18,16,.14,16);c.circle(c.target(),2.5,30,.075F);}});}",
+        "operations": [
+          "circle",
+          "line",
+          "pull"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 124,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "tether",
+        "palette": "pengzhi",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengzhi_07",
+      "name": "腐宴回流",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 120,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengzhi",
+        "bossName": "彭质·腹欲之魔",
+        "color": "#CC786A",
+        "phase": 2,
+        "windupTicks": 48,
+        "recoveryTicks": 44,
+        "cooldownTicks": 460,
+        "hint": "酒液沿地面流回腹部，避开流路并攻击暴露腹腔",
+        "program": "case 7->{for(int i=0;i<5;i++){Vec3 from=c.point(Math.sin(i*Math.PI*2/5)*19,Math.cos(i*Math.PI*2/5)*19);c.line(from,p,2,w,.075F);}c.later(w+8,()->{c.drainZones(\"wine\");c.pressure(c.pressure()+1);c.heal(.025F);});}",
+        "operations": [
+          "line"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 125,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "vortex",
+        "palette": "pengzhi",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengzhi_08",
+      "name": "酒狂三叠",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 121,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengzhi",
+        "bossName": "彭质·腹欲之魔",
+        "color": "#CC786A",
+        "phase": 2,
+        "windupTicks": 42,
+        "recoveryTicks": 48,
+        "cooldownTicks": 500,
+        "hint": "依次避前拍、横扫、腹撞，最后踉跄时反击",
+        "program": "case 8->{c.cone(p,p.add(d),10,80,w,.08F);c.ring(p,13,9,w+35,.08F,true);c.later(w+55,()->c.dash(c.target(),30,17,5,.10F));if(c.phase()>2)c.later(w+110,()->c.cone(c.origin(),c.origin().subtract(d),10,110,32,.075F));c.later(w+165,()->c.expose(110));}",
+        "operations": [
+          "cone",
+          "dash",
+          "ring"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 126,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "earth",
+        "palette": "pengzhi",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengzhi_09",
+      "name": "五脏翻江",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 122,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengzhi",
+        "bossName": "彭质·腹欲之魔",
+        "color": "#CC786A",
+        "phase": 3,
+        "windupTicks": 72,
+        "recoveryTicks": 60,
+        "cooldownTicks": 820,
+        "hint": "先退出近圈、再回内圈、最后绕侧躲过重吐",
+        "program": "case 9->{c.circle(p,9,w,.12F);c.ring(p,24,12,w+48,.10F,false);c.later(w+75,()->c.cone(c.origin(),c.target(),25,100,36,.13F+c.pressure()*.008F));c.later(w+120,()->{c.pressure(0);c.expose(140);});}",
+        "operations": [
+          "circle",
+          "cone",
+          "ring"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 127,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "poison",
+        "palette": "pengzhi",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengjiao_01",
+      "name": "合流撞击",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 125,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengjiao",
+        "bossName": "彭矫·足欲之邪",
+        "color": "#97DCF2",
+        "phase": 1,
+        "windupTicks": 24,
+        "recoveryTicks": 26,
+        "cooldownTicks": 160,
+        "hint": "五核收拢后短距撞击，侧移后趁核心展开反击",
+        "program": "case 1->{c.dash(c.aim(),w,10,4,.10F);c.later(w+14,()->c.expose(35));}",
+        "operations": [
+          "dash"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 134,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "earth",
+        "palette": "pengjiao",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengjiao_02",
+      "name": "金相·贯心",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 126,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengjiao",
+        "bossName": "彭矫·足欲之邪",
+        "color": "#97DCF2",
+        "phase": 1,
+        "windupTicks": 32,
+        "recoveryTicks": 26,
+        "cooldownTicks": 240,
+        "hint": "金核瞄准线停止移动时横移，躲开贯穿光矛",
+        "program": "case 2->c.line(p,p.add(d.scale(34)),1.5,w,.13F);",
+        "operations": [
+          "line"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 135,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "beam",
+        "palette": "metal",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengjiao_03",
+      "name": "木相·逐步生棘",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 127,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengjiao",
+        "bossName": "彭矫·足欲之邪",
+        "color": "#97DCF2",
+        "phase": 1,
+        "windupTicks": 34,
+        "recoveryTicks": 30,
+        "cooldownTicks": 280,
+        "hint": "木核记录落脚点，持续换位且不沿原路折返",
+        "program": "case 3->{for(int i=0;i<5;i++)c.later(i*12,()->c.column(c.target(),1.8,w,.07F));if(c.phase()>1)c.later(w+60,()->c.line(c.origin(),c.target(),1.4,32,.10F));}",
+        "operations": [
+          "column",
+          "line"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 136,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "crystal",
+        "palette": "wood",
+        "materialOverrides": {
+          "crystal_shard": "vine_thorn",
+          "prism_glint": "leaf"
+        },
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengjiao_04",
+      "name": "水相·回环",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 128,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengjiao",
+        "bossName": "彭矫·足欲之邪",
+        "color": "#97DCF2",
+        "phase": 1,
+        "windupTicks": 38,
+        "recoveryTicks": 32,
+        "cooldownTicks": 320,
+        "hint": "水环向内收缩，从显眼缺口穿出",
+        "program": "case 4->gapRing(c,p,d,w,true);",
+        "operations": [
+          "gapRing"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 137,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "ring",
+        "palette": "water",
+        "materialOverrides": {
+          "ring_broken": "ripple"
+        },
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengjiao_05",
+      "name": "火相·赤轮",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 129,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengjiao",
+        "bossName": "彭矫·足欲之邪",
+        "color": "#97DCF2",
+        "phase": 1,
+        "windupTicks": 38,
+        "recoveryTicks": 34,
+        "cooldownTicks": 340,
+        "hint": "双火轮沿弧线行进，看旋向从轮间空隙通过",
+        "program": "case 5->{for(int side:new int[]{-1,1}){Vec3 from=p.add(rotate(d,90).scale(side*5));for(int i=0;i<7;i++){Vec3 at=from.add(rotate(d,side*(i*9-25)).scale(3+i*3));c.circle(at,1.8,w+i*9,.07F);}}}",
+        "operations": [
+          "circle"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 138,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "flame",
+        "palette": "fire",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengjiao_06",
+      "name": "土相·坠岳",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 130,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengjiao",
+        "bossName": "彭矫·足欲之邪",
+        "color": "#97DCF2",
+        "phase": 1,
+        "windupTicks": 42,
+        "recoveryTicks": 38,
+        "cooldownTicks": 380,
+        "hint": "土核膨胀后重砸，离开落点并站在放射裂隙之间",
+        "program": "case 6->{Vec3 at=c.aim();c.column(at,3.5,w,.12F);for(int i=0;i<3;i++){Vec3 ray=rotate(d,i*120);c.line(at,at.add(ray.scale(18)),1.5,w+22,.08F);}c.later(w+35,()->c.expose(50));}",
+        "operations": [
+          "column",
+          "line"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 139,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "earth",
+        "palette": "earth",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengjiao_07",
+      "name": "五方连袭",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 131,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengjiao",
+        "bossName": "彭矫·足欲之邪",
+        "color": "#97DCF2",
+        "phase": 2,
+        "windupTicks": 48,
+        "recoveryTicks": 48,
+        "cooldownTicks": 460,
+        "hint": "五核按闪光顺序突袭，横移进入上一击留下的空隙",
+        "program": "case 7->{for(int i=0;i<5;i++){Vec3 from=c.point(Math.sin(i*Math.PI*2/5)*21,Math.cos(i*Math.PI*2/5)*21);c.line(from,c.middle().add(horizontal(c.middle().subtract(from)).scale(12)),2.8,w+i*24,.085F);}}",
+        "operations": [
+          "line"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 140,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "five_elements",
+        "palette": "pengjiao",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengjiao_08",
+      "name": "分化追猎",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 132,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengjiao",
+        "bossName": "彭矫·足欲之邪",
+        "color": "#97DCF2",
+        "phase": 2,
+        "windupTicks": 48,
+        "recoveryTicks": 42,
+        "cooldownTicks": 500,
+        "hint": "优先攻击正在追击的活动核心，击停一个可降低压力",
+        "program": "case 8->{var left=c.echo(c.point(-10,6),240,true);var right=c.echo(c.point(10,6),240,true);for(int i=0;i<4;i++){final int step=i;c.later(w+i*35,()->{var attacker=step%2==0?left:right;var other=step%2==0?right:left;if(attacker!=null&&attacker.isAlive()&&!attacker.isRemoved())c.projectile(c.ground(attacker.position()),c.target(),24,.32,true,.07F);if(other!=null&&other.isAlive()&&!other.isRemoved())c.line(c.ground(other.position()),c.target(),1.8,32,.08F);});}}",
+        "operations": [
+          "line",
+          "projectile"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 141,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "five_elements",
+        "palette": "pengjiao",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengjiao_09",
+      "name": "移宫换位",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 133,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengjiao",
+        "bossName": "彭矫·足欲之邪",
+        "color": "#97DCF2",
+        "phase": 2,
+        "windupTicks": 44,
+        "recoveryTicks": 40,
+        "cooldownTicks": 460,
+        "hint": "相邻核心连线亮起后离开切割带，换位停止时反击",
+        "program": "case 9->{List<Vec3> points=new ArrayList<>();for(int i=0;i<5;i++)points.add(c.point(Math.sin(i*Math.PI*2/5)*16,Math.cos(i*Math.PI*2/5)*16));for(int i=0;i<5;i++){Vec3 a=points.get(i),b=points.get((i+2)%5);c.line(a,b,2,w+i*10,.085F);}}",
+        "operations": [
+          "line"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 142,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "tether",
+        "palette": "pengjiao",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "pengjiao_10",
+      "name": "五气归元",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java",
+        "line": 134,
+        "sha256": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a"
+      },
+      "facts": {
+        "boss": "pengjiao",
+        "bossName": "彭矫·足欲之邪",
+        "color": "#97DCF2",
+        "phase": 3,
+        "windupTicks": 76,
+        "recoveryTicks": 60,
+        "cooldownTicks": 900,
+        "hint": "沿分批汇聚的缺口换位，躲过合体落击后集中输出",
+        "program": "case 10->{for(int i=0;i<5;i++){Vec3 from=c.point(Math.sin(i*Math.PI*2/5)*20,Math.cos(i*Math.PI*2/5)*20);c.cone(from,c.middle(),25,45,w+i*22,.08F);}c.circle(c.middle(),8,w+140,.16F);c.later(w+150,()->{c.teleport(c.middle());c.expose(150);});}",
+        "operations": [
+          "circle",
+          "cone"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java",
+        "line": 143,
+        "sha256": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175"
+      },
+      "design": {
+        "recipe": "five_elements",
+        "palette": "pengjiao",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "heart_demon_01",
+      "name": "照影三斩",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 10,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "facts": {
+        "boss": "heart_demon",
+        "bossName": "心魔",
+        "color": "#C786ED",
+        "phase": 1,
+        "windupTicks": 28,
+        "recoveryTicks": 30,
+        "cooldownTicks": 180,
+        "animation": "animation.xinmo_wuxiang.echo_weapon_slash",
+        "hint": "横移躲过左右斩，末段直刺后反击",
+        "program": "case 1->{\n                c.cone(p,p.add(rotate(d,-35)),8,90,w,.075F);\n                c.cone(p,p.add(rotate(d,35)),9,90,w+24,.075F);\n                c.line(p,p.add(d.scale(18)),1.8,w+52,.10F);\n                if(c.phase()>1)c.line(p,p.add(rotate(d,28).scale(18)),1.6,w+72,.08F);\n            }",
+        "operations": [
+          "cone",
+          "line"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 30,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "design": {
+        "recipe": "sword_cut",
+        "palette": "heart_demon",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "heart_demon_02",
+      "name": "踏影穿心",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 11,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "facts": {
+        "boss": "heart_demon",
+        "bossName": "心魔",
+        "color": "#C786ED",
+        "phase": 1,
+        "windupTicks": 34,
+        "recoveryTicks": 36,
+        "cooldownTicks": 240,
+        "animation": "animation.xinmo_wuxiang.echo_weapon_slash",
+        "hint": "影线锁定后侧移，让突进落空",
+        "program": "case 2->{\n                c.dash(c.aim(),w,14,3.5,.12F);\n                if(c.phase()>1)c.later(w+22,()->c.cone(c.origin(),c.target(),10,85,30,.085F));\n                c.later(w+(c.phase()>1?64:20),()->c.expose(50));\n            }",
+        "operations": [
+          "cone",
+          "dash"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 36,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "design": {
+        "recipe": "blink",
+        "palette": "heart_demon",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "heart_demon_03",
+      "name": "心潮震环",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 12,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "facts": {
+        "boss": "heart_demon",
+        "bossName": "心魔",
+        "color": "#C786ED",
+        "phase": 1,
+        "windupTicks": 36,
+        "recoveryTicks": 38,
+        "cooldownTicks": 300,
+        "animation": "animation.xinmo_wuxiang.heart_pulse",
+        "hint": "起跳越过贴地心潮，注意二阶段回流",
+        "program": "case 3->{\n                wave(c,p,w,false);\n                if(c.phase()>1)c.later(w+65,()->wave(c,p,28,true));\n            }",
+        "operations": [
+          "wave"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 41,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "design": {
+        "recipe": "ring",
+        "palette": "heart_demon",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "heart_demon_04",
+      "name": "旧念追身",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 13,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "facts": {
+        "boss": "heart_demon",
+        "bossName": "心魔",
+        "color": "#C786ED",
+        "phase": 1,
+        "windupTicks": 42,
+        "recoveryTicks": 40,
+        "cooldownTicks": 360,
+        "animation": "animation.xinmo_wuxiang.mirror_flower",
+        "hint": "离开先前走过的足迹，避免原路折返",
+        "program": "case 4->{\n                var history=c.history();\n                if(history.size()<2)c.circle(c.aim(),3,w,.10F);\n                else for(int i=1;i<history.size();i++)c.line(history.get(i-1),history.get(i),2,w+i*5,.075F);\n                if(c.phase()>1)c.later(w+history.size()*5+24,()->c.column(c.target(),3,32,.10F));\n            }",
+        "operations": [
+          "circle",
+          "column",
+          "line"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 45,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "design": {
+        "recipe": "mirror",
+        "palette": "heart_demon",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "heart_demon_05",
+      "name": "照心凝视",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 14,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "facts": {
+        "boss": "heart_demon",
+        "bossName": "心魔",
+        "color": "#C786ED",
+        "phase": 1,
+        "windupTicks": 60,
+        "recoveryTicks": 50,
+        "cooldownTicks": 480,
+        "animation": "animation.xinmo_wuxiang.face_rift",
+        "hint": "聚光结束前背对心魔，或借掩体遮断视线",
+        "program": "case 5->{\n                c.gaze(w,.18F,c.phase()==1);\n                if(c.phase()>1){c.later(w+12,()->c.line(c.origin(),c.target(),1.6,32,.08F));c.later(w+50,()->c.expose(60));}\n            }",
+        "operations": [
+          "gaze",
+          "line"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 51,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "design": {
+        "recipe": "gaze",
+        "palette": "heart_demon",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "heart_demon_06",
+      "name": "妄念锁链",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 15,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "facts": {
+        "boss": "heart_demon",
+        "bossName": "心魔",
+        "color": "#C786ED",
+        "phase": 2,
+        "windupTicks": 44,
+        "recoveryTicks": 48,
+        "cooldownTicks": 460,
+        "animation": "animation.xinmo_wuxiang.delusion_chains",
+        "hint": "击碎锁链根部心结，或用掩体切断连线",
+        "program": "case 6->{\n                Vec3 root=c.clamp(c.aim().add(rotate(d,90).scale(6)));\n                var knot=c.node(\"knot\",root,w+150,()->c.interrupt(90));\n                c.fx(1,root,c.aim(),0,.45F,c.profile.color(),w,w+110,\"\");\n                for(int t=w;t<w+96;t+=12)c.later(t,()->{\n                    if(knot.active()&&!c.clearSight(root,c.target())){knot.discard();c.interrupt(75);}\n                });\n                c.later(w+96,()->{if(knot.active()){c.line(root,c.target(),2,28,.16F);knot.discard();}});\n            }",
+        "operations": [
+          "line"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 55,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "design": {
+        "recipe": "tether",
+        "palette": "heart_demon",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "heart_demon_07",
+      "name": "镜花劫阵",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 16,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "facts": {
+        "boss": "heart_demon",
+        "bossName": "心魔",
+        "color": "#C786ED",
+        "phase": 2,
+        "windupTicks": 48,
+        "recoveryTicks": 46,
+        "cooldownTicks": 500,
+        "animation": "animation.xinmo_wuxiang.mirror_flower",
+        "hint": "避开交叉镜线，击碎明亮阵心使心魔露出破绽",
+        "program": "case 7->{\n                var core=c.node(\"knot\",c.middle(),w+140,()->c.interrupt(100));\n                for(int i=0;i<4;i++) {\n                    Vec3 from=c.middle().add(rotate(d,i*90+45).scale(15));\n                    c.fx(4,from.add(0,1,0),from,1,1,c.profile.color(),w,w+100,\"\");\n                    c.line(from,c.aim().add(horizontal(c.aim().subtract(from)).scale(6)),1.8,w+i*18,.085F);\n                }\n                c.later(w+100,()->{core.discard();c.expose(70);});\n            }",
+        "operations": [
+          "line"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 64,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "design": {
+        "recipe": "mirror",
+        "palette": "heart_demon",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "heart_demon_08",
+      "name": "业火反照",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 17,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "facts": {
+        "boss": "heart_demon",
+        "bossName": "心魔",
+        "color": "#C786ED",
+        "phase": 2,
+        "windupTicks": 52,
+        "recoveryTicks": 50,
+        "cooldownTicks": 520,
+        "animation": "animation.xinmo_wuxiang.karma_reversal",
+        "hint": "收镜期间停手，避开环击后再攻击暴露心核",
+        "program": "case 8->{\n                c.pressure(0);c.guard(w);\n                c.fx(2,p,p,10,3,c.profile.color(),w,w+6,\"\");\n                c.later(w,()->{\n                    c.ring(p,10,3,28,.10F+c.pressure()*.01F,false);\n                    c.later(34,()->{c.pressure(0);c.expose(100);});\n                });\n            }",
+        "operations": [
+          "ring"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 73,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "design": {
+        "recipe": "flame",
+        "palette": "heart_demon",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "heart_demon_09",
+      "name": "无相裂界",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 18,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "facts": {
+        "boss": "heart_demon",
+        "bossName": "心魔",
+        "color": "#C786ED",
+        "phase": 2,
+        "windupTicks": 48,
+        "recoveryTicks": 46,
+        "cooldownTicks": 480,
+        "animation": "animation.xinmo_wuxiang.face_rift",
+        "hint": "扇面先裂、直线后贯，绕到侧后方反击",
+        "program": "case 9->{\n                c.cone(p,p.add(d),22,110,w,.12F);\n                c.line(p,p.add(rotate(d,65).scale(26)),2,w+32,.085F);\n                c.line(p,p.add(rotate(d,-65).scale(26)),2,w+32,.085F);\n                c.later(w+42,()->c.expose(70));\n            }",
+        "operations": [
+          "cone",
+          "line"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 81,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "design": {
+        "recipe": "sword_cut",
+        "palette": "heart_demon",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "heart_demon_10",
+      "name": "万念俱灰",
+      "category": "Boss",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 19,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "facts": {
+        "boss": "heart_demon",
+        "bossName": "心魔",
+        "color": "#C786ED",
+        "phase": 2,
+        "windupTicks": 76,
+        "recoveryTicks": 70,
+        "cooldownTicks": 900,
+        "animation": "animation.xinmo_wuxiang.all_thoughts_ash",
+        "hint": "沿依次熄灭的扇区换位，末段撤出中心再反击",
+        "program": "case 10->{\n                Vec3 mid=c.middle();\n                for(int i=0;i<6;i++)c.cone(mid,mid.add(rotate(d,i*60)),28,48,w+i*20,.075F);\n                c.circle(mid,8,w+145,.15F);\n                c.later(w+154,()->{c.teleport(mid);c.expose(140);});\n            }",
+        "operations": [
+          "circle",
+          "cone"
+        ]
+      },
+      "implementation_source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java",
+        "line": 87,
+        "sha256": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc"
+      },
+      "design": {
+        "recipe": "vortex",
+        "palette": "heart_demon",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "每次实际子攻击/落点触发配方；禁止用一个总前摇代替 Boss 多段程序。"
+      }
+    },
+    {
+      "id": "talisman_fire",
+      "name": "火符",
+      "category": "符箓",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/TalismanCatalog.java",
+        "line": 67,
+        "sha256": "4df1b63b8ec50f18085102f581b3e9fb0cdcf240a404c88db6f8c5c000459d0b"
+      },
+      "facts": {
+        "effect": "FIRE",
+        "glyphAsset": "glyph_fire",
+        "reality_note": "符纹严格采用源码中的 16×32 模板。"
+      },
+      "design": {
+        "recipe": "talisman",
+        "palette": "fire",
+        "materialOverrides": {
+          "glyph_fire": "glyph_fire"
+        },
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "talisman_shield",
+      "name": "护体符",
+      "category": "符箓",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/TalismanCatalog.java",
+        "line": 101,
+        "sha256": "4df1b63b8ec50f18085102f581b3e9fb0cdcf240a404c88db6f8c5c000459d0b"
+      },
+      "facts": {
+        "effect": "SHIELD",
+        "glyphAsset": "glyph_shield",
+        "reality_note": "符纹严格采用源码中的 16×32 模板。"
+      },
+      "design": {
+        "recipe": "talisman",
+        "palette": "metal",
+        "materialOverrides": {
+          "glyph_fire": "glyph_shield"
+        },
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "talisman_heal",
+      "name": "疗伤符",
+      "category": "符箓",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/TalismanCatalog.java",
+        "line": 135,
+        "sha256": "4df1b63b8ec50f18085102f581b3e9fb0cdcf240a404c88db6f8c5c000459d0b"
+      },
+      "facts": {
+        "effect": "HEAL",
+        "glyphAsset": "glyph_heal",
+        "reality_note": "符纹严格采用源码中的 16×32 模板。"
+      },
+      "design": {
+        "recipe": "talisman",
+        "palette": "wood",
+        "materialOverrides": {
+          "glyph_fire": "glyph_heal"
+        },
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "talisman_speed",
+      "name": "神行符",
+      "category": "符箓",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/TalismanCatalog.java",
+        "line": 169,
+        "sha256": "4df1b63b8ec50f18085102f581b3e9fb0cdcf240a404c88db6f8c5c000459d0b"
+      },
+      "facts": {
+        "effect": "SPEED",
+        "glyphAsset": "glyph_speed",
+        "reality_note": "符纹严格采用源码中的 16×32 模板。"
+      },
+      "design": {
+        "recipe": "talisman",
+        "palette": "wind",
+        "materialOverrides": {
+          "glyph_fire": "glyph_speed"
+        },
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "talisman_gather",
+      "name": "聚灵符",
+      "category": "符箓",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/TalismanCatalog.java",
+        "line": 203,
+        "sha256": "4df1b63b8ec50f18085102f581b3e9fb0cdcf240a404c88db6f8c5c000459d0b"
+      },
+      "facts": {
+        "effect": "GATHER",
+        "glyphAsset": "glyph_gather",
+        "reality_note": "符纹严格采用源码中的 16×32 模板。"
+      },
+      "design": {
+        "recipe": "talisman",
+        "palette": "water",
+        "materialOverrides": {
+          "glyph_fire": "glyph_gather"
+        },
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "talisman_purge",
+      "name": "净邪符",
+      "category": "符箓",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/TalismanCatalog.java",
+        "line": 237,
+        "sha256": "4df1b63b8ec50f18085102f581b3e9fb0cdcf240a404c88db6f8c5c000459d0b"
+      },
+      "facts": {
+        "effect": "PURGE",
+        "glyphAsset": "glyph_purge",
+        "reality_note": "符纹严格采用源码中的 16×32 模板。"
+      },
+      "design": {
+        "recipe": "talisman",
+        "palette": "spirit",
+        "materialOverrides": {
+          "glyph_fire": "glyph_purge"
+        },
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "fire_red_flow",
+      "name": "异火·赤炎流火",
+      "category": "异火素材",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java",
+        "line": 12,
+        "sha256": "ae9c60a9e686d86f61c36004377a8b1fa58a6d392a4b37271d34f92f55db7132"
+      },
+      "facts": {
+        "tier": 1,
+        "colors": {
+          "coreColor": "#FFF0BB",
+          "bodyColor": "#FF7420",
+          "edgeColor": "#B92B16",
+          "sparkColor": "#FFC857",
+          "glowColor": "#FF7420"
+        },
+        "acquisition": "NATURAL",
+        "reality_note": "只提供新素材与已有配色；不恢复已退役的剑身缠绕和拖尾实现。"
+      },
+      "design": {
+        "recipe": "flame",
+        "palette": "fire_red_flow",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "fire_molten_gold",
+      "name": "异火·熔金淬火",
+      "category": "异火素材",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java",
+        "line": 13,
+        "sha256": "ae9c60a9e686d86f61c36004377a8b1fa58a6d392a4b37271d34f92f55db7132"
+      },
+      "facts": {
+        "tier": 2,
+        "colors": {
+          "coreColor": "#FFF6AC",
+          "bodyColor": "#FFAA28",
+          "edgeColor": "#AD5216",
+          "sparkColor": "#FFF6AC",
+          "glowColor": "#FFAA28"
+        },
+        "acquisition": "EVOLUTION",
+        "reality_note": "只提供新素材与已有配色；不恢复已退役的剑身缠绕和拖尾实现。"
+      },
+      "design": {
+        "recipe": "flame",
+        "palette": "fire_molten_gold",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "fire_cold_ash",
+      "name": "异火·枯骨冷火",
+      "category": "异火素材",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java",
+        "line": 14,
+        "sha256": "ae9c60a9e686d86f61c36004377a8b1fa58a6d392a4b37271d34f92f55db7132"
+      },
+      "facts": {
+        "tier": 3,
+        "colors": {
+          "coreColor": "#E1E1D0",
+          "bodyColor": "#D2D2B4",
+          "edgeColor": "#777D83",
+          "sparkColor": "#E1E1D0",
+          "glowColor": "#D2D2B4"
+        },
+        "acquisition": "NATURAL",
+        "reality_note": "只提供新素材与已有配色；不恢复已退役的剑身缠绕和拖尾实现。"
+      },
+      "design": {
+        "recipe": "flame",
+        "palette": "fire_cold_ash",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "fire_azure_wood",
+      "name": "异火·青木灵火",
+      "category": "异火素材",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java",
+        "line": 15,
+        "sha256": "ae9c60a9e686d86f61c36004377a8b1fa58a6d392a4b37271d34f92f55db7132"
+      },
+      "facts": {
+        "tier": 4,
+        "colors": {
+          "coreColor": "#C2FFD8",
+          "bodyColor": "#3CC882",
+          "edgeColor": "#17634D",
+          "sparkColor": "#C2FFD8",
+          "glowColor": "#3CC882"
+        },
+        "acquisition": "NATURAL",
+        "reality_note": "只提供新素材与已有配色；不恢复已退役的剑身缠绕和拖尾实现。"
+      },
+      "design": {
+        "recipe": "flame",
+        "palette": "fire_azure_wood",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "fire_cobalt_sea",
+      "name": "异火·碧海沧火",
+      "category": "异火素材",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java",
+        "line": 16,
+        "sha256": "ae9c60a9e686d86f61c36004377a8b1fa58a6d392a4b37271d34f92f55db7132"
+      },
+      "facts": {
+        "tier": 5,
+        "colors": {
+          "coreColor": "#E8FBFF",
+          "bodyColor": "#32A0FF",
+          "edgeColor": "#1C477C",
+          "sparkColor": "#E8FBFF",
+          "glowColor": "#32A0FF"
+        },
+        "acquisition": "NATURAL",
+        "reality_note": "只提供新素材与已有配色；不恢复已退役的剑身缠绕和拖尾实现。"
+      },
+      "design": {
+        "recipe": "flame",
+        "palette": "fire_cobalt_sea",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "fire_violet_thunder",
+      "name": "异火·紫霄雷火",
+      "category": "异火素材",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java",
+        "line": 17,
+        "sha256": "ae9c60a9e686d86f61c36004377a8b1fa58a6d392a4b37271d34f92f55db7132"
+      },
+      "facts": {
+        "tier": 6,
+        "colors": {
+          "coreColor": "#EACDFF",
+          "bodyColor": "#AA50FF",
+          "edgeColor": "#472074",
+          "sparkColor": "#EACDFF",
+          "glowColor": "#AA50FF"
+        },
+        "acquisition": "LIGHTNING_EVENT",
+        "reality_note": "只提供新素材与已有配色；不恢复已退役的剑身缠绕和拖尾实现。"
+      },
+      "design": {
+        "recipe": "flame",
+        "palette": "fire_violet_thunder",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "fire_sun_saint",
+      "name": "异火·大日圣火",
+      "category": "异火素材",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java",
+        "line": 18,
+        "sha256": "ae9c60a9e686d86f61c36004377a8b1fa58a6d392a4b37271d34f92f55db7132"
+      },
+      "facts": {
+        "tier": 7,
+        "colors": {
+          "coreColor": "#FFFFFF",
+          "bodyColor": "#FFFADC",
+          "edgeColor": "#B49349",
+          "sparkColor": "#FFFFFF",
+          "glowColor": "#FFFADC"
+        },
+        "acquisition": "EVOLUTION",
+        "reality_note": "只提供新素材与已有配色；不恢复已退役的剑身缠绕和拖尾实现。"
+      },
+      "design": {
+        "recipe": "flame",
+        "palette": "fire_sun_saint",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "fire_nether_void",
+      "name": "异火·九幽冥火",
+      "category": "异火素材",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java",
+        "line": 19,
+        "sha256": "ae9c60a9e686d86f61c36004377a8b1fa58a6d392a4b37271d34f92f55db7132"
+      },
+      "facts": {
+        "tier": 8,
+        "colors": {
+          "coreColor": "#764897",
+          "bodyColor": "#280A3C",
+          "edgeColor": "#10051B",
+          "sparkColor": "#764897",
+          "glowColor": "#280A3C"
+        },
+        "acquisition": "EVOLUTION",
+        "reality_note": "只提供新素材与已有配色；不恢复已退役的剑身缠绕和拖尾实现。"
+      },
+      "design": {
+        "recipe": "flame",
+        "palette": "fire_nether_void",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "fire_nirvana",
+      "name": "异火·涅槃神火",
+      "category": "异火素材",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java",
+        "line": 20,
+        "sha256": "ae9c60a9e686d86f61c36004377a8b1fa58a6d392a4b37271d34f92f55db7132"
+      },
+      "facts": {
+        "tier": 9,
+        "colors": {
+          "coreColor": "#F4FFFF",
+          "bodyColor": "#40E0D0",
+          "edgeColor": "#235B68",
+          "sparkColor": "#F4FFFF",
+          "glowColor": "#40E0D0"
+        },
+        "acquisition": "END_RITUAL",
+        "reality_note": "只提供新素材与已有配色；不恢复已退役的剑身缠绕和拖尾实现。"
+      },
+      "design": {
+        "recipe": "flame",
+        "palette": "fire_nirvana",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "heart_sword_summon",
+      "name": "心剑凝聚",
+      "category": "心剑仪式",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/HeartSwordSystem.java",
+        "line": 49,
+        "sha256": "af64fd84fb6d721ba5bf3b359d5a9ed56dd9111ddef764fe1dd14230d55aec55"
+      },
+      "facts": {
+        "action": "SUMMON",
+        "reality_note": "绑定现有 HeartSwordVisualPacket 的阶段事件，取消必须停止持续发射。"
+      },
+      "design": {
+        "recipe": "summon",
+        "palette": "spirit",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "heart_sword_disperse",
+      "name": "心剑消散",
+      "category": "心剑仪式",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/HeartSwordSystem.java",
+        "line": 49,
+        "sha256": "af64fd84fb6d721ba5bf3b359d5a9ed56dd9111ddef764fe1dd14230d55aec55"
+      },
+      "facts": {
+        "action": "DISPERSE",
+        "reality_note": "绑定现有 HeartSwordVisualPacket 的阶段事件，取消必须停止持续发射。"
+      },
+      "design": {
+        "recipe": "summon",
+        "palette": "spirit",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "heart_sword_forge",
+      "name": "心铸",
+      "category": "心剑仪式",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/HeartSwordSystem.java",
+        "line": 49,
+        "sha256": "af64fd84fb6d721ba5bf3b359d5a9ed56dd9111ddef764fe1dd14230d55aec55"
+      },
+      "facts": {
+        "action": "FORGE",
+        "reality_note": "绑定现有 HeartSwordVisualPacket 的阶段事件，取消必须停止持续发射。"
+      },
+      "design": {
+        "recipe": "summon",
+        "palette": "spirit",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "heart_sword_unforge",
+      "name": "解铸",
+      "category": "心剑仪式",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/HeartSwordSystem.java",
+        "line": 49,
+        "sha256": "af64fd84fb6d721ba5bf3b359d5a9ed56dd9111ddef764fe1dd14230d55aec55"
+      },
+      "facts": {
+        "action": "UNFORGE",
+        "reality_note": "绑定现有 HeartSwordVisualPacket 的阶段事件，取消必须停止持续发射。"
+      },
+      "design": {
+        "recipe": "summon",
+        "palette": "spirit",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "tribulation",
+      "name": "渡劫雷击",
+      "category": "系统特效",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/TribulationManager.java",
+        "line": 169,
+        "sha256": "d4375bbd23dbc60a80ac4f5b3d51012918527eb083c464b59aa20ae19fa8fef9"
+      },
+      "facts": {
+        "description": "以劫雷判定落点为准；不要用装饰闪电扩大伤害范围。"
+      },
+      "design": {
+        "recipe": "thunder",
+        "palette": "thunder",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "alchemy",
+      "name": "丹成灵光",
+      "category": "系统特效",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/client/AlchemyFurnaceEffects.java",
+        "line": 25,
+        "sha256": "30d4419c13bb0e8c10027f9db2361ff37894eed57a96179d49b6f8dbad39a8ad"
+      },
+      "facts": {
+        "description": "丹炉客户端持续火星与丹成提示素材。"
+      },
+      "design": {
+        "recipe": "gather",
+        "palette": "metal",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    },
+    {
+      "id": "offering",
+      "name": "祭炼聚灵",
+      "category": "系统特效",
+      "source": {
+        "path": "src/main/java/cn/blockforge/generated/generatedmod/client/OfferingItemRenderer.java",
+        "line": 14,
+        "sha256": "06feb794832418c5dad4746bde7b1a08c53d9b3978e035620b1ab8b0e3cf053e"
+      },
+      "facts": {
+        "description": "祭炼物品的吸附、聚灵与消散层。"
+      },
+      "design": {
+        "recipe": "gather",
+        "palette": "spirit",
+        "materialOverrides": {},
+        "basis": "定制美术建议，不修改玩法；组合配方中的数量、尺寸和寿命均为建议值。",
+        "binding": "绑定对应释放/生效/取消事件。"
+      }
+    }
+  ],
+  "glyphs": {
+    "fire": [
+      "................",
+      "................",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      ".......X........",
+      ".......X........",
+      ".......X........",
+      ".......X........",
+      ".......X........",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "......XX..X.....",
+      "......XX..X.....",
+      ".....XX....X....",
+      ".....XX....X....",
+      "....X.X.....X...",
+      "....XX.X...XX...",
+      "......XX.XX.....",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "......X.X.X.....",
+      "......X.X.X.....",
+      "......X.X.X.....",
+      "......X.X.X.....",
+      "....XXXXXXXXX...",
+      "........X......."
+    ],
+    "shield": [
+      "................",
+      "................",
+      "................",
+      "................",
+      "...XXXXXXXXXXX..",
+      "...X.........X..",
+      "...X.........X..",
+      "...X.........X..",
+      "...X.........X..",
+      "...X.........X..",
+      "...X.........X..",
+      "...X.........X..",
+      "...XXXXXXXXXXX..",
+      "...X.........X..",
+      "...X.........X..",
+      "...X.........X..",
+      "...X.........X..",
+      "...X.........X..",
+      "...XXXXXXXXXXX..",
+      "...X.........X..",
+      "...X.........X..",
+      "...X.........X..",
+      "...X.........X..",
+      "....X.......X...",
+      "....X.......X...",
+      ".....X.....X....",
+      "......X...X.....",
+      "......X...X.....",
+      ".......X.X......",
+      ".......X.X......",
+      "........X.......",
+      "................"
+    ],
+    "heal": [
+      "................",
+      "................",
+      "................",
+      ".....X..X..X....",
+      ".....X..X..X....",
+      ".....X..X..X....",
+      ".....X..X..X....",
+      ".....X..X..X....",
+      ".....X..X..X....",
+      ".....XXXXXXX....",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "..XXXXXXXXXXXXX.",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "................",
+      "................"
+    ],
+    "speed": [
+      "................",
+      "................",
+      "..........X.X...",
+      "..........X.X...",
+      ".........X..X...",
+      ".........X..X...",
+      "........X.......",
+      "........X.......",
+      ".......X........",
+      ".......X........",
+      "......X.........",
+      "......X.........",
+      ".....X..........",
+      ".....X..........",
+      "....X...........",
+      "....XXXXXXXX....",
+      "...........X....",
+      "..........X.....",
+      "..........X.....",
+      "..........X.....",
+      ".........X......",
+      "....X....X......",
+      ".....X...X......",
+      "......X.X.......",
+      "......X.X.......",
+      ".......XX.......",
+      ".......XX.......",
+      ".......XX.......",
+      ".......X........",
+      "......XX........",
+      "......X.........",
+      "................"
+    ],
+    "gather": [
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "......XXXXXXXX..",
+      "......X......X..",
+      "......X......X..",
+      "......X.XXXX.X..",
+      "......X....X.X..",
+      "......X....X.X..",
+      "......XXXXXX.X..",
+      ".............X..",
+      "........XXXXXX..",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      "................",
+      ".......XXX......",
+      "........X.......",
+      ".......X........"
+    ],
+    "purge": [
+      "................",
+      "................",
+      "................",
+      ".............X.X",
+      ".............X.X",
+      "............X..X",
+      "............X...",
+      "...........X....",
+      "...........X....",
+      "...........X....",
+      "..........X.X...",
+      "..........X..X..",
+      "..........X...X.",
+      ".........X......",
+      ".........X......",
+      "........X.......",
+      "........X.......",
+      "........X.......",
+      ".......XXXXXX...",
+      ".......X........",
+      "....X.X.........",
+      ".....XX.........",
+      "......X.........",
+      ".....X.X........",
+      ".....X..X.......",
+      ".....X..........",
+      "....X...........",
+      "....X...........",
+      "...X............",
+      "...X............",
+      "................",
+      "................"
+    ]
+  },
+  "sourceHashes": {
+    "src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java": "a2933e961619d9875a0473fa41fdb3508275a4a437c78e8825ad9569192380c6",
+    "src/main/java/cn/blockforge/generated/generatedmod/yujian/SwordTechniqueRegistry.java": "712be6ec23c3c3d7d231897007f6cbee8e5c967e58bc3785962eb5ce7b65dec5",
+    "src/main/java/cn/blockforge/generated/generatedmod/DivineArtCatalog.java": "0330a18f75f626525317549cf9f1c19a44ece245de7a743b5cd3bb338cc20692",
+    "src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java": "4cd9e382c3288d2d35e1b5165fbfdebc49e781e4e4b5674af9c5a6a00835fda2",
+    "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java": "914280daae23dc81775ffb1969bf3ba7b444665cca7feaf87867994a4dfa4a1a",
+    "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java": "84875e9c95d6b0634262ec81b4cad09bb3669044b367c75158fc4c9b1f47eafc",
+    "src/main/java/cn/blockforge/generated/generatedmod/TalismanCatalog.java": "4df1b63b8ec50f18085102f581b3e9fb0cdcf240a404c88db6f8c5c000459d0b",
+    "src/main/resources/assets/wuxingxiantu/weapon_flames/red_flow.json": "1164ddb277edaeeab6aa52dafa680daf6810c01dc99fecdf2ea8812be9d779a1",
+    "src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java": "ae9c60a9e686d86f61c36004377a8b1fa58a6d392a4b37271d34f92f55db7132",
+    "src/main/resources/assets/wuxingxiantu/weapon_flames/molten_gold.json": "d34afec48a3ec4c39d837f1dd759fe042714caab032e243fc4da467b0634b936",
+    "src/main/resources/assets/wuxingxiantu/weapon_flames/cold_ash.json": "bf0ff2d3bd2ee9c6ed8a5406576df12570f439a0e639f0cfca37270e6a6b54e1",
+    "src/main/resources/assets/wuxingxiantu/weapon_flames/azure_wood.json": "2e65b2275d328869e70fa0a58f5c5739970ac9a2d26e731184d53072dc9c33bc",
+    "src/main/resources/assets/wuxingxiantu/weapon_flames/cobalt_sea.json": "b5bfa97742455af1fb4ad9f0a39e165000ab5b4e82631b7f117b093fc7ac358f",
+    "src/main/resources/assets/wuxingxiantu/weapon_flames/violet_thunder.json": "2e5d1405be97ec4b95323214fc37a9b02d35f0a7ec794313b4d4295afe8df23b",
+    "src/main/resources/assets/wuxingxiantu/weapon_flames/sun_saint.json": "4c2f29ada5c59d5104fdb397d53d48f9fdedf31495ac0dd157f4cebfb9bd70e1",
+    "src/main/resources/assets/wuxingxiantu/weapon_flames/nether_void.json": "e8664075e1d41f5d2343cfe220c7d3e2841a41ef9808930365bc97e7d7abd13a",
+    "src/main/resources/assets/wuxingxiantu/weapon_flames/nirvana.json": "355ace07fa6a24fb78a39f873e0884352444d2d01b4e0ab47c181f2e1505f0cb",
+    "src/main/java/cn/blockforge/generated/generatedmod/HeartSwordSystem.java": "af64fd84fb6d721ba5bf3b359d5a9ed56dd9111ddef764fe1dd14230d55aec55",
+    "src/main/java/cn/blockforge/generated/generatedmod/TribulationManager.java": "d4375bbd23dbc60a80ac4f5b3d51012918527eb083c464b59aa20ae19fa8fef9",
+    "src/main/java/cn/blockforge/generated/generatedmod/client/AlchemyFurnaceEffects.java": "30d4419c13bb0e8c10027f9db2361ff37894eed57a96179d49b6f8dbad39a8ad",
+    "src/main/java/cn/blockforge/generated/generatedmod/client/OfferingItemRenderer.java": "06feb794832418c5dad4746bde7b1a08c53d9b3978e035620b1ab8b0e3cf053e",
+    "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossSkillPrograms.java": "a6360461787503d952f7bee512eb1d1e840e973b2dad62b0e0478828f7b16175",
+    "src/main/java/cn/blockforge/generated/generatedmod/network/packet/cultivation/ArtReleasePacket.java": "c2fabef683eed1a0d3341be7f44cf8a25a9fa7a67ff7a46f0e84e709ab5abfe7",
+    "src/main/java/cn/blockforge/generated/generatedmod/DivineArtLogic.java": "fdc45619ba5c94942bb558171bdc4cd78fb584b8f73f16ad0bc0a9f35f2300ca",
+    "src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatController.java": "6d8867c616efd8f66b472d4b193df1be9cd9e737b5c7a000cc8cda1857df8b12",
+    "src/main/java/cn/blockforge/generated/generatedmod/network/packet/boss/BossCombatFxPacket.java": "b995b4a894fe7f72288cf892ed306238115017a43e5c2f070068ec35ab916072",
+    "src/main/resources/assets/wuxingxiantu/lang/zh_cn.json": "345c792e4d5968518115569a8454b7aed93bbc1ea9f719ea8f1fd898f2d0847e"
+  },
+  "scope": "当前目录注册表、对应 Boss 程序、符箓、异火、心剑仪式及三项系统特效；不包含所有生物 AI 的普通攻击或七十二变逐实体动作。",
+  "counts": {
+    "功法": 18,
+    "御剑剑技": 5,
+    "神通": 7,
+    "心法·被动": 10,
+    "Boss": 77,
+    "符箓": 6,
+    "异火素材": 9,
+    "心剑仪式": 4,
+    "系统特效": 3
+  }
+}

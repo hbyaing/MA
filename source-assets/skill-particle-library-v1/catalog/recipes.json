@@ -1,0 +1,2502 @@
+[
+  {
+    "id": "sword_cut",
+    "name": "剑气斩 / 破甲",
+    "layers": [
+      {
+        "material": "sword_slash",
+        "motion": "slash",
+        "count": 2,
+        "sizeBlocks": 3,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      },
+      {
+        "material": "spark_needle",
+        "motion": "burst",
+        "count": 20,
+        "sizeBlocks": 0.22,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      },
+      {
+        "material": "impact_burst",
+        "motion": "burst",
+        "count": 1,
+        "sizeBlocks": 1.6,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "spirit",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 22,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "sword_pierce",
+    "name": "飞星贯日",
+    "layers": [
+      {
+        "material": "sword_ghost",
+        "motion": "beam",
+        "count": 1,
+        "sizeBlocks": 2.4,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      },
+      {
+        "material": "trail_ribbon",
+        "motion": "beam",
+        "count": 2,
+        "sizeBlocks": 3,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      },
+      {
+        "material": "spark_needle",
+        "motion": "burst",
+        "count": 16,
+        "sizeBlocks": 0.18,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "spirit",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 22,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "sword_orbit",
+    "name": "环剑 / 环斩",
+    "layers": [
+      {
+        "material": "sword_ghost",
+        "motion": "orbit",
+        "count": 6,
+        "sizeBlocks": 1.1,
+        "delayTicks": 0,
+        "lifetimeTicks": 40
+      },
+      {
+        "material": "ring_double",
+        "motion": "ring",
+        "count": 1,
+        "sizeBlocks": 3,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      },
+      {
+        "material": "wind_streak",
+        "motion": "orbit",
+        "count": 12,
+        "sizeBlocks": 0.6,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "spirit",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 40,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "sword_rain",
+    "name": "落剑 / 万剑",
+    "layers": [
+      {
+        "material": "rune_circle",
+        "motion": "ground",
+        "count": 1,
+        "sizeBlocks": 4,
+        "delayTicks": 0,
+        "lifetimeTicks": 40
+      },
+      {
+        "material": "sword_ghost",
+        "motion": "rain",
+        "count": 12,
+        "sizeBlocks": 1.6,
+        "delayTicks": 8,
+        "lifetimeTicks": 24
+      },
+      {
+        "material": "impact_burst",
+        "motion": "scatter",
+        "count": 8,
+        "sizeBlocks": 0.8,
+        "delayTicks": 18,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "spirit",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 40,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "heal",
+    "name": "回春 / 净化",
+    "layers": [
+      {
+        "material": "lotus",
+        "motion": "ground",
+        "count": 1,
+        "sizeBlocks": 2.3,
+        "delayTicks": 0,
+        "lifetimeTicks": 40
+      },
+      {
+        "material": "leaf",
+        "motion": "rise",
+        "count": 16,
+        "sizeBlocks": 0.32,
+        "delayTicks": 0,
+        "lifetimeTicks": 35
+      },
+      {
+        "material": "spark_soft",
+        "motion": "rise",
+        "count": 18,
+        "sizeBlocks": 0.24,
+        "delayTicks": 0,
+        "lifetimeTicks": 32
+      }
+    ],
+    "defaultPalette": "wood",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 40,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "shield",
+    "name": "护盾 / 金钟",
+    "layers": [
+      {
+        "material": "shield_hex",
+        "motion": "orbit",
+        "count": 10,
+        "sizeBlocks": 0.65,
+        "delayTicks": 0,
+        "lifetimeTicks": 50
+      },
+      {
+        "material": "ring_double",
+        "motion": "ground",
+        "count": 1,
+        "sizeBlocks": 2.5,
+        "delayTicks": 0,
+        "lifetimeTicks": 50
+      },
+      {
+        "material": "spark_star",
+        "motion": "rise",
+        "count": 10,
+        "sizeBlocks": 0.24,
+        "delayTicks": 0,
+        "lifetimeTicks": 30
+      }
+    ],
+    "defaultPalette": "spirit",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 50,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "bind",
+    "name": "定身 / 符锁",
+    "layers": [
+      {
+        "material": "chain_link",
+        "motion": "orbit",
+        "count": 12,
+        "sizeBlocks": 0.42,
+        "delayTicks": 0,
+        "lifetimeTicks": 40
+      },
+      {
+        "material": "seal_glyph",
+        "motion": "ground",
+        "count": 1,
+        "sizeBlocks": 2.3,
+        "delayTicks": 0,
+        "lifetimeTicks": 40
+      },
+      {
+        "material": "electric_arc",
+        "motion": "burst",
+        "count": 3,
+        "sizeBlocks": 1.2,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "spirit",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 40,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "wind",
+    "name": "轻身 / 御剑",
+    "layers": [
+      {
+        "material": "wind_curl",
+        "motion": "orbit",
+        "count": 3,
+        "sizeBlocks": 1.4,
+        "delayTicks": 0,
+        "lifetimeTicks": 35
+      },
+      {
+        "material": "wind_streak",
+        "motion": "beam",
+        "count": 12,
+        "sizeBlocks": 0.65,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      },
+      {
+        "material": "cloud_scroll",
+        "motion": "ground",
+        "count": 2,
+        "sizeBlocks": 1.8,
+        "delayTicks": 0,
+        "lifetimeTicks": 35
+      }
+    ],
+    "defaultPalette": "spirit",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 35,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "gather",
+    "name": "聚灵 / 归元",
+    "layers": [
+      {
+        "material": "rune_circle",
+        "motion": "ground",
+        "count": 1,
+        "sizeBlocks": 3,
+        "delayTicks": 0,
+        "lifetimeTicks": 50
+      },
+      {
+        "material": "soul_wisp",
+        "motion": "inward",
+        "count": 24,
+        "sizeBlocks": 0.38,
+        "delayTicks": 0,
+        "lifetimeTicks": 40
+      },
+      {
+        "material": "spark_star",
+        "motion": "inward",
+        "count": 12,
+        "sizeBlocks": 0.2,
+        "delayTicks": 0,
+        "lifetimeTicks": 40
+      }
+    ],
+    "defaultPalette": "spirit",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 50,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "ice",
+    "name": "冰刺 / 霜爆",
+    "layers": [
+      {
+        "material": "ice_shard",
+        "motion": "rise",
+        "count": 10,
+        "sizeBlocks": 1.25,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      },
+      {
+        "material": "snow_crystal",
+        "motion": "burst",
+        "count": 16,
+        "sizeBlocks": 0.3,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      },
+      {
+        "material": "ripple",
+        "motion": "ground",
+        "count": 1,
+        "sizeBlocks": 3,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "water",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 22,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "flame",
+    "name": "焰浪 / 异火",
+    "layers": [
+      {
+        "material": "flame_tongue",
+        "motion": "rise",
+        "count": 16,
+        "sizeBlocks": 1.05,
+        "delayTicks": 0,
+        "lifetimeTicks": 32
+      },
+      {
+        "material": "ember_fragment",
+        "motion": "rise",
+        "count": 20,
+        "sizeBlocks": 0.24,
+        "delayTicks": 0,
+        "lifetimeTicks": 40
+      },
+      {
+        "material": "smoke_puff",
+        "motion": "rise",
+        "count": 5,
+        "sizeBlocks": 1.5,
+        "delayTicks": 8,
+        "lifetimeTicks": 38
+      }
+    ],
+    "defaultPalette": "fire",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 46,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "blink",
+    "name": "闪现 / 镜步",
+    "layers": [
+      {
+        "material": "mirror_crack",
+        "motion": "burst",
+        "count": 1,
+        "sizeBlocks": 2.8,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      },
+      {
+        "material": "mirror_shard",
+        "motion": "burst",
+        "count": 16,
+        "sizeBlocks": 0.45,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      },
+      {
+        "material": "soul_wisp",
+        "motion": "beam",
+        "count": 16,
+        "sizeBlocks": 0.6,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "spirit",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 22,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "blood",
+    "name": "气血激发",
+    "layers": [
+      {
+        "material": "heat_wisp",
+        "motion": "rise",
+        "count": 12,
+        "sizeBlocks": 0.7,
+        "delayTicks": 0,
+        "lifetimeTicks": 35
+      },
+      {
+        "material": "ring_soft",
+        "motion": "ground",
+        "count": 1,
+        "sizeBlocks": 2.4,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      },
+      {
+        "material": "spark_needle",
+        "motion": "rise",
+        "count": 16,
+        "sizeBlocks": 0.28,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "blood",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 35,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "thunder",
+    "name": "落雷 / 渡劫",
+    "layers": [
+      {
+        "material": "lightning_branch",
+        "motion": "column",
+        "count": 2,
+        "sizeBlocks": 4,
+        "delayTicks": 0,
+        "lifetimeTicks": 10
+      },
+      {
+        "material": "thunder_core",
+        "motion": "burst",
+        "count": 1,
+        "sizeBlocks": 2.2,
+        "delayTicks": 0,
+        "lifetimeTicks": 12
+      },
+      {
+        "material": "electric_arc",
+        "motion": "burst",
+        "count": 10,
+        "sizeBlocks": 0.7,
+        "delayTicks": 0,
+        "lifetimeTicks": 16
+      },
+      {
+        "material": "ground_crack",
+        "motion": "ground",
+        "count": 1,
+        "sizeBlocks": 3,
+        "delayTicks": 0,
+        "lifetimeTicks": 28
+      }
+    ],
+    "defaultPalette": "thunder",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 28,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "earth",
+    "name": "坠岳 / 震地",
+    "layers": [
+      {
+        "material": "ground_crack",
+        "motion": "ground",
+        "count": 1,
+        "sizeBlocks": 4,
+        "delayTicks": 0,
+        "lifetimeTicks": 40
+      },
+      {
+        "material": "earth_shard",
+        "motion": "burst",
+        "count": 18,
+        "sizeBlocks": 0.5,
+        "delayTicks": 0,
+        "lifetimeTicks": 30
+      },
+      {
+        "material": "dust_plume",
+        "motion": "rise",
+        "count": 6,
+        "sizeBlocks": 1.4,
+        "delayTicks": 0,
+        "lifetimeTicks": 40
+      },
+      {
+        "material": "ring_soft",
+        "motion": "ring",
+        "count": 1,
+        "sizeBlocks": 4,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "earth",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 40,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "five_elements",
+    "name": "五行合击",
+    "layers": [
+      {
+        "material": "five_elements_seal",
+        "motion": "ground",
+        "count": 1,
+        "sizeBlocks": 4,
+        "delayTicks": 0,
+        "lifetimeTicks": 50
+      },
+      {
+        "material": "flame_tongue",
+        "motion": "orbit",
+        "count": 5,
+        "sizeBlocks": 0.7,
+        "delayTicks": 0,
+        "lifetimeTicks": 22,
+        "colorRole": "elements"
+      },
+      {
+        "material": "leaf",
+        "motion": "orbit",
+        "count": 5,
+        "sizeBlocks": 0.5,
+        "delayTicks": 0,
+        "lifetimeTicks": 22,
+        "colorRole": "elements"
+      },
+      {
+        "material": "water_droplet",
+        "motion": "orbit",
+        "count": 5,
+        "sizeBlocks": 0.5,
+        "delayTicks": 0,
+        "lifetimeTicks": 22,
+        "colorRole": "elements"
+      },
+      {
+        "material": "spark_star",
+        "motion": "inward",
+        "count": 20,
+        "sizeBlocks": 0.4,
+        "delayTicks": 0,
+        "lifetimeTicks": 22,
+        "colorRole": "elements"
+      },
+      {
+        "material": "flash_radial",
+        "motion": "burst",
+        "count": 1,
+        "sizeBlocks": 3,
+        "delayTicks": 20,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "pengjiao",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 50,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "beam",
+    "name": "光矛 / 扫射",
+    "layers": [
+      {
+        "material": "trail_ribbon",
+        "motion": "beam",
+        "count": 2,
+        "sizeBlocks": 5,
+        "delayTicks": 0,
+        "lifetimeTicks": 24
+      },
+      {
+        "material": "prism_glint",
+        "motion": "beam",
+        "count": 6,
+        "sizeBlocks": 0.4,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      },
+      {
+        "material": "spark_needle",
+        "motion": "beam",
+        "count": 16,
+        "sizeBlocks": 0.3,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "spirit",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 24,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "ring",
+    "name": "震荡 / 缺口环",
+    "layers": [
+      {
+        "material": "ring_broken",
+        "motion": "ring",
+        "count": 2,
+        "sizeBlocks": 4,
+        "delayTicks": 0,
+        "lifetimeTicks": 35
+      },
+      {
+        "material": "spark_soft",
+        "motion": "orbit",
+        "count": 20,
+        "sizeBlocks": 0.18,
+        "delayTicks": 0,
+        "lifetimeTicks": 32
+      }
+    ],
+    "defaultPalette": "spirit",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 35,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "sound",
+    "name": "音刃 / 声墙",
+    "layers": [
+      {
+        "material": "sound_wave",
+        "motion": "ring",
+        "count": 2,
+        "sizeBlocks": 4,
+        "delayTicks": 0,
+        "lifetimeTicks": 36
+      },
+      {
+        "material": "sound_blade",
+        "motion": "slash",
+        "count": 3,
+        "sizeBlocks": 2.3,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      },
+      {
+        "material": "spark_soft",
+        "motion": "orbit",
+        "count": 12,
+        "sizeBlocks": 0.2,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "ermei",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 36,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "poison",
+    "name": "瘴息 / 腐液",
+    "layers": [
+      {
+        "material": "poison_cloud",
+        "motion": "ground",
+        "count": 5,
+        "sizeBlocks": 2,
+        "delayTicks": 0,
+        "lifetimeTicks": 50
+      },
+      {
+        "material": "poison_bubble",
+        "motion": "rise",
+        "count": 16,
+        "sizeBlocks": 0.38,
+        "delayTicks": 0,
+        "lifetimeTicks": 40
+      },
+      {
+        "material": "acid_splash",
+        "motion": "ground",
+        "count": 3,
+        "sizeBlocks": 1.4,
+        "delayTicks": 0,
+        "lifetimeTicks": 35
+      }
+    ],
+    "defaultPalette": "bichen",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 50,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "crystal",
+    "name": "晶刺 / 晶牢",
+    "layers": [
+      {
+        "material": "crystal_shard",
+        "motion": "rise",
+        "count": 12,
+        "sizeBlocks": 1.4,
+        "delayTicks": 0,
+        "lifetimeTicks": 35
+      },
+      {
+        "material": "prism_glint",
+        "motion": "burst",
+        "count": 12,
+        "sizeBlocks": 0.45,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      },
+      {
+        "material": "lotus",
+        "motion": "ground",
+        "count": 1,
+        "sizeBlocks": 3,
+        "delayTicks": 0,
+        "lifetimeTicks": 35
+      }
+    ],
+    "defaultPalette": "shenyin",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 35,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "mirror",
+    "name": "分身 / 镜墙",
+    "layers": [
+      {
+        "material": "mirror_shard",
+        "motion": "orbit",
+        "count": 12,
+        "sizeBlocks": 0.8,
+        "delayTicks": 0,
+        "lifetimeTicks": 40
+      },
+      {
+        "material": "mirror_crack",
+        "motion": "burst",
+        "count": 1,
+        "sizeBlocks": 3,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      },
+      {
+        "material": "soul_wisp",
+        "motion": "rise",
+        "count": 12,
+        "sizeBlocks": 0.65,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "yihuo",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 40,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "gaze",
+    "name": "凝视 / 聚瞳",
+    "layers": [
+      {
+        "material": "eye_sigil",
+        "motion": "center",
+        "count": 1,
+        "sizeBlocks": 3,
+        "delayTicks": 0,
+        "lifetimeTicks": 55
+      },
+      {
+        "material": "rune_circle",
+        "motion": "center",
+        "count": 1,
+        "sizeBlocks": 3.5,
+        "delayTicks": 0,
+        "lifetimeTicks": 55
+      },
+      {
+        "material": "soul_wisp",
+        "motion": "inward",
+        "count": 20,
+        "sizeBlocks": 0.3,
+        "delayTicks": 0,
+        "lifetimeTicks": 40
+      }
+    ],
+    "defaultPalette": "muyan",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 55,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "tether",
+    "name": "锁链 / 心结",
+    "layers": [
+      {
+        "material": "chain_link",
+        "motion": "beam",
+        "count": 16,
+        "sizeBlocks": 0.35,
+        "delayTicks": 0,
+        "lifetimeTicks": 50
+      },
+      {
+        "material": "seal_glyph",
+        "motion": "center",
+        "count": 1,
+        "sizeBlocks": 1.2,
+        "delayTicks": 0,
+        "lifetimeTicks": 50
+      },
+      {
+        "material": "soul_wisp",
+        "motion": "inward",
+        "count": 12,
+        "sizeBlocks": 0.4,
+        "delayTicks": 0,
+        "lifetimeTicks": 40
+      }
+    ],
+    "defaultPalette": "heart_demon",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 50,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "vortex",
+    "name": "牵引 / 回流",
+    "layers": [
+      {
+        "material": "mist_spiral",
+        "motion": "ground",
+        "count": 1,
+        "sizeBlocks": 4,
+        "delayTicks": 0,
+        "lifetimeTicks": 50
+      },
+      {
+        "material": "soul_wisp",
+        "motion": "inward",
+        "count": 28,
+        "sizeBlocks": 0.5,
+        "delayTicks": 0,
+        "lifetimeTicks": 42
+      },
+      {
+        "material": "ring_double",
+        "motion": "ring",
+        "count": 1,
+        "sizeBlocks": 3,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "heart_demon",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 50,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "gold_seal",
+    "name": "金印 / 飞刃",
+    "layers": [
+      {
+        "material": "seal_glyph",
+        "motion": "column",
+        "count": 1,
+        "sizeBlocks": 3,
+        "delayTicks": 0,
+        "lifetimeTicks": 35
+      },
+      {
+        "material": "spark_needle",
+        "motion": "rain",
+        "count": 20,
+        "sizeBlocks": 0.5,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      },
+      {
+        "material": "flash_radial",
+        "motion": "burst",
+        "count": 1,
+        "sizeBlocks": 2.5,
+        "delayTicks": 16,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "metal",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 38,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "dipper",
+    "name": "踏罡 / 七星",
+    "layers": [
+      {
+        "material": "star_dipper",
+        "motion": "ground",
+        "count": 1,
+        "sizeBlocks": 4,
+        "delayTicks": 0,
+        "lifetimeTicks": 60
+      },
+      {
+        "material": "spark_star",
+        "motion": "rise",
+        "count": 7,
+        "sizeBlocks": 0.45,
+        "delayTicks": 0,
+        "lifetimeTicks": 50
+      },
+      {
+        "material": "rune_circle",
+        "motion": "ground",
+        "count": 1,
+        "sizeBlocks": 4.5,
+        "delayTicks": 0,
+        "lifetimeTicks": 60
+      }
+    ],
+    "defaultPalette": "spirit",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 60,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "soul",
+    "name": "元神 / 寄魄",
+    "layers": [
+      {
+        "material": "soul_wisp",
+        "motion": "rise",
+        "count": 20,
+        "sizeBlocks": 0.65,
+        "delayTicks": 0,
+        "lifetimeTicks": 50
+      },
+      {
+        "material": "mist_spiral",
+        "motion": "ground",
+        "count": 1,
+        "sizeBlocks": 2.5,
+        "delayTicks": 0,
+        "lifetimeTicks": 45
+      },
+      {
+        "material": "spark_soft",
+        "motion": "rise",
+        "count": 14,
+        "sizeBlocks": 0.25,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "spirit",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 50,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "eclipse",
+    "name": "日月停轮",
+    "layers": [
+      {
+        "material": "eclipse_ring",
+        "motion": "center",
+        "count": 1,
+        "sizeBlocks": 4,
+        "delayTicks": 0,
+        "lifetimeTicks": 80
+      },
+      {
+        "material": "star_dipper",
+        "motion": "orbit",
+        "count": 2,
+        "sizeBlocks": 1,
+        "delayTicks": 0,
+        "lifetimeTicks": 70
+      },
+      {
+        "material": "spark_star",
+        "motion": "suspend",
+        "count": 24,
+        "sizeBlocks": 0.22,
+        "delayTicks": 0,
+        "lifetimeTicks": 80
+      }
+    ],
+    "defaultPalette": "metal",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 80,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "cloud",
+    "name": "筋斗 / 祥云",
+    "layers": [
+      {
+        "material": "cloud_scroll",
+        "motion": "ground",
+        "count": 5,
+        "sizeBlocks": 1.7,
+        "delayTicks": 0,
+        "lifetimeTicks": 50
+      },
+      {
+        "material": "wind_streak",
+        "motion": "beam",
+        "count": 14,
+        "sizeBlocks": 0.65,
+        "delayTicks": 0,
+        "lifetimeTicks": 30
+      },
+      {
+        "material": "spark_soft",
+        "motion": "rise",
+        "count": 10,
+        "sizeBlocks": 0.2,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "spirit",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 50,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "talisman",
+    "name": "符箓激活",
+    "layers": [
+      {
+        "material": "glyph_fire",
+        "motion": "center",
+        "count": 1,
+        "sizeBlocks": 1.5,
+        "delayTicks": 0,
+        "lifetimeTicks": 30
+      },
+      {
+        "material": "talisman_ash",
+        "motion": "rise",
+        "count": 16,
+        "sizeBlocks": 0.3,
+        "delayTicks": 16,
+        "lifetimeTicks": 22
+      },
+      {
+        "material": "rune_circle",
+        "motion": "ground",
+        "count": 1,
+        "sizeBlocks": 2.5,
+        "delayTicks": 0,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "spirit",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 38,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  },
+  {
+    "id": "summon",
+    "name": "心剑 / 心铸",
+    "layers": [
+      {
+        "material": "soul_wisp",
+        "motion": "inward",
+        "count": 24,
+        "sizeBlocks": 0.35,
+        "delayTicks": 0,
+        "lifetimeTicks": 35
+      },
+      {
+        "material": "sword_ghost",
+        "motion": "center",
+        "count": 1,
+        "sizeBlocks": 2,
+        "delayTicks": 14,
+        "lifetimeTicks": 35
+      },
+      {
+        "material": "spark_star",
+        "motion": "burst",
+        "count": 12,
+        "sizeBlocks": 0.3,
+        "delayTicks": 25,
+        "lifetimeTicks": 22
+      }
+    ],
+    "defaultPalette": "spirit",
+    "curves": {
+      "alpha": [
+        [
+          0,
+          0
+        ],
+        [
+          0.08,
+          1
+        ],
+        [
+          0.68,
+          0.8
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "size": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.18,
+          1
+        ],
+        [
+          0.8,
+          1.15
+        ],
+        [
+          1,
+          0.7
+        ]
+      ]
+    },
+    "durationTicks": 49,
+    "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+    "quality": {
+      "low": 0.35,
+      "medium": 0.65,
+      "high": 1.0
+    },
+    "recommendedMaxParticles": 128
+  }
+]
