@@ -1,0 +1,40 @@
+{
+  "sourceRepository": "hbyaing/xiantu",
+  "sourceCommit": "ff253fa45ec919dc4fe9cc1d7587971d1f70a14c",
+  "integrationBase": "0e48c62",
+  "scope": "Four chaos swords, chart, server deployment/upkeep and original client formation display",
+  "combat": "Source formation has no direct damage, collision blocking or damage reduction. Four swords retain their original ordinary melee attributes.",
+  "currency": {
+    "valueUnit": "target low-grade spirit stone",
+    "exquisiteValue": 729,
+    "sourceExquisiteCount": 5,
+    "periodPrice": 3645,
+    "firstPaymentTick": 240,
+    "followingPeriodTicks": 1200,
+    "deploymentPrecharge": 0
+  },
+  "acquisition": "Five new survival crafting recipes use existing target materials; the chart recipe does not consume the four swords.",
+  "integrationChecks": [
+    "Source meshes and PNG atlases retained verbatim",
+    "Only resource namespace/model loader adapted",
+    "Player chart possession, loaded ground and reach checked server-side",
+    "Four usable owned swords required during upkeep; losing them ends the formation",
+    "No persistent runtime formations across server restart",
+    "Visual compatibility requires separate actual-client checks"
+  ],
+  "verbatimAssetSha256": {
+    "mesh/item/zhuxian_sword.json": "5d688ea6140d0ee5005a000e16e676d1f661d119a822fcbd751fe583959a513f",
+    "textures/item/zhuxian_sword.png": "0b32560525ef7c6d33c19e637d711ad92175c65d72f332d9dc01ec1fb3a444ed",
+    "mesh/item/luxian_sword.json": "f236505666f7d87667a6cbcfd16007f0f713dfeb15168fec0cfa9cfe2fe35adb",
+    "textures/item/luxian_sword.png": "82742d90df14f27d43d73b96979192cabfe4f5838f205cb27b6036c29632cde0",
+    "mesh/item/xianxian_sword.json": "e989aa57c37a8db529c3c51f6e826302f593b3b5060f4e84c64a26a891d68222",
+    "textures/item/xianxian_sword.png": "dc3f39488febe77ddf2305476582be710a75b025696509dcc8527b7697b58684",
+    "mesh/item/juexian_sword.json": "d9a66df44358c3b0c07472efa602ce96f0e03ff12a4fab976073762ffe65d2da",
+    "textures/item/juexian_sword.png": "7a3ee69b44b55ec1568b1fb6c19b7b7115e1206a92f6e87dae6144bf60a01754",
+    "mesh/item/zhuxian_sword_chart.json": "92576611d4b63193bbefe4db4f350ac353d7104ced273133343543b87ea87620",
+    "textures/item/zhuxian_sword_chart.png": "4d24cc024da6642fb6d6b62b478643caa3b87b1ee367a81d1bf557a5a3bffa2b",
+    "formations/sword.json": "24e4a226780f1a2f7c3afc05c2033efda5aceaef70b43ef63211a2c6b9eb6ac1",
+    "formations/sword.png": "371083c0936bfe37bf2d7bc508187bb8fac3a7d5b480b14337e60f59aa4f85b7",
+    "formations/sword_distance.png": "2c425dc85ea03f67a274ac967e8abf140d85e77353197372c7f93251e1df12d9"
+  }
+}

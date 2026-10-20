@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "wuxingxiantu:woven_meditation_cushion"
+    }
+  ],
+  "result": {
+    "item": "wuxingxiantu:meditation_cushion"
+  }
+}

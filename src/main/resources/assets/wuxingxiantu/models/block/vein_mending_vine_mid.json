@@ -1,0 +1,96 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "cross": "wuxingxiantu:block/vein_mending_vine_growing",
+    "particle": "#cross"
+  },
+  "elements": [
+    {
+      "from": [
+        1.7000000000000002,
+        0,
+        8
+      ],
+      "to": [
+        14.3,
+        14,
+        8
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": 45,
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            1.0,
+            11.0,
+            16.0
+          ],
+          "texture": "#cross"
+        },
+        "south": {
+          "uv": [
+            11.0,
+            1.0,
+            4.5,
+            16.0
+          ],
+          "texture": "#cross"
+        }
+      }
+    },
+    {
+      "from": [
+        1.7000000000000002,
+        0,
+        8
+      ],
+      "to": [
+        14.3,
+        14,
+        8
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": -45,
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            1.0,
+            11.0,
+            16.0
+          ],
+          "texture": "#cross"
+        },
+        "south": {
+          "uv": [
+            11.0,
+            1.0,
+            4.5,
+            16.0
+          ],
+          "texture": "#cross"
+        }
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout"
+}

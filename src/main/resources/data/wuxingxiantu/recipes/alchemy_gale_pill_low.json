@@ -1,0 +1,29 @@
+{
+  "type": "wuxingxiantu:alchemy",
+  "formula_id": "wuxingxiantu:gale_pill",
+  "furnace_tier": 0,
+  "min_fire_tier": 1,
+  "minimum_realm": 1,
+  "ingredients": [
+    {
+      "item": "wuxingxiantu:gale_grass",
+      "count": 2
+    },
+    {
+      "item": "wuxingxiantu:spirit_sprout_grass",
+      "count": 2
+    },
+    {
+      "item": "minecraft:feather",
+      "count": 1
+    }
+  ],
+  "aura_cost": 12,
+  "time": 1200,
+  "fire_essence_multiplier": 0.5,
+  "result": {
+    "item": "wuxingxiantu:gale_pill",
+    "count": 1
+  },
+  "result_grade": "LOW"
+}

@@ -1,0 +1,11 @@
+{
+  "tier": 3,
+  "items": [
+    "art_flame_wave",
+    "art_flash_step",
+    "art_purification",
+    "art_bloodlust",
+    "art_thunder"
+  ],
+  "texture": "wuxingxiantu:item/art_book_earth"
+}

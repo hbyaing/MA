@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "wuxingxiantu:spirit_ore",
+    "wuxingxiantu:spirit_coal_ore",
+    "wuxingxiantu:spirit_coal_block",
+    "wuxingxiantu:alchemy_furnace",
+    "wuxingxiantu:alchemy_furnace_low",
+    "wuxingxiantu:alchemy_furnace_mid",
+    "wuxingxiantu:alchemy_furnace_high",
+    "wuxingxiantu:alchemy_furnace_perfect",
+    "wuxingxiantu:alchemy_furnace_immortal",
+    "wuxingxiantu:spirit_platform",
+    "wuxingxiantu:refining_forge_core",
+    "wuxingxiantu:rune_stone",
+    "wuxingxiantu:refining_forge_corner",
+    "wuxingxiantu:soul_refining_furnace",
+    "wuxingxiantu:spirit_dismantling_furnace",
+    "wuxingxiantu:soul_healing_room"
+  ]
+}

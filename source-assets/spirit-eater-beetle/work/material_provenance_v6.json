@@ -1,0 +1,73 @@
+{
+  "ventral": {
+    "source": "背面新参考.png",
+    "sampling": "bilinear, conformal horizontal bands from original chitin plates; original rim retained",
+    "band_parameters_halfwidth_y0_y1_bend": [
+      [
+        89,
+        361,
+        397,
+        27
+      ],
+      [
+        81,
+        354,
+        397,
+        25
+      ],
+      [
+        82,
+        452,
+        495,
+        25
+      ],
+      [
+        77,
+        445,
+        495,
+        24
+      ],
+      [
+        71,
+        452,
+        495,
+        22
+      ],
+      [
+        57,
+        560,
+        600,
+        18
+      ],
+      [
+        49,
+        568,
+        600,
+        16
+      ]
+    ],
+    "atlas_size": [
+      512,
+      512
+    ],
+    "rows": 7,
+    "row_height": 64,
+    "generated_artwork": false
+  },
+  "abdomen": {
+    "base": "work/abdomen_v5_albedo.png",
+    "sources": [
+      "背面新参考.png",
+      "reference.png"
+    ],
+    "blockbench_alpha": "inverse alpha is emission strength, not runtime opacity",
+    "emission_alpha_range": [
+      133,
+      253
+    ],
+    "runtime_exports": [
+      "work/abdomen_v6_albedo.png",
+      "work/abdomen_v6_emission_mask.png"
+    ]
+  }
+}

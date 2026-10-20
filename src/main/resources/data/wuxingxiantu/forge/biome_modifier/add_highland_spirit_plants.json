@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#wuxingxiantu:highland_spirit_plants",
+  "features": ["wuxingxiantu:thunder_vein_grass", "wuxingxiantu:starlight_flower"],
+  "step": "vegetal_decoration"
+}

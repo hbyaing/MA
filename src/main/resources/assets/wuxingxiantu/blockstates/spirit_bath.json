@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "filled=false": {
+      "model": "wuxingxiantu:block/spirit_bath"
+    },
+    "filled=true": {
+      "model": "wuxingxiantu:block/spirit_bath_filled"
+    }
+  }
+}

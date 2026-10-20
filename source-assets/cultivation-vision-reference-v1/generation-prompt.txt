@@ -1,0 +1,61 @@
+Use case: ui-mockup, a production-oriented Minecraft Java 1.20.1 mod game UI reference.
+There are TWO input images with DIFFERENT roles:
+IMAGE 1 is the user's ORIGINAL second page, named 内视. It is the CONTENT AND LAYOUT edit target. Preserve its real information, six sections, actions and item count.
+IMAGE 2 is the user's CHOSEN artistic reference for the first 背包 page. It is the VISUAL STYLE AND SHARED CHROME reference. Match this established skin, not a new aesthetic.
+Generate ONE complete flat front-facing second-page reference image, approximately 1672x941 landscape, with a compact outside margin. No perspective, no monitor, no callout presentation board, no in-world screenshot scenery. Make this clearly the 内视 page in the same UI family as image 2.
+
+Shared chrome must match image 2: same slim dark blue-black ink-wash mountain header, warm antique-gold restrained edge/corner treatment, left vertical navigation occupying about 15% width, quiet mountain/pagoda at its lower end, coherent thin gold line icons and Chinese typography. Header text left “五行仙途”, center “内视”, right “地仙 · 巅峰”, small square close X at far right. Keep main title moderate in size, no larger than image 2 title. Left navigation EXACTLY six rows in this order: “背包”, “内视”, “功法”, “灵剑”, “成就”, “设置”. Reuse corresponding visual icon language from reference 2; select ONLY “内视” with the same warm selected button used for 背包 in image 2. 背包 is inactive. Keep every row's icon and text aligned. Do not add menu options.
+
+Main content contract: the SIX FUNCTIONAL SECTIONS of image 1 form an aligned THREE-COLUMN by TWO-ROW layout, to the right of navigation. Top left “修炼状态”, top middle “修行根基”, top right “修炼操作”; bottom left “灵根”, bottom middle “领域”, bottom right “异火”. Shared top edges, baseline alignment, consistent insets, comfortable gaps. Fit all six in the page without clipping. Retain the same proportions as source content, but use the approved first-page skin.
+To match the first-page warm paper/dark overview split: the FIRST TWO content columns sit on continuous warm pale rice-paper with faint gray ink mountains and restrained fine paper grain; use dark ink labels there, clear dark text with muted gold, jade or rust accents. The RIGHT content column is dark blue-black ink wash with pale labels and gold/blue accents. Subtle lines or space distinguish top and bottom sections; no nested card borders or decorative patterns. Landscapes should be faint and at edges so dynamic text is readable. Use the established game's fixed rectangular buttons and consistent small square cells, buildable with simple PNG backgrounds, 9-slice frames and GuiGraphics. Do not place gold borders around every static label.
+
+EXACT CONTENT:
+Top left “修炼状态”:
+“地仙 · 巅峰”
+“修为  1亿 / 1亿” above a full GOLD bar.
+“灵力  132万 / 132万” above a full BLUE bar.
+“生命  5284 / 5284” above a full MUTED RUST RED bar.
+“攻击  313”
+“功德  ∞”
+Keep all three bars aligned to identical widths, moderate height, in the reference 2 visual language. No labels overlaid on artwork.
+
+Top middle “修行根基”:
+“道心：道心受损” with the damaged value in restrained rust red.
+“经脉：经脉完整” value muted jade.
+“体质：九窍灵脉” value muted jade.
+“阳神纯度：100” value muted blue.
+At bottom of that section, ONE normal dark rectangular button labeled “药水状态”.
+Do not add anatomy diagrams, meridian bodies or illustrated characters.
+
+Top right “修炼操作”:
+At top ONE disabled/dim button “渡劫”.
+Under it “渡劫条件未满足”.
+Below that “耗费 20 灵力”, with 20/灵力 in muted blue.
+Then “凝成 1 枚灵力结晶”.
+At bottom ONE enabled gold-accent rectangle button “凝晶”.
+Align it horizontally with 药水状态 and top section bottom. Disabled visual is distinct, not bright or glowing.
+
+Bottom left “灵根”:
+EXACTLY a 3-column by 2-row grid of SIX small identical square root cells.
+Top row glyphs “金”, “雷”, “水”.
+Bottom row glyphs “焰”, “土”, “混沌”.
+Under first five cells show “极品”; under 混沌 show “已成”.
+Color glyphs appropriately but quietly: gold/earth antique gold, thunder muted jade, water muted blue, flame muted rust.
+Bottom of section TWO equal buttons, side by side: “木灵根”, “火灵根”.
+Do not add a root wheel or extra controls.
+
+Bottom middle “领域”:
+EXACTLY FIVE equal-width stacked, selected/active rectangular rows:
+“金光领域 · 已激活”
+“万雷领域 · 已激活”
+“潮汐领域 · 已激活”
+“异火领域 · 已激活”
+“重力领域 · 已激活”.
+Same height and consistent separation, antique gold active fill or border in the reference skin. All text fully readable.
+
+Bottom right “异火”:
+EXACTLY NINE equal SQUARE item slots in a 3-by-3 grid.
+Use original screenshot's tiny Minecraft pixel-art fire-seed/potion sprites: top row red, green, pale cyan; middle row turquoise, blue, purple; bottom row bright cyan, near-black purple, violet-blue. Keep sprites small and pixelated, centered inside the same-sized dark slots. No large flames, no human illustrations, no magical VFX. All nine squares identical size and strictly aligned; preserve count. These are clickable existing items, not new gameplay.
+Do not add inventory slots, armor slots, a player viewport or crafting to this page.
+
+Aesthetic discipline: preserve the user's selected reference 2 style, color and mountainous atmosphere, while respecting functional hierarchy. No new lotus flowers, extra sigils, ornamental clouds, new glowing frames, bright bloom, scroll illustrations or huge calligraphy. Decoration is limited to the already established shared frame/navigation treatment and section structure. Chinese text as specified, no English, no gibberish, no watermark. Render the finished second-page design only.

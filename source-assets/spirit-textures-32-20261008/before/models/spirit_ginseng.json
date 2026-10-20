@@ -1,0 +1,96 @@
+{
+  "textures": {
+    "cross": "wuxingxiantu:block/spirit_ginseng",
+    "particle": "#cross"
+  },
+  "ambientocclusion": false,
+  "elements": [
+    {
+      "from": [
+        0.7999999999999998,
+        0,
+        8
+      ],
+      "to": [
+        15.2,
+        16,
+        8
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": 45,
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            3.0625,
+            11.1875,
+            12.9375,
+            16
+          ],
+          "texture": "#cross"
+        },
+        "south": {
+          "uv": [
+            12.9375,
+            11.1875,
+            3.0625,
+            16
+          ],
+          "texture": "#cross"
+        }
+      }
+    },
+    {
+      "from": [
+        0.7999999999999998,
+        0,
+        8
+      ],
+      "to": [
+        15.2,
+        16,
+        8
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": -45,
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            3.0625,
+            11.1875,
+            12.9375,
+            16
+          ],
+          "texture": "#cross"
+        },
+        "south": {
+          "uv": [
+            12.9375,
+            11.1875,
+            3.0625,
+            16
+          ],
+          "texture": "#cross"
+        }
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout"
+}

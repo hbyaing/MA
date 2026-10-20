@@ -1,0 +1,77 @@
+{
+  "meshes": 102,
+  "carapacePairs": [
+    {
+      "name": "carapace_层叠背甲__左_前胸盾片",
+      "mirrorError": 0,
+      "faceCounts": [
+        26,
+        26
+      ]
+    },
+    {
+      "name": "carapace_层叠背甲__左_中胸叠甲",
+      "mirrorError": 0,
+      "faceCounts": [
+        30,
+        30
+      ]
+    },
+    {
+      "name": "carapace_层叠背甲__左_主鞘甲",
+      "mirrorError": 0,
+      "faceCounts": [
+        30,
+        30
+      ]
+    },
+    {
+      "name": "carapace_层叠背甲__左_尾背甲第一片",
+      "mirrorError": 0,
+      "faceCounts": [
+        544,
+        544
+      ]
+    },
+    {
+      "name": "carapace_层叠背甲__左_尾背甲第二片",
+      "mirrorError": 0,
+      "faceCounts": [
+        448,
+        448
+      ]
+    },
+    {
+      "name": "carapace_层叠背甲__左_尾背甲第三片",
+      "mirrorError": 0,
+      "faceCounts": [
+        448,
+        448
+      ]
+    },
+    {
+      "name": "carapace_层叠背甲__左_尾侧甲第四片",
+      "mirrorError": 0,
+      "faceCounts": [
+        448,
+        448
+      ]
+    },
+    {
+      "name": "carapace_层叠背甲__左_尾端护片",
+      "mirrorError": 0,
+      "faceCounts": [
+        544,
+        544
+      ]
+    }
+  ],
+  "unrelatedElementsUnchanged": true,
+  "edits": [
+    "尾甲中线和前后边缘搭接",
+    "尾侧护片向下贴合",
+    "尾腹UV逐顶点校正并隐藏接缝",
+    "面甲中央收窄与眼下短弯钳"
+  ],
+  "verification": "Blockbench正面、左右尾侧及斜后视角；旧顶部缺口两个采样点射线命中尾甲"
+}

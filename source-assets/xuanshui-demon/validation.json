@@ -1,0 +1,38 @@
+{
+  "name": "玄水妖",
+  "revision": "壮硕体态重建",
+  "meshes": 86,
+  "groups": 15,
+  "vertices": 7012,
+  "faces": 7678,
+  "texture_size": [
+    1448,
+    1086
+  ],
+  "format": "free",
+  "checks": {
+    "finite_geometry": true,
+    "valid_faces": true,
+    "unique_uuids": true,
+    "complete_outliner": true,
+    "embedded_textures_match": true
+  },
+  "textures": [
+    {
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "width": 1024,
+      "height": 1024
+    }
+  ],
+  "bbmodel_sha256": "36fe426b06aa5e1130eccc54d18800920c2e0caf8ff54d27ed01f05cf2c0487c",
+  "preview_views": [
+    "front",
+    "side",
+    "perspective",
+    "rear"
+  ],
+  "runtime_game_verified": false
+}

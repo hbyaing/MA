@@ -1,0 +1,10 @@
+{
+  "item.wuxingxiantu.art_wanjian_guizong":"功法秘籍·万剑归宗",
+  "item.wuxingxiantu.art_jiuxiao_sword_rain":"功法秘籍·九霄剑诀",
+  "art.wuxingxiantu.function.art_wanjian_guizong":"结印后以持续供灵驾驭周身万剑，每秒攻击附近敌人。再次释放或潜行收诀，结印时移动会中断。",
+  "art.wuxingxiantu.function.art_jiuxiao_sword_rain":"结印后在准心落点维持剑雨，每秒攻击并减速域内敌人。再次释放或潜行收诀，结印时移动会中断。",
+  "gui.wuxingxiantu.sustained_art_cost":"每秒：%s点 + 最大灵力%s%%（当前%s点，含结印）",
+  "message.wuxingxiantu.sustained_art_started":"开始结印，持续供灵；再次释放或潜行可收诀。",
+  "message.wuxingxiantu.sustained_art_stopped":"已收诀。",
+  "message.wuxingxiantu.sustained_art_busy":"当前正在维持另一门持续剑诀，请先收诀。"
+}

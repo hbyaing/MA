@@ -1,0 +1,15 @@
+{
+  "feature": "wuxingxiantu:fire_source_cobalt_sea",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 48
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

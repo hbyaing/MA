@@ -1,0 +1,16 @@
+{
+ "variants": {
+  "forged=false,lit=false": {
+   "model": "wuxingxiantu:block/refining_forge_core_solid"
+  },
+  "forged=false,lit=true": {
+   "model": "wuxingxiantu:block/refining_forge_core_solid_lit"
+  },
+  "forged=true,lit=false": {
+   "model": "wuxingxiantu:block/refining_forge_core"
+  },
+  "forged=true,lit=true": {
+   "model": "wuxingxiantu:block/refining_forge_core_lit"
+  }
+ }
+}

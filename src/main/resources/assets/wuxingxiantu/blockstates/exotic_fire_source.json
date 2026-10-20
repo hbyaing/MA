@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "fire_tier=1": {
+      "model": "wuxingxiantu:block/exotic_fire/red_flow_floor0"
+    },
+    "fire_tier=2": {
+      "model": "wuxingxiantu:block/exotic_fire/molten_gold_floor0"
+    },
+    "fire_tier=3": {
+      "model": "wuxingxiantu:block/exotic_fire/cold_bone_floor0"
+    },
+    "fire_tier=4": {
+      "model": "wuxingxiantu:block/exotic_fire/azure_wood_floor0"
+    },
+    "fire_tier=5": {
+      "model": "wuxingxiantu:block/exotic_fire/cobalt_sea_floor0"
+    },
+    "fire_tier=6": {
+      "model": "wuxingxiantu:block/exotic_fire/violet_thunder_floor0"
+    },
+    "fire_tier=7": {
+      "model": "wuxingxiantu:block/exotic_fire/sun_saint_floor0"
+    },
+    "fire_tier=8": {
+      "model": "wuxingxiantu:block/exotic_fire/nether_void_floor0"
+    },
+    "fire_tier=9": {
+      "model": "wuxingxiantu:block/exotic_fire/nirvana_floor0"
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "cross": "wuxingxiantu:block/spirit_sprout_grass_growing",
+    "particle": "#cross"
+  },
+  "elements": [
+    {
+      "from": [
+        3.1819887429643527,
+        0,
+        8
+      ],
+      "to": [
+        12.818011257035646,
+        12,
+        8
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": 45,
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            2.0,
+            1.0,
+            14.0,
+            16.0
+          ],
+          "texture": "#cross"
+        },
+        "south": {
+          "uv": [
+            14.0,
+            1.0,
+            2.0,
+            16.0
+          ],
+          "texture": "#cross"
+        }
+      }
+    },
+    {
+      "from": [
+        3.1819887429643527,
+        0,
+        8
+      ],
+      "to": [
+        12.818011257035646,
+        12,
+        8
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": -45,
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            2.0,
+            1.0,
+            14.0,
+            16.0
+          ],
+          "texture": "#cross"
+        },
+        "south": {
+          "uv": [
+            14.0,
+            1.0,
+            2.0,
+            16.0
+          ],
+          "texture": "#cross"
+        }
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout"
+}

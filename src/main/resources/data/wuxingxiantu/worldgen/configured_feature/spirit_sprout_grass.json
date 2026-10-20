@@ -1,0 +1,11 @@
+{
+  "type": "wuxingxiantu:spirit_plant",
+  "config": {
+    "place": { "state": { "Name": "wuxingxiantu:spirit_sprout_grass" } },
+    "rule": "SURFACE_SOIL",
+    "retries": 12,
+    "xz_spread": 7,
+    "y_range": 6,
+    "random_age": true
+  }
+}

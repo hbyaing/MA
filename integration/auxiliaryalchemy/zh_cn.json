@@ -1,0 +1,10 @@
+{
+  "tooltip.wuxingxiantu.auxiliaryalchemy": "副药注入：%s",
+  "tooltip.wuxingxiantu.auxiliaryalchemy.cost": "每炉各选一株催化、药效与产量副药，与主药一起托管结算。",
+  "tooltip.wuxingxiantu.auxiliaryalchemy.backlash": "毒性反噬：未以净药调和",
+  "tooltip.wuxingxiantu.auxiliaryalchemy.clash": "药性冲撞",
+  "message.wuxingxiantu.auxiliaryalchemy.invalid": "副药选择已变化、药龄不足或被主方占用，请重新选择。",
+  "auxiliaryalchemy.wuxingxiantu.chance": "催化副药",
+  "auxiliaryalchemy.wuxingxiantu.effect": "药效副药",
+  "auxiliaryalchemy.wuxingxiantu.output": "产量副药"
+}

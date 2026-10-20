@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["AGA", "QPQ", " A "],
+  "key": {
+    "A": {"item": "minecraft:amethyst_shard"},
+    "G": {"item": "minecraft:gold_ingot"},
+    "Q": {"item": "minecraft:quartz"},
+    "P": {"item": "minecraft:paper"}
+  },
+  "result": {"item": "wuxingxiantu:refine_seal", "count": 2}
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "wuxingxiantu:spirit_stone_superior"
+    }
+  ],
+  "result": {
+    "item": "wuxingxiantu:spirit_stone_middle",
+    "count": 9
+  }
+}

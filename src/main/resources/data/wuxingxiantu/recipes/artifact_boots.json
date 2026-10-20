@@ -1,0 +1,24 @@
+{
+  "type": "wuxingxiantu:refining",
+  "ingredients": [
+    {
+      "tag": "wuxingxiantu:artifact_base_materials",
+      "count": 4
+    },
+    {
+      "item": "wuxingxiantu:aura_crystal",
+      "count": 2
+    },
+    {
+      "item": "wuxingxiantu:spirit_coal",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "wuxingxiantu:artifact_boots",
+    "count": 1
+  },
+  "aura_cost": 40,
+  "time": 200,
+  "temperature": 400
+}

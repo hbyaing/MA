@@ -1,0 +1,193 @@
+﻿ID,名称,分类,Boss,阶段,前摇tick,恢复tick,冷却tick,配方,配色,源码,行,实装程序,提示
+art_sword_aura,剑气斩,功法,,,,,,sword_cut,spirit,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,21,,剑气凝于身前，对前方敌对生物造成斩击伤害。
+art_renewal,回春术,功法,,,,,,heal,wood,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,22,,引导木灵力，恢复自身生命。
+art_spirit_shield,灵力护盾,功法,,,,,,shield,spirit,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,23,,凝聚灵力护盾，吸收即将受到的伤害。
+art_immobilize,定身咒,功法,,,,,,bind,metal,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,24,,以灵力束缚目标，使前方敌对生物短暂定身。
+art_light_body,轻身术,功法,,,,,,wind,wind,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,25,,减轻身躯，短时间提升移动速度。
+art_golden_bell,金钟罩,功法,,,,,,shield,metal,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,26,,金钟护体，获得更强的吸收护盾。
+art_ice_spike,冰锥术,功法,,,,,,ice,water,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,27,,凝结冰刺，对范围内敌对生物造成伤害并减速。
+art_spirit_gathering,聚灵术,功法,,,,,,gather,wood,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,28,,聚拢周身灵力，获得持续恢复效果。
+art_armor_break,破甲斩,功法,,,,,,sword_cut,metal,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,29,,以锋锐灵力破开护甲，对敌对生物造成伤害。
+art_flame_wave,烈焰波,功法,,,,,,flame,fire,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,30,,释放环形烈焰，灼烧范围内敌对生物。
+art_flash_step,闪现,功法,,,,,,blink,thunder,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,31,,借空间灵力向视线方向闪身，并获得短暂迅捷。
+art_purification,净化术,功法,,,,,,heal,spirit,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,32,,净化自身伤势并恢复生命。
+art_bloodlust,嗜血术,功法,,,,,,blood,blood,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,33,,激发血气，短时间提高攻击威力。
+art_thunder,雷霆万钧,功法,,,,,,thunder,thunder,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,34,,引落雷霆，打击并强力迟滞范围内敌对生物。
+art_myriad_swords,万剑诀,御剑剑技,,,,,,sword_rain,metal,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,35,,召来万剑，对大范围敌对生物造成重击。
+art_immovable_mountain,不动如山,功法,,,,,,earth,earth,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,36,,山岳之势护体，获得强力吸收护盾。
+art_human_harmony,天人合一,功法,,,,,,gather,wood,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,37,,天人相合，短时间提升自身攻击威力。
+art_five_elements,五行灭世,功法,,,,,,five_elements,pengjiao,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,38,,五行合击，对大范围敌对生物释放毁灭性灵力。
+art_sword_pierce,飞星贯日诀,御剑剑技,,,,,,sword_pierce,spirit,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,39,,飞星贯日：役使背包中最多六把剑，离阵抬升后突刺准心目标，命中后归阵。
+art_sword_sweep,回风环刃诀,御剑剑技,,,,,,sword_orbit,wind,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,40,,回风环刃：最多六剑环绕三周，斩击附近敌人后归阵。
+art_sword_guard,六御金罡诀,御剑剑技,,,,,,sword_orbit,metal,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,41,,六御金罡：最多六剑护身8秒，减免伤害并反弹投射物；灵剑不消耗耐久。
+art_sword_array,太虚落剑诀,御剑剑技,,,,,,sword_rain,thunder,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,42,,太虚落剑：最多六剑在准心处结阵、轮流降下，末段聚击后归阵。
+art_sword_flight,御剑凌霄诀,功法,,,,,,wind,spirit,src/main/java/cn/blockforge/generated/generatedmod/ArtCatalog.java,45,,御剑凌霄：手持灵剑御剑飞行，凌空能力由灵剑的高级御剑阶段决定。
+fa_tian_xiang_di,法天象地,神通,,,,,12000,earth,metal,src/main/java/cn/blockforge/generated/generatedmod/DivineArtCatalog.java,12,,体型、跳跃高度与触及距离×5；伤害+50%，生命+100%，护甲+20，抗性IV，免疫击退；移速-30%且无法疾跑。启动消耗%1$s灵力，维持每秒%2$s灵力。
+ta_gang_bu_dou,踏罡步斗,神通,,,,,6000,dipper,thunder,src/main/java/cn/blockforge/generated/generatedmod/DivineArtCatalog.java,13,,踏罡七星，依次走过七星改变晴天、雨天与雷暴；星环持续15秒。释放消耗%1$s灵力。
+yuan_shen_chu_qiao,元神出窍,神通,,,,,6000,soul,spirit,src/main/java/cn/blockforge/generated/generatedmod/DivineArtCatalog.java,14,,灵魂离体，可飞行和穿越地形，不可攻击或交互。启动%1$s灵力，维持每秒%2$s灵力，距本体最远128格。
+yi_hun_ji_po,移魂寄魄,神通,,,,,12000,tether,thunder,src/main/java/cn/blockforge/generated/generatedmod/DivineArtCatalog.java,15,,留下一个本体，以半透明灵魂移动；右键生灵寄魄，按X解除附身。游离时右键自己的本体可收束神通。启动%1$s灵力，维持每秒%2$s灵力，距本体最远128格。
+qi_shi_er_bian,七十二变,神通,,,,,6000,mirror,wood,src/main/java/cn/blockforge/generated/generatedmod/DivineArtCatalog.java,16,,变化为移魂寄魄记录的生灵；按Z收束，按C切换形态。确认变化消耗%1$s灵力。
+jin_dou_yun,筋斗云,神通,,,,,6000,cloud,wind,src/main/java/cn/blockforge/generated/generatedmod/DivineArtCatalog.java,17,,驾云飞行，飞行速度提高1000%；再次释放收束。启动消耗%1$s灵力。
+ri_yue_ting_lun,日月停轮,神通,,,,,12000,eclipse,metal,src/main/java/cn/blockforge/generated/generatedmod/DivineArtCatalog.java,18,,日月停轮：使半径24格内非玩家实体停止行动6秒；施术者仍可移动攻击，再次释放收束。启动消耗%1$s灵力。
+heart_method_yuan_hun,心法·混元心法,心法·被动,,,,,,gather,spirit,src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java,10,,灵力上限与修为获取略有提升
+heart_method_gathering,心法·聚灵心法,心法·被动,,,,,,gather,wood,src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java,10,,打坐时灵力与修为获取提升
+heart_method_tiangang,心法·天罡心法,心法·被动,,,,,,shield,metal,src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java,10,,攻击力提升，受到伤害略微降低
+heart_method_xuanshui,心法·玄水心法,心法·被动,,,,,,ring,water,src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java,10,,受到的伤害降低，水下行动更强
+heart_method_nine_turns,心法·九转心法,心法·被动,,,,,,gather,metal,src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java,10,,修为获取提升，突破消耗略有降低
+heart_method_burning_heaven,心法·焚天心法,心法·被动,,,,,,flame,fire,src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java,11,,火焰伤害提升，攻击附带灼热之力
+heart_method_thick_earth,心法·厚土心法,心法·被动,,,,,,shield,earth,src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java,11,,生命与抗性提升，身形稳固
+heart_method_taixu,心法·太虚心法,心法·被动,,,,,,soul,thunder,src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java,11,,灵力恢复效率提升，身法更加轻灵
+heart_method_wanling,心法·万灵心法,心法·被动,,,,,,heal,wood,src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java,11,,全属性与灵力恢复效率提升
+heart_method_beast_taming,心法·驭兽心法,心法·被动,,,,,,bind,wood,src/main/java/cn/blockforge/generated/generatedmod/HeartMethodCatalog.java,11,,空手右键动物消耗固定灵力，加快成长并提升亲密度与驯服概率
+muyan_01,七彩幻光,Boss,观色魔·目魇,1,24,20,160,beam,muyan,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,52,"case 1->{for(int i=0;i<3;i++)c.later(i*16,()->c.projectile(c.origin(),c.target(),w,.65,false,.075F));}",瞳孔收缩后射出光束，横移离开亮线
+muyan_02,扫界虹光,Boss,观色魔·目魇,1,32,28,220,beam,muyan,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,53,"case 2->{sweep(c,p,d,22,7,-65,65,w,.07F);if(c.phase()>1)c.later(w+70,()->c.line(c.point(-19,0),c.target(),1.4,28,.08F));}",看清光束扫动方向，绕到目魇侧后方
+muyan_03,虹环震荡,Boss,观色魔·目魇,1,30,24,260,ring,muyan,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,54,"case 3->{wave(c,p,w,.085F,false);if(c.phase()>1)c.later(w+65,()->wave(c,p,24,.07F,true));}",虹环贴地扩散，起跳越过环线
+muyan_04,幻影分身,Boss,观色魔·目魇,2,40,32,400,mirror,muyan,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,55,"case 4->{mirrors(c,2,w,130);c.later(w+85,()->c.expose(60));}",稳定瞳光与脚下符纹指向真身，先避交叉射线
+muyan_05,目魇凝视,Boss,观色魔·目魇,2,60,50,600,gaze,muyan,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,56,"case 5->c.gaze(w,.20F);",聚光结束前背对目魇，或躲入棱镜背后
+ermei_01,声刃扇击,Boss,闻声魔·耳魅,1,24,20,160,sound,ermei,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,59,"case 1->c.cone(p,p.add(d),17,95,w,.09F);",双臂后张即将释放扇形声刃，向侧后方躲开
+ermei_02,低鸣震环,Boss,闻声魔·耳魅,1,30,24,220,sound,ermei,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,60,"case 2->{wave(c,p,w,.085F,false);if(c.phase()>1)c.later(w+65,()->wave(c,p,28,.07F,true));}",腹部收紧后音环扩散，起跳越过地面波纹
+ermei_03,声纹追猎,Boss,闻声魔·耳魅,1,32,24,260,sound,ermei,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,61,"case 3->c.projectile(p,c.aim(),w,.28,true,.12F);",缓转声弹持续追踪，横向绕行或借石笋挡住声弹
+ermei_04,三拍震地,Boss,闻声魔·耳魅,1,36,40,300,earth,ermei,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,62,"case 4->{for(int i=0;i<3;i++)c.later(i*22,()->c.circle(c.target(),3.2,w,.08F));}",按三次抬臂节奏换位，避开依次亮起的震区
+ermei_05,双壁合鸣,Boss,闻声魔·耳魅,2,44,32,400,sound,ermei,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,63,"case 5->walls(c,w,c.aim().z-c.middle().z,7);",两侧声墙向内合拢，从波纹缺口穿过
+ermei_06,寂静终曲,Boss,闻声魔·耳魅,2,64,56,660,sound,ermei,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,64,"case 6->{wave(c,p,w,.075F,false);c.later(w+60,()->wave(c,p,30,.075F,true));c.later(w+120,()->{wave(c,p,30,.08F,false);c.later(75,()->c.expose(80));});}",辨认波纹前奏，起跳越过音环，或启动场边符台打断
+bichen_01,腐液三吐,Boss,嗅香魔·鼻嗔,1,26,24,180,poison,bichen,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,67,"case 1->{for(int i=0;i<3;i++)c.later(i*20,()->{Vec3 at=c.target();c.circle(at,2.5,w,.06F);c.zone(at,2.5,w+6,90,.025F,""poison"");});}",鼻孔鼓起后连吐三弹，向空地横移引导落点
+bichen_02,瘴息横扫,Boss,嗅香魔·鼻嗔,1,34,28,240,poison,bichen,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,68,"case 2->sweep(c,p,d,15,6,-65,65,w,.075F);",头部偏转后横扫毒息，绕到背侧或离开扇面
+bichen_03,毒腺排射,Boss,嗅香魔·鼻嗔,1,32,28,280,poison,bichen,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,69,"case 3->{radial(c,p,w,8,0,.07F);if(c.phase()>1)c.later(w+32,()->radial(c,p,24,8,22.5,.065F));}",毒腺依次鼓起，从放射毒刺之间的缺口通过
+bichen_04,循香扑压,Boss,嗅香魔·鼻嗔,1,36,34,300,earth,bichen,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,70,"case 4->{c.dash(c.aim(),w,14,4,.13F);c.later(w+18,()->c.expose(40));}",闻香低伏后锁定扑击落点，横移让扑击落空
+bichen_05,吸瘴逆流,Boss,嗅香魔·鼻嗔,2,44,40,420,vortex,bichen,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,71,"case 5->{for(int i=0;i<5;i++){Vec3 from=c.point(Math.sin(i*Math.PI*2/5)*19,Math.cos(i*Math.PI*2/5)*19);c.line(from,p,2,w,.065F);}c.later(w+8,()->{c.drainZones(""poison"");c.pressure(c.pressure()+1);radial(c,c.origin(),32,8,15,.075F+c.pressure()*.008F);});}",瘴气沿地面收回，避开流路并攻击鼓胀毒腺
+bichen_06,百瘴封庭,Boss,嗅香魔·鼻嗔,2,64,54,680,poison,bichen,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,72,"case 6->{for(int i=0;i<5;i++){Vec3 at=c.point(Math.sin(i*Math.PI*2/5)*15,Math.cos(i*Math.PI*2/5)*15);c.zone(at,6,w+i*10,140,.03F,""poison"");}c.later(w+55,()->c.expose(70));}",毒雾分区逼近，朝净化炉和未亮起的地面转移
+shetao_01,舌刃三叠,Boss,贪味魔·舌饕,1,24,34,160,sword_cut,shetao,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,75,"case 1->{c.cone(p,p.add(rotate(d,-40)),7,100,w,.075F);c.cone(p,p.add(rotate(d,40)),8,100,w+25,.075F);c.line(p,p.add(d.scale(16)),1.6,w+55,.10F);if(c.phase()>1)c.line(p,p.add(rotate(d,22).scale(16)),1.5,w+55,.08F);}",沿未出舌的一侧绕行，最后直刺落空后反击
+shetao_02,卷舌夺食,Boss,贪味魔·舌饕,1,30,28,220,tether,shetao,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,76,"case 2->{c.line(p,c.aim(),1.4,w,.075F);c.node(""weak"",p.add(d.scale(5)),w+65,()->c.interrupt(70));c.later(w+6,()->{if(horizontal(c.target().subtract(p)).dot(d)>.9)c.pull(p,20,24,.12,16);});}",舌尖卷起后伸出，横移躲开或攻击外伸舌头
+shetao_03,酸雨落盘,Boss,贪味魔·舌饕,1,36,28,280,poison,shetao,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,77,"case 3->{for(int i=0;i<4;i++)c.later(i*18,()->c.zone(c.target(),3,w,110,.025F,""acid""));}",把酸液落点引向外圈，离开标记后不要折返
+shetao_04,辣火长嗝,Boss,贪味魔·舌饕,1,40,34,320,flame,shetao,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,78,"case 4->sweep(c,p,d,14,5,-25,25,w,.07F);",腹部发红后喷火，绕到侧面或借食台挡火
+shetao_05,贪尝百味,Boss,贪味魔·舌饕,1,44,42,440,gather,shetao,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,79,"case 5->feast(c,w);",击毁供养甜食，将舌饕的卷舌引向苦根
+shetao_06,滚腹压席,Boss,贪味魔·舌饕,2,36,38,380,earth,shetao,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,80,"case 6->{c.dash(c.aim().add(d.scale(5)),w,20,5,.14F);c.later(w+23,()->c.expose(60));}",身体收圆后翻滚，横移或诱导它撞向食台
+shetao_07,五味翻涌,Boss,贪味魔·舌饕,2,64,56,700,five_elements,shetao,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,81,"case 7->{sectors(c,p,w,5,.085F);if(c.phase()>1)c.later(w+120,()->c.dash(c.target(),36,16,4,.10F));c.later(w+165,()->c.expose(80));}",五味扇区依次喷发，转移到已经喷发完的区域
+shenyin_01,晶须点刺,Boss,触欲魔·身淫,1,24,22,160,crystal,shenyin,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,84,"case 1->{for(int i=0;i<4;i++)c.later(i*14,()->c.column(c.target(),2,w,.07F));}",晶纹记录落脚点，持续移动并避开旧标记
+shenyin_02,触臂横断,Boss,触欲魔·身淫,1,30,30,220,ring,shenyin,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,85,"case 2->{if(c.phase()==1){c.circle(p,6,w,.10F);c.ring(p,13,6,w+35,.10F,false);}else{c.ring(p,13,6,w,.10F,false);c.circle(p,6,w+35,.10F);}}",观察触臂抬起位置，按先近或先远顺序内外换位
+shenyin_03,引力心潮,Boss,触欲魔·身淫,1,40,38,360,vortex,shenyin,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,86,"case 3->{c.pull(p,w,75,.10,18);c.circle(p,3,w+65,.12F);c.later(w+80,()->c.expose(100));}",核心收拢后牵引，借晶簇阻挡并在收招时攻击核心
+shenyin_04,掷晶成林,Boss,触欲魔·身淫,1,34,28,280,crystal,shenyin,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,87,"case 4->{for(int i=0;i<3;i++){Vec3 at=c.clamp(c.aim().add(rotate(d,i*120).scale(3)));c.circle(at,2,w+i*15,.085F);c.later(w+i*15+6,()->c.node(""crystal"",at,360,null));}}",把晶块落点引到场边，落地晶簇可作为掩体
+shenyin_05,晶牢合拢,Boss,触欲魔·身淫,1,46,36,420,crystal,shenyin,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,88,"case 5->{Vec3 at=c.aim();for(int i=0;i<4;i++){Vec3 side=rotate(new Vec3(1,0,0),i*90);if(i!=1)c.line(at.add(side.scale(4)).add(rotate(side,90).scale(-4)),at.add(side.scale(4)).add(rotate(side,90).scale(4)),1.5,w,.09F);}var crack=c.node(""knot"",at.add(0,0,4),w+100,()->c.interrupt(65));c.later(w,()->{if(crack.active())c.ring(at,4,1.5,35,.13F,false);});}",晶牢升起前离开圈线，或从明显裂口脱出
+shenyin_06,缠身刺链,Boss,触欲魔·身淫,2,40,40,460,tether,shenyin,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,89,"case 6->tether(c,p,w,80);",晶链亮起后靠近攻击根部，或借晶柱切断连线
+shenyin_07,五触莲华,Boss,触欲魔·身淫,2,66,58,720,crystal,shenyin,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,90,"case 7->{sectors(c,p,w,5,.08F);c.circle(p,7,w+130,.16F);c.later(w+138,()->c.expose(120));}",沿五次穿刺的空隙转移，最后一击前退出中心
+yihuo_01,念刃追问,Boss,妄意魔·意惑,1,26,22,160,sword_cut,yihuo,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,93,"case 1->{c.fx(1,p,p.add(rotate(d,-22).scale(20)),0,1.5F,SAFE,w,w+8,"""");c.line(p,p.add(d.scale(24)),1.5,w+16,.09F);c.fx(1,p,p.add(rotate(d,22).scale(20)),0,1.5F,SAFE,w+8,w+16,"""");}",稳定符纹标记实体念刃，横移避开实线方向
+yihuo_02,镜步袭心,Boss,妄意魔·意惑,1,32,28,220,blink,yihuo,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,94,"case 2->{Vec3 to=c.clamp(c.aim().add(rotate(d,90).scale(5)));c.fx(1,p,to,0,1,SAFE,w,w+4,"""");c.later(w,()->{c.teleport(to);c.cone(c.origin(),c.target(),9,85,28,.12F);});}",先看镜痕终点，侧移避开显形后的突袭
+yihuo_03,旧影回放,Boss,妄意魔·意惑,1,38,32,300,mirror,yihuo,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,95,"case 3->{List<Vec3> old=c.history();for(int i=1;i<old.size();i++)c.line(old.get(i-1),old.get(i),2,w+i*4,.08F);if(old.size()<2)c.circle(c.aim(),3,w,.09F);if(c.phase()>1)c.later(w+old.size()*4+20,()->{Vec3 to=c.clamp(c.target().add(5,0,0));c.teleport(to);c.cone(to,c.target(),9,75,32,.08F);});}",旧影将重走先前路线，离开地面记录的足迹
+yihuo_04,真假易位,Boss,妄意魔·意惑,1,40,34,360,mirror,yihuo,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,96,"case 4->{mirrors(c,2,w,140);c.later(w+90,()->c.expose(70));}",换位后稳定脚下符纹才是真身，先避交叉攻击
+yihuo_05,妄界割裂,Boss,妄意魔·意惑,2,46,36,420,mirror,yihuo,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,97,"case 5->walls(c,w,c.aim().z-c.middle().z,6);",镜墙成形前进入明亮通道，避开碎裂的墙面
+yihuo_06,观心反制,Boss,妄意魔·意惑,2,40,38,400,ring,yihuo,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,98,"case 6->{double distance=p.distanceTo(c.aim());if(distance<7)c.ring(p,9,7,w,.12F,false);else if(distance<16){c.line(p,c.aim(),2,w,.12F);c.later(w+20,()->c.expose(50));}else{c.column(c.aim(),4,w,.10F);c.later(w+10,()->c.dash(c.target(),30,20,3,.085F));}}",按施法时远近变招，看清圈线或落点后换位反击
+yihuo_07,念锁同心,Boss,妄意魔·意惑,3,46,42,480,tether,yihuo,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,99,"case 7->{Vec3 knot=c.clamp(c.aim().add(-4,0,3));tether(c,knot,w,90);}",念锁连线亮起后攻击心结，或借镜墙截断连线
+yihuo_08,心境倒映,Boss,妄意魔·意惑,3,70,60,760,mirror,yihuo,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,100,"case 8->{Vec3 mid=c.middle();for(int i=0;i<4;i++){Vec3 side=new Vec3(i%2==0?1:-1,0,0);c.cone(mid,mid.add(side),35,176,w+i*30,.085F);}if(c.phase()>2)c.later(w+55,()->c.circle(c.target(),2.5,32,.07F));c.later(w+126,()->c.expose(110));}",跟随预告的实体化区域转移，倒映结束后攻击真身
+pengju_01,金颅啄击,Boss,彭倨·天嗔之相,1,24,24,160,sword_cut,pengju,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,103,"case 1->{c.cone(p,p.add(d),7,75,w,.085F);c.cone(p,p.add(d),8,90,w+26,.09F);}",头颅后仰后连啄两次，绕侧并在第二击后反击
+pengju_02,逐利冲锋,Boss,彭倨·天嗔之相,1,30,28,220,beam,pengju,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,104,"case 2->{c.dash(c.aim().add(d.scale(3)),w,14,4,.13F);if(c.phase()>1)c.later(w+35,()->c.dash(c.target(),32,14,4,.10F));}",金甲亮起后锁定冲线，横移让头颅撞空
+pengju_03,散财飞刃,Boss,彭倨·天嗔之相,1,28,24,240,sword_cut,pengju,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,105,"case 3->{for(int i=-2;i<=2;i++)c.projectile(p,p.add(rotate(d,i*16).scale(24)),w,.72,false,.085F);}",口中聚金后扇射飞刃，穿过间隙或绕到侧后方
+pengju_04,金印镇身,Boss,彭倨·天嗔之相,1,36,28,300,gold_seal,pengju,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,106,"case 4->{Vec3 at=c.aim();c.column(at,3,w,.13F);c.later(w+8,()->c.node(""cover"",at,260,null));}",金印固定落点后立即离开，落地重印可作掩体
+pengju_05,落金连雨,Boss,彭倨·天嗔之相,1,40,42,360,gold_seal,pengju,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,107,"case 5->{for(int i=0;i<3;i++){final int wave=i;c.later(i*26,()->{Vec3 at=c.target();if(c.phase()>1&&wave==2)c.ring(at,6,2,w,.10F,false);else c.column(at,3.2,w,.10F);});}c.later(w+85,()->c.expose(65));}",三批落金追逐旧位置，持续移动且不要走回旧落点
+pengju_06,聚宝旋环,Boss,彭倨·天嗔之相,1,42,36,380,ring,pengju,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,108,"case 6->{c.ring(p,8,2.3,w,.085F,false);c.ring(p,16,2.3,w,.085F,false);c.ring(p,11,2.3,w+36,.085F,false);c.ring(p,20,2.3,w+36,.085F,false);}",两条金环之间留有安全带，按轨迹调整远近
+pengju_07,宝甲反震,Boss,彭倨·天嗔之相,2,38,34,400,shield,pengju,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,109,"case 7->{c.guard(w+35);c.cone(p,p.add(d),12,100,w,.13F);c.later(w+10,()->c.expose(65));}",正面金甲合拢将反震，绕背或等冲击落空后反击
+pengju_08,贪念索命,Boss,彭倨·天嗔之相,2,46,40,460,tether,pengju,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,110,"case 8->{Vec3 left=c.clamp(c.aim().add(rotate(d,90).scale(7))),right=c.clamp(c.aim().add(rotate(d,-90).scale(7)));c.fx(4,left.add(0,1,0),left,1,1,c.profile.color(),w,w+55,"""");c.fx(4,right.add(0,1,0),right,1,1,c.profile.color(),w,w+55,"""");c.later(w,()->{Vec3 aim=c.target();c.line(left,aim.add(horizontal(aim.subtract(left)).scale(9)),2,30,.11F);c.line(right,aim.add(horizontal(aim.subtract(right)).scale(9)),2,30,.11F);});}",左右金印夹击前先诱导朝向，再穿过侧面缺口
+pengju_09,万金崩殿,Boss,彭倨·天嗔之相,3,70,60,800,gold_seal,pengju,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,111,"case 9->{for(int i=0;i<3;i++)c.column(c.point(-12+i*12,6),5,w+i*22,.09F);c.later(w+70,()->c.dash(c.target(),36,18,5,.12F));c.later(w+130,()->wave(c,c.origin(),26,.085F,false));c.later(w+220,()->c.expose(130));}",依次躲分区落金、俯冲和金环，甲裂后集中反击
+pengzhi_01,双触重拍,Boss,彭质·腹欲之魔,1,26,28,180,earth,pengzhi,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,114,"case 1->{c.cone(p,p.add(rotate(d,-35)),9,75,w,.09F);c.cone(p,p.add(rotate(d,35)),11,100,w+30,.09F);}",左右触手交替重拍，第一拍后换到另一侧空隙
+pengzhi_02,拖地横扫,Boss,彭质·腹欲之魔,1,32,30,240,ring,pengzhi,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,115,"case 2->{wave(c,p,w,.10F,false);c.later(w+55,()->c.expose(50));}",触手压低后横扫，起跳或提前退到扫击范围外
+pengzhi_03,压腹震地,Boss,彭质·腹欲之魔,1,38,38,300,earth,pengzhi,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,116,"case 3->{Vec3 at=c.aim();c.circle(at,4,w,.12F);c.later(w,()->c.teleport(at));c.later(w+10,()->wave(c,at,25,.08F,false));}",腹部鼓起后跃压，先离开落点再越过扩散冲击
+pengzhi_04,腐酿喷柱,Boss,彭质·腹欲之魔,1,34,32,280,poison,pengzhi,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,117,"case 4->{sweep(c,p,d,23,7,-30,30,w,.075F);c.zone(c.aim(),3,w+20,140,.025F,""wine"");}",喉部发亮后缓慢转向喷吐，绕侧或持续横移
+pengzhi_05,吞天吸息,Boss,彭质·腹欲之魔,1,42,40,380,vortex,pengzhi,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,118,"case 5->{c.pull(p,w,70,.11,19);c.cone(p,p.add(d),24,70,w+95,.14F);}",张口吸气后正面喷吐，横向脱离锥面或借掩体截断
+pengzhi_06,探触擒摔,Boss,彭质·腹欲之魔,2,36,34,360,tether,pengzhi,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,119,"case 6->{c.line(p,c.aim(),1.5,w,.10F);c.node(""weak"",p.add(d.scale(5)),w+80,()->c.interrupt(75));c.later(w+5,()->{if(horizontal(c.target().subtract(p)).dot(d)>.94){c.pull(p,18,16,.14,16);c.circle(c.target(),2.5,30,.075F);}});}",独立触手抬起后直抓，侧移诱使触手插地
+pengzhi_07,腐宴回流,Boss,彭质·腹欲之魔,2,48,44,460,vortex,pengzhi,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,120,"case 7->{for(int i=0;i<5;i++){Vec3 from=c.point(Math.sin(i*Math.PI*2/5)*19,Math.cos(i*Math.PI*2/5)*19);c.line(from,p,2,w,.075F);}c.later(w+8,()->{c.drainZones(""wine"");c.pressure(c.pressure()+1);c.heal(.025F);});}",酒液沿地面流回腹部，避开流路并攻击暴露腹腔
+pengzhi_08,酒狂三叠,Boss,彭质·腹欲之魔,2,42,48,500,earth,pengzhi,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,121,"case 8->{c.cone(p,p.add(d),10,80,w,.08F);c.ring(p,13,9,w+35,.08F,true);c.later(w+55,()->c.dash(c.target(),30,17,5,.10F));if(c.phase()>2)c.later(w+110,()->c.cone(c.origin(),c.origin().subtract(d),10,110,32,.075F));c.later(w+165,()->c.expose(110));}",依次避前拍、横扫、腹撞，最后踉跄时反击
+pengzhi_09,五脏翻江,Boss,彭质·腹欲之魔,3,72,60,820,poison,pengzhi,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,122,"case 9->{c.circle(p,9,w,.12F);c.ring(p,24,12,w+48,.10F,false);c.later(w+75,()->c.cone(c.origin(),c.target(),25,100,36,.13F+c.pressure()*.008F));c.later(w+120,()->{c.pressure(0);c.expose(140);});}",先退出近圈、再回内圈、最后绕侧躲过重吐
+pengjiao_01,合流撞击,Boss,彭矫·足欲之邪,1,24,26,160,earth,pengjiao,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,125,"case 1->{c.dash(c.aim(),w,10,4,.10F);c.later(w+14,()->c.expose(35));}",五核收拢后短距撞击，侧移后趁核心展开反击
+pengjiao_02,金相·贯心,Boss,彭矫·足欲之邪,1,32,26,240,beam,metal,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,126,"case 2->c.line(p,p.add(d.scale(34)),1.5,w,.13F);",金核瞄准线停止移动时横移，躲开贯穿光矛
+pengjiao_03,木相·逐步生棘,Boss,彭矫·足欲之邪,1,34,30,280,crystal,wood,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,127,"case 3->{for(int i=0;i<5;i++)c.later(i*12,()->c.column(c.target(),1.8,w,.07F));if(c.phase()>1)c.later(w+60,()->c.line(c.origin(),c.target(),1.4,32,.10F));}",木核记录落脚点，持续换位且不沿原路折返
+pengjiao_04,水相·回环,Boss,彭矫·足欲之邪,1,38,32,320,ring,water,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,128,"case 4->gapRing(c,p,d,w,true);",水环向内收缩，从显眼缺口穿出
+pengjiao_05,火相·赤轮,Boss,彭矫·足欲之邪,1,38,34,340,flame,fire,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,129,"case 5->{for(int side:new int[]{-1,1}){Vec3 from=p.add(rotate(d,90).scale(side*5));for(int i=0;i<7;i++){Vec3 at=from.add(rotate(d,side*(i*9-25)).scale(3+i*3));c.circle(at,1.8,w+i*9,.07F);}}}",双火轮沿弧线行进，看旋向从轮间空隙通过
+pengjiao_06,土相·坠岳,Boss,彭矫·足欲之邪,1,42,38,380,earth,earth,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,130,"case 6->{Vec3 at=c.aim();c.column(at,3.5,w,.12F);for(int i=0;i<3;i++){Vec3 ray=rotate(d,i*120);c.line(at,at.add(ray.scale(18)),1.5,w+22,.08F);}c.later(w+35,()->c.expose(50));}",土核膨胀后重砸，离开落点并站在放射裂隙之间
+pengjiao_07,五方连袭,Boss,彭矫·足欲之邪,2,48,48,460,five_elements,pengjiao,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,131,"case 7->{for(int i=0;i<5;i++){Vec3 from=c.point(Math.sin(i*Math.PI*2/5)*21,Math.cos(i*Math.PI*2/5)*21);c.line(from,c.middle().add(horizontal(c.middle().subtract(from)).scale(12)),2.8,w+i*24,.085F);}}",五核按闪光顺序突袭，横移进入上一击留下的空隙
+pengjiao_08,分化追猎,Boss,彭矫·足欲之邪,2,48,42,500,five_elements,pengjiao,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,132,"case 8->{var left=c.echo(c.point(-10,6),240,true);var right=c.echo(c.point(10,6),240,true);for(int i=0;i<4;i++){final int step=i;c.later(w+i*35,()->{var attacker=step%2==0?left:right;var other=step%2==0?right:left;if(attacker!=null&&attacker.isAlive()&&!attacker.isRemoved())c.projectile(c.ground(attacker.position()),c.target(),24,.32,true,.07F);if(other!=null&&other.isAlive()&&!other.isRemoved())c.line(c.ground(other.position()),c.target(),1.8,32,.08F);});}}",优先攻击正在追击的活动核心，击停一个可降低压力
+pengjiao_09,移宫换位,Boss,彭矫·足欲之邪,2,44,40,460,tether,pengjiao,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,133,"case 9->{List<Vec3> points=new ArrayList<>();for(int i=0;i<5;i++)points.add(c.point(Math.sin(i*Math.PI*2/5)*16,Math.cos(i*Math.PI*2/5)*16));for(int i=0;i<5;i++){Vec3 a=points.get(i),b=points.get((i+2)%5);c.line(a,b,2,w+i*10,.085F);}}",相邻核心连线亮起后离开切割带，换位停止时反击
+pengjiao_10,五气归元,Boss,彭矫·足欲之邪,3,76,60,900,five_elements,pengjiao,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/BossCombatCatalog.java,134,"case 10->{for(int i=0;i<5;i++){Vec3 from=c.point(Math.sin(i*Math.PI*2/5)*20,Math.cos(i*Math.PI*2/5)*20);c.cone(from,c.middle(),25,45,w+i*22,.08F);}c.circle(c.middle(),8,w+140,.16F);c.later(w+150,()->{c.teleport(c.middle());c.expose(150);});}",沿分批汇聚的缺口换位，躲过合体落击后集中输出
+heart_demon_01,照影三斩,Boss,心魔,1,28,30,180,sword_cut,heart_demon,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java,10,"case 1->{
+                c.cone(p,p.add(rotate(d,-35)),8,90,w,.075F);
+                c.cone(p,p.add(rotate(d,35)),9,90,w+24,.075F);
+                c.line(p,p.add(d.scale(18)),1.8,w+52,.10F);
+                if(c.phase()>1)c.line(p,p.add(rotate(d,28).scale(18)),1.6,w+72,.08F);
+            }",横移躲过左右斩，末段直刺后反击
+heart_demon_02,踏影穿心,Boss,心魔,1,34,36,240,blink,heart_demon,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java,11,"case 2->{
+                c.dash(c.aim(),w,14,3.5,.12F);
+                if(c.phase()>1)c.later(w+22,()->c.cone(c.origin(),c.target(),10,85,30,.085F));
+                c.later(w+(c.phase()>1?64:20),()->c.expose(50));
+            }",影线锁定后侧移，让突进落空
+heart_demon_03,心潮震环,Boss,心魔,1,36,38,300,ring,heart_demon,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java,12,"case 3->{
+                wave(c,p,w,false);
+                if(c.phase()>1)c.later(w+65,()->wave(c,p,28,true));
+            }",起跳越过贴地心潮，注意二阶段回流
+heart_demon_04,旧念追身,Boss,心魔,1,42,40,360,mirror,heart_demon,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java,13,"case 4->{
+                var history=c.history();
+                if(history.size()<2)c.circle(c.aim(),3,w,.10F);
+                else for(int i=1;i<history.size();i++)c.line(history.get(i-1),history.get(i),2,w+i*5,.075F);
+                if(c.phase()>1)c.later(w+history.size()*5+24,()->c.column(c.target(),3,32,.10F));
+            }",离开先前走过的足迹，避免原路折返
+heart_demon_05,照心凝视,Boss,心魔,1,60,50,480,gaze,heart_demon,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java,14,"case 5->{
+                c.gaze(w,.18F,c.phase()==1);
+                if(c.phase()>1){c.later(w+12,()->c.line(c.origin(),c.target(),1.6,32,.08F));c.later(w+50,()->c.expose(60));}
+            }",聚光结束前背对心魔，或借掩体遮断视线
+heart_demon_06,妄念锁链,Boss,心魔,2,44,48,460,tether,heart_demon,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java,15,"case 6->{
+                Vec3 root=c.clamp(c.aim().add(rotate(d,90).scale(6)));
+                var knot=c.node(""knot"",root,w+150,()->c.interrupt(90));
+                c.fx(1,root,c.aim(),0,.45F,c.profile.color(),w,w+110,"""");
+                for(int t=w;t<w+96;t+=12)c.later(t,()->{
+                    if(knot.active()&&!c.clearSight(root,c.target())){knot.discard();c.interrupt(75);}
+                });
+                c.later(w+96,()->{if(knot.active()){c.line(root,c.target(),2,28,.16F);knot.discard();}});
+            }",击碎锁链根部心结，或用掩体切断连线
+heart_demon_07,镜花劫阵,Boss,心魔,2,48,46,500,mirror,heart_demon,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java,16,"case 7->{
+                var core=c.node(""knot"",c.middle(),w+140,()->c.interrupt(100));
+                for(int i=0;i<4;i++) {
+                    Vec3 from=c.middle().add(rotate(d,i*90+45).scale(15));
+                    c.fx(4,from.add(0,1,0),from,1,1,c.profile.color(),w,w+100,"""");
+                    c.line(from,c.aim().add(horizontal(c.aim().subtract(from)).scale(6)),1.8,w+i*18,.085F);
+                }
+                c.later(w+100,()->{core.discard();c.expose(70);});
+            }",避开交叉镜线，击碎明亮阵心使心魔露出破绽
+heart_demon_08,业火反照,Boss,心魔,2,52,50,520,flame,heart_demon,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java,17,"case 8->{
+                c.pressure(0);c.guard(w);
+                c.fx(2,p,p,10,3,c.profile.color(),w,w+6,"""");
+                c.later(w,()->{
+                    c.ring(p,10,3,28,.10F+c.pressure()*.01F,false);
+                    c.later(34,()->{c.pressure(0);c.expose(100);});
+                });
+            }",收镜期间停手，避开环击后再攻击暴露心核
+heart_demon_09,无相裂界,Boss,心魔,2,48,46,480,sword_cut,heart_demon,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java,18,"case 9->{
+                c.cone(p,p.add(d),22,110,w,.12F);
+                c.line(p,p.add(rotate(d,65).scale(26)),2,w+32,.085F);
+                c.line(p,p.add(rotate(d,-65).scale(26)),2,w+32,.085F);
+                c.later(w+42,()->c.expose(70));
+            }",扇面先裂、直线后贯，绕到侧后方反击
+heart_demon_10,万念俱灰,Boss,心魔,2,76,70,900,vortex,heart_demon,src/main/java/cn/blockforge/generated/generatedmod/boss/combat/HeartDemonSkillPrograms.java,19,"case 10->{
+                Vec3 mid=c.middle();
+                for(int i=0;i<6;i++)c.cone(mid,mid.add(rotate(d,i*60)),28,48,w+i*20,.075F);
+                c.circle(mid,8,w+145,.15F);
+                c.later(w+154,()->{c.teleport(mid);c.expose(140);});
+            }",沿依次熄灭的扇区换位，末段撤出中心再反击
+talisman_fire,火符,符箓,,,,,,talisman,fire,src/main/java/cn/blockforge/generated/generatedmod/TalismanCatalog.java,67,,
+talisman_shield,护体符,符箓,,,,,,talisman,metal,src/main/java/cn/blockforge/generated/generatedmod/TalismanCatalog.java,101,,
+talisman_heal,疗伤符,符箓,,,,,,talisman,wood,src/main/java/cn/blockforge/generated/generatedmod/TalismanCatalog.java,135,,
+talisman_speed,神行符,符箓,,,,,,talisman,wind,src/main/java/cn/blockforge/generated/generatedmod/TalismanCatalog.java,169,,
+talisman_gather,聚灵符,符箓,,,,,,talisman,water,src/main/java/cn/blockforge/generated/generatedmod/TalismanCatalog.java,203,,
+talisman_purge,净邪符,符箓,,,,,,talisman,spirit,src/main/java/cn/blockforge/generated/generatedmod/TalismanCatalog.java,237,,
+fire_red_flow,异火·赤炎流火,异火素材,,,,,,flame,fire_red_flow,src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java,12,,
+fire_molten_gold,异火·熔金淬火,异火素材,,,,,,flame,fire_molten_gold,src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java,13,,
+fire_cold_ash,异火·枯骨冷火,异火素材,,,,,,flame,fire_cold_ash,src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java,14,,
+fire_azure_wood,异火·青木灵火,异火素材,,,,,,flame,fire_azure_wood,src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java,15,,
+fire_cobalt_sea,异火·碧海沧火,异火素材,,,,,,flame,fire_cobalt_sea,src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java,16,,
+fire_violet_thunder,异火·紫霄雷火,异火素材,,,,,,flame,fire_violet_thunder,src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java,17,,
+fire_sun_saint,异火·大日圣火,异火素材,,,,,,flame,fire_sun_saint,src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java,18,,
+fire_nether_void,异火·九幽冥火,异火素材,,,,,,flame,fire_nether_void,src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java,19,,
+fire_nirvana,异火·涅槃神火,异火素材,,,,,,flame,fire_nirvana,src/main/java/cn/blockforge/generated/generatedmod/fire/FireCatalog.java,20,,
+heart_sword_summon,心剑凝聚,心剑仪式,,,,,,summon,spirit,src/main/java/cn/blockforge/generated/generatedmod/HeartSwordSystem.java,49,,
+heart_sword_disperse,心剑消散,心剑仪式,,,,,,summon,spirit,src/main/java/cn/blockforge/generated/generatedmod/HeartSwordSystem.java,49,,
+heart_sword_forge,心铸,心剑仪式,,,,,,summon,spirit,src/main/java/cn/blockforge/generated/generatedmod/HeartSwordSystem.java,49,,
+heart_sword_unforge,解铸,心剑仪式,,,,,,summon,spirit,src/main/java/cn/blockforge/generated/generatedmod/HeartSwordSystem.java,49,,
+tribulation,渡劫雷击,系统特效,,,,,,thunder,thunder,src/main/java/cn/blockforge/generated/generatedmod/TribulationManager.java,169,,以劫雷判定落点为准；不要用装饰闪电扩大伤害范围。
+alchemy,丹成灵光,系统特效,,,,,,gather,metal,src/main/java/cn/blockforge/generated/generatedmod/client/AlchemyFurnaceEffects.java,25,,丹炉客户端持续火星与丹成提示素材。
+offering,祭炼聚灵,系统特效,,,,,,gather,spirit,src/main/java/cn/blockforge/generated/generatedmod/client/OfferingItemRenderer.java,14,,祭炼物品的吸附、聚灵与消散层。

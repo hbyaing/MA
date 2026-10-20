@@ -1,0 +1,21 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "wuxingxiantu:gui/alchemy/calligraphy.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "\u51e1\u54c1\u4e0b\u4e2d\u4e0a\u6781\u4ed9\u70bc\u4e39\u7089\u5f02\u706b\u74f6\u8d64\u708e\u6d41",
+        "\u7194\u91d1\u6dec\u67af\u9aa8\u51b7\u9752\u6728\u7075\u78a7\u6d77\u6ca7\u7d2b\u9704\u96f7\u5927",
+        "\u65e5\u5723\u4e5d\u5e7d\u51a5\u6d85\u69c3\u795e\u6750\u6599\u4e0d\u8db3\u53ef\u4ee5\u5f00\u5236",
+        "\u6210\u7b49\u5f85\u5931\u8d25\u5148\u653e\u5165\u529b\u5fd9\u788c\u7ed3\u6784\u5b8c\u6574\u540c",
+        "\u6b650123456789%\u2026\u7269\u680f\u0000"
+      ]
+    },
+    {
+      "type": "reference",
+      "id": "minecraft:default"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "hud.wuxingxiantu.vein.aura": "灵气浓度 %s / 100",
+  "hud.wuxingxiantu.vein.none": "方圆 %s 格内未见已生成灵脉",
+  "hud.wuxingxiantu.vein.target": "灵脉 %s · %s 格 · %s阶",
+  "hud.wuxingxiantu.vein.quality.0": "灵气贫瘠",
+  "hud.wuxingxiantu.vein.quality.1": "灵气稀薄",
+  "hud.wuxingxiantu.vein.quality.2": "灵气寻常",
+  "hud.wuxingxiantu.vein.quality.3": "灵气浓郁",
+  "hud.wuxingxiantu.vein.quality.4": "灵气充沛",
+  "hud.wuxingxiantu.vein.quality.5": "灵气如潮",
+  "hud.wuxingxiantu.vein.direction.0": "北",
+  "hud.wuxingxiantu.vein.direction.1": "东北",
+  "hud.wuxingxiantu.vein.direction.2": "东",
+  "hud.wuxingxiantu.vein.direction.3": "东南",
+  "hud.wuxingxiantu.vein.direction.4": "南",
+  "hud.wuxingxiantu.vein.direction.5": "西南",
+  "hud.wuxingxiantu.vein.direction.6": "西",
+  "hud.wuxingxiantu.vein.direction.7": "西北"
+}

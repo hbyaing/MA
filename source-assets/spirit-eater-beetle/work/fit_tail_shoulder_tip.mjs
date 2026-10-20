@@ -1,0 +1,5 @@
+import fs from'node:fs/promises';import{connect,call,getText}from'./mcp.mjs';await connect();const dir='E:/五行仙途/source-assets/spirit-eater-beetle';
+console.log(getText(await call('risky_eval',{code:`(()=>{const left=Mesh.all.find(m=>m.name==='carapace_层叠背甲__左_尾侧甲第四片'),right=Mesh.all.find(m=>m.name===left.name.replace('左_','右_'));Undo.initEdit({elements:[left,right]});const ps=Object.values(left.vertices),lo=Math.min(...ps.map(p=>p[1])),hi=Math.max(...ps.map(p=>p[1]));
+for(const p of ps){const len=Math.hypot(p[0]/2.02,(p[1]-2.772)/2.02,(p[2]-1.89)/2.36);p[1]=hi-(hi-p[1])/(hi-lo)*(hi-2.18);p[2]=1.89+2.36*Math.sqrt(Math.max(.001,len*len-(p[0]/2.02)**2-((p[1]-2.772)/2.02)**2));}
+right.vertices=Object.fromEntries(Object.entries(left.vertices).map(([k,p])=>[k,[-p[0],p[1],p[2]]]));Canvas.updateAll();Undo.finishEdit('尾侧护片尖端沿腹面下收，覆盖错位接缝');return true})()`})));
+const rr=await call('set_camera_angle',{position:[-18,6,8],target:[0,3,2.8],zoom:3.3,projection:'orthographic'});const pic=rr.content.find(c=>c.type==='image');await fs.writeFile(dir+'/tail_shoulder_fixed.png',Buffer.from(pic.data,'base64'));

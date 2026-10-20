@@ -1,0 +1,269 @@
+{
+  "vertex": "wuxingxiantu:world_volume",
+  "fragment": "wuxingxiantu:world_volume",
+  "samplers": [
+    {
+      "name": "SceneSampler"
+    },
+    {
+      "name": "DepthSampler"
+    }
+  ],
+  "attributes": [
+    "Position"
+  ],
+  "uniforms": [
+    {
+      "name": "InverseProjection",
+      "type": "matrix4x4",
+      "count": 16,
+      "values": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "InverseViewRotation",
+      "type": "matrix3x3",
+      "count": 9,
+      "values": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "InverseViewTranslation",
+      "type": "float",
+      "count": 3,
+      "values": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Time",
+      "type": "float",
+      "count": 1,
+      "values": [
+        0
+      ]
+    },
+    {
+      "name": "Bounds",
+      "type": "float",
+      "count": 4,
+      "values": [
+        0,
+        75,
+        0,
+        180
+      ]
+    },
+    {
+      "name": "Layer",
+      "type": "float",
+      "count": 4,
+      "values": [
+        35,
+        100,
+        0,
+        25
+      ]
+    },
+    {
+      "name": "Density",
+      "type": "float",
+      "count": 4,
+      "values": [
+        0.65,
+        0.66,
+        0.018,
+        0.25
+      ]
+    },
+    {
+      "name": "Flow",
+      "type": "float",
+      "count": 4,
+      "values": [
+        0.8,
+        0.35,
+        1,
+        0.5
+      ]
+    },
+    {
+      "name": "Optics",
+      "type": "float",
+      "count": 4,
+      "values": [
+        0.045,
+        0.45,
+        0.32,
+        1
+      ]
+    },
+    {
+      "name": "Glow",
+      "type": "float",
+      "count": 4,
+      "values": [
+        0,
+        2.2,
+        0.45,
+        0.3
+      ]
+    },
+    {
+      "name": "Flash",
+      "type": "float",
+      "count": 4,
+      "values": [
+        1,
+        7,
+        0.9,
+        4
+      ]
+    },
+    {
+      "name": "FlashShape",
+      "type": "float",
+      "count": 4,
+      "values": [
+        65,
+        0.65,
+        1,
+        0.5
+      ]
+    },
+    {
+      "name": "MediumColor",
+      "type": "float",
+      "count": 3,
+      "values": [
+        0.55,
+        0.63,
+        0.8
+      ]
+    },
+    {
+      "name": "EmissionColor",
+      "type": "float",
+      "count": 3,
+      "values": [
+        0.35,
+        0.08,
+        0.8
+      ]
+    },
+    {
+      "name": "FlashColor",
+      "type": "float",
+      "count": 3,
+      "values": [
+        0.55,
+        0.65,
+        1
+      ]
+    },
+    {
+      "name": "SunDirection",
+      "type": "float",
+      "count": 3,
+      "values": [
+        0.4,
+        0.8,
+        -0.3
+      ]
+    },
+    {
+      "name": "SunColor",
+      "type": "float",
+      "count": 3,
+      "values": [
+        1,
+        0.85,
+        0.65
+      ]
+    },
+    {
+      "name": "Seed",
+      "type": "float",
+      "count": 1,
+      "values": [
+        17
+      ]
+    },
+    {
+      "name": "ViewSteps",
+      "type": "int",
+      "count": 1,
+      "values": [
+        48
+      ]
+    },
+    {
+      "name": "LightSteps",
+      "type": "int",
+      "count": 1,
+      "values": [
+        4
+      ]
+    },
+    {
+      "name": "EndWarp",
+      "type": "float",
+      "count": 4,
+      "values": [
+        0,
+        24,
+        0.014,
+        0.02
+      ]
+    },
+    {
+      "name": "EndCarve",
+      "type": "float",
+      "count": 4,
+      "values": [
+        75,
+        0.8,
+        150,
+        85
+      ]
+    },
+    {
+      "name": "EndDepth",
+      "type": "float",
+      "count": 4,
+      "values": [
+        0.35,
+        -60,
+        0.7,
+        80
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "cross": "wuxingxiantu:block/dew_drop_flower_growing",
+    "particle": "#cross"
+  },
+  "elements": [
+    {
+      "from": [
+        1.7028571428571428,
+        0,
+        8
+      ],
+      "to": [
+        14.297142857142857,
+        12,
+        8
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": 45,
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            3.6875,
+            7.796875,
+            12.296875,
+            16
+          ],
+          "texture": "#cross"
+        },
+        "south": {
+          "uv": [
+            12.296875,
+            7.796875,
+            3.6875,
+            16
+          ],
+          "texture": "#cross"
+        }
+      }
+    },
+    {
+      "from": [
+        1.7028571428571428,
+        0,
+        8
+      ],
+      "to": [
+        14.297142857142857,
+        12,
+        8
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": -45,
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            3.6875,
+            7.796875,
+            12.296875,
+            16
+          ],
+          "texture": "#cross"
+        },
+        "south": {
+          "uv": [
+            12.296875,
+            7.796875,
+            3.6875,
+            16
+          ],
+          "texture": "#cross"
+        }
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout"
+}

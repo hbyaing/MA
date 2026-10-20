@@ -1,0 +1,12 @@
+{
+  "loader": "forge:obj",
+  "model": "wuxingxiantu:models/item/jixiao_sword/sword.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": false,
+  "emissive_ambient": true,
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "wuxingxiantu:item/jixiao_sword/material_0"
+  }
+}

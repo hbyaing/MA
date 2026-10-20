@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:meadow",
+    "minecraft:windswept_hills",
+    "minecraft:jagged_peaks"
+  ],
+  "features": [
+    "wuxingxiantu:herb_tianji"
+  ],
+  "step": "vegetal_decoration"
+}
