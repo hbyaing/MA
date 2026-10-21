@@ -49,6 +49,20 @@ if (project.hasProperty('myriadCapture')) {
 }
 
 // Opt-in real small-world star-ceiling compatibility fixture; never bundled in releases.
+if (project.hasProperty('chuangshiCompatJar')) {
+    def addonJar = file(project.property('chuangshiCompatJar'))
+    if (!addonJar.isFile()) throw new GradleException("Missing Chuangshi compatibility jar: ${addonJar}")
+    def revision = java.security.MessageDigest.getInstance('SHA-256').digest(addonJar.bytes).encodeHex().toString().take(12)
+    repositories { flatDir { dirs addonJar.parentFile } }
+    dependencies { implementation fg.deobf("creation-compat:${addonJar.name[0..-5]}:${revision}") }
+    sourceSets {
+        creationCompatTest {
+            java.srcDirs = ['src/creationcompattest/java']
+            compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+            runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+        }
+    }
+}
 if (project.hasProperty('heavenlySmallWorld')) {
     repositories { flatDir { dirs project.file('build/creation-compat-libs') } }
     dependencies { runtimeOnly fg.deobf('creation-test:wuxingchuangshi:1.0') }
@@ -400,6 +414,18 @@ minecraft.runs {
                 source sourceSets.gameTest
             }
         }
+    }
+}
+
+if (project.hasProperty('chuangshiCompatJar')) {
+    minecraft.runs.gameTestServer {
+        workingDirectory project.file('build/chuangshi-compat-server')
+        property 'forge.enabledGameTestNamespaces', 'wuxingxiantu,wuxingxiantu_boss,wuxingxiantu_entry,wuxingxiantu_realmflight,wuxingxiantu_anvil,wuxingxiantu_shield,wuxingxiantu_domainbalance,wuxingxiantu_creationcompat'
+        mods { wuxingxiantu { source sourceSets.main; source sourceSets.gameTest; source sourceSets.creationCompatTest } }
+    }
+    if (project.hasProperty('myriadCapture')) minecraft.runs.client {
+        property 'wuxingxiantu.chuangshiCompatCapture', 'true'
+        mods { wuxingxiantu { source sourceSets.main; source sourceSets.myriadClientTest; source sourceSets.creationCompatTest } }
     }
 }
 

@@ -429,5 +429,13 @@
   "localOnly": true,
   "reviewedAt": "2026-10-21",
   "deliveryBranch": "codex/myriad-ascension-delivery-old-ui",
-  "statusNote": "Implementation presence is not current acceptance. See acceptance-baseline.json and ACCEPTANCE.md."
+  "statusNote": "Implementation presence is not current acceptance. See acceptance-baseline.json and ACCEPTANCE.md.",
+  "chuangshiAddon": {
+    "confirmedAt": "2026-10-22",
+    "decision": "本轮保留创世仙途为万界仙途附属；后续统一境界。",
+    "realmPolicy": "保留现有 xianRealm、仙界果位及额外生命行为和数据。本轮不清空、不重算；正式融合时接入主境界后续阶段，统一重复地仙及属性结算。",
+    "identityPolicy": "保留 wuxingxiantu、wuxingchuangshi、旧维度 ID、存档键和玩家 UUID 所有权。",
+    "currencyPolicy": "沿用 D01：小世界升级按下品等值复用主模组 SpiritCurrency，不新增账户；已提交材料数值不变。",
+    "acceptance": "开发进度快照；构建与局部兼容验证不等于最新整体完成验收。"
+  }
 }
