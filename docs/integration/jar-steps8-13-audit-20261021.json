@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "jar": "myriad-ascension-0.2.jar",
+  "bytes": 74986027,
+  "sha256": "9a7cf0f76011399f2a61b6f8985649c22a10c85204245ecb14d3c3b86a6caed4",
+  "entries": 4092,
+  "forbiddenEntries": [],
+  "nestedJars": [],
+  "productionMixinOnly": true,
+  "nonProductionTopLevelTypesChecked": 154,
+  "nonProductionClassesFound": []
+}

@@ -1,0 +1,60 @@
+{
+  "elements": 1568,
+  "bones": 119,
+  "animations": [
+    "animation.pengzhi.heavy_breath",
+    "animation.pengzhi.tentacle_hunger",
+    "animation.pengzhi.maws_and_drool",
+    "animation.pengzhi.devour",
+    "animation.pengzhi.tentacle_slam",
+    "animation.pengzhi.wine_frenzy"
+  ],
+  "embedded": true,
+  "samples": [
+    {
+      "clip": "tentacle_slam",
+      "time": 0.95,
+      "rotation": [
+        -0.3141592653589793,
+        0,
+        0,
+        "ZYX"
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "clip": "wine_frenzy",
+      "time": 1.4,
+      "rotation": [
+        0,
+        0,
+        0,
+        "ZYX"
+      ],
+      "scale": [
+        1.1,
+        1.05,
+        1.12
+      ]
+    },
+    {
+      "clip": "maws_and_drool",
+      "time": 0.6,
+      "rotation": [
+        -0.2617993877991494,
+        0,
+        0,
+        "ZYX"
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}

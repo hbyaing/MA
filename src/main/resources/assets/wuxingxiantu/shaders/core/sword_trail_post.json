@@ -1,0 +1,11 @@
+{
+  "blend": { "func": "add", "srcrgb": "srcalpha", "dstrgb": "1-srcalpha" },
+  "vertex": "wuxingxiantu:sword_trail_post",
+  "fragment": "wuxingxiantu:sword_trail_post",
+  "attributes": ["Position", "Color"],
+  "samplers": [{"name": "Sampler0"}],
+  "uniforms": [
+    {"name":"TrailProjection", "type":"matrix4x4", "count":16, "values":[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]},
+    {"name":"OutputSize", "type":"float", "count":2, "values":[1,1]}
+  ]
+}

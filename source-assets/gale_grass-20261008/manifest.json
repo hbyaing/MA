@@ -1,0 +1,62 @@
+{
+  "young": {
+    "source_box": [
+      0,
+      0,
+      580,
+      724
+    ],
+    "crop_bounds": [
+      143,
+      304,
+      482,
+      644
+    ],
+    "crop_size": [
+      339,
+      340
+    ],
+    "model_height": 8,
+    "model_width": 7.976470588235294
+  },
+  "growing": {
+    "source_box": [
+      580,
+      0,
+      1320,
+      724
+    ],
+    "crop_bounds": [
+      117,
+      142,
+      654,
+      662
+    ],
+    "crop_size": [
+      537,
+      520
+    ],
+    "model_height": 12,
+    "model_width": 12.392307692307693
+  },
+  "mature": {
+    "source_box": [
+      1320,
+      0,
+      2172,
+      724
+    ],
+    "crop_bounds": [
+      69,
+      34,
+      757,
+      688
+    ],
+    "crop_size": [
+      688,
+      654
+    ],
+    "model_height": 16,
+    "model_width": 16.831804281345565
+  }
+}

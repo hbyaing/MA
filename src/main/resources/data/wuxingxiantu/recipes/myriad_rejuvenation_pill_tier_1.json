@@ -1,0 +1,30 @@
+{
+  "type": "wuxingxiantu:alchemy",
+  "formula_id": "wuxingxiantu:rejuvenation_pill",
+  "medicine_tier": 1,
+  "furnace_tier": 0,
+  "min_fire_tier": 1,
+  "minimum_realm": 0,
+  "ingredients": [
+    {
+      "item": "wuxingxiantu:herb_huichun",
+      "count": 2
+    },
+    {
+      "item": "wuxingxiantu:herb_huichun",
+      "count": 1
+    },
+    {
+      "item": "wuxingxiantu:dew_drop_flower",
+      "count": 1
+    }
+  ],
+  "aura_percent": 7,
+  "time": 1200,
+  "fire_essence_multiplier": 1.0,
+  "result": {
+    "item": "wuxingxiantu:rejuvenation_pill",
+    "count": 1
+  },
+  "result_grade": "LOW"
+}

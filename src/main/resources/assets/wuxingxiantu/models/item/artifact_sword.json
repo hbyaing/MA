@@ -1,0 +1,23 @@
+{
+  "parent": "wuxingxiantu:item/artifact_sword_rank_1",
+  "overrides": [
+    {
+      "predicate": {
+        "wuxingxiantu:artifact_rank": 1
+      },
+      "model": "wuxingxiantu:item/artifact_sword_rank_1"
+    },
+    {
+      "predicate": {
+        "wuxingxiantu:artifact_rank": 2
+      },
+      "model": "wuxingxiantu:item/artifact_sword_rank_2"
+    },
+    {
+      "predicate": {
+        "wuxingxiantu:artifact_rank": 3
+      },
+      "model": "wuxingxiantu:item/artifact_sword_rank_3"
+    }
+  ]
+}

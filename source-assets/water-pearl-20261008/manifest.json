@@ -1,0 +1,110 @@
+{
+  "low_water_pearl": {
+    "source_box": [
+      0,
+      0,
+      627,
+      578
+    ],
+    "crop_bounds": [
+      236,
+      270,
+      498,
+      535
+    ],
+    "crop_size": [
+      262,
+      265
+    ],
+    "texture_size": [
+      32,
+      32
+    ],
+    "resampling": "NEAREST",
+    "icon_size": [
+      30,
+      30
+    ]
+  },
+  "mid_water_pearl": {
+    "source_box": [
+      627,
+      0,
+      1254,
+      578
+    ],
+    "crop_bounds": [
+      94,
+      212,
+      446,
+      560
+    ],
+    "crop_size": [
+      352,
+      348
+    ],
+    "texture_size": [
+      32,
+      32
+    ],
+    "resampling": "NEAREST",
+    "icon_size": [
+      30,
+      30
+    ]
+  },
+  "high_water_pearl": {
+    "source_box": [
+      0,
+      578,
+      608,
+      1254
+    ],
+    "crop_bounds": [
+      99,
+      117,
+      608,
+      552
+    ],
+    "crop_size": [
+      509,
+      435
+    ],
+    "texture_size": [
+      32,
+      32
+    ],
+    "resampling": "NEAREST",
+    "icon_size": [
+      30,
+      26
+    ]
+  },
+  "perfect_water_pearl": {
+    "source_box": [
+      608,
+      578,
+      1254,
+      1254
+    ],
+    "crop_bounds": [
+      20,
+      68,
+      601,
+      581
+    ],
+    "crop_size": [
+      581,
+      513
+    ],
+    "texture_size": [
+      32,
+      32
+    ],
+    "resampling": "NEAREST",
+    "icon_size": [
+      30,
+      26
+    ]
+  }
+}

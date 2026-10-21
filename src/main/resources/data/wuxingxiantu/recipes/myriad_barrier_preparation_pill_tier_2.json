@@ -1,0 +1,30 @@
+{
+  "type": "wuxingxiantu:alchemy",
+  "formula_id": "wuxingxiantu:barrier_preparation_pill",
+  "medicine_tier": 2,
+  "furnace_tier": 2,
+  "min_fire_tier": 3,
+  "minimum_realm": 1,
+  "ingredients": [
+    {
+      "item": "wuxingxiantu:herb_pozhang",
+      "count": 2
+    },
+    {
+      "item": "wuxingxiantu:herb_pozhang",
+      "count": 1
+    },
+    {
+      "item": "wuxingxiantu:dew_drop_flower",
+      "count": 1
+    }
+  ],
+  "aura_percent": 9,
+  "time": 1500,
+  "fire_essence_multiplier": 1.5,
+  "result": {
+    "item": "wuxingxiantu:barrier_preparation_pill",
+    "count": 1
+  },
+  "result_grade": "LOW"
+}

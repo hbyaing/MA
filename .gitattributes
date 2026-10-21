@@ -1,0 +1,10 @@
+# The furnace clearance contract hashes OBJ bytes; keep them identical across Windows/Linux.
+*.obj text eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.r16f binary
+*.blend binary
+*.bbmodel text
+*.zip binary

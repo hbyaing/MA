@@ -1,0 +1,16 @@
+import fs from'node:fs/promises';
+const dir='E:/五行仙途/source-assets/spirit-eater-beetle',dest='E:/五行仙途/deliverables/噬灵虫模型';
+const read=async n=>JSON.parse(await fs.readFile(dir+'/'+n,'utf8'));
+const original=await read('before_shell_antenna_revision.bbmodel'),before=await read('before_restore_layered_carapace.bbmodel'),after=await read('噬灵虫.bbmodel');
+const plates=original.elements.filter(e=>e.name.startsWith('carapace_层叠背甲__')&&!e.name.includes('护缘'));
+const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+const compare=plates.map(e=>{const a=after.elements.find(x=>x.name===e.name);return {name:e.name,vertices:same(a.vertices,e.vertices),origin:same(a.origin,e.origin),rotation:same(a.rotation,e.rotation),face_topology:same(Object.values(a.faces).map(f=>f.vertices),Object.values(e.faces).map(f=>f.vertices))};});
+const report={restored_plates:plates.length,original_geometry_matches:compare.every(x=>x.vertices&&x.origin&&x.rotation&&x.face_topology),details:compare,protected_parts_unchanged:before.elements.filter(e=>/mandible|eye_|segment_|触须|贴合腹甲/.test(e.name)).every(e=>same(e,after.elements.find(a=>a.uuid===e.uuid))),mesh_count:after.elements.length,eyes:after.elements.filter(e=>e.name.includes('微光复眼')).length,notes:'Restored original 16 plate meshes by name; Blockbench assigned new UUIDs. Geometry and topology compared directly. UVs repaired only; abdomen upper reference UV restored with 8 alpha-hole face repairs. Underside repairs preserved.'};
+if(!report.original_geometry_matches||!report.protected_parts_unchanged)throw Error(JSON.stringify(report));
+await fs.writeFile(dir+'/carapace_restore_validation.json',JSON.stringify(report,null,2));
+const validation={...report,details:undefined,invalid_vertices:after.elements.reduce((n,e)=>n+Object.values(e.vertices||{}).filter(v=>v.some(x=>!Number.isFinite(x))).length,0)};
+await fs.writeFile(dir+'/validation.json',JSON.stringify(validation,null,2));
+await fs.writeFile(dir+'/说明.txt','噬灵虫模型 — 2026-10-07 修订\n\n主文件：噬灵虫.bbmodel；纹理内嵌。\n恢复原有16片叠层背甲几何，仅清理误投射的触须纹理。\n保留口器锐化、左右一对复眼、足部棱脊外骨骼、弯曲分节触须和贴体腹甲修正。\n移除了两侧误似腿部的长条护缘。修复腹部透明取样造成的孔洞。\n\n当前为100个网格、41个分组的Blockbench通用模型；尚未制作GeckoLib适配或动画。\n预览由Blockbench实际模型渲染。隐藏面为三维补全，局部UV仍可进一步精修。\n');
+await fs.mkdir(dest,{recursive:true});
+for(const n of ['噬灵虫.bbmodel','perspective.png','front.png','side.png','back.png','bottom.png','bottom_oblique.png','detail_mouth.png','detail_carapace.png','detail_rear.png','说明.txt','validation.json','carapace_restore_validation.json'])await fs.copyFile(dir+'/'+n,dest+'/'+n);
+console.log(JSON.stringify({restored_plates:report.restored_plates,geometry_verified:report.original_geometry_matches,protected_parts_unchanged:report.protected_parts_unchanged,meshes:report.mesh_count,eyes:report.eyes}));

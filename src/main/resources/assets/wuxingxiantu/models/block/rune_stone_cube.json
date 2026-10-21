@@ -1,0 +1,27 @@
+{
+  "credit": "Six supplied rune stone face textures",
+  "ambientocclusion": true,
+  "textures": {
+    "north": "wuxingxiantu:block/rune_stone_back",
+    "south": "wuxingxiantu:block/rune_stone_front",
+    "east": "wuxingxiantu:block/rune_stone_right",
+    "west": "wuxingxiantu:block/rune_stone_left",
+    "up": "wuxingxiantu:block/rune_stone_top",
+    "down": "wuxingxiantu:block/rune_stone_bottom",
+    "particle": "#south"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "north": {"texture": "#north"},
+        "south": {"texture": "#south"},
+        "east": {"texture": "#east"},
+        "west": {"texture": "#west"},
+        "up": {"texture": "#up"},
+        "down": {"texture": "#down"}
+      }
+    }
+  ]
+}

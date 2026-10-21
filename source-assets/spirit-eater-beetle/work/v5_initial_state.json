@@ -1,0 +1,2265 @@
+{
+  "name": "噬灵虫 · 三视图精细模型",
+  "format": "free",
+  "elements": [
+    {
+      "name": "body_躯体__胸部连续底甲",
+      "uuid": "7721d6b1-cddb-64a5-f8d7-e2e54f6aac14",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 144,
+      "faces": 128,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "abdomen_半透明双叶腹部__腹部_青玉色薄膜",
+      "uuid": "7d2f19bc-601f-8d3d-f8d2-bfc9e1f78321",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 360,
+      "faces": 336,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "abdomen_半透明双叶腹部__腹部_透明保护膜",
+      "uuid": "551d4a4f-9501-a348-0a77-e04e1da37462",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 360,
+      "faces": 336,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "head_头部__头部底壳",
+      "uuid": "2f3ee157-297e-6faa-12e5-92835d0f7f05",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 22,
+      "faces": 29,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "head_头部__左额甲",
+      "uuid": "0c3bf7cc-afd1-191d-c4fb-5555f9e55a44",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 22,
+      "faces": 26,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "head_头部__右额甲",
+      "uuid": "16294650-3230-ccac-c97d-8d19361db5c5",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 22,
+      "faces": 26,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_front_前足__髋关节",
+      "uuid": "42f87d61-1b3b-00da-cf11-e36cb39aa315",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 70,
+      "faces": 60,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_front_segment_0__前足_关节_0",
+      "uuid": "cd0bec6c-1931-c1b7-3ef6-67665cc181df",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 40,
+      "faces": 32,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_front_segment_1__前足_关节_1",
+      "uuid": "a69a6259-3b78-9a84-8a60-e2b488eabc0a",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 40,
+      "faces": 32,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_front_segment_2__前足_关节_2",
+      "uuid": "2ef61586-5ee8-4778-481e-5ef73ff71174",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 40,
+      "faces": 32,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_middle_中足__髋关节",
+      "uuid": "485d4e2a-5906-c820-ba4b-e1764f5eb261",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 70,
+      "faces": 60,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_middle_segment_0__中足_关节_0",
+      "uuid": "471e49f6-9927-a43a-91f4-f678c5379608",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 40,
+      "faces": 32,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_middle_segment_1__中足_关节_1",
+      "uuid": "23de057d-b378-a4dc-5bb8-394333b4142c",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 40,
+      "faces": 32,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_hind_后足__髋关节",
+      "uuid": "bd634e51-8588-9677-424a-6e5cfb5985e7",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 70,
+      "faces": 60,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_hind_segment_0__后足_关节_0",
+      "uuid": "fe468763-8d12-fd7b-3215-b5c41fab2968",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 40,
+      "faces": 32,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_hind_segment_1__后足_关节_1",
+      "uuid": "bb5dedf7-48df-d665-a32f-e467d672dd5a",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 40,
+      "faces": 32,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_hind_segment_2__后足_关节_2",
+      "uuid": "b98fbc6d-527a-134d-6d05-735d1fd469ed",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 40,
+      "faces": 32,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_front_前足__髋关节",
+      "uuid": "1473b043-0a77-3555-618b-28df7058b65b",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 70,
+      "faces": 60,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_front_segment_0__前足_关节_0",
+      "uuid": "f8fdffa9-c61f-dea4-e30b-9d37ecc8a11d",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 40,
+      "faces": 32,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_front_segment_1__前足_关节_1",
+      "uuid": "b2c26cb1-8d82-001f-0455-813ecb1ad0da",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 40,
+      "faces": 32,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_front_segment_2__前足_关节_2",
+      "uuid": "51240743-5142-455f-9f4f-eb72358700d3",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 40,
+      "faces": 32,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_middle_中足__髋关节",
+      "uuid": "b27301a0-8412-f619-78ca-338dda392e8a",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 70,
+      "faces": 60,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_middle_segment_0__中足_关节_0",
+      "uuid": "ad969a99-83d9-a7a4-4db5-d0f81e4c8515",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 40,
+      "faces": 32,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_middle_segment_1__中足_关节_1",
+      "uuid": "e0a04cb2-3af9-e3d3-7781-7d11eef87a71",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 40,
+      "faces": 32,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_hind_后足__髋关节",
+      "uuid": "8d2dd770-a05a-4f10-c15d-f068ffc8c144",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 70,
+      "faces": 60,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_hind_segment_0__后足_关节_0",
+      "uuid": "42612854-fd53-871a-dc42-e6d266aefa0e",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 40,
+      "faces": 32,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_hind_segment_1__后足_关节_1",
+      "uuid": "d203169b-4460-686c-5b2f-751d385ae46d",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 40,
+      "faces": 32,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_hind_segment_2__后足_关节_2",
+      "uuid": "746e8632-44a1-dfc8-07ba-e7b6214ba8ed",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 40,
+      "faces": 32,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_front_segment_0__硬质棱脊甲节",
+      "uuid": "d107e829-981c-02f1-73cf-31eedeef88ba",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 35,
+      "faces": 38,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_front_segment_1__硬质棱脊甲节",
+      "uuid": "8a6ac94b-8f66-f2cd-450c-a18fb8600883",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 35,
+      "faces": 38,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_front_segment_2__硬质棱脊甲节",
+      "uuid": "307c17e6-ae5b-8225-f120-d8cf40619e28",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 35,
+      "faces": 38,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_front_segment_3__硬质棱脊甲节",
+      "uuid": "c33a1acb-1ad2-dd44-0782-6c67d1c3a334",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 28,
+      "faces": 31,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_middle_segment_0__硬质棱脊甲节",
+      "uuid": "9fdb7604-2ace-55a6-e15f-376689365ce7",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 35,
+      "faces": 38,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_middle_segment_1__硬质棱脊甲节",
+      "uuid": "cca088af-9315-8154-2e8b-a9adf54bc4f6",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 35,
+      "faces": 38,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_middle_segment_2__硬质棱脊甲节",
+      "uuid": "88a7fe35-0ba4-434e-34a1-eef29f503b1c",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 28,
+      "faces": 31,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_hind_segment_0__硬质棱脊甲节",
+      "uuid": "5c6c5bc5-69d0-1af9-a53f-9108fcce8f8e",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 35,
+      "faces": 38,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_hind_segment_1__硬质棱脊甲节",
+      "uuid": "1d2d90ae-5ad1-4a64-ecea-b1f7dbd54ed7",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 35,
+      "faces": 38,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_hind_segment_2__硬质棱脊甲节",
+      "uuid": "4c4e9d2d-0a6d-db53-2716-0cf0830e2ddf",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 35,
+      "faces": 38,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_hind_segment_3__硬质棱脊甲节",
+      "uuid": "b50e76bf-7007-84d3-f093-7b2e0c2eddba",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 28,
+      "faces": 31,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_front_segment_0__硬质棱脊甲节",
+      "uuid": "fcf040f8-892c-242d-6495-b826cc85485d",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 35,
+      "faces": 38,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_front_segment_1__硬质棱脊甲节",
+      "uuid": "1e82f27a-9471-6fc3-c7e9-696d0868fac6",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 35,
+      "faces": 38,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_front_segment_2__硬质棱脊甲节",
+      "uuid": "fd54306e-c9bb-4ade-7362-9071721d58a6",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 35,
+      "faces": 38,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_front_segment_3__硬质棱脊甲节",
+      "uuid": "c304c894-50cb-207e-e721-8f692290b0f1",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 28,
+      "faces": 31,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_middle_segment_0__硬质棱脊甲节",
+      "uuid": "376b5c5c-31b7-8437-5031-8cff5453616b",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 35,
+      "faces": 38,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_middle_segment_1__硬质棱脊甲节",
+      "uuid": "4e33037c-a42d-d9c1-1970-06bb1a6f20c3",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 35,
+      "faces": 38,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_middle_segment_2__硬质棱脊甲节",
+      "uuid": "2d3f15a2-7038-260a-af71-a84b25cb28da",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 28,
+      "faces": 31,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_hind_segment_0__硬质棱脊甲节",
+      "uuid": "d7733e0d-f26b-79f8-a806-c7d6f992e597",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 35,
+      "faces": 38,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_hind_segment_1__硬质棱脊甲节",
+      "uuid": "6b16f162-f0b2-7e9e-cc89-1a7546eaeba8",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 35,
+      "faces": 38,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_hind_segment_2__硬质棱脊甲节",
+      "uuid": "0be96b44-c8d6-c01f-fab0-2d69ce03d3d4",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 35,
+      "faces": 38,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_hind_segment_3__硬质棱脊甲节",
+      "uuid": "d1aece4b-e106-9300-b5e0-51f840cda226",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 28,
+      "faces": 31,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_触须_弯曲细长主干",
+      "uuid": "2210240a-5553-9e9a-736c-2df32d53770c",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 72,
+      "faces": 76,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_触须_窄节环_1",
+      "uuid": "646e6f64-b16c-a9f0-0cd5-661783c2ab3a",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 16,
+      "faces": 20,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_触须_窄节环_2",
+      "uuid": "04dd0e2a-3e91-0e9f-fc3c-e6e4888f549f",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 16,
+      "faces": 20,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_触须_窄节环_3",
+      "uuid": "31336f93-7d6f-2198-8bf9-2f47f3221d26",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 16,
+      "faces": 20,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_触须_窄节环_4",
+      "uuid": "9f521e13-d2fa-63f0-8484-fcae3b793161",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 16,
+      "faces": 20,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_触须_窄节环_5",
+      "uuid": "cfa3c705-7cee-6b39-e12d-f2011ff6c508",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 16,
+      "faces": 20,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_触须_窄节环_6",
+      "uuid": "ba218ea6-099a-785a-3e3c-a014bcb4041d",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 16,
+      "faces": 20,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_触须_窄节环_7",
+      "uuid": "508d7bc9-20b9-83a5-e27f-ce3df0e2a7e5",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 16,
+      "faces": 20,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_触须_青光水滴末梢",
+      "uuid": "47574c65-45bc-21d5-4f01-12c6965ebffc",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 32,
+      "faces": 36,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_触须_弯曲细长主干",
+      "uuid": "51da0bb2-cd0a-db55-0470-096067a2e131",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 72,
+      "faces": 76,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_触须_窄节环_1",
+      "uuid": "0ef0b42a-e087-5ebe-ee8c-def86d6f90c2",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 16,
+      "faces": 20,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_触须_窄节环_2",
+      "uuid": "d249c7f2-0241-b6ce-0a5a-98d859107079",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 16,
+      "faces": 20,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_触须_窄节环_3",
+      "uuid": "65ad890d-0fef-8dda-4930-a98f12d83124",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 16,
+      "faces": 20,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_触须_窄节环_4",
+      "uuid": "f85e8eba-bdf5-eb37-5fce-35a4d08e109f",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 16,
+      "faces": 20,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_触须_窄节环_5",
+      "uuid": "7d5ca6b4-6050-54aa-62ed-569414b848a3",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 16,
+      "faces": 20,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_触须_窄节环_6",
+      "uuid": "dc9faec5-ac19-c305-b9cf-73eb657ac635",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 16,
+      "faces": 20,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_触须_窄节环_7",
+      "uuid": "30fc06c6-f78a-1b83-c73b-768d4898295c",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 16,
+      "faces": 20,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_触须_青光水滴末梢",
+      "uuid": "a4839988-bdaa-7106-6bcb-368d95e3c594",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 32,
+      "faces": 36,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "贴合腹甲_1",
+      "uuid": "f98479b2-35af-4f07-a3fe-f1e25bd05eb6",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 110,
+      "faces": 108,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "贴合腹甲_2",
+      "uuid": "96d5e23f-039f-8e01-8f22-4b87e1bb7d92",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 110,
+      "faces": 108,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "贴合腹甲_3",
+      "uuid": "8e21184e-6d62-4332-19b8-baa51362eb0b",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 110,
+      "faces": 108,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "贴合腹甲_4",
+      "uuid": "463e9ea2-60c8-beb5-4885-a769a2d76f6f",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 110,
+      "faces": 108,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "贴合腹甲_5",
+      "uuid": "6c006c9e-d67c-4291-4cb1-903dc60f7081",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 110,
+      "faces": 108,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "贴合腹甲_6",
+      "uuid": "32d7feac-b8e7-4860-84ad-f151f746dd44",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 110,
+      "faces": 108,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "贴合腹甲_7",
+      "uuid": "0b33d075-2936-abb5-698f-6f26ca9abd06",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 110,
+      "faces": 108,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "尾腹_贴体中央细缝",
+      "uuid": "b52cfc9c-489b-7026-8134-2f259b50c499",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 66,
+      "faces": 32,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "carapace_层叠背甲__左_前胸盾片",
+      "uuid": "315daf23-583a-394d-7089-a7b759a0b369",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 22,
+      "faces": 26,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "carapace_层叠背甲__左_中胸叠甲",
+      "uuid": "b917273c-5411-1ff0-50c3-f54f26e556c2",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 25,
+      "faces": 30,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "carapace_层叠背甲__左_主鞘甲",
+      "uuid": "001d29ee-fad8-3969-cf0b-3e8c7404f27e",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 25,
+      "faces": 30,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "carapace_层叠背甲__左_尾背甲第一片",
+      "uuid": "f7632aea-acfc-52da-faa4-7e38975da3f1",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 358,
+      "faces": 660,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "carapace_层叠背甲__左_尾背甲第二片",
+      "uuid": "a35aa01c-3450-41f7-9bd2-44291c7e6bde",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 90,
+      "faces": 152,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "carapace_层叠背甲__左_尾背甲第三片",
+      "uuid": "23b47200-1f5b-d032-ac91-a7bbaec1c95a",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 70,
+      "faces": 116,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "carapace_层叠背甲__左_尾侧甲第四片",
+      "uuid": "f8cb1340-5ef9-2423-8b27-7f23443f9187",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 70,
+      "faces": 116,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "carapace_层叠背甲__左_尾端护片",
+      "uuid": "89f243ef-c24c-38f7-0c12-cd089babcba5",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 50,
+      "faces": 80,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "carapace_层叠背甲__右_前胸盾片",
+      "uuid": "19b6b7ef-8da7-218f-7498-a26ce4e39fd7",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 22,
+      "faces": 26,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "carapace_层叠背甲__右_中胸叠甲",
+      "uuid": "69e082c6-877d-38be-dfea-6bd3bc05e7fd",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 25,
+      "faces": 30,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "carapace_层叠背甲__右_主鞘甲",
+      "uuid": "dd9c7235-3360-56f5-4f81-8334dc00cd77",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 25,
+      "faces": 30,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "carapace_层叠背甲__右_尾背甲第一片",
+      "uuid": "c77916dc-855a-ddb3-30aa-b04f6f57f47e",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 358,
+      "faces": 660,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "carapace_层叠背甲__右_尾背甲第二片",
+      "uuid": "38468141-bb33-7658-8a75-abc76e3d6eb4",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 90,
+      "faces": 152,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "carapace_层叠背甲__右_尾背甲第三片",
+      "uuid": "ec80a438-1b69-6b08-ebc0-567198445841",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 70,
+      "faces": 116,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "carapace_层叠背甲__右_尾侧甲第四片",
+      "uuid": "aebe1c02-4da4-f9aa-e49e-d1e2a3fa4d18",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 70,
+      "faces": 116,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "carapace_层叠背甲__右_尾端护片",
+      "uuid": "21716999-ba52-d835-3434-7c279e813391",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 50,
+      "faces": 80,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_mandible_弧形内收钳",
+      "uuid": "79df28bf-68f1-fdf9-8fcc-7a401d80262e",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 36,
+      "faces": 50,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_mandible_弧形内收钳",
+      "uuid": "eed21e00-7b89-2129-e34a-3b76c65a062a",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 36,
+      "faces": 50,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_eye_嵌入式眼眶",
+      "uuid": "16499ae7-e376-76c0-0df6-4244becb3c41",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 84,
+      "faces": 72,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_eye_深绿复眼",
+      "uuid": "16567377-f423-b9e2-f64e-5bf3f8d7eb61",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 84,
+      "faces": 72,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_eye_微小高光",
+      "uuid": "3de1ff64-0a41-d641-5e08-52cfdf1b1042",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 84,
+      "faces": 72,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_eye_嵌入式眼眶",
+      "uuid": "ac275dc4-7db7-77db-9c12-f9fb6aa85ce6",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 84,
+      "faces": 72,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_eye_深绿复眼",
+      "uuid": "b30de0e1-36fd-3118-2dd7-327eff4eb3cf",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 84,
+      "faces": 72,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_eye_微小高光",
+      "uuid": "de026657-49a1-a9fa-d557-d9f3227c2786",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 84,
+      "faces": 72,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "left_antenna_额甲独立基座",
+      "uuid": "81e3ef22-d57a-80c8-2282-2634a3da3d8e",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 24,
+      "faces": 16,
+      "visible": true,
+      "render_order": "default"
+    },
+    {
+      "name": "right_antenna_额甲独立基座",
+      "uuid": "0905ff3b-68bb-e230-b78c-295f92da5c5d",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": 24,
+      "faces": 16,
+      "visible": true,
+      "render_order": "default"
+    }
+  ],
+  "groups": [
+    {
+      "name": "root_噬灵虫",
+      "uuid": "62208c17-4aef-29d5-544e-2c02532b477e",
+      "origin": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "body_躯体",
+      "uuid": "56adac21-7fa4-2af8-aa64-eb5442fae7a1",
+      "origin": [
+        0,
+        2.45,
+        -0.14
+      ]
+    },
+    {
+      "name": "abdomen_半透明双叶腹部",
+      "uuid": "9e79a7b4-969a-38ed-5e19-46ddf6a430c0",
+      "origin": [
+        0,
+        2.716,
+        1.9040000000000001
+      ]
+    },
+    {
+      "name": "ventral_腹甲",
+      "uuid": "590eaaf8-ccac-62e7-5d00-09b13b865057",
+      "origin": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "carapace_层叠背甲",
+      "uuid": "2d020f26-b6f0-9961-e21f-754dad08dc63",
+      "origin": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "head_头部",
+      "uuid": "c49e89c2-2303-e250-a68b-3698becb8db5",
+      "origin": [
+        0,
+        2.212,
+        -3.2760000000000002
+      ]
+    },
+    {
+      "name": "left_eye_复眼",
+      "uuid": "b3e57ced-c670-7cef-a583-f2dc96b87090",
+      "origin": [
+        -0.85,
+        2.24,
+        -3.3040000000000003
+      ]
+    },
+    {
+      "name": "left_mandible_短弯口器",
+      "uuid": "c9400aa9-c109-fd40-2ee8-ed212b12dfd2",
+      "origin": [
+        -0.43,
+        1.54,
+        -3.668
+      ]
+    },
+    {
+      "name": "left_antenna_弯曲触角",
+      "uuid": "d240e632-6087-aab9-06be-16ba96a7f31f",
+      "origin": [
+        -0.56,
+        2.576,
+        -3.5700000000000003
+      ]
+    },
+    {
+      "name": "right_eye_复眼",
+      "uuid": "b31b0e45-7d59-b1db-4996-c46afd7d3dc6",
+      "origin": [
+        0.85,
+        2.24,
+        -3.3040000000000003
+      ]
+    },
+    {
+      "name": "right_mandible_短弯口器",
+      "uuid": "d0e3496c-91c2-c3d8-2164-d36bbb49fc30",
+      "origin": [
+        0.43,
+        1.54,
+        -3.668
+      ]
+    },
+    {
+      "name": "right_antenna_弯曲触角",
+      "uuid": "37eec42c-1c90-de59-8a12-92ba0b6eff75",
+      "origin": [
+        0.56,
+        2.576,
+        -3.5700000000000003
+      ]
+    },
+    {
+      "name": "left_front_前足",
+      "uuid": "8268ee4e-112d-3a4f-1fe9-b8f674ea00db",
+      "origin": [
+        -1.08,
+        2.016,
+        -2.394
+      ]
+    },
+    {
+      "name": "left_front_segment_0",
+      "uuid": "e424dbf6-b219-72c2-3122-3d08adefe188",
+      "origin": [
+        -1.08,
+        2.016,
+        -2.394
+      ]
+    },
+    {
+      "name": "left_front_segment_1",
+      "uuid": "24b7bd1a-b409-e357-5f4d-6152b1c32fb8",
+      "origin": [
+        -1.87,
+        1.666,
+        -2.0020000000000002
+      ]
+    },
+    {
+      "name": "left_front_segment_2",
+      "uuid": "3a441164-6e7c-b110-e58d-81eae35a234a",
+      "origin": [
+        -2.67,
+        1.3860000000000001,
+        -2.5340000000000003
+      ]
+    },
+    {
+      "name": "left_front_segment_3",
+      "uuid": "41b50eea-76d3-3027-7f06-0ab1acd5ad07",
+      "origin": [
+        -2.98,
+        0.77,
+        -2.884
+      ]
+    },
+    {
+      "name": "left_middle_中足",
+      "uuid": "ca018f30-e3ba-2147-22ad-6842e7610b2b",
+      "origin": [
+        -1.64,
+        2.072,
+        -0.812
+      ]
+    },
+    {
+      "name": "left_middle_segment_0",
+      "uuid": "0f9fbe59-d88c-2ba3-1d85-c1e44af3f660",
+      "origin": [
+        -1.64,
+        2.072,
+        -0.812
+      ]
+    },
+    {
+      "name": "left_middle_segment_1",
+      "uuid": "a24ec435-683c-853d-e97e-691d1214615c",
+      "origin": [
+        -2.43,
+        1.596,
+        -0.644
+      ]
+    },
+    {
+      "name": "left_middle_segment_2",
+      "uuid": "aaeeba66-683b-326a-08c1-cbad8462fc91",
+      "origin": [
+        -2.88,
+        0.868,
+        -0.406
+      ]
+    },
+    {
+      "name": "left_hind_后足",
+      "uuid": "1fc7f99a-0e6a-47db-aa2f-fe0be45d12a9",
+      "origin": [
+        -1.72,
+        1.96,
+        0.294
+      ]
+    },
+    {
+      "name": "left_hind_segment_0",
+      "uuid": "67822583-3fbf-221f-b3a1-58395de3bb19",
+      "origin": [
+        -1.72,
+        1.96,
+        0.294
+      ]
+    },
+    {
+      "name": "left_hind_segment_1",
+      "uuid": "943587e7-00d5-ff03-e496-92f2a08d8508",
+      "origin": [
+        -2.4,
+        1.6380000000000001,
+        0.84
+      ]
+    },
+    {
+      "name": "left_hind_segment_2",
+      "uuid": "872a8a7e-2b92-1168-c83d-2a94d5fb907f",
+      "origin": [
+        -2.88,
+        1.974,
+        1.176
+      ]
+    },
+    {
+      "name": "left_hind_segment_3",
+      "uuid": "0954f89c-100d-7941-97f7-e4423174f2fd",
+      "origin": [
+        -3.04,
+        1.036,
+        1.512
+      ]
+    },
+    {
+      "name": "right_front_前足",
+      "uuid": "3c525db5-8964-4422-ab2b-a6f8d533798c",
+      "origin": [
+        1.08,
+        2.016,
+        -2.394
+      ]
+    },
+    {
+      "name": "right_front_segment_0",
+      "uuid": "2450fb9c-375b-a272-9e71-35d1d8dc410c",
+      "origin": [
+        1.08,
+        2.016,
+        -2.394
+      ]
+    },
+    {
+      "name": "right_front_segment_1",
+      "uuid": "aaf3651c-e384-5847-2ecb-9560f09abeff",
+      "origin": [
+        1.87,
+        1.666,
+        -2.0020000000000002
+      ]
+    },
+    {
+      "name": "right_front_segment_2",
+      "uuid": "7d05b02e-d24f-4d4f-a2f7-753d4afc9606",
+      "origin": [
+        2.67,
+        1.3860000000000001,
+        -2.5340000000000003
+      ]
+    },
+    {
+      "name": "right_front_segment_3",
+      "uuid": "884c08c5-b640-7bcd-74a5-d00fc026e864",
+      "origin": [
+        2.98,
+        0.77,
+        -2.884
+      ]
+    },
+    {
+      "name": "right_middle_中足",
+      "uuid": "171e043c-d05e-4dcd-c80d-a7d96fbf8d7e",
+      "origin": [
+        1.64,
+        2.072,
+        -0.812
+      ]
+    },
+    {
+      "name": "right_middle_segment_0",
+      "uuid": "b42d54d7-bf03-c227-36e7-8ea25e6d1986",
+      "origin": [
+        1.64,
+        2.072,
+        -0.812
+      ]
+    },
+    {
+      "name": "right_middle_segment_1",
+      "uuid": "febc9e33-6c21-7ff4-d611-a099d79863c0",
+      "origin": [
+        2.43,
+        1.596,
+        -0.644
+      ]
+    },
+    {
+      "name": "right_middle_segment_2",
+      "uuid": "752a04c0-b199-c5eb-0e91-5277d15ac056",
+      "origin": [
+        2.88,
+        0.868,
+        -0.406
+      ]
+    },
+    {
+      "name": "right_hind_后足",
+      "uuid": "e1d55e09-d9ae-f537-ce87-ce518d87a4cc",
+      "origin": [
+        1.72,
+        1.96,
+        0.294
+      ]
+    },
+    {
+      "name": "right_hind_segment_0",
+      "uuid": "0118572f-451a-a437-486f-c9ad4f9bfa82",
+      "origin": [
+        1.72,
+        1.96,
+        0.294
+      ]
+    },
+    {
+      "name": "right_hind_segment_1",
+      "uuid": "e92a779e-b9c9-3348-34e1-0b7b66cdf1f3",
+      "origin": [
+        2.4,
+        1.6380000000000001,
+        0.84
+      ]
+    },
+    {
+      "name": "right_hind_segment_2",
+      "uuid": "0a4abdf7-3e29-58a5-1ffa-89ad69f159fb",
+      "origin": [
+        2.88,
+        1.974,
+        1.176
+      ]
+    },
+    {
+      "name": "right_hind_segment_3",
+      "uuid": "7d056588-ad9a-efaf-5cf1-615cedc0f1d2",
+      "origin": [
+        3.04,
+        1.036,
+        1.512
+      ]
+    },
+    {
+      "name": "rear_suture_尾部中央接缝",
+      "uuid": "feb04df8-f6c3-d08c-9c97-779cf1240807",
+      "origin": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "name": "噬灵虫_三视图原画纹理.png",
+      "uuid": "5241be47-7b8b-45a8-a5cc-c96391cbfb4a",
+      "faces": 3367
+    },
+    {
+      "name": "腹部_灵光原画.png",
+      "uuid": "2ac4aa84-89a9-4ff0-71c5-24a0cd387ce7",
+      "faces": 72
+    },
+    {
+      "name": "腹部_透明表膜.png",
+      "uuid": "8a56a1aa-6565-843f-6f78-6822f514d7c6",
+      "faces": 336
+    },
+    {
+      "name": "eye_socket_chitin.png",
+      "uuid": "a9a49aab-83fd-59cd-5b77-3ff0465bfcba",
+      "faces": 144
+    },
+    {
+      "name": "eye_lens_green.png",
+      "uuid": "5f1e3188-b3af-e0aa-a0ea-0171cfebb719",
+      "faces": 144
+    },
+    {
+      "name": "eye_catchlight.png",
+      "uuid": "16cd4851-76a1-70c0-15dd-9fc8332ad5a2",
+      "faces": 144
+    },
+    {
+      "name": "背面参考_甲壳.png",
+      "uuid": "cec27da9-a24a-cb62-93f8-3faf3010fcaf",
+      "faces": 2280
+    },
+    {
+      "name": "背面参考_灵光.png",
+      "uuid": "f4afacc7-7b8f-8238-b27b-7783ec5299a0",
+      "faces": 0
+    },
+    {
+      "name": "腹部_连续环绕UV_v3.png",
+      "uuid": "54b53bcd-4f86-b157-ea7d-acb9077c82b3",
+      "faces": 0
+    },
+    {
+      "name": "腹部_连续环绕UV_v4.png",
+      "uuid": "606df0c1-93d9-9c44-c56e-6828f12e8f0e",
+      "faces": 336
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "wuxingxiantu:block/exotic_fire_cold_bone_0"
+  }
+}

@@ -1,0 +1,5 @@
+newmtl heart_sword
+Ka 0 0 0
+Kd 1 1 1
+forge_TintIndex -1
+map_Kd wuxingxiantu:item/heart_sword

@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "cn.blockforge.generated.generatedmod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "EquipmentDurabilityMixin",
+    "BoundEquipmentCraftingMixin",
+    "BoundEquipmentResultSlotMixin",
+    "SpiritTradeMenuMixin",
+    "SpiritTradeResultMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "CreativeSurvivalInventoryMixin"
+  ]
+}

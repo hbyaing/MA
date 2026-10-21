@@ -1,0 +1,9 @@
+{
+  "screen.wuxingxiantu.heavenly_aux.none": "不选",
+  "screen.wuxingxiantu.heavenly_aux.chance": "催化副药",
+  "screen.wuxingxiantu.heavenly_aux.effect": "药效副药",
+  "screen.wuxingxiantu.heavenly_aux.output": "产量副药",
+  "screen.wuxingxiantu.heavenly_aux.herb": "%s · %s年",
+  "screen.wuxingxiantu.heavenly_aux.summary": "可选副药 · 每项1株，默认不选",
+  "screen.wuxingxiantu.heavenly_aux.instruction": "点击循环背包中对应来源副药，需满500年；名称后为药龄，每项消耗1株。\n三项不可复用同一背包格；炼器不使用副药。"
+}

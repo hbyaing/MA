@@ -1,0 +1,24 @@
+{
+  "model": "玄铁灵砧",
+  "format": "free",
+  "cubes": 390,
+  "groups": 10,
+  "texture_size": [
+    1024,
+    1024
+  ],
+  "embedded_textures": 2,
+  "finite_geometry": true,
+  "uv_in_bounds": true,
+  "complete_outliner": true,
+  "rendered_views": [
+    "perspective",
+    "front",
+    "right",
+    "top",
+    "back"
+  ],
+  "errors": [],
+  "geometry_unchanged_since_v1": true,
+  "revision": "texture_v2"
+}

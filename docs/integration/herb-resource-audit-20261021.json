@@ -1,0 +1,233 @@
+{
+  "scope": "static resource chain; not natural generation acceptance",
+  "count": 18,
+  "herbs": [
+    {
+      "id": "herb_juling",
+      "name": "聚灵草",
+      "medicinalCap": 3,
+      "habitats": [
+        "minecraft:forest",
+        "minecraft:birch_forest",
+        "minecraft:old_growth_birch_forest",
+        "minecraft:flower_forest"
+      ],
+      "rule": "FOREST_FLOOR",
+      "resourceChainChecked": true
+    },
+    {
+      "id": "herb_huayuan",
+      "name": "化元草",
+      "medicinalCap": 4,
+      "habitats": [
+        "minecraft:forest",
+        "minecraft:birch_forest",
+        "minecraft:old_growth_birch_forest",
+        "minecraft:flower_forest"
+      ],
+      "rule": "FOREST_FLOOR",
+      "resourceChainChecked": true
+    },
+    {
+      "id": "herb_xisui",
+      "name": "洗髓草",
+      "medicinalCap": 4,
+      "habitats": [
+        "minecraft:forest",
+        "minecraft:birch_forest",
+        "minecraft:old_growth_birch_forest",
+        "minecraft:flower_forest"
+      ],
+      "rule": "SURFACE_NEAR_WATER",
+      "resourceChainChecked": true
+    },
+    {
+      "id": "herb_pozhang",
+      "name": "破障草",
+      "medicinalCap": 5,
+      "habitats": [
+        "minecraft:meadow",
+        "minecraft:windswept_hills",
+        "minecraft:jagged_peaks"
+      ],
+      "rule": "SURFACE_HIGHLAND",
+      "resourceChainChecked": true
+    },
+    {
+      "id": "herb_huichun",
+      "name": "回春草",
+      "medicinalCap": 3,
+      "habitats": [
+        "minecraft:forest",
+        "minecraft:birch_forest",
+        "minecraft:old_growth_birch_forest",
+        "minecraft:flower_forest"
+      ],
+      "rule": "FOREST_FLOOR",
+      "resourceChainChecked": true
+    },
+    {
+      "id": "herb_xingchen",
+      "name": "星辰草",
+      "medicinalCap": 5,
+      "habitats": [
+        "minecraft:meadow",
+        "minecraft:windswept_hills",
+        "minecraft:jagged_peaks"
+      ],
+      "rule": "SURFACE_HIGHLAND",
+      "resourceChainChecked": true
+    },
+    {
+      "id": "herb_tianji",
+      "name": "天机花",
+      "medicinalCap": 5,
+      "habitats": [
+        "minecraft:meadow",
+        "minecraft:windswept_hills",
+        "minecraft:jagged_peaks"
+      ],
+      "rule": "SURFACE_HIGHLAND",
+      "resourceChainChecked": true
+    },
+    {
+      "id": "herb_huanling",
+      "name": "幻灵草",
+      "medicinalCap": 4,
+      "habitats": [
+        "minecraft:forest",
+        "minecraft:birch_forest",
+        "minecraft:old_growth_birch_forest",
+        "minecraft:flower_forest"
+      ],
+      "rule": "FOREST_FLOOR",
+      "resourceChainChecked": true
+    },
+    {
+      "id": "herb_fengling",
+      "name": "丰灵草",
+      "medicinalCap": 3,
+      "habitats": [
+        "minecraft:forest",
+        "minecraft:birch_forest",
+        "minecraft:old_growth_birch_forest",
+        "minecraft:flower_forest"
+      ],
+      "rule": "SURFACE_NEAR_WATER",
+      "resourceChainChecked": true
+    },
+    {
+      "id": "herb_hanbing",
+      "name": "寒冰草",
+      "medicinalCap": 4,
+      "habitats": [
+        "minecraft:snowy_slopes",
+        "minecraft:frozen_peaks",
+        "minecraft:jagged_peaks"
+      ],
+      "rule": "SURFACE_HIGHLAND",
+      "resourceChainChecked": true
+    },
+    {
+      "id": "herb_lieyang",
+      "name": "烈阳花",
+      "medicinalCap": 4,
+      "habitats": [
+        "minecraft:meadow",
+        "minecraft:windswept_hills",
+        "minecraft:jagged_peaks"
+      ],
+      "rule": "SURFACE_HIGHLAND",
+      "resourceChainChecked": true
+    },
+    {
+      "id": "herb_jingang",
+      "name": "金刚草",
+      "medicinalCap": 4,
+      "habitats": [
+        "minecraft:forest",
+        "minecraft:birch_forest",
+        "minecraft:old_growth_birch_forest",
+        "minecraft:flower_forest"
+      ],
+      "rule": "SURFACE_ROCK_EDGE",
+      "resourceChainChecked": true
+    },
+    {
+      "id": "herb_duzhen",
+      "name": "毒鸩草",
+      "medicinalCap": 4,
+      "habitats": [
+        "minecraft:forest",
+        "minecraft:birch_forest",
+        "minecraft:old_growth_birch_forest",
+        "minecraft:flower_forest"
+      ],
+      "rule": "FOREST_FLOOR",
+      "resourceChainChecked": true
+    },
+    {
+      "id": "herb_jifeng",
+      "name": "风息草",
+      "medicinalCap": 4,
+      "habitats": [
+        "minecraft:meadow",
+        "minecraft:windswept_hills",
+        "minecraft:jagged_peaks"
+      ],
+      "rule": "SURFACE_HIGHLAND",
+      "resourceChainChecked": true
+    },
+    {
+      "id": "herb_lingzhi",
+      "name": "百年灵芝",
+      "medicinalCap": 4,
+      "habitats": [
+        "minecraft:forest",
+        "minecraft:birch_forest",
+        "minecraft:old_growth_birch_forest",
+        "minecraft:flower_forest"
+      ],
+      "rule": "FOREST_FLOOR",
+      "resourceChainChecked": true
+    },
+    {
+      "id": "herb_leiteng",
+      "name": "雷藤",
+      "medicinalCap": 4,
+      "habitats": [
+        "minecraft:meadow",
+        "minecraft:windswept_hills",
+        "minecraft:jagged_peaks"
+      ],
+      "rule": "SURFACE_HIGHLAND",
+      "resourceChainChecked": true
+    },
+    {
+      "id": "herb_yanjia",
+      "name": "岩甲花",
+      "medicinalCap": 4,
+      "habitats": [
+        "minecraft:forest",
+        "minecraft:birch_forest",
+        "minecraft:old_growth_birch_forest",
+        "minecraft:flower_forest"
+      ],
+      "rule": "SURFACE_ROCK_EDGE",
+      "resourceChainChecked": true
+    },
+    {
+      "id": "herb_lingdao",
+      "name": "灵稻",
+      "medicinalCap": 3,
+      "habitats": [
+        "minecraft:forest",
+        "minecraft:birch_forest",
+        "minecraft:old_growth_birch_forest",
+        "minecraft:flower_forest"
+      ],
+      "rule": "SURFACE_NEAR_WATER",
+      "resourceChainChecked": true
+    }
+  ]
+}

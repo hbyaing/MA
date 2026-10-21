@@ -1,0 +1,29 @@
+{
+  "type": "wuxingxiantu:alchemy",
+  "formula_id": "wuxingxiantu:golden_wound_pill",
+  "furnace_tier": 2,
+  "min_fire_tier": 2,
+  "minimum_realm": 1,
+  "ingredients": [
+    {
+      "item": "wuxingxiantu:dew_drop_flower",
+      "count": 4
+    },
+    {
+      "item": "wuxingxiantu:spirit_sprout_grass",
+      "count": 4
+    },
+    {
+      "item": "minecraft:glistering_melon_slice",
+      "count": 2
+    }
+  ],
+  "aura_cost": 12,
+  "time": 1140,
+  "fire_essence_multiplier": 0.75,
+  "result": {
+    "item": "wuxingxiantu:golden_wound_pill",
+    "count": 1
+  },
+  "result_grade": "MID"
+}

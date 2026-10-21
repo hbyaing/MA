@@ -1,0 +1,77 @@
+{
+  "id": "heal",
+  "name": "回春 / 净化",
+  "layers": [
+    {
+      "material": "lotus",
+      "motion": "ground",
+      "count": 1,
+      "sizeBlocks": 2.3,
+      "delayTicks": 0,
+      "lifetimeTicks": 40
+    },
+    {
+      "material": "leaf",
+      "motion": "rise",
+      "count": 16,
+      "sizeBlocks": 0.32,
+      "delayTicks": 0,
+      "lifetimeTicks": 35
+    },
+    {
+      "material": "spark_soft",
+      "motion": "rise",
+      "count": 18,
+      "sizeBlocks": 0.24,
+      "delayTicks": 0,
+      "lifetimeTicks": 32
+    }
+  ],
+  "defaultPalette": "wood",
+  "curves": {
+    "alpha": [
+      [
+        0,
+        0
+      ],
+      [
+        0.08,
+        1
+      ],
+      [
+        0.68,
+        0.8
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "size": [
+      [
+        0,
+        0.35
+      ],
+      [
+        0.18,
+        1
+      ],
+      [
+        0.8,
+        1.15
+      ],
+      [
+        1,
+        0.7
+      ]
+    ]
+  },
+  "durationTicks": 40,
+  "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+  "quality": {
+    "low": 0.35,
+    "medium": 0.65,
+    "high": 1.0
+  },
+  "recommendedMaxParticles": 128
+}

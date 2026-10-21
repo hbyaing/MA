@@ -1,0 +1,19 @@
+{
+  "hud.wuxingxiantu.vein.aura": "Spirit concentration %s / 100",
+  "hud.wuxingxiantu.vein.none": "No generated vein within %s blocks",
+  "hud.wuxingxiantu.vein.target": "Vein %s · %s blocks · Grade %s",
+  "hud.wuxingxiantu.vein.quality.0": "Barren",
+  "hud.wuxingxiantu.vein.quality.1": "Sparse",
+  "hud.wuxingxiantu.vein.quality.2": "Ordinary",
+  "hud.wuxingxiantu.vein.quality.3": "Rich",
+  "hud.wuxingxiantu.vein.quality.4": "Abundant",
+  "hud.wuxingxiantu.vein.quality.5": "Surging",
+  "hud.wuxingxiantu.vein.direction.0": "N",
+  "hud.wuxingxiantu.vein.direction.1": "NE",
+  "hud.wuxingxiantu.vein.direction.2": "E",
+  "hud.wuxingxiantu.vein.direction.3": "SE",
+  "hud.wuxingxiantu.vein.direction.4": "S",
+  "hud.wuxingxiantu.vein.direction.5": "SW",
+  "hud.wuxingxiantu.vein.direction.6": "W",
+  "hud.wuxingxiantu.vein.direction.7": "NW"
+}

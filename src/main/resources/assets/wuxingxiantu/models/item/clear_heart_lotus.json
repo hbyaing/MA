@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "wuxingxiantu:block/clear_heart_lotus"
+  }
+}

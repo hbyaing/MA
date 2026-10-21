@@ -1,0 +1,22 @@
+{
+  "source_size": [
+    1254,
+    1254
+  ],
+  "crop_bounds": [
+    41,
+    112,
+    1218,
+    1191
+  ],
+  "size": [
+    64,
+    64
+  ],
+  "models": 11,
+  "alpha": [
+    0,
+    255
+  ],
+  "resampling": "NEAREST"
+}

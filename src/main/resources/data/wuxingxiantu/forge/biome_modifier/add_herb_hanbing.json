@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:snowy_slopes",
+    "minecraft:frozen_peaks",
+    "minecraft:jagged_peaks"
+  ],
+  "features": [
+    "wuxingxiantu:herb_hanbing"
+  ],
+  "step": "vegetal_decoration"
+}

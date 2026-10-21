@@ -1,0 +1,77 @@
+{
+  "id": "ice",
+  "name": "冰刺 / 霜爆",
+  "layers": [
+    {
+      "material": "ice_shard",
+      "motion": "rise",
+      "count": 10,
+      "sizeBlocks": 1.25,
+      "delayTicks": 0,
+      "lifetimeTicks": 22
+    },
+    {
+      "material": "snow_crystal",
+      "motion": "burst",
+      "count": 16,
+      "sizeBlocks": 0.3,
+      "delayTicks": 0,
+      "lifetimeTicks": 22
+    },
+    {
+      "material": "ripple",
+      "motion": "ground",
+      "count": 1,
+      "sizeBlocks": 3,
+      "delayTicks": 0,
+      "lifetimeTicks": 22
+    }
+  ],
+  "defaultPalette": "water",
+  "curves": {
+    "alpha": [
+      [
+        0,
+        0
+      ],
+      [
+        0.08,
+        1
+      ],
+      [
+        0.68,
+        0.8
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "size": [
+      [
+        0,
+        0.35
+      ],
+      [
+        0.18,
+        1
+      ],
+      [
+        0.8,
+        1.15
+      ],
+      [
+        1,
+        0.7
+      ]
+    ]
+  },
+  "durationTicks": 22,
+  "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+  "quality": {
+    "low": 0.35,
+    "medium": 0.65,
+    "high": 1.0
+  },
+  "recommendedMaxParticles": 128
+}

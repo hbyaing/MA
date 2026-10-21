@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "wuxingxiantu:block/peach_pressure_plate"
+    },
+    "powered=true": {
+      "model": "wuxingxiantu:block/peach_pressure_plate_down"
+    }
+  }
+}

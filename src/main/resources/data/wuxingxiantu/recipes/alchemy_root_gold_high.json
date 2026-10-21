@@ -1,0 +1,34 @@
+{
+  "type": "wuxingxiantu:alchemy",
+  "formula_id": "wuxingxiantu:root_awakening_pill",
+  "furnace_tier": 3,
+  "min_fire_tier": 3,
+  "minimum_realm": 2,
+  "ingredients": [
+    {
+      "item": "wuxingxiantu:spirit_ginseng",
+      "count": 6
+    },
+    {
+      "item": "wuxingxiantu:clear_heart_lotus",
+      "count": 6
+    },
+    {
+      "item": "minecraft:amethyst_shard",
+      "count": 3
+    },
+    {
+      "item": "wuxingxiantu:adamantine_vine",
+      "count": 6
+    }
+  ],
+  "aura_cost": 80,
+  "time": 4680,
+  "fire_essence_multiplier": 1.5,
+  "result": {
+    "item": "wuxingxiantu:root_awakening_pill",
+    "count": 1
+  },
+  "result_grade": "HIGH",
+  "element": "METAL"
+}

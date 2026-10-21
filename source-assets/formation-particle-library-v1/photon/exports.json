@@ -1,0 +1,1154 @@
+[
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__five_elements_core_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__five_elements_core_f1.fx",
+    "project": "photon/projects/material__five_elements_core_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__five_elements_rune_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__five_elements_rune_f1.fx",
+    "project": "photon/projects/material__five_elements_rune_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__five_elements_edge_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__five_elements_edge_f1.fx",
+    "project": "photon/projects/material__five_elements_edge_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__five_elements_node_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__five_elements_node_f1.fx",
+    "project": "photon/projects/material__five_elements_node_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__five_elements_spark_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__five_elements_spark_f1.fx",
+    "project": "photon/projects/material__five_elements_spark_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__five_elements_shard_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__five_elements_shard_f1.fx",
+    "project": "photon/projects/material__five_elements_shard_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__five_elements_dart_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__five_elements_dart_f1.fx",
+    "project": "photon/projects/material__five_elements_dart_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__five_elements_arc_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__five_elements_arc_f1.fx",
+    "project": "photon/projects/material__five_elements_arc_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__five_elements_sigil_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__five_elements_sigil_f1.fx",
+    "project": "photon/projects/material__five_elements_sigil_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__five_elements_mote_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__five_elements_mote_f1.fx",
+    "project": "photon/projects/material__five_elements_mote_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__five_elements_knot_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__five_elements_knot_f1.fx",
+    "project": "photon/projects/material__five_elements_knot_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__five_elements_flare_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__five_elements_flare_f1.fx",
+    "project": "photon/projects/material__five_elements_flare_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sword_core_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sword_core_f1.fx",
+    "project": "photon/projects/material__sword_core_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sword_rune_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sword_rune_f1.fx",
+    "project": "photon/projects/material__sword_rune_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sword_edge_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sword_edge_f1.fx",
+    "project": "photon/projects/material__sword_edge_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sword_node_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sword_node_f1.fx",
+    "project": "photon/projects/material__sword_node_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sword_spark_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sword_spark_f1.fx",
+    "project": "photon/projects/material__sword_spark_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sword_shard_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sword_shard_f1.fx",
+    "project": "photon/projects/material__sword_shard_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sword_dart_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sword_dart_f1.fx",
+    "project": "photon/projects/material__sword_dart_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sword_arc_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sword_arc_f1.fx",
+    "project": "photon/projects/material__sword_arc_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sword_sigil_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sword_sigil_f1.fx",
+    "project": "photon/projects/material__sword_sigil_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sword_mote_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sword_mote_f1.fx",
+    "project": "photon/projects/material__sword_mote_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sword_knot_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sword_knot_f1.fx",
+    "project": "photon/projects/material__sword_knot_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sword_flare_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sword_flare_f1.fx",
+    "project": "photon/projects/material__sword_flare_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sealing_core_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sealing_core_f1.fx",
+    "project": "photon/projects/material__sealing_core_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sealing_rune_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sealing_rune_f1.fx",
+    "project": "photon/projects/material__sealing_rune_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sealing_edge_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sealing_edge_f1.fx",
+    "project": "photon/projects/material__sealing_edge_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sealing_node_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sealing_node_f1.fx",
+    "project": "photon/projects/material__sealing_node_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sealing_spark_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sealing_spark_f1.fx",
+    "project": "photon/projects/material__sealing_spark_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sealing_shard_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sealing_shard_f1.fx",
+    "project": "photon/projects/material__sealing_shard_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sealing_dart_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sealing_dart_f1.fx",
+    "project": "photon/projects/material__sealing_dart_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sealing_arc_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sealing_arc_f1.fx",
+    "project": "photon/projects/material__sealing_arc_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sealing_sigil_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sealing_sigil_f1.fx",
+    "project": "photon/projects/material__sealing_sigil_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sealing_mote_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sealing_mote_f1.fx",
+    "project": "photon/projects/material__sealing_mote_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sealing_knot_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sealing_knot_f1.fx",
+    "project": "photon/projects/material__sealing_knot_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__sealing_flare_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__sealing_flare_f1.fx",
+    "project": "photon/projects/material__sealing_flare_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__teleport_core_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__teleport_core_f1.fx",
+    "project": "photon/projects/material__teleport_core_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__teleport_rune_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__teleport_rune_f1.fx",
+    "project": "photon/projects/material__teleport_rune_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__teleport_edge_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__teleport_edge_f1.fx",
+    "project": "photon/projects/material__teleport_edge_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__teleport_node_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__teleport_node_f1.fx",
+    "project": "photon/projects/material__teleport_node_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__teleport_spark_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__teleport_spark_f1.fx",
+    "project": "photon/projects/material__teleport_spark_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__teleport_shard_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__teleport_shard_f1.fx",
+    "project": "photon/projects/material__teleport_shard_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__teleport_dart_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__teleport_dart_f1.fx",
+    "project": "photon/projects/material__teleport_dart_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__teleport_arc_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__teleport_arc_f1.fx",
+    "project": "photon/projects/material__teleport_arc_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__teleport_sigil_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__teleport_sigil_f1.fx",
+    "project": "photon/projects/material__teleport_sigil_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__teleport_mote_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__teleport_mote_f1.fx",
+    "project": "photon/projects/material__teleport_mote_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__teleport_knot_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__teleport_knot_f1.fx",
+    "project": "photon/projects/material__teleport_knot_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__teleport_flare_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__teleport_flare_f1.fx",
+    "project": "photon/projects/material__teleport_flare_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__tribulation_core_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__tribulation_core_f1.fx",
+    "project": "photon/projects/material__tribulation_core_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__tribulation_rune_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__tribulation_rune_f1.fx",
+    "project": "photon/projects/material__tribulation_rune_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__tribulation_edge_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__tribulation_edge_f1.fx",
+    "project": "photon/projects/material__tribulation_edge_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__tribulation_node_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__tribulation_node_f1.fx",
+    "project": "photon/projects/material__tribulation_node_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__tribulation_spark_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__tribulation_spark_f1.fx",
+    "project": "photon/projects/material__tribulation_spark_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__tribulation_shard_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__tribulation_shard_f1.fx",
+    "project": "photon/projects/material__tribulation_shard_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__tribulation_dart_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__tribulation_dart_f1.fx",
+    "project": "photon/projects/material__tribulation_dart_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__tribulation_arc_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__tribulation_arc_f1.fx",
+    "project": "photon/projects/material__tribulation_arc_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__tribulation_sigil_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__tribulation_sigil_f1.fx",
+    "project": "photon/projects/material__tribulation_sigil_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__tribulation_mote_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__tribulation_mote_f1.fx",
+    "project": "photon/projects/material__tribulation_mote_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__tribulation_knot_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__tribulation_knot_f1.fx",
+    "project": "photon/projects/material__tribulation_knot_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__tribulation_flare_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__tribulation_flare_f1.fx",
+    "project": "photon/projects/material__tribulation_flare_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__spirit_core_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__spirit_core_f1.fx",
+    "project": "photon/projects/material__spirit_core_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__spirit_rune_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__spirit_rune_f1.fx",
+    "project": "photon/projects/material__spirit_rune_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__spirit_edge_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__spirit_edge_f1.fx",
+    "project": "photon/projects/material__spirit_edge_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__spirit_node_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__spirit_node_f1.fx",
+    "project": "photon/projects/material__spirit_node_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__spirit_spark_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__spirit_spark_f1.fx",
+    "project": "photon/projects/material__spirit_spark_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__spirit_shard_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__spirit_shard_f1.fx",
+    "project": "photon/projects/material__spirit_shard_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__spirit_dart_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__spirit_dart_f1.fx",
+    "project": "photon/projects/material__spirit_dart_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__spirit_arc_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__spirit_arc_f1.fx",
+    "project": "photon/projects/material__spirit_arc_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__spirit_sigil_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__spirit_sigil_f1.fx",
+    "project": "photon/projects/material__spirit_sigil_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__spirit_mote_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__spirit_mote_f1.fx",
+    "project": "photon/projects/material__spirit_mote_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__spirit_knot_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__spirit_knot_f1.fx",
+    "project": "photon/projects/material__spirit_knot_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__spirit_flare_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__spirit_flare_f1.fx",
+    "project": "photon/projects/material__spirit_flare_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__alchemy_core_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__alchemy_core_f1.fx",
+    "project": "photon/projects/material__alchemy_core_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__alchemy_rune_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__alchemy_rune_f1.fx",
+    "project": "photon/projects/material__alchemy_rune_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__alchemy_edge_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__alchemy_edge_f1.fx",
+    "project": "photon/projects/material__alchemy_edge_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__alchemy_node_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__alchemy_node_f1.fx",
+    "project": "photon/projects/material__alchemy_node_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__alchemy_spark_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__alchemy_spark_f1.fx",
+    "project": "photon/projects/material__alchemy_spark_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__alchemy_shard_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__alchemy_shard_f1.fx",
+    "project": "photon/projects/material__alchemy_shard_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__alchemy_dart_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__alchemy_dart_f1.fx",
+    "project": "photon/projects/material__alchemy_dart_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__alchemy_arc_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__alchemy_arc_f1.fx",
+    "project": "photon/projects/material__alchemy_arc_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__alchemy_sigil_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__alchemy_sigil_f1.fx",
+    "project": "photon/projects/material__alchemy_sigil_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__alchemy_mote_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__alchemy_mote_f1.fx",
+    "project": "photon/projects/material__alchemy_mote_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__alchemy_knot_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__alchemy_knot_f1.fx",
+    "project": "photon/projects/material__alchemy_knot_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__alchemy_flare_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__alchemy_flare_f1.fx",
+    "project": "photon/projects/material__alchemy_flare_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__heart_core_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__heart_core_f1.fx",
+    "project": "photon/projects/material__heart_core_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__heart_rune_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__heart_rune_f1.fx",
+    "project": "photon/projects/material__heart_rune_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__heart_edge_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__heart_edge_f1.fx",
+    "project": "photon/projects/material__heart_edge_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__heart_node_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__heart_node_f1.fx",
+    "project": "photon/projects/material__heart_node_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__heart_spark_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__heart_spark_f1.fx",
+    "project": "photon/projects/material__heart_spark_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__heart_shard_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__heart_shard_f1.fx",
+    "project": "photon/projects/material__heart_shard_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__heart_dart_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__heart_dart_f1.fx",
+    "project": "photon/projects/material__heart_dart_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__heart_arc_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__heart_arc_f1.fx",
+    "project": "photon/projects/material__heart_arc_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__heart_sigil_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__heart_sigil_f1.fx",
+    "project": "photon/projects/material__heart_sigil_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__heart_mote_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__heart_mote_f1.fx",
+    "project": "photon/projects/material__heart_mote_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__heart_knot_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__heart_knot_f1.fx",
+    "project": "photon/projects/material__heart_knot_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__heart_flare_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__heart_flare_f1.fx",
+    "project": "photon/projects/material__heart_flare_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__void_core_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__void_core_f1.fx",
+    "project": "photon/projects/material__void_core_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__void_rune_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__void_rune_f1.fx",
+    "project": "photon/projects/material__void_rune_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__void_edge_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__void_edge_f1.fx",
+    "project": "photon/projects/material__void_edge_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__void_node_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__void_node_f1.fx",
+    "project": "photon/projects/material__void_node_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__void_spark_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__void_spark_f1.fx",
+    "project": "photon/projects/material__void_spark_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__void_shard_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__void_shard_f1.fx",
+    "project": "photon/projects/material__void_shard_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__void_dart_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__void_dart_f1.fx",
+    "project": "photon/projects/material__void_dart_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__void_arc_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__void_arc_f1.fx",
+    "project": "photon/projects/material__void_arc_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__void_sigil_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__void_sigil_f1.fx",
+    "project": "photon/projects/material__void_sigil_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__void_mote_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__void_mote_f1.fx",
+    "project": "photon/projects/material__void_mote_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__void_knot_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__void_knot_f1.fx",
+    "project": "photon/projects/material__void_knot_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/material__void_flare_f1",
+    "kind": "material",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/material__void_flare_f1.fx",
+    "project": "photon/projects/material__void_flare_f1.fxproj",
+    "emitters": 1,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/five_elements_01",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/five_elements_01.fx",
+    "project": "photon/projects/five_elements_01.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/five_elements_02",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/five_elements_02.fx",
+    "project": "photon/projects/five_elements_02.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/five_elements_03",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/five_elements_03.fx",
+    "project": "photon/projects/five_elements_03.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/five_elements_04",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/five_elements_04.fx",
+    "project": "photon/projects/five_elements_04.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/sword_01",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/sword_01.fx",
+    "project": "photon/projects/sword_01.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/sword_02",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/sword_02.fx",
+    "project": "photon/projects/sword_02.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/sword_03",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/sword_03.fx",
+    "project": "photon/projects/sword_03.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/sword_04",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/sword_04.fx",
+    "project": "photon/projects/sword_04.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/sealing_01",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/sealing_01.fx",
+    "project": "photon/projects/sealing_01.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/sealing_02",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/sealing_02.fx",
+    "project": "photon/projects/sealing_02.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/sealing_03",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/sealing_03.fx",
+    "project": "photon/projects/sealing_03.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/sealing_04",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/sealing_04.fx",
+    "project": "photon/projects/sealing_04.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/teleport_01",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/teleport_01.fx",
+    "project": "photon/projects/teleport_01.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/teleport_02",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/teleport_02.fx",
+    "project": "photon/projects/teleport_02.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/teleport_03",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/teleport_03.fx",
+    "project": "photon/projects/teleport_03.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/teleport_04",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/teleport_04.fx",
+    "project": "photon/projects/teleport_04.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/tribulation_01",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/tribulation_01.fx",
+    "project": "photon/projects/tribulation_01.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/tribulation_02",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/tribulation_02.fx",
+    "project": "photon/projects/tribulation_02.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/tribulation_03",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/tribulation_03.fx",
+    "project": "photon/projects/tribulation_03.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/tribulation_04",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/tribulation_04.fx",
+    "project": "photon/projects/tribulation_04.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/spirit_01",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/spirit_01.fx",
+    "project": "photon/projects/spirit_01.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/spirit_02",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/spirit_02.fx",
+    "project": "photon/projects/spirit_02.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/spirit_03",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/spirit_03.fx",
+    "project": "photon/projects/spirit_03.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/spirit_04",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/spirit_04.fx",
+    "project": "photon/projects/spirit_04.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/alchemy_01",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/alchemy_01.fx",
+    "project": "photon/projects/alchemy_01.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/alchemy_02",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/alchemy_02.fx",
+    "project": "photon/projects/alchemy_02.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/alchemy_03",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/alchemy_03.fx",
+    "project": "photon/projects/alchemy_03.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/alchemy_04",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/alchemy_04.fx",
+    "project": "photon/projects/alchemy_04.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/heart_01",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/heart_01.fx",
+    "project": "photon/projects/heart_01.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/heart_02",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/heart_02.fx",
+    "project": "photon/projects/heart_02.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/heart_03",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/heart_03.fx",
+    "project": "photon/projects/heart_03.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/heart_04",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/heart_04.fx",
+    "project": "photon/projects/heart_04.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/void_01",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/void_01.fx",
+    "project": "photon/projects/void_01.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/void_02",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/void_02.fx",
+    "project": "photon/projects/void_02.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/void_03",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/void_03.fx",
+    "project": "photon/projects/void_03.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  },
+  {
+    "id": "wuxingxiantu_vfx:formation_v1/void_04",
+    "kind": "formation",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/formation_v1/void_04.fx",
+    "project": "photon/projects/void_04.fxproj",
+    "emitters": 5,
+    "engineVerified": false
+  }
+]
