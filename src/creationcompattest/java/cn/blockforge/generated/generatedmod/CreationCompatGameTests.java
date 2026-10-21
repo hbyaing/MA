@@ -24,7 +24,7 @@ public class CreationCompatGameTests {
         p.getInventory().clearContent();
         return p;
     }
-    @GameTest(template="wuxingxiantu:empty", timeoutTicks=80)
+    @GameTest(template="empty", timeoutTicks=80)
     public static void high_grade_upgrade_keeps_legacy_units(GameTestHelper h) {
         var p=owner(h);var d=CreationCapability.of(p);
         d.setUpgradeSubmitted(0, 10);
@@ -36,7 +36,7 @@ public class CreationCompatGameTests {
         h.assertTrue(SpiritCurrency.value(p.getInventory().items)==27,"Repeated submission charged twice");
         h.succeed();
     }
-    @GameTest(template="wuxingxiantu:empty", timeoutTicks=80)
+    @GameTest(template="empty", timeoutTicks=80)
     public static void failed_change_is_atomic(GameTestHelper h) {
         var p=owner(h);var d=CreationCapability.of(p);
         for(int i=0;i<p.getInventory().items.size();i++)p.getInventory().items.set(i,new ItemStack(Items.COBBLESTONE,64));
@@ -47,7 +47,7 @@ public class CreationCompatGameTests {
         h.assertTrue(SpiritCurrency.value(p.getInventory().items)==before,"Failed change debited inventory");
         h.succeed();
     }
-    @GameTest(template="wuxingxiantu:empty", timeoutTicks=80)
+    @GameTest(template="empty", timeoutTicks=80)
     public static void partial_payment_and_nbt_roundtrip(GameTestHelper h) {
         var p=owner(h);var d=CreationCapability.of(p);
         d.setXianRealm(4);
@@ -61,7 +61,7 @@ public class CreationCompatGameTests {
         h.assertTrue(bindings.slotOf(p.getUUID())==d.getWorldSlot(),"UUID binding roundtrip changed");
         h.succeed();
     }
-    @GameTest(template="wuxingxiantu:empty", timeoutTicks=80)
+    @GameTest(template="empty", timeoutTicks=80)
     public static void foreign_owner_cannot_pay(GameTestHelper h) {
         var a=owner(h);var b=owner(h);var d=CreationCapability.of(b);
         d.setWorldSlot(CreationCapability.of(a).getWorldSlot());

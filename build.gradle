@@ -58,6 +58,7 @@ if (project.hasProperty('chuangshiCompatJar')) {
     sourceSets {
         creationCompatTest {
             java.srcDirs = ['src/creationcompattest/java']
+            resources.srcDirs = ['src/creationcompattest/resources']
             compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
             runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
         }
