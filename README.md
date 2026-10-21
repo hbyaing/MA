@@ -1,6 +1,6 @@
 <div align="center">
 
-![万界仙途 · Myriad Ascension](docs/assets/myriad-ascension-banner.svg)
+![万界仙途 · Myriad Ascension](docs/assets/myriad-ascension-banner-ink-v2.png)
 
 **以五行为根，汇万界之道。**
 
