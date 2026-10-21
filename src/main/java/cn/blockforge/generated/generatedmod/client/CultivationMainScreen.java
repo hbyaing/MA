@@ -88,6 +88,10 @@ public final class CultivationMainScreen extends InventoryScreen {
         }
         close = new CultivationUi.CloseButton(panelX + panelW - 25, panelY + (layout.headerHeight() - 18) / 2, 18,
                 b -> onClose());
+        if (minecraft.player.isCreative()) {
+            addRenderableWidget(new InkButton(panelX + 100, panelY + 5, 72, 18,
+                    Component.literal("创造物品"), b -> CreativeInventorySkin.openCatalog()));
+        }
         // Vanilla derives both drawing and hit areas from these virtual dimensions.
         // Include the left category tabs when centering within our content pane.
         int bookX=contentX+(contentW-147+28-24)/2;

@@ -37,7 +37,7 @@ public final class CultivationScreenEvents {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void open(ScreenEvent.Opening event) {
         Minecraft mc = Minecraft.getInstance();
-        if (mc.player == null || mc.gameMode == null || mc.gameMode.hasInfiniteItems() || event.getNewScreen() == null) return;
+        if (mc.player == null || mc.gameMode == null || event.getNewScreen() == null) return;
         if (event.getNewScreen().getClass() == InventoryScreen.class) {
             event.setNewScreen(new CultivationMainScreen(mc.player));
         } else if (event.getNewScreen() instanceof InnerVisionScreen) {

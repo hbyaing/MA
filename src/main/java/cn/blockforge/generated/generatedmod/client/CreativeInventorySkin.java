@@ -32,6 +32,37 @@ public final class CreativeInventorySkin {
         }
     }
 
+    /** Switch only after vanilla has finished selecting its survival-inventory tab. */
+    @SubscribeEvent public static void tick(net.minecraftforge.event.TickEvent.ClientTickEvent event) {
+        if(event.phase!=net.minecraftforge.event.TickEvent.Phase.END)return;
+        var mc=net.minecraft.client.Minecraft.getInstance();
+        if(!(mc.screen instanceof CreativeModeInventoryScreen screen)||mc.player==null||!mc.player.isCreative())return;
+        try {
+            if(selectedTab==null)selectedTab=ObfuscationReflectionHelper.findField(CreativeModeInventoryScreen.class,"f_98507_");
+            var tab=(CreativeModeTab)selectedTab.get(null);
+            // Never switch screens with a carried stack or an active mouse drag.
+            if(tab.getType()==CreativeModeTab.Type.INVENTORY&&screen.getMenu().getCarried().isEmpty()
+                    &&org.lwjgl.glfw.GLFW.glfwGetMouseButton(mc.getWindow().getWindow(),0)==0
+                    &&org.lwjgl.glfw.GLFW.glfwGetMouseButton(mc.getWindow().getWindow(),1)==0)
+                mc.setScreen(new CultivationMainScreen(mc.player));
+        } catch(ReflectiveOperationException|RuntimeException error) {
+            if(!unavailable)com.mojang.logging.LogUtils.getLogger().warn("Creative inventory bridge unavailable",error);
+            unavailable=true;
+        }
+    }
+
+    public static void openCatalog() {
+        var mc=net.minecraft.client.Minecraft.getInstance();
+        if(mc.player==null||!mc.player.isCreative()||!mc.player.inventoryMenu.getCarried().isEmpty())return;
+        try {
+            if(selectedTab==null)selectedTab=ObfuscationReflectionHelper.findField(CreativeModeInventoryScreen.class,"f_98507_");
+            selectedTab.set(null,BuiltInRegistries.CREATIVE_MODE_TAB.get(net.minecraft.world.item.CreativeModeTabs.BUILDING_BLOCKS));
+            mc.setScreen(new CreativeModeInventoryScreen(mc.player,mc.player.connection.enabledFeatures(),mc.options.operatorItemsTab().get()));
+        } catch(ReflectiveOperationException|RuntimeException error) {
+            com.mojang.logging.LogUtils.getLogger().warn("Cannot open creative catalog",error);
+        }
+    }
+
     @SubscribeEvent public static void initialized(ScreenEvent.Init.Post event) {
         if(!(event.getScreen() instanceof CreativeModeInventoryScreen screen))return;
         for(var child:java.util.List.copyOf(screen.children())) {

@@ -30,7 +30,7 @@ public final class CoreStructureBuilder {
         if(player instanceof ServerPlayer p){
             var previous=SESSIONS.get(p.getUUID());
             if(previous==null||!previous.core.equals(pos)||previous.dimension!=level.dimension())SESSIONS.put(p.getUUID(),new Session(p,pos));
-            p.displayClientMessage(net.minecraft.network.chat.Component.literal("蓝图已开启：松开后，对准核心长按右键搭建（3秒）"),true);
+            p.displayClientMessage(net.minecraft.network.chat.Component.literal(player.isCreative()?"创造搭建：无需材料，松开后对准核心长按右键（3秒）":"蓝图已开启：松开后，对准核心长按右键搭建（3秒）"),true);
         }
     }
     public static void input(ServerPlayer player,BlockPos pos,boolean held){
