@@ -45,7 +45,7 @@ public final class CreationCompatCapture {
             if((System.nanoTime()-START)/1e9>360)throw new AssertionError("Creation UI timeout");
             if(!opened&&mc.player!=null)throw new AssertionError("Refuses an existing user world");
             if(!opened&&mc.getOverlay()==null&&(mc.screen instanceof net.minecraft.client.gui.screens.TitleScreen||mc.screen instanceof net.minecraft.client.gui.screens.AccessibilityOnboardingScreen)){
-                opened=true;mc.getWindow().setWindowed(1280,900);mc.options.guiScale().set(2);mc.resizeDisplay();
+                opened=true;mc.getWindow().setWindowed(1280,900);mc.options.guiScale().set(1);mc.resizeDisplay();
                 mc.options.renderDistance().set(2);mc.options.simulationDistance().set(5);mc.options.framerateLimit().set(40);
                 mc.getTutorial().setStep(net.minecraft.client.tutorial.TutorialSteps.NONE);
                 var rules=new GameRules();rules.getRule(GameRules.RULE_DOMOBSPAWNING).set(false,null);
@@ -65,7 +65,7 @@ public final class CreationCompatCapture {
                 if(count!=1)throw new AssertionError("Addon misc count "+count);
                 mc.setScreen(new CultivationMainScreen(mc.player,"sense"));prepared=true;
             }
-            int scale=stage<4?2:3;
+            int scale=stage<4?1:2;
             if(mc.options.guiScale().get()!=scale){mc.options.guiScale().set(scale);mc.resizeDisplay();frames=0;}
         }catch(Throwable failure){FAILURES.add(failure.toString());com.mojang.logging.LogUtils.getLogger().error("CREATION_COMPAT_CAPTURE",failure);finish(mc);}
     }
@@ -91,7 +91,8 @@ public final class CreationCompatCapture {
             String name="scale"+mc.options.guiScale().get()+"-"+List.of("normal","hover","disabled","focus").get(mode);
             try(var image=Screenshot.takeScreenshot(mc.getMainRenderTarget())){image.writeToFile(OUT.resolve(name+".png"));}
             double pixels=mc.getWindow().getGuiScale();
-            ROWS.add(Map.of("name",name,"footerY",page.senseFooterY(),"pageHeight",page.height,"buttonPixels",List.of((int)((cx+button.getX()*scale)*pixels),(int)((cy+(button.getY()-offset)*scale)*pixels),(int)(button.getWidth()*scale*pixels),(int)(button.getHeight()*scale*pixels))));
+            if(pixels!=(stage<4?1:2))throw new AssertionError("Requested GUI scale was fitted to "+pixels);
+            ROWS.add(Map.of("name",name,"actualGuiScale",pixels,"footerY",page.senseFooterY(),"pageHeight",page.height,"buttonPixels",List.of((int)((cx+button.getX()*scale)*pixels),(int)((cy+(button.getY()-offset)*scale)*pixels),(int)(button.getWidth()*scale*pixels),(int)(button.getHeight()*scale*pixels))));
             frames=0;if(++stage==8)finish(mc);
         }catch(Throwable failure){FAILURES.add(failure.toString());com.mojang.logging.LogUtils.getLogger().error("CREATION_COMPAT_CAPTURE",failure);finish(mc);}
     }
