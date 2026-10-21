@@ -14,6 +14,61 @@ import java.util.UUID;
 @GameTestHolder("wuxingxiantu_creationcompat")
 @PrefixGameTestTemplate(false)
 public class CreationCompatGameTests {
+    @GameTest(template="empty", timeoutTicks=80)
+    public static void immortal_rank_save_migration(GameTestHelper h) {
+        for(int rank=0;rank<=7;rank++){
+            var saved=new CompoundTag();saved.putInt("XianRealm",rank);
+            var d=new CreationData();d.deserializeNBT(saved);
+            h.assertTrue(!d.reconcileEarthImmortal(7)&&d.getXianRealm()==rank,"Mortal rank changed");
+            h.assertTrue(d.reconcileEarthImmortal(8)==(rank==0),"Incorrect migration flag");
+            h.assertTrue(d.getXianRealm()==Math.max(1,rank),"Old rank shifted");
+            h.assertTrue(!d.reconcileEarthImmortal(8),"Migration not idempotent");
+            var loaded=new CreationData();loaded.deserializeNBT(d.serializeNBT());
+            h.assertTrue(loaded.getXianRealm()==Math.max(1,rank),"Migration lost after reload");
+        }
+        h.assertTrue(CreationData.XIAN_REALM_NAMES[0].equals("未登仙"),"Sentinel still a realm");
+        h.succeed();
+    }
+    @GameTest(template="empty", timeoutTicks=80)
+    public static void immortal_health_is_finite_and_dimension_independent(GameTestHelper h) {
+        var p=owner(h);var d=CreationCapability.of(p);var parent=GeneratedMod.data(p);
+        parent.wuxingxiantu$setRealm(8);parent.wuxingxiantu$setCultivationStage(0);
+        parent.wuxingxiantu$setRootMask(1);
+        parent.wuxingxiantu$setEquippedHeartMethod("beast_taming");
+        cn.blockforge.generated.generatedmod.items.CultivationLogic.applyHealthBonus(p,parent);
+        float base=p.getMaxHealth();float mana=parent.wuxingxiantu$getMaxMana();
+        double[] bonuses={0,0,300,600,900,1200,1600,2000};
+        for(int rank=0;rank<=7;rank++){
+            d.setXianRealm(rank);XianRealmBonus.tick(p);
+            h.assertTrue(Math.abs(p.getMaxHealth()-base-bonuses[rank])<.1,"Incorrect HP rank "+rank);
+            p.setHealth(p.getMaxHealth()/2);XianRealmBonus.tick(p);
+            h.assertTrue(Math.abs(p.getHealth()-p.getMaxHealth()/2)<.1,"Repeated tick healed player");
+            h.assertTrue(parent.wuxingxiantu$getMaxMana()==mana,"Addon overwrote native mana");
+        }
+        d.setXianRealm(1);XianRealmBonus.tick(p);
+        h.assertTrue(Math.abs(p.getHealth()-base/2)<.1,"Rank reduction lost health ratio");
+        d.setXianRealm(7);parent.wuxingxiantu$setRealm(7);XianRealmBonus.tick(p);
+        h.assertTrue(Math.abs(p.getMaxHealth()-base)<.1&&d.getXianRealm()==7,"Dormant rank active or erased");
+        h.succeed();
+    }
+    @GameTest(template="empty", timeoutTicks=80)
+    public static void legacy_rank_modifiers_are_removed_without_free_healing(GameTestHelper h) {
+        var p=owner(h);var d=CreationCapability.of(p);var parent=GeneratedMod.data(p);
+        parent.wuxingxiantu$setRealm(8);parent.wuxingxiantu$setRootMask(1);
+        parent.wuxingxiantu$setEquippedHeartMethod("beast_taming");
+        cn.blockforge.generated.generatedmod.items.CultivationLogic.applyHealthBonus(p,parent);
+        float base=p.getMaxHealth();
+        var health=p.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH);
+        for(int i=0;i<2;i++)health.addPermanentModifier(new net.minecraft.world.entity.ai.attributes.AttributeModifier(
+                UUID.randomUUID(),"wuxingchuangshi:xian_realm_life",200,
+                net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADDITION));
+        p.setHealth(p.getMaxHealth()/2);d.setXianRealm(1);XianRealmBonus.tick(p);
+        h.assertTrue(Math.abs(p.getMaxHealth()-base)<.1,"Duplicate Earth Immortal bonus remained");
+        h.assertTrue(Math.abs(p.getHealth()-base/2)<.1,"Legacy cleanup changed health fraction");
+        d.setXianRealm(7);XianRealmBonus.tick(p);XianRealmBonus.clear(p);XianRealmBonus.tick(p);
+        h.assertTrue(Math.abs(p.getMaxHealth()-base-2000)<.1,"Missing transient modifier not restored");
+        h.succeed();
+    }
     private static net.minecraft.server.level.ServerPlayer owner(GameTestHelper h) {
         var p = FakePlayerFactory.get(h.getLevel(), new GameProfile(UUID.randomUUID(), "CreationQA"));
         var d = CreationCapability.of(p);
