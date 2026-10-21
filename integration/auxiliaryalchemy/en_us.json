@@ -1,0 +1,10 @@
+{
+  "tooltip.wuxingxiantu.auxiliaryalchemy": "Secondary herb infusions: %s",
+  "tooltip.wuxingxiantu.auxiliaryalchemy.cost": "One catalyst, effect herb and yield herb per batch; all join the existing material escrow.",
+  "tooltip.wuxingxiantu.auxiliaryalchemy.backlash": "Venom backlash: no purifying herb",
+  "tooltip.wuxingxiantu.auxiliaryalchemy.clash": "Conflicting medicinal essences",
+  "message.wuxingxiantu.auxiliaryalchemy.invalid": "A secondary herb changed, is too young, or is already required by the formula. Select again.",
+  "auxiliaryalchemy.wuxingxiantu.chance": "Catalyst herb",
+  "auxiliaryalchemy.wuxingxiantu.effect": "Effect herb",
+  "auxiliaryalchemy.wuxingxiantu.output": "Yield herb"
+}

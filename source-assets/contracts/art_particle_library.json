@@ -1,0 +1,319 @@
+{
+  "version": 1,
+  "origin": "skill-particle-library-v2",
+  "runtime": "Static source PNGs; phase movement and fading animated by ArtVisualEffects",
+  "materials": [
+    {
+      "material": "armor_scale",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/armor_scale.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/armor_scale.png",
+      "sha256": "b162b1095a8375a80479ec53adb9b668dec21c8abaeefdfedc6fe443943a8b85"
+    },
+    {
+      "material": "bell_shell",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/bell_shell.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/bell_shell.png",
+      "sha256": "aa518c92c8981f5f2df27f45bcebf65e4960ed2002ed84ea5c6094c2e93c4d47"
+    },
+    {
+      "material": "blood_fang",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/blood_fang.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/blood_fang.png",
+      "sha256": "f73c358beb20872b9e3e687dd00a832d28040fcd8dc41e376547bc1e4e057e35"
+    },
+    {
+      "material": "branch_bloom",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/branch_bloom.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/branch_bloom.png",
+      "sha256": "0a12dc66a6b4a61a0d322fdd9bb30abedf153658a38bd95595cd7ed98a507ebc"
+    },
+    {
+      "material": "chain_barb",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/chain_barb.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/chain_barb.png",
+      "sha256": "4fb011eeaac70f7cc941fdb65c36451abb1346f83d69b48872bcd37f75f01a7b"
+    },
+    {
+      "material": "coin_charm",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/coin_charm.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/coin_charm.png",
+      "sha256": "1b6c7cdef0b6440f2d51df8bf2fb34e8ca806f56e7052bcd77334fcf72f71ac2"
+    },
+    {
+      "material": "crystal_lotus",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/crystal_lotus.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/crystal_lotus.png",
+      "sha256": "4b9fbb70e2e7dfc71fcb5539909e89bf1e9b6990c1c103d1fd21a9b78cc19823"
+    },
+    {
+      "material": "earth_shard",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/earth_shard.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/earth_shard.png",
+      "sha256": "30eecb4d0ec11858a86fab872bb98186b1fff7fec18a0b41a1be0d97500ad87a"
+    },
+    {
+      "material": "earth_sigil",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/earth_sigil.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/earth_sigil.png",
+      "sha256": "c77f4ef927bdca6c3bd9010a72fb6efb24bf58988d144110dafcac9589177c74"
+    },
+    {
+      "material": "ember_fragment",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/ember_fragment.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/ember_fragment.png",
+      "sha256": "46e708fb4c2e870f2b93f7d893c74769882963f52ce587d51afc5d04413d8721"
+    },
+    {
+      "material": "feather_lift",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/feather_lift.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/feather_lift.png",
+      "sha256": "8f241610e772b031e9905f7837ef5edb809cdf6367a8ea13667373e217826efe"
+    },
+    {
+      "material": "fire_brush",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/fire_brush.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/fire_brush.png",
+      "sha256": "f0d19a94db4b8f20c1cbc09a3e955bf01015fbc985f13e822e4f1cff457c0e95"
+    },
+    {
+      "material": "fire_sigil",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/fire_sigil.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/fire_sigil.png",
+      "sha256": "7eeec763c7ec0b0ffdaeed5120f145bb9ef83b8954466404ca9db8fabfc4b42f"
+    },
+    {
+      "material": "frost_fern",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/frost_fern.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/frost_fern.png",
+      "sha256": "01e20a323548992b2ddd82f0e906825e903f588ceaa831d6dcd1928403266f8d"
+    },
+    {
+      "material": "glyph_purge",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/glyph_purge.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/glyph_purge.png",
+      "sha256": "a44aa9c5c5765265f157209513dbbceda43e7d7cce3552a72afb4085e4fc0264"
+    },
+    {
+      "material": "heart_fissure",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/heart_fissure.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/heart_fissure.png",
+      "sha256": "6475451cc0723011eb89dd57d8407e9ccc05355b3a1d848e231260e712692f30"
+    },
+    {
+      "material": "heat_wisp",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/heat_wisp.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/heat_wisp.png",
+      "sha256": "0c3722d808c06a5fe121b85e070d8835c8bcda1e51dd4becbd967401479d8bfc"
+    },
+    {
+      "material": "ice_lance",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/ice_lance.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/ice_lance.png",
+      "sha256": "5960841b63db9f8a6b63f80a90a179765707f6738c530a7e1caa023157a29286"
+    },
+    {
+      "material": "ink_crescent",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/ink_crescent.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/ink_crescent.png",
+      "sha256": "0a207c7dc1c24255fe2ec763ac42a51bf80c27a44481da803937d734cccbfaff"
+    },
+    {
+      "material": "karma_petal",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/karma_petal.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/karma_petal.png",
+      "sha256": "ab0a39b02c34e8de54e531c3c1e5cd3630967a96c7f9b445335c343e6d15c9b4"
+    },
+    {
+      "material": "leaf",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/leaf.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/leaf.png",
+      "sha256": "fa3ef60516623cee456310fa9930b6801eb9018f515a9d18e91e76ad4138dad1"
+    },
+    {
+      "material": "lens_crescent",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/lens_crescent.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/lens_crescent.png",
+      "sha256": "4babcf35c02af202bf12a4b28de6a4ddc3618c55d8389a7273398b1e60238ffe"
+    },
+    {
+      "material": "lightning_branch",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/lightning_branch.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/lightning_branch.png",
+      "sha256": "6c5f311afe6990daf9ba6ad2ac2924d18dadf585209112dadf31ac8f4285a620"
+    },
+    {
+      "material": "lotus",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/lotus.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/lotus.png",
+      "sha256": "dc2037c9758d3edbc505388993b116620b145c6b63603f4bd79077f0e3eff6b0"
+    },
+    {
+      "material": "meridian_knot",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/meridian_knot.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/meridian_knot.png",
+      "sha256": "e73aff985cf98d3fa9ad0556fc8b18a922f04b75271796c854bca46fef11aab6"
+    },
+    {
+      "material": "metal_sigil",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/metal_sigil.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/metal_sigil.png",
+      "sha256": "7eeaf64d1ab552307a9c65bc13ef0acf0eae27ea1a1f6ba70e09b888d861173d"
+    },
+    {
+      "material": "mirage_frame",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/mirage_frame.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/mirage_frame.png",
+      "sha256": "23360955ca36544dd33e71c4a77791bd6c85fb392b1aa0d65a71b02c3fc01147"
+    },
+    {
+      "material": "mountain_ridge",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/mountain_ridge.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/mountain_ridge.png",
+      "sha256": "c0c308d750ef469c7d27f58e83b69e60678c823d9f2fc49690359062811022a3"
+    },
+    {
+      "material": "pierce_diamond",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/pierce_diamond.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/pierce_diamond.png",
+      "sha256": "1877175dc842618bd4d9547fdc75753c8c9b42cc6ef2613ebe54ac105383a628"
+    },
+    {
+      "material": "pill_orbit",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/pill_orbit.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/pill_orbit.png",
+      "sha256": "40f66569612caadbdff90b0a3deebae754766b64a7c1210b966cd6621534579b"
+    },
+    {
+      "material": "prism_glint",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/prism_glint.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/prism_glint.png",
+      "sha256": "b58be03bb251bcc7c49f02df51f7cf5659ffb7d073c1d1f9ca9275c07ac882d9"
+    },
+    {
+      "material": "root_lattice",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/root_lattice.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/root_lattice.png",
+      "sha256": "874a81b78f13f986d94a70d2e56381c9a650ee36ba28ac6102c5c6e7ab75db40"
+    },
+    {
+      "material": "ruyi_cloud",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/ruyi_cloud.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/ruyi_cloud.png",
+      "sha256": "d8fdbff56b4f7ea6806e96eeacb0b712d59af66ccdd256344ef6f50891f637a0"
+    },
+    {
+      "material": "sand_grain",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/sand_grain.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/sand_grain.png",
+      "sha256": "9a332dc297d82f082046cda6cd89fca01734bb266e1f09b49fb3be6222d6b4d7"
+    },
+    {
+      "material": "seal_glyph",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/seal_glyph.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/seal_glyph.png",
+      "sha256": "8905e219265d38157710acb8ba60f514274758dd315bbbc975cc3dc88d5e153b"
+    },
+    {
+      "material": "seed_pod",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/seed_pod.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/seed_pod.png",
+      "sha256": "7db818b6a38b0a3cc81774b3e90800673b7af739ad90c6edcaaf06554fed6fed"
+    },
+    {
+      "material": "shield_hex",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/shield_hex.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/shield_hex.png",
+      "sha256": "3050552f7f69aa92f1c31a87bf716bfc4908dc74e71b3f6a5c3db218421394e3"
+    },
+    {
+      "material": "snow_crystal",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/snow_crystal.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/snow_crystal.png",
+      "sha256": "3609b9f00e505b65ec3bb18978c01bb667b3f31225e800c2119abde46df81383"
+    },
+    {
+      "material": "spark_needle",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/spark_needle.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/spark_needle.png",
+      "sha256": "9b984f7ccf02f639cef1f19f7df69c792688f14d081c21823dc3d7fe3635bec8"
+    },
+    {
+      "material": "spark_soft",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/spark_soft.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/spark_soft.png",
+      "sha256": "3ea3f8924e81a07ba7a2c184d563b8ead1275ed94952824ed1b7426cca493eb6"
+    },
+    {
+      "material": "spear_head",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/spear_head.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/spear_head.png",
+      "sha256": "663ef7a51f62c90cab98863afc4e9106ae5eb2ef351863911193f0df26f04e2a"
+    },
+    {
+      "material": "sword_cross",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/sword_cross.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/sword_cross.png",
+      "sha256": "37c6a80433f00cafdd01e5608c261c626011b1d335dcd5d739b6cdb73012b8a7"
+    },
+    {
+      "material": "sword_fan",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/sword_fan.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/sword_fan.png",
+      "sha256": "582bd344d7d3ba36b0a7db3059286fbdbdec0cb64f9be7aa9973341e716ccf05"
+    },
+    {
+      "material": "sword_ghost",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/sword_ghost.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/sword_ghost.png",
+      "sha256": "bc9a1ddf8ca8c02764d6ce300586de85da1d020d1e5647db5be525f4f9939fcc"
+    },
+    {
+      "material": "talisman_ash",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/talisman_ash.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/talisman_ash.png",
+      "sha256": "cce6dfb855b3ebad89c461dcf39d0e5ff85e740fed1e32a5731fc5919ce3818a"
+    },
+    {
+      "material": "thought_rift",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/thought_rift.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/thought_rift.png",
+      "sha256": "cc179fdc3a5c24efeacb98ffd4d59964317c666723512b348795e4e68149df37"
+    },
+    {
+      "material": "thunder_core",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/thunder_core.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/thunder_core.png",
+      "sha256": "3a992d5e63271e964117368f2e575c55cbca153cfea91b700d70b621b1a59905"
+    },
+    {
+      "material": "tide_crest",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/tide_crest.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/tide_crest.png",
+      "sha256": "f0e5275f265275ddf16ff313361124625f5c4bbb3923131f499c834d3b44f5c7"
+    },
+    {
+      "material": "water_sigil",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/water_sigil.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/water_sigil.png",
+      "sha256": "6b223479e312859f293eddacce3d66cf6c944f5bb8d610ccbc5c1b46ca7ff9ff"
+    },
+    {
+      "material": "wind_curl",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/wind_curl.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/wind_curl.png",
+      "sha256": "1249fcf0aaa037950f8dec482bcd4b2d1f2c192d5d5eb00bdb873cf318bb73f4"
+    },
+    {
+      "material": "wind_streak",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/wind_streak.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/wind_streak.png",
+      "sha256": "179066f0724f9b265e4ddb1d590513cd0a4bd36f12742d0bf44e89314e8c5685"
+    },
+    {
+      "material": "wood_sigil",
+      "source": "source-assets/skill-particle-library-v2/resourcepack/assets/wuxingxiantu_vfx/textures/library/wood_sigil.png",
+      "runtime": "src/main/resources/assets/wuxingxiantu/textures/particle/arts/wood_sigil.png",
+      "sha256": "ec011baf38760a7ecb5e35dabd680f990480577608a35f6fc3ca2fa0609d52d0"
+    }
+  ]
+}

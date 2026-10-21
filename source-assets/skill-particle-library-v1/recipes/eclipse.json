@@ -1,0 +1,77 @@
+{
+  "id": "eclipse",
+  "name": "日月停轮",
+  "layers": [
+    {
+      "material": "eclipse_ring",
+      "motion": "center",
+      "count": 1,
+      "sizeBlocks": 4,
+      "delayTicks": 0,
+      "lifetimeTicks": 80
+    },
+    {
+      "material": "star_dipper",
+      "motion": "orbit",
+      "count": 2,
+      "sizeBlocks": 1,
+      "delayTicks": 0,
+      "lifetimeTicks": 70
+    },
+    {
+      "material": "spark_star",
+      "motion": "suspend",
+      "count": 24,
+      "sizeBlocks": 0.22,
+      "delayTicks": 0,
+      "lifetimeTicks": 80
+    }
+  ],
+  "defaultPalette": "metal",
+  "curves": {
+    "alpha": [
+      [
+        0,
+        0
+      ],
+      [
+        0.08,
+        1
+      ],
+      [
+        0.68,
+        0.8
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "size": [
+      [
+        0,
+        0.35
+      ],
+      [
+        0.18,
+        1
+      ],
+      [
+        0.8,
+        1.15
+      ],
+      [
+        1,
+        0.7
+      ]
+    ]
+  },
+  "durationTicks": 80,
+  "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+  "quality": {
+    "low": 0.35,
+    "medium": 0.65,
+    "high": 1.0
+  },
+  "recommendedMaxParticles": 128
+}

@@ -1,0 +1,38 @@
+{
+  "failures": [
+    "java.lang.AssertionError: Original introduction missing",
+    "Pointer safety: {passed\u003dfalse, blockedGrabs\u003d0, cursorMode\u003d212993, checkedFrames\u003d1071, captureViolations\u003d0}"
+  ],
+  "cases": [
+    {
+      "id": "inner_core",
+      "expanded": false,
+      "guiScale": 2,
+      "listEntries": 1,
+      "cheatStack": "{Count:1b,id:\"wuxingxiantu:inner_core_immortal\"}",
+      "tooltip": [
+        "妖兽内丹",
+        "品阶：凡品～仙品",
+        "A beast\u0027s vitality and cultivation condensed into a spiritual core.",
+        "Used in alchemy, forging and breakthrough preparations.",
+        "按住 Shift 查看各品阶详细效果"
+      ],
+      "cycleColors": [
+        12038307,
+        7980427,
+        8444402,
+        14854133,
+        16763210,
+        16739179
+      ],
+      "glError": 0
+    }
+  ],
+  "pointerSafety": {
+    "passed": false,
+    "blockedGrabs": 0,
+    "cursorMode": 212993,
+    "checkedFrames": 1071,
+    "captureViolations": 0
+  }
+}

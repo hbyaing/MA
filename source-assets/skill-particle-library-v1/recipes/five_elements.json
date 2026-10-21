@@ -1,0 +1,105 @@
+{
+  "id": "five_elements",
+  "name": "五行合击",
+  "layers": [
+    {
+      "material": "five_elements_seal",
+      "motion": "ground",
+      "count": 1,
+      "sizeBlocks": 4,
+      "delayTicks": 0,
+      "lifetimeTicks": 50
+    },
+    {
+      "material": "flame_tongue",
+      "motion": "orbit",
+      "count": 5,
+      "sizeBlocks": 0.7,
+      "delayTicks": 0,
+      "lifetimeTicks": 22,
+      "colorRole": "elements"
+    },
+    {
+      "material": "leaf",
+      "motion": "orbit",
+      "count": 5,
+      "sizeBlocks": 0.5,
+      "delayTicks": 0,
+      "lifetimeTicks": 22,
+      "colorRole": "elements"
+    },
+    {
+      "material": "water_droplet",
+      "motion": "orbit",
+      "count": 5,
+      "sizeBlocks": 0.5,
+      "delayTicks": 0,
+      "lifetimeTicks": 22,
+      "colorRole": "elements"
+    },
+    {
+      "material": "spark_star",
+      "motion": "inward",
+      "count": 20,
+      "sizeBlocks": 0.4,
+      "delayTicks": 0,
+      "lifetimeTicks": 22,
+      "colorRole": "elements"
+    },
+    {
+      "material": "flash_radial",
+      "motion": "burst",
+      "count": 1,
+      "sizeBlocks": 3,
+      "delayTicks": 20,
+      "lifetimeTicks": 22
+    }
+  ],
+  "defaultPalette": "pengjiao",
+  "curves": {
+    "alpha": [
+      [
+        0,
+        0
+      ],
+      [
+        0.08,
+        1
+      ],
+      [
+        0.68,
+        0.8
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "size": [
+      [
+        0,
+        0.35
+      ],
+      [
+        0.18,
+        1
+      ],
+      [
+        0.8,
+        1.15
+      ],
+      [
+        1,
+        0.7
+      ]
+    ]
+  },
+  "durationTicks": 50,
+  "geometryNote": "浏览器为二维构图预览；Photon 样片为 Billboard 材质组合。地面法阵、真实射线和曲线拖尾需由游戏几何/发射器承载。",
+  "quality": {
+    "low": 0.35,
+    "medium": 0.65,
+    "high": 1.0
+  },
+  "recommendedMaxParticles": 128
+}

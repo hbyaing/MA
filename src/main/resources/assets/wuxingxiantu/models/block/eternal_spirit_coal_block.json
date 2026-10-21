@@ -1,0 +1,6 @@
+{
+ "parent": "minecraft:block/cube_all",
+ "textures": {
+  "all": "wuxingxiantu:block/eternal_spirit_coal_block"
+ }
+}

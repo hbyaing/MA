@@ -1,0 +1,21 @@
+{
+  "size": [
+    1536,
+    768
+  ],
+  "sources": [
+    "背面新参考.png",
+    "reference.png"
+  ],
+  "method": "recalibrated orthographic side/rear projections; monotonic source patch fallback; smooth normalized directional weights",
+  "added_artwork": false,
+  "uv_seam": "anterior beneath thorax",
+  "opaque_skin": true,
+  "blockbench_alpha": "inverse alpha controls emissive amount; opaque in emissive mode; do not use as runtime transparency",
+  "side_calibration": {
+    "u_center": 931,
+    "v_center": 590,
+    "u_radius": 91,
+    "v_radius": 94
+  }
+}

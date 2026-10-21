@@ -1,0 +1,96 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "cross": "wuxingxiantu:block/thunder_vein_grass_growing",
+    "particle": "#cross"
+  },
+  "elements": [
+    {
+      "from": [
+        1.7000000000000002,
+        0,
+        8
+      ],
+      "to": [
+        14.3,
+        14,
+        8
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": 45,
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            3.34375,
+            5.296875,
+            12.640625,
+            16
+          ],
+          "texture": "#cross"
+        },
+        "south": {
+          "uv": [
+            12.640625,
+            5.296875,
+            3.34375,
+            16
+          ],
+          "texture": "#cross"
+        }
+      }
+    },
+    {
+      "from": [
+        1.7000000000000002,
+        0,
+        8
+      ],
+      "to": [
+        14.3,
+        14,
+        8
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": -45,
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            3.34375,
+            5.296875,
+            12.640625,
+            16
+          ],
+          "texture": "#cross"
+        },
+        "south": {
+          "uv": [
+            12.640625,
+            5.296875,
+            3.34375,
+            16
+          ],
+          "texture": "#cross"
+        }
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout"
+}

@@ -1,0 +1,96 @@
+{
+  "textures": {
+    "cross": "wuxingxiantu:block/red_sun_grass",
+    "particle": "#cross"
+  },
+  "ambientocclusion": false,
+  "elements": [
+    {
+      "from": [
+        0.7999999999999998,
+        0,
+        8
+      ],
+      "to": [
+        15.2,
+        16,
+        8
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": 45,
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            1.78125,
+            4.9375,
+            14.21875,
+            16
+          ],
+          "texture": "#cross"
+        },
+        "south": {
+          "uv": [
+            14.21875,
+            4.9375,
+            1.78125,
+            16
+          ],
+          "texture": "#cross"
+        }
+      }
+    },
+    {
+      "from": [
+        0.7999999999999998,
+        0,
+        8
+      ],
+      "to": [
+        15.2,
+        16,
+        8
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": -45,
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            1.78125,
+            4.9375,
+            14.21875,
+            16
+          ],
+          "texture": "#cross"
+        },
+        "south": {
+          "uv": [
+            14.21875,
+            4.9375,
+            1.78125,
+            16
+          ],
+          "texture": "#cross"
+        }
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout"
+}

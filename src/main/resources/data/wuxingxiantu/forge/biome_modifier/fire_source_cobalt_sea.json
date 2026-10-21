@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#wuxingxiantu:fire_source_cobalt_sea",
+  "features": "wuxingxiantu:fire_source_cobalt_sea",
+  "step": "vegetal_decoration"
+}

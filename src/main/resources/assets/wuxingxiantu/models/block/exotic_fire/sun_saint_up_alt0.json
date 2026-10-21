@@ -1,0 +1,89 @@
+{
+  "textures": {
+    "particle": "#fire",
+    "fire": "wuxingxiantu:block/exotic_fire_sun_saint_0"
+  },
+  "ambientocclusion": false,
+  "elements": [
+    {
+      "from": [
+        0,
+        16,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "rotation": {
+        "origin": [
+          8,
+          16,
+          16
+        ],
+        "axis": "x",
+        "angle": -22.5,
+        "rescale": true
+      },
+      "shade": false,
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#fire",
+          "rotation": 180
+        }
+      },
+      "forge_data": {
+        "block_light": 15,
+        "sky_light": 0,
+        "ambient_occlusion": false
+      }
+    },
+    {
+      "from": [
+        0,
+        16,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "rotation": {
+        "origin": [
+          8,
+          16,
+          0
+        ],
+        "axis": "x",
+        "angle": 22.5,
+        "rescale": true
+      },
+      "shade": false,
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#fire"
+        }
+      },
+      "forge_data": {
+        "block_light": 15,
+        "sky_light": 0,
+        "ambient_occlusion": false
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout"
+}

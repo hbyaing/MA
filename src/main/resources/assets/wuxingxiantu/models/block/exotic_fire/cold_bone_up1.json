@@ -1,0 +1,90 @@
+{
+  "textures": {
+    "particle": "#fire",
+    "fire": "wuxingxiantu:block/exotic_fire_cold_bone_1"
+  },
+  "ambientocclusion": false,
+  "elements": [
+    {
+      "from": [
+        0,
+        16,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "rotation": {
+        "origin": [
+          16,
+          16,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": true
+      },
+      "shade": false,
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#fire",
+          "rotation": 270
+        }
+      },
+      "forge_data": {
+        "block_light": 8,
+        "sky_light": 0,
+        "ambient_occlusion": false
+      }
+    },
+    {
+      "from": [
+        0,
+        16,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          16,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": true
+      },
+      "shade": false,
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#fire",
+          "rotation": 90
+        }
+      },
+      "forge_data": {
+        "block_light": 8,
+        "sky_light": 0,
+        "ambient_occlusion": false
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout"
+}

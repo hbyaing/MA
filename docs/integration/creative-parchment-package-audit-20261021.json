@@ -1,0 +1,17 @@
+{
+  "jarSHA256": "449a2c6226f11ed52835b0adb43228c6c4e46f7f27746779cb00c769a8a7641c",
+  "bytes": 75023918,
+  "resources": [
+    "assets/wuxingxiantu/textures/gui/creative/panel.png",
+    "assets/wuxingxiantu/textures/gui/creative/panel.png.mcmeta",
+    "assets/wuxingxiantu/textures/gui/creative/tabs.png",
+    "assets/wuxingxiantu/textures/gui/creative/tabs.png.mcmeta"
+  ],
+  "categoryCount": 10,
+  "nonProductionTypesChecked": 155,
+  "qaClassLeaks": [],
+  "build": "jar + reobfJar, successful in 43s",
+  "clientLaunched": false,
+  "gameTestsRun": false,
+  "userRequestedSelfTest": true
+}

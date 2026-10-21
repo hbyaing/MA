@@ -1,0 +1,11 @@
+{
+  "feature": "wuxingxiantu:spirit_vein_ore",
+  "placement": [
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

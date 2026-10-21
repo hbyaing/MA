@@ -1,0 +1,12 @@
+{
+  "tier": 1,
+  "items": [
+    "art_sword_aura",
+    "art_renewal",
+    "art_spirit_shield",
+    "art_immobilize",
+    "art_light_body",
+    "art_sword_pierce"
+  ],
+  "texture": "wuxingxiantu:item/art_book_yellow"
+}

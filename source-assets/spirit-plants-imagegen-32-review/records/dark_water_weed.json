@@ -1,0 +1,12 @@
+{
+  "id": "dark_water_weed",
+  "stage": "mature",
+  "tool": "built-in image_gen",
+  "prompt": "Use case: stylized-concept. Asset type: one Minecraft fantasy spirit-plant texture, dark_water_weed (玄水藻), fully mature stage. Use the provided image only as an identity/color reference. Redesign it as clean authentic 32x32 logical-pixel game art, displayed enlarged with crisp nearest-neighbor square pixel blocks. One single complete frontal plant centered on a square genuinely transparent canvas. Dark navy blue aquatic seaweed with several tall slender curling fronds; saturated cobalt edges and pale icy cyan tips; forked side shoots and clearly articulated pixel silhouette. The fully grown plant is about 29 logical pixels tall on a 32x32 grid, rooted at x16 y30, at least one transparent logical pixel under it. Use a compact limited palette, solid opaque colors, hard pixel edges, no anti-aliasing, no painterly illustration or tiny detailed rendering. No water, terrain, rocks, separate shadows, particles, haze, aura, glow spill, labels, borders, gridlines, text, or multiple plants. Entire plant visible. Only transparent empty space outside plant. Output exactly one independent sprite, not a sprite sheet or collage.",
+  "reference_paths": [
+    "E:\\五行仙途\\src\\main\\resources\\assets\\wuxingxiantu\\textures\\block\\dark_water_weed.png"
+  ],
+  "original_path": "C:\\Users\\Nostzephert\\.codex\\generated_images\\01a10c03-6518-7610-a181-300634dc795b\\exec-1e9f8fba-e2ed-4baa-9a15-bbc5992028b0.png",
+  "saved_path": "E:\\五行仙途\\source-assets\\spirit-plants-imagegen-32-review\\generated\\dark_water_weed.png",
+  "status": "generated; source untouched"
+}

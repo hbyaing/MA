@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#wuxingxiantu:fire_source_azure_wood",
+  "features": "wuxingxiantu:fire_source_azure_wood",
+  "step": "vegetal_decoration"
+}

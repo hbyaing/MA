@@ -1,0 +1,14 @@
+{
+  "display": {
+    "icon": {"item": "wuxingxiantu:tribulation_pill", "nbt": "{Grade:\"LOW\"}"},
+    "title": {"translate": "advancement.wuxingxiantu.tribulation_failure.title"},
+    "description": {"translate": "advancement.wuxingxiantu.tribulation_failure.description"},
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "failure": {"trigger": "minecraft:impossible"}
+  }
+}

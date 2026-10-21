@@ -1,0 +1,86 @@
+{
+  "da_pin_tian_xian_jue_fragment_one": {
+    "source_size": [
+      1254,
+      1254
+    ],
+    "crop_bounds": [
+      176,
+      106,
+      1096,
+      1178
+    ],
+    "icon_size": [
+      51,
+      60
+    ],
+    "texture_size": [
+      64,
+      64
+    ],
+    "resampling": "NEAREST"
+  },
+  "da_pin_tian_xian_jue_fragment_two": {
+    "source_size": [
+      1254,
+      1254
+    ],
+    "crop_bounds": [
+      161,
+      106,
+      1114,
+      1187
+    ],
+    "icon_size": [
+      53,
+      60
+    ],
+    "texture_size": [
+      64,
+      64
+    ],
+    "resampling": "NEAREST"
+  },
+  "five_essence": {
+    "source_size": [
+      1254,
+      1254
+    ],
+    "crop_bounds": [
+      118,
+      94,
+      1143,
+      1144
+    ],
+    "icon_size": [
+      59,
+      60
+    ],
+    "texture_size": [
+      64,
+      64
+    ],
+    "resampling": "NEAREST"
+  },
+  "yin_fu_jing_yi_shen_fragment": {
+    "source_size": [
+      1254,
+      1254
+    ],
+    "crop_bounds": [
+      39,
+      78,
+      1230,
+      1201
+    ],
+    "icon_size": [
+      60,
+      57
+    ],
+    "texture_size": [
+      64,
+      64
+    ],
+    "resampling": "NEAREST"
+  }
+}

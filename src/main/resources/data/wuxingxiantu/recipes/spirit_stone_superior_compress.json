@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "wuxingxiantu:spirit_stone_middle"
+    },
+    {
+      "item": "wuxingxiantu:spirit_stone_middle"
+    },
+    {
+      "item": "wuxingxiantu:spirit_stone_middle"
+    },
+    {
+      "item": "wuxingxiantu:spirit_stone_middle"
+    },
+    {
+      "item": "wuxingxiantu:spirit_stone_middle"
+    },
+    {
+      "item": "wuxingxiantu:spirit_stone_middle"
+    },
+    {
+      "item": "wuxingxiantu:spirit_stone_middle"
+    },
+    {
+      "item": "wuxingxiantu:spirit_stone_middle"
+    },
+    {
+      "item": "wuxingxiantu:spirit_stone_middle"
+    }
+  ],
+  "result": {
+    "item": "wuxingxiantu:spirit_stone_superior"
+  }
+}

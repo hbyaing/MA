@@ -11,7 +11,7 @@
 ![Java 17](https://img.shields.io/badge/Java-17-537e91?style=flat-square)
 ![开发进度快照](https://img.shields.io/badge/阶段-开发进度快照-9a6c48?style=flat-square)
 
-[源码入口](https://github.com/thezinecraftm-rgb/Myriad-Ascension/tree/codex/creative-building-inventory-20261021) · [下载与恢复](https://github.com/thezinecraftm-rgb/Myriad-Ascension/releases) · [融合进度](https://github.com/thezinecraftm-rgb/Myriad-Ascension/blob/codex/creative-building-inventory-20261021/docs/integration/CHECKLIST-16.md) · [反馈问题](https://github.com/thezinecraftm-rgb/Myriad-Ascension/issues)
+[源码入口](https://github.com/thezinecraftm-rgb/Myriad-Ascension/tree/main) · [下载与恢复](https://github.com/thezinecraftm-rgb/Myriad-Ascension/releases) · [融合进度](https://github.com/thezinecraftm-rgb/Myriad-Ascension/blob/main/docs/integration/CHECKLIST-16.md) · [反馈问题](https://github.com/thezinecraftm-rgb/Myriad-Ascension/issues)
 
 </div>
 
@@ -19,7 +19,7 @@
 
 《万界仙途 / Myriad Ascension》以 **《五行仙途》为主框架**，融合《仙途》的玩法与内容。修为、灵力、神识、职业与法宝主人数据沿用统一体系，让新增内容融入同一条修仙之路。
 
-> **当前是开发进度快照，尚未完成整体验收。** 默认分支用于项目展示与交接；持续整合的源码位于功能分支。下载前请查看对应 Release 的说明，不要将历史恢复附件当作最新游戏安装包。
+> **当前是开发进度快照，尚未完成整体验收。** 默认分支现已包含完整融合工程及近期已完成改动，后续开发通过功能分支与 PR 汇入。下载前请查看对应 Release 的说明，不要将历史恢复附件当作最新游戏安装包。
 
 ## 仙途百艺
 
@@ -47,7 +47,7 @@
 
 历史测试结果只对应报告中的固定代码阶段，**不代表其后的所有改动已通过同一轮验证**。近期界面改动已编译打包，实机体验由测试反馈继续完善。
 
-[查看完整 16 项清单 →](https://github.com/thezinecraftm-rgb/Myriad-Ascension/blob/codex/creative-building-inventory-20261021/docs/integration/CHECKLIST-16.md)
+[查看完整 16 项清单 →](https://github.com/thezinecraftm-rgb/Myriad-Ascension/blob/main/docs/integration/CHECKLIST-16.md)
 
 ## 获取项目
 
@@ -57,12 +57,14 @@
 
 ### 想阅读或参与开发
 
-当前整合源码入口包含近期背包与创造模式适配，可直接克隆对应分支：
+默认分支包含当前整合源码与近期背包、创造模式适配，可直接克隆：
 
 ```bash
-git clone --branch codex/creative-building-inventory-20261021 https://github.com/thezinecraftm-rgb/Myriad-Ascension.git
+git clone --branch main https://github.com/thezinecraftm-rgb/Myriad-Ascension.git
 cd Myriad-Ascension
 ```
+
+老 UI 交付基线、新 UI 暂存稿和早期融合快照继续保留在独立分支；未验收暂存稿不替换当前交付界面。
 
 工程使用 **Minecraft 1.20.1 / Forge / JDK 17 / Gradle 8.8**，依赖与验证配置以该分支工程文件为准。
 
@@ -79,10 +81,10 @@ Linux / macOS 使用 `./gradlew`。首次解析依赖需要联网；完整服务
 
 ## 协作与资料
 
-- [项目协作规则](https://github.com/thezinecraftm-rgb/Myriad-Ascension/blob/codex/creative-building-inventory-20261021/AGENTS.md)：功能分支与 PR 协作，保留他人改动，禁止强制覆盖。
-- [已确认融合方案](https://github.com/thezinecraftm-rgb/Myriad-Ascension/blob/codex/creative-building-inventory-20261021/docs/integration/accepted-decisions.json)：重复玩法先确认取舍，不另建重复账户。
-- [内容覆盖账本](https://github.com/thezinecraftm-rgb/Myriad-Ascension/blob/codex/creative-building-inventory-20261021/SOURCE_CONTENT_COVERAGE.md)：追踪来源内容与融合范围。
-- [恢复与分支说明](https://github.com/thezinecraftm-rgb/Myriad-Ascension/blob/codex/creative-building-inventory-20261021/docs/integration/RECOVERY.md)：老 UI 交付线、新 UI 暂存线与原始备份分别保留。
+- [项目协作规则](https://github.com/thezinecraftm-rgb/Myriad-Ascension/blob/main/AGENTS.md)：功能分支与 PR 协作，保留他人改动，禁止强制覆盖。
+- [已确认融合方案](https://github.com/thezinecraftm-rgb/Myriad-Ascension/blob/main/docs/integration/accepted-decisions.json)：重复玩法先确认取舍，不另建重复账户。
+- [内容覆盖账本](https://github.com/thezinecraftm-rgb/Myriad-Ascension/blob/main/SOURCE_CONTENT_COVERAGE.md)：追踪来源内容与融合范围。
+- [恢复与分支说明](https://github.com/thezinecraftm-rgb/Myriad-Ascension/blob/main/docs/integration/RECOVERY.md)：老 UI 交付线、新 UI 暂存线与原始备份分别保留。
 - [原始交接记录](NEXT_STEPS.md) · [原始恢复说明](FULL_RESTORE.md)：保留历史记录；最新阶段状态以融合清单和对应报告为准。
 
 <details>
@@ -93,6 +95,14 @@ Linux / macOS 使用 `./gradlew`。首次解析依赖需要联网；完整服务
 诛仙剑阵维持费按统一货币支付 **每分钟 5 块极品灵石的等值金额**，这是已确认的融合方案。
 
 </details>
+
+## 独立保留的开发与备份分支
+
+| 分支 | 用途 |
+| :-- | :-- |
+| [老 UI 基线](https://github.com/thezinecraftm-rgb/Myriad-Ascension/tree/codex/myriad-ascension-delivery-old-ui) | 原始老 UI 交付基线 |
+| [新 UI 暂存](https://github.com/thezinecraftm-rgb/Myriad-Ascension/tree/codex/myriad-ascension-new-ui) | 独立开发快照，含未验收草稿 |
+| [早期融合快照](https://github.com/thezinecraftm-rgb/Myriad-Ascension/tree/codex/myriad-ascension) | 历史整合内容与追溯 |
 
 ## 共创来源
 

@@ -1,0 +1,301 @@
+{
+  "scope": "static resource audit; not UI or multiplayer acceptance",
+  "refiningRecipeCount": 15,
+  "artifactKinds": [
+    "sword",
+    "hammer",
+    "armor",
+    "leggings",
+    "boots",
+    "helmet"
+  ],
+  "auxiliaries": [
+    {
+      "id": "xuantie",
+      "name": "玄铁精",
+      "trait": "SHARP",
+      "requiredFire": 1,
+      "recipes": [
+        "forge_aux_xuantie"
+      ]
+    },
+    {
+      "id": "leijing",
+      "name": "雷晶石",
+      "trait": "THUNDER",
+      "requiredFire": 1,
+      "recipes": [
+        "forge_aux_leijing"
+      ]
+    },
+    {
+      "id": "huxinyu",
+      "name": "护心玉",
+      "trait": "SHIELD",
+      "requiredFire": 1,
+      "recipes": [
+        "forge_aux_huxinyu"
+      ]
+    },
+    {
+      "id": "longxue",
+      "name": "龙血砂",
+      "trait": "BLOODTHIRST",
+      "requiredFire": 1,
+      "recipes": [
+        "forge_aux_longxue"
+      ]
+    },
+    {
+      "id": "xuanguijia",
+      "name": "玄龟甲",
+      "trait": "TENACITY",
+      "requiredFire": 1,
+      "recipes": [
+        "forge_aux_xuanguijia"
+      ]
+    },
+    {
+      "id": "xingtie",
+      "name": "玄星铁髓",
+      "trait": "SHARP",
+      "requiredFire": 3,
+      "recipes": [
+        "forge_aux_xingtie"
+      ]
+    },
+    {
+      "id": "chixiao",
+      "name": "赤霄铜晶",
+      "trait": "THUNDER",
+      "requiredFire": 3,
+      "recipes": [
+        "forge_aux_chixiao"
+      ]
+    },
+    {
+      "id": "taiyin",
+      "name": "太阴寒魄",
+      "trait": "SHIELD",
+      "requiredFire": 3,
+      "recipes": [
+        "forge_aux_taiyin"
+      ]
+    },
+    {
+      "id": "yaoyang",
+      "name": "曜阳金砂",
+      "trait": "SHARP",
+      "requiredFire": 3,
+      "recipes": [
+        "forge_aux_yaoyang"
+      ]
+    },
+    {
+      "id": "kongming",
+      "name": "空冥石",
+      "trait": "SHIELD",
+      "requiredFire": 3,
+      "recipes": [
+        "forge_aux_kongming"
+      ]
+    },
+    {
+      "id": "zilei",
+      "name": "天雷紫晶",
+      "trait": "THUNDER",
+      "requiredFire": 5,
+      "recipes": [
+        "forge_aux_zilei"
+      ]
+    },
+    {
+      "id": "qingmu",
+      "name": "青木灵髓",
+      "trait": "TENACITY",
+      "requiredFire": 5,
+      "recipes": [
+        "forge_aux_qingmu"
+      ]
+    },
+    {
+      "id": "youming",
+      "name": "幽冥血玉",
+      "trait": "BLOODTHIRST",
+      "requiredFire": 5,
+      "recipes": [
+        "forge_aux_youming"
+      ]
+    },
+    {
+      "id": "longwen",
+      "name": "龙纹玄钢",
+      "trait": "TENACITY",
+      "requiredFire": 5,
+      "recipes": [
+        "forge_aux_longwen"
+      ]
+    },
+    {
+      "id": "hunyuan",
+      "name": "混元灵珀",
+      "trait": "BLOODTHIRST",
+      "requiredFire": 5,
+      "recipes": [
+        "forge_aux_hunyuan"
+      ]
+    }
+  ],
+  "refiningRecipes": [
+    {
+      "recipe": "artifact_armor",
+      "result": {
+        "item": "wuxingxiantu:artifact_armor",
+        "count": 1
+      },
+      "temperature": 400,
+      "auraCost": 60,
+      "time": 280
+    },
+    {
+      "recipe": "artifact_boots",
+      "result": {
+        "item": "wuxingxiantu:artifact_boots",
+        "count": 1
+      },
+      "temperature": 400,
+      "auraCost": 40,
+      "time": 200
+    },
+    {
+      "recipe": "artifact_hammer",
+      "result": {
+        "item": "wuxingxiantu:artifact_hammer",
+        "count": 1
+      },
+      "temperature": 400,
+      "auraCost": 45,
+      "time": 220
+    },
+    {
+      "recipe": "artifact_helmet",
+      "result": {
+        "item": "wuxingxiantu:artifact_helmet",
+        "count": 1
+      },
+      "temperature": 400,
+      "auraCost": 45,
+      "time": 220
+    },
+    {
+      "recipe": "artifact_leggings",
+      "result": {
+        "item": "wuxingxiantu:artifact_leggings",
+        "count": 1
+      },
+      "temperature": 400,
+      "auraCost": 55,
+      "time": 260
+    },
+    {
+      "recipe": "artifact_sword",
+      "result": {
+        "item": "wuxingxiantu:artifact_sword",
+        "count": 1
+      },
+      "temperature": 400,
+      "auraCost": 35,
+      "time": 180
+    },
+    {
+      "recipe": "refining_boar_hide_armor",
+      "result": {
+        "item": "minecraft:iron_chestplate",
+        "count": 1
+      },
+      "temperature": 100,
+      "auraCost": 35,
+      "time": 160
+    },
+    {
+      "recipe": "refining_dark_iron_sword",
+      "result": {
+        "item": "wuxingxiantu:dark_iron_sword",
+        "count": 1
+      },
+      "temperature": 100,
+      "auraCost": 35,
+      "time": 160
+    },
+    {
+      "recipe": "refining_guiyuan_sword",
+      "result": {
+        "item": "wuxingxiantu:guiyuan_sword",
+        "count": 1
+      },
+      "temperature": 600,
+      "auraCost": 380,
+      "time": 560
+    },
+    {
+      "recipe": "refining_jixiao_sword",
+      "result": {
+        "item": "wuxingxiantu:jixiao_sword",
+        "count": 1
+      },
+      "temperature": 400,
+      "auraCost": 200,
+      "time": 400
+    },
+    {
+      "recipe": "refining_king_hide_armor",
+      "result": {
+        "item": "minecraft:diamond_chestplate",
+        "count": 1
+      },
+      "temperature": 400,
+      "auraCost": 60,
+      "time": 240
+    },
+    {
+      "recipe": "refining_mingjue_sword",
+      "result": {
+        "item": "wuxingxiantu:mingjue_sword",
+        "count": 1
+      },
+      "temperature": 200,
+      "auraCost": 70,
+      "time": 240
+    },
+    {
+      "recipe": "refining_qingming_sword",
+      "result": {
+        "item": "wuxingxiantu:qingming_sword",
+        "count": 1
+      },
+      "temperature": 300,
+      "auraCost": 130,
+      "time": 320
+    },
+    {
+      "recipe": "refining_tianque_sword",
+      "result": {
+        "item": "wuxingxiantu:tianque_sword",
+        "count": 1
+      },
+      "temperature": 900,
+      "auraCost": 520,
+      "time": 720
+    },
+    {
+      "recipe": "refining_wuxiang_sword",
+      "result": {
+        "item": "wuxingxiantu:wuxiang_sword",
+        "count": 1
+      },
+      "temperature": 500,
+      "auraCost": 280,
+      "time": 480
+    }
+  ]
+}

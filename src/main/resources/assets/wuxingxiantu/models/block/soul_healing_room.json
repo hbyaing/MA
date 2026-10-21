@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "wuxingxiantu:block/soul_healing_room_front",
+    "north": "wuxingxiantu:block/soul_healing_room_front",
+    "south": "wuxingxiantu:block/soul_healing_room_back",
+    "east": "wuxingxiantu:block/soul_healing_room_left",
+    "west": "wuxingxiantu:block/soul_healing_room_right",
+    "up": "wuxingxiantu:block/soul_healing_room_top",
+    "down": "wuxingxiantu:block/soul_healing_room_bottom"
+  }
+}

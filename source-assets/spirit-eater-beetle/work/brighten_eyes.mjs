@@ -1,0 +1,22 @@
+import fs from 'node:fs/promises';
+import {connect,call,getText} from './mcp.mjs';
+await connect();
+const dir='E:/五行仙途/source-assets/spirit-eater-beetle';
+await call('export_model',{codec_id:'project',path:dir+'/before_brighter_eyes.bbmodel',overwrite:true,max_content_length:0});
+console.log(getText(await call('risky_eval',{code:`(()=>{
+const changes=[['eye_lens_green.png','#92d977'],['eye_catchlight.png','#e1ffd0']];
+const textures=changes.map(([name])=>Texture.all.find(t=>t.name===name));
+if(textures.some(t=>!t))throw Error('Eye textures missing');
+Undo.initEdit({textures,bitmap:true});
+textures.forEach((t,i)=>t.edit(canvas=>{const ctx=canvas.getContext('2d');ctx.fillStyle=changes[i][1];ctx.fillRect(0,0,canvas.width,canvas.height);},{no_undo:true}));
+Undo.finishEdit('提亮双眼绿色与高光');Canvas.updateAll();
+return {colors:changes,eyes:Mesh.all.filter(m=>m.name.includes('深绿复眼')).length};
+})()`})));
+await call('export_model',{codec_id:'project',path:dir+'/噬灵虫.bbmodel',overwrite:true,max_content_length:0});
+const before=JSON.parse(await fs.readFile(dir+'/before_brighter_eyes.bbmodel','utf8'));
+const after=JSON.parse(await fs.readFile(dir+'/噬灵虫.bbmodel','utf8'));
+console.log(JSON.stringify({geometryUnchanged:JSON.stringify(before.elements)===JSON.stringify(after.elements)}));
+const shot=await call('set_camera_angle',{position:[-12,5,-12],target:[-.4,2.3,-3.3],zoom:5,projection:'orthographic'});
+const pic=shot.content.find(c=>c.type==='image');
+if(pic)await fs.writeFile(dir+'/detail_eye_bright.png',Buffer.from(pic.data,'base64'));
+await fs.copyFile(dir+'/噬灵虫.bbmodel','E:/五行仙途/deliverables/噬灵虫模型/噬灵虫.bbmodel');

@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "effect": "wuxingxiantu_preview:segmented_flame_r2",
+  "managedAssets": [
+    {
+      "id": "wuxingxiantu_preview:segmented_flame_r2",
+      "file": "assets/wuxingxiantu_preview/textures/mcp/segmented_flame_r2.png"
+    }
+  ],
+  "externalResources": [
+    "minecraft:textures/atlas/blocks.png",
+    "minecraft:textures/particle/angry.png",
+    "minecraft:textures/particle/bubble.png",
+    "minecraft:textures/particle/damage.png",
+    "minecraft:textures/particle/flame.png",
+    "minecraft:textures/particle/glow.png",
+    "minecraft:textures/particle/heart.png",
+    "minecraft:textures/particle/lava.png",
+    "minecraft:textures/particle/note.png",
+    "photon:circle",
+    "photon:textures/particle/kila_tail.png",
+    "photon:textures/particle/laser.png",
+    "photon:textures/particle/ring.png",
+    "photon:textures/particle/smoke.png",
+    "photon:textures/particle/thaumcraft.png"
+  ],
+  "dependencies": {
+    "minecraft": "1.20.1",
+    "loader": "Forge",
+    "photon": "1.1.17",
+    "helper": "test18"
+  },
+  "files": {
+    "assets/wuxingxiantu_preview/textures/mcp/segmented_flame_r2.png": "acd3fa67bea4b6defd800bec8696524d217cd89ff7c85a258102a75b81d6cc16",
+    "prepared/asset.json": "221a5102b1e267b928510ac2d8ab77e29851582614a58a40d8d8f5a28b646700",
+    "prepared/atlas.png": "acd3fa67bea4b6defd800bec8696524d217cd89ff7c85a258102a75b81d6cc16",
+    "prepared/deployment.json": "3104a3125b9afe22df46646ea6b8225c348db65db625f7e3e4443ed089425e0a",
+    "prepared/normalized/0000.png": "895ad160bbe043160cd9e071232ad5265adbf2b98a21252e88dba7434d0fae15",
+    "prepared/normalized/0001.png": "c82ef55fc0a6dbcc2301bab9770d043e7456c3b7aadb9313cd8b5646aca14da2",
+    "prepared/normalized/0002.png": "7f1077c3b90c3f75b4a7679187ab06f2c688d0d4951e3ee22f60d9e69b1d1a8f",
+    "prepared/normalized/0003.png": "774839616cdc6fcd294b05d029dfc98286188159157dbaf6e70d51ee801a3ebe",
+    "prepared/sources/0000.png": "f95470d9963b15892791b865a89c0123e052456d9bad5edaba41bd9468294c91",
+    "prepared/sources/0001.png": "89800b747026c7618cef008eaee0663586b1d0b1e233d73faf05179fd1a1a0b7",
+    "prepared/sources/0002.png": "01ee55811e010c7bac9b03708ff4a291dafdbd82f7ad491cef767888ee613c29",
+    "prepared/sources/0003.png": "40dac312acc9a35cf3539f5dab35864cce019ece203bd55656ac8956d835392b",
+    "project.fxproj": "913bb4ed10b1f701180201e42ae273860373fe0d570e7d8ba19acf0035aab764",
+    "project.snbt": "875516be730ecd20f70eebc7a8173c17a235c0ad5f865eb4a6674cc84fe4841e",
+    "runtime.fx": "24f7a77d75fd59edc3ae00e808e5a67a9db1ee30c73c5ef8e064b9252afc1141",
+    "runtime.snbt": "d08e3a353ff5861071bc289b901d0b4abad78e3fe91360825fbf688318559c53"
+  }
+}

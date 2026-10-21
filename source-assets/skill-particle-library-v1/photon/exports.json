@@ -1,0 +1,738 @@
+[
+  {
+    "id": "wuxingxiantu_vfx:materials/spark_soft",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/spark_soft.fx",
+    "project": "photon/projects/materials__spark_soft.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/spark_star",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/spark_star.fx",
+    "project": "photon/projects/materials__spark_star.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/spark_needle",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/spark_needle.fx",
+    "project": "photon/projects/materials__spark_needle.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/flash_radial",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/flash_radial.fx",
+    "project": "photon/projects/materials__flash_radial.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/impact_burst",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/impact_burst.fx",
+    "project": "photon/projects/materials__impact_burst.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/ring_soft",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/ring_soft.fx",
+    "project": "photon/projects/materials__ring_soft.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/ring_double",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/ring_double.fx",
+    "project": "photon/projects/materials__ring_double.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/ring_broken",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/ring_broken.fx",
+    "project": "photon/projects/materials__ring_broken.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/rune_circle",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/rune_circle.fx",
+    "project": "photon/projects/materials__rune_circle.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/seal_glyph",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/seal_glyph.fx",
+    "project": "photon/projects/materials__seal_glyph.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/sword_slash",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/sword_slash.fx",
+    "project": "photon/projects/materials__sword_slash.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/sword_cross",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/sword_cross.fx",
+    "project": "photon/projects/materials__sword_cross.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/sword_ghost",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/sword_ghost.fx",
+    "project": "photon/projects/materials__sword_ghost.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/trail_ribbon",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/trail_ribbon.fx",
+    "project": "photon/projects/materials__trail_ribbon.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/wind_curl",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/wind_curl.fx",
+    "project": "photon/projects/materials__wind_curl.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/wind_streak",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/wind_streak.fx",
+    "project": "photon/projects/materials__wind_streak.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/flame_tongue",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/flame_tongue.fx",
+    "project": "photon/projects/materials__flame_tongue.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/ember_fragment",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/ember_fragment.fx",
+    "project": "photon/projects/materials__ember_fragment.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/smoke_puff",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/smoke_puff.fx",
+    "project": "photon/projects/materials__smoke_puff.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/heat_wisp",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/heat_wisp.fx",
+    "project": "photon/projects/materials__heat_wisp.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/water_droplet",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/water_droplet.fx",
+    "project": "photon/projects/materials__water_droplet.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/water_splash",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/water_splash.fx",
+    "project": "photon/projects/materials__water_splash.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/ripple",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/ripple.fx",
+    "project": "photon/projects/materials__ripple.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/ice_shard",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/ice_shard.fx",
+    "project": "photon/projects/materials__ice_shard.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/snow_crystal",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/snow_crystal.fx",
+    "project": "photon/projects/materials__snow_crystal.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/leaf",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/leaf.fx",
+    "project": "photon/projects/materials__leaf.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/petal",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/petal.fx",
+    "project": "photon/projects/materials__petal.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/vine_thorn",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/vine_thorn.fx",
+    "project": "photon/projects/materials__vine_thorn.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/poison_cloud",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/poison_cloud.fx",
+    "project": "photon/projects/materials__poison_cloud.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/poison_bubble",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/poison_bubble.fx",
+    "project": "photon/projects/materials__poison_bubble.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/acid_splash",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/acid_splash.fx",
+    "project": "photon/projects/materials__acid_splash.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/earth_shard",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/earth_shard.fx",
+    "project": "photon/projects/materials__earth_shard.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/ground_crack",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/ground_crack.fx",
+    "project": "photon/projects/materials__ground_crack.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/dust_plume",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/dust_plume.fx",
+    "project": "photon/projects/materials__dust_plume.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/lightning_branch",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/lightning_branch.fx",
+    "project": "photon/projects/materials__lightning_branch.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/electric_arc",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/electric_arc.fx",
+    "project": "photon/projects/materials__electric_arc.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/thunder_core",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/thunder_core.fx",
+    "project": "photon/projects/materials__thunder_core.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/crystal_shard",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/crystal_shard.fx",
+    "project": "photon/projects/materials__crystal_shard.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/prism_glint",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/prism_glint.fx",
+    "project": "photon/projects/materials__prism_glint.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/mirror_shard",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/mirror_shard.fx",
+    "project": "photon/projects/materials__mirror_shard.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/mirror_crack",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/mirror_crack.fx",
+    "project": "photon/projects/materials__mirror_crack.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/soul_wisp",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/soul_wisp.fx",
+    "project": "photon/projects/materials__soul_wisp.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/eye_sigil",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/eye_sigil.fx",
+    "project": "photon/projects/materials__eye_sigil.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/chain_link",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/chain_link.fx",
+    "project": "photon/projects/materials__chain_link.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/sound_wave",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/sound_wave.fx",
+    "project": "photon/projects/materials__sound_wave.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/sound_blade",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/sound_blade.fx",
+    "project": "photon/projects/materials__sound_blade.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/star_dipper",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/star_dipper.fx",
+    "project": "photon/projects/materials__star_dipper.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/lotus",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/lotus.fx",
+    "project": "photon/projects/materials__lotus.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/eclipse_ring",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/eclipse_ring.fx",
+    "project": "photon/projects/materials__eclipse_ring.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/talisman_ash",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/talisman_ash.fx",
+    "project": "photon/projects/materials__talisman_ash.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/cloud_scroll",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/cloud_scroll.fx",
+    "project": "photon/projects/materials__cloud_scroll.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/shield_hex",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/shield_hex.fx",
+    "project": "photon/projects/materials__shield_hex.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/five_elements_seal",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/five_elements_seal.fx",
+    "project": "photon/projects/materials__five_elements_seal.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/mist_spiral",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/mist_spiral.fx",
+    "project": "photon/projects/materials__mist_spiral.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/glyph_fire",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/glyph_fire.fx",
+    "project": "photon/projects/materials__glyph_fire.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/glyph_shield",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/glyph_shield.fx",
+    "project": "photon/projects/materials__glyph_shield.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/glyph_heal",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/glyph_heal.fx",
+    "project": "photon/projects/materials__glyph_heal.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/glyph_speed",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/glyph_speed.fx",
+    "project": "photon/projects/materials__glyph_speed.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/glyph_gather",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/glyph_gather.fx",
+    "project": "photon/projects/materials__glyph_gather.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:materials/glyph_purge",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/materials/glyph_purge.fx",
+    "project": "photon/projects/materials__glyph_purge.fxproj",
+    "emitters": 1,
+    "description": "单材质循环样片；用于编辑器检查透明度、帧序和染色。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/sword_cut",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/sword_cut.fx",
+    "project": "photon/projects/recipes__sword_cut.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/sword_pierce",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/sword_pierce.fx",
+    "project": "photon/projects/recipes__sword_pierce.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/sword_orbit",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/sword_orbit.fx",
+    "project": "photon/projects/recipes__sword_orbit.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/sword_rain",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/sword_rain.fx",
+    "project": "photon/projects/recipes__sword_rain.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/heal",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/heal.fx",
+    "project": "photon/projects/recipes__heal.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/shield",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/shield.fx",
+    "project": "photon/projects/recipes__shield.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/bind",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/bind.fx",
+    "project": "photon/projects/recipes__bind.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/wind",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/wind.fx",
+    "project": "photon/projects/recipes__wind.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/gather",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/gather.fx",
+    "project": "photon/projects/recipes__gather.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/ice",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/ice.fx",
+    "project": "photon/projects/recipes__ice.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/flame",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/flame.fx",
+    "project": "photon/projects/recipes__flame.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/blink",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/blink.fx",
+    "project": "photon/projects/recipes__blink.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/blood",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/blood.fx",
+    "project": "photon/projects/recipes__blood.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/thunder",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/thunder.fx",
+    "project": "photon/projects/recipes__thunder.fxproj",
+    "emitters": 4,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/earth",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/earth.fx",
+    "project": "photon/projects/recipes__earth.fxproj",
+    "emitters": 4,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/five_elements",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/five_elements.fx",
+    "project": "photon/projects/recipes__five_elements.fxproj",
+    "emitters": 6,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/beam",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/beam.fx",
+    "project": "photon/projects/recipes__beam.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/ring",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/ring.fx",
+    "project": "photon/projects/recipes__ring.fxproj",
+    "emitters": 2,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/sound",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/sound.fx",
+    "project": "photon/projects/recipes__sound.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/poison",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/poison.fx",
+    "project": "photon/projects/recipes__poison.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/crystal",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/crystal.fx",
+    "project": "photon/projects/recipes__crystal.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/mirror",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/mirror.fx",
+    "project": "photon/projects/recipes__mirror.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/gaze",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/gaze.fx",
+    "project": "photon/projects/recipes__gaze.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/tether",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/tether.fx",
+    "project": "photon/projects/recipes__tether.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/vortex",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/vortex.fx",
+    "project": "photon/projects/recipes__vortex.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/gold_seal",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/gold_seal.fx",
+    "project": "photon/projects/recipes__gold_seal.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/dipper",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/dipper.fx",
+    "project": "photon/projects/recipes__dipper.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/soul",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/soul.fx",
+    "project": "photon/projects/recipes__soul.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/eclipse",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/eclipse.fx",
+    "project": "photon/projects/recipes__eclipse.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/cloud",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/cloud.fx",
+    "project": "photon/projects/recipes__cloud.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/talisman",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/talisman.fx",
+    "project": "photon/projects/recipes__talisman.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  },
+  {
+    "id": "wuxingxiantu_vfx:recipes/summon",
+    "runtime": "resourcepack/assets/wuxingxiantu_vfx/fx/recipes/summon.fx",
+    "project": "photon/projects/recipes__summon.fxproj",
+    "emitters": 3,
+    "description": "组合材质样片；位置/发射/淡出可编辑。完整轨迹与服务端技能时序见配方，不是技能实装。",
+    "verification": "NBT roundtrip + schema/reference checks only; not rendered in Minecraft"
+  }
+]

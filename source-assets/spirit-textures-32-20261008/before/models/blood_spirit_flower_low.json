@@ -1,0 +1,96 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "cross": "wuxingxiantu:block/blood_spirit_flower_young",
+    "particle": "#cross"
+  },
+  "elements": [
+    {
+      "from": [
+        2.359731543624161,
+        0,
+        8
+      ],
+      "to": [
+        13.64026845637584,
+        11,
+        8
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": 45,
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            2.03125,
+            4.359375,
+            13.96875,
+            16
+          ],
+          "texture": "#cross"
+        },
+        "south": {
+          "uv": [
+            13.96875,
+            4.359375,
+            2.03125,
+            16
+          ],
+          "texture": "#cross"
+        }
+      }
+    },
+    {
+      "from": [
+        2.359731543624161,
+        0,
+        8
+      ],
+      "to": [
+        13.64026845637584,
+        11,
+        8
+      ],
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": -45,
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            2.03125,
+            4.359375,
+            13.96875,
+            16
+          ],
+          "texture": "#cross"
+        },
+        "south": {
+          "uv": [
+            13.96875,
+            4.359375,
+            2.03125,
+            16
+          ],
+          "texture": "#cross"
+        }
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout"
+}

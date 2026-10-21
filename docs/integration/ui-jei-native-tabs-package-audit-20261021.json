@@ -1,0 +1,11 @@
+{
+  "jarSHA256": "d540f65141644e992df7fd6f8b7e4eef527147cdd5a3e328586934ef959dda5e",
+  "bytes": 75025269,
+  "qaClassLeaks": [],
+  "nonProductionTypesChecked": 155,
+  "build": "jar/reobfJar successful, 36s",
+  "gameClientLaunched": false,
+  "worldReopenVerified": false,
+  "localConfigBackup": "mod-backups/world-reopen-20261021-051508",
+  "localConfigChange": "citadel-common.toml: Skip Datapack Warnings=false"
+}
