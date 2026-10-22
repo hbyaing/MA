@@ -3,6 +3,9 @@
   "checks": [
     "WebGL2 compile/link/render",
     "pause holds animation time",
+    "old arc color/speed/enabled recipes migrate to mist",
+    "mist changes continuously with time",
+    "mist layer switch changes rendered output",
     "preset updates real rendered colors",
     "HEX and color picker synchronization",
     "all layer switches",

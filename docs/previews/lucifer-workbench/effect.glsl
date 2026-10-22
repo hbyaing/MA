@@ -1,9 +1,10 @@
 precision highp float;
 uniform vec2 resolution;
 uniform float time, intensity, density, tilt;
-uniform float radius, rotationSpeed, flowSpeed, arcSpeed, thickness, rayLength, pulseStrength, openingDuration, showFigure, glowGain;
-uniform vec3 ringColor, runeColor, rayColor, arcColor, coreColor, backgroundColor;
+uniform float radius, rotationSpeed, flowSpeed, mistSpeed, thickness, rayLength, pulseStrength, openingDuration, showFigure, glowGain;
+uniform vec3 ringColor, runeColor, rayColor, mistColor, coreColor, backgroundColor;
 uniform vec4 layers;
+uniform float mistWidth, mistIntensity, mistTurbulence;
 out vec4 fragColor;
 #define PI 3.14159265359
 float hash(float x){return fract(sin(x*127.1+13.7)*43758.5453);}
@@ -11,6 +12,10 @@ float line(float d,float w){return exp(-abs(d)/(w*thickness));}
 float ring(float r,float x,float w){return line(r-x,w);}
 float seg(vec2 p,vec2 a,vec2 b,float w){vec2 v=b-a;return line(length(p-a-v*clamp(dot(p-a,v)/dot(v,v),0.,1.)),w);}
 mat2 rot(float a){return mat2(cos(a),-sin(a),sin(a),cos(a));}
+float mistHash(vec3 p){p=fract(p*.1031);p+=dot(p,p.yzx+33.33);return fract((p.x+p.y)*p.z);}
+float mistNoise(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+ return mix(mix(mix(mistHash(i),mistHash(i+vec3(1,0,0)),f.x),mix(mistHash(i+vec3(0,1,0)),mistHash(i+vec3(1,1,0)),f.x),f.y),mix(mix(mistHash(i+vec3(0,0,1)),mistHash(i+vec3(1,0,1)),f.x),mix(mistHash(i+vec3(0,1,1)),mistHash(i+vec3(1,1,1)),f.x),f.y),f.z);}
+float mistFbm(vec3 p){float sum=0.,weight=.55;for(int i=0;i<4;i++){sum+=weight*mistNoise(p);p=p*2.03+vec3(9.2,3.7,5.1);weight*=.48;}return sum;}
 void main(){
  vec2 uv=(gl_FragCoord.xy-.5*resolution)/resolution.y;
  vec3 col=backgroundColor+backgroundColor*.5*max(0.,1.-length(uv));
@@ -47,20 +52,30 @@ void main(){
  float thin=line(dist,.0023)*mask;glow+=thin*(.3+travel*1.8);
  glow+=line(dist,.013)*mask*.13;
  float knot=ring(r,reach-.06,.007)*line(dist,.009)*1.2;glow+=knot;
- // Long restrained filament arcs, topology seeded by angle and fixed temporal intervals.
- float frame=floor(t*7.*arcSpeed);float lightning=0.;
- for(int i=0;i<5;i++){
-  float fi=float(i);float start=hash(fi+frame*3.);float aa=a-start*6.283;
-  float arcR=1.12+.045*sin(a*17.+frame)+.025*sin(a*43.+fi);
-  float gate=smoothstep(.04,.14,abs(sin(aa*.5)))*(1.-smoothstep(.38,.65,abs(sin(aa*.5))));
-  lightning+=ring(r,arcR,.003)*gate*(.3+.7*hash(fi+frame));
+ // Continuous flowing emissive mist: broad soft density, not a polyline or lightning.
+ float mist=0.;
+ if(abs(r-1.13)<mistWidth*4.+.18 && layers.w>.0){
+   float mt=t*mistSpeed;
+   vec2 flow=rot(mt*.19)*q;
+   vec3 field=vec3(flow*3.4,mt*.22);
+   float coarse=mistFbm(field);
+   float warp=mistFbm(field*1.28+vec3(3.8,7.1,-mt*.12));
+   float center=1.13+(coarse-.5)*.22*mistTurbulence;
+   float d=(r-center)/max(.012,mistWidth);
+   float veil=exp(-d*d*1.25);
+   float detail=mistFbm(vec3(flow*11.+vec2(warp*1.4,coarse),mt*.37));
+   float folds=.35+.9*smoothstep(.22,.76,coarse+detail*.25);
+   float gauze=pow(max(.0,detail),1.5)*1.4;
+   mist=veil*folds*(.35+gauze)*mistIntensity;
+   // Diffuse translucent skirt, fading continuously in both radial directions.
+   mist+=exp(-d*d*.24)*(.12+.12*coarse)*mistIntensity;
  }
 
  float inner=exp(-r*r*7.);
  float burst=pow(max(0.,sin(t*1.3)),22.)*.65;
- col+=(ringColor*rings*layers.x+runeColor*red*layers.y+rayColor*glow*layers.z+arcColor*lightning*1.3*layers.w)*intensity*unfold*pulse*glowGain;
+ col+=(ringColor*rings*layers.x+runeColor*red*layers.y+rayColor*glow*layers.z+mistColor*mist*layers.w)*intensity*unfold*pulse*glowGain;
  col+=coreColor*exp(-r*r*4.)*(.055+burst*pulseStrength)*unfold*intensity;
- col+=arcColor*lightning*.6*unfold*layers.w*intensity;
+
  // Separate suspended humanoid scale reference in front of the halo.
  vec2 h=uv-vec2(0.,-.015);float body=seg(h,vec2(0.,-.09),vec2(0.,.07),.009);
  body=max(body,line(length(h-vec2(0.,.105))-.023,.003));
