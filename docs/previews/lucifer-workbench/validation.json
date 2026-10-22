@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "checks": [
+    "WebGL2 compile/link/render",
+    "pause holds animation time",
+    "preset updates real rendered colors",
+    "HEX and color picker synchronization",
+    "all layer switches",
+    "export schema and complete parameters",
+    "valid import updates all controls",
+    "invalid import leaves existing parameters intact",
+    "autosave survives reload",
+    "1920/1280/mobile layouts without horizontal overflow",
+    "standalone file opens with no server or fetch"
+  ],
+  "errors": []
+}
