@@ -19,8 +19,6 @@ float mistFbm(vec3 p){float sum=0.,weight=.55;for(int i=0;i<4;i++){sum+=weight*m
 void main(){
  vec2 uv=(gl_FragCoord.xy-.5*resolution)/resolution.y;
  vec3 col=backgroundColor+backgroundColor*.5*max(0.,1.-length(uv));
- float ground=uv.y+.38;col+=vec3(.035,.02,.065)*exp(-abs(ground)*18.);
- float grid=pow(max(0.,cos(uv.x*36.)),45.)*exp(-abs(ground)*8.)*.016;col+=vec3(.3,.18,.5)*grid;
  float t=time;float unfold=smoothstep(0.,openingDuration,t);float pulse=1.-pulseStrength*.5+pulseStrength*.5*sin(t*2.4);
  vec2 q=uv-vec2(0.,.055);q.x/=max(.45,cos(tilt));q=rot(.025*sin(t*.2))*q;
  float scale=radius*max(.03,unfold);q/=scale;
@@ -76,6 +74,5 @@ void main(){
  col+=(ringColor*rings*layers.x+runeColor*red*layers.y+rayColor*glow*layers.z+mistColor*mist*layers.w)*intensity*unfold*pulse*glowGain;
  col+=coreColor*exp(-r*r*4.)*(.055+burst*pulseStrength)*unfold*intensity;
 
- col+=vec3(.34,.12,.8)*exp(-length(uv-vec2(0.,-.37))*14.)*.15;
  col=1.-exp(-col*1.15);col=pow(col,vec3(.88));fragColor=vec4(col,1.);
 }
