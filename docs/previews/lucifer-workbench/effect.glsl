@@ -1,7 +1,7 @@
 precision highp float;
 uniform vec2 resolution;
 uniform float time, intensity, density, tilt;
-uniform float radius, rotationSpeed, flowSpeed, mistSpeed, thickness, rayLength, pulseStrength, openingDuration, showFigure, glowGain;
+uniform float radius, rotationSpeed, flowSpeed, mistSpeed, thickness, rayLength, pulseStrength, openingDuration, glowGain;
 uniform vec3 ringColor, runeColor, rayColor, mistColor, coreColor, backgroundColor;
 uniform vec4 layers;
 uniform float mistWidth, mistIntensity, mistTurbulence;
@@ -76,12 +76,6 @@ void main(){
  col+=(ringColor*rings*layers.x+runeColor*red*layers.y+rayColor*glow*layers.z+mistColor*mist*layers.w)*intensity*unfold*pulse*glowGain;
  col+=coreColor*exp(-r*r*4.)*(.055+burst*pulseStrength)*unfold*intensity;
 
- // Separate suspended humanoid scale reference in front of the halo.
- vec2 h=uv-vec2(0.,-.015);float body=seg(h,vec2(0.,-.09),vec2(0.,.07),.009);
- body=max(body,line(length(h-vec2(0.,.105))-.023,.003));
- body=max(body,seg(h,vec2(-.005,-.08),vec2(-.035,-.22),.006));body=max(body,seg(h,vec2(.005,-.08),vec2(.035,-.22),.006));
- body=max(body,seg(h,vec2(-.005,.055),vec2(-.088,.015),.005));body=max(body,seg(h,vec2(.005,.055),vec2(.088,.015),.005));
- body*=showFigure;float silhouette=smoothstep(.13,.85,body);col=mix(col,vec3(.018,.012,.04),silhouette*.88);col+=vec3(.8,.46,1.)*body*.40*unfold;
  col+=vec3(.34,.12,.8)*exp(-length(uv-vec2(0.,-.37))*14.)*.15;
  col=1.-exp(-col*1.15);col=pow(col,vec3(.88));fragColor=vec4(col,1.);
 }
