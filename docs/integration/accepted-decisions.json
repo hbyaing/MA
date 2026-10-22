@@ -429,15 +429,5 @@
   "localOnly": true,
   "reviewedAt": "2026-10-21",
   "deliveryBranch": "codex/myriad-ascension-delivery-old-ui",
-  "statusNote": "Implementation presence is not current acceptance. See acceptance-baseline.json and ACCEPTANCE.md.",
-  "chuangshiAddon": {
-    "confirmedAt": "2026-10-22",
-    "decision": "本轮保留创世仙途为万界仙途附属；后续统一境界。",
-    "previousRealmPolicy": "此前本轮原样保留额外生命，后续统一境界；已由用户2026-10-22新要求替代。",
-    "realmPolicy": "用户2026-10-22要求从地仙开始、删除凡仙并考虑平衡。保留xianRealm旧1至7编号，0仅为未登仙状态，主地仙旧0补齐1。地仙不重复加生命；天仙至天道额外生命300/600/900/1200/1600/2000，默认封顶2000，主境界不足地仙时不激活。攻击、灵力仍由主框架唯一结算。正式统一的完整七境属性和突破数值为设计目标，尚未启用。",
-    "realmPlan": "创世仙途 mod/docs/IMMORTAL-REALM-PLAN.md（r211）；完整生命4000/6000/9000/13500/20000/30000/45000，攻击加值260/350/470/630/850/1150/1550，灵力100/160/250/400/630/1000/1600万。融合时替换过渡生命加成，不能叠加。",
-    "identityPolicy": "保留 wuxingxiantu、wuxingchuangshi、旧维度 ID、存档键和玩家 UUID 所有权。",
-    "currencyPolicy": "沿用 D01：小世界升级按下品等值复用主模组 SpiritCurrency，不新增账户；已提交材料数值不变。",
-    "acceptance": "开发进度快照；构建与局部兼容验证不等于最新整体完成验收。"
-  }
+  "statusNote": "Implementation presence is not current acceptance. See acceptance-baseline.json and ACCEPTANCE.md."
 }

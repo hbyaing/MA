@@ -7,18 +7,9 @@ import net.minecraft.network.chat.Component;
 /** The page renders only the server's account snapshot. */
 public final class PlayerProgressionPage extends CultivationPage {
     private final boolean sense;
-    private static int senseFooterHeight;
-    private static final String SENSE_HELP = "开辟识海需静止5秒；辨识需凝神2秒。受击或移动会中断。锁定每秒消耗1点，遮挡或超距自动解除。矿物与结构探查每秒1点，每30秒复查另需8点。";
-    /** Reserve footer space before opening the page; addons keep the existing styled controls. */
-    public static void reserveSenseFooter(int height) { senseFooterHeight = Math.max(senseFooterHeight, Math.max(0, height)); }
-    public int senseFooterY() { return senseFooterY(width); }
-    private int senseFooterY(int w) {
-        var f = net.minecraft.client.Minecraft.getInstance().font;
-        return Math.max(310, 239 + f.wordWrapHeight(SENSE_HELP, Math.max(1, w - 24)) + 12);
-    }
     private final java.util.List<CultivationUi.Action> actions=new java.util.ArrayList<>();
     public PlayerProgressionPage(boolean sense){super(sense?"识海":"百艺");this.sense=sense;}
-    @Override public int contentHeight(int w,int h){return Math.max(h,sense?senseFooterY(w)+senseFooterHeight+64:470);}
+    @Override public int contentHeight(int w,int h){return Math.max(h,sense?370:470);}
     @Override protected void init(){
         actions.clear();
         PlayerProgressionClient.request("refresh");
@@ -45,8 +36,8 @@ public final class PlayerProgressionPage extends CultivationPage {
             g.fill(12,48,width-12,52,CultivationUi.PANEL);g.fill(12,48,12+(int)((width-24)*ratio),52,CultivationUi.CYAN);
             String status=n.getInt("Channel")>0?"凝神中，剩余 "+(int)Math.ceil(n.getInt("Remaining")/20.0)+"秒":n.getString("Lock").isEmpty()?"未锁定目标":"锁定："+n.getString("Lock");
             line(g,status,12,219,CultivationUi.GOLD);
-            g.drawWordWrap(font,Component.literal(SENSE_HELP),12,239,width-24,CultivationUi.MUTED);
-            g.drawWordWrap(font,Component.literal(n.getString("Notice")),12,senseFooterY()+senseFooterHeight,width-24,CultivationUi.TEXT);
+            g.drawWordWrap(font,Component.literal("开辟识海需静止5秒；辨识需凝神2秒。受击或移动会中断。锁定每秒消耗1点，遮挡或超距自动解除。矿物与结构探查每秒1点，每30秒复查另需8点。"),12,239,width-24,CultivationUi.MUTED);
+            g.drawWordWrap(font,Component.literal(n.getString("Notice")),12,310,width-24,CultivationUi.TEXT);
         }else{
             for(int i=0;i<3;i++){
                 var p=n.getCompound(PlayerCrafts.IDS[i]);int rank=Math.max(0,Math.min(8,p.getInt("Rank"))),next=Math.min(8,rank+1),y=18+i*122,bonus=p.getBoolean("Learned")?rank+1:0;
