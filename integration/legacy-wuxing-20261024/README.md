@@ -26,7 +26,7 @@ bundle 不包含未跟踪文件、被忽略文件和悬空 Git 对象。旧 `.gi
 
 ## 删除前的剩余事项
 
-1. 共享分支上传并验证；必要差异包已迁入，远程取回哈希还须核对。
+1. 已推送共享分支 `codex/migrate-wuxing-resources-20261024`，从 GitHub 独立克隆到本地 `cloud-restore-check`，fsck 通过，两个归档包及全部 2,077 个归档文件哈希核对通过。尚未合入 main。
 2. 恢复工作台总入口，确认实际工具链与 Blockbench 等外部程序没有继续依赖旧路径。当前项目运行配置/工具未发现旧绝对路径依赖，外部程序范围尚未完成验证。
 3. Codex 中旧项目仍注册，三个玄水妖聊天仍关联旧目录。仅移动聊天的项目归属不能证明其工作目录已迁移；本轮没有修改聊天。
 4. 真正退役时，再确认没有程序/聊天使用旧目录，把完整 `E:/五行仙途` 移到唯一的新目录 `E:/垃圾/日期/五行仙途退役/五行仙途`，保留原 `.git`、历史交付物和未跟踪文件；核对路径并验证移动结果。不要永久删除，也不要删除 GitHub 上游仓库。
@@ -36,3 +36,5 @@ bundle 不包含未跟踪文件、被忽略文件和悬空 Git 对象。旧 `.gi
 ## 验证
 
 万界仙途 `gradlew.bat build --no-daemon --console=plain -PpythonExecutable=C:/Users/Nostzephert/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe` 通过，包含资源检查、专用检查、数值回归和 GameTest 编译。默认 PATH Python 缺少 Pillow，应用自带 Python 通过。归档不加入正式 Mod 包；客户端光影、自然生成、存档重载不属于本轮归档验证结论。
+
+在固定提交 `5eb17fc` 上另行执行完整 `runGameTestServer`：339 个必测全部通过，Gradle 退出码 0。日志：本地 `reports/legacy-migration-gametest.log`。旧历史恢复克隆中执行 `git apply --check uncommitted.patch` 也通过。远程归档可用 `python tools/verify_legacy_archive.py <克隆目录>/integration/legacy-wuxing-20261024` 重新验证。
