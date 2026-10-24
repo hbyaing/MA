@@ -36,6 +36,7 @@ if (project.hasProperty('myriadCapture')) {
             args '--mixin', 'wuxingxiantu.myriad-qa-pointer.mixins.json'
             property 'wuxingxiantu.myriadCapture', (!project.hasProperty('myriadWorldgen') && !project.hasProperty('myriadUiOnly') && !project.hasProperty('creativeTabsCapture')).toString()
             if (project.hasProperty('creativeTabsCapture')) property 'wuxingxiantu.creativeTabsCapture', 'true'
+            if (project.hasProperty('jeiLayoutCapture')) property 'wuxingxiantu.jeiLayoutCapture', 'true'
             if (project.hasProperty('myriadWorldgen')) property 'wuxingxiantu.myriadWorldgen', 'true'
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', file('build/createSrgToMcp/output.srg').absolutePath
