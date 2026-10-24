@@ -1,12 +1,10 @@
 // Adapted from hbyaing/xiantu r115 (ff253fa), retaining the original vein algorithm.
 package cn.blockforge.generated.generatedmod.world;
 
-import cn.blockforge.generated.generatedmod.economy.SpiritStoneGrade;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
@@ -46,7 +44,6 @@ public class SpiritVeinFeature extends Feature<NoneFeatureConfiguration> {
         var data=SpiritVeinData.get(level.getLevel());
         if(!data.canDecorate(chunk))return false;
         int requested = SpiritVein.richness(seed, chunk.x, chunk.z);
-        RandomSource random = RandomSource.create(SpiritVein.mix(seed ^ 0x1234ABCDL, chunk.x, chunk.z));
         java.util.Set<BlockPos> walls = new java.util.HashSet<>();
         for (int x=chunk.getMinBlockX()-15;x<=chunk.getMaxBlockX()+15;x++)
             for(int z=chunk.getMinBlockZ()-15;z<=chunk.getMaxBlockZ()+15;z++)
@@ -66,8 +63,7 @@ public class SpiritVeinFeature extends Feature<NoneFeatureConfiguration> {
         java.util.List<BlockPos> ores=largest.subList(0,Math.min(target,largest.size()));
         int actual=requested==5?5:ores.size()>=192?4:ores.size()>=144?3:ores.size()>=96?2:1;
         for(int i=0;i<ores.size();i++) {
-            SpiritStoneGrade grade=actual==5?SpiritStoneGrade.EXQUISITE:i<4?SpiritStoneGrade.values()[i]:pickGrade(random,actual);
-            level.setBlock(ores.get(i),grade.ore().defaultBlockState(),2);
+            level.setBlock(ores.get(i),cn.blockforge.generated.generatedmod.WuXingBlocks.SPIRIT_VEIN_ORE.get().defaultBlockState(),2);
         }
         // 脉心取实际矿带内、靠近质心的一块矿，不再指向随机岩层坐标。
         double ax=ores.stream().mapToInt(BlockPos::getX).average().orElseThrow(),ay=ores.stream().mapToInt(BlockPos::getY).average().orElseThrow(),az=ores.stream().mapToInt(BlockPos::getZ).average().orElseThrow();
@@ -86,26 +82,4 @@ public class SpiritVeinFeature extends Feature<NoneFeatureConfiguration> {
         return false;
     }
 
-    /** 按灵脉品阶抽一块灵石矿的品阶：脉越粗，出好矿的概率越高。 */
-    private static SpiritStoneGrade pickGrade(RandomSource random, int richness) {
-        int[] weights = {60, 25, 10, 5};
-        int bonus = (richness - 1) * 12;
-        weights[0] = Math.max(5, weights[0] - bonus);
-        weights[1] += bonus / 3;
-        weights[2] += bonus / 3;
-        weights[3] += bonus / 4;
-        weights[3] += bonus / 6;
-        int total = 0;
-        for (int weight : weights) {
-            total += weight;
-        }
-        int roll = random.nextInt(total);
-        for (int i = 0; i < weights.length; i++) {
-            roll -= weights[i];
-            if (roll < 0) {
-                return SpiritStoneGrade.values()[i];
-            }
-        }
-        return SpiritStoneGrade.LOW;
-    }
 }

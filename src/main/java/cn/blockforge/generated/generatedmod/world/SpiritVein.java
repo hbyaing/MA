@@ -38,7 +38,7 @@ public final class SpiritVein {
         return Math.floorMod(chunkX,3)==1 && Math.floorMod(chunkZ,3)==1 && Math.floorMod(mix(seed, chunkX, chunkZ),100L)<27;
     }
 
-    /** 灵脉规模 1~5，最大规模是纯极品矿脉。 */
+    /** 灵脉规模 1~5；规模决定数量和灵气，灵石品级在采掘时抽取。 */
     public static int richness(long seed, int chunkX, int chunkZ) {
         int roll = (int) Math.floorMod(mix(seed ^ 0x5DEECE66DL, chunkX, chunkZ), 100L);
         if (roll < 40) {

@@ -36,7 +36,7 @@
       "sourceEvidence": "world/SpiritVeinFeature.java",
       "targetEvidence": "data/wuxingxiantu/worldgen/",
       "status": "confirmed",
-      "decision": "五行世界生成管理接入仙途分级、连续洞壁矿脉、实际生成记录与探测；矿物贴图保留五行。只作用于新区块。",
+      "decision": "五行世界生成管理接入连续洞壁矿脉、实际生成记录与探测；矿物贴图保留五行。2026-10-25 用户确认统一为一种灵脉矿石，采掘随机掉落四级灵石（基础权重60/25/10/5）；旧品级注册保留兼容，隐藏旧目录条目，精准采集统一为单一矿石。新生成规则只作用于新区块。",
       "implementation": "生成、探测、灵气场及存档已接入，逻辑测试通过；自然世界分布待实测",
       "latestAcceptance": "pending current complete server/client acceptance"
     },

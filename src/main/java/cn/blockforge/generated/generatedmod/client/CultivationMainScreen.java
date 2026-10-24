@@ -40,6 +40,18 @@ public final class CultivationMainScreen extends InventoryScreen {
     }
     private boolean inventory() { return page == null; }
     boolean hasCustomPage() { return !inventory(); }
+    /** Match vanilla drawing, rather than the outer-window getters used by JEI. */
+    public List<net.minecraft.client.renderer.Rect2i> jeiEffectAreas() {
+        if(!inventory() || minecraft.player==null) return List.of();
+        var effects=minecraft.player.getActiveEffects().stream()
+                .filter(effect->net.minecraftforge.client.extensions.common.IClientMobEffectExtensions.of(effect).isVisibleInInventory(effect)).toList();
+        int x=leftPos+imageWidth+2;
+        if(effects.isEmpty() || width-x<32) return List.of();
+        int step=effects.size()>5 ? 132/(effects.size()-1) : 33;
+        var areas=new ArrayList<net.minecraft.client.renderer.Rect2i>();
+        for(int i=0;i<effects.size();i++) areas.add(new net.minecraft.client.renderer.Rect2i(x,topPos+i*step,width-x>=120?120:32,32));
+        return areas;
+    }
     boolean ownsClick(double x,double y) {
         if(!inventory())return x>=panelX&&x<panelX+panelW&&y>=panelY&&y<panelY+panelH;
         if(getRecipeBookComponent().isVisible()&&getRecipeBookComponent().isMouseOver(x,y))return false;

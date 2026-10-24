@@ -13,8 +13,7 @@ public enum SpiritStoneGrade {
     public Item item(){return switch(this){
         case LOW->WuXingItems.SPIRIT_STONE.get();case MIDDLE->WuXingItems.SPIRIT_STONE_MIDDLE.get();
         case SUPERIOR->WuXingItems.SPIRIT_STONE_SUPERIOR.get();case EXQUISITE->WuXingItems.SPIRIT_STONE_EXQUISITE.get();};}
-    public Block ore(){return switch(this){
-        case LOW->WuXingBlocks.SPIRIT_VEIN_ORE.get();case MIDDLE->WuXingBlocks.SPIRIT_VEIN_ORE_MIDDLE.get();
-        case SUPERIOR->WuXingBlocks.SPIRIT_VEIN_ORE_SUPERIOR.get();case EXQUISITE->WuXingBlocks.SPIRIT_VEIN_ORE_EXQUISITE.get();};}
+    /** One physical ore; grade is rolled by its loot table when mined. */
+    public Block ore(){return WuXingBlocks.SPIRIT_VEIN_ORE.get();}
     public static SpiritStoneGrade of(Item item){for(var grade:values())if(grade.item()==item)return grade;return null;}
 }

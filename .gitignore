@@ -11,3 +11,5 @@ mcp-classes/
 mcp-debug/
 .gradle-local/
 *.tmp
+__pycache__/
+*.py[cod]
