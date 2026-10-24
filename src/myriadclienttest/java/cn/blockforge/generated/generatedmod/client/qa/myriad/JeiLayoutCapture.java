@@ -47,12 +47,14 @@ public final class JeiLayoutCapture {
             tick++;
             if(tick%30==1){
                 mc.options.guiScale().set(stage/4+1);mc.resizeDisplay();
-                mc.player.removeAllEffects();
-                if(stage%4>=2)for(var effect:List.of(MobEffects.MOVEMENT_SPEED,MobEffects.DAMAGE_BOOST,MobEffects.REGENERATION))mc.player.addEffect(new MobEffectInstance(effect,12000));
+                fixture(mc,stage%4>=2);
                 mc.setScreen(new CultivationMainScreen(mc.player,stage%2==0?"inventory":"vision"));
                 WuXingJeiPlugin.runtime.getIngredientFilter().setFilterText("");
             }
             if(tick%30==25){
+                // Initial cultivation synchronization can add effects after the screen opens.
+                // Set the exact fixture immediately before querying the real JEI handler.
+                fixture(mc,stage%4>=2);
                 var screen=(CultivationMainScreen)mc.screen;
                 var areas=new InventoryEffectRendererGuiHandler<net.minecraft.world.inventory.InventoryMenu>().getGuiExtraAreas(screen);
                 check(areas.size()==(stage%4==2?3:0),"Phantom effect exclusions on stage "+stage+": "+areas.size());
@@ -70,6 +72,12 @@ public final class JeiLayoutCapture {
         }catch(Throwable e){failures.add(e.toString());finish(mc);}
     }
     static void check(boolean condition,String message){if(!condition)throw new AssertionError(message);}
+    static void fixture(Minecraft mc,boolean buffs){
+        // removeAllEffects intentionally does nothing on client worlds.
+        mc.player.getActiveEffectsMap().clear();
+        if(buffs)for(var effect:List.of(MobEffects.MOVEMENT_SPEED,MobEffects.DAMAGE_BOOST,MobEffects.REGENERATION))
+            mc.player.getActiveEffectsMap().put(effect,new MobEffectInstance(effect,12000));
+    }
     static void finish(Minecraft mc){
         finished=true;
         try{Files.writeString(OUT.resolve("verification.json"),new GsonBuilder().setPrettyPrinting().create().toJson(Map.of("cases",rows,"failures",failures,"pointerSafety",PointerSafety.snapshot())));}catch(Exception e){throw new RuntimeException(e);}

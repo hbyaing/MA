@@ -16,6 +16,8 @@ import java.util.List;
 public abstract class JeiInventoryEffectsMixin {
     @Inject(method="getGuiExtraAreas", at=@At("HEAD"), cancellable=true, require=0, remap=false)
     private void wuxing$actualEffects(@Coerce Object screen, CallbackInfoReturnable<List<Rect2i>> result) {
-        if(screen instanceof CultivationMainScreen cultivation) result.setReturnValue(cultivation.jeiEffectAreas());
+        if(screen instanceof CultivationMainScreen cultivation
+                && mezz.jei.common.Internal.getJeiFeatures().getInventoryEffectRendererGuiHandlerEnabled())
+            result.setReturnValue(cultivation.jeiEffectAreas());
     }
 }
