@@ -2473,5 +2473,7 @@
   "itemGroup.wuxingxiantu.talismans": "Myriad Ascension: Talismans",
   "itemGroup.wuxingxiantu.formations": "Myriad Ascension: Formations",
   "itemGroup.wuxingxiantu.materials": "Myriad Ascension: Materials",
-  "itemGroup.wuxingxiantu.misc": "Myriad Ascension: Miscellany"
+  "itemGroup.wuxingxiantu.misc": "Myriad Ascension: Miscellany",
+  "block.wuxingxiantu.formation_carving_core": "Formation Carving Core",
+  "block.wuxingxiantu.carved_formation_eye": "Carved Formation Eye"
 }

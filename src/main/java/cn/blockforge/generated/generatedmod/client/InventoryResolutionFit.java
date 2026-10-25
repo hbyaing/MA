@@ -3,7 +3,7 @@ package cn.blockforge.generated.generatedmod.client;
 import net.minecraft.client.Minecraft;
 
 /** Screen-local GUI density: leave room for the complete window and both JEI sidebars. */
-final class InventoryResolutionFit {
+public final class InventoryResolutionFit {
     static int scale(int pixelWidth,int pixelHeight,int configuredScale,boolean forceUnicode) {
         // At 1080p use a 960x540 GUI canvas (scale 2); 1440p uses scale 3.
         // A 480px window then has space for ingredients, bookmarks and navigation.
@@ -14,13 +14,13 @@ final class InventoryResolutionFit {
         return fit;
     }
 
-    static void apply(Minecraft minecraft) {
+    public static void apply(Minecraft minecraft) {
         var window=minecraft.getWindow();
         int configured=window.calculateScale(minecraft.options.guiScale().get(),minecraft.isEnforceUnicode());
         window.setGuiScale(scale(window.getWidth(),window.getHeight(),configured,minecraft.isEnforceUnicode()));
     }
 
-    static void restore(Minecraft minecraft) {
+    public static void restore(Minecraft minecraft) {
         if(minecraft==null)return;
         var window=minecraft.getWindow();
         window.setGuiScale(window.calculateScale(minecraft.options.guiScale().get(),minecraft.isEnforceUnicode()));

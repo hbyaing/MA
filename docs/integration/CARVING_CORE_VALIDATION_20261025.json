@@ -1,0 +1,15 @@
+{
+  "build": "build runGameTestServer -PcarvingOnly --max-workers=1 --offline",
+  "result": "BUILD SUCCESSFUL",
+  "gameTests": {
+    "required": 11,
+    "passed": 11
+  },
+  "resources": {
+    "passed": 15
+  },
+  "shader": "GLSL150 linked on local OpenGL3.3; not tested in Minecraft client",
+  "protocol": "96",
+  "jarSha256": "262d3c9018b07b900f484573b0601c5af05764d2c6e97d01f7b1ac8e52371d5b",
+  "installation": "not installed: authorized AXO directory absent, launcher discovery returned zero instances"
+}

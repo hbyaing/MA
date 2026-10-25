@@ -58,6 +58,9 @@ public final class GeneratedMod {
         modContext.registerConfig(net.minecraftforge.fml.config.ModConfig.Type.SERVER,
                 cn.blockforge.generated.generatedmod.balance.GameplayConfig.SPEC,"wuxingxiantu-gameplay-server.toml");
 
+        cn.blockforge.generated.generatedmod.formation.carving.CarvingRegistry.register(modEventBus);
+        modContext.registerConfig(net.minecraftforge.fml.config.ModConfig.Type.SERVER,
+                cn.blockforge.generated.generatedmod.formation.carving.CarvingConfig.SPEC,"wuxingxiantu-carved-formations-server.toml");
         ModFluids.FLUID_TYPES.register(modEventBus);
         ModFluids.FLUIDS.register(modEventBus);
         WuXingBlocks.BLOCKS.register(modEventBus);
