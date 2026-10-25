@@ -19,23 +19,23 @@ public final class EquipmentWorkstationMenu extends AbstractContainerMenu {
     private final ContainerData data=new SimpleContainerData(12);
     public EquipmentWorkstationMenu(int id,Inventory inv,BlockPos pos,boolean inscription){
         super(inscription?ModMenus.INSCRIPTION_TABLE.get():ModMenus.REFORGE_TABLE.get(),id);owner=inv.player;this.pos=pos;this.inscription=inscription;
-        String profile=inscription?"inscription":"reforge";
-        int equipmentX=UiLayoutConfig.x(profile,"equipmentSlot",UiLayoutConfig.x(profile,"equipment",170)),equipmentY=UiLayoutConfig.y(profile,"equipmentSlot",UiLayoutConfig.y(profile,"equipment",97));
-        int bookX=UiLayoutConfig.x(profile,"bookSlot",UiLayoutConfig.x(profile,"book",130)),bookY=UiLayoutConfig.y(profile,"bookSlot",UiLayoutConfig.y(profile,"book",inscription?171:183));
+        String profile=inscription?"inscription_gold":"reforge";
+        int equipmentX=UiLayoutConfig.x(profile,"equipmentSlot",UiLayoutConfig.x(profile,"equipment",inscription?204:170)),equipmentY=UiLayoutConfig.y(profile,"equipmentSlot",UiLayoutConfig.y(profile,"equipment",inscription?91:97));
+        int bookX=UiLayoutConfig.x(profile,"bookSlot",UiLayoutConfig.x(profile,"book",inscription?165:130)),bookY=UiLayoutConfig.y(profile,"bookSlot",UiLayoutConfig.y(profile,"book",inscription?174:183));
         addSlot(new Slot(input,0,equipmentX,equipmentY){@Override public boolean mayPlace(ItemStack s){return EquipmentCrafting.eligible(s);}@Override public int getMaxStackSize(){return 1;}@Override public void setChanged(){super.setChanged();bump();}});
         // Keep the optional legacy-book slot inside the inscription preview
         // card; its former y=183 position crossed the card's lower frame.
         addSlot(new Slot(input,1,bookX,bookY){@Override public boolean mayPlace(ItemStack s){return false;}@Override public int getMaxStackSize(){return 1;}@Override public void setChanged(){super.setChanged();bump();}});
         // 铭刻台参考稿的物品栏位于右下独立面板：保持原版 16px 槽位和 16px 步长，
         // 不把物品格拉伸成横跨整窗的压缩条。
-        int inventoryX=UiLayoutConfig.x(profile,"inventory",inscription?241:18),inventoryY=UiLayoutConfig.y(profile,"inventory",inscription?229:243);
+        int inventoryX=UiLayoutConfig.x(profile,"inventory",inscription?234:18),inventoryY=UiLayoutConfig.y(profile,"inventory",inscription?281:243);
         // `inventory` is the panel anchor.  Slot spacing is a separate value;
         // using the panel width here stretched the vanilla 16px slots across
         // the reference screenshot and made the live inventory drift.
         int inventoryStep=Math.max(18,UiLayoutConfig.width(profile,"inventoryStepX",18));
         int inventoryRowStep=Math.max(18,UiLayoutConfig.height(profile,"inventoryStepY",18));
         for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(inv,col+row*9+9,inventoryX+col*inventoryStep,inventoryY+row*inventoryRowStep));
-        for(int col=0;col<9;col++)addSlot(new Slot(inv,col,inventoryX+col*inventoryStep,inventoryY+3*inventoryRowStep));
+        for(int col=0;col<9;col++)addSlot(new Slot(inv,col,inventoryX+col*inventoryStep,inventoryY+3*inventoryRowStep+(inscription?4:0)));
         addDataSlots(data);refresh();
     }
     public static EquipmentWorkstationMenu fromNetwork(int id,Inventory inv,FriendlyByteBuf buf){return new EquipmentWorkstationMenu(id,inv,buf.readBlockPos(),buf.readBoolean());}

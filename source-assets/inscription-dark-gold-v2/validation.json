@@ -1,0 +1,17 @@
+{
+  "startup_without_jei": "reports/inscription-dark-gold/inscription/result.json",
+  "startup_with_jei": "reports/inscription-dark-gold-final-native/inscription/result.json",
+  "visual_states": [
+    "normal",
+    "hover",
+    "disabled",
+    "focus",
+    "search-input",
+    "scale3",
+    "scale4"
+  ],
+  "inventory_slots": 36,
+  "production_sha256": "cbc923aa4047654728343e5988b2c60b11b02f4085d418610fa72f79b3fca327",
+  "workbench": "Not used, per user instruction",
+  "limitations": "Controlled client quote fixture; not a new full gameplay acceptance"
+}
