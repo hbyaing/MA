@@ -18,19 +18,19 @@ def main():
         spec=importlib.util.spec_from_file_location('existing_workbench_catalog',args.catalog)
         external=importlib.util.module_from_spec(spec);spec.loader.exec_module(external)
         entries=[(item[0],item) for item in external.ENTRIES]
-    entries += [('紫曜背轮 · 分层调色工作台',None)]
+    entries += [('紫曜背轮 · 分层调色工作台','lucifer-workbench'),('储物袋 UI · 原版重置预览','bag-ui')]
     for i,(name,_) in enumerate(entries,1): print(f'{i}. {name}',flush=True)
     choice=args.selected or input('输入编号或名称：').strip()
     selected=int(choice)-1 if choice.isdecimal() else next((i for i,(name,_) in enumerate(entries) if choice in name),-1)
     if not 0<=selected<len(entries):raise SystemExit('未找到工作台')
     name,item=entries[selected]
-    if item is not None: server,url=external.create_server(item)
+    if not isinstance(item,str): server,url=external.create_server(item)
     else:
         class Handler(SimpleHTTPRequestHandler):
             def log_message(self,*args):pass
             def end_headers(self):
                 self.send_header('Cache-Control','no-store');super().end_headers()
-        server=ThreadingHTTPServer(('127.0.0.1',0),partial(Handler,directory=str(ROOT/'lucifer-workbench')))
+        server=ThreadingHTTPServer(('127.0.0.1',0),partial(Handler,directory=str(ROOT/item)))
         url=f'http://127.0.0.1:{server.server_port}/index.html'
     print(f'WORKBENCH_URL={url}',flush=True)
     if not args.no_browser:webbrowser.open_new_tab(url)
