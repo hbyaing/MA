@@ -18,13 +18,17 @@ def main():
         spec=importlib.util.spec_from_file_location('existing_workbench_catalog',args.catalog)
         external=importlib.util.module_from_spec(spec);spec.loader.exec_module(external)
         entries=[(item[0],item) for item in external.ENTRIES]
-    entries += [('紫曜背轮 · 分层调色工作台','lucifer-workbench'),('储物袋 UI · 原版重置预览','bag-ui')]
+    entries += [('紫曜背轮 · 分层调色工作台','lucifer-workbench'),('储物袋 UI · 原版重置预览','bag-ui'),('阵法总工作台 · 全部预览','formations')]
     for i,(name,_) in enumerate(entries,1): print(f'{i}. {name}',flush=True)
     choice=args.selected or input('输入编号或名称：').strip()
     selected=int(choice)-1 if choice.isdecimal() else next((i for i,(name,_) in enumerate(entries) if choice in name),-1)
     if not 0<=selected<len(entries):raise SystemExit('未找到工作台')
     name,item=entries[selected]
-    if not isinstance(item,str): server,url=external.create_server(item)
+    if item=='formations':
+        spec=importlib.util.spec_from_file_location('formations_gallery',ROOT/'formations/server.py')
+        gallery=importlib.util.module_from_spec(spec);spec.loader.exec_module(gallery)
+        server,url=gallery.create_server()
+    elif not isinstance(item,str): server,url=external.create_server(item)
     else:
         class Handler(SimpleHTTPRequestHandler):
             def log_message(self,*args):pass

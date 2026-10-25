@@ -1,0 +1,1 @@
+uniform sampler2D InputColor;uniform vec2 Direction;void main(){vec3 c=texture(InputColor,uv).rgb*.227027;c+=(texture(InputColor,uv+Direction*1.384615).rgb+texture(InputColor,uv-Direction*1.384615).rgb)*.316216;c+=(texture(InputColor,uv+Direction*3.230769).rgb+texture(InputColor,uv-Direction*3.230769).rgb)*.070270;FragColor=vec4(c,1.);}
