@@ -17,3 +17,5 @@
 验证：四张贴图尺寸、透明边距、互异性、模型引用、正式构建和包内字节一致性；安装 SHA-256 由 tools/install_test_instance.py 记录。尚未进行客户端实机验收，本记录不代表项目整体完成验收。
 
 128px 升级：保留既有四档设计，重新从生图原件缩制，更新对照预览。PNG 无损保存；放大预览检查边缘、切面和晶髓，未进行客户端实机验收。
+
+上品、极品自然矿晶重做：当前采用 superior-natural-generated.png 与 exquisite-natural-generated.png 为源图。参考前两档厚实不规则矿晶，保留蓝紫/蜜金品阶配色、内部灵脉与晶质层次，移除规整双尖和强烈霓虹宝石外观。正式资源仍为 128×128；下品、中品未修改。完整提示词见 high-grade-redesign-prompts.md。历史 *-generated.png 作为旧设计记录保留。
