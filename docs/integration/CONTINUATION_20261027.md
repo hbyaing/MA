@@ -8,11 +8,13 @@
 - 五项使用相同心境加载 fixture 的测试统一采用 400 tick 总上限，区块准备和 Boss 加载另有 200 / 100 tick 诊断限时。二阶段伤害等待 Boss 实际经过 20 tick，不再依赖固定 25 个服务器 tick。保留真实伤害、挑战结束、封存解除和修为恢复断言；不修改生产代码或增加失败重试。
 - PR 和主分支的附件上传出现 `Artifact storage quota has been hit`。附件传输设为非阻断步骤，失败时记录明确 warning 和 job summary；编译、资源检查、完整 GameTests、日志核验和警告预算仍为必过步骤。
 - 验收附件保留 7 天；JAR 附件保留 3 天，仅在 main 或手动运行上传，避免每个功能分支与 PR 重复上传大包。没有删除已有远端附件；已有存储配额不会因这次配置修改立即释放，附件不可用仍须明确报告。
+- 首版修复 `33ce7b7` 的 push 运行 `40407849844` 通过 354/354；PR 运行 `40407860576` 的心境测试通过，但高速飞行测试在模板外的“空路”上失败。原有本地飞行测试修复正是该问题的隔离走廊与区块就绪检查。用户于 2026-10-27 明确授权将它一并提交到 PR #39；原“仅本地”限制已针对这次修复解除。
 
 ## 本地验证及安装
 
-- 隔离原有 FlightNurture 未提交修改和 `docs/testing/`，磁盘备份位于 `E:/备份/万界仙途/2026-10-27-续接重做灵石贴图/`；不纳入本次提交。
+- 原有 FlightNurture 未提交修改和 `docs/testing/` 已先隔离保护，磁盘备份位于 `E:/备份/万界仙途/2026-10-27-续接重做灵石贴图/`；用户授权后将飞行 fixture 和说明纳入本次提交。
 - 原测试存档在无运行中 GameTest 进程时移动至日期任务垃圾目录，用全新存档执行 `./gradlew.bat verifyFull --rerun-tasks --offline --no-daemon --console=plain`，构建成功，354/354 必需测试通过。日志与机器结果位于 `reports/continuation-20261027/`；完整日志 SHA-256：`5c58b954e4065e8f917920dfd17ca960372a6f356b2e6467ca7c0dbcdaf2d2f6`。源码包检查及 6 项日志解析单元测试通过。
+- 恢复飞行 fixture 后再次用全新存档执行 `verifyFull --offline --no-daemon --console=plain`，354/354 必需测试通过。日志 SHA-256：`e555236b9e17aeede83070033ce62b194b46b557871f0e9737c4cd6b5262d290`；机器结果见 `evidence/continuation-20261027-with-flight-tests.json`。两个测试修复均不修改生产代码、战斗或飞行规则。
 - 旧聊天 6 张实机验收图的 SHA-256 全部吻合。此次重建的正式 JAR 与已验收旧包全部 ZIP 条目的内容逐字节相同，仅容器哈希改变；不将复核历史截图描述为本轮重新实机测试。
 - 已通过 `tools/install_test_instance.py` 安装到约定 AXO “测试（1）”，SHA-256：`01034b54f843cc160c08566b7b6d88d81d5bb4e68bf8b3d44148241c7cc74536`。旧包备份并校验；只存在一个本 Mod JAR，其他 64 个 Mod 哈希不变。安装清单见同目录 `evidence/continuation-20261027-installation.json`。
 - 核查时未发现运行中的 Java 游戏进程。此次未启动或关闭客户端；只确认磁盘包安装，不宣称当前客户端已加载。整体项目仍为开发进度快照。
