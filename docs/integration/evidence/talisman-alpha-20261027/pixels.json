@@ -1,0 +1,26 @@
+{
+  "no-jei": {
+    "draw": {
+      "transparentExteriorPixelsChecked": 31769,
+      "changedPixels": 0,
+      "tolerance": 0
+    },
+    "engrave": {
+      "transparentExteriorPixelsChecked": 31769,
+      "changedPixels": 0,
+      "tolerance": 0
+    }
+  },
+  "user-stack": {
+    "draw": {
+      "transparentExteriorPixelsChecked": 31769,
+      "changedPixels": 0,
+      "tolerance": 0
+    },
+    "engrave": {
+      "transparentExteriorPixelsChecked": 31769,
+      "changedPixels": 0,
+      "tolerance": 0
+    }
+  }
+}

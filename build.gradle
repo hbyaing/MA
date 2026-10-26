@@ -14,6 +14,15 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 // Opt-in integration captures; pointer protection and fixtures stay out of release artifacts.
 if (project.hasProperty('myriadCapture')) {
+    if (project.hasProperty('talismanUserStack')) {
+        repositories { flatDir { dirs project.file('build/talisman-test-libs') } }
+        dependencies {
+            runtimeOnly fg.deobf('talisman-test:oculus-mc1.20.1:1.8.0')
+            runtimeOnly fg.deobf('talisman-test:embeddium:0.3.31+mc1.20.1')
+            runtimeOnly fg.deobf('talisman-test:jei-1.20.1-forge:15.74.0.225')
+        }
+    }
+
     if (project.hasProperty('myriadExternalShaders')) {
         repositories { flatDir { dirs project.file('build/meteor-client/mod-libs') } }
         dependencies {
@@ -304,7 +313,7 @@ repositories {
 }
 dependencies {
     compileOnly fg.deobf('mezz.jei:jei-1.20.1-forge:15.59.0.212')
-    if (project.hasProperty('jeiCapture') || project.hasProperty('jeiLayoutCapture')) runtimeOnly fg.deobf('mezz.jei:jei-1.20.1-forge:15.59.0.212')
+    if ((project.hasProperty('jeiCapture') || project.hasProperty('jeiLayoutCapture')) && !project.hasProperty('talismanUserStack')) runtimeOnly fg.deobf('mezz.jei:jei-1.20.1-forge:15.59.0.212')
     minecraft 'net.minecraftforge:forge:1.20.1-47.4.10'
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.20.1:${geckolib_version}")
 }
@@ -338,7 +347,7 @@ tasks.register('validateResources', Exec) {
 }
 tasks.named('check') { dependsOn('validateResources') }
 
-def specialistScripts = ['check_weapon_flames', 'check_heart_sword_assets', 'check_source_package', 'check_alchemy_art', 'check_exotic_burn_architecture', 'check_audit_contracts', 'check_entry_ui', 'check_boss_motions', 'check_art_particle_library']
+def specialistScripts = ['check_talisman_frame', 'check_weapon_flames', 'check_heart_sword_assets', 'check_source_package', 'check_alchemy_art', 'check_exotic_burn_architecture', 'check_audit_contracts', 'check_entry_ui', 'check_boss_motions', 'check_art_particle_library']
 specialistScripts.each { script ->
     tasks.register(script, Exec) {
         commandLine providers.gradleProperty('pythonExecutable').orElse('python').get(), file("tools/${script}.py").absolutePath
@@ -349,6 +358,7 @@ specialistScripts.each { script ->
     }
 }
 tasks.register('specialistChecks') { dependsOn(specialistScripts) }
+tasks.named('check') { dependsOn('check_talisman_frame') }
 tasks.named('check') { dependsOn('specialistChecks') }
 
 sourceSets {

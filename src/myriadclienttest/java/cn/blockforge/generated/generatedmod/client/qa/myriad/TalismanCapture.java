@@ -28,7 +28,7 @@ public final class TalismanCapture {
  static final boolean ENABLED=Boolean.getBoolean("wuxingxiantu.talismanCapture");
  static final Path OUT=Path.of(System.getProperty("wuxingxiantu.myriadCaptureOutput","captures")).resolve("talisman");
  static boolean opened,prepared,finished;static int tick,stage;static final long START=System.nanoTime();
- static final String[] CASES={"draw-normal","draw-hover","draw-disabled","draw-focus","draw-search","draw-scale3","draw-scale4","engrave-normal","engrave-hover","engrave-disabled","engrave-focus","engrave-search","engrave-scale3","engrave-scale4","draw-bright-edge","engrave-bright-edge"};
+ static final String[] CASES={"draw-normal","draw-hover","draw-disabled","draw-focus","draw-search","draw-scale3","draw-scale4","engrave-normal","engrave-hover","engrave-disabled","engrave-focus","engrave-search","engrave-scale3","engrave-scale4","draw-bright-edge","engrave-bright-edge","draw-expanded","engrave-expanded"};
  static TalismanPlatformScreen screen;static TalismanPlatformMenu menu;static Button confirm;static EditBox search;
  static int mode(){return stage>=14?0:stage%7;}
  @SubscribeEvent public static void backdrop(ScreenEvent.BackgroundRendered event){
@@ -44,7 +44,7 @@ public final class TalismanCapture {
    if((System.nanoTime()-START)/1e9>300)throw new AssertionError("Talisman QA timeout");
    if(!opened&&mc.player!=null)throw new AssertionError("Refuses user's loaded world");
    if(!opened&&mc.getOverlay()==null&&(mc.screen instanceof net.minecraft.client.gui.screens.TitleScreen||mc.screen instanceof net.minecraft.client.gui.screens.AccessibilityOnboardingScreen)){
-    opened=true;mc.getWindow().setWindowed(1280,900);mc.options.languageCode="zh_cn";mc.getLanguageManager().setSelected("zh_cn");mc.reloadResourcePacks();mc.options.guiScale().set(2);mc.resizeDisplay();mc.options.renderDistance().set(2);mc.options.simulationDistance().set(5);mc.options.framerateLimit().set(40);
+    opened=true;mc.getWindow().setWindowed(1600,1200);mc.options.languageCode="zh_cn";mc.getLanguageManager().setSelected("zh_cn");mc.reloadResourcePacks();mc.options.guiScale().set(2);mc.resizeDisplay();mc.options.renderDistance().set(2);mc.options.simulationDistance().set(5);mc.options.framerateLimit().set(40);
     mc.getTutorial().setStep(net.minecraft.client.tutorial.TutorialSteps.NONE);var rules=new GameRules();rules.getRule(GameRules.RULE_DOMOBSPAWNING).set(false,null);
     mc.createWorldOpenFlows().createFreshLevel("talisman-qa-"+System.currentTimeMillis(),new LevelSettings("Talisman isolated visual QA",GameType.CREATIVE,false,Difficulty.NORMAL,true,rules,WorldDataConfiguration.DEFAULT),new WorldOptions(7215,false,false),net.minecraft.world.level.levelgen.presets.WorldPresets::createNormalWorldDimensions);
    }
@@ -62,7 +62,7 @@ public final class TalismanCapture {
   }catch(Throwable t){fail(mc,t);}
  }
  static void setup(Minecraft mc)throws Exception{
-  boolean engrave=(stage>=7&&stage<14)||stage==15;
+  boolean engrave=(stage>=7&&stage<14)||stage==15||stage==17;
   var kind=engrave?TalismanPlatformBlockEntity.Kind.ENGRAVE:TalismanPlatformBlockEntity.Kind.DRAW;
   var block=engrave?WuXingBlocks.ENGRAVING_PLATFORM.get():WuXingBlocks.DRAWING_PLATFORM.get();
   var entity=new TalismanPlatformBlockEntity(BlockPos.ZERO,block.defaultBlockState(),kind);entity.setLevel(mc.level);
@@ -72,6 +72,7 @@ public final class TalismanCapture {
   Field f=TalismanPlatformScreen.class.getDeclaredField("controls");f.setAccessible(true);
   var controls=(List<?>)f.get(screen);confirm=(Button)controls.get(1);
   f=TalismanPlatformScreen.class.getDeclaredField("search");f.setAccessible(true);search=(EditBox)f.get(screen);
+  if(stage>=16){var expand=TalismanPlatformScreen.class.getDeclaredMethod("toggleExpanded");expand.setAccessible(true);expand.invoke(screen);}
  }
 
  @SubscribeEvent public static void frame(TickEvent.RenderTickEvent e){
