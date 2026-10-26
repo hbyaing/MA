@@ -169,16 +169,9 @@ public final class TalismanPlatformScreen extends AbstractContainerScreen<Talism
         g.fill(x,y+(max==0?0:travel*value/max),x+2,y+(max==0?0:travel*value/max)+h,max==0?0xFF444B48:0xFF9A947C);
     }
     private void renderApproved(GuiGraphics g){
-        TalismanV12Art.image(g,menu.kind()==TalismanPlatformBlockEntity.Kind.ENGRAVE?"engrave_background":"background",leftPos,topPos,430,340,1409,1117);
-        // Normalize the two authored background variants before drawing live
-        // labels so the title does not sit on a mismatched color block.
-        g.fill(leftPos+1,topPos+1,leftPos+429,topPos+339,0x200A1116);
-        // The source frame intentionally leaves a title break at the top
-        // center. Fill that break with the same ink color before drawing both
-        // title strings so engraving and drawing use one text backdrop.
-        // Match the panel ink instead of using a near-black rectangle; this
-        // keeps the title break readable without a visible color seam.
-        g.fill(leftPos+174,topPos+3,leftPos+256,topPos+43,0xFF031118);
+        // Use the continuous authored header; an opaque title patch breaks
+        // both its color and the outer frame's top edge.
+        TalismanV12Art.background(g,menu.kind()==TalismanPlatformBlockEntity.Kind.ENGRAVE?"engrave_background":"background",leftPos,topPos);
         g.pose().pushPose();g.pose().translate(leftPos+215,topPos+13,0);g.pose().scale(1.5f,1.5f,1);g.drawCenteredString(font,title,0,0,ForgedUi.GOLD);g.pose().popPose();
         g.drawCenteredString(font,"择符 · 运墨 · 成器",leftPos+215,topPos+30,ForgedUi.GOLD);
         boolean engrave=menu.kind()==TalismanPlatformBlockEntity.Kind.ENGRAVE;
@@ -292,13 +285,9 @@ public final class TalismanPlatformScreen extends AbstractContainerScreen<Talism
         g.pose().pushPose();g.pose().scale(uiScale,uiScale,1);int x=(int)(mx/uiScale),y=(int)(my/uiScale);
         try{
             for(int i=0;i<inkButtons.size();i++){var b=inkButtons.get(i);b.setMessage(Component.literal((approved()||!drawing())?"选用墨水 "+(i+1):(menu.selectedInk()==i?"使用中":"选用")));b.chosen=menu.selectedInk()==i;b.choice=b.chosen;}
-            if(approved()&&!expanded){
-                // Crop the paper/frame artwork to the authored UI bounds so
-                // asymmetric source margins cannot leak outside the screen.
-                g.enableScissor(leftPos,topPos,leftPos+430,topPos+340);
-                renderBackground(g);
-                g.disableScissor();
-            }else renderBackground(g);
+            // Dim the world uniformly. A rectangular scissor here leaves an
+            // opaque slab behind the artwork's cropped bevels and margins.
+            renderBackground(g);
             // Keep world terrain, shader noise and UI assets outside the custom frame from leaking into the screen.
             g.fill(0,0,width,height,0xD00A1014);
             if(expanded){

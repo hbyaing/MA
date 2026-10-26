@@ -1,0 +1,28 @@
+{
+  "cases": [
+    "draw-normal",
+    "draw-hover",
+    "draw-disabled",
+    "draw-focus",
+    "draw-search",
+    "draw-scale3",
+    "draw-scale4",
+    "engrave-normal",
+    "engrave-hover",
+    "engrave-disabled",
+    "engrave-focus",
+    "engrave-search",
+    "engrave-scale3",
+    "engrave-scale4"
+  ],
+  "note": "Client visual fixture with controlled quote; gameplay checks are separate",
+  "inventorySlots": 36,
+  "passed": true,
+  "pointer": {
+    "checkedFrames": 1418,
+    "cursorMode": 212993,
+    "blockedGrabs": 2,
+    "passed": true,
+    "captureViolations": 0
+  }
+}
