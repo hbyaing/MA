@@ -1,5 +1,5 @@
 {
-  "status": "concept_pending_user_approval",
+  "status": "approved_and_implemented",
   "basedOnMain": "996c7be9a0cfa9869cf9ede61a7e2c5f0bfdcccf",
   "oldSize": [
     512,
@@ -81,8 +81,8 @@
       20
     ],
     "bookSlot": [
-      112,
-      135
+      113,
+      136
     ],
     "inventoryFirstSlot": [
       16,
@@ -184,6 +184,6 @@
     "inventory": "Both windows have 3 rows x 9 storage slots and a separate 1x9 hotbar",
     "frame": "Final concept has complete rectangular outer frames with connected lower edges",
     "spacing": "No empty lower-right panel; reforge benefits/status/action occupy this region",
-    "runtimeStatus": "Not implemented; awaiting approval"
+    "runtimeStatus": "Implemented; native captures and gameplay regression recorded in docs/integration/COMPACT_WORKSTATIONS_20261027.md"
   }
 }

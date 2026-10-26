@@ -1,0 +1,13 @@
+all-workstation-gametests
+[03:04:18] [Server thread/INFO] [minecraft/GameTestServer]: All 64 required tests passed :)
+BUILD SUCCESSFUL in 45s
+12 actionable tasks: 4 executed, 8 up-to-date
+
+all-workstation-verify-full
+[03:06:13] [Server thread/INFO] [minecraft/GameTestServer]: All 351 required tests passed :)
+BUILD SUCCESSFUL in 1m 54s
+29 actionable tasks: 29 executed
+
+all-workstation-final-build
+BUILD SUCCESSFUL in 37s
+22 actionable tasks: 16 executed, 6 up-to-date

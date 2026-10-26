@@ -3,7 +3,7 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-for name in ['background', 'engrave_background', 'frame']:
+for name in ['background', 'engrave_background', 'frame', 'expanded_frame']:
     path = ROOT / 'src/main/resources/assets/wuxingxiantu/textures/gui/talisman_v12' / (name + '.png')
     image = Image.open(path).convert('RGBA')
     assert image.size == (1408, 1117), (name, image.size)
@@ -17,3 +17,8 @@ for name in ['background', 'engrave_background', 'frame']:
     assert alpha.getpixel((700, 500)) == 255, (name, 'missing panel')
     assert alpha.getextrema() == (0, 255), (name, 'missing transparency')
 print('Talisman backgrounds: exterior margins and beveled corners are transparent; panels retained')
+
+# Nine-slice side strips must contain no leftover horizontal divider strokes.
+clean = Image.open(ROOT / 'src/main/resources/assets/wuxingxiantu/textures/gui/talisman_v12/expanded_frame.png').convert('RGBA')
+for box in [(24, 60, 40, 1060), (1368, 60, 1382, 1060)]:
+    assert set(clean.crop(box).getdata()) == {(3, 17, 24, 255)}, 'Stray decoration in expanded frame side'

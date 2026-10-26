@@ -1,0 +1,18 @@
+{
+  "source": "E:\\万界仙途\\build\\libs\\myriad-ascension-0.2.jar",
+  "target": "D:\\MC\\库\\red.ghs.axolotl\\profiles\\测试 (1)\\mods\\myriad-ascension-0.2.jar",
+  "sha256": "15ec5facac8ff5821e35beaba98851a2926670375629802e422225b25c888412",
+  "gameDir": "D:\\MC\\库\\red.ghs.axolotl\\profiles\\测试 (1)",
+  "backup": "E:\\垃圾\\2026-10-27\\万界仙途自动安装-033149-6705b81f",
+  "old": [
+    {
+      "name": "myriad-ascension-0.2.jar",
+      "sha256": "92b77899011feace7e7e7f7090e5823b041b41eab71ac00f1376b610d96dfd52"
+    }
+  ],
+  "status": "installed_on_disk",
+  "runtime": "Restart required if the game had already loaded the previous JAR; no process was stopped.",
+  "otherModJarsUnchanged": 64,
+  "activeModJarCount": 1,
+  "productionJarExcludesQA": true
+}
