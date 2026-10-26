@@ -2473,5 +2473,7 @@
   "itemGroup.wuxingxiantu.talismans": "万界仙途·符箓",
   "itemGroup.wuxingxiantu.formations": "万界仙途·阵道",
   "itemGroup.wuxingxiantu.materials": "万界仙途·材料",
-  "itemGroup.wuxingxiantu.misc": "万界仙途·杂物"
+  "itemGroup.wuxingxiantu.misc": "万界仙途·杂物",
+  "block.wuxingxiantu.formation_carving_core": "阵法刻画核心",
+  "block.wuxingxiantu.carved_formation_eye": "阵法阵眼"
 }

@@ -39,6 +39,7 @@ public final class AlchemyFurnaceBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     private final int tier;
 
+
     public AlchemyFurnaceBlock(int tier) {
         super(BlockBehaviour.Properties.of()
                 .strength(3.5F, 3.5F).noOcclusion().dynamicShape()
@@ -124,15 +125,7 @@ public final class AlchemyFurnaceBlock extends BaseEntityBlock {
         // 炼丹炉核心不区分手持物；成型后右键核心格（或炉体任意一格组件）都会打开炼丹界面。
         if (hand != InteractionHand.MAIN_HAND) return InteractionResult.PASS;
         if (!isFormed(state)) {
-            CoreStructureBuilder.activate(level,pos,player);
-            // 未成型：给出结构补充提示与"还差几格"的诊断，告知蓝图与成型后如何打开界面。
-            if (!level.isClientSide) {
-                player.displayClientMessage(
-                        Component.translatable("message.wuxingxiantu.alchemy_structure_hint"), true);
-                player.displayClientMessage(Component.translatable(
-                        "message.wuxingxiantu.alchemy_structure_missing",
-                        AlchemyFurnaceStructure.missingCount(level, pos)), false);
-            }
+            CoreStructureBuilder.activate(level, pos, player);
             return InteractionResult.CONSUME;
         }
         // 潜行时让位给正常放置方块，方便玩家贴着炉体施工。

@@ -364,7 +364,8 @@ public final class CultivationLogic {
 
     public static boolean onArray(Player player) {
         BlockPos below = player.blockPosition().below();
-        return player.level().getBlockState(below).is(WuXingBlocks.GATHERING_ARRAY.get());
+        return player.level().getBlockState(below).is(WuXingBlocks.GATHERING_ARRAY.get())
+                ||cn.blockforge.generated.generatedmod.formation.carving.CarvingEye.gatheringAt(player);
     }
 
     public static float environmentMultiplier(Player player, CultivationData data) {

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": [
+    "selection and carving lock",
+    "eye generation after progress",
+    "no fuel use without configuration",
+    "grade restrictions",
+    "deposit value",
+    "activation after fuel",
+    "shutdown on depletion",
+    "reset",
+    "responsive layout"
+  ],
+  "errors": []
+}

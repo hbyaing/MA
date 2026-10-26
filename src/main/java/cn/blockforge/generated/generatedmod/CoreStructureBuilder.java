@@ -7,60 +7,33 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.*;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.*;
 
-/** Server-owned, held-input construction. No client inventory or placement data is accepted. */
+/** Server-owned, single-click atomic construction. No client inventory or placement data is accepted. */
 @Mod.EventBusSubscriber(modid=GeneratedMod.MOD_ID)
 public final class CoreStructureBuilder {
     public static final int BUILD_TICKS=60;
-    private static final class Session {
-        final BlockPos core; final net.minecraft.resources.ResourceKey<Level> dimension;
-        long heartbeat=-100;int progress;
-        Session(ServerPlayer p,BlockPos core){this.core=core.immutable();dimension=p.level().dimension();}
-    }
-    private static final Map<UUID,Session> SESSIONS=new HashMap<>();
+    private record BuildNotice(BlockPos core, Level level, String message, long tick) {}
+    private static final Map<UUID,BuildNotice> NOTICES=new HashMap<>();
     public static boolean core(BlockState state){return AlchemyFurnaceBlock.isCore(state)||RefiningForgeBlock.isCore(state);}
     public static boolean complete(Level level,BlockPos p){return AlchemyFurnaceBlock.isCore(level.getBlockState(p))
             ?AlchemyFurnaceBlock.isFormed(level.getBlockState(p)):RefiningForgeBlock.isStructureComplete(level,p);}
     public static void activate(Level level,BlockPos pos,net.minecraft.world.entity.player.Player player){
-        if(level.isClientSide){ClientPacketSink.coreBlueprint.accept(pos);return;}
-        if(player instanceof ServerPlayer p){
-            var previous=SESSIONS.get(p.getUUID());
-            if(previous==null||!previous.core.equals(pos)||previous.dimension!=level.dimension())SESSIONS.put(p.getUUID(),new Session(p,pos));
-            p.displayClientMessage(net.minecraft.network.chat.Component.literal(player.isCreative()?"创造搭建：无需材料，松开后对准核心长按右键（3秒）":"蓝图已开启：松开后，对准核心长按右键搭建（3秒）"),true);
-        }
-    }
-    public static void input(ServerPlayer player,BlockPos pos,boolean held){
-        var s=SESSIONS.get(player.getUUID());
-        if(s==null||!s.core.equals(pos)||s.dimension!=player.level().dimension())return;
-        if(!held){s.progress=0;s.heartbeat=-100;return;}
-        if(valid(player,s)){s.heartbeat=player.level().getGameTime();}
-    }
-    private static boolean valid(ServerPlayer p,Session s){
-        if(!p.isAlive()||p.isSpectator()||p.isPassenger()||s.dimension!=p.level().dimension()
-                ||!p.serverLevel().hasChunkAt(s.core)||!core(p.level().getBlockState(s.core))||complete(p.level(),s.core)
-                ||p.getEyePosition().distanceToSqr(Vec3.atCenterOf(s.core))>36||p.containerMenu!=p.inventoryMenu)return false;
-        var hit=p.level().clip(new net.minecraft.world.level.ClipContext(p.getEyePosition(),p.getEyePosition().add(p.getLookAngle().scale(6)),
-                net.minecraft.world.level.ClipContext.Block.OUTLINE,net.minecraft.world.level.ClipContext.Fluid.NONE,p));
-        return hit.getType()==HitResult.Type.BLOCK&&hit.getBlockPos().equals(s.core);
-    }
-    @SubscribeEvent public static void tick(TickEvent.PlayerTickEvent e){
-        if(e.phase!=TickEvent.Phase.END||!(e.player instanceof ServerPlayer p))return;
-        var s=SESSIONS.get(p.getUUID());if(s==null)return;
-        if(!valid(p,s)||p.level().getGameTime()-s.heartbeat>6){
-            if(s.progress>0)Network.sendToPlayer(p,new cn.blockforge.generated.generatedmod.network.packet.CoreBuildProgressPacket(s.core,0,true));
-            s.progress=0;return;
-        }
-        if(++s.progress>=BUILD_TICKS){s.progress=0;s.heartbeat=-100;
-            String result=build(p,s.core);
+        if(level.isClientSide || !(player instanceof ServerPlayer p))return;
+        if(!p.isAlive()||p.isSpectator()||p.isPassenger()||p.containerMenu!=p.inventoryMenu||!p.mayBuild()
+                ||!level.hasChunkAt(pos)||!core(level.getBlockState(pos))||!level.mayInteract(p,pos)
+                ||p.getEyePosition().distanceToSqr(Vec3.atCenterOf(pos))>36)return;
+        String result=build(p,pos);long now=level.getGameTime();var previous=NOTICES.get(p.getUUID());
+        if(previous==null||!previous.core().equals(pos)||previous.level()!=level||!previous.message().equals(result)
+                ||now<previous.tick()||now-previous.tick()>=60){
             p.displayClientMessage(net.minecraft.network.chat.Component.literal(result),true);
-            Network.sendToPlayer(p,new cn.blockforge.generated.generatedmod.network.packet.CoreBuildProgressPacket(s.core,0,true));
-            if(complete(p.level(),s.core))SESSIONS.remove(p.getUUID());
-        }else if(s.progress%5==0)Network.sendToPlayer(p,new cn.blockforge.generated.generatedmod.network.packet.CoreBuildProgressPacket(s.core,s.progress,false));
+            NOTICES.put(p.getUUID(),new BuildNotice(pos.immutable(),level,result,now));
+        }
     }
+    /** Kept for protocol compatibility; legacy held-input packets cannot initiate construction. */
+    public static void input(ServerPlayer player,BlockPos pos,boolean held){}
     public static LinkedHashMap<BlockPos,BlockState> blueprint(Level level,BlockPos core){
         var result=new LinkedHashMap<BlockPos,BlockState>();
         if(AlchemyFurnaceBlock.isCore(level.getBlockState(core))){
@@ -141,7 +114,7 @@ public final class CoreStructureBuilder {
                     &&!level.getBlockState(pos.below()).is(Blocks.MAGMA_BLOCK)&&!level.getBlockState(pos).is(Blocks.FIRE)&&level.noCollision(p,box))return target;
         }return null;
     }
-    @SubscribeEvent public static void logout(net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent e){SESSIONS.remove(e.getEntity().getUUID());}
-    @SubscribeEvent public static void stopped(net.minecraftforge.event.server.ServerStoppedEvent e){SESSIONS.clear();}
+    @SubscribeEvent public static void logout(net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent e){NOTICES.remove(e.getEntity().getUUID());}
+    @SubscribeEvent public static void stopped(net.minecraftforge.event.server.ServerStoppedEvent e){NOTICES.clear();}
     private CoreStructureBuilder(){}
 }

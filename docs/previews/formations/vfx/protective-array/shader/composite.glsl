@@ -1,0 +1,1 @@
+uniform sampler2D MainColor,BloomColor;uniform float Bloom;vec3 tone(vec3 x){return clamp((x*(2.51*x+.03))/(x*(2.43*x+.59)+.14),0.,1.);}void main(){vec3 c=texture(MainColor,uv).rgb+texture(BloomColor,uv).rgb*.55*Bloom;FragColor=vec4(pow(tone(c),vec3(1./2.2)),1.);}

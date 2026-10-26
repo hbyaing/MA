@@ -64,7 +64,7 @@ public final class ModTabs {
                 ||id.equals("alchemy_formula")||id.startsWith("alchemy_furnace")||id.startsWith("fire_seed_")
                 ||id.startsWith("exotic_fire_")||id.equals("empty_fire_seed_bottle")||id.equals("herb_processing_table")
                 ||id.equals("waste_pill")||id.startsWith("inner_core_")) return Category.ALCHEMY;
-        if(id.equals("zhuxian_sword_chart")||id.equals("gathering_array")||id.equals("rune_stone")) return Category.FORMATIONS;
+        if(id.equals("formation_carving_core")||id.equals("zhuxian_sword_chart")||id.equals("gathering_array")||id.equals("rune_stone")) return Category.FORMATIONS;
         if(id.startsWith("talisman")||java.util.Set.of("carving_knife","spirit_ink","cinnabar_ink","seal","engraving_platform","rubbing_platform","drawing_platform").contains(id)) return Category.TALISMANS;
         if(id.startsWith("artifact_")||id.startsWith("forge_aux_")||id.startsWith("refining_forge")
                 ||java.util.Set.of("ming_ke_tai","jing_zhu_tai","xuanling_anvil","glazed_crystal","refine_seal","quench_essence","inscription_crystal").contains(id)
@@ -120,6 +120,7 @@ public final class ModTabs {
                             }
                         }
                         cn.blockforge.generated.generatedmod.arts.ImportedSwordArts.ITEMS.getEntries().forEach(item->output.accept(item.get()));
+                        output.accept(cn.blockforge.generated.generatedmod.formation.carving.CarvingRegistry.CORE_ITEM.get());
                         cn.blockforge.generated.generatedmod.formation.FormationBootstrap.items().forEach(item->output.accept(item.get()));
                         cn.blockforge.generated.generatedmod.artifacts.ArtifactBootstrap.items().forEach(item->output.accept(item.get()));
                         output.accept(cn.blockforge.generated.generatedmod.storage.StorageRegistry.BAG_ITEM.get());
