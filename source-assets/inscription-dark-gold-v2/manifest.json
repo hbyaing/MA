@@ -1,0 +1,283 @@
+{
+  "source": "reference.png",
+  "sha256": "57524746168c5bccd07d0f2ba78fe612cfc7be7f7162bd7739d08c837d31abed",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "regions": {
+    "header": [
+      10,
+      8,
+      1526,
+      119
+    ],
+    "window": [
+      10,
+      8,
+      1526,
+      1008
+    ],
+    "left_panel": [
+      28,
+      126,
+      371,
+      999
+    ],
+    "equipment_panel": [
+      382,
+      126,
+      898,
+      749
+    ],
+    "preview_panel": [
+      907,
+      126,
+      1508,
+      746
+    ],
+    "inventory_panel": [
+      381,
+      756,
+      1508,
+      1000
+    ],
+    "row": [
+      41,
+      365,
+      357,
+      461
+    ],
+    "row_selected": [
+      41,
+      260,
+      357,
+      357
+    ],
+    "search": [
+      45,
+      199,
+      355,
+      245
+    ],
+    "confirm": [
+      972,
+      596,
+      1439,
+      684
+    ],
+    "slot": [
+      984,
+      770,
+      1049,
+      822
+    ],
+    "equipment_slot": [
+      575,
+      224,
+      703,
+      349
+    ],
+    "book_slot": [
+      486,
+      486,
+      556,
+      556
+    ],
+    "close": [
+      1434,
+      31,
+      1496,
+      92
+    ],
+    "progress": [
+      928,
+      281,
+      1485,
+      303
+    ],
+    "pity": [
+      1280,
+      519,
+      1300,
+      540
+    ],
+    "background": [
+      1330,
+      790,
+      1460,
+      910
+    ],
+    "search_icon": [
+      61,
+      209,
+      91,
+      240
+    ],
+    "guard": [
+      53,
+      270,
+      130,
+      347
+    ],
+    "tough": [
+      53,
+      375,
+      130,
+      452
+    ],
+    "light": [
+      53,
+      478,
+      130,
+      553
+    ],
+    "control": [
+      53,
+      580,
+      130,
+      656
+    ],
+    "charge": [
+      53,
+      681,
+      130,
+      757
+    ],
+    "sigil": [
+      462,
+      164,
+      805,
+      403
+    ]
+  },
+  "logical_size": [
+    512,
+    368
+  ],
+  "inventory": {
+    "columns": 9,
+    "rows": 3,
+    "hotbar_rows": 1,
+    "step": 18
+  },
+  "note": "Nine-slice centers exclude baked text; runtime draws labels/items. Sigil raw region retained for reference only.",
+  "clean_regions": {
+    "left_clean": [
+      28,
+      126,
+      371,
+      999
+    ],
+    "equipment_clean": [
+      382,
+      126,
+      898,
+      749
+    ],
+    "preview_clean": [
+      907,
+      126,
+      1508,
+      746
+    ],
+    "inventory_clean": [
+      381,
+      756,
+      1508,
+      1004
+    ]
+  },
+  "fill_regions": {
+    "confirm_fill": [
+      1007,
+      614,
+      1070,
+      662
+    ],
+    "row_fill": [
+      265,
+      384,
+      335,
+      439
+    ],
+    "row_selected_fill": [
+      265,
+      278,
+      335,
+      330
+    ]
+  },
+  "restoration": "clean-background-generated.png (built-in image_gen; remove baked text, items and controls, restore unobscured sigil)",
+  "controls": {
+    "choice": [
+      "normal",
+      "selected",
+      "hover",
+      "disabled",
+      "keyboard-focus"
+    ],
+    "confirm": [
+      "normal",
+      "hover",
+      "disabled",
+      "keyboard-focus"
+    ],
+    "search": [
+      "empty-hint",
+      "input",
+      "caret",
+      "selection"
+    ],
+    "close": [
+      "authored-icon"
+    ],
+    "inventory": "3x9 plus 1x9 hotbar; source grid is not runtime geometry"
+  },
+  "runtime_note": "Panel art from restored background; control corners/edges from approved source. Labels, quantities, item sprites, button state overlays and search input remain live.",
+  "background_only": {
+    "file": "flat-background-generated.png",
+    "title_crop": [
+      640,
+      24,
+      900,
+      110
+    ],
+    "geometry_changed": false,
+    "controls_changed": false
+  },
+  "resource_files": {
+    "background.png": "673430b7f674b5da3e19212a7c3e1e87e409b202c094cf740d52eb43ba2afdf8",
+    "book_slot.png": "1d337e5061dd697a01c57484d99839b8b7314b01adf1bcaccd1311abdf6846a3",
+    "charge.png": "e3095a3443f8607ae2817c748548a16bedf895223f84f7a937722b28730668f8",
+    "close.png": "ac0bc2cfc054537e64e6b3cf1ca38e91d0f477e2203addc7bdb7a4cbf57640cf",
+    "confirm.png": "e0c75a27a117d9b8915b6fc111269798e3a0b6047de1ee1180e3786ca6d7765c",
+    "confirm_fill.png": "aceb1d78b66387a7499a22ad79e2f5e5e8de7ffb2e6f3ceceed5230c138fc74c",
+    "control.png": "f1fc146496580016d4cbbf9cc9aada4b404994d63966547f0a64e52f0245027f",
+    "equipment_clean.png": "bdf6c9c014b57779740799bacba90aa04394160b0614296117d7f9434b58dc58",
+    "equipment_panel.png": "8fbb6d3c346fe6f54b0eeb1d95d6b801626141c4a4106f7a91d30701ef222ad2",
+    "equipment_slot.png": "94277c69b53e92807c4bb17dc34ad7264c368ca23fa758b13fe1e026cd65dfad",
+    "guard.png": "bfca922735f54ca12bc0ce4edc6fc26bbd3f7c547eedb2bb2a3cb2049af7d746",
+    "header.png": "d17ebcbba4c51692cda56d951905827e36210c1de393248aad1cf57643a81bef",
+    "header_title.png": "65cf5789e320a6a4983c00c950db21056360c00c60a6cb6c38feac0ee91012cb",
+    "inventory_clean.png": "39b0c488c729a4d2f7bd98679c2a190123695a048635f5f1303c5e099c98254d",
+    "inventory_panel.png": "a11fd98d9ab65930552dd982077929189c794bee4c19133a34a0f15324ed0267",
+    "left_clean.png": "61a110eb071eba6287a39d99dba74511066e56a5eb8cb5607db61e66561bfb30",
+    "left_panel.png": "9ef217fb0fdc1c7915ae5e67a0f762ed9808eacf40e7211b4f96d28c2efe098e",
+    "light.png": "2042c40bf1f65d9194dff1df844bb398732ac93160810b6fc49430747720392e",
+    "pity.png": "c48e190e3afadbb974c282adc96ad776e9717fcb5696aca49fa091fb18535f87",
+    "preview_clean.png": "b254610afdd290f1080eeb252ac7722c908ea2da8e6219b6a05085d7ad904934",
+    "preview_panel.png": "fa2e64d3a2635cbfcf3a567e71c671ae529379c9289c4e375c071a0b176c4af6",
+    "progress.png": "963a9f6fd5186d7e388aff3595b77c0904651d714b8e28f09686e6651b4e9e33",
+    "row.png": "e57ffb8fa9051d99e6f9b851e7e102d0abe453c3dcb8090392d2fcb34be0abc3",
+    "row_fill.png": "6670a91d572483bbd3bb1a6901417c701f7654af1fc98c705bfdd9f1a4a8d3fb",
+    "row_selected.png": "acb3ac62441907aff645dd32c3e7a76becd28630eeee138126b8e70bc2c64d16",
+    "row_selected_fill.png": "5c794dbeab628d5631d8ede60b127809cd347a3b6e1eeec1bc7d544ba30347d4",
+    "search.png": "65ccce3e61d8c3f219be3ba11ced04a5f88b36e9e1717bd8bbd6827692b640d9",
+    "search_icon.png": "2cfbb4ee98b09da52e7b93afad909462f60be6cc6791dc90c4e3beccd20f5b7d",
+    "sigil.png": "cbf6cb05229b7f10632a67d03ef8188fef7d7af0c0d937a723934f3442f6d93d",
+    "slot.png": "b832f56353c1ee4b1fcf00f9bc4849107fab9e1835c20d2bdb49757fa3a17acc",
+    "tough.png": "78c38fe1e91830e6f39b41965ddc4789c41018d074aea95222e286fe192d6de2",
+    "window.png": "cd5c6804999b03b20eb9e32a6f1bb510693ef5740d82138295c72eca3f80ba5a"
+  }
+}

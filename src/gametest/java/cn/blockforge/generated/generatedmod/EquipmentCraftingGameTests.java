@@ -22,7 +22,7 @@ public final class EquipmentCraftingGameTests {
         check(h,!menu.clickMenuButton(p,menu.command(103))&&EquipmentCrafting.read(book).getInt("GuardCredit")==2,"Repeated conversion must reject without changing credit");menu.removed(p);
     }h.succeed();}
     private static GameTestPlayer player(GameTestHelper h){var p=new GameTestPlayer(h.getLevel());p.join();var pos=h.absolutePos(BlockPos.ZERO);p.setPos(pos.getX()+.5,pos.getY()+1,pos.getZ()+.5);var d=GeneratedMod.data(p);d.wuxingxiantu$setRealm(8);d.wuxingxiantu$setLearnedFires(new int[]{9});d.wuxingxiantu$setEquippedFire(9);d.wuxingxiantu$setAura(1000000);var n=PlayerCrafts.get(p.server).profession(p.getUUID(),"refining");n.putBoolean("Learned",true);n.putInt("Rank",8);materials(p);return p;}
-    private static void materials(GameTestPlayer p){Item[] items={WuXingItems.SPIRIT_STONE.get(),WuXingItems.DARK_IRON.get(),Items.LAPIS_LAZULI,WuXingItems.FIVE_ESSENCE.get(),WuXingItems.GLAZED_CRYSTAL.get()};for(int i=0;i<items.length;i++)p.getInventory().setItem(20+i,new ItemStack(items[i],64));}
+    private static void materials(GameTestPlayer p){Item[] items={WuXingItems.SPIRIT_STONE.get(),WuXingItems.DARK_IRON.get(),Items.LAPIS_LAZULI,WuXingItems.FIVE_ESSENCE.get(),WuXingItems.GLAZED_CRYSTAL.get(),WuXingItems.INSCRIPTION_CRYSTAL.get()};for(int i=0;i<items.length;i++)p.getInventory().setItem(20+i,new ItemStack(items[i],64));}
     private static void check(GameTestHelper h,boolean value,String message){h.assertTrue(value,message);}
     @GameTest(template="empty") public static void oldArmorMigratesExactlyOnceAndKeepsOtherData(GameTestHelper h){
         var s=new ItemStack(Items.DIAMOND_CHESTPLATE);s.enchant(SpiritEnchantment.SPIRIT_GUARD.get(),4);s.enchant(Enchantments.UNBREAKING,3);s.setDamageValue(42);s.getOrCreateTag().putString("ThirdParty","keep");
@@ -37,7 +37,7 @@ public final class EquipmentCraftingGameTests {
     }h.succeed();}
     @GameTest(template="empty") public static void inscriptionChargesMaterialsAndHonorsHardPity(GameTestHelper h){try(var p=player(h)){
         var s=new ItemStack(Items.DIAMOND_CHESTPLATE);float before=GeneratedMod.data(p).wuxingxiantu$getAura();EquipmentCrafting.attempt(p,s,0);
-        check(h,EquipmentCrafting.level(s,"guard")==1&&p.getInventory().getItem(20).getCount()==60&&p.getInventory().getItem(22).getCount()==60&&GeneratedMod.data(p).wuxingxiantu$getAura()==before-78,"Wrong first engraving transaction");
+        check(h,EquipmentCrafting.level(s,"guard")==1&&p.getInventory().getItem(20).getCount()==60&&p.getInventory().getItem(22).getCount()==60&&p.getInventory().getItem(25).getCount()==63&&GeneratedMod.data(p).wuxingxiantu$getAura()==before,"Wrong first engraving transaction");
         var pity=new CompoundTag();pity.putInt("guard2",2);EquipmentCrafting.write(s).put("RunePity",pity);check(h,EquipmentCrafting.runeChance(s,"guard",0)==100,"Rune pity not applied");EquipmentCrafting.attempt(p,s,0);check(h,EquipmentCrafting.level(s,"guard")==2&&EquipmentCrafting.read(s).getCompound("RunePity").getInt("guard2")==0,"Guaranteed engraving failed");
         check(h,!EquipmentCrafting.runeGate(s,"tough").isEmpty(),"Vanilla slot cap ignored");
     }h.succeed();}

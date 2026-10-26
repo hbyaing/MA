@@ -77,8 +77,8 @@ public final class ModClientEvents {
     public static void clientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             MenuScreens.register(ModMenus.HERB_PROCESSING_TABLE.get(),HerbProcessingTableScreen::new);
-            MenuScreens.register(ModMenus.INSCRIPTION_TABLE.get(),EquipmentWorkstationScreen::new);
-            MenuScreens.register(ModMenus.REFORGE_TABLE.get(),EquipmentWorkstationScreen::new);
+            MenuScreens.register(ModMenus.INSCRIPTION_TABLE.get(),InscriptionScreen::new);
+            MenuScreens.register(ModMenus.REFORGE_TABLE.get(),ReforgeScreen::new);
             net.minecraft.client.renderer.item.ItemProperties.register(WuXingItems.TALISMAN.get(),
                     new ResourceLocation(GeneratedMod.MOD_ID,"talisman_kind"),(stack,level,entity,seed)->
                             cn.blockforge.generated.generatedmod.TalismanCatalog.modelCode(cn.blockforge.generated.generatedmod.TalismanData.getTalisman(stack)));
