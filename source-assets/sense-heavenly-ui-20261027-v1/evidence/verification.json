@@ -1,0 +1,675 @@
+{
+  "sense-heavenly-ui-accepted": {
+    "fixture": "Mock data for layout; real gameplay tested separately",
+    "cases": [
+      "heavenly-normal",
+      "heavenly-hover",
+      "heavenly-disabled",
+      "heavenly-focus",
+      "heavenly-search",
+      "heavenly-scale3",
+      "heavenly-scale4",
+      "heavenly-refining",
+      "heavenly-aux-chosen",
+      "heavenly-page2",
+      "heavenly-no-match",
+      "heavenly-many-materials",
+      "sense-normal",
+      "sense-hover",
+      "sense-closed",
+      "sense-focus",
+      "sense-channel",
+      "sense-scale3",
+      "sense-scale4",
+      "sense-locked",
+      "sense-low-power",
+      "sense-narrow",
+      "sense-survey",
+      "sense-cooldown"
+    ],
+    "passed": true,
+    "scales": [
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "heavenly-normal",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "heavenly-hover",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "heavenly-disabled",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "heavenly-focus",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "heavenly-search",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 3.0,
+        "configuredGuiScale": 3,
+        "case": "heavenly-scale3",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 4.0,
+        "configuredGuiScale": 4,
+        "case": "heavenly-scale4",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "heavenly-refining",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "heavenly-aux-chosen",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "heavenly-aux-chosen",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "heavenly-aux-chosen",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "heavenly-page2",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "heavenly-no-match",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "heavenly-many-materials",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "sense-normal",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "sense-hover",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "sense-closed",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "sense-focus",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "sense-channel",
+        "width": 1600
+      },
+      {
+        "height": 1421,
+        "actualGuiScale": 3.0,
+        "configuredGuiScale": 3,
+        "case": "sense-scale3",
+        "width": 2400
+      },
+      {
+        "height": 1421,
+        "actualGuiScale": 3.0,
+        "configuredGuiScale": 4,
+        "case": "sense-scale4",
+        "width": 2564
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "sense-locked",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "sense-low-power",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "sense-narrow",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "sense-survey",
+        "width": 1600
+      },
+      {
+        "height": 1200,
+        "actualGuiScale": 2.0,
+        "configuredGuiScale": 2,
+        "case": "sense-cooldown",
+        "width": 1600
+      }
+    ],
+    "pointer": {
+      "checkedFrames": 1789,
+      "cursorMode": 212993,
+      "blockedGrabs": 27,
+      "passed": true,
+      "captureViolations": 0
+    },
+    "extraCases": [
+      "heavenly-aux-focus",
+      "heavenly-aux-disabled"
+    ]
+  },
+  "sense-heavenly-ui-accepted-no-jei": {
+    "passed": true,
+    "cases": [
+      "heavenly-normal",
+      "heavenly-hover",
+      "heavenly-disabled",
+      "heavenly-focus",
+      "heavenly-search",
+      "heavenly-scale3",
+      "heavenly-scale4",
+      "heavenly-refining",
+      "heavenly-aux-chosen",
+      "heavenly-page2",
+      "heavenly-no-match",
+      "heavenly-many-materials",
+      "sense-normal",
+      "sense-hover",
+      "sense-closed",
+      "sense-focus",
+      "sense-channel",
+      "sense-scale3",
+      "sense-scale4",
+      "sense-locked",
+      "sense-low-power",
+      "sense-narrow",
+      "sense-survey",
+      "sense-cooldown"
+    ],
+    "fixture": "Mock data for layout; real gameplay tested separately",
+    "extraCases": [
+      "heavenly-aux-focus",
+      "heavenly-aux-disabled"
+    ],
+    "pointer": {
+      "checkedFrames": 2008,
+      "captureViolations": 0,
+      "passed": true,
+      "blockedGrabs": 27,
+      "cursorMode": 212993
+    },
+    "scales": [
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "heavenly-normal",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "heavenly-hover",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "heavenly-disabled",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "heavenly-focus",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "heavenly-search",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 3.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "heavenly-scale3",
+        "configuredGuiScale": 3
+      },
+      {
+        "actualGuiScale": 4.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "heavenly-scale4",
+        "configuredGuiScale": 4
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "heavenly-refining",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "heavenly-aux-chosen",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "heavenly-aux-chosen",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "heavenly-aux-chosen",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "heavenly-page2",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "heavenly-no-match",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "heavenly-many-materials",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "sense-normal",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "sense-hover",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "sense-closed",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "sense-focus",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "sense-channel",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 3.0,
+        "height": 1421,
+        "width": 2400,
+        "case": "sense-scale3",
+        "configuredGuiScale": 3
+      },
+      {
+        "actualGuiScale": 3.0,
+        "height": 1421,
+        "width": 2564,
+        "case": "sense-scale4",
+        "configuredGuiScale": 4
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "sense-locked",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "sense-low-power",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "sense-narrow",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "sense-survey",
+        "configuredGuiScale": 2
+      },
+      {
+        "actualGuiScale": 2.0,
+        "height": 1200,
+        "width": 1600,
+        "case": "sense-cooldown",
+        "configuredGuiScale": 2
+      }
+    ]
+  },
+  "sense-effects-native-final": {
+    "passed": true,
+    "pointer": {
+      "cursorMode": 212993,
+      "checkedFrames": 1782,
+      "captureViolations": 0,
+      "passed": true,
+      "blockedGrabs": 21
+    },
+    "realServerActions": true,
+    "cases": [
+      {
+        "shaderDraws": 93,
+        "locked": false,
+        "channel": 0,
+        "receipt": "scan",
+        "case": "scan-wide",
+        "glError": 0
+      },
+      {
+        "shaderDraws": 93,
+        "locked": false,
+        "channel": 0,
+        "receipt": "scan",
+        "case": "scan-first-person",
+        "glError": 0
+      },
+      {
+        "shaderDraws": 315,
+        "locked": false,
+        "channel": 2,
+        "receipt": "identify",
+        "case": "identify-channel",
+        "glError": 0
+      },
+      {
+        "shaderDraws": 727,
+        "locked": false,
+        "channel": 0,
+        "receipt": "identified",
+        "case": "identify-complete",
+        "glError": 0
+      },
+      {
+        "shaderDraws": 760,
+        "locked": false,
+        "channel": 1,
+        "receipt": "opening",
+        "case": "opening",
+        "glError": 0
+      },
+      {
+        "shaderDraws": 218,
+        "locked": false,
+        "channel": 0,
+        "receipt": "interrupt",
+        "case": "opening-interrupted",
+        "glError": 0
+      },
+      {
+        "shaderDraws": 107,
+        "locked": true,
+        "channel": 0,
+        "receipt": "lock",
+        "case": "lock",
+        "glError": 0
+      },
+      {
+        "shaderDraws": 78,
+        "locked": false,
+        "channel": 0,
+        "receipt": "unlock",
+        "case": "lock-occluded",
+        "glError": 0
+      },
+      {
+        "shaderDraws": 96,
+        "locked": false,
+        "channel": 0,
+        "receipt": "",
+        "case": "survey-start",
+        "glError": 0
+      },
+      {
+        "shaderDraws": 49,
+        "locked": false,
+        "channel": 0,
+        "receipt": "",
+        "case": "survey-stopped",
+        "glError": 0
+      }
+    ]
+  },
+  "sense-effects-bliss-final": {
+    "cases": [
+      {
+        "receipt": "scan",
+        "case": "scan-wide",
+        "glError": 0,
+        "shaderDraws": 96,
+        "locked": false,
+        "channel": 0
+      },
+      {
+        "receipt": "scan",
+        "case": "scan-first-person",
+        "glError": 0,
+        "shaderDraws": 96,
+        "locked": false,
+        "channel": 0
+      },
+      {
+        "receipt": "identify",
+        "case": "identify-channel",
+        "glError": 0,
+        "shaderDraws": 324,
+        "locked": false,
+        "channel": 2
+      },
+      {
+        "receipt": "identified",
+        "case": "identify-complete",
+        "glError": 0,
+        "shaderDraws": 718,
+        "locked": false,
+        "channel": 0
+      },
+      {
+        "receipt": "opening",
+        "case": "opening",
+        "glError": 0,
+        "shaderDraws": 768,
+        "locked": false,
+        "channel": 1
+      },
+      {
+        "receipt": "interrupt",
+        "case": "opening-interrupted",
+        "glError": 0,
+        "shaderDraws": 218,
+        "locked": false,
+        "channel": 0
+      },
+      {
+        "receipt": "lock",
+        "case": "lock",
+        "glError": 0,
+        "shaderDraws": 107,
+        "locked": true,
+        "channel": 0
+      },
+      {
+        "receipt": "unlock",
+        "case": "lock-occluded",
+        "glError": 0,
+        "shaderDraws": 75,
+        "locked": false,
+        "channel": 0
+      },
+      {
+        "receipt": "",
+        "case": "survey-start",
+        "glError": 0,
+        "shaderDraws": 96,
+        "locked": false,
+        "channel": 0
+      },
+      {
+        "receipt": "",
+        "case": "survey-stopped",
+        "glError": 0,
+        "shaderDraws": 47,
+        "locked": false,
+        "channel": 0
+      }
+    ],
+    "passed": true,
+    "pointer": {
+      "passed": true,
+      "blockedGrabs": 21,
+      "cursorMode": 212993,
+      "checkedFrames": 1728,
+      "captureViolations": 0
+    },
+    "realServerActions": true
+  },
+  "fullGameTests": {
+    "passed": true,
+    "exitCode": 0,
+    "completedTests": 354,
+    "passedRequiredTests": 354,
+    "failedRequiredTests": 0,
+    "completionMarker": true,
+    "passMarker": true,
+    "logSHA256": "3ab499ac7fd88cdf65762426e42a05a11f37988e8455f100fd35d18a3b0bf6a9"
+  },
+  "installation": {
+    "source": "E:\\万界仙途\\build\\libs\\myriad-ascension-0.2.jar",
+    "target": "D:\\MC\\库\\red.ghs.axolotl\\profiles\\测试 (1)\\mods\\myriad-ascension-0.2.jar",
+    "sha256": "fd8223f6d82d9d69339119de36b8bc27bffab555d21c385cd1671e14e1a74ccb",
+    "gameDir": "D:\\MC\\库\\red.ghs.axolotl\\profiles\\测试 (1)",
+    "backup": "E:\\垃圾\\2026-10-27\\万界仙途自动安装-045826-23dc9759",
+    "old": [
+      {
+        "name": "myriad-ascension-0.2.jar",
+        "sha256": "ce619b17b128530bb9517328ee2c00d69ef8a5cbb14aa4b6f38e8dedb9d271b0"
+      }
+    ],
+    "status": "installed_on_disk",
+    "runtime": "Restart required if the game had already loaded the previous JAR; no process was stopped.",
+    "otherModJarsUnchanged": 64,
+    "activeModJarCount": 1,
+    "productionJarExcludesQA": true
+  },
+  "otherModHashesUnchanged": 64,
+  "artifactHashes": {
+    "heavenly-native.png": "caa1ec33ff0564f49136cb9c243b6ad3e77def74d084b476575fc0465dacd8ee",
+    "native-bliss-effects.png": "a3255c5cdc235975b8c4cc81d20ab32989ffd3f00bcba6341b38f4a9830faef0",
+    "native-control-states.png": "dea27875cce6489d62f2d1b10dc7b47f81f36dafc616dfca0334ccb24e6974f1",
+    "native-corners-edges-title.png": "6401fc89c2b59c43d8bd8f46d2c5b54faa80eabfc30e0f568723cb00bb5f9e87",
+    "native-ui-preview.png": "0a5b3ed431b2a948436a8c9bc23c772d4d9e24b8d2cafcca739614ea1defbc18",
+    "sense-native.png": "0a8219da765c80873bf09147b73757ac4acacf25b5392729f2145bf645aa0f4a"
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "approved": true,
+  "generator": "built-in image_gen",
+  "elements": {
+    "frame": {
+      "source": "heavenly",
+      "crop": [
+        18,
+        20,
+        1395,
+        1094
+      ],
+      "size": [
+        1377,
+        1074
+      ],
+      "sha256": "721ff9e29e676ea7bdf947e6655a11bb12ab0891ee18c0875ff96d7601b7227a"
+    },
+    "panel": {
+      "source": "sense",
+      "crop": [
+        50,
+        277,
+        747,
+        539
+      ],
+      "size": [
+        697,
+        262
+      ],
+      "sha256": "c806062496bac78bd8819b944765d488f55e7ab5bef34ac3daf8791329a25373"
+    },
+    "button": {
+      "source": "heavenly",
+      "crop": [
+        558,
+        979,
+        1145,
+        1052
+      ],
+      "size": [
+        587,
+        73
+      ],
+      "sha256": "456222b17c0d9447ea2edef1da33f1e1c305daefbd0f67693e314e4dd69fd18b"
+    },
+    "selected": {
+      "source": "heavenly",
+      "crop": [
+        50,
+        264,
+        515,
+        373
+      ],
+      "size": [
+        465,
+        109
+      ],
+      "sha256": "2946873bc8526f5b88a6d45d72f001ed6edecd5c5b899cbeafe0c7bd1b6fdc46"
+    },
+    "row": {
+      "source": "heavenly",
+      "crop": [
+        50,
+        383,
+        515,
+        492
+      ],
+      "size": [
+        465,
+        109
+      ],
+      "sha256": "d6801bf88c41a1f2d5d8ded76d6dee65ceea83a3cd7bb5c99461e6f8f233a41d"
+    },
+    "slot": {
+      "source": "heavenly",
+      "crop": [
+        573,
+        592,
+        671,
+        690
+      ],
+      "size": [
+        98,
+        98
+      ],
+      "sha256": "ef3abe7afc51a6a2ea7900443d60d28d96d7b577445f3224afbb8125a7bf6483"
+    },
+    "scan": {
+      "source": "sense",
+      "crop": [
+        90,
+        326,
+        226,
+        466
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "0d6a2038f87690e373ff9dcf5fcc575cf63049b832860ad8d125fbbc729a1303"
+    },
+    "identify": {
+      "source": "sense",
+      "crop": [
+        805,
+        326,
+        945,
+        466
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "ce8cb5539189902fefe5c5dc85adb552067efbbf4e4c69f669a03667c622fbcc"
+    },
+    "lock": {
+      "source": "sense",
+      "crop": [
+        90,
+        610,
+        226,
+        753
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "b6c803f3641991a1af69cfb5b56eaab4e955b0cb31dec9c8eaa5e94ded72db91"
+    },
+    "survey": {
+      "source": "sense",
+      "crop": [
+        805,
+        610,
+        945,
+        753
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "b390f102bd68babe410d663dd6ebd42fee08cc07306d507c6b2fe991d0e0bc76"
+    },
+    "previous": {
+      "source": "heavenly",
+      "crop": [
+        94,
+        1001,
+        127,
+        1038
+      ],
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "2424ce55dc49a9133742e5466ff11b121cab303fea99dfa9ae469bc5263597ba"
+    },
+    "next": {
+      "source": "heavenly",
+      "crop": [
+        431,
+        1001,
+        466,
+        1038
+      ],
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "006dc081ef9fe9b2b68ea8d482babd82903d958491df8909c9b5de8a0fb2e85c"
+    }
+  }
+}

@@ -23,11 +23,12 @@ public final class PlayerProgressionClient {
     private static final KeyMapping SCAN=key("神识探查"),IDENTIFY=key("凝神辨识"),LOCK=key("神识锁定 / 解除");
     private static KeyMapping key(String name){return new KeyMapping(name,InputConstants.Type.KEYSYM,GLFW.GLFW_KEY_UNKNOWN,"key.categories.wuxingxiantu");}
     public static void request(String action){if(Minecraft.getInstance().getConnection()!=null)Network.CHANNEL.sendToServer(new ProgressionActionPacket(action));}
-    @SubscribeEvent public static void setup(FMLClientSetupEvent e){e.enqueueWork(()->ClientPacketSink.playerProgression=n->state=n.copy());}
+    public static void accept(CompoundTag n){state=n.copy();SenseEffects.accept(state);}
+    @SubscribeEvent public static void setup(FMLClientSetupEvent e){e.enqueueWork(()->ClientPacketSink.playerProgression=PlayerProgressionClient::accept);}
     @SubscribeEvent public static void keys(RegisterKeyMappingsEvent e){e.register(SCAN);e.register(IDENTIFY);e.register(LOCK);}
     @Mod.EventBusSubscriber(modid=GeneratedMod.MOD_ID,value=Dist.CLIENT)
     public static final class Events {
-        @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut e){state=new CompoundTag();}
+        @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut e){state=new CompoundTag();SenseEffects.clear();}
         @SubscribeEvent public static void tick(TickEvent.ClientTickEvent e){
             if(e.phase!=TickEvent.Phase.END)return;var mc=Minecraft.getInstance();
             while(SCAN.consumeClick())if(mc.player!=null&&mc.screen==null)request("scan");

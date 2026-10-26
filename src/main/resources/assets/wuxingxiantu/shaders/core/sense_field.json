@@ -1,0 +1,12 @@
+{
+  "blend":{"func":"add","srcrgb":"srcalpha","dstrgb":"1-srcalpha"},
+  "vertex":"wuxingxiantu:sense_field","fragment":"wuxingxiantu:sense_field",
+  "attributes":["Position","UV0","Color"],"samplers":[{"name":"Sampler0"}],
+  "uniforms":[
+    {"name":"SenseMatrix","type":"matrix4x4","count":16,"values":[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]},
+    {"name":"OutputSize","type":"float","count":2,"values":[1,1]},
+    {"name":"ShapeMode","type":"float","count":1,"values":[0]},
+    {"name":"EffectTime","type":"float","count":1,"values":[0]},
+    {"name":"Progress","type":"float","count":1,"values":[0]}
+  ]
+}
