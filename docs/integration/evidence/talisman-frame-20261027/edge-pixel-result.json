@@ -1,0 +1,50 @@
+{
+  "noJei": {
+    "draw": {
+      "outsideFramePixelsChanged": 0,
+      "outsidePixelsChecked": 24266,
+      "checkerRGB": [
+        [
+          55,
+          60,
+          63
+        ],
+        [
+          55,
+          30,
+          52
+        ]
+      ],
+      "antialiasTolerancePixels": 2
+    },
+    "engrave": {
+      "outsideFramePixelsChanged": 0,
+      "outsidePixelsChecked": 24266,
+      "checkerRGB": [
+        [
+          55,
+          60,
+          63
+        ],
+        [
+          55,
+          30,
+          52
+        ]
+      ],
+      "antialiasTolerancePixels": 2
+    }
+  },
+  "jei": {
+    "draw": {
+      "outsideFramePixelsChanged": 0,
+      "outsidePixelsChecked": 24266,
+      "antialiasTolerancePixels": 2
+    },
+    "engrave": {
+      "outsideFramePixelsChanged": 0,
+      "outsidePixelsChecked": 24266,
+      "antialiasTolerancePixels": 2
+    }
+  }
+}

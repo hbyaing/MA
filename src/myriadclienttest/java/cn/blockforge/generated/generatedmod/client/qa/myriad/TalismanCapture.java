@@ -13,6 +13,7 @@ import net.minecraft.world.level.levelgen.WorldOptions;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.lwjgl.glfw.GLFW;
@@ -27,8 +28,15 @@ public final class TalismanCapture {
  static final boolean ENABLED=Boolean.getBoolean("wuxingxiantu.talismanCapture");
  static final Path OUT=Path.of(System.getProperty("wuxingxiantu.myriadCaptureOutput","captures")).resolve("talisman");
  static boolean opened,prepared,finished;static int tick,stage;static final long START=System.nanoTime();
- static final String[] CASES={"draw-normal","draw-hover","draw-disabled","draw-focus","draw-search","draw-scale3","draw-scale4","engrave-normal","engrave-hover","engrave-disabled","engrave-focus","engrave-search","engrave-scale3","engrave-scale4"};
+ static final String[] CASES={"draw-normal","draw-hover","draw-disabled","draw-focus","draw-search","draw-scale3","draw-scale4","engrave-normal","engrave-hover","engrave-disabled","engrave-focus","engrave-search","engrave-scale3","engrave-scale4","draw-bright-edge","engrave-bright-edge"};
  static TalismanPlatformScreen screen;static TalismanPlatformMenu menu;static Button confirm;static EditBox search;
+ static int mode(){return stage>=14?0:stage%7;}
+ @SubscribeEvent public static void backdrop(ScreenEvent.BackgroundRendered event){
+  if(!ENABLED||stage<14||event.getScreen()!=screen)return;
+  var g=event.getGuiGraphics();
+  for(int y=0;y<screen.height;y+=16)for(int x=0;x<screen.width;x+=16)
+   g.fill(x,y,x+16,y+16,((x+y)/16%2)==0?0xFFFFFFFF:0xFFFF5BC4);
+ }
  @SubscribeEvent public static void tick(TickEvent.ClientTickEvent e){
   if(!ENABLED||finished||e.phase!=TickEvent.Phase.END)return;var mc=Minecraft.getInstance();
   try{
@@ -43,18 +51,18 @@ public final class TalismanCapture {
    if(!opened||mc.player==null||mc.getOverlay()!=null)return;
    if(!prepared){mc.mouseHandler.grabMouse();PointerSafety.verify();setup(mc);prepared=true;}
    tick++;
-   if(tick==1){int scale=stage%7==5?3:stage%7==6?4:2;mc.options.guiScale().set(scale);mc.resizeDisplay();setup(mc);
-    confirm.active=stage%7!=2;search.setValue(stage%7==4?"聚灵":"");
-    if(stage%7==3){screen.setFocused(confirm);confirm.setFocused(true);}
+   if(tick==1){int scale=mode()==5?3:mode()==6?4:2;mc.options.guiScale().set(scale);mc.resizeDisplay();setup(mc);
+    confirm.active=mode()!=2;search.setValue(mode()==4?"聚灵":"");
+    if(mode()==3){screen.setFocused(confirm);confirm.setFocused(true);}
    }
    Field scaleField=TalismanPlatformScreen.class.getDeclaredField("uiScale");scaleField.setAccessible(true);float uiScale=scaleField.getFloat(screen);
-   double px=stage%7==1?(confirm.getX()+confirm.getWidth()/2d)*uiScale*mc.getWindow().getScreenWidth()/mc.getWindow().getGuiScaledWidth():-50;
-   double py=stage%7==1?(confirm.getY()+confirm.getHeight()/2d)*uiScale*mc.getWindow().getScreenHeight()/mc.getWindow().getGuiScaledHeight():-50;
+   double px=mode()==1?(confirm.getX()+confirm.getWidth()/2d)*uiScale*mc.getWindow().getScreenWidth()/mc.getWindow().getGuiScaledWidth():-50;
+   double py=mode()==1?(confirm.getY()+confirm.getHeight()/2d)*uiScale*mc.getWindow().getScreenHeight()/mc.getWindow().getGuiScaledHeight():-50;
    for(String axis:new String[]{"xpos","ypos"}){Field cursor=MouseHandler.class.getDeclaredField(axis);cursor.setAccessible(true);cursor.setDouble(mc.mouseHandler,axis.equals("xpos")?px:py);}
   }catch(Throwable t){fail(mc,t);}
  }
  static void setup(Minecraft mc)throws Exception{
-  boolean engrave=stage>=7;
+  boolean engrave=(stage>=7&&stage<14)||stage==15;
   var kind=engrave?TalismanPlatformBlockEntity.Kind.ENGRAVE:TalismanPlatformBlockEntity.Kind.DRAW;
   var block=engrave?WuXingBlocks.ENGRAVING_PLATFORM.get():WuXingBlocks.DRAWING_PLATFORM.get();
   var entity=new TalismanPlatformBlockEntity(BlockPos.ZERO,block.defaultBlockState(),kind);entity.setLevel(mc.level);
@@ -69,7 +77,7 @@ public final class TalismanCapture {
  @SubscribeEvent public static void frame(TickEvent.RenderTickEvent e){
   if(!ENABLED||finished||!prepared||e.phase!=TickEvent.Phase.END||tick<16)return;var mc=Minecraft.getInstance();
   try{
-   if(stage%7==1&&!confirm.isHovered())throw new AssertionError("Natural hover fixture did not reach confirm");
+   if(mode()==1&&!confirm.isHovered())throw new AssertionError("Natural hover fixture did not reach confirm");
    try(var im=Screenshot.takeScreenshot(mc.getMainRenderTarget())){im.writeToFile(OUT.resolve(CASES[stage]+".png"));}
    if(++stage==CASES.length){PointerSafety.verify();Files.writeString(OUT.resolve("result.json"),new GsonBuilder().setPrettyPrinting().create().toJson(Map.of("passed",true,"cases",CASES,"pointer",PointerSafety.snapshot(),"inventorySlots",36,"note","Client visual fixture with controlled quote; gameplay checks are separate")));finished=true;mc.stop();}else tick=0;
   }catch(Throwable t){fail(mc,t);}
