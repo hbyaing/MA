@@ -1,0 +1,12 @@
+{
+  "approved": true,
+  "generator": "built-in image_gen",
+  "unchangedExpandAssets": {
+    "expand_v2": "248410a5485cec7a0580ccd397aa1db9c4c68c4a393a26cc55ab8218bb3a83c3",
+    "expand_v2_hover": "072c1ed4cfaac073b92b10a4499a6a2b8fa81536d881918204afb28a4b05af29"
+  },
+  "files": {
+    "collapse_v2.png": "6ac164600ccbac47924ab4c439c8f14523cc3e397c4b8efa8cd42009bc4343a7",
+    "collapse_v2_hover.png": "0ac29d95b03390f40444df5ebd1c634fba7b16b2df04349ec1cd96a847aae824"
+  }
+}
