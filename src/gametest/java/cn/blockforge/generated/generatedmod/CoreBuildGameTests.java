@@ -39,20 +39,16 @@ public final class CoreBuildGameTests {
         h.assertTrue(lines.get(0).getStyle().getColor().getValue()==net.minecraft.ChatFormatting.AQUA.getColor(),"Effect description is not pill-style aqua");
         h.assertTrue(lines.stream().anyMatch(t->t.getContents() instanceof net.minecraft.network.chat.contents.TranslatableContents tr&&tr.getKey().equals("pill.wuxingxiantu.requirement")&&t.getStyle().getColor().getValue()==net.minecraft.ChatFormatting.GOLD.getColor()),"Realm requirement lacks pill-style gold");h.succeed();
     }
-    @GameTest(template="empty") public static void heldInputRequiresActivationAndReleaseResetsProgress(GameTestHelper h){
-        try(var p=new GameTestPlayer(h.getLevel())){p.join();p.getAbilities().instabuild=false;
+    @GameTest(template="empty") public static void forgeClickBuildsImmediatelyAndLegacyPacketsCannotBuild(GameTestHelper h){
+        try(var p=new GameTestPlayer(h.getLevel())){p.join();
             var core=site(h,180);h.getLevel().setBlock(core,WuXingBlocks.REFINING_FORGE_CORE.get().defaultBlockState(),2);materials(p,core);
-            p.setPos(core.getX()+.5,core.getY(),core.getZ()-3);p.setYRot(0);p.setXRot((float)Math.toDegrees(Math.atan2(p.getEyeY()-(core.getY()+.5),3.5)));
-            var tick=new net.minecraftforge.event.TickEvent.PlayerTickEvent(net.minecraftforge.event.TickEvent.Phase.END,p);
-            CoreStructureBuilder.input(p,core,true);CoreStructureBuilder.tick(tick);
-            h.assertTrue(h.getLevel().getBlockState(core.east()).isAir(),"Unactivated packet built structure");
-            CoreStructureBuilder.activate(h.getLevel(),core,p);
-            for(int i=0;i<40;i++){CoreStructureBuilder.input(p,core,true);CoreStructureBuilder.tick(tick);}
-            CoreStructureBuilder.input(p,core,false);
-            for(int i=0;i<40;i++){CoreStructureBuilder.input(p,core,true);CoreStructureBuilder.tick(tick);}
-            h.assertTrue(h.getLevel().getBlockState(core.east()).isAir(),"Release did not reset build progress");
-            for(int i=0;i<20;i++){CoreStructureBuilder.input(p,core,true);CoreStructureBuilder.tick(tick);}
-            h.assertTrue(CoreStructureBuilder.complete(h.getLevel(),core),"Validated 60-tick held input failed");h.succeed();
+            p.setPos(core.getX()+.5,core.getY(),core.getZ()-3);
+            for(int i=0;i<100;i++)CoreStructureBuilder.input(p,core,true);
+            h.assertTrue(!CoreStructureBuilder.complete(h.getLevel(),core),"Legacy packet initiated construction");
+            var hit=new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(core),Direction.NORTH,core,false);
+            WuXingBlocks.REFINING_FORGE_CORE.get().use(h.getLevel().getBlockState(core),h.getLevel(),core,p,net.minecraft.world.InteractionHand.MAIN_HAND,hit);
+            h.assertTrue(CoreStructureBuilder.complete(h.getLevel(),core),"Forge still required held input");
+            h.assertTrue(p.getInventory().items.stream().allMatch(ItemStack::isEmpty),"Forge material count mismatch");h.succeed();
         }
     }
     @GameTest(template="empty") public static void deniedPlacementRollsBackAndKeepsInventory(GameTestHelper h){
@@ -65,6 +61,42 @@ public final class CoreBuildGameTests {
             finally{net.minecraftforge.common.MinecraftForge.EVENT_BUS.unregister(listener);}
             h.assertTrue(CoreStructureBuilder.blueprint(h.getLevel(),core).keySet().stream().allMatch(pos->h.getLevel().getBlockState(pos).isAir()),"Canceled placement left partial blocks");
             h.assertTrue(p.getInventory().items.stream().mapToInt(ItemStack::getCount).sum()==count,"Canceled placement spent materials");h.succeed();
+        }
+    }
+    @GameTest(template="empty") public static void furnaceRightClickBuildsImmediatelyAndMissingMaterialsStayUntouched(GameTestHelper h){
+        try(var p=new GameTestPlayer(h.getLevel())){p.join();
+            var core=site(h,340);var block=WuXingBlocks.ALCHEMY_FURNACE_LOW.get();
+            h.getLevel().setBlock(core,block.defaultBlockState(),2);p.setPos(core.getX()+.5,core.getY(),core.getZ()-3);
+            var before=new java.util.HashMap<BlockPos,net.minecraft.world.level.block.state.BlockState>();
+            CoreStructureBuilder.blueprint(h.getLevel(),core).keySet().forEach(pos->before.put(pos,h.getLevel().getBlockState(pos)));
+            p.getInventory().add(new ItemStack(WuXingBlocks.RUNE_STONE.get(),1));
+            var hit=new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(core),Direction.NORTH,core,false);
+            block.use(h.getLevel().getBlockState(core),h.getLevel(),core,p,net.minecraft.world.InteractionHand.MAIN_HAND,hit);
+            h.assertTrue(before.entrySet().stream().allMatch(e->h.getLevel().getBlockState(e.getKey()).equals(e.getValue())),"Missing materials partially built furnace");
+            h.assertTrue(p.getInventory().countItem(WuXingBlocks.RUNE_STONE.get().asItem())==1,"Failed click spent materials");
+            p.getInventory().clearContent();materials(p,core);
+            block.use(h.getLevel().getBlockState(core),h.getLevel(),core,p,net.minecraft.world.InteractionHand.MAIN_HAND,hit);
+            h.assertTrue(AlchemyFurnaceBlock.isFormed(h.getLevel().getBlockState(core)),"One right click did not immediately assemble furnace");
+            h.assertTrue(p.getInventory().items.stream().allMatch(ItemStack::isEmpty),"Click consumed incorrect material count");
+            h.succeed();
+        }
+    }
+    @GameTest(template="empty") public static void furnaceMissingMaterialNoticeIsThrottledAndCreativeStillBuilds(GameTestHelper h){
+        try(var p=new GameTestPlayer(h.getLevel())){p.join();
+            var notices=new java.util.concurrent.atomic.AtomicInteger();
+            p.connection=new net.minecraft.server.network.ServerGamePacketListenerImpl(h.getLevel().getServer(),new net.minecraft.network.Connection(net.minecraft.network.protocol.PacketFlow.SERVERBOUND),p){
+                @Override public void send(net.minecraft.network.protocol.Packet<?> packet){if(packet instanceof net.minecraft.network.protocol.game.ClientboundSystemChatPacket)notices.incrementAndGet();}
+                @Override public void send(net.minecraft.network.protocol.Packet<?> packet,net.minecraft.network.PacketSendListener listener){send(packet);}
+            };
+            var core=site(h,380);var block=WuXingBlocks.ALCHEMY_FURNACE_LOW.get();
+            h.getLevel().setBlock(core,block.defaultBlockState(),2);p.setPos(core.getX()+.5,core.getY(),core.getZ()-3);
+            var hit=new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(core),Direction.NORTH,core,false);
+            for(int i=0;i<10;i++)block.use(h.getLevel().getBlockState(core),h.getLevel(),core,p,net.minecraft.world.InteractionHand.MAIN_HAND,hit);
+            h.assertTrue(notices.get()==1,"Repeated missing-material clicks spammed messages: "+notices.get());
+            p.setGameMode(net.minecraft.world.level.GameType.CREATIVE);
+            block.use(h.getLevel().getBlockState(core),h.getLevel(),core,p,net.minecraft.world.InteractionHand.MAIN_HAND,hit);
+            h.assertTrue(AlchemyFurnaceBlock.isFormed(h.getLevel().getBlockState(core)),"Creative right click still required materials");
+            h.assertTrue(notices.get()==2,"Successful build feedback was suppressed by missing-material cooldown");h.succeed();
         }
     }
     private static BlockPos site(GameTestHelper h,int x){
