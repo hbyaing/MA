@@ -25,3 +25,5 @@
 补充白色/粉色棋盘底的独立实机验收，消除暗色游戏场景对边界判断的干扰。两窗在有 JEI、无 JEI 下，分别检查框外 24,266 个像素（外框抗锯齿保留 2 屏幕像素容差），均未改变棋盘背景像素。原双窗预览误将框外游戏画面裁进了拼图；现仅对评审预览按外框轮廓加透明底，正式 UI 仍使用真实裁剪绘制，不依赖预览遮罩。
 
 [绘制台高对比实机原图](evidence/talisman-frame-20261027/draw-bright-edge.png) · [镌印台高对比实机原图](evidence/talisman-frame-20261027/engrave-bright-edge.png) · [框外像素验证](evidence/talisman-frame-20261027/edge-pixel-result.json)
+
+后续实机反馈及正式源贴图透明化修复见 [框外像素透明化](TALISMAN_ALPHA_CROP_20261027.md)。前次仅凭预览留边和旧进程作出的解释不作为实机问题已解决的依据。

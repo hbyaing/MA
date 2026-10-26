@@ -1,0 +1,24 @@
+{
+  "backup": "E:\\垃圾\\2026-10-27\\talisman-frame-alpha-013157",
+  "assets": [
+    {
+      "asset": "background.png",
+      "removedOpaquePixels": 85225,
+      "oldSHA256": "f6d7209b15a3730510b835a4980e76734f8019a3f13f1757f4ebe6c19830a1ea",
+      "newSHA256": "55b9ff1ee04553b69544f7be4cebaee2901c5ccdf7ef706431472cca3dca8cbd"
+    },
+    {
+      "asset": "engrave_background.png",
+      "removedOpaquePixels": 85225,
+      "oldSHA256": "a07d301756e79e4af4bde85b7830abd6fa3f3159f18c94d87448ffd338ad507d",
+      "newSHA256": "5f42d580d4e6ab1a0a189f51cba4610230cf0edca20253c9d8256b74e1dcd8d7"
+    },
+    {
+      "asset": "frame.png",
+      "removedOpaquePixels": 85225,
+      "oldSHA256": "1204e4f6f5d71d59fd4cc717524c069b030cbe06bac293c0ea4f8daebc809fef",
+      "newSHA256": "ae1974c4693db5a6525c63f2f3a360e35de8126e49e92e27bc2c8d45144f2c61"
+    }
+  ],
+  "interiorRGBAUnchanged": true
+}
