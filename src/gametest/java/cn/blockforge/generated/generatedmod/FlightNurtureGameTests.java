@@ -51,25 +51,48 @@ public final class FlightNurtureGameTests {
     @GameTest(template="empty")
     public static void uncappedHighSpeedSweepStopsAtSolidWall(GameTestHelper h) {
         var saved=new java.util.HashMap<net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState>();
-        try(var player=new GameTestPlayer(h.getLevel())) {
-            var start=h.absolutePos(new net.minecraft.core.BlockPos(3,160,3));
-            player.setPos(start.getX()+0.5,start.getY(),start.getZ()+0.5);
-            for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++)
-                player.keepTicking(h.getLevel(),start.offset(x*16,0,z*16));
+        var blockData=new java.util.HashMap<net.minecraft.core.BlockPos,net.minecraft.nbt.CompoundTag>();
+        var player=new GameTestPlayer(h.getLevel());
+        player.cleanupAfter(h,()->{
+            saved.forEach((pos,state)->h.getLevel().setBlockAndUpdate(pos,state));
+            blockData.forEach((pos,tag)->{
+                var entity=h.getLevel().getBlockEntity(pos);
+                if(entity!=null){entity.load(tag);entity.setChanged();}
+            });
+        });
+        // The ten-block path leaves the empty template. Prepare its own corridor instead
+        // of relying on ambient terrain (including islands at Y=220) or chunk timing.
+        var start=h.absolutePos(new net.minecraft.core.BlockPos(3,0,3))
+                .atY(h.getLevel().getMaxBuildHeight()-8);
+        player.setPos(start.getX()+0.5,start.getY(),start.getZ()+0.5);
+        for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++)
+            player.keepTicking(h.getLevel(),start.offset(x*16,0,z*16));
+        var velocity=new net.minecraft.world.phys.Vec3(10,0,0);
+        var corridor=player.getBoundingBox().expandTowards(velocity).inflate(1);
+        h.startSequence().thenWaitUntil(()->h.assertTrue(FlightCollision.loaded(player,corridor),
+                "Flight fixture corridor chunks are not ready"))
+        .thenExecute(()->{
+            var positions=net.minecraft.core.BlockPos.betweenClosed(start.offset(-2,-1,-2),start.offset(12,3,2));
+            for(var pos:positions) {
+                var key=pos.immutable();saved.put(key,h.getLevel().getBlockState(pos));
+                var entity=h.getLevel().getBlockEntity(pos);
+                if(entity!=null)blockData.put(key,entity.saveWithFullMetadata());
+            }
+            // Deliberately seed an obstruction: skipping preparation must fail the open-path assertion.
+            h.getLevel().setBlockAndUpdate(start.offset(2,0,0),net.minecraft.world.level.block.Blocks.STONE.defaultBlockState());
+            for(var pos:positions)h.getLevel().setBlockAndUpdate(pos,net.minecraft.world.level.block.Blocks.AIR.defaultBlockState());
             player.join();
-            var velocity=new net.minecraft.world.phys.Vec3(10,0,0);
             var open=FlightCollision.sweep(player,player.getBoundingBox(),velocity,false);
             h.assertTrue(!open.blocked()&&open.loaded()&&open.movement().distanceTo(velocity)<1e-8,
-                    "Clear flight path still limited movement to old speed cap");
+                    "Clear flight path still limited movement to old speed cap: "+open+" at "+player.position());
             for(int y=0;y<3;y++)for(int z=-1;z<=1;z++) {
-                var pos=start.offset(6,y,z);saved.put(pos,h.getLevel().getBlockState(pos));
+                var pos=start.offset(6,y,z);
                 h.getLevel().setBlockAndUpdate(pos,net.minecraft.world.level.block.Blocks.STONE.defaultBlockState());
             }
             var blocked=FlightCollision.sweep(player,player.getBoundingBox(),velocity,false);
             h.assertTrue(blocked.blocked()&&blocked.loaded()&&blocked.movement().x>3&&blocked.movement().x<6,
-                    "High-speed collision tunneled through wall or retained 3-block cap");
-        } finally {saved.forEach((pos,state)->h.getLevel().setBlockAndUpdate(pos,state));}
-        h.succeed();
+                    "High-speed collision tunneled through wall or retained 3-block cap: "+blocked);
+        }).thenSucceed();
     }
 
     @GameTest(template="empty")

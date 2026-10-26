@@ -24,15 +24,34 @@ jobs:
           ./gradlew verifyFull --no-daemon --console=plain 2>&1 | tee build-audit.log
       - run: python tools/verify_gametest_log.py build-audit.log --exit-code 0 --report gametest-result.json
       - run: python tools/check_warning_budget.py build-audit.log
-      - uses: actions/upload-artifact@v4
+      - name: Upload acceptance evidence
+        id: evidence
+        uses: actions/upload-artifact@v4
         if: always()
+        continue-on-error: true
         with:
           name: myriad-acceptance-evidence
+          retention-days: 7
           path: |
             build-audit.log
             gametest-result.json
             build/gametest-run/logs/latest.log
-      - uses: actions/upload-artifact@v4
+      - name: Upload production JAR
+        id: package
+        uses: actions/upload-artifact@v4
+        if: success() && (github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch')
+        continue-on-error: true
         with:
           name: myriad-ascension-forge-1.20.1
+          retention-days: 3
           path: build/libs/*.jar
+      - name: Report attachment availability
+        if: always()
+        env:
+          EVIDENCE_OUTCOME: ${{ steps.evidence.outcome }}
+          PACKAGE_OUTCOME: ${{ steps.package.outcome }}
+        run: |
+          if [[ "$EVIDENCE_OUTCOME" == "failure" || "$PACKAGE_OUTCOME" == "failure" ]]; then
+            echo "::warning::Build attachments could not be uploaded. See the upload step for the storage or service error; validation steps remain required."
+            echo "Attachments unavailable: evidence=$EVIDENCE_OUTCOME, package=$PACKAGE_OUTCOME. Build and test results are reported by their required steps above." >> "$GITHUB_STEP_SUMMARY"
+          fi
