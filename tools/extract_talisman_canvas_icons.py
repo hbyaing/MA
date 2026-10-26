@@ -14,7 +14,8 @@ SIZE = 49
 
 
 def extract(name):
-    source = Image.open(SOURCE / (name + '-generated.png')).convert('RGB')
+    source_dir = ROOT / 'source-assets/talisman-collapse-proportion-20261027-v3' if name == 'collapse' else SOURCE
+    source = Image.open(source_dir / (name + '-generated.png')).convert('RGB')
     width, height = source.size
     mask = Image.new('L', source.size)
     mask.putdata([255 if (width * .12 < i % width < width * .88

@@ -5,3 +5,5 @@
 expand-generated.png 与 collapse-generated.png 为最终生图原件；对应提示词保存在同目录。正式素材49×49，在原按钮边框上提取生图的金色箭头，内部为不透明纯墨色、外缘沿用正式素材透明边角；普通与悬停态共享几何、采用配套金色。
 
 可复现提取：`python tools/extract_talisman_canvas_icons.py`。运行文件为 talisman_v12 下 expand_v2、collapse_v2 及各自的 _hover 图片。旧16像素缩小图标不再使用。缩小控件20×20置于放大绘制右上角，操作/评分区继续保持在右下方。
+
+缩小图标比例随后由用户批准的 talisman-collapse-proportion-20261027-v3 替代，原v2缩小稿仅保留为修订记录；放大图标继续使用本目录原件。
