@@ -34,8 +34,12 @@ public final class RecheckGameTests {
         var level=p.serverLevel();
         var bossId=tag.getUUID("boss");
         p.keepTicking(level,MindscapeInstances.center(tag.getInt("slot")));
+        boolean[] loaded={false};
+        h.runAfterDelay(100,()->h.assertTrue(loaded[0],
+                "Destination boss did not load within 100 ticks: slot="+tag.getInt("slot")+" boss="+bossId));
         h.startSequence().thenWaitUntil(()->h.assertTrue(level.getEntity(bossId)!=null,
                 "Waiting for destination boss to become visible")).thenExecute(()->{
+                    loaded[0]=true;
                     h.assertTrue(p.isAlive()&&p.level()==level&&MindscapeExternalSnapshot.isValid(p),
                             "Session changed while loading: level="+p.level().dimension()+" health="+p.getHealth()+" tick="+p.tickCount+" data="+tag);
                     action.run();
@@ -48,6 +52,11 @@ public final class RecheckGameTests {
         h.assertTrue(reserved>=0,"No free test arena");
         // enter() replaces this lease with the first free slot; earlier slots may be freed meanwhile.
         for(int slot=0;slot<=reserved;slot++)p.keepTicking(level,MindscapeInstances.center(slot));
+        // Fresh CI worlds load these distant entity chunks asynchronously; allow that setup
+        // separately from the twenty ticking-entity frames required by the phase transition.
+        boolean[] ready={false};
+        h.runAfterDelay(200,()->h.assertTrue(ready[0],
+                "Mindscape arena chunks did not become ready within 200 ticks: last slot="+reserved));
         h.startSequence().thenWaitUntil(()->{
             for(int slot=0;slot<=reserved;slot++){
                 var center=MindscapeInstances.center(slot);
@@ -55,7 +64,7 @@ public final class RecheckGameTests {
                         &&level.areEntitiesLoaded(new net.minecraft.world.level.ChunkPos(center).toLong()),
                         "Waiting for test arena entity chunks");
             }
-        }).thenExecute(action);
+        }).thenExecute(()->{ready[0]=true;action.run();});
     }
     @GameTest(template="empty") public static void playerFixtureTicksAndUnregisters(GameTestHelper h) {
         h.setBlock(new BlockPos(2,0,2),Blocks.STONE);
@@ -185,10 +194,10 @@ public final class RecheckGameTests {
         finally {boss.discard();p.close();}
         h.succeed();
     }
-    @GameTest(template="empty",timeoutTicks=100) public static void phaseTwoPlayerKillCompletesChallenge(GameTestHelper h) {
+    @GameTest(template="empty",timeoutTicks=400) public static void phaseTwoPlayerKillCompletesChallenge(GameTestHelper h) {
         phaseTwoKillCompletesChallenge(h,false);
     }
-    @GameTest(template="empty",timeoutTicks=100) public static void heartTruePhaseTwoKillCompletesChallenge(GameTestHelper h) {
+    @GameTest(template="empty",timeoutTicks=400) public static void heartTruePhaseTwoKillCompletesChallenge(GameTestHelper h) {
         phaseTwoKillCompletesChallenge(h,true);
     }
     private static void phaseTwoKillCompletesChallenge(GameTestHelper h,boolean heartTrue) {
@@ -207,7 +216,8 @@ public final class RecheckGameTests {
             else boss.hurt(p.damageSources().playerAttack(p),1000000);
             h.assertTrue(boss.isAlive()&&boss.visualPhase()==HeartDemonEntity.VisualPhase.PHASE_2,"First phase did not transition");
             int phaseStartTick=boss.tickCount;
-            h.runAfterDelay(25,()->{
+            h.startSequence().thenWaitUntil(()->h.assertTrue(boss.tickCount-phaseStartTick>=20,
+                    "Waiting for the boss entity to finish its phase transition")).thenExecute(()->{
                 try {
                     h.assertTrue(boss.tickCount-phaseStartTick>=20,"Boss chunk did not tick through phase transition: "+(boss.tickCount-phaseStartTick));
                     if(heartTrue)cn.blockforge.generated.generatedmod.combat.HeartSwordCombatProfile.applyHeartTrueDamage(p,boss,1000000);
@@ -222,7 +232,7 @@ public final class RecheckGameTests {
         } catch(RuntimeException|AssertionError failure) {MindscapeManager.abort(p,true);p.close();throw failure;}
         });
     }
-    @GameTest(template="empty",timeoutTicks=300) public static void removedBossDoesNotLeaveBrokenSession(GameTestHelper h) {
+    @GameTest(template="empty",timeoutTicks=400) public static void removedBossDoesNotLeaveBrokenSession(GameTestHelper h) {
         var p=player(h);var d=GeneratedMod.data(p);
         prepareMindscape(h,p,()->{
         try {
@@ -240,7 +250,7 @@ public final class RecheckGameTests {
         } catch(RuntimeException|AssertionError failure) {MindscapeManager.abort(p,true);p.close();throw failure;}
         });
     }
-    @GameTest(template="empty") public static void directMindscapeEnterAndAdminCompletionPreserveCultivation(GameTestHelper h) {
+    @GameTest(template="empty",timeoutTicks=400) public static void directMindscapeEnterAndAdminCompletionPreserveCultivation(GameTestHelper h) {
         var p=player(h);var d=GeneratedMod.data(p);d.wuxingxiantu$setCultivation(123456);
         prepareMindscape(h,p,()->{
         try {
@@ -259,7 +269,7 @@ public final class RecheckGameTests {
         } catch(RuntimeException|AssertionError failure) {MindscapeManager.abort(p,true);p.close();throw failure;}
         });
     }
-    @GameTest(template="empty") public static void directMindscapeForceRestorePreservesCultivation(GameTestHelper h) {
+    @GameTest(template="empty",timeoutTicks=400) public static void directMindscapeForceRestorePreservesCultivation(GameTestHelper h) {
         var p=player(h);var d=GeneratedMod.data(p);d.wuxingxiantu$setCultivation(123456);
         prepareMindscape(h,p,()->{
         try {
