@@ -44,7 +44,11 @@ public final class CreativeInventorySkin {
             if(tab.getType()==CreativeModeTab.Type.INVENTORY&&screen.getMenu().getCarried().isEmpty()
                     &&org.lwjgl.glfw.GLFW.glfwGetMouseButton(mc.getWindow().getWindow(),0)==0
                     &&org.lwjgl.glfw.GLFW.glfwGetMouseButton(mc.getWindow().getWindow(),1)==0)
+            {
+                // Keep the next inventory-key entry in the creative catalog.
+                selectedTab.set(null,BuiltInRegistries.CREATIVE_MODE_TAB.get(net.minecraft.world.item.CreativeModeTabs.BUILDING_BLOCKS));
                 mc.setScreen(new CultivationMainScreen(mc.player));
+            }
         } catch(ReflectiveOperationException|RuntimeException error) {
             if(!unavailable)com.mojang.logging.LogUtils.getLogger().warn("Creative inventory bridge unavailable",error);
             unavailable=true;
