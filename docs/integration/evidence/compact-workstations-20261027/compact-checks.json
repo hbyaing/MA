@@ -1,0 +1,46 @@
+{
+  "compact-reforge-no-jei/reforge": {
+    "passed": true,
+    "caseCount": 16,
+    "pointer": {
+      "cursorMode": 212993,
+      "blockedGrabs": 2,
+      "passed": true,
+      "captureViolations": 0,
+      "checkedFrames": 1473
+    }
+  },
+  "compact-inscription-no-jei/inscription": {
+    "passed": true,
+    "caseCount": 15,
+    "pointer": {
+      "passed": true,
+      "captureViolations": 0,
+      "checkedFrames": 1432,
+      "cursorMode": 212993,
+      "blockedGrabs": 2
+    }
+  },
+  "compact-reforge-user-stack-final/reforge": {
+    "passed": true,
+    "caseCount": 18,
+    "pointer": {
+      "blockedGrabs": 1,
+      "cursorMode": 212993,
+      "checkedFrames": 1399,
+      "captureViolations": 0,
+      "passed": true
+    }
+  },
+  "compact-inscription-user-stack/inscription": {
+    "passed": true,
+    "caseCount": 15,
+    "pointer": {
+      "checkedFrames": 1327,
+      "captureViolations": 0,
+      "passed": true,
+      "blockedGrabs": 1,
+      "cursorMode": 212993
+    }
+  }
+}

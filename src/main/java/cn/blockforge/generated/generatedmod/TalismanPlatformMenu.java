@@ -15,7 +15,7 @@ import cn.blockforge.generated.generatedmod.client.UiLayoutConfig;
 
 /** 符箓平台菜单：镌印台 / 绘制台 / 拓印台 共用，按 kind 摆放槽位。 */
 public final class TalismanPlatformMenu extends AbstractContainerMenu {
-    private static String profile(TalismanPlatformBlockEntity.Kind kind){return switch(kind){case DRAW->"draw";case ENGRAVE->"engrave";case RUB->"rub";};}
+    private static String profile(TalismanPlatformBlockEntity.Kind kind){return switch(kind){case DRAW->"draw";case ENGRAVE->"engrave";case RUB->TalismanRubLayout.PROFILE;};}
     private static int x(String screen,String exact,String legacy,int fallback){return UiLayoutConfig.x(screen,exact,UiLayoutConfig.x(screen,legacy,fallback));}
     private static int y(String screen,String exact,String legacy,int fallback){return UiLayoutConfig.y(screen,exact,UiLayoutConfig.y(screen,legacy,fallback));}
     /** 面板宽度（与界面一致），供物品栏水平居中换算。 */
@@ -85,8 +85,8 @@ public final class TalismanPlatformMenu extends AbstractContainerMenu {
         this.machineSlotCount = slots.size();
 
         String profile=profile(kind);
-        int invX=UiLayoutConfig.x(profile,"inventory",kind!=TalismanPlatformBlockEntity.Kind.RUB?135:39);
-        int invY=UiLayoutConfig.y(profile,"inventory",kind!=TalismanPlatformBlockEntity.Kind.RUB?248:165);
+        int invX=UiLayoutConfig.x(profile,"inventory",kind!=TalismanPlatformBlockEntity.Kind.RUB?135:TalismanRubLayout.INVENTORY_X);
+        int invY=UiLayoutConfig.y(profile,"inventory",kind!=TalismanPlatformBlockEntity.Kind.RUB?248:TalismanRubLayout.INVENTORY_Y);
         // The workbench's inventory rectangle is a visual panel anchor. Keep
         // actual vanilla slot spacing at 18px unless an explicit step is
         // authored; deriving it from the panel width spreads slots apart.
@@ -103,7 +103,7 @@ public final class TalismanPlatformMenu extends AbstractContainerMenu {
             }
         }
         for (int column = 0; column < 9; column++) {
-            addSlot(new Slot(playerInventory, column, invX + column * invStep, invY + 3 * rowStep));
+            addSlot(new Slot(playerInventory, column, invX + column * invStep, invY + 3 * rowStep + (kind==TalismanPlatformBlockEntity.Kind.RUB?TalismanRubLayout.HOTBAR_GAP:0)));
         }
     }
 
@@ -148,7 +148,7 @@ public final class TalismanPlatformMenu extends AbstractContainerMenu {
         return switch (kind) {
             case ENGRAVE -> -1000;
             case DRAW -> x(profile(kind),"inkSlot","ink",303);
-            case RUB -> x(profile(kind),"inkSlot","ink",118);
+            case RUB -> x(profile(kind),"inkSlot","ink",TalismanRubLayout.INK_X);
         };
     }
 
@@ -165,15 +165,15 @@ public final class TalismanPlatformMenu extends AbstractContainerMenu {
         int start = TalismanPlatformBlockEntity.inkStart(kind);
         if (start < 0) return -1000;
         // 已批准布局：绘制台19像素行距，紧凑拓印台20像素行距。
-        int base=y(profile(kind),"inkSlot","ink",kind==TalismanPlatformBlockEntity.Kind.DRAW?64:56);
-        int configuredStep=UiLayoutConfig.height(profile(kind),"inkStepY",kind==TalismanPlatformBlockEntity.Kind.DRAW?19:20);
-        int step=Math.max(1,configuredStep<=32?configuredStep:(kind==TalismanPlatformBlockEntity.Kind.DRAW?19:20));
+        int base=y(profile(kind),"inkSlot","ink",kind==TalismanPlatformBlockEntity.Kind.DRAW?64:TalismanRubLayout.INK_Y);
+        int configuredStep=UiLayoutConfig.height(profile(kind),"inkStepY",kind==TalismanPlatformBlockEntity.Kind.DRAW?19:TalismanRubLayout.INK_STEP);
+        int step=Math.max(1,configuredStep<=32?configuredStep:(kind==TalismanPlatformBlockEntity.Kind.DRAW?19:TalismanRubLayout.INK_STEP));
         return base+(index-start)*step;
     }
 
     public static int slotX(TalismanPlatformBlockEntity.Kind kind, int index) {
         if (!TalismanPlatformBlockEntity.isActiveSlot(kind, index)) return -1000;
-        if(kind==TalismanPlatformBlockEntity.Kind.RUB)return index==TalismanPlatformBlockEntity.OUTPUT?x(profile(kind),"outputSlot","output",216):index==TalismanPlatformBlockEntity.RUB_SEAL?x(profile(kind),"rubSealSlot","seal",20):index==TalismanPlatformBlockEntity.RUB_PAPER?x(profile(kind),"rubPaperSlot","paper",188):inkX(kind);
+        if(kind==TalismanPlatformBlockEntity.Kind.RUB)return index==TalismanPlatformBlockEntity.OUTPUT?x(profile(kind),"outputSlot","output",TalismanRubLayout.OUTPUT_X):index==TalismanPlatformBlockEntity.RUB_SEAL?x(profile(kind),"rubSealSlot","seal",TalismanRubLayout.SEAL_X):index==TalismanPlatformBlockEntity.RUB_PAPER?x(profile(kind),"rubPaperSlot","paper",TalismanRubLayout.PAPER_X):inkX(kind);
         if(kind==TalismanPlatformBlockEntity.Kind.ENGRAVE)return index==TalismanPlatformBlockEntity.OUTPUT?x(profile(kind),"outputSlot","output",354):x(profile(kind),index==TalismanPlatformBlockEntity.ENGRAVE_KNIFE?"engraveKnifeSlot":"engraveGoldSlot","engraveInputSlot",index==TalismanPlatformBlockEntity.ENGRAVE_KNIFE?303:364);
         if(kind==TalismanPlatformBlockEntity.Kind.DRAW){if(index==TalismanPlatformBlockEntity.OUTPUT)return x(profile(kind),"outputSlot","output",354);if(index==TalismanPlatformBlockEntity.DRAW_PAPER)return x(profile(kind),"drawPaperSlot","paper",364);}
         if (TalismanPlatformBlockEntity.isInkSlot(kind, index)) return inkX(kind);
@@ -185,7 +185,7 @@ public final class TalismanPlatformMenu extends AbstractContainerMenu {
 
     public static int slotY(TalismanPlatformBlockEntity.Kind kind, int index) {
         if (!TalismanPlatformBlockEntity.isActiveSlot(kind, index)) return -1000;
-        if(kind==TalismanPlatformBlockEntity.Kind.RUB){if(TalismanPlatformBlockEntity.isInkSlot(kind,index))return inkY(kind,index);if(index==TalismanPlatformBlockEntity.OUTPUT)return y(profile(kind),"outputSlot","output",171);return index==TalismanPlatformBlockEntity.RUB_SEAL?y(profile(kind),"rubSealSlot","seal",76):y(profile(kind),"rubPaperSlot","paper",76);}
+        if(kind==TalismanPlatformBlockEntity.Kind.RUB){if(TalismanPlatformBlockEntity.isInkSlot(kind,index))return inkY(kind,index);return y(profile(kind),index==TalismanPlatformBlockEntity.OUTPUT?"outputSlot":index==TalismanPlatformBlockEntity.RUB_SEAL?"rubSealSlot":"rubPaperSlot","port",TalismanRubLayout.PORT_Y);}
         if(kind==TalismanPlatformBlockEntity.Kind.ENGRAVE)return index==TalismanPlatformBlockEntity.OUTPUT?y(profile(kind),"outputSlot","output",278):y(profile(kind),index==TalismanPlatformBlockEntity.ENGRAVE_KNIFE?"engraveKnifeSlot":"engraveGoldSlot","engraveInputSlot",83);
         if(kind==TalismanPlatformBlockEntity.Kind.DRAW){if(index==TalismanPlatformBlockEntity.OUTPUT)return y(profile(kind),"outputSlot","output",278);if(index==TalismanPlatformBlockEntity.DRAW_PAPER)return y(profile(kind),"drawPaperSlot","paper",83);}
         if (TalismanPlatformBlockEntity.isInkSlot(kind, index)) return inkY(kind, index);

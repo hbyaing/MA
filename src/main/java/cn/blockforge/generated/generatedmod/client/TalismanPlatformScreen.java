@@ -31,13 +31,13 @@ public final class TalismanPlatformScreen extends AbstractContainerScreen<Talism
      * drifting apart when a glyph has asymmetric bounds.
      */
     private record GlyphOffset(int x,int y){}
-    private String profile(){return switch(menu.kind()){case DRAW->"draw";case ENGRAVE->"engrave";case RUB->"rub";};}
+    private String profile(){return switch(menu.kind()){case DRAW->"draw";case ENGRAVE->"engrave";case RUB->TalismanRubLayout.PROFILE;};}
     private int ux(String element,int fallback){return UiLayoutConfig.x(profile(),element,fallback);}
     private int uy(String element,int fallback){return UiLayoutConfig.y(profile(),element,fallback);}
     private int uw(String element,int fallback){return UiLayoutConfig.width(profile(),element,fallback);}
     private int uh(String element,int fallback){return UiLayoutConfig.height(profile(),element,fallback);}
     public TalismanPlatformScreen(TalismanPlatformMenu menu,Inventory inv,Component title){
-        super(menu,inv,title);UiLayoutConfig.reload();imageWidth=menu.kind()==TalismanPlatformBlockEntity.Kind.RUB?240:TalismanPlatformMenu.PANEL_WIDTH;imageHeight=menu.kind()==TalismanPlatformBlockEntity.Kind.RUB?250:TalismanPlatformMenu.PANEL_HEIGHT;
+        super(menu,inv,title);UiLayoutConfig.reload();imageWidth=menu.kind()==TalismanPlatformBlockEntity.Kind.RUB?TalismanRubLayout.WIDTH:TalismanPlatformMenu.PANEL_WIDTH;imageHeight=menu.kind()==TalismanPlatformBlockEntity.Kind.RUB?TalismanRubLayout.HEIGHT:TalismanPlatformMenu.PANEL_HEIGHT;
     }
     private boolean drawing(){return menu.kind()!=TalismanPlatformBlockEntity.Kind.RUB;}
     private boolean approved(){return menu.kind()!=TalismanPlatformBlockEntity.Kind.RUB;}
@@ -46,7 +46,7 @@ public final class TalismanPlatformScreen extends AbstractContainerScreen<Talism
         int cell=Math.max(4,Math.min((width-190)/CW,(height-80)/CH));
         return new CanvasArea((width-CW*cell-146)/2+12,(height-CH*cell)/2+8,cell);
     }
-    private int expandedActionsY(){return canvas().y+96;}
+    private int expandedActionsY(){var area=canvas();return area.y+CH*area.cell-92;}
     private int inkX(int index){return expanded?canvas().x+CW*canvas().cell+30:leftPos+TalismanPlatformMenu.inkX(menu.kind());}
     private int inkY(int index){if(expanded)return canvas().y+index*26;int base=uy("ink",approved()?64:75);int configuredStep=uh("inkStepY",approved()?19:26);int step=Math.max(18,configuredStep<=32?configuredStep:(approved()?19:26));return topPos+base+index*step;}
     @Override protected void init(){
@@ -64,15 +64,15 @@ public final class TalismanPlatformScreen extends AbstractContainerScreen<Talism
         if(search!=null){query=search.getValue();removeWidget(search);}search=null;
         for(var b:choices)removeWidget(b);choices.clear();for(var b:controls)removeWidget(b);controls.clear();inkButtons.clear();
         if(!drawing()){
-            var action=button(leftPos+ux("actions",66),topPos+uy("actions",116),UiLayoutConfig.width(profile(),"actions",108),UiLayoutConfig.height(profile(),"actions",21),"批量拓印",this::rub);action.primary=true;
-            int inkButtonX=ux("inkButtons",98),inkButtonY=uy("inkButtons",56),inkButtonStep=Math.max(16,uh("inkButtons",60)/3);
+            var action=button(leftPos+ux("actions",TalismanRubLayout.ACTION_X),topPos+uy("actions",TalismanRubLayout.ACTION_Y),UiLayoutConfig.width(profile(),"actions",TalismanRubLayout.ACTION_W),UiLayoutConfig.height(profile(),"actions",TalismanRubLayout.ACTION_H),"批量拓印",this::rub);action.primary=true;
+            int inkButtonX=ux("inkButtons",TalismanRubLayout.INK_BUTTON_X),inkButtonY=uy("inkButtons",TalismanRubLayout.INK_Y),inkButtonStep=Math.max(18,uh("inkStepY",TalismanRubLayout.INK_STEP));
             for(int i=0;i<3;i++){final int ink=i;inkButtons.add(icon(leftPos+inkButtonX,topPos+inkButtonY+i*inkButtonStep,uw("inkButtons",16),uh("inkButtons",16),"选用墨水 "+(i+1),"brush",()->{menu.previewInk(ink);if(minecraft.gameMode!=null)minecraft.gameMode.handleInventoryButtonClick(menu.containerId,100+ink);}));}
             return;
         }
         if(expanded){
             var a=canvas();int x=a.x+CW*a.cell+8,y=expandedActionsY();
-            icon(x+2,y+2,12,12,"缩小绘制","collapse",this::toggleExpanded);
-            var submit=button(x,y+26,112,23,menu.kind()==TalismanPlatformBlockEntity.Kind.ENGRAVE?"镌刻印章":"绘制符箓",this::submit);submit.primary=true;
+            icon(x+108,a.y-26,20,20,"缩小画布","collapse",this::toggleExpanded);
+            var submit=button(x,y,128,22,menu.kind()==TalismanPlatformBlockEntity.Kind.ENGRAVE?"镌刻印章":"绘制符箓",this::submit);submit.primary=true;
         }else{
             if(drawing()){
                 search=new ForgedSearchBox(font,leftPos+ux("search",38),topPos+uy("search",approved()?71:75),uw("search",74),uh("search",14),Component.literal("搜索符箓"));search.setTextColor(ForgedUi.IVORY);search.setHint(Component.literal("搜索符箓…"));search.setMaxLength(64);search.setValue(query);
@@ -210,20 +210,23 @@ public final class TalismanPlatformScreen extends AbstractContainerScreen<Talism
         g.pose().popPose();
     }
     private void renderCompactRub(GuiGraphics g){
-        TalismanV12Art.image(g,"rub_compact_background",leftPos,topPos,240,250,993,1131);
+        TalismanV12Art.frame(g,leftPos,topPos,TalismanRubLayout.WIDTH,TalismanRubLayout.HEIGHT);
         g.drawCenteredString(font,title,leftPos+120,topPos+13,ForgedUi.GOLD);
-        text(g,"印章",20,62,ForgedUi.GOLD);text(g,"墨水",118,43,ForgedUi.GOLD);text(g,"符纸",185,62,ForgedUi.GOLD);text(g,"成品",213,62,ForgedUi.GOLD);
+        g.fill(leftPos+14,topPos+31,leftPos+226,topPos+32,0xFF8A7545);
+        g.drawCenteredString(font,"印章",leftPos+28,topPos+56,ForgedUi.GOLD);
+        g.drawCenteredString(font,"墨水",leftPos+118,topPos+38,ForgedUi.GOLD);
+        g.drawCenteredString(font,"符纸",leftPos+180,topPos+56,ForgedUi.GOLD);
+        g.drawCenteredString(font,"成品",leftPos+220,topPos+56,ForgedUi.GOLD);
         var seal=menu.getSlot(TalismanPlatformBlockEntity.RUB_SEAL).getItem();String id=TalismanData.getTalisman(seal);boolean valid=TalismanCatalog.has(id);
         var quality=TalismanData.quality(seal);if(quality==null||quality==TalismanCatalog.Quality.WASTE)quality=TalismanCatalog.Quality.LOW;
-        text(g,valid?font.plainSubstrByWidth(TalismanCatalog.title(id).getString(),50):"等待印章",42,76,ForgedUi.IVORY);
-        text(g,valid?quality.title().getString().replace("符",""):"",42,90,ForgedUi.MUTED);
+        text(g,valid?font.plainSubstrByWidth(TalismanCatalog.title(id).getString(),49):"等待印章",44,72,ForgedUi.IVORY);
+        text(g,valid?quality.title().getString():"",44,86,ForgedUi.MUTED);
         for(var slot:menu.slots)if(slot.x>=0)TalismanV12Art.slot(g,leftPos+slot.x-1,topPos+slot.y-1);
-        int start=TalismanPlatformBlockEntity.inkStart(menu.kind());
-        for(int i=0;i<3;i++){var ink=menu.getSlot(start+i).getItem();if(!ink.isEmpty())text(g,font.plainSubstrByWidth(ink.getHoverName().getString(),36),140,60+i*20,ForgedUi.MUTED);}
         int copies=rubCopies();
         for(var control:controls)if(control.getMessage().getString().equals("批量拓印"))control.active=copies>0;
         String note=copies>0?"本次可拓印 "+copies+" 张 · 每次最多16张":!valid?"请放入已镌刻印章":rubOutputBlocked()?"请先取出成品":"请放入符纸并选用有余量的墨水";
-        g.pose().pushPose();g.pose().translate(leftPos+120,topPos+147,0);g.pose().scale(.85f,.85f,1);g.drawString(font,note,-font.width(note)/2,0,ForgedUi.MUTED,false);g.pose().popPose();
+        g.pose().pushPose();g.pose().translate(leftPos+120,topPos+139,0);g.pose().scale(.8f,.8f,1);g.drawString(font,note,-font.width(note)/2,0,ForgedUi.MUTED,false);g.pose().popPose();
+        g.fill(leftPos+14,topPos+150,leftPos+226,topPos+151,0xFF8A7545);text(g,"行囊",40,154,ForgedUi.GOLD);
     }
     private boolean rubOutputBlocked(){
         var seal=menu.getSlot(TalismanPlatformBlockEntity.RUB_SEAL).getItem();String id=TalismanData.getTalisman(seal);
@@ -296,7 +299,7 @@ public final class TalismanPlatformScreen extends AbstractContainerScreen<Talism
                 int start=TalismanPlatformBlockEntity.inkStart(menu.kind());if(start>=0)for(int i=0;i<3;i++){int sx=inkX(i),sy=inkY(i);if(approved())TalismanV12Art.slot(g,sx-1,sy-1);else ForgedUi.slot(g,sx-1,sy-1,18);var item=menu.slots.get(start+i).getItem();g.renderItem(item,sx,sy);g.renderItemDecorations(font,item,sx,sy);if(!item.isEmpty())g.drawString(font,font.plainSubstrByWidth(item.getHoverName().getString(),62),sx+22,sy+5,ForgedUi.IVORY,false);}
                 for(var b:controls)b.render(g,x,y,partial);
                 if(approved()){
-                    int sx=a.x+CW*a.cell+8,sy=expandedActionsY()+62;int rank=PlayerProgressionClient.rank("talisman");float base=selectedId==null?0:TalismanCatalog.score(selectedId,drawn),finalScore=cn.blockforge.generated.generatedmod.progression.PlayerCrafts.talismanScore(base,rank);
+                    int sx=a.x+CW*a.cell+8,sy=expandedActionsY()+34;int rank=PlayerProgressionClient.rank("talisman");float base=selectedId==null?0:TalismanCatalog.score(selectedId,drawn),finalScore=cn.blockforge.generated.generatedmod.progression.PlayerCrafts.talismanScore(base,rank);
                     String[] info={"实时评分",String.format(Locale.ROOT,"基础 %.1f",base),String.format(Locale.ROOT,"职业加成 +%.1f",finalScore-base),String.format(Locale.ROOT,"最终 %.1f · %s",finalScore,TalismanCatalog.qualityOf(finalScore).title().getString()),"Esc 返回，保留笔迹"};
                     for(int i=0;i<info.length;i++)g.drawString(font,info[i],sx,sy+i*14,i==0||i==3?ForgedUi.GOLD:ForgedUi.MUTED,false);
                 }

@@ -30,7 +30,7 @@ public final class TalismanV12Art {
     public static void slot(GuiGraphics g,int x,int y){image(g,"slot",x,y,18,18,60,60);}
     public static void frame(GuiGraphics g,int x,int y,int w,int h){
         int[] us={0,40,1368,1408},vs={0,40,1077,1117},xs={x,x+10,x+w-10,x+w},ys={y,y+10,y+h-10,y+h};
-        var texture=ResourceLocation.fromNamespaceAndPath("wuxingxiantu","textures/gui/talisman_v12/frame.png");
+        var texture=ResourceLocation.fromNamespaceAndPath("wuxingxiantu","textures/gui/talisman_v12/expanded_frame.png");
         g.flush();RenderSystem.enableBlend();RenderSystem.defaultBlendFunc();
         for(int r=0;r<3;r++)for(int c=0;c<3;c++)g.blit(texture,xs[c],ys[r],xs[c+1]-xs[c],ys[r+1]-ys[r],us[c],vs[r],us[c+1]-us[c],vs[r+1]-vs[r],1408,1117);
         RenderSystem.disableBlend();
@@ -43,8 +43,8 @@ public final class TalismanV12Art {
             if(!active)g.setColor(.48f,.48f,.48f,1);
             switch(skin){
                 case "brush" -> image(g,chosen||hovered?"brush_on":"brush_off",getX(),getY(),getWidth(),getHeight(),52,52);
-                case "expand" -> image(g,hovered?"expand_hover":"expand",getX(),getY(),getWidth(),getHeight(),49,49);
-                case "collapse" -> image(g,hovered?"collapse_small_hover":"collapse_small",getX(),getY(),getWidth(),getHeight(),16,16);
+                case "expand" -> image(g,hovered?"expand_v2_hover":"expand_v2",getX(),getY(),getWidth(),getHeight(),49,49);
+                case "collapse" -> image(g,hovered?"collapse_v2_hover":"collapse_v2",getX(),getY(),getWidth(),getHeight(),49,49);
                 case "choice" -> {if(chosen||hovered)image(g,"choice",getX(),getY(),getWidth(),getHeight(),335,67);}
                 default -> CultivationUi.backpackButton(g,getX(),getY(),getWidth(),getHeight(),active,chosen,hovered,false);
             }

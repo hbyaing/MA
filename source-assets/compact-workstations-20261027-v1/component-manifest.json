@@ -1,0 +1,791 @@
+{
+  "approved": true,
+  "referenceCrops": {
+    "reforge_header": [
+      80,
+      18,
+      982,
+      92
+    ],
+    "reforge_tabs": [
+      107,
+      105,
+      342,
+      157
+    ],
+    "reforge_selected_row": [
+      106,
+      171,
+      345,
+      260
+    ],
+    "reforge_row": [
+      106,
+      269,
+      345,
+      356
+    ],
+    "reforge_equipment": [
+      358,
+      96,
+      617,
+      430
+    ],
+    "reforge_quote": [
+      622,
+      96,
+      973,
+      430
+    ],
+    "reforge_inventory": [
+      93,
+      449,
+      627,
+      701
+    ],
+    "reforge_action": [
+      652,
+      650,
+      952,
+      703
+    ],
+    "reforge_details": [
+      632,
+      437,
+      976,
+      709
+    ],
+    "reforge_fire": [
+      653,
+      587,
+      688,
+      624
+    ],
+    "reforge_status": [
+      813,
+      587,
+      851,
+      624
+    ],
+    "inscription_header": [
+      1021,
+      18,
+      1924,
+      92
+    ],
+    "inscription_search": [
+      1050,
+      143,
+      1259,
+      188
+    ],
+    "inscription_selected_row": [
+      1049,
+      195,
+      1259,
+      260
+    ],
+    "inscription_row": [
+      1049,
+      270,
+      1259,
+      326
+    ],
+    "inscription_equipment": [
+      1278,
+      96,
+      1533,
+      512
+    ],
+    "inscription_book": [
+      1299,
+      390,
+      1356,
+      445
+    ],
+    "inscription_convert": [
+      1298,
+      452,
+      1419,
+      499
+    ],
+    "inscription_redeem": [
+      1426,
+      452,
+      1516,
+      499
+    ],
+    "inscription_quote": [
+      1539,
+      96,
+      1916,
+      508
+    ],
+    "inscription_material_slot": [
+      1564,
+      322,
+      1627,
+      383
+    ],
+    "inscription_progress": [
+      1558,
+      231,
+      1892,
+      252
+    ],
+    "inscription_inventory": [
+      1031,
+      518,
+      1535,
+      756
+    ],
+    "inscription_detail": [
+      1540,
+      518,
+      1918,
+      754
+    ],
+    "inscription_action": [
+      1553,
+      694,
+      1892,
+      741
+    ],
+    "inscription_close": [
+      1852,
+      39,
+      1899,
+      78
+    ]
+  },
+  "runtimeAssets": [
+    {
+      "skin": "inscription_gold",
+      "name": "background",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/background.png",
+      "size": [
+        130,
+        120
+      ],
+      "sha256": "673430b7f674b5da3e19212a7c3e1e87e409b202c094cf740d52eb43ba2afdf8",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "book_slot",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/book_slot.png",
+      "size": [
+        70,
+        70
+      ],
+      "sha256": "1d337e5061dd697a01c57484d99839b8b7314b01adf1bcaccd1311abdf6846a3",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "charge",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/charge.png",
+      "size": [
+        77,
+        76
+      ],
+      "sha256": "e3095a3443f8607ae2817c748548a16bedf895223f84f7a937722b28730668f8",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "close",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/close.png",
+      "size": [
+        62,
+        61
+      ],
+      "sha256": "ac0bc2cfc054537e64e6b3cf1ca38e91d0f477e2203addc7bdb7a4cbf57640cf",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "confirm",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/confirm.png",
+      "size": [
+        467,
+        88
+      ],
+      "sha256": "e0c75a27a117d9b8915b6fc111269798e3a0b6047de1ee1180e3786ca6d7765c",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "confirm_fill",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/confirm_fill.png",
+      "size": [
+        63,
+        48
+      ],
+      "sha256": "aceb1d78b66387a7499a22ad79e2f5e5e8de7ffb2e6f3ceceed5230c138fc74c",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "control",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/control.png",
+      "size": [
+        77,
+        76
+      ],
+      "sha256": "f1fc146496580016d4cbbf9cc9aada4b404994d63966547f0a64e52f0245027f",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "equipment_clean",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/equipment_clean.png",
+      "size": [
+        516,
+        623
+      ],
+      "sha256": "bdf6c9c014b57779740799bacba90aa04394160b0614296117d7f9434b58dc58",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "equipment_panel",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/equipment_panel.png",
+      "size": [
+        516,
+        623
+      ],
+      "sha256": "8fbb6d3c346fe6f54b0eeb1d95d6b801626141c4a4106f7a91d30701ef222ad2",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "equipment_slot",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/equipment_slot.png",
+      "size": [
+        128,
+        125
+      ],
+      "sha256": "94277c69b53e92807c4bb17dc34ad7264c368ca23fa758b13fe1e026cd65dfad",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "guard",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/guard.png",
+      "size": [
+        77,
+        77
+      ],
+      "sha256": "bfca922735f54ca12bc0ce4edc6fc26bbd3f7c547eedb2bb2a3cb2049af7d746",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "header",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/header.png",
+      "size": [
+        1516,
+        111
+      ],
+      "sha256": "d17ebcbba4c51692cda56d951905827e36210c1de393248aad1cf57643a81bef",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "header_title",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/header_title.png",
+      "size": [
+        260,
+        86
+      ],
+      "sha256": "65cf5789e320a6a4983c00c950db21056360c00c60a6cb6c38feac0ee91012cb",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "inventory_clean",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/inventory_clean.png",
+      "size": [
+        1127,
+        248
+      ],
+      "sha256": "39b0c488c729a4d2f7bd98679c2a190123695a048635f5f1303c5e099c98254d",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "inventory_panel",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/inventory_panel.png",
+      "size": [
+        1127,
+        244
+      ],
+      "sha256": "a11fd98d9ab65930552dd982077929189c794bee4c19133a34a0f15324ed0267",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "left_clean",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/left_clean.png",
+      "size": [
+        343,
+        873
+      ],
+      "sha256": "61a110eb071eba6287a39d99dba74511066e56a5eb8cb5607db61e66561bfb30",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "left_panel",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/left_panel.png",
+      "size": [
+        343,
+        873
+      ],
+      "sha256": "9ef217fb0fdc1c7915ae5e67a0f762ed9808eacf40e7211b4f96d28c2efe098e",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "light",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/light.png",
+      "size": [
+        77,
+        75
+      ],
+      "sha256": "2042c40bf1f65d9194dff1df844bb398732ac93160810b6fc49430747720392e",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "pity",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/pity.png",
+      "size": [
+        20,
+        21
+      ],
+      "sha256": "c48e190e3afadbb974c282adc96ad776e9717fcb5696aca49fa091fb18535f87",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "preview_clean",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/preview_clean.png",
+      "size": [
+        601,
+        620
+      ],
+      "sha256": "b254610afdd290f1080eeb252ac7722c908ea2da8e6219b6a05085d7ad904934",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "preview_panel",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/preview_panel.png",
+      "size": [
+        601,
+        620
+      ],
+      "sha256": "fa2e64d3a2635cbfcf3a567e71c671ae529379c9289c4e375c071a0b176c4af6",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "progress",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/progress.png",
+      "size": [
+        557,
+        22
+      ],
+      "sha256": "963a9f6fd5186d7e388aff3595b77c0904651d714b8e28f09686e6651b4e9e33",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "row",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/row.png",
+      "size": [
+        316,
+        96
+      ],
+      "sha256": "e57ffb8fa9051d99e6f9b851e7e102d0abe453c3dcb8090392d2fcb34be0abc3",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "row_fill",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/row_fill.png",
+      "size": [
+        70,
+        55
+      ],
+      "sha256": "6670a91d572483bbd3bb1a6901417c701f7654af1fc98c705bfdd9f1a4a8d3fb",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "row_selected",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/row_selected.png",
+      "size": [
+        316,
+        97
+      ],
+      "sha256": "acb3ac62441907aff645dd32c3e7a76becd28630eeee138126b8e70bc2c64d16",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "row_selected_fill",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/row_selected_fill.png",
+      "size": [
+        70,
+        52
+      ],
+      "sha256": "5c794dbeab628d5631d8ede60b127809cd347a3b6e1eeec1bc7d544ba30347d4",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "search",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/search.png",
+      "size": [
+        310,
+        46
+      ],
+      "sha256": "65ccce3e61d8c3f219be3ba11ced04a5f88b36e9e1717bd8bbd6827692b640d9",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "search_icon",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/search_icon.png",
+      "size": [
+        30,
+        31
+      ],
+      "sha256": "2cfbb4ee98b09da52e7b93afad909462f60be6cc6791dc90c4e3beccd20f5b7d",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "sigil",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/sigil.png",
+      "size": [
+        343,
+        239
+      ],
+      "sha256": "cbf6cb05229b7f10632a67d03ef8188fef7d7af0c0d937a723934f3442f6d93d",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "slot",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/slot.png",
+      "size": [
+        65,
+        52
+      ],
+      "sha256": "b832f56353c1ee4b1fcf00f9bc4849107fab9e1835c20d2bdb49757fa3a17acc",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "tough",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/tough.png",
+      "size": [
+        77,
+        77
+      ],
+      "sha256": "78c38fe1e91830e6f39b41965ddc4789c41018d074aea95222e286fe192d6de2",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "inscription_gold",
+      "name": "window",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/inscription_gold/window.png",
+      "size": [
+        1516,
+        1000
+      ],
+      "sha256": "cd5c6804999b03b20eb9e32a6f1bb510693ef5740d82138295c72eca3f80ba5a",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "alert",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/alert.png",
+      "size": [
+        41,
+        43
+      ],
+      "sha256": "a74837dfa62008ebc675b4f988a51d5580f3acfd7c125e680b71a61ee2555b29",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "confirm",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/confirm.png",
+      "size": [
+        447,
+        76
+      ],
+      "sha256": "8f3ed4964ab9034380dcf700b70cf1a6c6752d568ff56c46877fd8065effd2ae",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "confirm_fill",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/confirm_fill.png",
+      "size": [
+        45,
+        37
+      ],
+      "sha256": "689efc878b628311f40d2717c3e3481e33521877d647f3864b85afa0a07894dc",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "equipment_clean",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/equipment_clean.png",
+      "size": [
+        516,
+        590
+      ],
+      "sha256": "e9335febbcef825cac0de7a71ee29243acfce0170e23949025656c44e2996d18",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "equipment_slot",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/equipment_slot.png",
+      "size": [
+        127,
+        124
+      ],
+      "sha256": "8f5a34d0252c6601105b0dcb27029d0cd898c4a03208e234e67e9447b59f0cf0",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "fire",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/fire.png",
+      "size": [
+        37,
+        50
+      ],
+      "sha256": "c78b07f52cd040473cd69c5514049a859b4250c6467b9810bcc3e9888edbde17",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "header",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/header.png",
+      "size": [
+        1516,
+        111
+      ],
+      "sha256": "646f5fd68c2e3e7ac2c9bb6f6b535a38198e444fecd911d7074702f6991b2cc4",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "header_title",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/header_title.png",
+      "size": [
+        260,
+        86
+      ],
+      "sha256": "f2a06e480d3c05d3a28be8627c2a0ccf7c38f23294c8b332e90133a055824eb7",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "inventory_clean",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/inventory_clean.png",
+      "size": [
+        1127,
+        278
+      ],
+      "sha256": "ae942a32b3b204577d2a33708e334025d76ea1fb057f34ac77c418205d7ef372",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "left_clean",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/left_clean.png",
+      "size": [
+        343,
+        873
+      ],
+      "sha256": "fd1264ba4065559adfc99a89fc24310de856329d5068cb23264c84e45e090cf3",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "pity",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/pity.png",
+      "size": [
+        23,
+        26
+      ],
+      "sha256": "c3c92936b6c284c3c924aaf80aaf203f156955a0067fed4590b3e0f97c7086f7",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "preview_clean",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/preview_clean.png",
+      "size": [
+        601,
+        590
+      ],
+      "sha256": "1082f5368445641d0081b395bfbb3e4f9a91d6659202c3a03e542de5243086b1",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "protect",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/protect.png",
+      "size": [
+        92,
+        84
+      ],
+      "sha256": "1255582b4851c9d035835f13981b68b17329088adefcee44b5617529ec4e47f8",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "ready",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/ready.png",
+      "size": [
+        43,
+        44
+      ],
+      "sha256": "bd28b7a382abd6bf107971fd856cf06928772fcb9bee675e921e427a653d0a48",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "risk",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/risk.png",
+      "size": [
+        92,
+        83
+      ],
+      "sha256": "3529f45b9ec29b051ebd8ca262cd9c4a9d072603fb7b765eeab490c200fe1727",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "row",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/row.png",
+      "size": [
+        316,
+        106
+      ],
+      "sha256": "d638d94a337c13159046b7cd06188dae1e14706b7c2446a939704a489599a6ac",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "row_fill",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/row_fill.png",
+      "size": [
+        70,
+        28
+      ],
+      "sha256": "b730184883e26ce96c4de386683e7aacd1a2e5e9766d336b36c827898258a7b0",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "row_protect",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/row_protect.png",
+      "size": [
+        316,
+        107
+      ],
+      "sha256": "17776ce387057d0baf7a4f9a847b189bd527a86d9643c9573f9296e201fb3b6e",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "row_selected",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/row_selected.png",
+      "size": [
+        316,
+        105
+      ],
+      "sha256": "c538a395444fd12f2394bdc3cdc6b4767d5e052b5bb0adb5cd02ea850e0a8265",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "row_selected_fill",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/row_selected_fill.png",
+      "size": [
+        70,
+        36
+      ],
+      "sha256": "55b0db8121ab142fc732a6b6adfc5dcd8a016139f6a14922eeb9cb579d515687",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "slot",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/slot.png",
+      "size": [
+        73,
+        52
+      ],
+      "sha256": "8099f7e5aa4d693a2e789ce720f9a9e7c2d809f4ea8a8b4897e5a670f939f0cc",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "stable",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/stable.png",
+      "size": [
+        92,
+        83
+      ],
+      "sha256": "eda53e397e083786876ed668550690943653aba13d360ff8729d19fde2324629",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "tab",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/tab.png",
+      "size": [
+        155,
+        61
+      ],
+      "sha256": "f23586065024c649348122842440afc391df2e02852d9cf4596070df422d9ddd",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "tab_selected",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/tab_selected.png",
+      "size": [
+        164,
+        61
+      ],
+      "sha256": "afe8d456f95ab979655d516656d1278c169b2fdfcd9c9f56daaca0b9bdb71858",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    },
+    {
+      "skin": "reforge_gold",
+      "name": "window",
+      "path": "src/main/resources/assets/wuxingxiantu/textures/gui/reforge_gold/window.png",
+      "size": [
+        1516,
+        1000
+      ],
+      "sha256": "1b29fbcc7168659aa8355003cae8aed7cb85e63d53c11691490790be507c115d",
+      "usage": "reuse existing clean runtime fitting / live icon; no baked labels"
+    }
+  ],
+  "policy": "Reference crops are not runtime textures; existing clean assets retain icons, state skins, transparent edges and live text."
+}

@@ -1,0 +1,16 @@
+{
+  "generator": "built-in image_gen",
+  "userRevision": "moderate wings after short and too-long feedback",
+  "productionSize": [
+    49,
+    49
+  ],
+  "interiorAlpha": 255,
+  "sourceArrowExtraction": "tools/extract_talisman_canvas_icons.py",
+  "files": {
+    "collapse_v2.png": "9d6886f7b5a39d2ef756556e1fa04014574f0f88aa72c2d450256716c6c14a0d",
+    "collapse_v2_hover.png": "f9c29a7de0418ab398ed467783f4fa1ecfd109a385f2d52ef2bf1601f2ad0f4d",
+    "expand_v2.png": "248410a5485cec7a0580ccd397aa1db9c4c68c4a393a26cc55ab8218bb3a83c3",
+    "expand_v2_hover.png": "072c1ed4cfaac073b92b10a4499a6a2b8fa81536d881918204afb28a4b05af29"
+  }
+}
