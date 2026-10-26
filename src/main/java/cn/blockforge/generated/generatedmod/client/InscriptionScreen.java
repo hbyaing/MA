@@ -28,7 +28,7 @@ public final class InscriptionScreen extends AbstractContainerScreen<EquipmentWo
     private static ResourceLocation tex(String name){return ResourceLocation.fromNamespaceAndPath("wuxingxiantu","textures/gui/inscription_gold/"+name+".png");}
     private static final Map<String,int[]> SIZES=Map.ofEntries(
         Map.entry("left_clean",new int[]{343,873}),Map.entry("equipment_clean",new int[]{516,623}),Map.entry("preview_clean",new int[]{601,620}),Map.entry("inventory_clean",new int[]{1127,248}),Map.entry("confirm_fill",new int[]{63,48}),Map.entry("row_fill",new int[]{70,55}),Map.entry("row_selected_fill",new int[]{70,52}),
-        Map.entry("header",new int[]{1516,111}),Map.entry("window",new int[]{1516,1000}),
+        Map.entry("header_title",new int[]{260,86}),Map.entry("header",new int[]{1516,111}),Map.entry("window",new int[]{1516,1000}),
         Map.entry("left_panel",new int[]{343,873}),Map.entry("equipment_panel",new int[]{516,623}),
         Map.entry("preview_panel",new int[]{601,620}),Map.entry("inventory_panel",new int[]{1127,244}),
         Map.entry("row",new int[]{316,96}),Map.entry("row_selected",new int[]{316,97}),
@@ -38,18 +38,21 @@ public final class InscriptionScreen extends AbstractContainerScreen<EquipmentWo
         Map.entry("pity",new int[]{20,21}),Map.entry("background",new int[]{130,120}),Map.entry("search_icon",new int[]{30,31}),
         Map.entry("guard",new int[]{77,77}),Map.entry("tough",new int[]{77,77}),
         Map.entry("light",new int[]{77,75}),Map.entry("control",new int[]{77,76}),Map.entry("charge",new int[]{77,76}));
-    private static void sprite(GuiGraphics g,String name,int x,int y,int w,int h){int[] s=SIZES.get(name);g.blit(tex(name),x,y,w,h,0,0,s[0],s[1],s[0],s[1]);}
+    static void sprite(GuiGraphics g,String name,int x,int y,int w,int h){
+        int[] s=SIZES.get(name);boolean chrome=name.equals("header")||name.endsWith("_clean")||name.equals("close")||name.equals("pity")||name.equals("background");
+        if(chrome)g.setColor(.48f,.46f,.42f,1);g.blit(tex(name),x,y,w,h,0,0,s[0],s[1],s[0],s[1]);if(chrome)g.setColor(1,1,1,1);
+    }
     /** Only authored edge strips and corners are stretched; baked labels/items never enter the center. */
-    private static void frame(GuiGraphics g,String name,int x,int y,int w,int h){
+    static void frame(GuiGraphics g,String name,int x,int y,int w,int h){
         int[] s=SIZES.get(name);int corner=16,d=3,edge=12;
-        g.fill(x,y,x+w,y+h,0xE314100A);
-        // Four independent corners; long spans sample only the outer 4 source pixels, never labels.
+        g.fill(x,y,x+w,y+h,0xE314100A);g.setColor(.48f,.46f,.42f,1);
+        // Four independent corners; long spans sample the authored edge strips, never labels.
         for(int row=0;row<2;row++)for(int col=0;col<2;col++)
             g.blit(tex(name),x+(col==0?0:w-d),y+(row==0?0:h-d),d,d,col==0?0:s[0]-corner,row==0?0:s[1]-corner,corner,corner,s[0],s[1]);
         g.blit(tex(name),x+d,y,w-2*d,d,corner,0,s[0]-2*corner,edge,s[0],s[1]);
         g.blit(tex(name),x+d,y+h-d,w-2*d,d,corner,s[1]-edge,s[0]-2*corner,edge,s[0],s[1]);
         g.blit(tex(name),x,y+d,d,h-2*d,0,corner,edge,s[1]-2*corner,s[0],s[1]);
-        g.blit(tex(name),x+w-d,y+d,d,h-2*d,s[0]-edge,corner,edge,s[1]-2*corner,s[0],s[1]);
+        g.blit(tex(name),x+w-d,y+d,d,h-2*d,s[0]-edge,corner,edge,s[1]-2*corner,s[0],s[1]);g.setColor(1,1,1,1);
     }
 
     private void send(int action){if(minecraft.gameMode!=null)minecraft.gameMode.handleInventoryButtonClick(menu.containerId,menu.command(action));}
@@ -76,7 +79,7 @@ public final class InscriptionScreen extends AbstractContainerScreen<EquipmentWo
     @Override protected void containerTick(){super.containerTick();search.tick();}
     @Override protected void renderBg(GuiGraphics g,float partial,int mx,int my){
         int x=leftPos,y=topPos;
-        sprite(g,"background",x,y,512,368);frame(g,"window",x,y,512,368);sprite(g,"header",x+1,y+1,510,37);
+        sprite(g,"background",x,y,512,368);frame(g,"window",x,y,512,368);sprite(g,"header",x+1,y+1,510,37);sprite(g,"header_title",x+213,y+6,87,29);
         sprite(g,"left_clean",x+5,y+41,119,322);sprite(g,"equipment_clean",x+127,y+41,171,222);
         sprite(g,"preview_clean",x+301,y+41,205,222);sprite(g,"inventory_clean",x+127,y+266,379,97);
         g.fill(x+8,y+44,x+121,y+360,0x66000000);g.fill(x+130,y+44,x+295,y+260,0x44000000);g.fill(x+304,y+44,x+503,y+260,0x99000000);g.fill(x+130,y+269,x+503,y+360,0x88000000);
@@ -144,16 +147,16 @@ public final class InscriptionScreen extends AbstractContainerScreen<EquipmentWo
         int rune=-1;boolean selected,close;
         GoldButton(int x,int y,int w,int h,String s,OnPress press){super(x,y,w,h,Component.literal(s),press,DEFAULT_NARRATION);}
         @Override protected void renderWidget(GuiGraphics g,int mx,int my,float partial){
-            if(close){sprite(g,"close",getX(),getY(),width,height);if(isHoveredOrFocused())g.renderOutline(getX()+1,getY()+1,width-2,height-2,GOLD);return;}
+            if(close){sprite(g,"close",getX(),getY(),width,height);if(isHoveredOrFocused())g.renderOutline(getX()+1,getY()+1,width-2,height-2,0xFFA28B60);return;}
             String skin=rune>=0?(selected||isHoveredOrFocused()?"row_selected":"row"):"confirm";
             frame(g,skin,getX(),getY(),width,height);
             sprite(g,rune>=0?(selected||isHoveredOrFocused()?"row_selected_fill":"row_fill"):"confirm_fill",getX()+4,getY()+4,width-8,height-8);
             if(selected||active&&isHoveredOrFocused())g.fill(getX()+4,getY()+4,getX()+width-4,getY()+height-4,0x443F2B0B);
             if(rune>=0){sprite(g,ICONS[rune],getX()+5,getY()+4,25,25);g.drawString(Minecraft.getInstance().font,getMessage(),getX()+38,getY()+12,active?GOLD:MUTED,false);}
             else g.drawCenteredString(Minecraft.getInstance().font,getMessage(),getX()+width/2,getY()+(height-9)/2,active?(isHoveredOrFocused()?GOLD:TEXT):MUTED);
-            if(active&&isHovered())g.renderOutline(getX()+1,getY()+1,width-2,height-2,GOLD);
+            if(active&&isHovered())g.renderOutline(getX()+1,getY()+1,width-2,height-2,0xFFA28B60);
             if(!active)g.fill(getX()+3,getY()+3,getX()+width-3,getY()+height-3,0x77000000);
-            if(isFocused())g.renderOutline(getX()+2,getY()+2,width-4,height-4,GOLD);
+            if(isFocused())g.renderOutline(getX()+2,getY()+2,width-4,height-4,0xFFA28B60);
         }
     }
 }

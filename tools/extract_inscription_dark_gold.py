@@ -47,3 +47,24 @@ for file in OUT.glob('*.png'):
     shutil.copy2(file,RUNTIME/file.name)
     (RUNTIME/(file.name+'.mcmeta')).write_text(json.dumps({'texture':{'blur':True,'clamp':True}})+'\n',encoding='utf-8')
 print('Prepared',len(list(OUT.glob('*.png'))),'skin elements and runtime metadata')
+
+# User correction: background only. Existing geometry, icons and controls stay identical.
+flat_path=SOURCE.parent/'flat-background-generated.png'
+if flat_path.exists():
+ flat=Image.open(flat_path).convert('RGBA')
+ for name,box in {**clean_regions,'header':(10,8,1526,119),'background':(1330,790,1460,910)}.items():flat.crop(box).save(OUT/(name+'.png'))
+ im.crop((640,24,900,110)).save(OUT/'header_title.png')
+ manifest['background_only']={'file':flat_path.name,'title_crop':[640,24,900,110],'geometry_changed':False,'controls_changed':False}
+ (SOURCE.parent/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
+ for file in OUT.glob('*.png'):
+  shutil.copy2(file,RUNTIME/file.name);(RUNTIME/(file.name+'.mcmeta')).write_text(json.dumps({'texture':{'blur':True,'clamp':True}})+'\n',encoding='utf-8')
+
+# Final contact sheet reflects background-only overrides, not the superseded scenic crop.
+component_root=ROOT/"source-assets/inscription-dark-gold-v2"/'components'
+files=sorted(component_root.glob('*.png'));board=Image.new('RGB',(1000,((len(files)+4)//5)*145),(27,23,17));draw=ImageDraw.Draw(board)
+for i,file in enumerate(files):
+ tile=Image.open(file).convert('RGBA');tile.thumbnail((185,115));x=i%5*200;y=i//5*145;draw.text((x+3,y+2),file.stem,fill='white');board.paste(tile,(x,y+22),tile)
+board.save(component_root.parent/'contact-sheet.png')
+
+manifest['resource_files']={file.name:hashlib.sha256(file.read_bytes()).hexdigest() for file in sorted(component_root.glob('*.png'))}
+(component_root.parent/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')

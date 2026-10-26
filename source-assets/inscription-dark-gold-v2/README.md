@@ -11,7 +11,7 @@
 
 ## 实装边界
 
-独立 InscriptionScreen 使用正式裁图皮肤和游戏实时文字、物品、数量。五种可用铭纹与选中详情一致；材料仅显示实际四项，取消五行精华0/0。装备放大显示同时扩展命中区域。行囊固定3×9和独立1×9快捷栏。旧纹书槽遵守现有不可放入规则，有旧凭据时才显示兑换控件。精铸台尚未改动。
+独立 InscriptionScreen 使用正式裁图皮肤和游戏实时文字、物品、数量。五种可用铭纹与选中详情一致；材料仅显示实际四项，取消五行精华0/0。装备放大显示同时扩展命中区域。行囊固定3×9和独立1×9快捷栏。旧纹书槽遵守现有不可放入规则，有旧凭据时才显示兑换控件。精铸台随后独立接入 ReforgeScreen，沿用同样的36格行囊坐标。
 
 ## JEI
 
@@ -22,3 +22,5 @@
 隔离存档中的客户端视觉夹具覆盖普通、悬停、禁用、键盘焦点、搜索输入、GUI缩放2/3/4。鼠标捕获保护位于 myriadClientTest，运行时仅在测试客户端内部设置悬停坐标，不调用OS鼠标移动，不进入正式包。视觉夹具的材料与报价为受控状态，不代表完整端到端刻印玩法验收。
 
 无JEI启动证据：reports/inscription-dark-gold/inscription/result.json；带JEI启动与实际原生悬停证据：reports/inscription-dark-gold-native/inscription/result.json。部件放大对照包括外框四角、标题衔接、搜索框、按钮与行囊格。最终构建及安装结果见项目构建日志和 reports/last-test-instance-installation.json。
+
+用户后续修订仅简化背景、降低边框对比度：当前使用 flat-background-generated.png，去掉山水、月亮、符阵；保留已有布局、文字和控件。边框单独色调缩放，标题和物品图标不变。最终截图见 reports/inscription-muted/inscription。

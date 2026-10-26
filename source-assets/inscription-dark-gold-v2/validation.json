@@ -1,6 +1,6 @@
 {
-  "startup_without_jei": "reports/inscription-dark-gold/inscription/result.json",
-  "startup_with_jei": "reports/inscription-dark-gold-final-native/inscription/result.json",
+  "startup_without_jei": "reports/reforge-muted/reforge/result.json",
+  "startup_with_jei": "reports/inscription-muted/inscription/result.json",
   "visual_states": [
     "normal",
     "hover",
@@ -11,7 +11,9 @@
     "scale4"
   ],
   "inventory_slots": 36,
-  "production_sha256": "cbc923aa4047654728343e5988b2c60b11b02f4085d418610fa72f79b3fca327",
+  "production_sha256": "ff5ad33315b751c244811a49721bdaaf9a6683fcae9cbba99ac42a438f8d75ac",
   "workbench": "Not used, per user instruction",
-  "limitations": "Controlled client quote fixture; not a new full gameplay acceptance"
+  "limitations": "Controlled client quote fixture; not a new full gameplay acceptance",
+  "background_and_border_only": true,
+  "layout_changed": false
 }

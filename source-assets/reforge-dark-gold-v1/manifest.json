@@ -1,0 +1,205 @@
+{
+  "source": "reference.png",
+  "sha256": "2c1c9e27056452b015526219e770e2ea68b857208da79b221930c760cdcf7e48",
+  "regions": {
+    "header": [
+      10,
+      8,
+      1526,
+      119
+    ],
+    "window": [
+      10,
+      8,
+      1526,
+      1008
+    ],
+    "tab_selected": [
+      40,
+      134,
+      204,
+      195
+    ],
+    "tab": [
+      210,
+      134,
+      365,
+      195
+    ],
+    "row_selected": [
+      42,
+      286,
+      358,
+      391
+    ],
+    "row": [
+      42,
+      405,
+      358,
+      511
+    ],
+    "row_protect": [
+      42,
+      528,
+      358,
+      635
+    ],
+    "confirm": [
+      991,
+      607,
+      1438,
+      683
+    ],
+    "slot": [
+      890,
+      739,
+      963,
+      791
+    ],
+    "equipment_slot": [
+      576,
+      224,
+      703,
+      348
+    ],
+    "stable": [
+      53,
+      300,
+      145,
+      383
+    ],
+    "risk": [
+      53,
+      418,
+      145,
+      501
+    ],
+    "protect": [
+      53,
+      541,
+      145,
+      625
+    ],
+    "ready": [
+      957,
+      566,
+      1000,
+      610
+    ],
+    "fire": [
+      1370,
+      514,
+      1407,
+      564
+    ],
+    "alert": [
+      51,
+      669,
+      92,
+      712
+    ],
+    "pity": [
+      1248,
+      513,
+      1271,
+      539
+    ],
+    "confirm_fill": [
+      1020,
+      625,
+      1065,
+      662
+    ],
+    "row_fill": [
+      265,
+      425,
+      335,
+      453
+    ],
+    "row_selected_fill": [
+      265,
+      304,
+      335,
+      340
+    ],
+    "left_clean": [
+      28,
+      126,
+      371,
+      999
+    ],
+    "equipment_clean": [
+      382,
+      126,
+      898,
+      716
+    ],
+    "preview_clean": [
+      907,
+      126,
+      1508,
+      716
+    ],
+    "inventory_clean": [
+      381,
+      726,
+      1508,
+      1004
+    ]
+  },
+  "logical_size": [
+    512,
+    368
+  ],
+  "inventory": {
+    "columns": 9,
+    "rows": 3,
+    "hotbar": 9,
+    "origin": [
+      234,
+      281
+    ],
+    "step": 18,
+    "hotbar_gap": 4
+  },
+  "scope": "jing_zhu_tai / REFORGE_TABLE only",
+  "note": "Text and items stay live. 4 temper choices use official item sprites; no temporary drawn symbols.",
+  "background_only": {
+    "file": "flat-background-generated.png",
+    "title_crop": [
+      640,
+      24,
+      900,
+      110
+    ],
+    "geometry_changed": false,
+    "controls_changed": false
+  },
+  "resource_files": {
+    "alert.png": "a74837dfa62008ebc675b4f988a51d5580f3acfd7c125e680b71a61ee2555b29",
+    "confirm.png": "8f3ed4964ab9034380dcf700b70cf1a6c6752d568ff56c46877fd8065effd2ae",
+    "confirm_fill.png": "689efc878b628311f40d2717c3e3481e33521877d647f3864b85afa0a07894dc",
+    "equipment_clean.png": "e9335febbcef825cac0de7a71ee29243acfce0170e23949025656c44e2996d18",
+    "equipment_slot.png": "8f5a34d0252c6601105b0dcb27029d0cd898c4a03208e234e67e9447b59f0cf0",
+    "fire.png": "c78b07f52cd040473cd69c5514049a859b4250c6467b9810bcc3e9888edbde17",
+    "header.png": "646f5fd68c2e3e7ac2c9bb6f6b535a38198e444fecd911d7074702f6991b2cc4",
+    "header_title.png": "f2a06e480d3c05d3a28be8627c2a0ccf7c38f23294c8b332e90133a055824eb7",
+    "inventory_clean.png": "ae942a32b3b204577d2a33708e334025d76ea1fb057f34ac77c418205d7ef372",
+    "left_clean.png": "fd1264ba4065559adfc99a89fc24310de856329d5068cb23264c84e45e090cf3",
+    "pity.png": "c3c92936b6c284c3c924aaf80aaf203f156955a0067fed4590b3e0f97c7086f7",
+    "preview_clean.png": "1082f5368445641d0081b395bfbb3e4f9a91d6659202c3a03e542de5243086b1",
+    "protect.png": "1255582b4851c9d035835f13981b68b17329088adefcee44b5617529ec4e47f8",
+    "ready.png": "bd28b7a382abd6bf107971fd856cf06928772fcb9bee675e921e427a653d0a48",
+    "risk.png": "3529f45b9ec29b051ebd8ca262cd9c4a9d072603fb7b765eeab490c200fe1727",
+    "row.png": "d638d94a337c13159046b7cd06188dae1e14706b7c2446a939704a489599a6ac",
+    "row_fill.png": "b730184883e26ce96c4de386683e7aacd1a2e5e9766d336b36c827898258a7b0",
+    "row_protect.png": "17776ce387057d0baf7a4f9a847b189bd527a86d9643c9573f9296e201fb3b6e",
+    "row_selected.png": "c538a395444fd12f2394bdc3cdc6b4767d5e052b5bb0adb5cd02ea850e0a8265",
+    "row_selected_fill.png": "55b0db8121ab142fc732a6b6adfc5dcd8a016139f6a14922eeb9cb579d515687",
+    "slot.png": "8099f7e5aa4d693a2e789ce720f9a9e7c2d809f4ea8a8b4897e5a670f939f0cc",
+    "stable.png": "eda53e397e083786876ed668550690943653aba13d360ff8729d19fde2324629",
+    "tab.png": "f23586065024c649348122842440afc391df2e02852d9cf4596070df422d9ddd",
+    "tab_selected.png": "afe8d456f95ab979655d516656d1278c169b2fdfcd9c9f56daaca0b9bdb71858",
+    "window.png": "1b29fbcc7168659aa8355003cae8aed7cb85e63d53c11691490790be507c115d"
+  }
+}

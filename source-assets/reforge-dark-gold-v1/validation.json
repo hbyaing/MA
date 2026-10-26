@@ -1,0 +1,20 @@
+{
+  "forge_visual": "reports/reforge-muted/reforge/result.json",
+  "inscription_visual": "reports/inscription-muted/inscription/result.json",
+  "target_gametests": 60,
+  "game_test_log": "reports/reforge-gametest-fixed.log",
+  "inventory": {
+    "rows": 3,
+    "columns": 9,
+    "hotbar_rows": 1,
+    "total": 36
+  },
+  "scope": "Background and border contrast only after existing layout approval",
+  "jei": "No JEI source or JAR changes; optional tests isolated",
+  "pointer": "No OS mouse input; no capture violations",
+  "production_sha256": "ff5ad33315b751c244811a49721bdaaf9a6683fcae9cbba99ac42a438f8d75ac",
+  "startup_without_jei": "reports/reforge-muted/reforge/result.json",
+  "startup_with_jei": "reports/inscription-muted/inscription/result.json",
+  "background_and_border_only": true,
+  "layout_changed": false
+}
