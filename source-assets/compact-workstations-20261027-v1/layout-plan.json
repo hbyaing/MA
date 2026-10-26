@@ -1,0 +1,189 @@
+{
+  "status": "concept_pending_user_approval",
+  "basedOnMain": "996c7be9a0cfa9869cf9ede61a7e2c5f0bfdcccf",
+  "oldSize": [
+    512,
+    368
+  ],
+  "proposedSize": {
+    "inscription": [
+      360,
+      284
+    ],
+    "reforge": [
+      360,
+      266
+    ]
+  },
+  "areaReductionPercent": {
+    "inscription": 45.7,
+    "reforge": 49.2
+  },
+  "regions": {
+    "header": [
+      0,
+      0,
+      360,
+      28
+    ],
+    "selection": [
+      8,
+      32,
+      90,
+      142
+    ],
+    "equipment": [
+      104,
+      32,
+      90,
+      142
+    ],
+    "quote": [
+      200,
+      32,
+      152,
+      142
+    ],
+    "inventory": [
+      8,
+      178,
+      176,
+      98
+    ],
+    "detailsAndActions": [
+      190,
+      178,
+      162,
+      98
+    ]
+  },
+  "geometry": {
+    "close": [
+      334,
+      5,
+      18,
+      18
+    ],
+    "equipmentFrame": [
+      133,
+      55,
+      32,
+      32
+    ],
+    "equipmentSlot": [
+      141,
+      63
+    ],
+    "bookFrame": [
+      111,
+      134,
+      20,
+      20
+    ],
+    "bookSlot": [
+      112,
+      135
+    ],
+    "inventoryFirstSlot": [
+      16,
+      195
+    ],
+    "inventoryPitch": [
+      18,
+      18
+    ],
+    "inventoryRows": 3,
+    "inventoryColumns": 9,
+    "hotbarRows": 1,
+    "hotbarColumns": 9,
+    "hotbarGap": 4,
+    "primaryAction": [
+      198,
+      246,
+      146,
+      22
+    ],
+    "acceptPending": [
+      198,
+      246,
+      71,
+      22
+    ],
+    "rejectPending": [
+      273,
+      246,
+      71,
+      22
+    ]
+  },
+  "preserve": [
+    "five rune choices and search",
+    "equipment refinement level and rune capacity",
+    "legacy credit conversion and redemption controls",
+    "all material quotes and aura/pity status",
+    "refine and temper tabs with 3/4 strategies",
+    "pending result comparison and accept/reject actions",
+    "36 inventory slots: 3x9 plus separate 1x9",
+    "existing optional JEI boundary and gameplay rules"
+  ],
+  "implementationNotes": [
+    "Reflow content, do not globally shrink type or native 16px items.",
+    "Use fresh compact layout profiles so legacy external layout exports cannot leave slots at old coordinates.",
+    "Use low-contrast matte dark-gold fittings and flat near-black backgrounds.",
+    "No runtime code or runtime assets modified before approval.",
+    "The user opted out of UI workbenches in this conversation."
+  ],
+  "reforgeOverrides": {
+    "upperPanelHeight": 124,
+    "inventoryPanel": [
+      8,
+      160,
+      176,
+      98
+    ],
+    "detailsAndActions": [
+      190,
+      160,
+      162,
+      98
+    ],
+    "inventoryFirstSlot": [
+      16,
+      177
+    ],
+    "primaryAction": [
+      198,
+      232,
+      146,
+      20
+    ],
+    "acceptPending": [
+      198,
+      232,
+      71,
+      20
+    ],
+    "rejectPending": [
+      273,
+      232,
+      71,
+      20
+    ],
+    "benefitsPosition": "lower right above status and primary action",
+    "currentTemperPosition": "under equipment refinement and rune capacity"
+  },
+  "firstConceptReview": [
+    "Inventory row counts verified: both 3x9 plus separate 1x9.",
+    "Reject v1: reforge has a large empty lower-right panel.",
+    "Refine concept v2 to use lower-right for benefits, status, and action; shorten reforge window by one slot pitch."
+  ],
+  "finalConcept": "compact-reference.png",
+  "finalPrompt": "prompt-v3.txt",
+  "generation": "built-in imagegen",
+  "visualReview": {
+    "inventory": "Both windows have 3 rows x 9 storage slots and a separate 1x9 hotbar",
+    "frame": "Final concept has complete rectangular outer frames with connected lower edges",
+    "spacing": "No empty lower-right panel; reforge benefits/status/action occupy this region",
+    "runtimeStatus": "Not implemented; awaiting approval"
+  }
+}

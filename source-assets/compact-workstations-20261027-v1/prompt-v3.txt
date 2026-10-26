@@ -1,0 +1,12 @@
+Make a precise finishing edit to this existing two-window UI comparison. Preserve the RIGHT 铭刻台 completely. Preserve the LEFT 精铸台 typography, icons, items, all words, colors, and 36 inventory slots.
+
+Fix ONLY the left window's boundary/alignment defect: it currently has a stepped, broken lower outline because its lower-right panel extends below the inventory panel. The LEFT window must have ONE complete simple RECTANGULAR outer border, with both bottom panels ending on exactly the same horizontal baseline. No L-shaped outline, no protruding bottom-right panel, no extra black tab or blank extension.
+
+Use these approximate pixel positions in the supplied 2001x786 image as a concrete guide:
+- Left overall window: x79..983, top y19, bottom y704. Keep its current width.
+- All three top panels should end together around y430. Slightly tighten the vertical spacing/heights of the three strategy buttons so their selection panel also ends at that shared y430.
+- Both lower panels should start around y438 and end around y696.
+- Lower-left inventory: keep EXACTLY THREE rows of NINE storage slots plus the separate ONE row of NINE hotbar slots. Keep icon and slot sizes. Retain all existing inventory items.
+- Lower-right details/action panel must fit all its current content into y438..696 with tighter vertical gaps: 本次提升 heading around y452, three benefits around y484/y511/y538, fire/readiness around y576, failure note around y611, and the 锻炼 · 精炼 button around y642..684. Keep the same font size; do not omit lines.
+- Draw one uninterrupted outer bottom edge from x79 to x983 at y704, with matching lower-left and lower-right corners. Everything below that left border is actual transparent alpha, continuing to the canvas bottom. The right window stays its current taller height.
+- Do not change the right window, do not add any new graphics, no new glow, no new text. Correct border alignment and compress spacing only.

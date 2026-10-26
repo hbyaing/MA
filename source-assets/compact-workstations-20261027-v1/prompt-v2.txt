@@ -1,0 +1,14 @@
+Edit this two-window compact Minecraft UI reference with ONE targeted layout correction, retaining the current visual style, crisp Chinese typography, restrained dark-gold palette, every icon, and the excellent RIGHT 铭刻台 layout.
+
+Critical issue: the LEFT 精铸台 still has a huge EMPTY BLACK LOWER-RIGHT PANEL. Eliminate this empty panel by moving useful content and controls into it and shortening the LEFT window. Do not fill it with decoration.
+
+Exact revision:
+1. RIGHT 铭刻台 remains 360 x 284 logical pixels, same current structure and all existing controls. Under its filled chestplate slot, replace 置入装备 with 铁胸甲. Where owned materials exceed cost, render the numerical counts in warm ivory, not red warning color.
+2. LEFT 精铸台 becomes 360 x 266 logical pixels. Same width and same item/font sizes as the right window, top edges aligned, LEFT bottom edge is 18 logical pixels HIGHER. The outside below that shorter left window is transparent, not a black extension of the window.
+3. LEFT upper section has three panels from y32 to y156: compact selection width90, equipment width90, quote width152. LEFT bottom section from y160 to y258 has inventory width176 and fully USED details/action panel width162.
+4. LEFT upper-left selection retains 精炼 / 重铸 segmented tabs and three compact choices 稳炼, 冒险, 护器. Tighten vertical gaps so all fit comfortably in the shorter panel.
+5. LEFT upper-center equipment retains chestplate icon, caption 待炼之器, 铁胸甲, 精炼 +0, 铭纹 0 / 1 and a small 尚无胚性 note. REMOVE the three benefit lines from this upper equipment panel.
+6. LEFT upper-right quote retains 精炼预览, 精炼 +0 → +1 with 100% and a slim progress line, two tightly spaced material rows 灵石 36 / 6 and 玄铁 8 / 2, plus 灵力消耗 0 and 连败 0 / 0. REMOVE the fire/status row, main button, and failure note from this upper-right section.
+7. LEFT lower-right panel MUST NOW be filled clearly and neatly: small heading 本次提升, three concise benefit lines 伤害 +1.5% / 阶, 护甲 +1% / 阶, 耐久 +2% / 阶, a compact row with the existing flame icon 异火 9阶 and readiness 条件齐备, a small note 失败耗材 · 装备保留, and a moderate full-width button 锻炼 · 精炼 at the bottom. There must be NO unused large blank area remaining in this panel. This is a real content reflow; do not add new lore, graphics or placeholder instructions.
+8. INVARIANT: BOTH inventory panels have EXACTLY THREE STORAGE ROWS OF NINE SLOTS followed by a small gap and EXACTLY ONE HOTBAR ROW OF NINE SLOTS, total 36 per window. Preserve those correct grids and native icon sizes. Do not lose an inventory row when making the left window shorter.
+9. Keep everything else unchanged. Do not enlarge titles, add glow, add scenic backgrounds or increase gold contrast. True transparent alpha outside the two complete frames, including the gutter and the area below the shorter left window. Tight, implementable front-facing UI mockup.

@@ -1,0 +1,21 @@
+Use case: ui-mockup. Edit and reflow BOTH supplied Minecraft Forge workstation UI screenshots into one clean, high-resolution landscape presentation with TWO complete compact windows side by side at identical scale: LEFT 精铸台 (image 1), RIGHT 铭刻台 (image 2). These are existing UI edit targets and visual references, not a request for new fantasy scenery.
+
+Main task: genuinely rearrange the UI into a compact 360 x 284 logical-pixel design, replacing the previous 512 x 368 layout. Approximately 46% less window area. Do NOT merely scale down the old screenshots or fonts. Keep readable Chinese type and native-size Minecraft item icons, eliminating long empty columns and oversized margins.
+
+Exact shared layout, relative proportions: short header 28px high with small centered Chinese window title and 18px close control. Upper area y32..174 has THREE compact panels: selection x8 width90; equipment x104 width90; quote x200 width152. Lower area y178..276 has TWO panels: inventory x8 width176 and details/actions x190 width162. Thus the selection sidebar stops above the inventory; it never extends the full height. Background nearly black and perfectly flat, with restrained matte dark-bronze fine borders, tiny corner details, warm ivory text, slightly brighter gold only for active controls. Reuse the existing visual vocabulary and recognizable pixel-art item and rune icons. No landscapes, no circles behind equipment, no metallic 3D typography, no luminous filigree, no smoke, no fake Minecraft world. Window fills end exactly at the outside frame. Empty area outside the two windows and between them must have actual transparent alpha.
+
+LEFT 精铸台:
+- upper left: small segmented tabs 精炼 and 重铸, then three compact strategy buttons 稳炼, 冒险, 护器 with small existing gold icons.
+- upper center: caption 待炼之器, a 32px equipment slot containing an actual pixel-art chestplate, name and two short status lines 精炼 +0 and 铭纹 0 / 1; use the lower part for three concise benefit lines 伤害 +1.5% / 阶, 护甲 +1% / 阶, 耐久 +2% / 阶.
+- upper right: 精炼预览, 精炼 +0 → +1, success 100% and a thin gold progress line. 所需材料 displayed as TWO short horizontal ingredient rows: small spirit-stone item 灵石 with 36 / 6 and iron ingot 玄铁 with 8 / 2, not two huge floating squares. Small 灵力 0 and 连败 0 / 0.
+- lower right: compact status/notes including 异火 9阶, 条件齐备, 失败耗材 · 装备保留, and one full-width moderate button 锻炼 · 精炼.
+
+RIGHT 铭刻台:
+- upper left: 铭纹选择, small search field 搜索铭纹, FIVE compact rows with existing small rune icons and names 灵御, 坚韧, 轻身, 御器, 蓄势. 灵御 selected.
+- upper center: 待刻之器, 32px chestplate equipment slot, short status 精炼 +0 and 铭纹 0 / 1. Below it a tiny 20px 旧纹凭据 slot and two small genuine styled controls 转为凭据 and 兑换; these legacy controls must be retained but not consume a giant panel.
+- upper right: 刻印预览 with small blue shield rune 灵御 · 1阶, success 100% and thin progress line, first engraving note 首次刻印必成. Four small ingredient icons in one row with readable counts: 灵石 36/4, 玄铁 8/1, 青金石 12/4, 铭刻水晶 3/1. Short 灵力 0 and 连败 0.
+- lower right: concise 铭纹详情, 护甲减伤 · 防御主纹, 主纹限一道 · 槽位随器阶, small probability 普通70% · 上佳25% · 极品5%, and one button 落纹 · 刻印.
+
+CRITICAL INVENTORY INVARIANT FOR EACH WINDOW: lower LEFT inventory panel labelled 行囊 must contain EXACTLY THREE rows of NINE square slots (27 slots), followed by a clear small gap and EXACTLY ONE separate hotbar row of NINE square slots. Total 36 slots per window, grid pitch 18 logical pixels, never fewer columns, never fewer storage rows. Keep inventory compact around the actual grid, not stretched across a much wider empty panel. Put a few genuine Minecraft pixel items in some slots and leave others empty to make row counts clear. No extra inventory sections, no JEI sidebar, no additional screens or explanatory text outside the windows.
+
+The final result should be a believable implementable Minecraft mod UI reference, extremely close to the supplied restrained dark-gold skins but compact and organized. Crisp front-facing 2D, consistent border thickness, readable real Chinese labels. Do not invent large unused black regions to fill the old screen size.
