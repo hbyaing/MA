@@ -74,7 +74,10 @@ public final class WorldgenAcceptanceCapture {
                         new WorldOptions(SEED,true,false),net.minecraft.world.level.levelgen.presets.WorldPresets::createNormalWorldDimensions);
             }
             if(mc.player!=null&&!pointerExercised){pointerExercised=true;mc.mouseHandler.grabMouse();}
-            if(phase==2){phase=3;mc.clearLevel(new TitleScreen());}
+            if(phase==2){
+                // clearLevel waits for IntegratedServer shutdown; disconnect must initiate it.
+                phase=3;if(mc.level!=null)mc.level.disconnect();mc.clearLevel(new TitleScreen());
+            }
             if(phase==3&&mc.level==null&&mc.getSingleplayerServer()==null&&mc.getOverlay()==null&&!reloadRequested){
                 reloadRequested=true;phase=4;mc.createWorldOpenFlows().loadLevel(new TitleScreen(),WORLD);
             }
@@ -101,7 +104,14 @@ public final class WorldgenAcceptanceCapture {
             }
             if(serverTicks%20==0){
                 tryNaturalSpawns(level);observeNaturalBoars(level);
-                var wild=SpiritPlantRegions.get(level).save(new CompoundTag()).getList("Wild",Tag.TAG_COMPOUND);
+                var plantState=SpiritPlantRegions.get(level).save(new CompoundTag());
+                var wild=plantState.getList("Wild",Tag.TAG_COMPOUND);
+                if(serverTicks%200==0){
+                    var regions=plantState.getList("Regions",Tag.TAG_COMPOUND);int complete=0,decided=0,cells=0;
+                    for(Tag value:regions){var region=(CompoundTag)value;if(region.getBoolean("Complete"))complete++;if(region.getBoolean("Decided"))decided++;cells+=region.getLongArray("Cells").length;}
+                    REPORT.put("plantRegionDiagnostics",Map.of("regions",regions.size(),"complete",complete,"decided",decided,"cells",cells,"pending",plantState.getList("Pending",Tag.TAG_COMPOUND).size()));
+                    com.mojang.logging.LogUtils.getLogger().info("Plant region diagnostics: {}",REPORT.get("plantRegionDiagnostics"));
+                }
                 boolean imported=false;
                 for(Tag value:wild){var pos=BlockPos.of(((CompoundTag)value).getLong("Pos"));if(!level.hasChunkAt(pos))continue;
                     if(level.getBlockState(pos).getBlock() instanceof SpiritPlantBlock plant&&plant.definition().id.startsWith("herb_")){imported=true;break;}}
