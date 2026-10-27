@@ -37,8 +37,8 @@ public final class AlchemyReservationCapture {
     private static final boolean ENABLED=Boolean.getBoolean("wuxingxiantu.alchemyReservationCapture");
     private static final Path OUTPUT=Path.of(System.getProperty("wuxingxiantu.alchemyReservationOutput","captures"))
             .resolve("run-"+System.currentTimeMillis());
-    private static final String[] CASES={"selected-empty","selected-missing","selected-wrong","all-prepared","mixed-preparation","selected-materials-removed"};
-    private static final int[] EXPECTED_BONUS={0,0,0,6,3,0};
+    private static final String[] CASES={"selected-empty","selected-missing","selected-wrong","all-prepared","mixed-preparation","selected-materials-removed","observation-open","observation-tags-scroll","observation-focus","observation-gui4"};
+    private static final int[] EXPECTED_BONUS={0,0,0,6,3,0,6,6,6,6};
     private static final List<Map<String,Object>> ROWS=new ArrayList<>();
     private static final List<String> FAILURES=new ArrayList<>();
     private static final long START=System.nanoTime();
@@ -113,9 +113,10 @@ public final class AlchemyReservationCapture {
             case 3 -> fillExact(true);
             case 4 -> fillExact(false);
             case 5 -> clearMaterials(); // Keep the same selected recipe/menu after a valid batch loses all input.
+            case 6,7,8,9 -> fillExact(true);
             default -> throw new AssertionError("Unknown capture stage");
         }
-        view.set(0,(stage==3||stage==4?AlchemyFurnaceMenu.State.READY:AlchemyFurnaceMenu.State.MISSING).ordinal());
+        view.set(0,(stage==3||stage==4||stage>=6?AlchemyFurnaceMenu.State.READY:AlchemyFurnaceMenu.State.MISSING).ordinal());
     }
 
     @SubscribeEvent public static void frame(TickEvent.RenderTickEvent event){
@@ -125,11 +126,20 @@ public final class AlchemyReservationCapture {
             if(screen==null)initialize(mc);configureCase();
             if(menu.selectedRecipe()!=recipe)throw new AssertionError("Selected recipe changed during material edits");
             boolean complete=recipe.tryReservation(input).isPresent();
-            if(complete!=(stage==3||stage==4))throw new AssertionError("Unexpected fixture material availability");
+            if(complete!=(stage==3||stage==4||stage>=6))throw new AssertionError("Unexpected fixture material availability");
             int bonus=HerbPreparation.bonus(recipe,input);
             if(bonus!=EXPECTED_BONUS[stage])throw new AssertionError("Wrong preparation bonus: "+bonus);
             var before=new ArrayList<ItemStack>();for(int slot=0;slot<8;slot++)before.add(input.getItem(slot).copy());
-            screen.tick();mc.getMainRenderTarget().bindWrite(true);
+            screen.tick();
+            if(stage==6){
+                var control=screen.children().stream().filter(c->c instanceof net.minecraft.client.gui.components.Button b&&b.getMessage().getString().equals("记录")).map(c->(net.minecraft.client.gui.components.Button)c).findFirst().orElseThrow();
+                control.onPress();if(AlchemyObservationView.rows(menu).size()<=5)throw new AssertionError("Missing parameter/tag observations");
+            }
+            if(stage==7)screen.mouseScrolled(screen.getGuiLeft()+300,screen.getGuiTop()+180,-1);
+            if(stage==8)screen.children().stream().filter(c->c instanceof net.minecraft.client.gui.components.Button b&&b.getMessage().getString().equals("药力")).findFirst().orElseThrow().setFocused(true);
+            if(stage==9){mc.options.guiScale().set(4);mc.resizeDisplay();screen.init(mc,mc.getWindow().getGuiScaledWidth(),mc.getWindow().getGuiScaledHeight());}
+            Class.forName("cn.blockforge.generated.generatedmod.client.qa.myriad.PointerSafety").getMethod("verify").invoke(null);
+            mc.getMainRenderTarget().bindWrite(true);
             RenderSystem.setProjectionMatrix(new Matrix4f().setOrtho(0,screen.width,screen.height,0,1000,21000),VertexSorting.ORTHOGRAPHIC_Z);
             var model=RenderSystem.getModelViewStack();model.pushPose();
             try{
@@ -152,6 +162,7 @@ public final class AlchemyReservationCapture {
     private static void writeReport()throws Exception{
         var report=new LinkedHashMap<String,Object>();report.put("test","alchemy-reservation-real-screen-render");
         report.put("fixture","Production AlchemyScreen and AlchemyFurnaceMenu client proxy in a fresh isolated save");
+        report.put("pointer",Class.forName("cn.blockforge.generated.generatedmod.client.qa.myriad.PointerSafety").getMethod("snapshot").invoke(null));
         report.put("captures",ROWS);report.put("failures",FAILURES);report.put("complete",ROWS.size()==CASES.length&&FAILURES.isEmpty());
         Files.writeString(OUTPUT.resolve("captures.json"),new GsonBuilder().setPrettyPrinting().create().toJson(report));
     }
@@ -159,7 +170,7 @@ public final class AlchemyReservationCapture {
     private static void finish(){
         if(finished)return;finished=true;
         try{Files.createDirectories(OUTPUT);writeReport();Files.writeString(OUTPUT.resolve(FAILURES.isEmpty()?"complete.txt":"failure.txt"),
-                FAILURES.isEmpty()?"All six real AlchemyScreen render cases passed\n":String.join("\n",FAILURES));}
+                FAILURES.isEmpty()?"All ten real AlchemyScreen render cases passed\n":String.join("\n",FAILURES));}
         catch(Exception error){com.mojang.logging.LogUtils.getLogger().error("ALCHEMY_RESERVATION_REPORT",error);}
         Minecraft.getInstance().stop();
     }

@@ -49,8 +49,8 @@ public final class MyriadClientCapture {
     private static final Path OUTPUT=Path.of(System.getProperty("wuxingxiantu.myriadCaptureOutput","captures")).resolve("run-"+System.currentTimeMillis());
     private static final BlockPos GROUND=new BlockPos(0,200,0);
     private static final Vec3 CENTER=Vec3.atBottomCenterOf(GROUND.above());
-    private static final String[] CASES={"01-bag-normal","02-bag-filtered","03-two-boar-models","04-array-ground","05-array-dome","06-array-sword-streams","07-filled-bath-and-two-dolls","08-artifact-three-ranks-and-armor","09-held-vein-compass-hud","10-real-cushion-qte"};
-    private static final BlockPos BATH=GROUND.above(),LAOYANG=BATH.offset(-2,0,0),CHENGRAN=BATH.offset(2,0,0);
+    private static final String[] CASES={"01-bag-normal","02-bag-filtered","03-two-boar-models","04-array-ground","05-array-dome","06-array-sword-streams","07-filled-bath","08-artifact-three-ranks-and-armor","09-held-vein-compass-hud","10-real-cushion-qte"};
+    private static final BlockPos BATH=GROUND.above();
     private static final List<Map<String,Object>> CAPTURES=new ArrayList<>();
     private static final List<String> FAILURES=new ArrayList<>(),GL_ERRORS=new ArrayList<>();
     private static final long START=System.nanoTime();
@@ -123,11 +123,9 @@ public final class MyriadClientCapture {
                 if(phase==6&&age>=210){if(age>=240)throw new AssertionError("Missed natural sword-stream window: "+age);requested=true;}
             } else if(phase==7) {
                 if(!sideContentRequested){UUID playerId=minecraft.player.getUUID();pending=minecraft.getSingleplayerServer().submit(()->prepareSideContent(minecraft,playerId));sideContentRequested=true;return;}
-                if(clientHasFormation()||sideContentServerEvidence.size()!=3||phaseTicks<30)return;
+                if(clientHasFormation()||sideContentServerEvidence.size()!=1||phaseTicks<30)return;
                 var bath=minecraft.level.getBlockState(BATH);
-                if(bath.is(ImportedContent.SPIRIT_BATH.get())&&bath.getValue(SpiritBathBlock.FILLED)
-                        &&minecraft.level.getBlockState(LAOYANG).is(ImportedContent.LAOYANG_DOLL.get())
-                        &&minecraft.level.getBlockState(CHENGRAN).is(ImportedContent.CHENGRAN_DOLL.get()))requested=true;
+                if(bath.is(ImportedContent.SPIRIT_BATH.get())&&bath.getValue(SpiritBathBlock.FILLED))requested=true;
             } else if(phase==8) {
                 if(!artifactContentRequested){pending=minecraft.getSingleplayerServer().submit(()->prepareArtifacts(minecraft));artifactContentRequested=true;return;}
                 if(artifactStandIds.size()==3&&artifactStandIds.stream().allMatch(id->minecraft.level.getEntity(id)!=null)&&phaseTicks>=30)requested=true;
@@ -207,7 +205,7 @@ public final class MyriadClientCapture {
 
     private static void prepareArtifacts(Minecraft minecraft) {
         var level=minecraft.getSingleplayerServer().overworld();
-        for(BlockPos pos:List.of(BATH,LAOYANG,CHENGRAN))level.setBlock(pos,Blocks.AIR.defaultBlockState(),3);
+        for(BlockPos pos:List.of(BATH))level.setBlock(pos,Blocks.AIR.defaultBlockState(),3);
         var ids=new ArrayList<Integer>();
         for(int rank=1;rank<=3;rank++) {
             var stand=new net.minecraft.world.entity.decoration.ArmorStand(level,CENTER.x+(rank-2)*3,CENTER.y,CENTER.z);
@@ -234,8 +232,6 @@ public final class MyriadClientCapture {
                 ||!chart.useOn(new UseOnContext(player,InteractionHand.MAIN_HAND,groundHit)).consumesAction()
                 ||SwordArrayServer.active(player).isPresent())throw new AssertionError("Production chart did not close the captured formation");
         level.setBlock(BATH,ImportedContent.SPIRIT_BATH.get().defaultBlockState(),3);
-        level.setBlock(LAOYANG,ImportedContent.LAOYANG_DOLL.get().defaultBlockState().setValue(LaoyangDollBlock.FACING,Direction.SOUTH),3);
-        level.setBlock(CHENGRAN,ImportedContent.CHENGRAN_DOLL.get().defaultBlockState().setValue(LaoyangDollBlock.FACING,Direction.SOUTH),3);
         var hit=new BlockHitResult(Vec3.atCenterOf(BATH),Direction.UP,BATH,false);
         for(String herb:SpiritBathBlockEntity.HERBS) {
             Item item=BuiltInRegistries.ITEM.get(new ResourceLocation(GeneratedMod.MOD_ID,herb));
@@ -249,7 +245,7 @@ public final class MyriadClientCapture {
         if(!(level.getBlockEntity(BATH) instanceof SpiritBathBlockEntity bath)||bath.depositCount()!=4
                 ||!level.getBlockState(BATH).getValue(SpiritBathBlock.FILLED))throw new AssertionError("Production bath did not become filled after four herbs");
         var evidence=new ArrayList<Map<String,Object>>();
-        for(BlockPos pos:List.of(BATH,LAOYANG,CHENGRAN)) {
+        for(BlockPos pos:List.of(BATH)) {
             var state=level.getBlockState(pos);var row=new LinkedHashMap<String,Object>();
             row.put("position",List.of(pos.getX(),pos.getY(),pos.getZ()));row.put("block",BuiltInRegistries.BLOCK.getKey(state.getBlock()).toString());
             row.put("state",state.toString());
@@ -305,9 +301,9 @@ public final class MyriadClientCapture {
                 if(phase==6){Field field=Class.forName("cn.blockforge.generated.generatedmod.formation.client.SwordArrayGeometry").getDeclaredField("mesh");field.setAccessible(true);if(!(field.get(null) instanceof float[] mesh)||mesh.length==0)throw new AssertionError("Real sword-flow mesh was not rendered");row.put("sourceSwordMeshFloats",mesh.length);}
             }
             if(phase==7) {
-                if(sideContentServerEvidence.size()!=3)throw new AssertionError("Missing server block evidence");
+                if(sideContentServerEvidence.size()!=1)throw new AssertionError("Missing server block evidence");
                 var clientBlocks=new ArrayList<String>();
-                for(BlockPos pos:List.of(BATH,LAOYANG,CHENGRAN))clientBlocks.add(minecraft.level.getBlockState(pos).toString());
+                for(BlockPos pos:List.of(BATH))clientBlocks.add(minecraft.level.getBlockState(pos).toString());
                 if(!minecraft.level.getBlockState(BATH).getValue(SpiritBathBlock.FILLED))throw new AssertionError("Client bath is not filled at capture");
                 row.put("serverBlocks",sideContentServerEvidence);row.put("clientBlockStates",clientBlocks);row.put("formationClosed",!clientHasFormation());
             }

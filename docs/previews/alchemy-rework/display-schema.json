@@ -1,0 +1,52 @@
+{
+  "schema": "alchemy-display/1",
+  "parameters": [
+    {
+      "id": "result.power",
+      "source": "result.power",
+      "label": "有效药力",
+      "unit": "/100",
+      "style": "normal"
+    },
+    {
+      "id": "result.purity",
+      "source": "result.purity",
+      "label": "纯净程度",
+      "unit": "/100",
+      "style": "normal"
+    },
+    {
+      "id": "result.stability",
+      "source": "result.stability",
+      "label": "融合稳定",
+      "unit": "/100",
+      "style": "normal"
+    },
+    {
+      "id": "result.toxin",
+      "source": "result.toxin",
+      "label": "残留毒性",
+      "unit": "/100",
+      "style": "danger"
+    },
+    {
+      "id": "result.score",
+      "source": "result.score",
+      "label": "品级评分",
+      "unit": "/100",
+      "style": "score"
+    }
+  ],
+  "tags": [
+    {
+      "source": "material_observations",
+      "category": "material",
+      "label": "材料标签"
+    },
+    {
+      "source": "process_observations",
+      "category": "process",
+      "label": "过程标签"
+    }
+  ]
+}

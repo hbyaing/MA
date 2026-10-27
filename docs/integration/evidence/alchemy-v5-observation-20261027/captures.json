@@ -1,0 +1,115 @@
+{
+  "test": "alchemy-reservation-real-screen-render",
+  "fixture": "Production AlchemyScreen and AlchemyFurnaceMenu client proxy in a fresh isolated save",
+  "pointer": {
+    "cursorMode": 212993,
+    "checkedFrames": 1054,
+    "captureViolations": 0,
+    "passed": true,
+    "blockedGrabs": 1
+  },
+  "captures": [
+    {
+      "case": "selected-empty",
+      "recipe": "wuxingxiantu:alchemy_aura_pill_low",
+      "completeMaterials": false,
+      "preparedBonus": 0,
+      "glError": 0,
+      "wastePercent": 18,
+      "width": 1280,
+      "height": 900
+    },
+    {
+      "case": "selected-missing",
+      "recipe": "wuxingxiantu:alchemy_aura_pill_low",
+      "completeMaterials": false,
+      "preparedBonus": 0,
+      "glError": 0,
+      "wastePercent": 18,
+      "width": 1280,
+      "height": 900
+    },
+    {
+      "case": "selected-wrong",
+      "recipe": "wuxingxiantu:alchemy_aura_pill_low",
+      "completeMaterials": false,
+      "preparedBonus": 0,
+      "glError": 0,
+      "wastePercent": 18,
+      "width": 1280,
+      "height": 900
+    },
+    {
+      "case": "all-prepared",
+      "recipe": "wuxingxiantu:alchemy_aura_pill_low",
+      "completeMaterials": true,
+      "preparedBonus": 6,
+      "glError": 0,
+      "wastePercent": 12,
+      "width": 1280,
+      "height": 900
+    },
+    {
+      "case": "mixed-preparation",
+      "recipe": "wuxingxiantu:alchemy_aura_pill_low",
+      "completeMaterials": true,
+      "preparedBonus": 3,
+      "glError": 0,
+      "wastePercent": 15,
+      "width": 1280,
+      "height": 900
+    },
+    {
+      "case": "selected-materials-removed",
+      "recipe": "wuxingxiantu:alchemy_aura_pill_low",
+      "completeMaterials": false,
+      "preparedBonus": 0,
+      "glError": 0,
+      "wastePercent": 18,
+      "width": 1280,
+      "height": 900
+    },
+    {
+      "case": "observation-open",
+      "recipe": "wuxingxiantu:alchemy_aura_pill_low",
+      "completeMaterials": true,
+      "preparedBonus": 6,
+      "glError": 0,
+      "wastePercent": 12,
+      "width": 1280,
+      "height": 900
+    },
+    {
+      "case": "observation-tags-scroll",
+      "recipe": "wuxingxiantu:alchemy_aura_pill_low",
+      "completeMaterials": true,
+      "preparedBonus": 6,
+      "glError": 0,
+      "wastePercent": 12,
+      "width": 1280,
+      "height": 900
+    },
+    {
+      "case": "observation-focus",
+      "recipe": "wuxingxiantu:alchemy_aura_pill_low",
+      "completeMaterials": true,
+      "preparedBonus": 6,
+      "glError": 0,
+      "wastePercent": 12,
+      "width": 1280,
+      "height": 900
+    },
+    {
+      "case": "observation-gui4",
+      "recipe": "wuxingxiantu:alchemy_aura_pill_low",
+      "completeMaterials": true,
+      "preparedBonus": 6,
+      "glError": 0,
+      "wastePercent": 12,
+      "width": 1280,
+      "height": 900
+    }
+  ],
+  "failures": [],
+  "complete": true
+}

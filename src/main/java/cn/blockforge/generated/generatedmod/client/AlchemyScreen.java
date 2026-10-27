@@ -23,6 +23,9 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
     private static final String[] TRIGRAMS = {"乾", "兑", "坎", "艮", "坤", "震", "巽", "离"};
     private static final String[] ESSENCES = {"金", "木", "水", "火", "土", "阴", "阳", "魂"};
     private EditBox search;
+    private boolean observationOpen;
+    private int observationScroll;
+    private Button observationToggle;
     private Button start, previous, next, formulaMode, experimentMode, inject, upgrade, fillMaterials, clearMaterials;
     private boolean holdingInjection;
     private int injectionTicks;
@@ -71,7 +74,15 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
         clearMaterials=addRenderableWidget(new FlatButton(212,196,62,16,Component.literal("一键清空"),b -> machineAction(252)));
         fillMaterials.setTooltip(net.minecraft.client.gui.components.Tooltip.create(Component.literal("从背包补足选中丹方的一炉材料；材料不足时不移动物品。")));
         clearMaterials.setTooltip(net.minecraft.client.gui.components.Tooltip.create(Component.literal("将八卦槽材料退回背包，保留异火与核心；背包空间不足时不移动物品。")));
+        observationToggle=addRenderableWidget(new FlatButton(371,153,34,14,Component.literal(observationOpen?"药力":"记录"),b->{observationOpen=!observationOpen;observationScroll=0;observationToggle.setMessage(Component.literal(observationOpen?"药力":"记录"));}));
+        observationToggle.setTooltip(net.minecraft.client.gui.components.Tooltip.create(Component.literal("切换原料观察 / 异火药力；滚轮查看可扩展参数与标签。当前仍为旧制结算。")));
         updateControls();
+    }
+    @Override public boolean mouseScrolled(double x,double y,double delta){
+        if(observationOpen&&isHovering(290,150,122,81,x,y)){
+            int count=AlchemyObservationView.rows(menu).size();observationScroll=Math.max(0,Math.min(Math.max(0,count-5),observationScroll+(delta>0?-1:1)));return true;
+        }
+        return super.mouseScrolled(x,y,delta);
     }
     private List<AlchemyRecipe> filtered() {
         String query = search == null ? "" : search.getValue().trim().toLowerCase(Locale.ROOT);
@@ -268,7 +279,12 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
                     :"品阶概率为成丹后的分布。废丹率受丹方投入品质、炉阶和异火影响；供灵耗尽额外失败。"),
                     Component.literal("传统丹方失败成灰；分阶新丹方失败成废丹，可有损烧为丹灰。失败不吸收药力。")),mouseX,mouseY);return;
         }
-        if(isHovering(298,157,106,12,mouseX,mouseY)){
+        if(observationOpen&&isHovering(298,174,106,50,mouseX,mouseY)){
+            var observations=AlchemyObservationView.rows(menu);int index=observationScroll+(mouseY-topPos-174)/10;
+            if(index>=0&&index<observations.size())g.renderComponentTooltip(font,observations.get(index).detail(),mouseX,mouseY);
+            return;
+        }
+        if(!observationOpen&&isHovering(298,157,70,12,mouseX,mouseY)){
             g.renderComponentTooltip(font,List.of(Component.literal("存量 / 本炉吸收增量").withStyle(net.minecraft.ChatFormatting.AQUA),
                     Component.literal("左侧为异火现有药力，右侧为本炉成功后的预计增加量。"),
                     Component.literal("重复炼制会衰减；失败不增加药力，供灵不足会额外失败。")),mouseX,mouseY);return;
@@ -430,8 +446,14 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
         if(special){text(g,"特殊",298,48,0xFFC99CEB);right(g,"100%",404,48,48,GOLD);small(g,"净神丹仅有一种品质",298,65,106,MUTED);}
         int waste=cn.blockforge.generated.generatedmod.alchemy.AlchemyFailureOdds.percent(recipe,menu.furnaceTier(),menu.ignitionTier(),menu.freeMode(),cn.blockforge.generated.generatedmod.HerbPreparation.bonus(recipe,menu.container())+PlayerProgressionClient.rank("alchemy"));
         text(g,"废丹率",298,80,TEXT);right(g,recipe==null&&!menu.freeMode()?"—":waste+"%",404,80,48,0xFFE3A287);
-        text(g, "异火吸收药力", 298, 157, GOLD);
-        drawEssence(g, recipe);
+        text(g, observationOpen?"原料观察":"异火吸收药力", 298, 157, GOLD);
+        if(observationOpen){
+            var observations=AlchemyObservationView.rows(menu);observationScroll=Math.max(0,Math.min(observationScroll,Math.max(0,observations.size()-5)));
+            for(int i=0;i<5&&observationScroll+i<observations.size();i++){
+                var row=observations.get(observationScroll+i);int y=174+i*10;
+                small(g,row.label(),298,y,64,TEXT);right(g,row.value(),404,y,40,GOLD);
+            }
+        }else drawEssence(g, recipe);
         centered(g, menu.isBrewing() && seconds<15 ? Component.literal("异火将熄，及时注灵") : stateLabel(), 353, 283, 108, menu.isBrewing()&&seconds<15?0xFFF1AA81:start.active ? 0xFF80D6B0 : MUTED);
     }
     private void drawEssence(GuiGraphics g, AlchemyRecipe recipe) {
