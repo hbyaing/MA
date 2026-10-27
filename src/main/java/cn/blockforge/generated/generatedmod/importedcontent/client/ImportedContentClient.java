@@ -14,8 +14,6 @@ public final class ImportedContentClient {
     @SubscribeEvent public static void setup(FMLClientSetupEvent event) {
         event.enqueueWork(()->{
             ItemBlockRenderTypes.setRenderLayer(ImportedContent.SPIRIT_BATH.get(),RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(ImportedContent.LAOYANG_DOLL.get(),RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(ImportedContent.CHENGRAN_DOLL.get(),RenderType.cutout());
         });
     }
     private ImportedContentClient() {}

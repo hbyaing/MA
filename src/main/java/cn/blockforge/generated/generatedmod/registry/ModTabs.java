@@ -53,7 +53,7 @@ public final class ModTabs {
         var item=stack.getItem();
         String id=net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item).getPath();
         if(cn.blockforge.generated.generatedmod.alchemy.PillData.read(stack)!=null) return Category.PILLS;
-        if(id.equals("creation_pill")||id.equals("laoyang_secret_pill")) return Category.PILLS;
+        if(id.equals("creation_pill")) return Category.PILLS;
         if(item instanceof cn.blockforge.generated.generatedmod.items.ArtManualItem
                 ||item instanceof cn.blockforge.generated.generatedmod.items.DivineManualItem
                 ||item instanceof cn.blockforge.generated.generatedmod.items.HeartMethodItem

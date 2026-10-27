@@ -35,7 +35,7 @@ public final class WuXingItemSources {
             "creative_soul_energy_pearl",
             "muyan_spawn_egg", "ermei_spawn_egg", "bichen_spawn_egg", "shetao_spawn_egg", "shenyin_spawn_egg",
             "yihuo_spawn_egg", "pengju_spawn_egg", "pengzhi_spawn_egg", "pengjiao_spawn_egg",
-            "heart_demon_spawn_egg", "black_boar_spawn_egg", "black_boar_king_spawn_egg", "laoyang_doll", "chengran_doll", "laoyang_secret_pill",
+            "heart_demon_spawn_egg", "black_boar_spawn_egg", "black_boar_king_spawn_egg",
             "exotic_fire_red_flow", "exotic_fire_molten_gold", "exotic_fire_cold_bone",
             "exotic_fire_azure_wood", "exotic_fire_cobalt_sea", "exotic_fire_violet_thunder",
             "exotic_fire_sun_saint", "exotic_fire_nether_void", "exotic_fire_nirvana");
