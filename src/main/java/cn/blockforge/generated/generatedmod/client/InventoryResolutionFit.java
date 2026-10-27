@@ -17,7 +17,8 @@ public final class InventoryResolutionFit {
     public static void apply(Minecraft minecraft) {
         var window=minecraft.getWindow();
         int configured=window.calculateScale(minecraft.options.guiScale().get(),minecraft.isEnforceUnicode());
-        window.setGuiScale(scale(window.getWidth(),window.getHeight(),configured,minecraft.isEnforceUnicode()));
+        window.setGuiScale(ScreenFitPolicy.scale(window.getWidth(),window.getHeight(),
+                scale(window.getWidth(),window.getHeight(),configured,minecraft.isEnforceUnicode()),480,326,minecraft.isEnforceUnicode()));
     }
 
     public static void restore(Minecraft minecraft) {
