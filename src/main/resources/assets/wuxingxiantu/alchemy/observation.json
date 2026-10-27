@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "parameters": [
+    {
+      "id": "input.slots",
+      "source": "occupied_slots",
+      "label": "占用药槽",
+      "unit": "槽"
+    },
+    {
+      "id": "input.quantity",
+      "source": "item_count",
+      "label": "材料总量",
+      "unit": "个"
+    },
+    {
+      "id": "input.herbs",
+      "source": "herb_count",
+      "label": "草药用量",
+      "unit": "株"
+    },
+    {
+      "id": "input.min_years",
+      "source": "minimum_years",
+      "label": "最小药龄",
+      "unit": "年"
+    },
+    {
+      "id": "input.max_years",
+      "source": "maximum_years",
+      "label": "最大药龄",
+      "unit": "年"
+    }
+  ],
+  "tags": {
+    "prefix": "material:",
+    "translationPrefix": "herb.wuxingxiantu.",
+    "category": "material",
+    "strengthLabel": "强度未标定",
+    "budgetLabel": "反应预算尚未接入"
+  }
+}
