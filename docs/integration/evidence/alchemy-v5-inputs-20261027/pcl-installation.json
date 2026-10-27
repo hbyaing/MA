@@ -1,0 +1,208 @@
+{
+  "codeCommit": "250a800f338e79fbff27d369dc4dbd3d5436b7ba",
+  "gameDir": "E:\\我的世界\\PCL 正式版 2.10.9\\.minecraft\\versions\\1.20.1-Forge_47.4.26",
+  "forge": "47.4.26",
+  "target": "E:\\我的世界\\PCL 正式版 2.10.9\\.minecraft\\versions\\1.20.1-Forge_47.4.26\\mods\\myriad-ascension-0.2.jar",
+  "sha256": "45aaaf13c103556e08a6761e107d3546c5065e548657dbe0d75b7321069ba65a",
+  "status": "installed_and_production_client_validated",
+  "clientExitedNormally": true,
+  "temporaryQaRemoved": true,
+  "temporaryQaBackup": "E:\\垃圾\\2026-10-27\\炼丹V5第04项-PCL临时验收包\\codex-inputs-qa-temporary.jar",
+  "temporaryQaSHA256": "99558f01228c47884a113b588c40487bba28fa48c118fd8d6067ac910662a442",
+  "addedDependencies": [
+    "geckolib-forge-1.20.1-4.8.4.jar",
+    "moonlight-1.20-2.16.37-forge.jar"
+  ],
+  "installedJars": [
+    {
+      "name": "[JEI物品管理器] jei-1.20.1-forge-15.74.0.225.jar",
+      "sha256": "fc08b18dda621c71deaa186b0997b8dd6b8253bde3f28f2e12fee54d61448524"
+    },
+    {
+      "name": "[帕秋莉手册] Patchouli-1.20.1-85-FORGE.jar",
+      "sha256": "05f7b5d52f6b8f0fd7f8b4822fa07a192d1394d83a264309c9d221d6d4fd21c5"
+    },
+    {
+      "name": "[现代化 UI] ModernUI-Forge-1.20.1-3.12.0.1-universal.jar",
+      "sha256": "49fea599522316ef7abd8897e8bcad3ed742d935f0a53726eba1f00c9ca8fe4c"
+    },
+    {
+      "name": "[试验假人] dummmmmmy-1.20-2.0.12-forge.jar",
+      "sha256": "bd7f168ec56f14a25d36d9d0dc4d281e88f77b1ba678907b5c570e5c051a5ca4"
+    },
+    {
+      "name": "[输入法冲突修复] IMBlocker-5.6.2.1-forge+1.17-1.20.4.jar",
+      "sha256": "d429017d6ad053acf6bccbb77750c9da398826a4782bda91cc3e142cb9e33c2a"
+    },
+    {
+      "name": "geckolib-forge-1.20.1-4.8.4.jar",
+      "sha256": "33765775385857e7be6dca712d37f1cf05b48d052b86a8453c93631009ea1106"
+    },
+    {
+      "name": "moonlight-1.20-2.16.37-forge.jar",
+      "sha256": "0cf5a628fd2dcde4a87b9e596657684c409836414fc86cbe110f3858824dc971"
+    },
+    {
+      "name": "myriad-ascension-0.2.jar",
+      "sha256": "45aaaf13c103556e08a6761e107d3546c5065e548657dbe0d75b7321069ba65a"
+    }
+  ],
+  "clientVerification": {
+    "cases": [
+      {
+        "items": 9,
+        "title": "万界仙途·修炼",
+        "guiScale": 2,
+        "glError": 0,
+        "tab": "wuxingxiantu"
+      },
+      {
+        "items": 45,
+        "title": "万界仙途·术法",
+        "guiScale": 2,
+        "glError": 0,
+        "tab": "arts"
+      },
+      {
+        "items": 51,
+        "title": "万界仙途·灵植",
+        "guiScale": 2,
+        "glError": 0,
+        "tab": "herbs"
+      },
+      {
+        "items": 214,
+        "title": "万界仙途·丹药",
+        "guiScale": 2,
+        "glError": 0,
+        "tab": "pills"
+      },
+      {
+        "items": 63,
+        "title": "万界仙途·炼丹",
+        "guiScale": 2,
+        "glError": 0,
+        "tab": "alchemy"
+      },
+      {
+        "items": 43,
+        "title": "万界仙途·炼器",
+        "guiScale": 2,
+        "glError": 0,
+        "tab": "refining"
+      },
+      {
+        "items": 15,
+        "title": "万界仙途·符箓",
+        "guiScale": 2,
+        "glError": 0,
+        "tab": "talismans"
+      },
+      {
+        "items": 4,
+        "title": "万界仙途·阵道",
+        "guiScale": 2,
+        "glError": 0,
+        "tab": "formations"
+      },
+      {
+        "items": 40,
+        "title": "万界仙途·材料",
+        "guiScale": 2,
+        "glError": 0,
+        "tab": "materials"
+      },
+      {
+        "items": 41,
+        "title": "万界仙途·杂物",
+        "guiScale": 2,
+        "glError": 0,
+        "tab": "misc"
+      },
+      {
+        "items": 9,
+        "title": "万界仙途·修炼",
+        "guiScale": 3,
+        "glError": 0,
+        "tab": "wuxingxiantu"
+      },
+      {
+        "items": 45,
+        "title": "万界仙途·术法",
+        "guiScale": 3,
+        "glError": 0,
+        "tab": "arts"
+      },
+      {
+        "items": 51,
+        "title": "万界仙途·灵植",
+        "guiScale": 3,
+        "glError": 0,
+        "tab": "herbs"
+      },
+      {
+        "items": 214,
+        "title": "万界仙途·丹药",
+        "guiScale": 3,
+        "glError": 0,
+        "tab": "pills"
+      },
+      {
+        "items": 63,
+        "title": "万界仙途·炼丹",
+        "guiScale": 3,
+        "glError": 0,
+        "tab": "alchemy"
+      },
+      {
+        "items": 43,
+        "title": "万界仙途·炼器",
+        "guiScale": 3,
+        "glError": 0,
+        "tab": "refining"
+      },
+      {
+        "items": 15,
+        "title": "万界仙途·符箓",
+        "guiScale": 3,
+        "glError": 0,
+        "tab": "talismans"
+      },
+      {
+        "items": 4,
+        "title": "万界仙途·阵道",
+        "guiScale": 3,
+        "glError": 0,
+        "tab": "formations"
+      },
+      {
+        "items": 40,
+        "title": "万界仙途·材料",
+        "guiScale": 3,
+        "glError": 0,
+        "tab": "materials"
+      },
+      {
+        "items": 41,
+        "title": "万界仙途·杂物",
+        "guiScale": 3,
+        "glError": 0,
+        "tab": "misc"
+      },
+      {
+        "count": 64,
+        "years": 3578,
+        "nbt": "{WuxingHerbYears:3578}",
+        "case": "production-creative-packet"
+      }
+    ],
+    "pointerSafety": {
+      "checkedFrames": 1431,
+      "captureViolations": 0,
+      "passed": true,
+      "blockedGrabs": 1,
+      "cursorMode": 212993
+    },
+    "failures": []
+  }
+}

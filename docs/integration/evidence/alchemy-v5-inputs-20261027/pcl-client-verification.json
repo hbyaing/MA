@@ -1,0 +1,158 @@
+{
+  "cases": [
+    {
+      "items": 9,
+      "title": "万界仙途·修炼",
+      "guiScale": 2,
+      "glError": 0,
+      "tab": "wuxingxiantu"
+    },
+    {
+      "items": 45,
+      "title": "万界仙途·术法",
+      "guiScale": 2,
+      "glError": 0,
+      "tab": "arts"
+    },
+    {
+      "items": 51,
+      "title": "万界仙途·灵植",
+      "guiScale": 2,
+      "glError": 0,
+      "tab": "herbs"
+    },
+    {
+      "items": 214,
+      "title": "万界仙途·丹药",
+      "guiScale": 2,
+      "glError": 0,
+      "tab": "pills"
+    },
+    {
+      "items": 63,
+      "title": "万界仙途·炼丹",
+      "guiScale": 2,
+      "glError": 0,
+      "tab": "alchemy"
+    },
+    {
+      "items": 43,
+      "title": "万界仙途·炼器",
+      "guiScale": 2,
+      "glError": 0,
+      "tab": "refining"
+    },
+    {
+      "items": 15,
+      "title": "万界仙途·符箓",
+      "guiScale": 2,
+      "glError": 0,
+      "tab": "talismans"
+    },
+    {
+      "items": 4,
+      "title": "万界仙途·阵道",
+      "guiScale": 2,
+      "glError": 0,
+      "tab": "formations"
+    },
+    {
+      "items": 40,
+      "title": "万界仙途·材料",
+      "guiScale": 2,
+      "glError": 0,
+      "tab": "materials"
+    },
+    {
+      "items": 41,
+      "title": "万界仙途·杂物",
+      "guiScale": 2,
+      "glError": 0,
+      "tab": "misc"
+    },
+    {
+      "items": 9,
+      "title": "万界仙途·修炼",
+      "guiScale": 3,
+      "glError": 0,
+      "tab": "wuxingxiantu"
+    },
+    {
+      "items": 45,
+      "title": "万界仙途·术法",
+      "guiScale": 3,
+      "glError": 0,
+      "tab": "arts"
+    },
+    {
+      "items": 51,
+      "title": "万界仙途·灵植",
+      "guiScale": 3,
+      "glError": 0,
+      "tab": "herbs"
+    },
+    {
+      "items": 214,
+      "title": "万界仙途·丹药",
+      "guiScale": 3,
+      "glError": 0,
+      "tab": "pills"
+    },
+    {
+      "items": 63,
+      "title": "万界仙途·炼丹",
+      "guiScale": 3,
+      "glError": 0,
+      "tab": "alchemy"
+    },
+    {
+      "items": 43,
+      "title": "万界仙途·炼器",
+      "guiScale": 3,
+      "glError": 0,
+      "tab": "refining"
+    },
+    {
+      "items": 15,
+      "title": "万界仙途·符箓",
+      "guiScale": 3,
+      "glError": 0,
+      "tab": "talismans"
+    },
+    {
+      "items": 4,
+      "title": "万界仙途·阵道",
+      "guiScale": 3,
+      "glError": 0,
+      "tab": "formations"
+    },
+    {
+      "items": 40,
+      "title": "万界仙途·材料",
+      "guiScale": 3,
+      "glError": 0,
+      "tab": "materials"
+    },
+    {
+      "items": 41,
+      "title": "万界仙途·杂物",
+      "guiScale": 3,
+      "glError": 0,
+      "tab": "misc"
+    },
+    {
+      "count": 64,
+      "years": 3578,
+      "nbt": "{WuxingHerbYears:3578}",
+      "case": "production-creative-packet"
+    }
+  ],
+  "pointerSafety": {
+    "checkedFrames": 1431,
+    "captureViolations": 0,
+    "passed": true,
+    "blockedGrabs": 1,
+    "cursorMode": 212993
+  },
+  "failures": []
+}

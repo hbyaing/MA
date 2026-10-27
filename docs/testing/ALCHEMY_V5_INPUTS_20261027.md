@@ -44,6 +44,19 @@
 
 机器报告：docs/integration/evidence/alchemy-v5-inputs-20261027/server-result.json。正式JAR CRC通过，不含GameTests或客户端QA夹具；生产创造包注入在重映射JAR中核对了SRG方法/字段引用及双命名目标。
 
-未在本项运行客户端、JEI、外部光影、真实进程重启、多人或完整存档迁移验收；不能用本项NBT往返或专服测试代替。AXO实例发现结果为空，原授权“测试（1）”目录不可用，未擅自安装到其它游戏目录。正式包保存在当前聊天outputs目录。
+首轮构建时未发现原AXO实例；随后用户明确指定PCL实例并要求测试，安装和有限客户端验收结果见下节。外部光影、多人、完整存档迁移和炉体故障恢复仍未验收；不能用NBT往返替代。正式包也保存在当前聊天outputs目录。
 
 正式JAR SHA256：`45aaaf13c103556e08a6761e107d3546c5065e548657dbe0d75b7321069ba65a`。
+
+
+## 用户指定PCL实例安装及客户端验收
+
+用户随后明确指定 `E:/我的世界/PCL 正式版 2.10.9/.minecraft/versions/1.20.1-Forge_47.4.26/mods`。已通过安装工具把同一正式JAR安装到该目录，SHA256与上文一致；原目录没有旧wuxingxiantu JAR。首启明确发现缺少GeckoLib4.8.4及试验假人的Moonlight前置，本机已有正式依赖，已补入 geckolib-forge-1.20.1-4.8.4.jar 和 moonlight-1.20-2.16.37-forge.jar，原有五个Mod未替换。
+
+使用真实PCL启动的Forge47.4.26客户端、正式重映射JAR及原JEI/ModernUI组合，在独立新建验收存档执行：10个创造分类×GUI缩放2/3共20个正式界面截图；逐个检查注册物品覆盖、跨页无重复、全部草药每种仅一份零年模板；实际发送创造取物包，64株模板转为同组3578年NBT且模板标记清除。21条验证记录无失败，20张画面GL错误均为0。
+
+独立临时QA包包含鼠标捕获保护，1431帧检查无捕获违规，主动抓取尝试已拦截。该保护没有进入正式JAR。验收客户端已正常保存退出，临时QA JAR已转存E:/垃圾/2026-10-27/炼丹V5第04项-PCL临时验收包，mods中只保留正式Mod及其依赖。用户原有存档未用于验收。
+
+证据位于 docs/integration/evidence/alchemy-v5-inputs-20261027/：pcl-installation.json（正式包/依赖哈希与清理状态）、pcl-client-verification.json（结果与鼠标保护）、两档草药页截图及pcl-qa-source（实际执行的独立夹具源码，机器路径需按本机调整）。完整20张截图另外保留在当前聊天outputs/pcl-client-validation。
+
+这是创造栏、真实生产包取物及基本JEI/ModernUI共存验收，不是完整JEI配方交互、全部知识面板、光影、多人或V5实体炉炼制验收。

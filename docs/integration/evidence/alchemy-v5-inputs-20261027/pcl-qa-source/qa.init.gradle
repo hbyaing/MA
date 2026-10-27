@@ -1,0 +1,17 @@
+allprojects { p ->
+    afterEvaluate {
+        def qa = sourceSets.create('codexPclQa') {
+            java.srcDirs = [new File('C:/Users/Lenovo/Documents/Codex/2026-10-27/https-github-com-thezinecraftm-rgb-myriad/work/pcl-inputs-qa/java')]
+            resources.srcDirs = [new File('C:/Users/Lenovo/Documents/Codex/2026-10-27/https-github-com-thezinecraftm-rgb-myriad/work/pcl-inputs-qa/resources')]
+            compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        }
+        tasks.register('codexPclQaJar', Jar) {
+            dependsOn tasks.named('codexPclQaClasses')
+            from qa.output
+            archiveFileName = 'codex-inputs-qa-temporary.jar'
+            destinationDirectory = file('C:/Users/Lenovo/Documents/Codex/2026-10-27/https-github-com-thezinecraftm-rgb-myriad/work/pcl-inputs-qa')
+            manifest.attributes('MixinConfigs':'wuxingxiantu.myriad-qa-pointer.mixins.json')
+        }
+        reobf.create('codexPclQaJar')
+    }
+}

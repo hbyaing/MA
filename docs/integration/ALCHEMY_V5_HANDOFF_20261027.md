@@ -36,4 +36,4 @@
 
 ## 2026-10-27 第04项本机接续
 
-本次功能分支 codex/alchemy-v5-inputs-20261027，基线main 3c571f7。第04项实现和限制详见 docs/testing/ALCHEMY_V5_INPUTS_20261027.md；最新 clean verifyFull 实际374项必需服务端测试全通过，警告119/119。本机未安装游戏；原授权AXO实例发现失败。下一项05开始实际炉体事务，继续保护旧物品数据，不能误以为当前炉体已调用V5。
+本次功能分支 codex/alchemy-v5-inputs-20261027，基线main 3c571f7。第04项实现和限制详见 docs/testing/ALCHEMY_V5_INPUTS_20261027.md；最新 clean verifyFull 实际374项必需服务端测试全通过，警告119/119。原AXO实例发现失败后，用户指定PCL目录；已安装到 E:/我的世界/PCL 正式版 2.10.9/.minecraft/versions/1.20.1-Forge_47.4.26/mods，正式JAR SHA256见本项规格。实际PCL客户端20张创造页+取物NBT验收通过，测试进程正常保存退出，临时保护包已移除，保留GeckoLib和Moonlight依赖。下一项05开始实际炉体事务，继续保护旧物品数据，不能误以为当前炉体已调用V5。
