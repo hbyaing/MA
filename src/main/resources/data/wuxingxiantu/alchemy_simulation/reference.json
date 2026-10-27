@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "version": "reference-1",
+  "limits": {
+    "maxRules": 32, "maxExtent": 1000, "maxSteps": 100,
+    "maxEvents": 256, "maxStockUnits": 1000000, "maxExternalPerEvent": 100000,
+    "heatCapacity": 10, "coolingDivisor": 1000000, "damageTemperature": 10000,
+    "maximumDamage": 10000000, "burstPressure": 1000000000, "controlNoise": 0
+  },
+  "resources": [
+    {"id": "cold", "mass": 1, "potential": 1, "gas": 0, "destination": "ACTIVE"},
+    {"id": "hot", "mass": 1, "potential": 1, "gas": 0, "destination": "ACTIVE"},
+    {"id": "mediator", "mass": 1, "potential": 0, "gas": 0, "destination": "ACTIVE"},
+    {"id": "product", "mass": 1, "potential": 1, "gas": 0, "destination": "ACTIVE"},
+    {"id": "residue", "mass": 1, "potential": 0, "gas": 0, "destination": "RESIDUE"}
+  ],
+  "reactions": [
+    {"id": "combine", "priority": 0, "phase": "WARMUP",
+      "consume": {"cold": 2, "hot": 2, "mediator": 1},
+      "produce": {"product": 3, "residue": 2},
+      "maximumExtent": 1000, "energyCost": 0, "authorizedPotential": 0,
+      "holdSteps": 1, "windows": []}
+  ]
+}
