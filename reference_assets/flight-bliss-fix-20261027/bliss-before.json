@@ -1,0 +1,54 @@
+{
+  "pointer": {
+    "checkedFrames": 1090,
+    "captureViolations": 0,
+    "passed": true,
+    "blockedGrabs": 6,
+    "cursorMode": 212993
+  },
+  "scenes": [
+    {
+      "lateDraws": 13,
+      "scene": 0,
+      "shaderPack": true,
+      "glError": 0,
+      "projection": {
+        "shadowPasses": 107,
+        "actualAxisDy": 0.7265625,
+        "actualAxisDx": 0.0,
+        "expectedAxisDy": 1.1691704,
+        "expectedAxisDx": 0.0,
+        "worldPasses": 107
+      }
+    },
+    {
+      "lateDraws": 30,
+      "scene": 1,
+      "shaderPack": true,
+      "glError": 0,
+      "projection": {
+        "shadowPasses": 124,
+        "actualAxisDy": 0.7265625,
+        "actualAxisDx": 0.0,
+        "expectedAxisDy": 0.9726216,
+        "expectedAxisDx": 0.0,
+        "worldPasses": 124
+      }
+    },
+    {
+      "lateDraws": 51,
+      "scene": 2,
+      "shaderPack": true,
+      "glError": 0,
+      "projection": {
+        "shadowPasses": 145,
+        "actualAxisDy": 0.7155244,
+        "actualAxisDx": 0.0,
+        "expectedAxisDy": 1.136837,
+        "expectedAxisDx": -0.0012780386,
+        "worldPasses": 145
+      }
+    }
+  ],
+  "passed": true
+}

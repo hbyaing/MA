@@ -1,0 +1,41 @@
+{
+  "mode": "built-in image_gen background-extraction",
+  "icons": {
+    "armor": {
+      "source": "armor-cutout.png",
+      "crop": [
+        39,
+        156,
+        1215,
+        1086
+      ],
+      "runtimeSize": [
+        15,
+        15
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "sha256": "eceb904ff0fec62ffaf214347450e7af35a2f00d0dec86b0252ed41548f62419"
+    },
+    "hunger": {
+      "source": "hunger-cutout.png",
+      "crop": [
+        176,
+        170,
+        1182,
+        1140
+      ],
+      "runtimeSize": [
+        15,
+        15
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "sha256": "f348f9be1821b645b4c03ae86fd241e127b2d316b1bbcc807c079e572ed04d9c"
+    }
+  }
+}

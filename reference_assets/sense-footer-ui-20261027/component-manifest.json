@@ -1,0 +1,188 @@
+{
+  "approved": true,
+  "generator": "built-in image_gen",
+  "elements": {
+    "panel": {
+      "crop": [
+        289,
+        280,
+        888,
+        486
+      ],
+      "size": [
+        599,
+        206
+      ],
+      "kind": "text-free formal skin",
+      "sha256": "ebc26526c569d4721c92dd5204b475694198780f625bed49cbb46da96ac0ae04"
+    },
+    "status": {
+      "crop": [
+        289,
+        731,
+        1518,
+        812
+      ],
+      "size": [
+        1229,
+        81
+      ],
+      "kind": "text-free formal skin",
+      "sha256": "8b5551efbcafe8ae1a8ca9e42fd706fe53915435b5721571af3a47c81e078721"
+    },
+    "button": {
+      "crop": [
+        675,
+        401,
+        860,
+        464
+      ],
+      "size": [
+        185,
+        63
+      ],
+      "kind": "text-free formal skin",
+      "sha256": "717722bef44e6980a324542b75d5c4e94f7441fa8061f5aa2b834c3a6108722e"
+    },
+    "creation": {
+      "crop": [
+        406,
+        831,
+        973,
+        924
+      ],
+      "size": [
+        567,
+        93
+      ],
+      "kind": "text-free formal skin",
+      "sha256": "2c1c1adfc843cf35778fea7bf4abce094e6e624955d9476ef8c70df147b6ba09"
+    },
+    "ascension": {
+      "crop": [
+        1003,
+        831,
+        1384,
+        925
+      ],
+      "size": [
+        381,
+        94
+      ],
+      "kind": "text-free formal skin",
+      "sha256": "fdea68a0ceafdbb6a57c8fd19812e1fc390f1bd224e00d39075bdedddb3cd896"
+    },
+    "scan": {
+      "crop": [
+        316,
+        307,
+        412,
+        398
+      ],
+      "size": [
+        96,
+        91
+      ],
+      "kind": "formal extracted icon",
+      "sha256": "3cd5b2619463a64f5279388116bfab954e2ada2ccf8a2bdfdfe41e525d03abe7"
+    },
+    "identify": {
+      "crop": [
+        941,
+        303,
+        1058,
+        396
+      ],
+      "size": [
+        117,
+        93
+      ],
+      "kind": "formal extracted icon",
+      "sha256": "ab5a4a2b23533b0ef51e904167a7d022985fee5aaf60e271cd6ea089b35e4945"
+    },
+    "lock": {
+      "crop": [
+        313,
+        529,
+        412,
+        623
+      ],
+      "size": [
+        99,
+        94
+      ],
+      "kind": "formal extracted icon",
+      "sha256": "3c609121b577db87ae0547946c85e6ca8b8f36656061fd112c8be38d21214d16"
+    },
+    "survey": {
+      "crop": [
+        940,
+        529,
+        1051,
+        628
+      ],
+      "size": [
+        111,
+        99
+      ],
+      "kind": "formal extracted icon",
+      "sha256": "6f90ed41bc336c61e7b4253dc358206c1b09d7717db6e5381e543aa83109246e"
+    },
+    "cost": {
+      "crop": [
+        319,
+        422,
+        350,
+        460
+      ],
+      "size": [
+        31,
+        38
+      ],
+      "kind": "formal extracted icon",
+      "sha256": "24f3e6535a6c13e224fac483afe7a0a8a7f15b106dbe1830f59c4f0422cd0f5a"
+    },
+    "creation_icon": {
+      "crop": [
+        418,
+        838,
+        602,
+        917
+      ],
+      "size": [
+        184,
+        79
+      ],
+      "kind": "formal extracted icon",
+      "sha256": "b3c437d371dc6f9478bc3aa791c73d6a4490dc814fb60f4d0df7a5518a772dd1"
+    },
+    "ascension_icon": {
+      "crop": [
+        1013,
+        843,
+        1117,
+        918
+      ],
+      "size": [
+        104,
+        75
+      ],
+      "kind": "formal extracted icon",
+      "sha256": "1890d197292534c24e7ccfe35959bc53eb7f49e662408def84a91753e1016a03"
+    },
+    "arrow": {
+      "crop": [
+        1290,
+        861,
+        1320,
+        894
+      ],
+      "size": [
+        30,
+        33
+      ],
+      "kind": "formal extracted icon",
+      "sha256": "702adf4efb44964684e9fdfa3e736f9d62f6dccd29d6b2c1a70ccf95d4d3debf"
+    }
+  }
+}

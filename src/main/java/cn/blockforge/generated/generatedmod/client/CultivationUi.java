@@ -30,6 +30,7 @@ public final class CultivationUi {
         com.mojang.blaze3d.systems.RenderSystem.disableBlend();
     }
     public static class Action extends Button {
+        public java.util.function.BiConsumer<GuiGraphics,Action> customSurface;
         public int chrome=2;
         protected final BooleanSupplier selected;
         private long pressedUntil;
@@ -42,6 +43,7 @@ public final class CultivationUi {
         }
         @Override public void onPress() { pressedUntil = net.minecraft.Util.getMillis() + 140; super.onPress(); }
         protected void surface(GuiGraphics g, boolean chosen) {
+            if(customSurface!=null){customSurface.accept(g,this);return;}
             boolean pressed = active && (net.minecraft.Util.getMillis() < pressedUntil || isHovered()
                     && org.lwjgl.glfw.GLFW.glfwGetMouseButton(Minecraft.getInstance().getWindow().getWindow(), 0) == 1);
             if(width>=36)referenceButton(g,getX(),getY(),width,height,chrome,active,chosen,isHoveredOrFocused(),pressed);

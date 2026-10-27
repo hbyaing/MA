@@ -51,6 +51,7 @@ if (project.hasProperty('myriadCapture')) {
             if (project.hasProperty('reforgeCapture')) { property 'wuxingxiantu.reforgeCapture', 'true'; property 'wuxingxiantu.myriadCapture', 'false' }
             if (project.hasProperty('senseHeavenlyCapture')) { property 'wuxingxiantu.senseHeavenlyCapture', 'true'; property 'wuxingxiantu.myriadCapture', 'false' }
             if (project.hasProperty('senseEffectsCapture')) { property 'wuxingxiantu.senseEffectsCapture', 'true'; property 'wuxingxiantu.myriadCapture', 'false' }
+            if (project.hasProperty('thunderDomainCapture')) { property 'wuxingxiantu.thunderDomainCapture', 'true'; property 'wuxingxiantu.myriadCapture', 'false' }
             if (project.hasProperty('jeiLayoutCapture')) property 'wuxingxiantu.jeiLayoutCapture', 'true'
             if (project.hasProperty('myriadWorldgen')) property 'wuxingxiantu.myriadWorldgen', 'true'
             property 'mixin.env.remapRefMap', 'true'

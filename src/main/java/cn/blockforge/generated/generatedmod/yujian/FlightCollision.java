@@ -9,7 +9,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
-/** Bounded swept-volume checks. No getChunk/create/load or tickets are used. */
+/** Bounded swept-volume checks. Only already-available chunks are read; never waits for generation. */
 public final class FlightCollision {
     public record Sweep(Vec3 movement, boolean blocked, boolean loaded) {}
     public enum Prediction { CLEAR, PASSABLE, BLOCKED, UNLOADED }
@@ -28,7 +28,9 @@ public final class FlightCollision {
         int minZ=net.minecraft.util.Mth.floor(box.minZ)>>4,maxZ=net.minecraft.util.Mth.floor(box.maxZ)>>4;
         if(maxX-minX>2||maxZ-minZ>2)return false;
         for(int x=minX;x<=maxX;x++)for(int z=minZ;z<=maxZ;z++)
-            if(!level.hasChunk(x,z))return false;
+            // hasChunk only checks the holder's requested FULL ticket level. Its FULL
+            // future may still be pending, and getBlockState would then block the server.
+            if(level.getChunkSource().getChunkNow(x,z)==null)return false;
         return true;
     }
 
@@ -60,6 +62,15 @@ public final class FlightCollision {
 
     private static boolean collisionRegionLoaded(ServerPlayer player,AABB box) {
         return loaded(player,box)&&loaded(player,box.inflate(1));
+    }
+
+    /** A decorative/damage ray must obey the same readiness guard as movement. */
+    public static java.util.Optional<net.minecraft.world.phys.BlockHitResult> clipLoaded(
+            ServerPlayer player,net.minecraft.world.entity.Entity sword,Vec3 from,Vec3 to) {
+        if(!loaded(player,new AABB(from,to).inflate(1)))return java.util.Optional.empty();
+        return java.util.Optional.of(player.serverLevel().clip(new net.minecraft.world.level.ClipContext(
+                from,to,net.minecraft.world.level.ClipContext.Block.COLLIDER,
+                net.minecraft.world.level.ClipContext.Fluid.NONE,sword)));
     }
 
     public static Sweep sweep(ServerPlayer player, AABB volume, Vec3 requested, boolean phasing) {

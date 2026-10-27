@@ -507,8 +507,9 @@ public final class YujianController {
         }
         Vec3 tip=direction(sword.getYRot(),sword.getXRot()).scale(1.2D*definition.flightScale());
         sword.angularSpeed((float)ride.manualRoll.velocity);
-        var tipWall=player.level().clip(new ClipContext(sword.position(),sword.position().add(tip),ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,sword));
-        if(ride.collisionTicks==0 && tipWall.getType()==HitResult.Type.MISS)applyChargeDamage(sword,player,ride,source,oldTip,tipWall.getLocation(),definition);
+        var tipWall=FlightCollision.clipLoaded(player,sword,sword.position(),sword.position().add(tip));
+        if(ride.collisionTicks==0 && tipWall.isPresent() && tipWall.get().getType()==HitResult.Type.MISS)
+            applyChargeDamage(sword,player,ride,source,oldTip,tipWall.get().getLocation(),definition);
         for (Iterator<Map.Entry<UUID,Integer>> it=ride.hitCooldown.entrySet().iterator();it.hasNext();) if(it.next().getValue()<=player.tickCount)it.remove();
     }
 
