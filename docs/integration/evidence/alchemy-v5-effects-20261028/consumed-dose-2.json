@@ -1,0 +1,11 @@
+{
+  "actualMana": 29.080116,
+  "remaining": 0,
+  "replayUnchanged": true,
+  "used": 2,
+  "healthBefore": 3,
+  "expectedHealth": 3.0,
+  "expectedMana": 28.542,
+  "grade": 7,
+  "healthAfter": 3.0
+}

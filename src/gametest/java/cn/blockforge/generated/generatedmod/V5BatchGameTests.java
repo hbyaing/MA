@@ -58,7 +58,7 @@ public final class V5BatchGameTests {
             h.assertTrue(f.furnace.startV5Batch(f.player),"Start failed");var original=f.furnace.v5ServerRecord();var journal=new BatchJournal(h.getLevel().getServer());var id=original.getUUID("Id");
             var invalid=original.copy();invalid.putString("InputsHash","modified");boolean rejected=false;try{journal.write(invalid);}catch(RuntimeException expected){rejected=true;}
             h.assertTrue(rejected&&journal.read(id).equals(original),"Invalid input binding overwrote durable state");
-            invalid=original.copy();invalid.putString("Profile",invalid.getString("Profile").replace("furnace-incident-2","rebound"));rejected=false;
+            invalid=original.copy();invalid.putString("Profile",invalid.getString("Profile").replace("furnace-effects-3","rebound"));rejected=false;
             try{journal.write(invalid);}catch(RuntimeException expected){rejected=true;}
             h.assertTrue(rejected&&journal.read(id).equals(original),"Rules drift rewrote checkpoint");
             invalid=original.copy();invalid.putInt("Burn",-1);rejected=false;try{journal.write(invalid);}catch(RuntimeException expected){rejected=true;}
@@ -115,8 +115,8 @@ public final class V5BatchGameTests {
         h.runAfterDelay(470,()->{
             var doc=f.furnace.v5ServerRecord();var core=V5Batch.core(doc);
             h.assertTrue(doc.getString("State").equals("READY")&&core.status()==cn.blockforge.generated.generatedmod.alchemy.simulation.AlchemySimulation.Status.FINISHED,"Real furnace did not finish V5: "+core.status()+" tick="+core.tick());
-            h.assertTrue(core.ledger().initialMass()==40000&&core.stocks().keySet().stream().anyMatch(k->k.startsWith("extract_")),"Live core did not react/conserve actual herbs");
-            h.assertTrue(f.furnace.completedResult().is(WuXingItems.SEALED_ALCHEMY_BATCH.get())&&!Network.hasAlchemyJob(h.getLevel(),f.pos),"Batch used a legacy planned result");
+            h.assertTrue(core.ledger().initialMass()==40000&&doc.contains("ReactionCore")&&core.stocks().containsKey(cn.blockforge.generated.generatedmod.alchemy.effects.AbilityCompiler.BOUND),"Live core did not react/conserve actual herbs");
+            h.assertTrue(f.furnace.completedResult().is(WuXingItems.V5_PILL.get())&&!Network.hasAlchemyJob(h.getLevel(),f.pos),"Batch used a legacy planned result");
             h.assertTrue(core.tick()==21&&doc.getInt("FuelReserved")==0&&doc.getInt("FuelSpent")==28,"Loaded timing/fuel accounting changed");
             h.assertTrue(f.furnace.collectResult(f.player)==1&&new BatchJournal(h.getLevel().getServer()).read(id).getString("State").equals("CLAIMED"),"Actual completed batch not claimable");h.succeed();
         });

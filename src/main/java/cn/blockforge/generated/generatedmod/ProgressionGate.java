@@ -205,6 +205,7 @@ public final class ProgressionGate {
     }
 
     public static int requiredRealmForPill(ItemStack stack) {
+        if(cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.isV5(stack)){var result=cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.view(stack);return result==null?EARTH_IMMORTAL:requiredRealmForV5(result);}
         var pill = cn.blockforge.generated.generatedmod.alchemy.PillData.read(stack);
         if (pill == null) return QI_CONDENSATION;
         int realm = Math.max(pill.pill().minimumRealm,cn.blockforge.generated.generatedmod.alchemy.MedicineTier.of(stack)-1);
@@ -218,6 +219,12 @@ public final class ProgressionGate {
     public static boolean canUsePill(Player player, ItemStack stack) {
         return player != null && (bypass(player) || isAtLeastRealm(player, requiredRealmForPill(stack)));
     }
+
+    /** New pill grade is independent of realm; actual module permissions set the minimum. */
+    public static int requiredRealmForV5(cn.blockforge.generated.generatedmod.alchemy.effects.AbilityCompiler.Result r){
+        int required=r.realm();for(var e:r.effects())required=Math.max(required,switch(e.id()){case shield,resistance->FOUNDATION;default->QI_CONDENSATION;});return required;
+    }
+    public static boolean canUseV5Pill(Player player,cn.blockforge.generated.generatedmod.alchemy.effects.AbilityCompiler.Result r){return player!=null&&r!=null&&r.grade()>0&&(bypass(player)||isAtLeastRealm(player,requiredRealmForV5(r)));}
 
     // ---- 灵根 ----
 

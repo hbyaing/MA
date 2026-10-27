@@ -114,6 +114,22 @@ public final class PillEffects {
         return true;
     }
 
+    /** Compiled V5 effects enter here only after the server has reserved one real dose. */
+    public static void applyCompiledDose(ServerPlayer player,cn.blockforge.generated.generatedmod.alchemy.effects.AbilityCompiler.Result result){
+        var data=GeneratedMod.data(player);
+        for(var e:result.effects())switch(e.id()){
+            case heal -> player.heal(e.magnitudeMilli()/1000F);
+            case mana -> CultivationLogic.restoreMana(data,e.magnitudeMilli()/1000F);
+            case regeneration,speed -> cn.blockforge.generated.generatedmod.alchemy.effects.PillRuntime.schedule(player,e);
+            case resistance -> cn.blockforge.generated.generatedmod.alchemy.effects.PillRuntime.finiteNative(player,MobEffects.DAMAGE_RESISTANCE,e.duration(),(int)(e.magnitudeMilli()/1000)-1);
+            case shield -> cn.blockforge.generated.generatedmod.alchemy.effects.PillRuntime.finiteNative(player,MobEffects.ABSORPTION,e.duration(),(int)(e.magnitudeMilli()/4000)-1);
+            case cleanse -> {player.removeEffect(MobEffects.POISON);player.removeEffect(MobEffects.CONFUSION);player.removeEffect(MobEffects.WEAKNESS);}
+            case cultivation -> CultivationLogic.gainCultivation(player,data,e.magnitudeMilli()/1000);
+            case minor_breakthrough -> CultivationLogic.advanceMinorStage(player,data);
+        }
+        if(result.toxicity()>0)player.addEffect(new MobEffectInstance(MobEffects.POISON,Math.max(20,result.toxicity()/2000),0));
+    }
+
     private static void buff(Player player, MobEffect effect, int duration, int strength) {
         MobEffectInstance current = player.getEffect(effect);
         if (current != null) {

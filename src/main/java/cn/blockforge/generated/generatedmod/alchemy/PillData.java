@@ -18,6 +18,7 @@ public final class PillData {
     public record View(PillCatalog pill, Grade grade, Element element, int cultivationTier) {}
 
     public static View read(ItemStack stack) {
+        if(cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.isV5(stack))return null;
         ResourceLocation key = BuiltInRegistries.ITEM.getKey(stack.getItem());
         if (!key.getNamespace().equals("wuxingxiantu")) return null;
         String id = key.getPath();

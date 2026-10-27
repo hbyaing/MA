@@ -1,0 +1,16 @@
+{
+  "checkedTicks": 187,
+  "quantity": 2,
+  "grade": 7,
+  "resume": true,
+  "captures": [
+    "resumed-native-eating",
+    "resumed-inventory"
+  ],
+  "completed": true,
+  "passed": true,
+  "captureViolations": 0,
+  "blockedGrabs": 3,
+  "error": "",
+  "gui3Scale": 0
+}

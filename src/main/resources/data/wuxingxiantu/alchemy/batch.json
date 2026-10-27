@@ -11,7 +11,7 @@
   ],
   "rules": {
     "schema": 1,
-    "version": "furnace-incident-2",
+    "version": "furnace-effects-3",
     "limits": {
       "maxRules": 64,
       "maxExtent": 1000000,
@@ -502,6 +502,13 @@
         "potential": 1,
         "gas": 1,
         "destination": "ACTIVE"
+      },
+      {
+        "id": "v5_bound_pill",
+        "mass": 1,
+        "potential": 1,
+        "gas": 0,
+        "destination": "PILL"
       }
     ],
     "reactions": [

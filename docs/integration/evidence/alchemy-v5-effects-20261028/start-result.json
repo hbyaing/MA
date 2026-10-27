@@ -1,0 +1,21 @@
+{
+  "resume": false,
+  "captures": [
+    "ready",
+    "running",
+    "compiled-nine-grade",
+    "full-inventory-retains-doses",
+    "compiled-gui3",
+    "native-eating-result",
+    "inventory-after-first-dose"
+  ],
+  "completed": false,
+  "passed": true,
+  "captureViolations": 0,
+  "blockedGrabs": 3,
+  "error": "",
+  "checkedTicks": 698,
+  "quantity": 2,
+  "grade": 7,
+  "gui3Scale": 3
+}

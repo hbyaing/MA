@@ -5,7 +5,7 @@ import net.minecraft.world.item.ItemStack;
 import cn.blockforge.generated.generatedmod.plants.*;
 import net.minecraft.world.Container;
 
-/** Five medicinal ranks plus the target's four qualities; no extra nine-grade axis. */
+/** Legacy medicinal ranks only. New V5 results use their separate nine-grade manifest. */
 public final class MedicineTier {
     public static final String KEY="MedicineTier";
     public static int of(ItemStack stack){return stack.hasTag()&&stack.getTag().contains(KEY)?Math.max(1,Math.min(5,stack.getTag().getInt(KEY))):1;}

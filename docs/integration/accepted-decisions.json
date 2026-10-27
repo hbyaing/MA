@@ -104,8 +104,8 @@
       "targetEvidence": "alchemy/PillData.java",
       "status": "confirmed",
       "decision": "2026-10-27 用户以V5.0更新目标：草药无阶级、只保留连续年份，丹药统一一至九品，不叠加旧五丹阶四成色。具体旧物品折算另案审批，未确认前维持旧物品原效果及可读性。",
-      "implementation": "V5设计已确认；当前游戏仍为legacy结算，未实装V5九品。",
-      "latestAcceptance": "V5 pending engine, game integration, migration approval and acceptance",
+      "implementation": "普通实体炉自由模式的新V5批次已编译有限药效并统一一至九品；旧丹/未绑定旧批次维持legacy，不叠加新旧评级，具体旧物品迁移仍待单独批准。",
+      "latestAcceptance": "Step07: see docs/testing/ALCHEMY_V5_EFFECTS_20261028.md; migration and full stage13 acceptance remain pending",
       "previousDecisionBeforeV5": "黄玄地天仙丹阶＋下中上极品成色＋五行药性；不叠加一至九品。"
     },
     {

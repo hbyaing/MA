@@ -66,7 +66,7 @@ public final class V5Batch {
         doc.putString("State","ACTIVE");doc.putString("Profile",profile.json());doc.putString("Inputs",defs.document());doc.putString("InputsHash",defs.hash);doc.putInt("Burn",burn);
         doc.putByteArray("Core",SimulationSnapshotCodec.encodeServerSnapshot(profile.rules(),core));doc.put("Original",original);doc.put("Materials",provenance);doc.put("MoonSources",moonSources);
         doc.putInt("FuelBalance",furnace.spiritFuel()-profile.requiredFuel());doc.putInt("FuelReserved",profile.requiredFuel()-profile.opening());doc.putInt("FuelSpent",profile.opening());doc.putInt("FuelInitial",furnace.spiritFuel());
-        doc.putLong("LastWorldTick",level.getGameTime());doc.putLong("SampleDayTime",sampled.dayTime());doc.putLong("SampleGameTime",sampled.gameTime());inventory(doc,after);BatchIncidents.initialize(doc);validate(doc);return doc;
+        doc.putLong("LastWorldTick",level.getGameTime());doc.putLong("SampleDayTime",sampled.dayTime());doc.putLong("SampleGameTime",sampled.gameTime());inventory(doc,after);if(profile.rules().resources.containsKey(cn.blockforge.generated.generatedmod.alchemy.effects.AbilityCompiler.BOUND))doc.putString("EffectPolicy",cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.current(level));BatchIncidents.initialize(doc);validate(doc);return doc;
     }
     public static Snapshot core(CompoundTag doc){var p=profile(doc.getString("Profile"),doc.getInt("Burn"));return SimulationSnapshotCodec.decodeServerSnapshot(p.rules(),doc.getByteArray("Core"));}
     public static void validate(CompoundTag doc){
@@ -74,7 +74,7 @@ public final class V5Batch {
         if(doc.getString("Profile").length()>262144||doc.getString("Inputs").length()>262144)throw new IllegalArgumentException("Snapshot definition budget exceeded");
         var defs=new InputDefinitions(doc.getString("Inputs"));if(!defs.hash.equals(doc.getString("InputsHash")))throw new IllegalArgumentException("Input definition drift");
         if(doc.getInt("DeviceWear")<0||doc.getInt("DeviceWear")>1000)throw new IllegalArgumentException("Invalid device wear");
-        BatchIncidents.validate(doc);var s=core(doc);if(!s.batchId().equals(doc.getUUID("Id").toString()))throw new IllegalArgumentException("Batch identity mismatch");
+        BatchIncidents.validate(doc);cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.validate(doc);var s=core(doc);if(!s.batchId().equals(doc.getUUID("Id").toString()))throw new IllegalArgumentException("Batch identity mismatch");
         long balance=doc.getInt("FuelBalance"),reserved=doc.getInt("FuelReserved"),spent=doc.getInt("FuelSpent");
         if(balance<0||reserved<0||spent<0||balance+reserved+spent!=doc.getInt("FuelInitial"))throw new IllegalArgumentException("Fuel conservation mismatch");
         if(doc.getString("State").equals("ACTIVE")&&s.status()!=Status.ACTIVE&&s.status()!=Status.PAUSED)throw new IllegalArgumentException("Transaction/core state mismatch");
@@ -98,8 +98,8 @@ public final class V5Batch {
         if(s.status()==Status.ACTIVE)s=AlchemySimulation.step(p.rules(),s,List.of(new Operation(s.lastSequence()+1,s.tick(),Action.ABORT,"",0))).snapshot();
         doc.putByteArray("Core",SimulationSnapshotCodec.encodeServerSnapshot(p.rules(),s));ready(doc);validate(doc);return doc;
     }
-    static void ready(CompoundTag doc){doc.putString("State","READY");doc.putInt("FuelBalance",doc.getInt("FuelBalance")+doc.getInt("FuelReserved"));doc.putInt("FuelReserved",0);}
-    public static ItemStack result(CompoundTag doc){var item=new ItemStack(BatchIncidents.resultItem(doc));item.getOrCreateTag().putUUID(KEY,doc.getUUID("Id"));
+    static void ready(CompoundTag doc){doc.putString("State","READY");doc.putInt("FuelBalance",doc.getInt("FuelBalance")+doc.getInt("FuelReserved"));doc.putInt("FuelReserved",0);cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.freeze(doc);}
+    public static ItemStack result(CompoundTag doc){var pill=cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.result(doc);if(!pill.isEmpty())return pill;var item=new ItemStack(BatchIncidents.resultItem(doc));item.getOrCreateTag().putUUID(KEY,doc.getUUID("Id"));
         if(doc.contains("IncidentVersion")){var s=core(doc);var p=profile(doc.getString("Profile"),doc.getInt("Burn"));item.getOrCreateTag().putLong("V5MaterialMass",s.ledger().ashMass()+p.rules().weight(s.stocks(),true));item.getOrCreateTag().putString("V5Outcome",s.status().name());}
         return item;}
     private V5Batch(){}

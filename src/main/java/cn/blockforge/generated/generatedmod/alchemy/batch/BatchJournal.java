@@ -50,6 +50,15 @@ public final class BatchJournal {
     public void pending(UUID player,UUID batch,boolean add){var ids=pendingFor(player);if(add)ids.add(batch);else ids.remove(batch);if(ids.size()>256)throw new IllegalArgumentException("Delivery budget exceeded");
         var tag=new CompoundTag();var list=new ListTag();for(var id:ids){var n=new CompoundTag();n.putUUID("Id",id);list.add(n);}tag.put("Ids",list);writeFile(pending(player),tag);
     }
+    public Set<UUID> pendingDoses(UUID player){
+        var ids=new LinkedHashSet<UUID>();var tag=readFile(root.resolve("doses").resolve(player+".nbt"));
+        for(var entry:tag.getList("Ids",Tag.TAG_COMPOUND)){var n=(CompoundTag)entry;if(!n.hasUUID("Id")||!ids.add(n.getUUID("Id")))throw new IllegalArgumentException("Invalid dose index");}
+        if(ids.size()>256)throw new IllegalArgumentException("Dose index budget");return ids;
+    }
+    public void pendingDose(UUID player,UUID batch,boolean add){
+        var ids=pendingDoses(player);if(add)ids.add(batch);else ids.remove(batch);if(ids.size()>256)throw new IllegalArgumentException("Dose index budget");
+        var n=new CompoundTag();var list=new ListTag();for(var id:ids){var entry=new CompoundTag();entry.putUUID("Id",id);list.add(entry);}n.put("Ids",list);writeFile(root.resolve("doses").resolve(player+".nbt"),n);
+    }
     private CompoundTag readFile(Path path){
         if(!Files.exists(path))return new CompoundTag();
         try{if(Files.size(path)>MAX_BYTES)throw new IOException("Journal byte budget exceeded");

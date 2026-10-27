@@ -40,6 +40,10 @@ public abstract class BasePillItem extends Item {
     @Override
     public final InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
+        if(cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.isV5(stack)){
+            if(!level.isClientSide&&(!(player instanceof ServerPlayer server)||!cn.blockforge.generated.generatedmod.alchemy.effects.PillRuntime.canUse(server,stack)))return InteractionResultHolder.fail(stack);
+            player.startUsingItem(hand);return InteractionResultHolder.consume(stack);
+        }
         var pill=PillData.read(stack);
         if(!level.isClientSide&&pill!=null&&pill.pill()==cn.blockforge.generated.generatedmod.alchemy.PillCatalog.CULTIVATION
                 &&!cn.blockforge.generated.generatedmod.mindscape.MindscapeManager.canGain(player,GeneratedMod.data(player),true))return InteractionResultHolder.fail(stack);
@@ -65,6 +69,7 @@ public abstract class BasePillItem extends Item {
     @Override
     public final ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {
         if (!(entity instanceof Player player)) return stack;
+        if(cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.isV5(stack))return level.isClientSide?stack.copy():player instanceof ServerPlayer server?cn.blockforge.generated.generatedmod.alchemy.effects.PillRuntime.finish(server,stack):stack;
         if (level.isClientSide) {
             player.getCooldowns().removeCooldown(this);
             player.stopUsingItem();
@@ -172,6 +177,7 @@ public abstract class BasePillItem extends Item {
     protected Component successMessage(Player player, CultivationData data) { return null; }
 
     @Override public Component getName(ItemStack stack) {
+        if(cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.isV5(stack))return cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.name(stack);
         PillData.View view = PillData.read(stack);
         return view == null ? super.getName(stack) : cn.blockforge.generated.generatedmod.alchemy.MedicineTier.explicit(stack)
                 ? Component.translatable("pill.wuxingxiantu.ranked_name",cn.blockforge.generated.generatedmod.alchemy.MedicineTier.name(cn.blockforge.generated.generatedmod.alchemy.MedicineTier.of(stack)),PillData.name(view))
@@ -181,6 +187,7 @@ public abstract class BasePillItem extends Item {
     @Override public void appendHoverText(ItemStack stack, Level level, java.util.List<Component> lines,
                                          net.minecraft.world.item.TooltipFlag flag) {
         super.appendHoverText(stack, level, lines, flag);
+        if(cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.isV5(stack)){cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.tooltip(stack,lines);return;}
         PillData.View view = PillData.read(stack);
         if (view == null) return;
         if(cn.blockforge.generated.generatedmod.alchemy.MedicineTier.explicit(stack))lines.add(Component.translatable(

@@ -96,6 +96,7 @@ public final class BatchIncidents {
         if(s.status()==Status.EXPLODED||s.status()==Status.ASHED)return WuXingItems.PILL_ASH.get();
         if(s.status()==Status.ABORTED||s.status()==Status.PAUSED)return s.phase().ordinal()>=SimulationRules.Phase.CONDENSE.ordinal()?WuXingItems.WASTE_PILL.get():WuXingItems.ALCHEMY_RESIDUE.get();
         if(doc.getInt("StructureDamage")>200||V5Batch.profile(doc.getString("Profile"),doc.getInt("Burn")).rules().weight(s.stocks(),false)<value(doc,"minimumCondensedPotential"))return WuXingItems.WASTE_PILL.get();
+        if(doc.contains("PillResult")&&cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.read(doc.getCompound("PillResult")).grade()==0)return WuXingItems.WASTE_PILL.get();
         return WuXingItems.SEALED_ALCHEMY_BATCH.get();
     }
     private BatchIncidents(){}

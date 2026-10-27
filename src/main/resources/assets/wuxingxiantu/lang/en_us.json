@@ -2472,5 +2472,6 @@
   "medicine_tier.wuxingxiantu.5": "Immortal",
   "knowledge.wuxingxiantu.herb_years": "Medicinal age is measured in years; herbs have no rank.",
   "item.wuxingxiantu.sealed_alchemy_batch": "Sealed Alchemy Extract (Not Drinkable)",
-  "item.wuxingxiantu.alchemy_residue": "Uncondensed Residue (Not Consumable)"
+  "item.wuxingxiantu.alchemy_residue": "Uncondensed Residue (Not Consumable)",
+  "item.wuxingxiantu.v5_pill": "Uncertified V5 Pill (Not Usable)"
 }

@@ -42,10 +42,12 @@ public final class V5ClientAcceptance {
     @SubscribeEvent public static void render(TickEvent.RenderTickEvent event){
         if(event.phase!=TickEvent.Phase.END)return;var mc=Minecraft.getInstance();frames++;
         GLFW.glfwHideWindow(mc.getWindow().getWindow());
-        if(Boolean.getBoolean("wuxingxiantu.v5Incidents"))V5IncidentAcceptance.render(mc);
+        if(Boolean.getBoolean("wuxingxiantu.v5Effects"))V5EffectAcceptance.render(mc);
+        else if(Boolean.getBoolean("wuxingxiantu.v5Incidents"))V5IncidentAcceptance.render(mc);
         if(mc.mouseHandler.isMouseGrabbed()||GLFW.glfwGetInputMode(mc.getWindow().getWindow(),GLFW.GLFW_CURSOR)!=GLFW.GLFW_CURSOR_NORMAL)violations++;
     }
     @SubscribeEvent public static void tick(TickEvent.ClientTickEvent event){
+        if(Boolean.getBoolean("wuxingxiantu.v5Effects")){V5EffectAcceptance.tick(event);return;}
         if(Boolean.getBoolean("wuxingxiantu.v5Incidents")){V5IncidentAcceptance.tick(event);return;}
         if(done||event.phase!=TickEvent.Phase.END)return;var mc=Minecraft.getInstance();
         try{
@@ -83,7 +85,7 @@ public final class V5ClientAcceptance {
                     var server=mc.getSingleplayerServer();var f=(AlchemyFurnaceBlockEntity)server.overworld().getBlockEntity(POS);var doc=f.v5ServerRecord();var core=V5Batch.core(doc);
                     check(doc.getUUID("Id").toString().equals(control.get("batch").getAsString()),"Restart changed batch identity");check(seedHash(core.seed()).equals(control.get("seedHash").getAsString()),"Restart rerolled official seed");
                     check(core.status()==AlchemySimulation.Status.FINISHED&&core.tick()==21&&core.ledger().initialMass()==41000,"Resumed core/accounting mismatch");
-                    check(core.stocks().keySet().stream().anyMatch(k->k.startsWith("extract_")),"Live core did not process actual material");ready=f.saveWithoutMetadata();
+                    check((doc.contains("ReactionCore")?SimulationSnapshotCodec.decodeServerSnapshot(V5Batch.profile(doc.getString("Profile"),doc.getInt("Burn")).rules(),doc.getByteArray("ReactionCore")):core).stocks().keySet().stream().anyMatch(k->k.startsWith("extract_")),"Live core did not process actual material");ready=f.saveWithoutMetadata();
                     var player=server.getPlayerList().getPlayer(mc.player.getUUID());for(int i=0;i<36;i++)player.getInventory().setItem(i,new ItemStack(Items.DIAMOND,64));player.containerMenu.broadcastChanges();
                 });stage=5;return;}
             if(stage==5){if(ticks<15)return;mc.gameMode.handleInventoryButtonClick(menu.containerId,249);stage=6;ticks=0;return;}
@@ -115,7 +117,7 @@ public final class V5ClientAcceptance {
         var furnace=(AlchemyFurnaceBlockEntity)level.getBlockEntity(POS);check(furnace!=null&&AlchemyFurnaceBlock.isFormed(furnace.getBlockState()),"Independent furnace not formed");
         net.minecraftforge.network.NetworkHooks.openScreen(player,furnace.menuProvider(),POS);
     }
-    private static long receipts(net.minecraft.server.level.ServerPlayer player){return player.getInventory().items.stream().filter(i->i.is(WuXingItems.SEALED_ALCHEMY_BATCH.get())).mapToInt(ItemStack::getCount).sum();}
+    private static long receipts(net.minecraft.server.level.ServerPlayer player){return player.getInventory().items.stream().filter(i->i.hasTag()&&i.getTag().hasUUID(V5Batch.KEY)).count();}
     private static String seedHash(long seed){try{return HexFormat.of().formatHex(java.security.MessageDigest.getInstance("SHA-256").digest(Long.toString(seed).getBytes(java.nio.charset.StandardCharsets.UTF_8)));}catch(Exception e){throw new RuntimeException(e);}}
     private static void check(boolean condition,String message){if(!condition)throw new AssertionError(message);}
     private static void capture(Minecraft mc,String name)throws Exception{check(GL11.glGetError()==0,"OpenGL error");try(var image=Screenshot.takeScreenshot(mc.getMainRenderTarget())){image.writeToFile(OUT.resolve(name+".png"));}captures.add(name);}

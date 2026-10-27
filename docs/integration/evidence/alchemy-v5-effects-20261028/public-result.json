@@ -1,0 +1,26 @@
+{
+  "grade": 7,
+  "quantity": 2,
+  "boundMass": 80,
+  "residualMass": 39920,
+  "budget": 40,
+  "spent": 29,
+  "purity": 750949,
+  "stability": 1000000,
+  "structure": 1000000,
+  "toxicity": 0,
+  "potency": 713550,
+  "score": 792769,
+  "policyHash": "f03409dd210dea5f2c123c9fcedd0dc913abcc36e07c7b0c1737c1f884d130e0",
+  "effects": [
+    {
+      "id": "mana",
+      "magnitudeMilli": 28542,
+      "duration": 0,
+      "interval": 20,
+      "cost": 29,
+      "cooldown": 60,
+      "realm": 0
+    }
+  ]
+}
