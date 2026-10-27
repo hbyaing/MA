@@ -1,3 +1,5 @@
+> 2026-10-27最新接续：当前进行自由炼丹V5，先读[换电脑接续说明](docs/integration/ALCHEMY_V5_HANDOFF_20261027.md)、[V5制作清单](docs/integration/ALCHEMY_V5_CHECKLIST.md)及[V5.0-R1修订TXT](docs/specifications/alchemy-v5/DESIGN_V5_0_R1.txt)。第03项纯核心完成，下一项04；昼夜/月相与蕴月瓶为新确认设计，尚未实装。以下融合历史记录保留，不作为最新进度。
+
 当前按用户确认的[16项工作清单](docs/integration/CHECKLIST-16.md)执行；数据与迁移边界见[第3项核对](docs/integration/DATA_AND_SAVE_AUDIT.md)。
 
 > 2026-10-21继续：项目仍为开发进度快照。当前功能分支为codex/myriad-integration-foundation-20261021；恢复问题、实际克隆证据及本轮验收进展见docs/integration/RECOVERY.md与ACCEPTANCE.md。以下2026-10-20交接记录保留，不作为最新整体验收通过结论。
