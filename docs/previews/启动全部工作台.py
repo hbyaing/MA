@@ -18,7 +18,7 @@ def main():
         spec=importlib.util.spec_from_file_location('existing_workbench_catalog',args.catalog)
         external=importlib.util.module_from_spec(spec);spec.loader.exec_module(external)
         entries=[(item[0],item) for item in external.ENTRIES]
-    entries += [('紫曜背轮 · 分层调色工作台','lucifer-workbench'),('储物袋 UI · 原版重置预览','bag-ui'),('阵法总工作台 · 全部预览','formations'),('阵法刻画核心 · 流程预览','formation-carving')]
+    entries += [('紫曜背轮 · 分层调色工作台','lucifer-workbench'),('储物袋 UI · 原版重置预览','bag-ui'),('阵法总工作台 · 全部预览','formations'),('阵法刻画核心 · 流程预览','formation-carving'),('炼丹重塑 · 年份与九品参数工作台','alchemy-rework')]
     for i,(name,_) in enumerate(entries,1): print(f'{i}. {name}',flush=True)
     choice=args.selected or input('输入编号或名称：').strip()
     selected=int(choice)-1 if choice.isdecimal() else next((i for i,(name,_) in enumerate(entries) if choice in name),-1)
