@@ -161,16 +161,22 @@ public final class SpiritPlantRegions extends SavedData {
         r.decided = true;
         var eligible=eligibleCache.computeIfAbsent(r.biome,biomeId->{
             Map<String,WildRarity> species=new TreeMap<>();
+            boolean[] regularSurface={false};
             var biome=level.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.BIOME)
                     .get(new net.minecraft.resources.ResourceLocation(biomeId));
             if(biome!=null)biome.getGenerationSettings().features().forEach(set->set.forEach(placed->{
                 var config=placed.value().feature().value().config();
                 if(config instanceof SpiritPlantFeature.Config c && c.place.state.getBlock() instanceof SpiritPlantBlock plant){
                     species.put(plant.definition().id,plant.definition().rarity);
+                    if(c.rule!=SpiritPlantFeature.Rule.SURFACE_HIGHLAND&&c.rule!=SpiritPlantFeature.Rule.CAVE_FLOOR
+                            &&c.rule!=SpiritPlantFeature.Rule.CAVE_WATER)regularSurface[0]=true;
                     if(c.rule==SpiritPlantFeature.Rule.SURFACE_HIGHLAND||c.rule==SpiritPlantFeature.Rule.CAVE_FLOOR
                             ||c.rule==SpiritPlantFeature.Rule.CAVE_WATER)restrictedBiomes.add(biomeId);
                 }
             }));
+            // Cave features are injected broadly and then filtered at the actual cave point.
+            // Their presence must not classify every ordinary surface habitat as restricted.
+            if(regularSurface[0])restrictedBiomes.remove(biomeId);
             return species;
         });
         SpiritPlantQuota.Plan plan=SpiritPlantQuota.choose(r.seed,level.dimension().equals(Level.END),restrictedBiomes.contains(r.biome),eligible);

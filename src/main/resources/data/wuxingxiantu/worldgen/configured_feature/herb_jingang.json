@@ -10,6 +10,9 @@
     "retries": 8,
     "xz_spread": 7,
     "y_range": 6,
-    "random_age": true
+    "random_age": true,
+    "biome_tag": "wuxingxiantu:plant_habitats/herb_jingang",
+    "min_y": 64,
+    "open_sky": false
   }
 }

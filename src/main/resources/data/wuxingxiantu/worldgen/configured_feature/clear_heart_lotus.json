@@ -1,11 +1,18 @@
 {
   "type": "wuxingxiantu:spirit_plant",
   "config": {
-    "place": { "state": { "Name": "wuxingxiantu:clear_heart_lotus" } },
+    "place": {
+      "state": {
+        "Name": "wuxingxiantu:clear_heart_lotus"
+      }
+    },
     "rule": "WATER_SURFACE",
     "retries": 6,
     "xz_spread": 7,
     "y_range": 6,
-    "random_age": true
+    "random_age": true,
+    "biome_tag": "wuxingxiantu:plant_habitats/clear_heart_lotus",
+    "min_y": -64,
+    "open_sky": false
   }
 }

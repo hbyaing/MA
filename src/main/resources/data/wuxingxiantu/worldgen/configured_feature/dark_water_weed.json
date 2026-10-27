@@ -1,11 +1,18 @@
 {
   "type": "wuxingxiantu:spirit_plant",
   "config": {
-    "place": { "state": { "Name": "wuxingxiantu:dark_water_weed" } },
+    "place": {
+      "state": {
+        "Name": "wuxingxiantu:dark_water_weed"
+      }
+    },
     "rule": "WATER_BODY",
     "retries": 6,
     "xz_spread": 7,
     "y_range": 8,
-    "random_age": true
+    "random_age": true,
+    "biome_tag": "wuxingxiantu:plant_habitats/dark_water_weed",
+    "min_y": -64,
+    "open_sky": false
   }
 }

@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#wuxingxiantu:plant_habitats/clear_heart_lotus",
+  "features": [
+    "wuxingxiantu:clear_heart_lotus"
+  ],
+  "step": "vegetal_decoration"
+}

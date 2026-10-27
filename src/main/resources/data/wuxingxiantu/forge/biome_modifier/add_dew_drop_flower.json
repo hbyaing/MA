@@ -1,6 +1,8 @@
 {
   "type": "forge:add_features",
-  "biomes": "#wuxingxiantu:dew_drop_flower_habitat",
-  "features": ["wuxingxiantu:dew_drop_flower"],
+  "biomes": "#wuxingxiantu:plant_habitats/dew_drop_flower",
+  "features": [
+    "wuxingxiantu:dew_drop_flower"
+  ],
   "step": "vegetal_decoration"
 }

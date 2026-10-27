@@ -1,10 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": [
-    "minecraft:snowy_slopes",
-    "minecraft:frozen_peaks",
-    "minecraft:jagged_peaks"
-  ],
+  "biomes": "#wuxingxiantu:plant_habitats/herb_hanbing",
   "features": [
     "wuxingxiantu:herb_hanbing"
   ],

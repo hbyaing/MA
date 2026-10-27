@@ -1,10 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": [
-    "minecraft:meadow",
-    "minecraft:windswept_hills",
-    "minecraft:jagged_peaks"
-  ],
+  "biomes": "#wuxingxiantu:plant_habitats/herb_tianji",
   "features": [
     "wuxingxiantu:herb_tianji"
   ],

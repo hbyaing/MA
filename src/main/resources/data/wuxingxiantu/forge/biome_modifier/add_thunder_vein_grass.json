@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#wuxingxiantu:plant_habitats/thunder_vein_grass",
+  "features": [
+    "wuxingxiantu:thunder_vein_grass"
+  ],
+  "step": "vegetal_decoration"
+}

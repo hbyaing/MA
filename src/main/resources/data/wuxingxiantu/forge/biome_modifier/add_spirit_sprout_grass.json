@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#wuxingxiantu:plant_habitats/spirit_sprout_grass",
+  "features": [
+    "wuxingxiantu:spirit_sprout_grass"
+  ],
+  "step": "vegetal_decoration"
+}

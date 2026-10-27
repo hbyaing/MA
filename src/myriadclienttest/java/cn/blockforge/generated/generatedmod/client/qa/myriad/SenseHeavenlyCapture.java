@@ -55,6 +55,9 @@ public final class SenseHeavenlyCapture {
             double scale=stage<12?(Float)field(screen,"uiScale"):1;
             double x=-50,y=-50;if(stage==1||stage==13||(stage==8&&auxiliaryState==0)){x=(target.getX()+target.getWidth()/2d)*scale;y=(target.getY()+target.getHeight()/2d)*scale;if(stage==13){x+=(Integer)field(screen,"contentX");y+=(Integer)field(screen,"contentY")-(Integer)field(screen,"scroll");}}
             for(String axis:new String[]{"xpos","ypos"}){var f=MouseHandler.class.getDeclaredField(axis);f.setAccessible(true);f.setDouble(mc.mouseHandler,axis.equals("xpos")?x*mc.getWindow().getScreenWidth()/mc.getWindow().getGuiScaledWidth():y*mc.getWindow().getScreenHeight()/mc.getWindow().getGuiScaledHeight());}
+            // Reuse one live screen across incompatible layouts to expose stale geometry/text.
+            if(stage==0&&tick==6)((EditBox)field(screen,"search")).setValue("无此丹方");
+            if(stage==0&&tick==12)((EditBox)field(screen,"search")).setValue("");
             tick++;
         }catch(Throwable error){fail(mc,error);}
     }
@@ -79,8 +82,10 @@ public final class SenseHeavenlyCapture {
         }
     }
     @SubscribeEvent public static void frame(TickEvent.RenderTickEvent event){
-        if(!ENABLED||finished||!prepared||event.phase!=TickEvent.Phase.END||tick<22)return;var mc=Minecraft.getInstance();
+        if(!ENABLED||finished||!prepared||event.phase!=TickEvent.Phase.END)return;var mc=Minecraft.getInstance();
         try{
+            if(stage==0&&tick==10){try(var image=Screenshot.takeScreenshot(mc.getMainRenderTarget())){image.writeToFile(OUT.resolve("heavenly-live-no-match.png"));}}
+            if(tick<22)return;
             if(stage==1&&!target.isHovered())throw new AssertionError("Natural hover missed furnace start");
             if(stage==13&&!target.isHovered())throw new AssertionError("Natural hover missed sense card action");
             SCALES.add(Map.of("case",CASES[stage],"configuredGuiScale",mc.options.guiScale().get(),"actualGuiScale",mc.getWindow().getGuiScale(),"width",mc.getWindow().getWidth(),"height",mc.getWindow().getHeight()));

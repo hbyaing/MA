@@ -208,11 +208,11 @@ public final class SpiritPlantFeature extends Feature<SpiritPlantFeature.Config>
                 return validSurface(level, pos, toPlace, rule) ? pos : null;
             }
             case WATER_BODY: {
-                // 从水面往下扫最多 6 格，找到坐在 solid 上的水格。
-                int top = surfaceY(level, x, z);
-                if (top == Integer.MIN_VALUE) return null;
+                // Start at the seabed so cold-ocean habitats work at any water depth.
+                int top = level.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, x, z);
+                if (top <= level.getMinBuildHeight() || top >= level.getMaxBuildHeight()) return null;
                 for (int dy = 0; dy <= 6; dy++) {
-                    BlockPos pos = new BlockPos(x, top - dy, z);
+                    BlockPos pos = new BlockPos(x, top + dy, z);
                     if (!level.getFluidState(pos).is(Fluids.WATER)) continue;
                     if (!level.getBlockState(pos.below()).isSolidRender(level, pos.below())) continue;
                     if (!placeableAt(level, toPlace, pos)) continue;

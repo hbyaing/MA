@@ -1,6 +1,8 @@
 {
   "type": "forge:add_features",
   "biomes": "#minecraft:is_overworld",
-  "features": [ "wuxingxiantu:clear_heart_lotus", "wuxingxiantu:dark_water_weed" ],
+  "features": [
+    "wuxingxiantu:glowing_blue_mushroom"
+  ],
   "step": "vegetal_decoration"
 }

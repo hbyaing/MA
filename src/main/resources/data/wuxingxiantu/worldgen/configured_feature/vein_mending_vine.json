@@ -1,12 +1,18 @@
 {
   "type": "wuxingxiantu:spirit_plant",
   "config": {
-    "place": { "state": { "Name": "wuxingxiantu:vein_mending_vine" } },
-    "rule": "SURFACE_ROCK_EDGE",
-    "biome_tag": "wuxingxiantu:vein_mending_vine_habitat",
+    "place": {
+      "state": {
+        "Name": "wuxingxiantu:vein_mending_vine"
+      }
+    },
+    "rule": "SURFACE_NEAR_WATER",
+    "biome_tag": "wuxingxiantu:plant_habitats/vein_mending_vine",
     "retries": 4,
     "xz_spread": 7,
     "y_range": 6,
-    "random_age": true
+    "random_age": true,
+    "min_y": -64,
+    "open_sky": false
   }
 }

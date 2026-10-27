@@ -6,10 +6,13 @@
         "Name": "wuxingxiantu:herb_fengling"
       }
     },
-    "rule": "SURFACE_NEAR_WATER",
+    "rule": "SURFACE_SOIL",
     "retries": 8,
     "xz_spread": 7,
     "y_range": 6,
-    "random_age": true
+    "random_age": true,
+    "biome_tag": "wuxingxiantu:plant_habitats/herb_fengling",
+    "min_y": -64,
+    "open_sky": false
   }
 }

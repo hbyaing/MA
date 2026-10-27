@@ -1,0 +1,129 @@
+{
+  "approved": true,
+  "generator": "built-in image_gen",
+  "source": "reference_assets\\heavenly-cleanup-20261027\\design-v2.png",
+  "elements": {
+    "frame": {
+      "crop": [
+        23,
+        19,
+        1386,
+        1088
+      ],
+      "size": [
+        1363,
+        1069
+      ],
+      "slice": 20,
+      "sha256": "61376a33e1312588f4a5172a9717457cc2163b5e50699b0cd56ee2516450b4ce"
+    },
+    "panel": {
+      "crop": [
+        519,
+        251,
+        1348,
+        382
+      ],
+      "size": [
+        829,
+        131
+      ],
+      "slice": 12,
+      "sha256": "74b12a8faa87b9010bd06c3c3a3c2e8f2745f68a008df8a76be15ca5825d125d"
+    },
+    "button": {
+      "crop": [
+        520,
+        975,
+        1128,
+        1052
+      ],
+      "size": [
+        608,
+        77
+      ],
+      "slice": 10,
+      "sha256": "94276029027842d9e591a797718b7d63834016274bdd6b4537060889f5a8bf81"
+    },
+    "selected": {
+      "crop": [
+        66,
+        250,
+        487,
+        364
+      ],
+      "size": [
+        421,
+        114
+      ],
+      "slice": 12,
+      "sha256": "960b2f29d1643ad820bb5ed012f134ae0200563e7dfa0fe810b318618df0d38f"
+    },
+    "row": {
+      "crop": [
+        70,
+        373,
+        485,
+        477
+      ],
+      "size": [
+        415,
+        104
+      ],
+      "slice": 8,
+      "sha256": "710e5b7c66033a6b54c8dd6dcffdb8e156390327d41b5786596912dd20f8e951"
+    },
+    "slot": {
+      "crop": [
+        521,
+        589,
+        618,
+        683
+      ],
+      "size": [
+        97,
+        94
+      ],
+      "slice": 7,
+      "sha256": "34722a68172909aa0f4359accc5b0a5c2a37a3ca87e4bf6d7812b5befd417510"
+    },
+    "search": {
+      "crop": [
+        69,
+        162,
+        485,
+        229
+      ],
+      "size": [
+        416,
+        67
+      ],
+      "slice": 10,
+      "sha256": "4e164eb2b238872dd5b8685d58980b1dd156c0f29663d5ffcad300c35a0659d0"
+    },
+    "previous": {
+      "source": "existing formal control icon",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "2424ce55dc49a9133742e5466ff11b121cab303fea99dfa9ae469bc5263597ba"
+    },
+    "next": {
+      "source": "existing formal control icon",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "006dc081ef9fe9b2b68ea8d482babd82903d958491df8909c9b5de8a0fb2e85c"
+    },
+    "search_icon": {
+      "source": "existing formal control icon",
+      "size": [
+        25,
+        25
+      ],
+      "sha256": "adc3eb23037f6e0fb32f69844b400202521e8637fdeb5e383848976b11125cf0"
+    }
+  }
+}

@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#minecraft:is_overworld",
-  "features": [ "wuxingxiantu:blood_spirit_flower", "wuxingxiantu:glowing_blue_mushroom" ],
-  "step": "vegetal_decoration"
-}
