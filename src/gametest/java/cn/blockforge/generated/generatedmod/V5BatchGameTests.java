@@ -13,10 +13,10 @@ import java.util.*;
 
 @GameTestHolder("wuxingxiantu_entry") @PrefixGameTestTemplate(false)
 public final class V5BatchGameTests {
-    private record Fixture(GameTestPlayer player,AlchemyFurnaceBlockEntity furnace,BlockPos pos) implements AutoCloseable {
+    record Fixture(GameTestPlayer player,AlchemyFurnaceBlockEntity furnace,BlockPos pos) implements AutoCloseable {
         @Override public void close(){try{if(furnace.getLevel().getBlockEntity(pos)==furnace)furnace.getLevel().removeBlock(pos,false);}finally{player.close();}}
     }
-    private static Fixture setup(GameTestHelper h){
+    static Fixture setup(GameTestHelper h){
         var pos=FurnaceGameTests.build(h);AlchemyFurnaceStructure.refreshAround(h.getLevel(),pos);
         var furnace=(AlchemyFurnaceBlockEntity)h.getLevel().getBlockEntity(pos);
         var player=new GameTestPlayer(h.getLevel());player.setGameMode(net.minecraft.world.level.GameType.CREATIVE);player.setPos(pos.getX()+.5,pos.getY()+1,pos.getZ()+.5);
@@ -25,7 +25,7 @@ public final class V5BatchGameTests {
         var herb=new ItemStack(SpiritPlantRegistry.SPIRIT_SPROUT_GRASS_ITEM.get(),4);HerbAge.setYears(herb,1500);herb.getOrCreateTag().putString("ThirdParty","keep");furnace.setItem(0,herb);
         furnace.setItem(8,cn.blockforge.generated.generatedmod.fire.FireBottleData.fresh(1));return new Fixture(player,furnace,pos);
     }
-    private static long receipts(GameTestPlayer player){return player.getInventory().items.stream().filter(s->s.is(WuXingItems.SEALED_ALCHEMY_BATCH.get())).mapToInt(ItemStack::getCount).sum();}
+    private static long receipts(GameTestPlayer player){return player.getInventory().items.stream().filter(s->s.hasTag()&&s.getTag().hasUUID(V5Batch.KEY)).mapToInt(ItemStack::getCount).sum();}
     @GameTest(template="empty") public static void rejectBeforeCommitDoesNotMutateItemsFuelMoonOrAura(GameTestHelper h){
         try(var f=setup(h)){
             f.furnace.setItem(1,new ItemStack(Items.APPLE));var before=f.furnace.saveWithoutMetadata();float aura=GeneratedMod.data(f.player).wuxingxiantu$getAura();
@@ -58,7 +58,7 @@ public final class V5BatchGameTests {
             h.assertTrue(f.furnace.startV5Batch(f.player),"Start failed");var original=f.furnace.v5ServerRecord();var journal=new BatchJournal(h.getLevel().getServer());var id=original.getUUID("Id");
             var invalid=original.copy();invalid.putString("InputsHash","modified");boolean rejected=false;try{journal.write(invalid);}catch(RuntimeException expected){rejected=true;}
             h.assertTrue(rejected&&journal.read(id).equals(original),"Invalid input binding overwrote durable state");
-            invalid=original.copy();invalid.putString("Profile",invalid.getString("Profile").replace("furnace-transaction-1","furnace-transaction-2"));rejected=false;
+            invalid=original.copy();invalid.putString("Profile",invalid.getString("Profile").replace("furnace-incident-2","rebound"));rejected=false;
             try{journal.write(invalid);}catch(RuntimeException expected){rejected=true;}
             h.assertTrue(rejected&&journal.read(id).equals(original),"Rules drift rewrote checkpoint");
             invalid=original.copy();invalid.putInt("Burn",-1);rejected=false;try{journal.write(invalid);}catch(RuntimeException expected){rejected=true;}
@@ -106,7 +106,7 @@ public final class V5BatchGameTests {
             h.getLevel().removeBlock(f.pos,false);var doc=new BatchJournal(h.getLevel().getServer()).read(id);
             h.assertTrue(doc.getBoolean("Detached")&&doc.getString("State").equals("READY"),"Dismantle lost pending material");
             var items=h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class,new net.minecraft.world.phys.AABB(f.pos).inflate(3));
-            h.assertTrue(items.stream().filter(e->e.getItem().is(WuXingItems.SEALED_ALCHEMY_BATCH.get())&&e.getItem().hasTag()&&e.getItem().getTag().hasUUID(V5Batch.KEY)&&e.getItem().getTag().getUUID(V5Batch.KEY).equals(id)).mapToInt(e->e.getItem().getCount()).sum()==1,"Dismantle lost/duplicated sealed batch");
+            h.assertTrue(items.stream().filter(e->e.getItem().hasTag()&&e.getItem().getTag().hasUUID(V5Batch.KEY)&&e.getItem().getTag().getUUID(V5Batch.KEY).equals(id)).mapToInt(e->e.getItem().getCount()).sum()==1,"Dismantle lost/duplicated sealed batch");
         }h.succeed();
     }
     @GameTest(template="empty",timeoutTicks=650) public static void actualLoadedFurnaceTicksV5ToCompletionWithoutLegacyJobOrPreRolledPill(GameTestHelper h){

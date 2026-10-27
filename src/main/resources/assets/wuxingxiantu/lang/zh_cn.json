@@ -2218,7 +2218,7 @@
   "tooltip.wuxingxiantu.barrier_preparation_pill": "巅峰阶段服用，为下一次合规渡劫准备吸收与恢复；不直接突破、不跳过劫数。",
   "pill.wuxingxiantu.effect.rejuvenation_pill": "持续疗养；成色决定每秒恢复，丹阶延长持续时间；金创丹仍负责即时急救。",
   "tooltip.wuxingxiantu.rejuvenation_pill": "持续疗养；成色决定每秒恢复，丹阶延长持续时间；金创丹仍负责即时急救。",
-  "item.wuxingxiantu.waste_pill": "废丹",
+  "item.wuxingxiantu.waste_pill": "废丹（不可服用）",
   "tooltip.wuxingxiantu.pill_ash": "有限培土：每株最多使用三次，每次推进一个成熟阶段；不增加药龄、不绕过灵壤限制。",
   "tooltip.wuxingxiantu.waste_pill": "失败药材的残留，可耗燃料烧成一份丹灰；不会返还原药材或炼丹经验。",
   "message.wuxingxiantu.alchemy_failed_residue": "炼制失败：药力失衡，材料已消耗；%s 可在炉中领取。",
@@ -2471,5 +2471,6 @@
   "medicine_tier.wuxingxiantu.4": "天阶",
   "medicine_tier.wuxingxiantu.5": "仙阶",
   "knowledge.wuxingxiantu.herb_years": "药龄按实际年份记录，无药材品阶。",
-  "item.wuxingxiantu.sealed_alchemy_batch": "封存药液（不可服用）"
+  "item.wuxingxiantu.sealed_alchemy_batch": "封存药液（不可服用）",
+  "item.wuxingxiantu.alchemy_residue": "未凝药渣（不可服用）"
 }

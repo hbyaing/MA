@@ -1,0 +1,21 @@
+{
+  "scenarios": 4,
+  "checkedTicks": 751,
+  "blockedGrabs": 6,
+  "passed": true,
+  "error": "",
+  "captureViolations": 0,
+  "captures": [
+    "warning-before-stop",
+    "emergency-residue",
+    "claimed-0",
+    "pressure-blast",
+    "claimed-1",
+    "paid-warm-hold",
+    "warm-stop",
+    "claimed-2",
+    "thermal-ash",
+    "claimed-3",
+    "gui3-completed"
+  ]
+}

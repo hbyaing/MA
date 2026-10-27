@@ -18,7 +18,8 @@ public final class InputTrajectory {
     }
     public record Control(AlchemySimulation.Action action,String resource,long amount){}
     /** Environment events precede this step's authorized controls; no historical sample is rewritten. */
-    public AlchemySimulation.Step step(SimulationRules rules,AlchemySimulation.Snapshot state,ServerLevel level,BlockPos pos,List<Control> controls){
+    public AlchemySimulation.Step step(SimulationRules rules,AlchemySimulation.Snapshot state,ServerLevel level,BlockPos pos,List<Control> controls){return step(rules,state,level,pos,controls,false);}
+    public AlchemySimulation.Step step(SimulationRules rules,AlchemySimulation.Snapshot state,ServerLevel level,BlockPos pos,List<Control> controls,boolean deviceFailure){
         if(controls.size()>16)throw new IllegalArgumentException("Control budget exceeded");
         var operations=new ArrayList<>(AlchemyEnvironment.changes(state,sample(level,pos)));
         long sequence=state.lastSequence()+operations.size()+1;long totalHeat=0;
@@ -27,6 +28,7 @@ public final class InputTrajectory {
             if(command.action()==AlchemySimulation.Action.HEAT){totalHeat=Math.addExact(totalHeat,command.amount());if(totalHeat>definitions.fireMaximumRate(fire.id()))throw new IllegalArgumentException("Fire input rate exceeded");}
             operations.add(new AlchemySimulation.Operation(sequence++,state.tick(),command.action(),command.resource(),command.amount()));
         }
+        if(deviceFailure)operations.add(new AlchemySimulation.Operation(sequence,state.tick(),AlchemySimulation.Action.DEVICE_FAILURE,"",0));
         return AlchemySimulation.step(rules,state,operations);
     }
 }

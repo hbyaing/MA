@@ -2218,7 +2218,7 @@
   "tooltip.wuxingxiantu.barrier_preparation_pill": "At peak stage, prepares absorption and regeneration for the next eligible trial; skips no requirements.",
   "pill.wuxingxiantu.effect.rejuvenation_pill": "Gradual healing: quality controls healing per second and rank extends duration; emergency healing remains separate.",
   "tooltip.wuxingxiantu.rejuvenation_pill": "Gradual healing: quality controls healing per second and rank extends duration; emergency healing remains separate.",
-  "item.wuxingxiantu.waste_pill": "Waste Pill",
+  "item.wuxingxiantu.waste_pill": "Failed Pill (Not Consumable)",
   "tooltip.wuxingxiantu.pill_ash": "Limited feeding: at most three applications per specimen, one maturity stage each; adds no years and respects soil gates.",
   "tooltip.wuxingxiantu.waste_pill": "A failed batch residue; smelt with fuel into one ash. No original herbs or alchemy experience are recovered.",
   "message.wuxingxiantu.alchemy_failed_residue": "Batch failed and ingredients were consumed; collect %s from the furnace.",
@@ -2471,5 +2471,6 @@
   "medicine_tier.wuxingxiantu.4": "Heaven",
   "medicine_tier.wuxingxiantu.5": "Immortal",
   "knowledge.wuxingxiantu.herb_years": "Medicinal age is measured in years; herbs have no rank.",
-  "item.wuxingxiantu.sealed_alchemy_batch": "Sealed Alchemy Extract (Not Drinkable)"
+  "item.wuxingxiantu.sealed_alchemy_batch": "Sealed Alchemy Extract (Not Drinkable)",
+  "item.wuxingxiantu.alchemy_residue": "Uncondensed Residue (Not Consumable)"
 }

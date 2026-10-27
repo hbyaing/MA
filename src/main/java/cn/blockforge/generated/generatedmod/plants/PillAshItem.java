@@ -9,6 +9,8 @@ import net.minecraft.world.item.context.UseOnContext;
 public final class PillAshItem extends Item {
     public PillAshItem(Properties properties){super(properties);}
     @Override public InteractionResult useOn(UseOnContext context){
+        var stack=context.getItemInHand();
+        if(stack.hasTag()&&stack.getTag().hasUUID(cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.KEY)&&stack.getTag().getLong("V5MaterialMass")<10000)return InteractionResult.FAIL;
         var level=context.getLevel();var pos=context.getClickedPos();var state=level.getBlockState(pos);
         if(!(state.getBlock() instanceof SpiritPlantBlock plant)||plant.isMature(state))return InteractionResult.PASS;
         if(level.isClientSide)return InteractionResult.SUCCESS;

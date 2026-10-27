@@ -38,6 +38,7 @@ import net.minecraftforge.registries.RegistryObject;
 public final class WuXingItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, "wuxingxiantu");
+    public static final RegistryObject<Item> ALCHEMY_RESIDUE=ITEMS.register("alchemy_residue",()->new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> SEALED_ALCHEMY_BATCH=ITEMS.register("sealed_alchemy_batch",()->new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> INSECT_CARAPACE_FRAGMENT=ITEMS.register("insect_carapace_fragment",()->new cn.blockforge.generated.generatedmod.items.InsectMaterialItem("insect_carapace_fragment"));
     public static final RegistryObject<Item> SPIRIT_DEVOURER_SAC=ITEMS.register("spirit_devourer_sac",()->new cn.blockforge.generated.generatedmod.items.InsectMaterialItem("spirit_devourer_sac"));

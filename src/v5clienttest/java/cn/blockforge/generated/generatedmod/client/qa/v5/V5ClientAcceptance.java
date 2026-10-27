@@ -42,9 +42,11 @@ public final class V5ClientAcceptance {
     @SubscribeEvent public static void render(TickEvent.RenderTickEvent event){
         if(event.phase!=TickEvent.Phase.END)return;var mc=Minecraft.getInstance();frames++;
         GLFW.glfwHideWindow(mc.getWindow().getWindow());
+        if(Boolean.getBoolean("wuxingxiantu.v5Incidents"))V5IncidentAcceptance.render(mc);
         if(mc.mouseHandler.isMouseGrabbed()||GLFW.glfwGetInputMode(mc.getWindow().getWindow(),GLFW.GLFW_CURSOR)!=GLFW.GLFW_CURSOR_NORMAL)violations++;
     }
     @SubscribeEvent public static void tick(TickEvent.ClientTickEvent event){
+        if(Boolean.getBoolean("wuxingxiantu.v5Incidents")){V5IncidentAcceptance.tick(event);return;}
         if(done||event.phase!=TickEvent.Phase.END)return;var mc=Minecraft.getInstance();
         try{
             Files.createDirectories(OUT);GLFW.glfwHideWindow(mc.getWindow().getWindow());mc.setWindowActive(true);mc.options.pauseOnLostFocus=false;

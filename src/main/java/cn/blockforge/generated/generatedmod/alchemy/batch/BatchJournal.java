@@ -64,7 +64,14 @@ public final class BatchJournal {
                 var data=ByteBuffer.wrap(bytes.toByteArray());while(data.hasRemaining())channel.write(data);channel.force(true);
             }
             // No non-atomic fallback: on unsupported filesystems retain the previous journal and stop.
-            Files.move(temporary,path,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);
+            for(int attempt=0;;attempt++)try{
+                Files.move(temporary,path,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);break;
+            }catch(AccessDeniedException denied){
+                // Windows scanners may briefly hold a target without delete sharing. Keep the same
+                // forced temp file and retry only atomic replacement, bounded to 30 ms total.
+                if(attempt>=3)throw denied;
+                java.util.concurrent.locks.LockSupport.parkNanos((attempt+1)*5000000L);
+            }
         }catch(IOException e){throw new IllegalStateException("Cannot commit V5 journal "+path.getFileName(),e);}
     }
 }

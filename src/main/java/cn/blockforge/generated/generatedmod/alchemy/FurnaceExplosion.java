@@ -23,5 +23,12 @@ public final class FurnaceExplosion {
         level.explode(operator,pos.getX()+.5,pos.getY()+1.5,pos.getZ()+.5,POWER,false,Level.ExplosionInteraction.BLOCK);
         return true;
     }
+    /** V5 journal is terminal before this cosmetic contained blast. No entities/terrain are damaged. */
+    public static void contained(AlchemyFurnaceBlockEntity furnace){
+        if(!(furnace.getLevel() instanceof ServerLevel level))return;
+        level.playSound(null,furnace.getBlockPos(),net.minecraft.sounds.SoundEvents.GENERIC_EXPLODE,net.minecraft.sounds.SoundSource.BLOCKS,1.0F,.8F);
+        level.levelEvent(2001,furnace.getBlockPos().above(),net.minecraft.world.level.block.Block.getId(net.minecraft.world.level.block.Blocks.COAL_BLOCK.defaultBlockState()));
+        AlchemyFurnaceStructure.dismantle(level,furnace.getBlockPos(),null);
+    }
     private FurnaceExplosion() {}
 }

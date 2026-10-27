@@ -24,7 +24,7 @@ public final class V5Batch {
     public static Profile profile(String json,int burn){
         if(burn<1||burn>10000000)throw new IllegalArgumentException("Invalid saved fuel rate");
         var o=SimulationRuleLoader.document(json);
-        if(!o.keySet().equals(Set.of("schema","openingFuel","phaseSteps","rules"))||o.get("schema").getAsBigDecimal().intValueExact()!=1)throw new IllegalArgumentException("Unknown batch profile");
+        if(!(o.keySet().equals(Set.of("schema","openingFuel","phaseSteps","rules"))||o.keySet().equals(Set.of("schema","openingFuel","phaseSteps","rules","incidents")))||o.get("schema").getAsBigDecimal().intValueExact()!=1)throw new IllegalArgumentException("Unknown batch profile");
         int opening=o.get("openingFuel").getAsBigDecimal().intValueExact();if(opening<0||opening>100000)throw new IllegalArgumentException("Invalid opening fuel");
         var a=o.getAsJsonArray("phaseSteps");if(a.size()!=6)throw new IllegalArgumentException("Expected six phases");var phases=new int[6];int total=0;
         for(int i=0;i<6;i++){phases[i]=a.get(i).getAsBigDecimal().intValueExact();if(phases[i]<1||phases[i]>10)throw new IllegalArgumentException("Invalid phase duration");total+=phases[i];}
@@ -40,7 +40,9 @@ public final class V5Batch {
     public static void inventory(CompoundTag doc,NonNullList<ItemStack> items){var n=new CompoundTag();ContainerHelper.saveAllItems(n,items);doc.put("Inventory",n);}
     public static CompoundTag prepare(AlchemyFurnaceBlockEntity furnace,ServerPlayer player){
         var level=(ServerLevel)furnace.getLevel();int burn=cn.blockforge.generated.generatedmod.alchemy.AlchemyBalance.burnPerSecond(furnace.tier());
-        var profile=profile(currentProfile(level),burn);if(furnace.spiritFuel()<profile.requiredFuel())throw new IllegalArgumentException("请先注灵，本批次需要储备 "+profile.requiredFuel()+" 点炉内灵力。");
+        String current=currentProfile(level);var raw=SimulationRuleLoader.document(current);
+        if(raw.has("incidents")){var l=raw.getAsJsonObject("rules").getAsJsonObject("limits");l.addProperty("heatCapacity",Math.max(1,(10+furnace.tier()*5)*(1000-furnace.v5DeviceWear())/1000));l.addProperty("burstPressure",3000+furnace.tier()*1500);current=raw.toString();}
+        var profile=profile(current,burn);if(furnace.spiritFuel()<profile.requiredFuel())throw new IllegalArgumentException("请先注灵，本批次需要储备 "+profile.requiredFuel()+" 点炉内灵力。");
         var defs=InputDefinitions.current();var after=NonNullList.withSize(AlchemyFurnaceBlockEntity.CONTAINER_SIZE,ItemStack.EMPTY);var herbs=new ArrayList<ItemStack>();
         var original=new CompoundTag();var before=NonNullList.withSize(after.size(),ItemStack.EMPTY);
         for(int i=0;i<after.size();i++){after.set(i,furnace.getItem(i).copy());before.set(i,furnace.getItem(i).copy());}
@@ -60,23 +62,25 @@ public final class V5Batch {
         var fire=AlchemyInputs.fire(after.get(AlchemyFurnaceBlockEntity.IGNITION_SLOT));
         var trajectory=new InputTrajectory(defs,fire);var sampled=trajectory.sample(level,furnace.getBlockPos());
         UUID id=UUID.randomUUID();var core=AlchemySimulation.begin(profile.rules(),id.toString(),stocks,0,input.referenceMass()+moon,level.random.nextLong(),sampled.values());
-        var doc=new CompoundTag();doc.putInt("Schema",1);doc.putUUID("Id",id);doc.putUUID("Owner",player.getUUID());doc.putString("Dimension",level.dimension().location().toString());doc.putLong("Position",furnace.getBlockPos().asLong());
+        var doc=new CompoundTag();doc.putInt("Schema",1);doc.putInt("DeviceWear",furnace.v5DeviceWear());doc.putUUID("Id",id);doc.putUUID("Owner",player.getUUID());doc.putString("Dimension",level.dimension().location().toString());doc.putLong("Position",furnace.getBlockPos().asLong());
         doc.putString("State","ACTIVE");doc.putString("Profile",profile.json());doc.putString("Inputs",defs.document());doc.putString("InputsHash",defs.hash);doc.putInt("Burn",burn);
         doc.putByteArray("Core",SimulationSnapshotCodec.encodeServerSnapshot(profile.rules(),core));doc.put("Original",original);doc.put("Materials",provenance);doc.put("MoonSources",moonSources);
         doc.putInt("FuelBalance",furnace.spiritFuel()-profile.requiredFuel());doc.putInt("FuelReserved",profile.requiredFuel()-profile.opening());doc.putInt("FuelSpent",profile.opening());doc.putInt("FuelInitial",furnace.spiritFuel());
-        doc.putLong("LastWorldTick",level.getGameTime());doc.putLong("SampleDayTime",sampled.dayTime());doc.putLong("SampleGameTime",sampled.gameTime());inventory(doc,after);validate(doc);return doc;
+        doc.putLong("LastWorldTick",level.getGameTime());doc.putLong("SampleDayTime",sampled.dayTime());doc.putLong("SampleGameTime",sampled.gameTime());inventory(doc,after);BatchIncidents.initialize(doc);validate(doc);return doc;
     }
     public static Snapshot core(CompoundTag doc){var p=profile(doc.getString("Profile"),doc.getInt("Burn"));return SimulationSnapshotCodec.decodeServerSnapshot(p.rules(),doc.getByteArray("Core"));}
     public static void validate(CompoundTag doc){
         if(doc.getInt("Schema")!=1||!doc.hasUUID("Id")||!doc.hasUUID("Owner")||!Set.of("ACTIVE","READY","DELIVERING","CLAIMED").contains(doc.getString("State")))throw new IllegalArgumentException("Unknown V5 transaction");
         if(doc.getString("Profile").length()>262144||doc.getString("Inputs").length()>262144)throw new IllegalArgumentException("Snapshot definition budget exceeded");
         var defs=new InputDefinitions(doc.getString("Inputs"));if(!defs.hash.equals(doc.getString("InputsHash")))throw new IllegalArgumentException("Input definition drift");
-        var s=core(doc);if(!s.batchId().equals(doc.getUUID("Id").toString()))throw new IllegalArgumentException("Batch identity mismatch");
+        if(doc.getInt("DeviceWear")<0||doc.getInt("DeviceWear")>1000)throw new IllegalArgumentException("Invalid device wear");
+        BatchIncidents.validate(doc);var s=core(doc);if(!s.batchId().equals(doc.getUUID("Id").toString()))throw new IllegalArgumentException("Batch identity mismatch");
         long balance=doc.getInt("FuelBalance"),reserved=doc.getInt("FuelReserved"),spent=doc.getInt("FuelSpent");
         if(balance<0||reserved<0||spent<0||balance+reserved+spent!=doc.getInt("FuelInitial"))throw new IllegalArgumentException("Fuel conservation mismatch");
         if(doc.getString("State").equals("ACTIVE")&&s.status()!=Status.ACTIVE&&s.status()!=Status.PAUSED)throw new IllegalArgumentException("Transaction/core state mismatch");
     }
     public static CompoundTag advance(CompoundTag original,ServerLevel level,BlockPos pos){
+        if(original.contains("IncidentVersion"))return BatchIncidents.advance(original,level,pos);
         validate(original);if(!original.getString("State").equals("ACTIVE")||original.getLong("LastWorldTick")>=level.getGameTime())return original;
         var doc=original.copy();var p=profile(doc.getString("Profile"),doc.getInt("Burn"));var s=core(doc);
         if(s.status()!=Status.ACTIVE)return original;
@@ -94,7 +98,9 @@ public final class V5Batch {
         if(s.status()==Status.ACTIVE)s=AlchemySimulation.step(p.rules(),s,List.of(new Operation(s.lastSequence()+1,s.tick(),Action.ABORT,"",0))).snapshot();
         doc.putByteArray("Core",SimulationSnapshotCodec.encodeServerSnapshot(p.rules(),s));ready(doc);validate(doc);return doc;
     }
-    private static void ready(CompoundTag doc){doc.putString("State","READY");doc.putInt("FuelBalance",doc.getInt("FuelBalance")+doc.getInt("FuelReserved"));doc.putInt("FuelReserved",0);}
-    public static ItemStack result(CompoundTag doc){var item=new ItemStack(WuXingItems.SEALED_ALCHEMY_BATCH.get());item.getOrCreateTag().putUUID(KEY,doc.getUUID("Id"));return item;}
+    static void ready(CompoundTag doc){doc.putString("State","READY");doc.putInt("FuelBalance",doc.getInt("FuelBalance")+doc.getInt("FuelReserved"));doc.putInt("FuelReserved",0);}
+    public static ItemStack result(CompoundTag doc){var item=new ItemStack(BatchIncidents.resultItem(doc));item.getOrCreateTag().putUUID(KEY,doc.getUUID("Id"));
+        if(doc.contains("IncidentVersion")){var s=core(doc);var p=profile(doc.getString("Profile"),doc.getInt("Burn"));item.getOrCreateTag().putLong("V5MaterialMass",s.ledger().ashMass()+p.rules().weight(s.stocks(),true));item.getOrCreateTag().putString("V5Outcome",s.status().name());}
+        return item;}
     private V5Batch(){}
 }

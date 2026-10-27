@@ -69,27 +69,28 @@ public final class AlchemyFurnaceBlock extends BaseEntityBlock {
         data.put("CompletedResult",furnace.completedResult().save(new net.minecraft.nbt.CompoundTag()));
         data.putString("ActiveFireId",furnace.activeFireId()); data.putInt("AlchemyOutcome",1);
         if(furnace.v5Batch())data.putInt("SpiritFuel",furnace.v5DismantleFuel());
+        data.putInt("V5DeviceWear",furnace.v5DeviceWear());
         stack.addTagElement("BlockEntityTag",data);
         return stack;
     }
     @Override public java.util.List<net.minecraft.world.item.ItemStack> getDrops(BlockState state,net.minecraft.world.level.storage.loot.LootParams.Builder params) {
         if (params.getOptionalParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.BLOCK_ENTITY) instanceof AlchemyFurnaceBlockEntity furnace && furnace.hasResult())
             return java.util.List.of(resultCarrier(furnace));
-        if(params.getOptionalParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.BLOCK_ENTITY) instanceof AlchemyFurnaceBlockEntity active&&active.v5Batch()){
-            var core=new net.minecraft.world.item.ItemStack(this);var tag=new net.minecraft.nbt.CompoundTag();tag.putInt("SpiritFuel",active.v5DismantleFuel());core.addTagElement("BlockEntityTag",tag);return java.util.List.of(core);
+        if(params.getOptionalParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.BLOCK_ENTITY) instanceof AlchemyFurnaceBlockEntity active&&(active.v5Batch()||active.v5DeviceWear()>0)){
+            var core=new net.minecraft.world.item.ItemStack(this);var tag=new net.minecraft.nbt.CompoundTag();tag.putInt("SpiritFuel",active.v5DismantleFuel());tag.putInt("V5DeviceWear",active.v5DeviceWear());core.addTagElement("BlockEntityTag",tag);return java.util.List.of(core);
         }
         return super.getDrops(state,params);
     }
     @Override public boolean canHarvestBlock(BlockState state,net.minecraft.world.level.BlockGetter level,BlockPos pos,Player player) {
         // A completed batch must travel with its core even when dismantled with the wrong tool.
-        return level.getBlockEntity(pos) instanceof AlchemyFurnaceBlockEntity furnace && (furnace.hasResult()||furnace.v5Batch())
+        return level.getBlockEntity(pos) instanceof AlchemyFurnaceBlockEntity furnace && (furnace.hasResult()||furnace.v5Batch()||furnace.v5DeviceWear()>0)
                 || super.canHarvestBlock(state,level,pos,player);
     }
     @Override public void playerWillDestroy(Level level,BlockPos pos,BlockState state,Player player) {
         if (!level.isClientSide && player.isCreative() && level.getBlockEntity(pos) instanceof AlchemyFurnaceBlockEntity furnace && furnace.hasResult())
             popResource(level,pos,resultCarrier(furnace));
-        if(!level.isClientSide&&player.isCreative()&&level.getBlockEntity(pos) instanceof AlchemyFurnaceBlockEntity active&&active.v5Batch()&&!active.hasResult()){
-            var core=new net.minecraft.world.item.ItemStack(this);var tag=new net.minecraft.nbt.CompoundTag();tag.putInt("SpiritFuel",active.v5DismantleFuel());core.addTagElement("BlockEntityTag",tag);popResource(level,pos,core);
+        if(!level.isClientSide&&player.isCreative()&&level.getBlockEntity(pos) instanceof AlchemyFurnaceBlockEntity active&&(active.v5Batch()||active.v5DeviceWear()>0)&&!active.hasResult()){
+            var core=new net.minecraft.world.item.ItemStack(this);var tag=new net.minecraft.nbt.CompoundTag();tag.putInt("SpiritFuel",active.v5DismantleFuel());tag.putInt("V5DeviceWear",active.v5DeviceWear());core.addTagElement("BlockEntityTag",tag);popResource(level,pos,core);
         }
         super.playerWillDestroy(level,pos,state,player);
     }
@@ -131,6 +132,7 @@ public final class AlchemyFurnaceBlock extends BaseEntityBlock {
                                  InteractionHand hand, BlockHitResult hit) {
         // 炼丹炉核心不区分手持物；成型后右键核心格（或炉体任意一格组件）都会打开炼丹界面。
         if (hand != InteractionHand.MAIN_HAND) return InteractionResult.PASS;
+        if(!isFormed(state)&&level.getBlockEntity(pos) instanceof AlchemyFurnaceBlockEntity active&&(active.v5Batch()||active.v5DeviceWear()>0))return openAlchemy(level,pos,player);
         if (!isFormed(state)) {
             CoreStructureBuilder.activate(level, pos, player);
             return InteractionResult.CONSUME;
@@ -151,7 +153,7 @@ public final class AlchemyFurnaceBlock extends BaseEntityBlock {
         if (!(player instanceof net.minecraft.server.level.ServerPlayer serverPlayer)) {
             return InteractionResult.CONSUME;
         }
-        if (!isFormed(level.getBlockState(pos))) {
+        if (!isFormed(level.getBlockState(pos))&&!(level.getBlockEntity(pos) instanceof AlchemyFurnaceBlockEntity active&&(active.v5Batch()||active.v5DeviceWear()>0))) {
             player.displayClientMessage(Component.translatable("message.wuxingxiantu.alchemy_not_formed"), true);
             return InteractionResult.CONSUME;
         }

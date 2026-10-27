@@ -41,7 +41,7 @@ public final class AlchemyFurnaceMenu extends AbstractContainerMenu {
     private final AlchemyFurnaceBlockEntity furnace;
     private final int machineSlotCount;
     private final Player viewer;
-    private final net.minecraft.world.inventory.ContainerData viewData = new net.minecraft.world.inventory.SimpleContainerData(14);
+    private final net.minecraft.world.inventory.ContainerData viewData = new net.minecraft.world.inventory.SimpleContainerData(19);
     public boolean formulaUnlocked() { return viewData.get(8)!=0; }
     public boolean knowsFormula(AlchemyRecipe recipe) {
         if(recipe==null)return false;
@@ -51,10 +51,15 @@ public final class AlchemyFurnaceMenu extends AbstractContainerMenu {
     }
     public int spiritFuel() { return (viewData.get(7)&0x7fff)|(viewData.get(11)<<15); }
     public int v5RequiredFuel(){return (viewData.get(12)&0x7fff)|(viewData.get(13)<<15);}
+    public int v5Warning(){return viewData.get(14);}
+    public int v5HeatMode(){return viewData.get(15);}
+    public int v5StructureDamage(){return viewData.get(16);}
+    public boolean v5Warming(){return viewData.get(17)!=0;}
+    public int v5DeviceWear(){return viewData.get(18);}
     private int v5RequiredFuel;
     public int spiritCapacity() { return cn.blockforge.generated.generatedmod.alchemy.AlchemyBalance.fuelCapacity(furnaceTier()); }
     public enum State { SYNCING, MISSING, LOW_TIER, NEED_FIRE, NEED_AURA, BUSY, READY, BREWING, COMPLETE, FAILED, UNFORMED,
-        NEED_FORMULA, NEED_REALM, FIRE_UNMASTERED, FIRE_REQUIREMENT, NEED_ALCHEMY, NEED_FUEL, NEED_HERB_AGE }
+        NEED_FORMULA, NEED_REALM, FIRE_UNMASTERED, FIRE_REQUIREMENT, NEED_ALCHEMY, NEED_FUEL, NEED_HERB_AGE, DAMAGED }
     private net.minecraft.resources.ResourceLocation chosenRecipe;
     private boolean freeMode;
     public boolean freeMode() { return viewData.get(6) == 1; }
@@ -182,6 +187,7 @@ public final class AlchemyFurnaceMenu extends AbstractContainerMenu {
                     "背包空间不足，成品保留在丹炉中。":"鼠标所持物品不同或已满，成品保留在丹炉中。"),true);
             refreshViewData();broadcastChanges();return collected;
         }
+        if(button>=245&&button<=247&&furnace.v5Batch()&&player instanceof net.minecraft.server.level.ServerPlayer owner){boolean changed=furnace.v5Control(owner,button);refreshViewData();broadcastChanges();return changed;}
         if(button==248&&furnace.v5Batch())return furnace.v5ServerRecord().hasUUID("Owner")&&furnace.v5ServerRecord().getUUID("Owner").equals(player.getUUID())&&furnace.sealV5Batch();
         if(button==253) { boolean changed=furnace.injectSpirit(player)>0;refreshViewData();broadcastChanges();return changed; }
         if(button==254) {
@@ -217,6 +223,7 @@ public final class AlchemyFurnaceMenu extends AbstractContainerMenu {
     }
     private void refreshViewData() {
         if (level == null || level.isClientSide) return;
+        viewData.set(14,furnace.v5Warning());viewData.set(15,furnace.v5HeatMode());viewData.set(16,furnace.v5StructureDamage());viewData.set(17,furnace.v5Warming()?1:0);viewData.set(18,furnace.v5DeviceWear());
         viewData.set(12,v5RequiredFuel&0x7fff);viewData.set(13,v5RequiredFuel>>>15);
         viewData.set(1, furnace.tier());
         viewData.set(2, furnace.ignitionTier());
@@ -252,13 +259,16 @@ public final class AlchemyFurnaceMenu extends AbstractContainerMenu {
             break;
         }
         var data = GeneratedMod.data(viewer);
-        if (!AlchemyFurnaceBlock.isFormed(furnace.getBlockState())) state = State.UNFORMED;
+        if(furnace.v5Batch()&&furnace.hasResult())state=State.COMPLETE;
+        else if(furnace.v5Batch()&&furnace.busy())state=State.BREWING;
+        else if (!AlchemyFurnaceBlock.isFormed(furnace.getBlockState())) state = State.UNFORMED;
         else if (furnace.busy()) state = State.BREWING;
         else if (furnace.hasResult()) state = State.COMPLETE;
         else if (Network.isAlchemyBusy(viewer)) state = State.BUSY;
         else if (!cn.blockforge.generated.generatedmod.alchemy.FormulaKnowledge.unlocked(viewer)) state = State.NEED_ALCHEMY;
         else if (freeMode) {
-            if (!furnace.hasAnyMaterial()) state=State.MISSING;
+            if(furnace.v5DeviceWear()>=1000)state=State.DAMAGED;
+            else if (!furnace.hasAnyMaterial()) state=State.MISSING;
             else if (!ProgressionGate.canUseAlchemyFurnace(viewer,furnace.tier())) state=State.NEED_REALM;
             else if (!furnace.ignited()) state=State.NEED_FIRE;
             else if (!ProgressionGate.canUseFire(viewer,furnace.ignitionTier())) state=State.FIRE_UNMASTERED;
@@ -326,7 +336,7 @@ public final class AlchemyFurnaceMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player player) {
         if (level == null || !(level.getBlockEntity(blockPos) instanceof AlchemyFurnaceBlockEntity)
-                || !AlchemyFurnaceBlock.isFormed(level.getBlockState(blockPos))) return false;
+                || !AlchemyFurnaceBlock.isFormed(level.getBlockState(blockPos))&&!furnace().v5Batch()&&furnace().v5DeviceWear()==0) return false;
         if (furnace != null && level.getBlockEntity(blockPos) != furnace) return false;
         return player.distanceToSqr(blockPos.getX() + 0.5D, blockPos.getY() + 0.5D,
                 blockPos.getZ() + 0.5D) <= 64.0D && container.stillValid(player);

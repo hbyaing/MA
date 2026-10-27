@@ -6,7 +6,7 @@ import static cn.blockforge.generated.generatedmod.alchemy.simulation.Simulation
 /** Fixed logical steps; does not create ItemStacks, grant grades, consume player resources or send seeds. */
 public final class AlchemySimulation {
     public enum Status { ACTIVE, PAUSED, FINISHED, ABORTED, ASHED, EXPLODED }
-    public enum Action { ADVANCE, HEAT, VENT, ENVIRONMENT, ABORT, FINISH }
+    public enum Action { ADVANCE, HEAT, VENT, ENVIRONMENT, ABORT, FINISH, DEVICE_FAILURE }
     public record Operation(long sequence,long tick,Action action,String resource,long amount) {
         public Operation {if(sequence<0||tick<0||amount>1000000000L||amount< -1000000000L||(action!=Action.ENVIRONMENT&&amount<0))throw new IllegalArgumentException("Invalid operation");Objects.requireNonNull(action);Objects.requireNonNull(resource);if(!resource.isEmpty())id(resource);}
     }
@@ -20,7 +20,7 @@ public final class AlchemySimulation {
     public record Snapshot(String batchId,String rulesHash,long tick,Phase phase,Status status,String reason,Map<String,Long> stocks,
                            long heat,long damage,long referenceMass,long seed,Map<String,Long> environment,Map<String,Long> draws,Map<String,Long> holds,
                            long lastSequence,List<Operation> operations,Ledger ledger) {
-        public Snapshot {id(batchId);Objects.requireNonNull(rulesHash);Objects.requireNonNull(phase);Objects.requireNonNull(status);Objects.requireNonNull(reason);stocks=quantities(stocks);environment=environmentCopy(environment);draws=quantities(draws);holds=quantities(holds);operations=List.copyOf(operations);Objects.requireNonNull(ledger);if(tick<0||heat<0||damage<0||referenceMass<1||referenceMass>1000000000L||heat>1000000000000L||lastSequence< -1||reason.length()>96||operations.size()>256)throw new IllegalArgumentException("Invalid snapshot");}
+        public Snapshot {id(batchId);Objects.requireNonNull(rulesHash);Objects.requireNonNull(phase);Objects.requireNonNull(status);Objects.requireNonNull(reason);stocks=quantities(stocks);environment=environmentCopy(environment);draws=quantities(draws);holds=quantities(holds);operations=List.copyOf(operations);Objects.requireNonNull(ledger);if(tick<0||heat<0||damage<0||referenceMass<1||referenceMass>1000000000L||heat>1000000000000L||lastSequence< -1||reason.length()>96||operations.size()>1024)throw new IllegalArgumentException("Invalid snapshot");}
     }
     public record ReactionTrace(String rule,long extent,long potentialLost,long energyBound){}
     public record Step(Snapshot snapshot,List<ReactionTrace> reactions,long peakTemperature,java.math.BigInteger peakPressure){}
@@ -73,7 +73,7 @@ public final class AlchemySimulation {
         if(events.size()>32)throw new IllegalArgumentException("Per-step operation budget exceeded");
         var sorted=new ArrayList<>(events);sorted.sort(Comparator.comparingLong(Operation::sequence));
         var history=new ArrayList<>(original.operations());if(history.size()+sorted.size()>r.limits.maxEvents())return paused(original,"OPERATION_BUDGET");
-        long last=original.lastSequence(),heat=original.heat(),external=0,ventedMass=0,ventedPotential=0,ventedEnergy=0;var phase=original.phase();var status=Status.ACTIVE;boolean advanced=false;
+        long last=original.lastSequence(),heat=original.heat(),external=0,ventedMass=0,ventedPotential=0,ventedEnergy=0;var phase=original.phase();var status=Status.ACTIVE;boolean advanced=false,deviceFailure=false;
         var stocks=new TreeMap<>(original.stocks());var draws=new TreeMap<>(original.draws());
         for(int i=0;i<sorted.size();i++){
             var op=sorted.get(i);if(op.tick()!=original.tick()||op.sequence()<=last||status!=Status.ACTIVE)throw new IllegalArgumentException("Stale/out-of-phase operation");
@@ -91,6 +91,7 @@ public final class AlchemySimulation {
                 }
                 case ENVIRONMENT -> {if(!environment.containsKey(op.resource()))throw new IllegalArgumentException("Unknown environmental event key");environment.put(op.resource(),op.amount());}
                 case ABORT -> {if(op.amount()!=0||!op.resource().isEmpty())throw new IllegalArgumentException("Invalid abort");status=Status.ABORTED;}
+                case DEVICE_FAILURE -> {if(op.amount()!=0||!op.resource().isEmpty())throw new IllegalArgumentException("Invalid device event");deviceFailure=true;}
                 case FINISH -> {if(phase!=Phase.COOL||op.amount()!=0||!op.resource().isEmpty())throw new IllegalArgumentException("Finish requires cooling stage");status=Status.FINISHED;}
             }
         }
@@ -117,8 +118,8 @@ public final class AlchemySimulation {
         long cooling=heat/r.limits.coolingDivisor();heat-=cooling;
         ledger=new Ledger(ledger.initialMass(),ledger.residualMass(),ledger.ashMass(),ledger.ventedMass(),ledger.initialPotential(),Math.addExact(ledger.authorizedPotential(),potentialAdded),Math.addExact(ledger.lostPotential(),potentialLost),ledger.ventedPotential(),ledger.initialEnergy(),ledger.externalEnergy(),Math.addExact(ledger.boundEnergy(),bound),Math.addExact(ledger.lostEnergy(),cooling),ledger.ventedEnergy());
         String reason="";
-        if(pressure.compareTo(java.math.BigInteger.valueOf(r.limits.burstPressure()))>=0){
-            status=Status.EXPLODED;reason="PRESSURE";
+        if(pressure.compareTo(java.math.BigInteger.valueOf(r.limits.burstPressure()))>=0||deviceFailure){
+            status=Status.EXPLODED;reason=deviceFailure?"DEVICE_FAILURE":"PRESSURE";
         }else if(damage>=r.limits.maximumDamage()){
             status=Status.ASHED;reason="THERMAL_DAMAGE";
         }else if(exhausted){status=Status.PAUSED;reason="REACTION_BUDGET";}

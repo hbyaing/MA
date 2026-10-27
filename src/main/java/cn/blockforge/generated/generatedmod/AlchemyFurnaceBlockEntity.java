@@ -30,18 +30,29 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
     private net.minecraft.nbt.CompoundTag v5=new net.minecraft.nbt.CompoundTag();
     private boolean v5Fault, v5Client;
     private long nextV5Tick;
+    private int v5DeviceWear;
+    public int v5DeviceWear(){return v5DeviceWear;}
+    public int v5Warning(){return v5.isEmpty()?0:v5.getInt("Warning");}
+    public int v5HeatMode(){return v5.isEmpty()?1:v5.getInt("HeatMode");}
+    public int v5StructureDamage(){return v5.isEmpty()?0:v5.getInt("StructureDamage");}
+    public boolean v5Warming(){return !v5.isEmpty()&&v5.getBoolean("Warming");}
+    public boolean v5Control(net.minecraft.server.level.ServerPlayer player,int button){
+        if(v5Fault||!stillValid(player)||!player.isAlive()||player.isSpectator()||v5.isEmpty()||!v5.getUUID("Owner").equals(player.getUUID()))return false;
+        var next=cn.blockforge.generated.generatedmod.alchemy.batch.BatchIncidents.control(v5,button,level.getGameTime());if(next==v5)return false;
+        new cn.blockforge.generated.generatedmod.alchemy.batch.BatchJournal(player.server).write(next);applyV5(next);sync();return true;
+    }
     public int v5DismantleFuel(){return spiritFuel+(v5.isEmpty()?0:v5.getInt("FuelReserved"));}
     public boolean v5Batch(){return v5Ref!=null||v5Client;}
     public boolean inventoryLocked(){return busy()||v5Batch();}
     public net.minecraft.nbt.CompoundTag v5ServerRecord(){if(!(level instanceof ServerLevel))throw new IllegalStateException("Server only");return v5.copy();}
     private void applyV5(net.minecraft.nbt.CompoundTag doc){
         cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.validate(doc);
-        v5=doc.copy();v5Ref=doc.getUUID("Id");v5Client=false;
+        v5=doc.copy();v5Ref=doc.getUUID("Id");v5Client=false;v5DeviceWear=doc.getInt("DeviceWear");
         var inventory=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.inventory(doc);
         for(int i=0;i<items.size();i++)items.set(i,inventory.get(i));
         spiritFuel=doc.getInt("FuelBalance");needsSpiritFuel=false;
         var core=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.core(doc);
-        brewing=doc.getString("State").equals("ACTIVE");poweredTicks=(int)core.tick()*20;
+        brewing=doc.getString("State").equals("ACTIVE");poweredTicks=(doc.contains("IncidentVersion")?doc.getInt("ProcessStep"):(int)core.tick())*20;
         var profile=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.profile(doc.getString("Profile"),doc.getInt("Burn"));
         startTick=0;finishTick=profile.steps()*20L;outcome=brewing?0:1;
         if(!brewing){completedResult=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.result(doc);completionTick=level.getGameTime();}
@@ -63,7 +74,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
     }
     public boolean startV5Batch(net.minecraft.server.level.ServerPlayer player){
         if(!(level instanceof ServerLevel server)||inventoryLocked()||hasResult()||!stillValid(player)||!player.isAlive()||player.isSpectator()
-                ||!AlchemyFurnaceBlock.isFormed(getBlockState())||!ProgressionGate.canUseAlchemyFurnace(player,tier())||!ignited()
+                ||v5DeviceWear>=1000||!AlchemyFurnaceBlock.isFormed(getBlockState())||!ProgressionGate.canUseAlchemyFurnace(player,tier())||!ignited()
                 ||!ProgressionGate.canUseFire(player,ignitionTier())||!cn.blockforge.generated.generatedmod.alchemy.FormulaKnowledge.unlocked(player)
                 ||Network.hasAlchemyJob(level,worldPosition)||Network.isAlchemyBusy(player))return false;
         try{
@@ -85,10 +96,11 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
             return;
         }
         if(structureDirty||(level.getGameTime()+worldPosition.asLong())%200L==0){structureDirty=false;AlchemyFurnaceStructure.refreshAround(level,worldPosition);}
-        if(!AlchemyFurnaceBlock.isFormed(getBlockState())){nextV5Tick=level.getGameTime()+20;return;}
+        if(!v5.contains("IncidentVersion")&&!AlchemyFurnaceBlock.isFormed(getBlockState())){nextV5Tick=level.getGameTime()+20;return;}
         if(level.getGameTime()<nextV5Tick)return;nextV5Tick=level.getGameTime()+20;
         try{var next=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.advance(v5,server,worldPosition);
-            if(next==v5)return;new cn.blockforge.generated.generatedmod.alchemy.batch.BatchJournal(server.getServer()).write(next);applyV5(next);sync();
+            if(next==v5)return;new cn.blockforge.generated.generatedmod.alchemy.batch.BatchJournal(server.getServer()).write(next);boolean blast=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.core(next).status()==cn.blockforge.generated.generatedmod.alchemy.simulation.AlchemySimulation.Status.EXPLODED;applyV5(next);sync();
+            if(blast)cn.blockforge.generated.generatedmod.alchemy.FurnaceExplosion.contained(this);
         }catch(RuntimeException e){v5Fault=true;com.mojang.logging.LogUtils.getLogger().error("V5 step stopped before publication; journal retained",e);}
     }
     public boolean sealV5Batch(){
@@ -101,7 +113,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
         new cn.blockforge.generated.generatedmod.alchemy.batch.BatchJournal(server.getServer()).write(next);applyV5(next);
         if(active)net.minecraft.world.Containers.dropItemStack(server,worldPosition.getX()+.5,worldPosition.getY()+.5,worldPosition.getZ()+.5,completedResult.copy());
     }
-    private boolean sealedV5Result(){return completedResult.is(WuXingItems.SEALED_ALCHEMY_BATCH.get())&&completedResult.hasTag()&&completedResult.getTag().hasUUID(cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.KEY);}
+    private boolean sealedV5Result(){return completedResult.hasTag()&&completedResult.getTag().hasUUID(cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.KEY);}
     private int collectV5(Player player){
         if(!(player instanceof net.minecraft.server.level.ServerPlayer server)||!sealedV5Result()||!stillValid(player)||!player.isAlive()||player.isSpectator())return 0;
         try{var receipt=completedResult.getTag().getUUID(cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.KEY);
@@ -155,8 +167,14 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
         if(level instanceof ServerLevel server)cn.blockforge.generated.generatedmod.network.service.AlchemyService.failAlchemyFuelAt(server,worldPosition);
     }
     public boolean upgradeCore(Player player) {
-        if(!(level instanceof ServerLevel server) || busy() || hasResult() || !stillValid(player))return false;
+        if(!(level instanceof ServerLevel server) || busy() || hasResult() || !stillValid(player)||!player.isAlive()||player.isSpectator()||!ProgressionGate.canUseAlchemyFurnace(player,tier()))return false;
         ItemStack core=items.get(CORE_SLOT);
+        if(core.isEmpty()&&v5DeviceWear>0&&player instanceof net.minecraft.server.level.ServerPlayer owner){
+            int count=0;for(int i=0;i<36;i++)if(player.getInventory().getItem(i).is(net.minecraft.world.item.Items.IRON_INGOT))count+=player.getInventory().getItem(i).getCount();
+            if(count<4)return false;int left=4;for(int i=0;i<36&&left>0;i++){var item=player.getInventory().getItem(i);if(item.is(net.minecraft.world.item.Items.IRON_INGOT)){int paid=Math.min(left,item.getCount());item.shrink(paid);left-=paid;}}
+            owner.server.getPlayerList().save(owner);var journal=new cn.blockforge.generated.generatedmod.alchemy.batch.BatchJournal(server.getServer());var saved=journal.at(server,worldPosition);if(!saved.isEmpty()){saved.putInt("DeviceWear",0);journal.write(saved);}
+            v5DeviceWear=0;sync();server.getChunkSource().save(true);return true;
+        }
         if(!(core.getItem() instanceof net.minecraft.world.item.BlockItem item)
                 || !(item.getBlock() instanceof AlchemyFurnaceBlock target) || target.tier()<=tier()
                 || !ProgressionGate.canUseAlchemyFurnace(player,target.tier()))return false;
@@ -473,6 +491,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
         super.saveAdditional(tag);
         if(v5Ref!=null)tag.putUUID("V5Ref",v5Ref);tag.putBoolean("V5Mode",v5Batch());
         tag.putBoolean(BREWING_TAG, brewing);
+        tag.putInt("V5DeviceWear",v5DeviceWear);
         tag.putInt("ExplosionWarningTicks",explosionWarningTicks);
         if(explosionOperator!=null)tag.putUUID("ExplosionOperator",explosionOperator);
         tag.putInt("SpiritFuel",spiritFuel);tag.putInt("PoweredTicks",poweredTicks);tag.putInt("FuelTicks",fuelTicks);
@@ -496,6 +515,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
         super.load(tag);
         v5Ref=tag.hasUUID("V5Ref")?tag.getUUID("V5Ref"):null;v5Client=tag.getBoolean("V5Mode");v5=new CompoundTag();v5Fault=false;
         brewing = tag.getBoolean(BREWING_TAG);
+        v5DeviceWear=Math.max(0,Math.min(1000,tag.getInt("V5DeviceWear")));
         explosionWarningTicks=Math.max(0,Math.min(60,tag.getInt("ExplosionWarningTicks")));
         explosionOperator=tag.hasUUID("ExplosionOperator")?tag.getUUID("ExplosionOperator"):null;
         spiritFuel=Math.max(0,Math.min(spiritCapacity(),tag.getInt("SpiritFuel")));

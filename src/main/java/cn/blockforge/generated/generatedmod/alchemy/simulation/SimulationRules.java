@@ -27,7 +27,7 @@ public final class SimulationRules {
     }
     public record Limits(int maxRules,int maxExtent,int maxSteps,int maxEvents,long maxStockUnits,long maxExternalPerEvent,
                          long heatCapacity,long coolingDivisor,long damageTemperature,long maximumDamage,long burstPressure,int controlNoise) {
-        public Limits {if(maxRules<1||maxRules>128||maxSteps<1||maxSteps>1000000||maxExtent<1||maxExtent>1000000||maxEvents<1||maxEvents>256||maxStockUnits<1||maxStockUnits>1000000000L||maxExternalPerEvent<0||maxExternalPerEvent>1000000000L||heatCapacity<1||heatCapacity>1000000||coolingDivisor<1||damageTemperature<0||damageTemperature>1000000000L||maximumDamage>1000000000000000L||maximumDamage<1||burstPressure<1||controlNoise<0||controlNoise>10000)throw new IllegalArgumentException("Invalid limits");}
+        public Limits {if(maxRules<1||maxRules>128||maxSteps<1||maxSteps>1000000||maxExtent<1||maxExtent>1000000||maxEvents<1||maxEvents>1024||maxStockUnits<1||maxStockUnits>1000000000L||maxExternalPerEvent<0||maxExternalPerEvent>1000000000L||heatCapacity<1||heatCapacity>1000000||coolingDivisor<1||damageTemperature<0||damageTemperature>1000000000L||maximumDamage>1000000000000000L||maximumDamage<1||burstPressure<1||controlNoise<0||controlNoise>10000)throw new IllegalArgumentException("Invalid limits");}
     }
     public final String version,hash;
     public final Map<String,Resource> resources;

@@ -580,6 +580,7 @@ if (project.hasProperty('v5BatchCapture')) {
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', file('build/createSrgToMcp/output.srg').absolutePath
             property 'wuxingxiantu.v5Resume', project.hasProperty('v5BatchResume').toString()
+            property 'wuxingxiantu.v5Incidents', project.hasProperty('v5IncidentCapture').toString()
             property 'wuxingxiantu.v5Output', project.file('../v5-batch-client-validation').absolutePath
             mods { wuxingxiantu { source sourceSets.main; source sourceSets.v5ClientTest } }
         }
