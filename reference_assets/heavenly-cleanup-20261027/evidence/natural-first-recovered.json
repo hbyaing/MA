@@ -1,0 +1,202 @@
+{
+  "world": "myriad-worldgen-1793068972472",
+  "seed": 7215,
+  "normalTerrain": true,
+  "externalShadersRequested": false,
+  "generationMutations": "No offer/register/setBlock or direct entity construction; normal chunk generation and NaturalSpawner only",
+  "runtimeImportedHerbFeatures": [
+    "herb_duzhen",
+    "herb_fengling",
+    "herb_hanbing",
+    "herb_huanling",
+    "herb_huayuan",
+    "herb_huichun",
+    "herb_jifeng",
+    "herb_jingang",
+    "herb_juling",
+    "herb_leiteng",
+    "herb_lieyang",
+    "herb_lingdao",
+    "herb_lingzhi",
+    "herb_pozhang",
+    "herb_tianji",
+    "herb_xingchen",
+    "herb_xisui",
+    "herb_yanjia"
+  ],
+  "runtimeBoarHabitatWeights": [
+    {
+      "kingWeight": 1,
+      "biome": "minecraft:plains",
+      "boarWeight": 5
+    },
+    {
+      "kingWeight": 1,
+      "biome": "minecraft:meadow",
+      "boarWeight": 5
+    },
+    {
+      "kingWeight": 1,
+      "biome": "minecraft:birch_forest",
+      "boarWeight": 5
+    },
+    {
+      "kingWeight": 1,
+      "biome": "minecraft:savanna",
+      "boarWeight": 5
+    },
+    {
+      "kingWeight": 1,
+      "biome": "minecraft:forest",
+      "boarWeight": 5
+    }
+  ],
+  "forestLocation": {
+    "y": 64,
+    "z": 80,
+    "x": 128
+  },
+  "candidateNeighborhoods": 12,
+  "explicitNaturalChunksRequested": 112,
+  "naturalSpawnAttemptSite": {
+    "y": 71,
+    "z": 80,
+    "x": 128
+  },
+  "observedWildPlantCount": 1,
+  "observedImportedHerb": true,
+  "observedVein": true,
+  "naturalHerbsBeforeReload": [
+    {
+      "position": 30511447982147,
+      "block": "wuxingxiantu:herb_fengling",
+      "state": "Block{wuxingxiantu:herb_fengling}[age\u003d1,waterlogged\u003dfalse]",
+      "years": 1445
+    }
+  ],
+  "importedHerbSpeciesNotWitnessed": [
+    "wuxingxiantu:herb_duzhen",
+    "wuxingxiantu:herb_hanbing",
+    "wuxingxiantu:herb_huanling",
+    "wuxingxiantu:herb_huayuan",
+    "wuxingxiantu:herb_huichun",
+    "wuxingxiantu:herb_jifeng",
+    "wuxingxiantu:herb_jingang",
+    "wuxingxiantu:herb_juling",
+    "wuxingxiantu:herb_leiteng",
+    "wuxingxiantu:herb_lieyang",
+    "wuxingxiantu:herb_lingdao",
+    "wuxingxiantu:herb_lingzhi",
+    "wuxingxiantu:herb_pozhang",
+    "wuxingxiantu:herb_tianji",
+    "wuxingxiantu:herb_xingchen",
+    "wuxingxiantu:herb_xisui",
+    "wuxingxiantu:herb_yanjia"
+  ],
+  "naturalVeinsBeforeReload": [
+    {
+      "chunk": 42949672970,
+      "grade": 2,
+      "center": 46729244876785,
+      "count": 96,
+      "aura": 45,
+      "oreCounts": {
+        "wuxingxiantu:spirit_vein_ore": 96
+      }
+    },
+    {
+      "chunk": 17179869191,
+      "grade": 1,
+      "center": 28312424701938,
+      "count": 79,
+      "aura": 28,
+      "oreCounts": {
+        "wuxingxiantu:spirit_vein_ore": 79
+      }
+    },
+    {
+      "chunk": 30064771076,
+      "grade": 2,
+      "center": 25563645820900,
+      "count": 100,
+      "aura": 45,
+      "oreCounts": {
+        "wuxingxiantu:spirit_vein_ore": 100
+      }
+    },
+    {
+      "chunk": 17179869185,
+      "grade": 1,
+      "center": 6597070077953,
+      "count": 67,
+      "aura": 28,
+      "oreCounts": {
+        "wuxingxiantu:spirit_vein_ore": 67
+      }
+    },
+    {
+      "chunk": -21474836479,
+      "grade": 2,
+      "center": 6322191527892,
+      "count": 96,
+      "aura": 45,
+      "oreCounts": {
+        "wuxingxiantu:spirit_vein_ore": 96
+      }
+    },
+    {
+      "chunk": 4294967303,
+      "grade": 2,
+      "center": 30511447810016,
+      "count": 126,
+      "aura": 45,
+      "oreCounts": {
+        "wuxingxiantu:spirit_vein_ore": 126
+      }
+    },
+    {
+      "chunk": 42949672973,
+      "grade": 2,
+      "center": 53601192484855,
+      "count": 96,
+      "aura": 45,
+      "oreCounts": {
+        "wuxingxiantu:spirit_vein_ore": 96
+      }
+    },
+    {
+      "chunk": 47244640254,
+      "grade": 1,
+      "center": -12369505161244,
+      "count": 79,
+      "aura": 28,
+      "oreCounts": {
+        "wuxingxiantu:spirit_vein_ore": 79
+      }
+    }
+  ],
+  "naturalBoarUUIDsObserved": [
+    "2a3ba68b-cddd-44bb-9ccd-5e62636b1e2b"
+  ],
+  "explicitNaturalSpawnAttempts": 512,
+  "boarNaturalSpawnStatus": "WITNESSED through production NaturalSpawner; no direct entity construction",
+  "regionsBeforeReload": 2,
+  "herbNaturalGenerationPassed": true,
+  "veinNaturalGenerationPassed": true,
+  "savedToDisk": true,
+  "diskReloadPassed": true,
+  "reloadHerbsChecked": 1,
+  "reloadVeinsChecked": 8,
+  "reloadBoarsStillPresent": [],
+  "reloadScope": "Exact plant states and ages, wild provenance, vein grade/center/count, connected actual ores, aura, attempted and pending guards; unwitnessed species are listed separately",
+  "elapsedSeconds": 416,
+  "pointerSafety": {
+    "cursorMode": 212993,
+    "blockedGrabs": 2,
+    "passed": true,
+    "captureViolations": 0,
+    "checkedFrames": 12703
+  },
+  "failures": [],
+  "complete": true
+}
