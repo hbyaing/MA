@@ -1,6 +1,8 @@
 {
   "type": "forge:add_features",
-  "biomes": "#wuxingxiantu:vein_mending_vine_habitat",
-  "features": ["wuxingxiantu:vein_mending_vine"],
+  "biomes": "#wuxingxiantu:plant_habitats/vein_mending_vine",
+  "features": [
+    "wuxingxiantu:vein_mending_vine"
+  ],
   "step": "vegetal_decoration"
 }

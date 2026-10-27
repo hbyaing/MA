@@ -1,11 +1,18 @@
 {
   "type": "wuxingxiantu:spirit_plant",
   "config": {
-    "place": { "state": { "Name": "wuxingxiantu:red_sun_grass" } },
+    "place": {
+      "state": {
+        "Name": "wuxingxiantu:red_sun_grass"
+      }
+    },
     "rule": "SURFACE_SOIL",
     "retries": 6,
     "xz_spread": 7,
     "y_range": 6,
-    "random_age": true
+    "random_age": true,
+    "biome_tag": "wuxingxiantu:plant_habitats/red_sun_grass",
+    "min_y": -64,
+    "open_sky": false
   }
 }

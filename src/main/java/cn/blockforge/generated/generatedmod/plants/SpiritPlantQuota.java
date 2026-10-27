@@ -14,9 +14,7 @@ public final class SpiritPlantQuota {
             WildRarity rarity=entry.getValue();
             // A special plant never leaks into an overworld region, even with a custom feature.
             if(end != (rarity==WildRarity.SPECIAL))continue;
-            double chance=switch(rarity) {
-                case COMMON -> .60; case UNCOMMON -> .25; case RARE -> .08; case VERY_RARE -> .02; case SPECIAL -> 1;
-            };
+            double chance=SpiritPlantEcology.chance(entry.getKey(),rarity);
             if(random.nextDouble()>=chance)continue;
             if(rarity==WildRarity.RARE||rarity==WildRarity.VERY_RARE)rare.add(entry.getKey());
             else ordinary.add(entry.getKey());

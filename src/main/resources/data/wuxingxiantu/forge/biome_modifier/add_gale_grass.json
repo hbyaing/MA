@@ -1,8 +1,8 @@
 {
   "type": "forge:add_features",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": "#wuxingxiantu:plant_habitats/gale_grass",
   "features": [
-    "wuxingxiantu:spirit_sprout_grass"
+    "wuxingxiantu:gale_grass"
   ],
   "step": "vegetal_decoration"
 }

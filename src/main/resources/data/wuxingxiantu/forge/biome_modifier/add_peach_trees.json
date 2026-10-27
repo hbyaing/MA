@@ -1,6 +1,12 @@
 {
   "type": "forge:add_features",
-  "biomes": "#minecraft:is_forest",
+  "biomes": [
+    "minecraft:forest",
+    "minecraft:flower_forest",
+    "minecraft:birch_forest",
+    "minecraft:cherry_grove",
+    "minecraft:meadow"
+  ],
   "features": "wuxingxiantu:peach_tree",
   "step": "vegetal_decoration"
 }

@@ -23,7 +23,7 @@ public final class HeavenlyFurnaceScreen extends Screen {
     private int page,selected=-1,left,top,boxWidth,boxHeight,listWidth,visible;
     private EditBox search;
     private float uiScale=1;
-    private final List<SenseFurnaceArt.Button> categories=new ArrayList<>();
+    private final List<HeavenlyFurnaceArt.Button> categories=new ArrayList<>();
     private Button start,previous,next;
     private final int[] auxiliarySlots={-1,-1,-1};
     private final List<InkButton> auxiliaryButtons=new ArrayList<>();
@@ -37,18 +37,18 @@ public final class HeavenlyFurnaceScreen extends Screen {
         uiScale=Math.min(1f,Math.min((width-12f)/boxWidth,(height-18f)/boxHeight));width=(int)(width/uiScale);height=(int)(height/uiScale);
         left=(width-boxWidth)/2;top=(height-boxHeight)/2;
         search=new ForgedSearchBox(font,left+34,top+38,81,18,Component.literal("搜索丹药 / 器物"));search.setHint(Component.literal("搜索丹药 / 器物"));search.setTextColor(CultivationUi.TEXT);search.setMaxLength(60);search.setValue(query);search.setResponder(v->filterRows());addRenderableWidget(search);
-        String[] tabs={"全部","炼丹","炼器"};for(int i=0;i<3;i++){final int value=i-1;var button=new SenseFurnaceArt.Button(left+132+i*74,top+38,70,18,tabs[i],b->{mode=value;filterRows();});categories.add(addRenderableWidget(button));}
-        previous=addRenderableWidget(new SenseFurnaceArt.Button(left+14,top+254,22,20,"上一页","previous",b->{page=Math.max(0,page-1);rebuildRows();}));
-        next=addRenderableWidget(new SenseFurnaceArt.Button(left+98,top+254,22,20,"下一页","next",b->{page=Math.min(Math.max(0,(filtered.size()-1)/visible),page+1);rebuildRows();}));
-        start=addRenderableWidget(new SenseFurnaceArt.Button(left+132,top+254,164,20,"造化开炉",b->{if(selected>=0&&selected<filtered.size()){var row=filtered.get(selected);updateAuxiliaryButtons();Network.CHANNEL.sendToServer(new HeavenlyFurnaceStartPacket(token,new ResourceLocation(row.getString("Recipe")),alchemySelected()?auxiliarySlots:new int[]{-1,-1,-1}));minecraft.setScreen(null);}}));
-        addRenderableWidget(new SenseFurnaceArt.Button(left+302,top+254,50,20,"返回",b->onClose()));
-        for(int i=0;i<3;i++){final int role=i;auxiliaryButtons.add(addRenderableWidget(new SenseFurnaceArt.Button(left+132+i*74,top+225,70,25,"不选",b->cycleAuxiliary(role)){
+        String[] tabs={"全部","炼丹","炼器"};for(int i=0;i<3;i++){final int value=i-1;var button=new HeavenlyFurnaceArt.Button(left+132+i*74,top+38,70,18,tabs[i],b->{mode=value;filterRows();});categories.add(addRenderableWidget(button));}
+        previous=addRenderableWidget(new HeavenlyFurnaceArt.Button(left+14,top+254,22,20,"上一页","previous",b->{page=Math.max(0,page-1);rebuildRows();}));
+        next=addRenderableWidget(new HeavenlyFurnaceArt.Button(left+98,top+254,22,20,"下一页","next",b->{page=Math.min(Math.max(0,(filtered.size()-1)/visible),page+1);rebuildRows();}));
+        start=addRenderableWidget(new HeavenlyFurnaceArt.Button(left+132,top+254,164,20,"造化开炉",b->{if(selected>=0&&selected<filtered.size()){var row=filtered.get(selected);updateAuxiliaryButtons();Network.CHANNEL.sendToServer(new HeavenlyFurnaceStartPacket(token,new ResourceLocation(row.getString("Recipe")),alchemySelected()?auxiliarySlots:new int[]{-1,-1,-1}));minecraft.setScreen(null);}}));
+        addRenderableWidget(new HeavenlyFurnaceArt.Button(left+302,top+254,50,20,"返回",b->onClose()));
+        for(int i=0;i<3;i++){final int role=i;auxiliaryButtons.add(addRenderableWidget(new HeavenlyFurnaceArt.Button(left+132+i*74,top+225,70,25,"不选",b->cycleAuxiliary(role)){
             @Override protected void renderWidget(GuiGraphics g,int mx,int my,float partial){
-                float tint=!active?.5f:isHoveredOrFocused()?1f:.73f;g.setColor(tint,tint,tint,1);SenseFurnaceArt.frame(g,"button",getX(),getY(),getWidth(),getHeight());g.setColor(1,1,1,1);
-                g.drawCenteredString(font,Component.translatable(roleKey(role)),getX()+getWidth()/2,getY()+3,CultivationUi.GOLD);
+                float tint=!active?.5f:isHoveredOrFocused()?1f:.73f;g.setColor(tint,tint,tint,1);HeavenlyFurnaceArt.frame(g,"button",getX(),getY(),getWidth(),getHeight());g.setColor(1,1,1,1);
+                HeavenlyFurnaceArt.centered(g,font,Component.translatable(roleKey(role)),getX()+getWidth()/2,getY()+3,CultivationUi.GOLD);
                 String value=getMessage().getString();int slot=auxiliarySlots[role];
                 if(slot>=0&&minecraft!=null&&minecraft.player!=null){var herb=minecraft.player.getInventory().getItem(slot);String age=HerbAge.years(herb)+"年";value=font.plainSubstrByWidth(herb.getHoverName().getString(),Math.max(9,getWidth()-8-font.width(age)))+age;}
-                g.drawCenteredString(font,value,getX()+getWidth()/2,getY()+14,active?CultivationUi.TEXT:CultivationUi.MUTED);
+                HeavenlyFurnaceArt.centered(g,font,value,getX()+getWidth()/2,getY()+14,active?CultivationUi.TEXT:CultivationUi.MUTED);
             }
         }));}
         rebuildRows();
@@ -63,8 +63,8 @@ public final class HeavenlyFurnaceScreen extends Screen {
             label.withStyle(s->s.withColor(row.getString("Reason").isEmpty()?0xC8EBD9:0xAAA496));
             choices.add(addRenderableWidget(new InkButton(left+14,top+62+line*30,106,28,label,b->{selected=index;start.active=row.getString("Reason").isEmpty();updateAuxiliaryButtons();}){
                 @Override protected void renderWidget(GuiGraphics g,int mx,int my,float delta){
-                    boolean chosen=selected==index;float tint=chosen||isHoveredOrFocused()?1f:.68f;g.setColor(tint,tint,tint,1);SenseFurnaceArt.frame(g,chosen?"selected":"row",getX(),getY(),getWidth(),getHeight());g.setColor(1,1,1,1);
-                    SenseFurnaceArt.frame(g,"slot",getX()+4,getY()+4,20,20);g.renderItem(ItemStack.of(row.getCompound("Result")),getX()+6,getY()+6);
+                    boolean chosen=selected==index;float tint=chosen||isHoveredOrFocused()?1f:.68f;g.setColor(tint,tint,tint,1);HeavenlyFurnaceArt.frame(g,chosen?"selected":"row",getX(),getY(),getWidth(),getHeight());g.setColor(1,1,1,1);
+                    HeavenlyFurnaceArt.frame(g,"slot",getX()+4,getY()+4,20,20);g.renderItem(ItemStack.of(row.getCompound("Result")),getX()+6,getY()+6);
                     g.drawString(font,font.plainSubstrByWidth(name(row),74),getX()+28,getY()+6,row.getString("Reason").isEmpty()?CultivationUi.TEXT:CultivationUi.MUTED,false);
                     g.drawString(font,row.getString("Mode").equals("refining")?"器方":"丹方",getX()+28,getY()+17,CultivationUi.MUTED,false);
                 }
@@ -114,13 +114,14 @@ public final class HeavenlyFurnaceScreen extends Screen {
         int screenX=mx,screenY=my;ItemStack hoveredMaterial=ItemStack.EMPTY;
         g.pose().pushPose();g.pose().scale(uiScale,uiScale,1);mx=(int)(mx/uiScale);my=(int)(my/uiScale);
         try{
-            renderBackground(g);SenseFurnaceArt.frame(g,"frame",left,top,boxWidth,boxHeight);
-            g.drawCenteredString(font,"天地为炉",left+180,top+10,CultivationUi.GOLD);g.drawCenteredString(font,"炼丹 / 炼器",left+180,top+24,CultivationUi.MUTED);
+            renderBackground(g);HeavenlyFurnaceArt.frame(g,"frame",left,top,boxWidth,boxHeight);
+            HeavenlyFurnaceArt.centered(g,font,"天地为炉",left+180,top+10,CultivationUi.GOLD);HeavenlyFurnaceArt.centered(g,font,"炼丹 / 炼器",left+180,top+24,CultivationUi.MUTED);
             for(int i=0;i<categories.size();i++)categories.get(i).chosen=mode==i-1;
-            ForgedUi.search(g,left+14,top+38,106,18);
+            HeavenlyFurnaceArt.frame(g,"search",left+14,top+38,106,18);
+            HeavenlyFurnaceArt.icon(g,"search_icon",left+21,top+41,9);
             int x=left+132,y=top+62,w=220;
             if(selected>=0&&selected<filtered.size()){
-                boolean alchemy=alchemySelected();var row=filtered.get(selected);SenseFurnaceArt.frame(g,"panel",x,y,w,32);
+                boolean alchemy=alchemySelected();var row=filtered.get(selected);HeavenlyFurnaceArt.frame(g,"panel",x,y,w,32);
                 g.renderItem(ItemStack.of(row.getCompound("Result")),x+9,y+8);
                 g.drawString(font,font.plainSubstrByWidth(name(row),w-40),x+34,y+5,CultivationUi.TEXT,false);
                 g.drawString(font,alchemy?"万物为铜 · 丹方":"万物为铜 · 器方",x+34,y+19,CultivationUi.MUTED,false);
@@ -130,24 +131,24 @@ public final class HeavenlyFurnaceScreen extends Screen {
                 g.drawString(font,"炼制用材",x,top+134,CultivationUi.GOLD,false);
                 var ingredients=row.getList("Ingredients",Tag.TAG_COMPOUND);int columns=8;
                 for(int i=0;i<ingredients.size();i++){var item=ItemStack.of(ingredients.getCompound(i));int sx=x+(i%columns)*27,sy=top+148+(i/columns)*21;
-                    SenseFurnaceArt.frame(g,"slot",sx-1,sy-1,20,20);g.renderItem(item,sx+1,sy+1);g.renderItemDecorations(font,item,sx+1,sy+1);
+                    HeavenlyFurnaceArt.frame(g,"slot",sx-1,sy-1,20,20);g.renderItem(item,sx+1,sy+1);g.renderItemDecorations(font,item,sx+1,sy+1);
                     if(mx>=sx&&mx<sx+18&&my>=sy&&my<sy+18)hoveredMaterial=item;
                 }
                 int reasonY=top+148+Math.max(1,(ingredients.size()+columns-1)/columns)*21+4;
                 String reason=row.getString("Reason");g.drawWordWrap(font,Component.literal(reason.isEmpty()?"材料齐备 · 可开炉":reason),x,reasonY,w,reason.isEmpty()?0x9DD2AE:0xED9E8B);
                 if(alchemy)g.drawString(font,"副药可选 · 每项1株",x,top+212,CultivationUi.MUTED,false);
-                else {String[] flow={"万物入炉","阴阳熔炼","造化铸器"};for(int i=0;i<3;i++){SenseFurnaceArt.frame(g,"panel",x+i*74,top+225,70,25);g.drawCenteredString(font,flow[i],x+i*74+35,top+233,CultivationUi.GOLD);}}
+                else {String[] flow={"万物入炉","阴阳熔炼","造化铸器"};for(int i=0;i<3;i++){HeavenlyFurnaceArt.frame(g,"panel",x+i*74,top+225,70,25);HeavenlyFurnaceArt.centered(g,font,flow[i],x+i*74+35,top+233,CultivationUi.GOLD);}}
             }else{
-                SenseFurnaceArt.frame(g,"panel",x,y,w,188);g.drawCenteredString(font,"未找到配方",x+w/2,y+65,CultivationUi.GOLD);
+                HeavenlyFurnaceArt.frame(g,"panel",x,y,w,188);HeavenlyFurnaceArt.centered(g,font,"未找到配方",x+w/2,y+65,CultivationUi.GOLD);
                 g.drawWordWrap(font,Component.literal("更换分类或搜索词，查看已掌握的丹方与器方。"),x+14,y+89,w-28,CultivationUi.MUTED);
             }
-            g.drawCenteredString(font,(page+1)+" / "+Math.max(1,(filtered.size()+visible-1)/visible),left+67,top+260,CultivationUi.MUTED);
+            HeavenlyFurnaceArt.centered(g,font,(page+1)+" / "+Math.max(1,(filtered.size()+visible-1)/visible),left+67,top+260,CultivationUi.MUTED);
             super.render(g,mx,my,partial);
-        }finally{g.pose().popPose();}
+        }finally{g.flush();g.pose().popPose();}
         if(!hoveredMaterial.isEmpty())g.renderTooltip(font,hoveredMaterial,screenX,screenY);
     }
     private void stat(GuiGraphics g,int x,int y,int w,String label,String value,int color){
-        SenseFurnaceArt.frame(g,"panel",x,y,w,27);g.drawCenteredString(font,label,x+w/2,y+3,CultivationUi.MUTED);g.drawCenteredString(font,value,x+w/2,y+15,color);
+        HeavenlyFurnaceArt.frame(g,"panel",x,y,w,27);HeavenlyFurnaceArt.centered(g,font,label,x+w/2,y+3,CultivationUi.MUTED);HeavenlyFurnaceArt.centered(g,font,value,x+w/2,y+15,color);
     }
     @Override public boolean mouseClicked(double x,double y,int b){return super.mouseClicked(x/uiScale,y/uiScale,b);}
     @Override public boolean mouseReleased(double x,double y,int b){return super.mouseReleased(x/uiScale,y/uiScale,b);}

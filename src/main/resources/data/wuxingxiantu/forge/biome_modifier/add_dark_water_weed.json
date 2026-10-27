@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#wuxingxiantu:plant_habitats/dark_water_weed",
+  "features": [
+    "wuxingxiantu:dark_water_weed"
+  ],
+  "step": "vegetal_decoration"
+}

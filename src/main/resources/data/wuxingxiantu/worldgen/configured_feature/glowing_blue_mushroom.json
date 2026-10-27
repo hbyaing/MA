@@ -1,11 +1,18 @@
 {
   "type": "wuxingxiantu:spirit_plant",
   "config": {
-    "place": { "state": { "Name": "wuxingxiantu:glowing_blue_mushroom" } },
+    "place": {
+      "state": {
+        "Name": "wuxingxiantu:glowing_blue_mushroom"
+      }
+    },
     "rule": "CAVE_FLOOR",
     "retries": 8,
     "xz_spread": 7,
     "y_range": 12,
-    "random_age": true
+    "random_age": true,
+    "biome_tag": "wuxingxiantu:plant_habitats/glowing_blue_mushroom",
+    "min_y": -64,
+    "open_sky": false
   }
 }

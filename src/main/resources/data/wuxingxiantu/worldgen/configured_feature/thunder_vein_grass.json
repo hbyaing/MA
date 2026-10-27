@@ -1,10 +1,14 @@
 {
   "type": "wuxingxiantu:spirit_plant",
   "config": {
-    "place": { "state": { "Name": "wuxingxiantu:thunder_vein_grass" } },
+    "place": {
+      "state": {
+        "Name": "wuxingxiantu:thunder_vein_grass"
+      }
+    },
     "rule": "SURFACE_HIGHLAND",
-    "biome_tag": "wuxingxiantu:highland_spirit_plants",
-    "min_y": 120,
+    "biome_tag": "wuxingxiantu:plant_habitats/thunder_vein_grass",
+    "min_y": 96,
     "open_sky": true,
     "retries": 4,
     "xz_spread": 7,

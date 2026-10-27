@@ -11,7 +11,8 @@
     "xz_spread": 7,
     "y_range": 6,
     "random_age": true,
-    "min_y": 96,
-    "open_sky": true
+    "min_y": 112,
+    "open_sky": true,
+    "biome_tag": "wuxingxiantu:plant_habitats/herb_tianji"
   }
 }

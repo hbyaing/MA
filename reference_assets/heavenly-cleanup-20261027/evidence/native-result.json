@@ -1,0 +1,225 @@
+{
+  "extraCases": [
+    "heavenly-aux-focus",
+    "heavenly-aux-disabled"
+  ],
+  "fixture": "Mock data for layout; real gameplay tested separately",
+  "cases": [
+    "heavenly-normal",
+    "heavenly-hover",
+    "heavenly-disabled",
+    "heavenly-focus",
+    "heavenly-search",
+    "heavenly-scale3",
+    "heavenly-scale4",
+    "heavenly-refining",
+    "heavenly-aux-chosen",
+    "heavenly-page2",
+    "heavenly-no-match",
+    "heavenly-many-materials",
+    "sense-normal",
+    "sense-hover",
+    "sense-closed",
+    "sense-focus",
+    "sense-channel",
+    "sense-scale3",
+    "sense-scale4",
+    "sense-locked",
+    "sense-low-power",
+    "sense-narrow",
+    "sense-survey",
+    "sense-cooldown"
+  ],
+  "passed": true,
+  "scales": [
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "heavenly-normal"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "heavenly-hover"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "heavenly-disabled"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "heavenly-focus"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "heavenly-search"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 3.0,
+      "configuredGuiScale": 3,
+      "case": "heavenly-scale3"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 4.0,
+      "configuredGuiScale": 4,
+      "case": "heavenly-scale4"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "heavenly-refining"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "heavenly-aux-chosen"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "heavenly-aux-chosen"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "heavenly-aux-chosen"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "heavenly-page2"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "heavenly-no-match"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "heavenly-many-materials"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "sense-normal"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "sense-hover"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "sense-closed"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "sense-focus"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "sense-channel"
+    },
+    {
+      "width": 2400,
+      "height": 1421,
+      "actualGuiScale": 3.0,
+      "configuredGuiScale": 3,
+      "case": "sense-scale3"
+    },
+    {
+      "width": 2564,
+      "height": 1421,
+      "actualGuiScale": 3.0,
+      "configuredGuiScale": 4,
+      "case": "sense-scale4"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "sense-locked"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "sense-low-power"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "sense-narrow"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "sense-survey"
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "actualGuiScale": 2.0,
+      "configuredGuiScale": 2,
+      "case": "sense-cooldown"
+    }
+  ],
+  "pointer": {
+    "passed": true,
+    "captureViolations": 0,
+    "checkedFrames": 2057,
+    "cursorMode": 212993,
+    "blockedGrabs": 27
+  }
+}

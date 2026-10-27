@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#wuxingxiantu:plant_habitats/starlight_flower",
+  "features": [
+    "wuxingxiantu:starlight_flower"
+  ],
+  "step": "vegetal_decoration"
+}

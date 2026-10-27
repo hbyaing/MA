@@ -1,10 +1,14 @@
 {
   "type": "wuxingxiantu:spirit_plant",
   "config": {
-    "place": { "state": { "Name": "wuxingxiantu:starlight_flower" } },
+    "place": {
+      "state": {
+        "Name": "wuxingxiantu:starlight_flower"
+      }
+    },
     "rule": "SURFACE_HIGHLAND",
-    "biome_tag": "wuxingxiantu:highland_spirit_plants",
-    "min_y": 160,
+    "biome_tag": "wuxingxiantu:plant_habitats/starlight_flower",
+    "min_y": 96,
     "open_sky": true,
     "retries": 1,
     "xz_spread": 7,
