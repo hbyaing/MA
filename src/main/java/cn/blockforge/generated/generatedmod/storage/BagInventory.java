@@ -19,18 +19,15 @@ public final class BagInventory {
     public static final class Entry {
         private final ItemStack base;
         private final boolean herb;
-        private final int grade;
         private long count;
         private final TreeMap<Integer,Long> years = new TreeMap<>();
         private Entry(ItemStack source) {
             base = key(source);
             herb = HerbAge.definition(source) != null;
-            grade = herb ? HerbAge.effectiveTier(source) : 0;
         }
         public long total() { return count; }
         public boolean matches(ItemStack source) {
-            return !source.isEmpty() && grade == (HerbAge.definition(source) == null ? 0 : HerbAge.effectiveTier(source))
-                    && ItemStack.isSameItemSameTags(base,key(source));
+            return !source.isEmpty() && ItemStack.isSameItemSameTags(base,key(source));
         }
         private boolean add(ItemStack source,long quantity) {
             if (quantity<=0 || count>Long.MAX_VALUE-quantity) return false;
@@ -63,7 +60,7 @@ public final class BagInventory {
             if (herb) {long remaining = years.get(year)-amount;if (remaining==0) years.remove(year); else years.put(year,remaining);}
         }
         private CompoundTag save() {
-            var tag = new CompoundTag(); tag.put("base",base.save(new CompoundTag())); tag.putInt("grade",grade);
+            var tag = new CompoundTag(); tag.put("base",base.save(new CompoundTag()));
             if (!herb) tag.putLong("count",count);
             else {
                 tag.putIntArray("years",years.keySet().stream().mapToInt(Integer::intValue).toArray());

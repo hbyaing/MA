@@ -13,7 +13,7 @@ public final class AlchemyObservationGameTests {
     private static String json(){try(var stream=AlchemyObservationGameTests.class.getResourceAsStream("/assets/wuxingxiantu/alchemy/observation.json")){return new String(stream.readAllBytes(),StandardCharsets.UTF_8);}catch(Exception e){throw new IllegalStateException(e);}}
     @GameTest(template="empty") public static void realMaterialsExposeYearsSourcesAndPresenceWithoutInventingStrength(GameTestHelper h){
         var defs=ObservationDefinitions.parse(json(),MaterialObservation.providers());var input=new SimpleContainer(8);
-        var herb=net.minecraft.core.registries.BuiltInRegistries.ITEM.get(new net.minecraft.resources.ResourceLocation("wuxingxiantu","spirit_sprout_grass"));
+        var herb=net.minecraft.core.registries.BuiltInRegistries.ITEM.get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("wuxingxiantu","spirit_sprout_grass"));
         var a=new ItemStack(herb,3);HerbAge.setYears(a,700);var b=new ItemStack(herb,2);HerbAge.setYears(b,1600);input.setItem(0,a);input.setItem(2,b);
         var before=a.save(new net.minecraft.nbt.CompoundTag());var snapshot=MaterialObservation.read(input,8,defs);
         h.assertTrue(MaterialObservation.value("item_count",snapshot)==5&&MaterialObservation.value("occupied_slots",snapshot)==2,"Quantity/occupancy mismatch");

@@ -208,8 +208,8 @@
       "sourceEvidence": "item/HerbItem.java",
       "targetEvidence": "plants/SpiritPlantCatalog.java",
       "status": "confirmed",
-      "decision": "加入来源18种草药与药龄；保留五行物种、生境、药性、培养条件；久放不自动升级，高阶药龄需要灵地与培养。",
-      "implementation": "18 种药材、药龄及环境上限已接入；自然生境体验待实测",
+      "decision": "2026-10-27用户更新：保留全部物种、生境、药性与培养条件，取消药材品阶及物种药龄品阶上限。创造栏每种仅一个0年模板，取入时服务端一次随机年份NBT；保留真实幼苗和已有年份。未来特殊先天灵根按有来源的设定声明最低年份。",
+      "implementation": "第04项接入连续药龄输入；去药材品阶、精简创造栏与储物袋占位。环境培养上限按年份保留；旧丹药结果尚未迁移。",
       "latestAcceptance": "pending current complete server/client acceptance"
     },
     {

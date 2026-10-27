@@ -22,7 +22,7 @@ public final class AlchemyMaterialTransfer {
             int[] used=new int[8];
             var bagOrder=new java.util.ArrayList<Integer>();for(int b=0;b<36;b++)bagOrder.add(b);
             boolean ranked=cn.blockforge.generated.generatedmod.alchemy.MedicineTier.explicit(recipe.getResultItem(net.minecraft.core.RegistryAccess.EMPTY));
-            if(ranked){var originalBag=bag;bagOrder.sort(java.util.Comparator.comparingInt(b->cn.blockforge.generated.generatedmod.plants.HerbAge.effectiveTier(originalBag[b])));}
+            if(ranked){var originalBag=bag;bagOrder.sort(java.util.Comparator.comparingInt(b->cn.blockforge.generated.generatedmod.plants.HerbAge.years(originalBag[b])));}
             for(int i=0;i<recipe.getIngredients().size();i++) {
                 var ingredient=recipe.getIngredients().get(i);int needed=recipe.counts().get(i);
                 for(int s=0;s<8&&needed>0;s++)if(ingredient.test(slots[s])) {
@@ -62,14 +62,14 @@ public final class AlchemyMaterialTransfer {
         int[] allocated=recipe.tryIngredientReservation(new net.minecraft.world.SimpleContainer(slots)).orElse(null);
         if(allocated==null)return new GuideSwap(Result.MISSING,null,null);
         var order=new java.util.ArrayList<Integer>();for(int b=0;b<bag.length;b++)order.add(b);
-        order.sort(java.util.Comparator.comparingInt(b->cn.blockforge.generated.generatedmod.plants.HerbAge.effectiveTier(bag[b])));
+        order.sort(java.util.Comparator.comparingInt(b->cn.blockforge.generated.generatedmod.plants.HerbAge.years(bag[b])));
         boolean inventoryFull=false,slotsFull=false;
         for(int b:order) {
-            if(bag[b].isEmpty()||cn.blockforge.generated.generatedmod.plants.HerbAge.effectiveTier(bag[b])<rank)continue;
+            if(bag[b].isEmpty()||cn.blockforge.generated.generatedmod.plants.HerbAge.years(bag[b])<cn.blockforge.generated.generatedmod.plants.HerbAge.legacyMinimumYears(rank))continue;
             for(var ingredient:recipe.getIngredients()) {
                 if(!ingredient.test(bag[b]))continue;
                 for(int slot=0;slot<slots.length;slot++) {
-                    if(allocated[slot]<=0||!ingredient.test(slots[slot])||cn.blockforge.generated.generatedmod.plants.HerbAge.effectiveTier(slots[slot])>=rank)continue;
+                    if(allocated[slot]<=0||!ingredient.test(slots[slot])||cn.blockforge.generated.generatedmod.plants.HerbAge.years(slots[slot])>=cn.blockforge.generated.generatedmod.plants.HerbAge.legacyMinimumYears(rank))continue;
                     var nextBag=copy(bag);var nextSlots=copy(slots);
                     var guide=nextBag[b].split(1);var returned=nextSlots[slot].split(1);
                     if(!insert(nextBag,returned,null)){inventoryFull=true;continue;}

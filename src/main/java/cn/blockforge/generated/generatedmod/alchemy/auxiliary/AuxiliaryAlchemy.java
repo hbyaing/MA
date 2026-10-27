@@ -49,7 +49,7 @@ public final class AuxiliaryAlchemy {
         int[] selected={-1,-1,-1};
         for(int slot=0;slot<Math.min(8,Math.min(base.length,container.getContainerSize()));slot++){
             var role=role(container.getItem(slot));
-            if(base[slot]==0&&role!=null&&selected[role.ordinal()]<0&&HerbAge.effectiveTier(container.getItem(slot))>0)selected[role.ordinal()]=slot;
+            if(base[slot]==0&&role!=null&&selected[role.ordinal()]<0&&HerbAge.legacyEffectBand(container.getItem(slot))>0)selected[role.ordinal()]=slot;
         }
         return allocate(container,base,selected);
     }
@@ -59,7 +59,7 @@ public final class AuxiliaryAlchemy {
         int[] counts=base.clone();var used=new HashSet<Integer>();var inputs=new ArrayList<Input>();
         for(var role:Role.values()){
             int slot=selected[role.ordinal()];if(slot==-1)continue;
-            if(slot<0||slot>=base.length||base[slot]!=0||!used.add(slot)||role(container.getItem(slot))!=role||HerbAge.effectiveTier(container.getItem(slot))<1)
+            if(slot<0||slot>=base.length||base[slot]!=0||!used.add(slot)||role(container.getItem(slot))!=role||HerbAge.legacyEffectBand(container.getItem(slot))<1)
                 throw new IllegalArgumentException("Auxiliary choice is missing, reserved, repeated, unaged, or in the wrong role");
             counts[slot]=1;inputs.add(new Input(role,container.getItem(slot).copyWithCount(1)));
         }
@@ -71,7 +71,7 @@ public final class AuxiliaryAlchemy {
         public Plan(List<Input> inputs){
             var accepted=new ArrayList<Input>();var roles=EnumSet.noneOf(Role.class);
             for(var input:inputs){
-                var h=herb(input.paid);if(accepted.size()>=3||h==null||h.role!=input.role||!roles.add(input.role)||HerbAge.effectiveTier(input.paid)<1)continue;
+                var h=herb(input.paid);if(accepted.size()>=3||h==null||h.role!=input.role||!roles.add(input.role)||HerbAge.legacyEffectBand(input.paid)<1)continue;
                 accepted.add(new Input(input.role,input.paid.copyWithCount(1)));
             }this.inputs=List.copyOf(accepted);
         }
@@ -80,7 +80,7 @@ public final class AuxiliaryAlchemy {
         public List<Injection> injections(){
             var merged=new EnumMap<Essence,Injection>(Essence.class);
             for(var input:inputs){
-                var essence=herb(input.paid).essence;int tier=Math.max(1,Math.min(5,HerbAge.effectiveTier(input.paid)));
+                var essence=herb(input.paid).essence;int tier=Math.max(1,Math.min(5,HerbAge.legacyEffectBand(input.paid)));
                 double strength=input.role==Role.EFFECT?1:.5;
                 int duration=(int)Math.max(20,Math.min(7200,Math.round(essence.duration*(1+.5*(tier-1))*strength)));
                 int amplifier=essence.amplifier+(tier-1)/2;if(strength<1&&amplifier>0)amplifier--;
@@ -91,8 +91,8 @@ public final class AuxiliaryAlchemy {
         }
         public boolean clash(){var effects=injections().stream().map(Injection::essence).toList();return effects.contains(Essence.FROST)&&effects.contains(Essence.FLAME);}
         public boolean backlash(){var effects=injections().stream().map(Injection::essence).toList();return effects.contains(Essence.VENOM)&&!effects.contains(Essence.PURITY)&&!effects.contains(Essence.WOOD);}
-        public int successBonus(){int stability=0;for(var input:inputs)if(input.role==Role.CHANCE)stability=herb(input.paid).essence.stability*HerbAge.effectiveTier(input.paid);return Math.max(-12,Math.min(12,stability))-(clash()?8:0);}
-        public int extraOutput(){for(var input:inputs)if(input.role==Role.OUTPUT)return HerbAge.effectiveTier(input.paid)/2;return 0;}
+        public int successBonus(){int stability=0;for(var input:inputs)if(input.role==Role.CHANCE)stability=herb(input.paid).essence.stability*HerbAge.legacyEffectBand(input.paid);return Math.max(-12,Math.min(12,stability))-(clash()?8:0);}
+        public int extraOutput(){for(var input:inputs)if(input.role==Role.OUTPUT)return HerbAge.legacyEffectBand(input.paid)/2;return 0;}
         public CompoundTag save(){var tag=new CompoundTag();var list=new ListTag();for(var input:inputs){var n=new CompoundTag();n.putString("Role",input.role.name());n.put("Paid",input.paid.save(new CompoundTag()));list.add(n);}tag.put("Inputs",list);tag.putInt("Schema",1);return tag;}
         public static Plan load(CompoundTag tag){var inputs=new ArrayList<Input>();var rows=tag.getList("Inputs",Tag.TAG_COMPOUND);for(int i=0;i<Math.min(3,rows.size());i++){var n=rows.getCompound(i);try{inputs.add(new Input(Role.valueOf(n.getString("Role")),ItemStack.of(n.getCompound("Paid"))));}catch(IllegalArgumentException ignored){}}return new Plan(inputs);}
     }

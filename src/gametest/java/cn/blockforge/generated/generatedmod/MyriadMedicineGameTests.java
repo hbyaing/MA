@@ -56,7 +56,7 @@ public final class MyriadMedicineGameTests {
                 h.assertTrue(MedicineTier.of(copy.getResultItem(h.getLevel().registryAccess()))==tier,"Network stripped medicine rank");}finally{buf.release();}
         }
         var item=herb("herb_tianji",8500,1);
-        h.assertTrue(HerbAge.effectiveTier(item)==5&&HerbCultivationData.cultivationCap(HerbAge.definition(item),true,100)==5,"No species can reach immortal medicinal rank");h.succeed();
+        h.assertTrue(HerbAge.legacyEffectBand(item)==5&&HerbCultivationData.cultivationMaximumYears(HerbAge.definition(item),true,100)==10499,"No species can reach immortal medicinal rank");h.succeed();
     }
     @GameTest(template="empty")
     public static void originMedicineRequiresMeditationAndDoesNotCrossStages(GameTestHelper h){

@@ -72,7 +72,7 @@ public final class CompendiumSnapshot {
                 var herb=herbs.get(i);
                 if(i>start)page.append("\n\n");
                 page.append(named(herb.id).withStyle(ChatFormatting.BOLD)).append("\n");
-                page.append(text("herb_cap",herb.medicinalTierCap)).append("\n");
+                page.append(text("herb_years")).append("\n");
                 MutableComponent properties=Component.empty();
                 for(var property:herb.properties) {
                     if(!properties.getSiblings().isEmpty())properties.append("·");

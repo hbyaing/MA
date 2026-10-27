@@ -37,7 +37,7 @@ public final class SpiritBathBlockEntity extends BlockEntity {
     }
     public int averageGrade() {
         int sum=0,count=0;
-        for(var herb:herbs)if(!herb.isEmpty()) {sum+=Math.max(1,HerbAge.effectiveTier(herb));count++;}
+        for(var herb:herbs)if(!herb.isEmpty()) {sum+=Math.max(1,HerbAge.legacyEffectBand(herb));count++;}
         return count==0?1:Math.max(1,Math.min(5,Math.round((float)sum/count)));
     }
     public void serverTick() {

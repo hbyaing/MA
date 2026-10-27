@@ -78,13 +78,12 @@ public final class MyriadFoundationGameTests {
         h.assertTrue(SpiritPlantRegistry.GALE_GRASS.getId().getPath().equals("gale_grass")&&SpiritPlantCatalog.BY_ID.containsKey("herb_jifeng"),"Wind plants collided");h.succeed();
     }
     @GameTest(template="empty")
-    public static void medicinalAgeCannotPromoteOrdinarySpeciesToImmortal(GameTestHelper h){
-        h.assertTrue(HerbAge.tier(499)==0&&HerbAge.tier(500)==1&&HerbAge.tier(2499)==1&&HerbAge.tier(2500)==2,"Year thresholds shifted");
-        h.assertTrue(HerbCultivationData.cultivationCap(SpiritPlantCatalog.SPIRIT_SPROUT,true,100)==1,"Common grass became immortal");
-        h.assertTrue(HerbCultivationData.cultivationCap(SpiritPlantCatalog.STARLIGHT_FLOWER,false,100)==1,"Vein bypassed soil requirement");
-        h.assertTrue(HerbCultivationData.cultivationCap(SpiritPlantCatalog.STARLIGHT_FLOWER,true,0)==2,"High tier needs vein");
+    public static void medicinalYearsHaveNoSpeciesRankCeiling(GameTestHelper h){
+        h.assertTrue(HerbCultivationData.cultivationMaximumYears(SpiritPlantCatalog.SPIRIT_SPROUT,true,100)==10499,"Species ceiling retained");
+        h.assertTrue(HerbCultivationData.cultivationMaximumYears(SpiritPlantCatalog.STARLIGHT_FLOWER,false,100)==2499,"Soil growth limit lost");
+        h.assertTrue(HerbCultivationData.cultivationMaximumYears(SpiritPlantCatalog.STARLIGHT_FLOWER,true,0)==4499,"Aura growth limit lost");
         var stack=new ItemStack(SpiritPlantRegistry.SPIRIT_SPROUT_GRASS_ITEM.get());HerbAge.setYears(stack,10499);
-        h.assertTrue(HerbAge.effectiveTier(stack)==1,"Item NBT bypassed species limit");h.succeed();
+        h.assertTrue(HerbAge.years(stack)==10499&&HerbAge.legacyEffectBand(stack)==5,"Old specimen years clamped by species");h.succeed();
     }
     @GameTest(template="empty")
     public static void herbYearsSurvivePlayerHarvestAndReplant(GameTestHelper h){

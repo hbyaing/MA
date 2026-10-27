@@ -38,7 +38,6 @@ public final class SpiritPlantCatalog {
     /** 1. 灵芽草：最基础、适应性较强的修仙灵草。骨粉与灵肥都能用。 */
     public static final SpiritPlantDefinition SPIRIT_SPROUT = register(SpiritPlantDefinition
             .builder("spirit_sprout_grass", WildRarity.COMMON)
-            .medicinalCap(1)
             .substrate(Substrate.SOIL)
             .growth(8, 4)
             .fertilizer(3)
@@ -49,7 +48,6 @@ public final class SpiritPlantCatalog {
     /** 2. 凝露花：滋养恢复。邻水加速，缺水不死。 */
     public static final SpiritPlantDefinition DEW_FLOWER = register(SpiritPlantDefinition
             .builder("dew_drop_flower", WildRarity.COMMON)
-            .medicinalCap(1)
             .substrate(Substrate.SOIL)
             .growth(8, 4)
             .fertilizer(3)
@@ -61,7 +59,6 @@ public final class SpiritPlantCatalog {
     /** 3. 清心莲：水生/半水生，清净神魂。不得种在旱地。 */
     public static final SpiritPlantDefinition CLEAR_HEART_LOTUS = register(SpiritPlantDefinition
             .builder("clear_heart_lotus", WildRarity.UNCOMMON)
-            .medicinalCap(3)
             .semiAquatic()
             .growth(7, 5)
             .fertilizer(2)
@@ -71,7 +68,6 @@ public final class SpiritPlantCatalog {
     /** 4. 聚灵参：修炼聚气核心。人工培养必须灵壤，野外可发现但停止生长。 */
     public static final SpiritPlantDefinition SPIRIT_GINSENG = register(SpiritPlantDefinition
             .builder("spirit_ginseng", WildRarity.UNCOMMON)
-            .medicinalCap(3)
             .substrate(Substrate.SOIL)
             .needsSpiritSoil()
             .growth(6, 5)
@@ -82,7 +78,6 @@ public final class SpiritPlantCatalog {
     /** 5. 赤阳草：火阳炼体。灵壤 + 白昼高光照加速；不会点燃灵田。 */
     public static final SpiritPlantDefinition RED_SUN_GRASS = register(SpiritPlantDefinition
             .builder("red_sun_grass", WildRarity.UNCOMMON)
-            .medicinalCap(3)
             .substrate(Substrate.SOIL)
             .needsSpiritSoil()
             .growth(6, 5)
@@ -94,7 +89,6 @@ public final class SpiritPlantCatalog {
     /** 6. 续脉藤：经脉生机。藤本定位以数据记录，表现为普通植株。 */
     public static final SpiritPlantDefinition VEIN_VINE = register(SpiritPlantDefinition
             .builder("vein_mending_vine", WildRarity.RARE)
-            .medicinalCap(4)
             .substrate(Substrate.SOIL)
             .needsSpiritSoil()
             .growth(5, 6)
@@ -106,7 +100,6 @@ public final class SpiritPlantCatalog {
     /** 7. 血灵花：气血爆发。阴生环境偏好，无需浇血机制。 */
     public static final SpiritPlantDefinition BLOOD_FLOWER = register(SpiritPlantDefinition
             .builder("blood_spirit_flower", WildRarity.RARE)
-            .medicinalCap(4)
             .substrate(Substrate.SOIL)
             .needsSpiritSoil()
             .growth(5, 6)
@@ -117,7 +110,6 @@ public final class SpiritPlantCatalog {
     /** 8. 金刚藤：防御炼体。基础生长速度偏慢。 */
     public static final SpiritPlantDefinition ADAMANTINE_VINE = register(SpiritPlantDefinition
             .builder("adamantine_vine", WildRarity.RARE)
-            .medicinalCap(4)
             .substrate(Substrate.ROCKY)
             .needsSpiritSoil()
             .growth(4, 6)
@@ -128,7 +120,6 @@ public final class SpiritPlantCatalog {
     /** 9. 疾风草：身法。露天加速。 */
     public static final SpiritPlantDefinition GALE_GRASS = register(SpiritPlantDefinition
             .builder("gale_grass", WildRarity.RARE)
-            .medicinalCap(4)
             .substrate(Substrate.SOIL)
             .needsSpiritSoil()
             .growth(5, 6)
@@ -140,7 +131,6 @@ public final class SpiritPlantCatalog {
     /** 10. 玄水藻：硬性水生，离开水体脱落。寒水偏好。 */
     public static final SpiritPlantDefinition DARK_WATER_WEED = register(SpiritPlantDefinition
             .builder("dark_water_weed", WildRarity.RARE)
-            .medicinalCap(3)
             .aquatic()
             .growth(6, 5)
             .fertilizer(1)
@@ -150,7 +140,6 @@ public final class SpiritPlantCatalog {
     /** 11. 雷纹草：雷淬炼。普通天气可缓慢生长，雷雨显著加速，不需要遭雷劈。 */
     public static final SpiritPlantDefinition THUNDER_GRASS = register(SpiritPlantDefinition
             .builder("thunder_vein_grass", WildRarity.RARE)
-            .medicinalCap(4)
             .substrate(Substrate.SOIL)
             .needsSpiritSoil()
             .growth(5, 6)
@@ -162,7 +151,6 @@ public final class SpiritPlantCatalog {
     /** 12. 星辉花：1.0 后期奇珍。夜生昼歇；白天灵肥效率降低。 */
     public static final SpiritPlantDefinition STARLIGHT_FLOWER = register(SpiritPlantDefinition
             .builder("starlight_flower", WildRarity.VERY_RARE)
-            .medicinalCap(5)
             .substrate(Substrate.SOIL)
             .needsSpiritSoil()
             .growth(4, 7)
@@ -174,7 +162,6 @@ public final class SpiritPlantCatalog {
     /** 13. 龙鳞草：末地主岛特产。末地石正常速度，灵壤培养稍慢。 */
     public static final SpiritPlantDefinition DRAGON_SCALE = register(SpiritPlantDefinition
             .builder("dragon_scale_grass", WildRarity.SPECIAL)
-            .medicinalCap(5)
             .substrate(Substrate.END_STONE_OR_SPIRIT)
             .growth(4, 6)
             .fertilizer(1)
@@ -185,7 +172,6 @@ public final class SpiritPlantCatalog {
     /** 14. 发光蓝蘑菇：地下菌类，低光偏好，发光。 */
     public static final SpiritPlantDefinition GLOWING_SHROOM = register(SpiritPlantDefinition
             .builder("glowing_blue_mushroom", WildRarity.UNCOMMON)
-            .medicinalCap(2)
             .substrate(Substrate.SOIL_STRICT)
             .growth(7, 4)
             .fertilizer(2)

@@ -133,7 +133,7 @@ public final class AlchemyRecipe implements Recipe<Container> {
         int slots = Math.min(reserved.length, container.getContainerSize());
         var order=new ArrayList<Integer>();for(int slot=0;slot<slots;slot++)order.add(slot);
         if(cn.blockforge.generated.generatedmod.alchemy.MedicineTier.explicit(result))
-            order.sort(java.util.Comparator.comparingInt((Integer slot)->cn.blockforge.generated.generatedmod.plants.HerbAge.effectiveTier(container.getItem(slot))).reversed());
+            order.sort(java.util.Comparator.comparingInt((Integer slot)->cn.blockforge.generated.generatedmod.plants.HerbAge.years(container.getItem(slot))).reversed());
         for (int i=0;i<ingredients.size();i++) {
             int remaining=counts.get(i);
             for (int slot:order) {

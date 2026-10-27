@@ -25,7 +25,7 @@ public final class HerbPreparationGameTests {
     private static AlchemyRecipe recipe(int... counts) {
         NonNullList<Ingredient> ingredients = NonNullList.create();
         for (int ignored : counts) ingredients.add(Ingredient.of(SpiritPlantRegistry.SPIRIT_SPROUT_GRASS_ITEM.get()));
-        return new AlchemyRecipe(new ResourceLocation("wuxingxiantu", "qa_prepared_herbs"), ingredients,
+        return new AlchemyRecipe(ResourceLocation.fromNamespaceAndPath("wuxingxiantu", "qa_prepared_herbs"), ingredients,
                 java.util.Arrays.stream(counts).boxed().toList(), new ItemStack(Items.APPLE), 0, 20, 1, false);
     }
 

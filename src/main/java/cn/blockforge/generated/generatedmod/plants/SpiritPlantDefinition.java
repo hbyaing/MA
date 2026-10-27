@@ -37,8 +37,8 @@ public final class SpiritPlantDefinition {
     }
 
     public final String id;
-    /** Species medicinal potential is independent of wild rarity and visual maturity. */
-    public final int medicinalTierCap;
+    /** Explicit acquisition ages, independent of rarity; no medicinal rank or species ceiling. */
+    public final int minimumYears, randomMaximumYears;
     public final WildRarity rarity;
     public final Substrate substrate;
     /** 是否必须种在灵壤才能生长（野外可在普通土上被发现但不生长）。 */
@@ -60,7 +60,8 @@ public final class SpiritPlantDefinition {
 
     private SpiritPlantDefinition(Builder b) {
         this.id = b.id;
-        this.medicinalTierCap = b.medicinalTierCap;
+        this.minimumYears = b.minimumYears;
+        this.randomMaximumYears = b.randomMaximumYears;
         this.rarity = b.rarity;
         this.substrate = b.substrate;
         this.requiresSpiritSoilToGrow = b.requiresSpiritSoilToGrow;
@@ -191,7 +192,7 @@ public final class SpiritPlantDefinition {
     public static final class Builder {
         private final String id;
         private final WildRarity rarity;
-        private int medicinalTierCap = 3;
+        private int minimumYears = 0, randomMaximumYears = 10499;
         private Substrate substrate = Substrate.SOIL;
         private boolean requiresSpiritSoilToGrow;
         private boolean aquaticInCell;
@@ -208,7 +209,11 @@ public final class SpiritPlantDefinition {
             this.rarity = rarity;
         }
 
-        public Builder medicinalCap(int tier) { if(tier<1||tier>5)throw new IllegalArgumentException("Medicinal cap must be 1..5");this.medicinalTierCap=tier;return this; }
+        /** Future innate roots declare a sourced minimum here; no such species is invented by default. */
+        public Builder years(int minimum, int randomMaximum) {
+            if(minimum<0||randomMaximum<minimum||randomMaximum>HerbAge.MAX)throw new IllegalArgumentException("Invalid year range");
+            this.minimumYears=minimum;this.randomMaximumYears=randomMaximum;return this;
+        }
         public Builder substrate(Substrate s) { this.substrate = s; return this; }
         public Builder needsSpiritSoil() { this.requiresSpiritSoilToGrow = true; return this; }
         public Builder aquatic() { this.aquaticInCell = true; this.substrate = Substrate.WATER; return this; }

@@ -18,7 +18,7 @@ public final class AlchemyMaterialTransferGameTests {
         var machine=new SimpleContainer(10);
         machine.setItem(8,new ItemStack(Items.BLAZE_POWDER));machine.setItem(9,new ItemStack(Items.DIAMOND));
         var inputs=NonNullList.<Ingredient>create();inputs.add(Ingredient.of(Items.APPLE));inputs.add(Ingredient.of(Items.REDSTONE));
-        var recipe=new AlchemyRecipe(new net.minecraft.resources.ResourceLocation("wuxingxiantu","transfer_test"),inputs,
+        var recipe=new AlchemyRecipe(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("wuxingxiantu","transfer_test"),inputs,
                 java.util.List.of(4,2),new ItemStack(Items.GOLDEN_APPLE),0,100,5,false);
         machine.setItem(0,new ItemStack(Items.APPLE,1));
         var tagged=new ItemStack(Items.APPLE,8);tagged.getOrCreateTag().putString("marker","kept");

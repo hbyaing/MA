@@ -9,8 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 public final class HerbAgeTooltip {
     @SubscribeEvent public static void tooltip(ItemTooltipEvent event){
         var stack=event.getItemStack();var def=HerbAge.definition(stack);if(def==null)return;
-        event.getToolTip().add(Component.translatable("tooltip.wuxingxiantu.herb_years",HerbAge.years(stack),
-            Component.translatable("herb_tier.wuxingxiantu."+HerbAge.effectiveTier(stack))).withStyle(net.minecraft.ChatFormatting.GRAY));
+        event.getToolTip().add(Component.translatable("tooltip.wuxingxiantu.herb_years",HerbAge.years(stack)).withStyle(net.minecraft.ChatFormatting.GRAY));
         event.getToolTip().add(Component.translatable("tooltip.wuxingxiantu.herb_age_cultivation").withStyle(net.minecraft.ChatFormatting.DARK_GRAY));
     }
 }

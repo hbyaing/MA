@@ -26,9 +26,8 @@ public final class HerbCultivationData extends SavedData {
     public void wild(ServerLevel level,BlockPos pos,SpiritPlantDefinition def){
         removed.remove(pos.asLong());
         ashUses.remove(pos.asLong());
-        int cap=Math.min(4,HerbAge.speciesCap(def)),roll=level.random.nextInt(100);
-        int tier=Math.min(cap,roll<60?1:roll<85?2:roll<95?3:4);
-        plants.put(pos.asLong(),new Growth(HerbAge.BASE+(tier-1)*HerbAge.STEP+level.random.nextInt(HerbAge.STEP),0,level.getGameTime()));setDirty();
+        int years=HerbAge.randomYears(def,level.random);
+        plants.put(pos.asLong(),new Growth(years,0,level.getGameTime()));setDirty();
     }
     public int ashUses(BlockPos pos){return ashUses.getOrDefault(pos.asLong(),0);}
     public boolean nourish(BlockPos pos){int used=ashUses(pos);if(used>=3)return false;ashUses.put(pos.asLong(),used+1);setDirty();return true;}
@@ -42,9 +41,8 @@ public final class HerbCultivationData extends SavedData {
         for(long key:data.removed)data.remove(BlockPos.of(key));
         data.removed.clear();
     }
-    public static int cultivationCap(SpiritPlantDefinition def,boolean spiritSoil,int aura){
-        int cap=!spiritSoil?1:aura<28?2:aura<65?3:aura<85?4:5;
-        return Math.min(cap,HerbAge.speciesCap(def));
+    public static int cultivationMaximumYears(SpiritPlantDefinition def,boolean spiritSoil,int aura){
+        return !spiritSoil?2499:aura<28?4499:aura<65?6499:aura<85?8499:10499;
     }
     public void advance(ServerLevel level,BlockPos pos,SpiritPlantBlock plant){
         long now=level.getGameTime();var old=plants.get(pos.asLong());
@@ -53,10 +51,10 @@ public final class HerbCultivationData extends SavedData {
         long delta=Math.max(0,Math.min(600,now-old.observed()));
         int age=old.years();long ticks=old.ticks();var def=plant.definition();
         if(plant.isMature(level.getBlockState(pos))&&def.growthOneIn(level,pos)>0){
-            int cap=cultivationCap(def,Substrate.isSpiritSoil(level.getBlockState(pos.below())),SpiritVeinData.get(level).auraAt(pos));
+            int cap=cultivationMaximumYears(def,Substrate.isSpiritSoil(level.getBlockState(pos.below())),SpiritVeinData.get(level).auraAt(pos));
             ticks+=delta;
-            while(ticks>=24000&&age<HerbAge.maximumYears(cap)){age++;ticks-=24000;}
-            if(age>=HerbAge.maximumYears(cap))ticks=0;
+            while(ticks>=24000&&age<cap){age++;ticks-=24000;}
+            if(age>=cap)ticks=0;
         }
         plants.put(pos.asLong(),new Growth(age,ticks,now));setDirty();
     }

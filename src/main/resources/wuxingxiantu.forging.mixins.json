@@ -8,7 +8,8 @@
     "BoundEquipmentCraftingMixin",
     "BoundEquipmentResultSlotMixin",
     "SpiritTradeMenuMixin",
-    "SpiritTradeResultMixin"
+    "SpiritTradeResultMixin",
+    "CreativeHerbYearsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -79,7 +79,7 @@ public final class HeavenlyFurnaceScreen extends Screen {
     private boolean auxiliaryAvailable(int role,int slot){
         if(minecraft==null||minecraft.player==null||slot<0||slot>=36)return false;
         ItemStack stack=minecraft.player.getInventory().getItem(slot);
-        if(stack.isEmpty()||HerbAge.effectiveTier(stack)<1||AuxiliaryAlchemy.role(stack)!=AuxiliaryAlchemy.Role.values()[role])return false;
+        if(stack.isEmpty()||HerbAge.legacyEffectBand(stack)<1||AuxiliaryAlchemy.role(stack)!=AuxiliaryAlchemy.Role.values()[role])return false;
         for(int other=0;other<3;other++)if(other!=role&&auxiliarySlots[other]==slot)return false;
         return true;
     }

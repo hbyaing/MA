@@ -62,7 +62,7 @@ public final class ModTabs {
                 ||(id.startsWith("peach_")&&!(item instanceof net.minecraft.world.item.TieredItem))||java.util.Set.of("spirit_soil","spirit_fertilizer","spirit_liquid_bucket","spirit_liquid_bottle","pill_ash").contains(id)) return Category.HERBS;
         if(item instanceof cn.blockforge.generated.generatedmod.alchemy.CompendiumItem
                 ||id.equals("alchemy_formula")||id.startsWith("alchemy_furnace")||id.startsWith("fire_seed_")
-                ||id.startsWith("exotic_fire_")||id.equals("empty_fire_seed_bottle")||id.equals("herb_processing_table")
+                ||id.startsWith("exotic_fire_")||id.equals("moon_bottle")||id.equals("empty_fire_seed_bottle")||id.equals("herb_processing_table")
                 ||id.equals("waste_pill")||id.startsWith("inner_core_")) return Category.ALCHEMY;
         if(id.equals("formation_carving_core")||id.equals("zhuxian_sword_chart")||id.equals("gathering_array")||id.equals("rune_stone")) return Category.FORMATIONS;
         if(id.startsWith("talisman")||java.util.Set.of("carving_knife","spirit_ink","cinnabar_ink","seal","engraving_platform","rubbing_platform","drawing_platform").contains(id)) return Category.TALISMANS;
@@ -95,11 +95,8 @@ public final class ModTabs {
                             }
                             if (item != WuXingItems.ALCHEMY_FORMULA && item != WuXingItems.TALISMAN) {
                                 var herb=cn.blockforge.generated.generatedmod.plants.HerbAge.definition(stack);
-                                if(herb!=null&&herb.id.startsWith("herb_")){
-                                    for(int rank=1;rank<=herb.medicinalTierCap;rank++){
-                                        var aged=stack.copy();cn.blockforge.generated.generatedmod.plants.HerbAge.setYears(aged,500+(rank-1)*2000);output.accept(aged);
-                                    }
-                                }else output.accept(stack);
+                                if(herb!=null)output.accept(cn.blockforge.generated.generatedmod.plants.HerbAge.creativeTemplate(stack));
+                                else output.accept(stack);
                             }
                         });
                         for (var pill : cn.blockforge.generated.generatedmod.alchemy.PillCatalog.values()) {
