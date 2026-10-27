@@ -1,0 +1,4 @@
+Built-in image_gen background-extraction mode, transparent_background=true.
+Armor: remove only the surrounding dark circular backplate; retain the silver chestplate silhouette, raised shoulders, highlights, object outlines, proportions and original pixel-art appearance. Do not redesign as a shield or add decorations, text or a ground shadow.
+Hunger: remove only the surrounding dark circular backplate; retain the cooked brown meat at lower left, pale bone at upper right, diagonal tilt, highlights and the outline attached to the food. Do not add a plate, badge, text or shadow.
+The full original calls are retained in this chat. Each generated cutout is packaged as a transparent 15x15 runtime sprite by tools/prepare_hud_transparent_icons.py.

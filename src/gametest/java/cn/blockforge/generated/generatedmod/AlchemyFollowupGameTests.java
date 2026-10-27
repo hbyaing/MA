@@ -37,7 +37,8 @@ public final class AlchemyFollowupGameTests {
             manager.replaceRecipes(recipes);
             var template=new ItemStack(WuXingItems.GLAZED_CRYSTAL.get());
             h.assertTrue(!(template.getItem() instanceof SmithingTemplateItem)&&AnvilTemplateMemory.isTemplate(h.getLevel(),template),"Recipe-defined plain mod item rejected");
-            var pos=h.absolutePos(new BlockPos(1,1,1));h.assertTrue(AnvilTemplateMemory.get(h.getLevel()).learn(pos,template),"Mod template not learned");
+            // This checks recipe-defined learning, not persistence at a reused world coordinate.
+            var pos=h.absolutePos(new BlockPos(1,1,1));h.assertTrue(new AnvilTemplateMemory().learn(pos,template),"Mod template not learned");
             h.assertTrue(!AnvilTemplateMemory.isTemplate(h.getLevel(),new ItemStack(Items.DIRT)),"Unrelated item accepted");
         }finally{manager.replaceRecipes(old);}h.succeed();
     }

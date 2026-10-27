@@ -1,0 +1,82 @@
+{
+  "pointer": {
+    "blockedGrabs": 10,
+    "passed": true,
+    "captureViolations": 0,
+    "checkedFrames": 269,
+    "cursorMode": 212993
+  },
+  "passed": true,
+  "scenes": [
+    {
+      "shaderPack": true,
+      "scene": 0,
+      "lateDraws": 1,
+      "projection": {
+        "actualAxisDx": 0.0,
+        "actualAxisDy": 1.0371673,
+        "shadowPasses": 12,
+        "worldPasses": 12,
+        "expectedAxisDx": 0.0,
+        "expectedAxisDy": 1.0371673
+      },
+      "glError": 0
+    },
+    {
+      "shaderPack": true,
+      "scene": 1,
+      "lateDraws": 2,
+      "projection": {
+        "actualAxisDx": 0.0,
+        "actualAxisDy": 1.0476971,
+        "shadowPasses": 21,
+        "worldPasses": 21,
+        "expectedAxisDx": 0.0,
+        "expectedAxisDy": 1.0476971
+      },
+      "glError": 0
+    },
+    {
+      "shaderPack": true,
+      "scene": 2,
+      "lateDraws": 3,
+      "projection": {
+        "actualAxisDx": -2.2073982E-6,
+        "actualAxisDy": 1.0229454,
+        "shadowPasses": 29,
+        "worldPasses": 29,
+        "expectedAxisDx": -2.2073982E-6,
+        "expectedAxisDy": 1.0229454
+      },
+      "glError": 0
+    },
+    {
+      "shaderPack": true,
+      "scene": 3,
+      "lateDraws": 3,
+      "projection": {
+        "actualAxisDx": 0.0,
+        "actualAxisDy": 1.2964591,
+        "shadowPasses": 58,
+        "worldPasses": 58,
+        "expectedAxisDx": 0.0,
+        "expectedAxisDy": 1.2964591
+      },
+      "glError": 0
+    },
+    {
+      "shaderPack": true,
+      "scene": 4,
+      "lateDraws": 3,
+      "projection": {
+        "actualAxisDx": 0.0,
+        "actualAxisDy": 1.2964591,
+        "shadowPasses": 78,
+        "worldPasses": 78,
+        "expectedAxisDx": 0.0,
+        "expectedAxisDy": 1.2964591
+      },
+      "glError": 0
+    }
+  ]
+}

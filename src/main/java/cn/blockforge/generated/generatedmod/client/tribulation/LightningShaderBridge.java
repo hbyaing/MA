@@ -33,6 +33,9 @@ public final class LightningShaderBridge {
         return net.minecraftforge.fml.ModList.get().isLoaded("oculus")||net.minecraftforge.fml.ModList.get().isLoaded("iris");
     }
     public static boolean prepare(Runnable draw){
+        // Oculus replays world stages using the sun/moon camera. Never capture
+        // that orthographic projection/depth, or queue its geometry for the HUD pass.
+        if(cn.blockforge.generated.generatedmod.client.TrailShaderBridge.shadowPass())return true; // Handled: prevent callers' immediate fallback too.
         if(pending!=null){Runnable previous=pending;pending=()->{previous.run();draw.run();};return true;}
         int read=GL11.glGetInteger(GL30.GL_READ_FRAMEBUFFER_BINDING),active=GL11.glGetInteger(GL13.GL_ACTIVE_TEXTURE);
         GlStateManager._activeTexture(GL13.GL_TEXTURE0);int texture=GL11.glGetInteger(GL11.GL_TEXTURE_BINDING_2D);

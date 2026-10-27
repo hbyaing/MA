@@ -30,7 +30,8 @@ import com.google.gson.GsonBuilder;
 public final class SenseHeavenlyCapture {
     static final boolean ENABLED=Boolean.getBoolean("wuxingxiantu.senseHeavenlyCapture");
     static final Path OUT=Path.of(System.getProperty("wuxingxiantu.myriadCaptureOutput","captures")).resolve("ui");
-    static final String[] CASES={"heavenly-normal","heavenly-hover","heavenly-disabled","heavenly-focus","heavenly-search","heavenly-scale3","heavenly-scale4","heavenly-refining","heavenly-aux-chosen","heavenly-page2","heavenly-no-match","heavenly-many-materials","sense-normal","sense-hover","sense-closed","sense-focus","sense-channel","sense-scale3","sense-scale4","sense-locked","sense-low-power","sense-narrow","sense-survey","sense-cooldown"};
+    static final String[] CASES={"heavenly-normal","heavenly-hover","heavenly-disabled","heavenly-focus","heavenly-search","heavenly-scale3","heavenly-scale4","heavenly-refining","heavenly-aux-chosen","heavenly-page2","heavenly-no-match","heavenly-many-materials","sense-normal","sense-hover","sense-closed","sense-focus","sense-channel","sense-scale3","sense-scale4","sense-locked","sense-low-power","sense-narrow","sense-survey","sense-cooldown","sense-addon-footer","sense-addon-creation","sense-addon-hover","sense-addon-focus","sense-addon-disabled"};
+    static final Map<String,Object> ADDON=new LinkedHashMap<>();
     static boolean opened,prepared,finished;static int stage,tick,auxiliaryState;static final long START=System.nanoTime();
     static Screen screen;static AbstractWidget target;static List<Button> buttons;
     static final List<Map<String,Object>> SCALES=new ArrayList<>();
@@ -53,7 +54,7 @@ public final class SenseHeavenlyCapture {
             if(stage==8&&auxiliaryState==2)target.active=false;
             if(stage==22){Class<?> type=cn.blockforge.generated.generatedmod.divinesurvey.client.SurveyClient.class;var active=type.getDeclaredField("active");active.setAccessible(true);active.setBoolean(null,true);var dimension=type.getDeclaredField("dimension");dimension.setAccessible(true);dimension.set(null,mc.level.dimension().location().toString());}
             double scale=stage<12?(Float)field(screen,"uiScale"):1;
-            double x=-50,y=-50;if(stage==1||stage==13||(stage==8&&auxiliaryState==0)){x=(target.getX()+target.getWidth()/2d)*scale;y=(target.getY()+target.getHeight()/2d)*scale;if(stage==13){x+=(Integer)field(screen,"contentX");y+=(Integer)field(screen,"contentY")-(Integer)field(screen,"scroll");}}
+            double x=-50,y=-50;if(stage==1||stage==13||stage==26||(stage==8&&auxiliaryState==0)){x=(target.getX()+target.getWidth()/2d)*scale;y=(target.getY()+target.getHeight()/2d)*scale;if(stage==13||stage==26){x+=(Integer)field(screen,"contentX");y+=(Integer)field(screen,"contentY")-(Integer)field(screen,"scroll");}}
             for(String axis:new String[]{"xpos","ypos"}){var f=MouseHandler.class.getDeclaredField(axis);f.setAccessible(true);f.setDouble(mc.mouseHandler,axis.equals("xpos")?x*mc.getWindow().getScreenWidth()/mc.getWindow().getGuiScaledWidth():y*mc.getWindow().getScreenHeight()/mc.getWindow().getGuiScaledHeight());}
             // Reuse one live screen across incompatible layouts to expose stale geometry/text.
             if(stage==0&&tick==6)((EditBox)field(screen,"search")).setValue("无此丹方");
@@ -79,6 +80,20 @@ public final class SenseHeavenlyCapture {
             if(stage==21){screen=new PlayerProgressionPage(true);mc.setScreen(screen);screen.init(mc,276,410);}else{screen=new CultivationMainScreen(mc.player,"sense");mc.setScreen(screen);}
             Object page=stage==21?screen:field(screen,"page");buttons=(List<Button>)field(page,"actions");target=buttons.get(1);
             if(stage==15){((Screen)page).setFocused(target);target.setFocused(true);}
+            if(stage>=24){
+                boolean present=net.minecraftforge.fml.ModList.get().isLoaded("wuxingchuangshi");ADDON.put("installed",present);
+                var entries=((Screen)page).children().stream().filter(c->c instanceof Button b&&b.getMessage().getString().equals("创世 · 管理小世界")).toList();
+                if(present){
+                    if(entries.size()!=1)throw new AssertionError("Expected exactly one real creation entry: "+entries.size());
+                    var creation=(Button)entries.get(0);int footer=(Integer)page.getClass().getMethod("senseFooterY").invoke(page);
+                    if(stage>=26)target=creation;
+                    if(stage==27){((Screen)page).setFocused(creation);creation.setFocused(true);}
+                    if(stage==28)creation.active=false;
+                    if(creation.getY()!=footer||creation.getY()+creation.getHeight()>((Screen)page).height)throw new AssertionError("Creation footer is clipped");
+                    ADDON.put("footerY",footer);ADDON.put("pageHeight",((Screen)page).height);
+                    if(stage==25){creation.onPress();if(!Class.forName("cn.blockforge.wuxingchuangshi.client.CreationScreen").isInstance(mc.screen))throw new AssertionError("Creation entry did not open the addon's real screen");ADDON.put("opened",true);}
+                }else if(!entries.isEmpty())throw new AssertionError("Creation dependency became mandatory");
+            }
         }
     }
     @SubscribeEvent public static void frame(TickEvent.RenderTickEvent event){
@@ -88,12 +103,16 @@ public final class SenseHeavenlyCapture {
             if(tick<22)return;
             if(stage==1&&!target.isHovered())throw new AssertionError("Natural hover missed furnace start");
             if(stage==13&&!target.isHovered())throw new AssertionError("Natural hover missed sense card action");
+            if(stage==26&&Boolean.TRUE.equals(ADDON.get("installed"))&&!target.isHovered())throw new AssertionError("Natural hover missed creation entry");
             SCALES.add(Map.of("case",CASES[stage],"configuredGuiScale",mc.options.guiScale().get(),"actualGuiScale",mc.getWindow().getGuiScale(),"width",mc.getWindow().getWidth(),"height",mc.getWindow().getHeight()));
             if((stage==17||stage==18)&&mc.getWindow().getGuiScale()!=Math.max(1,Math.min(mc.options.guiScale().get(),Math.min(mc.getWindow().getWidth()/800,mc.getWindow().getHeight()/360))))throw new AssertionError("Expected actual GUI scale not applied: stage="+stage+" actual="+mc.getWindow().getGuiScale()+" framebuffer="+mc.getWindow().getWidth()+"x"+mc.getWindow().getHeight());
             int gl=GL11.glGetError();if(gl!=0)throw new AssertionError("GL error "+gl);
             try(var image=Screenshot.takeScreenshot(mc.getMainRenderTarget())){image.writeToFile(OUT.resolve((stage==8&&auxiliaryState>0?"heavenly-aux-"+(auxiliaryState==1?"focus":"disabled"):CASES[stage])+".png"));}
+            if(stage==25&&Boolean.TRUE.equals(ADDON.get("opened"))){mc.screen.onClose();if(!(mc.screen instanceof CultivationMainScreen))throw new AssertionError("Creation close did not return to the sense host");Object page=field(mc.screen,"page");if(!(page instanceof PlayerProgressionPage)||!((Screen)page).getTitle().getString().equals("识海"))throw new AssertionError("Creation close returned to wrong page");ADDON.put("returned",true);}
             if(stage==8&&auxiliaryState<2){auxiliaryState++;prepared=false;return;}
-            if(++stage==CASES.length){PointerSafety.verify();Files.writeString(OUT.resolve("result.json"),new GsonBuilder().setPrettyPrinting().create().toJson(Map.of("scales",SCALES,"passed",true,"cases",CASES,"pointer",PointerSafety.snapshot(),"extraCases",List.of("heavenly-aux-focus","heavenly-aux-disabled"),"fixture","Mock data for layout; real gameplay tested separately")));finished=true;mc.stop();}else prepared=false;
+            if(++stage==CASES.length){
+                PointerSafety.verify();Files.writeString(OUT.resolve("result.json"),new GsonBuilder().setPrettyPrinting().create().toJson(Map.of("scales",SCALES,"passed",true,"cases",CASES,"pointer",PointerSafety.snapshot(),"extraCases",List.of("heavenly-aux-focus","heavenly-aux-disabled"),"addon",ADDON,"fixture","Mock data for layout; real gameplay tested separately")));finished=true;mc.stop();
+            }else prepared=false;
         }catch(Throwable error){fail(mc,error);}
     }
     static void fail(Minecraft mc,Throwable error){try{Files.writeString(OUT.resolve("failure.txt"),error.toString());Files.writeString(OUT.resolve("result.json"),new GsonBuilder().create().toJson(Map.of("passed",false,"stage",stage,"error",error.toString())));}catch(Exception ignored){}error.printStackTrace();finished=true;mc.stop();}

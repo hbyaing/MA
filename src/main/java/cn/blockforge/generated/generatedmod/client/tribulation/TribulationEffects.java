@@ -60,6 +60,7 @@ public final class TribulationEffects {
  @SubscribeEvent public static void unload(LevelEvent.Unload e){if(e.getLevel().isClientSide()){ACTIVE.clear();SEEN.clear();LightningHalo.release();}}
  @SubscribeEvent public static void render(RenderLevelStageEvent e){
   if(e.getStage()!=RenderLevelStageEvent.Stage.AFTER_TRANSLUCENT_BLOCKS)return;var mc=Minecraft.getInstance();if(mc.level==null)return;
+  if(cn.blockforge.generated.generatedmod.client.TrailShaderBridge.shadowPass())return;
   double now=mc.level.getGameTime()+e.getPartialTick();ACTIVE.removeIf(f->f.rain.isEmpty()?now-f.p.tick()>Math.max(f.r.durationTicks,f.r.progressionTicks+f.r.impactDuration):RainGeometry.finished(f.rain,now-f.p.tick()));
   if(ACTIVE.isEmpty())return;var pose=new PoseStack();pose.last().pose().set(e.getPoseStack().last().pose());Vec3 camera=e.getCamera().getPosition();
   Runnable draw=()->{for(var f:ACTIVE){double t=now-f.p.tick();if(t<0)continue;for(var tree:f.trees){double boltTime=f.p.kind()==1?skyBoltTime(f.p,t):t;LightningRender.drawBolt(tree,f.r,boltTime,pose,camera);}if(f.impact!=null)LightningRender.drawOrbit(f.impact.sample(t),f.r,pose,camera);for(var bolt:f.rain){double age=t-bolt.delay();if(age<0)continue;LightningRender.drawBolt(bolt.geometry(),bolt.recipe(),age,pose,camera);if(bolt.recipe().impactEnabled)LightningRender.drawOrbit(bolt.impact().sample(age),bolt.recipe(),pose,camera);}}};
