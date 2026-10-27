@@ -146,6 +146,9 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
         return "可炼制";
     }
     private Component stateLabel() {
+        if(menu.freeMode()&&menu.state()==AlchemyFurnaceMenu.State.NEED_FUEL)return Component.literal("预付需 "+menu.v5RequiredFuel()+" 炉内灵力");
+        if(menu.freeMode()&&menu.state()==AlchemyFurnaceMenu.State.COMPLETE)return Component.literal("药液已封存，可领取");
+        if(menu.freeMode()&&menu.state()==AlchemyFurnaceMenu.State.BREWING)return Component.literal("预付供灵 · 反应中");
         if(menu.state()==AlchemyFurnaceMenu.State.NEED_FUEL)return Component.literal("先注灵（10秒储量）");
         return Component.translatable("gui.wuxingxiantu.alchemy.state_" + menu.state().name().toLowerCase(Locale.ROOT));
     }
@@ -199,14 +202,14 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
         previous.visible = next.visible = !menu.freeMode();
         previous.active = page > 0;
         next.active = (page + 1) * 6 < choices.size();
-        start.setTooltip(menu.freeMode() ? net.minecraft.client.gui.components.Tooltip.create(Component.literal("自由炼制：失败产出丹灰；丹药所需炉阶高于当前丹炉时，预警后炸炉并破坏周围方块。")) : null);
+        start.setTooltip(menu.freeMode() ? net.minecraft.client.gui.components.Tooltip.create(Component.literal("自由炼制：材料托管、预付炉内灵力；反应结束后领取封存药液，目前不可服用。未使用的预付炉内灵力会返还。")) : null);
         start.active = menu.state() == AlchemyFurnaceMenu.State.READY && pendingTicks == 0;
         fillMaterials.active=!menu.isBrewing()&&!menu.freeMode()&&menu.formulaUnlocked()&&menu.knowsFormula(menu.selectedRecipe());
         fillMaterials.setTooltip(net.minecraft.client.gui.components.Tooltip.create(Component.literal(
                 !menu.formulaUnlocked()?"先学习炼丹入门。":!menu.knowsFormula(menu.selectedRecipe())?"先选择并学习对应丹方。":
                 "从背包补足选中丹方的一炉材料；材料不足时不移动物品。")));
         clearMaterials.active=!menu.isBrewing()&&java.util.stream.IntStream.range(0,8).anyMatch(i -> !menu.container().getItem(i).isEmpty());
-        if(inject!=null)inject.active=menu.ignited() && menu.spiritFuel()<menu.spiritCapacity()
+        if(inject!=null)inject.active=!(menu.freeMode()&&(menu.isBrewing()||menu.furnace().hasResult()))&&menu.ignited() && menu.spiritFuel()<menu.spiritCapacity()
                 &&minecraft.player!=null&&ProgressionGate.canUseFire(minecraft.player,menu.ignitionTier());
         if(inject!=null&&injectionTooltipTier!=menu.furnaceTier()){
             injectionTooltipTier=menu.furnaceTier();inject.setTooltip(net.minecraft.client.gui.components.Tooltip.create(Component.literal("长按持续注灵，松开停止\n容量："+menu.spiritCapacity()+" 灵力\n注灵速度："+cn.blockforge.generated.generatedmod.alchemy.AlchemyBalance.injectionPerSecond(injectionTooltipTier)+" 灵力 / 秒\n上限和注灵速度随炉品质递进")));
@@ -275,7 +278,7 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
         }
         if(isHovering(290,25,122,68,mouseX,mouseY)) {
             g.renderComponentTooltip(font,List.of(Component.literal("品阶概率"),Component.literal(menu.freeMode()
-                    ?"自由炼制成丹率25%；此处概率为成丹后的品阶分布。"
+                    ?"自由炼制当前产出封存药液，不按旧成丹率或品阶概率结算。"
                     :"品阶概率为成丹后的分布。废丹率受丹方投入品质、炉阶和异火影响；供灵耗尽额外失败。"),
                     Component.literal("传统丹方失败成灰；分阶新丹方失败成废丹，可有损烧为丹灰。失败不吸收药力。")),mouseX,mouseY);return;
         }
@@ -296,7 +299,7 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
             int rate=cn.blockforge.generated.generatedmod.alchemy.AlchemyBalance.burnPerSecond(menu.furnaceTier());
             g.renderComponentTooltip(font,List.of(Component.literal("燃烧灵力："+menu.spiritFuel()+" / "+menu.spiritCapacity()),
                     Component.literal("每秒消耗："+rate+" · 可维持 "+menu.spiritFuel()/rate+" 秒"),
-                    Component.literal("耗尽直接失败，请长按右侧按钮补充。")),mouseX,mouseY);
+                    Component.literal(menu.freeMode()?"开炉预付 "+menu.v5RequiredFuel()+"；运行中不重复扣取玩家灵力。":"耗尽直接失败，请长按右侧按钮补充。")),mouseX,mouseY);
             return;
         }
         var choices = filtered();
@@ -394,7 +397,7 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
             AlchemyChrome.bar(g,AlchemyUiLayout.BAR_X,AlchemyUiLayout.BAR_Y,AlchemyUiLayout.BAR_WIDTH,AlchemyUiLayout.BAR_HEIGHT,menu.brewingProgress(),false,false);
             AlchemyChrome.bar(g,298,AlchemyUiLayout.FUEL_BAR_Y,62,AlchemyUiLayout.FUEL_BAR_HEIGHT,
                     menu.spiritFuel()/(float)menu.spiritCapacity(),true,
-                    menu.isBrewing()&&menu.spiritFuel()<15*cn.blockforge.generated.generatedmod.alchemy.AlchemyBalance.burnPerSecond(menu.furnaceTier()));
+                    !menu.freeMode()&&menu.isBrewing()&&menu.spiritFuel()<15*cn.blockforge.generated.generatedmod.alchemy.AlchemyBalance.burnPerSecond(menu.furnaceTier()));
             CultivationOuterFrame.drawAlchemy(g,0,0,imageWidth,imageHeight);
             AlchemyChrome.headerCorners(g);
         } finally { g.pose().popPose(); }
@@ -407,10 +410,10 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
         AlchemyChrome.headerFlourishes(g,Math.round(font.width(heading)*1.45F/2));
         centered(g, Component.literal("八卦炼丹"),AlchemyUiLayout.CENTER_X,29,136,GOLD);
         var selected=menu.selectedRecipe();
-        centered(g,Component.literal(selected==null?menu.freeMode()?"自由配伍：失败成灰，越炉阶炸炉":"选择丹方后预览产物":"已选："+kindName(selected)),AlchemyUiLayout.CENTER_X,44,126,MUTED);
+        centered(g,Component.literal(selected==null?menu.freeMode()?"V5自由配伍：反应后封存药液":"选择丹方后预览产物":"已选："+kindName(selected)),AlchemyUiLayout.CENTER_X,44,126,MUTED);
         if (!menu.freeMode()) centered(g, Component.literal((page + 1) + " / " + Math.max(1, (filtered().size() + 5) / 6)), 68, 201, 40, MUTED);
         else {
-            String[] hints={"投入任意灵药组合", "无需学习对应丹方", "按主药性预览丹种", "成丹率：25%", "失败会消耗材料", "药力吸收为丹方的25%"};
+            String[] hints={"药材与月华可组合", "投入材料即托管", "炉内灵力整批预付", "反应后封存药液", "药液当前不可服用", "拆炉封存剩余药液"};
             for(int i=0;i<hints.length;i++) small(g,hints[i],14,70+i*20,108,i==4?0xFFDB8878:MUTED);
         }
         small(g,menu.isBrewing()?"炼制":"待炼制",16,219,34,GOLD);
@@ -420,7 +423,7 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
         }
         centered(g,Component.literal("炉核心"),33,239,42,GOLD);
         small(g,"高阶核心",12,302,42,MUTED);
-        centered(g,Component.literal(menu.furnace().hasResult()?menu.furnace().completedResult().is(WuXingItems.PILL_ASH.get())?"领取丹灰":"点击取丹":selected==null?menu.freeMode()?"投入灵药":"选择丹方":"预览"),AlchemyUiLayout.CENTER_X,137,72,0xFF8FCFD2);
+        centered(g,Component.literal(menu.furnace().hasResult()?menu.furnace().completedResult().is(WuXingItems.PILL_ASH.get())?"领取丹灰":menu.furnace().completedResult().is(WuXingItems.SEALED_ALCHEMY_BATCH.get())?"领取药液":"点击取丹":selected==null?menu.freeMode()?"投入灵药":"选择丹方":"预览"),AlchemyUiLayout.CENTER_X,137,72,0xFF8FCFD2);
         text(g,"注灵",298,241,GOLD);
         int seconds=menu.spiritFuel()/cn.blockforge.generated.generatedmod.alchemy.AlchemyBalance.burnPerSecond(menu.furnaceTier());
         small(g,"余 "+seconds+" 秒",334,241,70,MUTED);
@@ -431,21 +434,22 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
         text(g, "当前异火", 298, 104, GOLD);
         Component fire = menu.ignited() ? Component.translatable(ExoticFireColorRegistry.nameKey(menu.ignitionTier())) : Component.literal("放入异火瓶");
         centered(g, fire, 363, 125, 78, TEXT);
-        text(g, "品阶概率", 298, 32, GOLD);
+        text(g, menu.freeMode()?"封存药液":"品阶概率", 298, 32, GOLD);
         var recipe = menu.selectedRecipe();
         ItemStack product = recipe == null ? ItemStack.EMPTY : result(recipe);
-        String[] grades = {"下品", "中品", "上品", "极品"};
+        String[] grades = menu.freeMode()?new String[]{"反应","评级","服用","供灵"}:new String[]{"下品", "中品", "上品", "极品"};
         boolean special=PillData.read(product)!=null&&PillData.read(product).pill()==PillCatalog.CALMING;
         for (int i = 0; i < 4&&!special; i++) {
             int x = 298 + (i % 2) * 55, y = 48 + (i / 2) * 17;
-            String value = menu.freeMode() ? number(FreeAlchemy.gradePercent(PillData.Grade.values()[i])) + "%"
+            String value = menu.freeMode() ? new String[]{"连续","未评级","不可","预付"}[i]
                     : product.isEmpty() || PillData.read(product) == null ? "—" : AlchemyGradeOdds.percent(product, PillData.Grade.values()[i]) + "%";
             text(g,grades[i],x,y,TEXT);
             right(g,value,x+52,y,28,product.isEmpty()&&!menu.freeMode()?MUTED:GOLD);
         }
         if(special){text(g,"特殊",298,48,0xFFC99CEB);right(g,"100%",404,48,48,GOLD);small(g,"净神丹仅有一种品质",298,65,106,MUTED);}
-        int waste=cn.blockforge.generated.generatedmod.alchemy.AlchemyFailureOdds.percent(recipe,menu.furnaceTier(),menu.ignitionTier(),menu.freeMode(),cn.blockforge.generated.generatedmod.HerbPreparation.bonus(recipe,menu.container())+PlayerProgressionClient.rank("alchemy"));
-        text(g,"废丹率",298,80,TEXT);right(g,recipe==null&&!menu.freeMode()?"—":waste+"%",404,80,48,0xFFE3A287);
+        if(menu.freeMode()){text(g,"结算",298,80,TEXT);right(g,"封存药液",404,80,72,0xFFE3A287);}
+        else{int waste=cn.blockforge.generated.generatedmod.alchemy.AlchemyFailureOdds.percent(recipe,menu.furnaceTier(),menu.ignitionTier(),false,cn.blockforge.generated.generatedmod.HerbPreparation.bonus(recipe,menu.container())+PlayerProgressionClient.rank("alchemy"));
+            text(g,"废丹率",298,80,TEXT);right(g,recipe==null?"—":waste+"%",404,80,48,0xFFE3A287);}
         text(g, observationOpen?"原料观察":"异火吸收药力", 298, 157, GOLD);
         if(observationOpen){
             var observations=AlchemyObservationView.rows(menu);observationScroll=Math.max(0,Math.min(observationScroll,Math.max(0,observations.size()-5)));
@@ -454,7 +458,7 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
                 small(g,row.label(),298,y,64,TEXT);right(g,row.value(),404,y,40,GOLD);
             }
         }else drawEssence(g, recipe);
-        centered(g, menu.isBrewing() && seconds<15 ? Component.literal("异火将熄，及时注灵") : stateLabel(), 353, 283, 108, menu.isBrewing()&&seconds<15?0xFFF1AA81:start.active ? 0xFF80D6B0 : MUTED);
+        centered(g, !menu.freeMode() && menu.isBrewing() && seconds<15 ? Component.literal("异火将熄，及时注灵") : stateLabel(), 353, 283, 108, !menu.freeMode()&&menu.isBrewing()&&seconds<15?0xFFF1AA81:start.active ? 0xFF80D6B0 : MUTED);
     }
     private void drawEssence(GuiGraphics g, AlchemyRecipe recipe) {
         ItemStack bottle = menu.container().getItem(AlchemyFurnaceMenu.IGNITION_SLOT);
@@ -477,7 +481,7 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
             String suffix = !menu.ignited() || ingredients.isEmpty() ? "/—" : "/+" + number(gain);
             small(g, ESSENCES[i] + " " + number(value) + suffix, 298 + i % 2 * 55, 172 + i / 2 * 11, 53, TEXT);
         }
-        small(g, menu.freeMode() ? "成功吸收 · 连续试炼衰减" : "成功吸收 · 重复丹方衰减", 298, 217, 106, MUTED);
+        small(g, menu.freeMode() ? "本批次不增加异火药力" : "成功吸收 · 重复丹方衰减", 298, 217, 106, MUTED);
     }
     private String number(double value) {
         return value >= 10000 ? String.format(Locale.ROOT, "%.1f万", value / 10000)

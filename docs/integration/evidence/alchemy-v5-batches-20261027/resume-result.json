@@ -1,0 +1,15 @@
+{
+  "error": "",
+  "captureViolations": 0,
+  "passed": true,
+  "checkedFrames": 1024,
+  "captures": [
+    "restored-running",
+    "completed-after-restart",
+    "full-inventory-retains-result",
+    "claimed"
+  ],
+  "resume": true,
+  "blockedGrabs": 2,
+  "completed": true
+}

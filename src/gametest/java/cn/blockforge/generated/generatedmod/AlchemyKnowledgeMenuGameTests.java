@@ -23,7 +23,7 @@ public final class AlchemyKnowledgeMenuGameTests {
                     h.absolutePos(net.minecraft.core.BlockPos.ZERO),WuXingBlocks.ALCHEMY_FURNACE_LOW.get().defaultBlockState());
             furnace.setLevel(h.getLevel());
             var server=new AlchemyFurnaceMenu(1,player.getInventory(),furnace);
-            int[] packet=new int[11];
+            int[] packet=new int[14];
             server.addSlotListener(new ContainerListener() {
                 public void slotChanged(AbstractContainerMenu menu,int slot,ItemStack stack) {}
                 public void dataChanged(AbstractContainerMenu menu,int index,int value) {packet[index]=(short)value;}

@@ -12,6 +12,8 @@ public final class InputDefinitions {
     public final long massPerItem,baseActive,ageActive,ageScale,preparedActive,rainTransmission;
     public final List<Long> moonStrength;
     public final String hash;
+    private final String document;
+    public String document(){return document;}
     private final Map<String,Long> propertyWeights, fireMaximumRates;
     private final Map<String,Map<String,Long>> species;
     private static volatile InputDefinitions current;
@@ -30,7 +32,7 @@ public final class InputDefinitions {
         return Collections.unmodifiableMap(result);
     }
     public InputDefinitions(String json){
-        var o=SimulationRuleLoader.document(json);
+        var o=SimulationRuleLoader.document(json);this.document=o.toString();
         keys(o,"schema","massPerItem","baseActive","ageActive","ageScale","preparedActive","rainTransmission","moonStrength","propertyWeights","species","fireMaximumRates");
         bounded(o,"schema",1,1);massPerItem=bounded(o,"massPerItem",1,100000);baseActive=bounded(o,"baseActive",0,massPerItem);
         ageActive=bounded(o,"ageActive",0,massPerItem);ageScale=bounded(o,"ageScale",1,1000000000);preparedActive=bounded(o,"preparedActive",0,massPerItem);

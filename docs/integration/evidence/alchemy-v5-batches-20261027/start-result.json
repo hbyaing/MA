@@ -1,0 +1,13 @@
+{
+  "completed": false,
+  "blockedGrabs": 2,
+  "resume": false,
+  "captures": [
+    "ready",
+    "running-before-restart"
+  ],
+  "checkedFrames": 1225,
+  "passed": true,
+  "captureViolations": 0,
+  "error": ""
+}

@@ -2470,5 +2470,6 @@
   "medicine_tier.wuxingxiantu.3": "Earth",
   "medicine_tier.wuxingxiantu.4": "Heaven",
   "medicine_tier.wuxingxiantu.5": "Immortal",
-  "knowledge.wuxingxiantu.herb_years": "Medicinal age is measured in years; herbs have no rank."
+  "knowledge.wuxingxiantu.herb_years": "Medicinal age is measured in years; herbs have no rank.",
+  "item.wuxingxiantu.sealed_alchemy_batch": "Sealed Alchemy Extract (Not Drinkable)"
 }

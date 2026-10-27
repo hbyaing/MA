@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 public final class AlchemyMaterialTransfer {
     public enum Result { OK, BUSY, MISSING, SLOTS_FULL, INVENTORY_FULL, AGE_MISSING }
     public static Result move(Container machine,Inventory inventory,AlchemyRecipe recipe,boolean clear) {
-        if(machine instanceof AlchemyFurnaceBlockEntity furnace&&furnace.busy())return Result.BUSY;
+        if(machine instanceof AlchemyFurnaceBlockEntity furnace&&furnace.inventoryLocked())return Result.BUSY;
         ItemStack[] bag=new ItemStack[36], slots=new ItemStack[8];
         for(int i=0;i<36;i++)bag[i]=inventory.getItem(i).copy();
         for(int i=0;i<8;i++)slots[i]=machine.getItem(i).copy();

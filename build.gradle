@@ -561,3 +561,27 @@ if (project.hasProperty('flightInputCapture')) {
         }
     }
 }
+
+// Independent background acceptance. QA code and pointer guards never enter the production jar.
+if (project.hasProperty('v5BatchCapture')) {
+    sourceSets {
+        v5ClientTest {
+            java.setSrcDirs(['src/v5clienttest/java'])
+            resources.setSrcDirs(['src/v5clienttest/resources'])
+            compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+            runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+        }
+    }
+    minecraft.runs {
+        client {
+            workingDirectory project.file('../../work/v5-independent-client')
+            jvmArgs '-Xmx2G', '-XX:ActiveProcessorCount=4', '-XX:CICompilerCount=2', '-Dfml.earlyprogresswindow=false'
+            args '--mixin', 'wuxingxiantu.v5-qa.mixins.json'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', file('build/createSrgToMcp/output.srg').absolutePath
+            property 'wuxingxiantu.v5Resume', project.hasProperty('v5BatchResume').toString()
+            property 'wuxingxiantu.v5Output', project.file('../v5-batch-client-validation').absolutePath
+            mods { wuxingxiantu { source sourceSets.main; source sourceSets.v5ClientTest } }
+        }
+    }
+}

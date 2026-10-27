@@ -68,22 +68,29 @@ public final class AlchemyFurnaceBlock extends BaseEntityBlock {
         var data=new net.minecraft.nbt.CompoundTag();
         data.put("CompletedResult",furnace.completedResult().save(new net.minecraft.nbt.CompoundTag()));
         data.putString("ActiveFireId",furnace.activeFireId()); data.putInt("AlchemyOutcome",1);
+        if(furnace.v5Batch())data.putInt("SpiritFuel",furnace.v5DismantleFuel());
         stack.addTagElement("BlockEntityTag",data);
         return stack;
     }
     @Override public java.util.List<net.minecraft.world.item.ItemStack> getDrops(BlockState state,net.minecraft.world.level.storage.loot.LootParams.Builder params) {
         if (params.getOptionalParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.BLOCK_ENTITY) instanceof AlchemyFurnaceBlockEntity furnace && furnace.hasResult())
             return java.util.List.of(resultCarrier(furnace));
+        if(params.getOptionalParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.BLOCK_ENTITY) instanceof AlchemyFurnaceBlockEntity active&&active.v5Batch()){
+            var core=new net.minecraft.world.item.ItemStack(this);var tag=new net.minecraft.nbt.CompoundTag();tag.putInt("SpiritFuel",active.v5DismantleFuel());core.addTagElement("BlockEntityTag",tag);return java.util.List.of(core);
+        }
         return super.getDrops(state,params);
     }
     @Override public boolean canHarvestBlock(BlockState state,net.minecraft.world.level.BlockGetter level,BlockPos pos,Player player) {
         // A completed batch must travel with its core even when dismantled with the wrong tool.
-        return level.getBlockEntity(pos) instanceof AlchemyFurnaceBlockEntity furnace && furnace.hasResult()
+        return level.getBlockEntity(pos) instanceof AlchemyFurnaceBlockEntity furnace && (furnace.hasResult()||furnace.v5Batch())
                 || super.canHarvestBlock(state,level,pos,player);
     }
     @Override public void playerWillDestroy(Level level,BlockPos pos,BlockState state,Player player) {
         if (!level.isClientSide && player.isCreative() && level.getBlockEntity(pos) instanceof AlchemyFurnaceBlockEntity furnace && furnace.hasResult())
             popResource(level,pos,resultCarrier(furnace));
+        if(!level.isClientSide&&player.isCreative()&&level.getBlockEntity(pos) instanceof AlchemyFurnaceBlockEntity active&&active.v5Batch()&&!active.hasResult()){
+            var core=new net.minecraft.world.item.ItemStack(this);var tag=new net.minecraft.nbt.CompoundTag();tag.putInt("SpiritFuel",active.v5DismantleFuel());core.addTagElement("BlockEntityTag",tag);popResource(level,pos,core);
+        }
         super.playerWillDestroy(level,pos,state,player);
     }
 
@@ -171,7 +178,8 @@ public final class AlchemyFurnaceBlock extends BaseEntityBlock {
                 && level.getBlockEntity(pos) instanceof AlchemyFurnaceBlockEntity furnace && furnace.upgradingCore) return;
         if (!moving && state.getBlock() != newState.getBlock()
                 && level.getBlockEntity(pos) instanceof AlchemyFurnaceBlockEntity furnace) {
-            if (furnace.brewing() && level instanceof ServerLevel server) {
+            furnace.detachV5();
+            if (!furnace.v5Batch() && furnace.brewing() && level instanceof ServerLevel server) {
                 server.sendParticles(ParticleTypes.SMOKE, pos.getX() + 0.5D, pos.getY() + 4.0D,
                         pos.getZ() + 0.5D, 30, 1.0D, 0.8D, 1.0D, 0.025D);
                 Network.cancelAlchemyAt(server, pos);

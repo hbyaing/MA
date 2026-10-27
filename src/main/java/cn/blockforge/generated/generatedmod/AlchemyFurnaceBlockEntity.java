@@ -25,6 +25,91 @@ import net.minecraft.world.phys.AABB;
  * {@link AlchemyFurnaceMenu} 展示，开炉锁定实际素材，完成或取消时结算；异火瓶保留在槽内。
  */
 public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Container {
+    // V5 authority lives in the write-ahead journal. Only this UUID/public progress enters chunk NBT.
+    private java.util.UUID v5Ref;
+    private net.minecraft.nbt.CompoundTag v5=new net.minecraft.nbt.CompoundTag();
+    private boolean v5Fault, v5Client;
+    private long nextV5Tick;
+    public int v5DismantleFuel(){return spiritFuel+(v5.isEmpty()?0:v5.getInt("FuelReserved"));}
+    public boolean v5Batch(){return v5Ref!=null||v5Client;}
+    public boolean inventoryLocked(){return busy()||v5Batch();}
+    public net.minecraft.nbt.CompoundTag v5ServerRecord(){if(!(level instanceof ServerLevel))throw new IllegalStateException("Server only");return v5.copy();}
+    private void applyV5(net.minecraft.nbt.CompoundTag doc){
+        cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.validate(doc);
+        v5=doc.copy();v5Ref=doc.getUUID("Id");v5Client=false;
+        var inventory=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.inventory(doc);
+        for(int i=0;i<items.size();i++)items.set(i,inventory.get(i));
+        spiritFuel=doc.getInt("FuelBalance");needsSpiritFuel=false;
+        var core=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.core(doc);
+        brewing=doc.getString("State").equals("ACTIVE");poweredTicks=(int)core.tick()*20;
+        var profile=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.profile(doc.getString("Profile"),doc.getInt("Burn"));
+        startTick=0;finishTick=profile.steps()*20L;outcome=brewing?0:1;
+        if(!brewing){completedResult=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.result(doc);completionTick=level.getGameTime();}
+        else completedResult=ItemStack.EMPTY;
+        activeFireId=cn.blockforge.generated.generatedmod.alchemy.inputs.AlchemyInputs.fire(items.get(IGNITION_SLOT)).id();
+    }
+    private void clearV5(){v5Ref=null;v5=new CompoundTag();v5Client=false;brewing=false;completedResult=ItemStack.EMPTY;outcome=0;startTick=finishTick=0;completionTick=-1;}
+    public void restoreV5(){
+        if(!(level instanceof ServerLevel server))return;
+        try{
+            var doc=new cn.blockforge.generated.generatedmod.alchemy.batch.BatchJournal(server.getServer()).at(server,worldPosition);
+            if(doc.isEmpty()){if(v5Ref!=null)throw new IllegalStateException("Missing V5 journal; retain escrow");return;}
+            boolean same=v5Ref!=null&&v5Ref.equals(doc.getUUID("Id"));
+            if(doc.getBoolean("Detached")){if(same){for(int i=0;i<items.size();i++)items.set(i,ItemStack.EMPTY);spiritFuel=0;clearV5();}return;}
+            if(doc.getString("State").equals("CLAIMED")){if(same){applyV5(doc);clearV5();}return;}
+            if(!doc.getString("Dimension").equals(server.dimension().location().toString())||doc.getLong("Position")!=worldPosition.asLong())throw new IllegalStateException("Journal location mismatch");
+            applyV5(doc);nextV5Tick=level.getGameTime()+20;v5Fault=false;sync();
+        }catch(RuntimeException e){v5Fault=true;com.mojang.logging.LogUtils.getLogger().error("V5 furnace quarantined; journal retained",e);}
+    }
+    public boolean startV5Batch(net.minecraft.server.level.ServerPlayer player){
+        if(!(level instanceof ServerLevel server)||inventoryLocked()||hasResult()||!stillValid(player)||!player.isAlive()||player.isSpectator()
+                ||!AlchemyFurnaceBlock.isFormed(getBlockState())||!ProgressionGate.canUseAlchemyFurnace(player,tier())||!ignited()
+                ||!ProgressionGate.canUseFire(player,ignitionTier())||!cn.blockforge.generated.generatedmod.alchemy.FormulaKnowledge.unlocked(player)
+                ||Network.hasAlchemyJob(level,worldPosition)||Network.isAlchemyBusy(player))return false;
+        try{
+            var doc=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.prepare(this,player);
+            var journal=new cn.blockforge.generated.generatedmod.alchemy.batch.BatchJournal(server.getServer());
+            journal.write(doc);journal.link(server,worldPosition,doc.getUUID("Id"));applyV5(doc);nextV5Tick=level.getGameTime()+20;sync();
+            // Make the removal of original ingredients durable before the batch can progress or be claimed.
+            server.getChunkSource().save(true);
+            player.displayClientMessage(net.minecraft.network.chat.Component.literal("V5批次已托管：材料与炉内灵力已锁定，完成后领取封存药液（不可服用）。"),true);return true;
+        }catch(RuntimeException e){if(v5Ref!=null)v5Fault=true;player.displayClientMessage(net.minecraft.network.chat.Component.literal(v5Ref!=null?"批次已托管但保存确认失败，已暂停，材料保留。":"未能开炉："+e.getMessage()),true);com.mojang.logging.LogUtils.getLogger().warn("V5 start rejected or retained for recovery",e);return false;}
+    }
+    private void tickV5(){
+        if(!(level instanceof ServerLevel server)||v5Fault)return;
+        if(v5.isEmpty()){restoreV5();return;}
+        if(!v5.getString("State").equals("ACTIVE")){
+            if(level.getGameTime()>=nextV5Tick){nextV5Tick=level.getGameTime()+20;
+                try{var current=new cn.blockforge.generated.generatedmod.alchemy.batch.BatchJournal(server.getServer()).read(v5Ref);if(current.getString("State").equals("CLAIMED")){clearV5();sync();}}
+                catch(RuntimeException e){v5Fault=true;com.mojang.logging.LogUtils.getLogger().error("V5 receipt reconciliation retained",e);}}
+            return;
+        }
+        if(structureDirty||(level.getGameTime()+worldPosition.asLong())%200L==0){structureDirty=false;AlchemyFurnaceStructure.refreshAround(level,worldPosition);}
+        if(!AlchemyFurnaceBlock.isFormed(getBlockState())){nextV5Tick=level.getGameTime()+20;return;}
+        if(level.getGameTime()<nextV5Tick)return;nextV5Tick=level.getGameTime()+20;
+        try{var next=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.advance(v5,server,worldPosition);
+            if(next==v5)return;new cn.blockforge.generated.generatedmod.alchemy.batch.BatchJournal(server.getServer()).write(next);applyV5(next);sync();
+        }catch(RuntimeException e){v5Fault=true;com.mojang.logging.LogUtils.getLogger().error("V5 step stopped before publication; journal retained",e);}
+    }
+    public boolean sealV5Batch(){
+        if(!(level instanceof ServerLevel server)||v5.isEmpty()||!v5.getString("State").equals("ACTIVE"))return false;
+        var next=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.seal(v5);new cn.blockforge.generated.generatedmod.alchemy.batch.BatchJournal(server.getServer()).write(next);applyV5(next);sync();return true;
+    }
+    public void detachV5(){
+        if(!(level instanceof ServerLevel server)||v5.isEmpty())return;
+        boolean active=v5.getString("State").equals("ACTIVE");var next=active?cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.seal(v5):v5.copy();next.putBoolean("Detached",true);
+        new cn.blockforge.generated.generatedmod.alchemy.batch.BatchJournal(server.getServer()).write(next);applyV5(next);
+        if(active)net.minecraft.world.Containers.dropItemStack(server,worldPosition.getX()+.5,worldPosition.getY()+.5,worldPosition.getZ()+.5,completedResult.copy());
+    }
+    private boolean sealedV5Result(){return completedResult.is(WuXingItems.SEALED_ALCHEMY_BATCH.get())&&completedResult.hasTag()&&completedResult.getTag().hasUUID(cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.KEY);}
+    private int collectV5(Player player){
+        if(!(player instanceof net.minecraft.server.level.ServerPlayer server)||!sealedV5Result()||!stillValid(player)||!player.isAlive()||player.isSpectator())return 0;
+        try{var receipt=completedResult.getTag().getUUID(cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.KEY);
+            boolean already=new cn.blockforge.generated.generatedmod.alchemy.batch.BatchJournal(server.server).read(receipt).getString("State").equals("CLAIMED");
+            boolean claimed=cn.blockforge.generated.generatedmod.alchemy.batch.BatchDelivery.claim(server,receipt);
+            if(!claimed)return 0;clearV5();sync();return already?0:1;
+        }catch(RuntimeException e){com.mojang.logging.LogUtils.getLogger().error("V5 claim retained for recovery",e);return 0;}
+    }
     public static final int MATERIAL_SLOT_START = 0;
     public static final int MATERIAL_SLOT_COUNT = 8;
     public static final int IGNITION_SLOT = 8;
@@ -43,7 +128,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
     public boolean poweredComplete() { return poweredTicks >= finishTick-startTick; }
     public void enableSpiritFuel() { needsSpiritFuel=true;poweredTicks=0;fuelTicks=0;sync(); }
     public int injectSpirit(Player player) {
-        if (!(level instanceof ServerLevel) || !stillValid(player) || !player.isAlive() || player.isSpectator() || !ignited() || explosionPending()
+        if (!(level instanceof ServerLevel) || !stillValid(player) || !player.isAlive() || player.isSpectator() || !ignited() || v5Batch() || explosionPending()
                 || !ProgressionGate.canUseFire(player,ignitionTier())) return 0;
         long now=level.getGameTime();
         if(lastInjection!=Long.MIN_VALUE && now-lastInjection<4) return 0;
@@ -104,7 +189,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
     private int explosionWarningTicks;
     private java.util.UUID explosionOperator;
     public boolean explosionPending(){return explosionWarningTicks>0;}
-    public boolean busy(){return brewing||explosionPending();}
+    public boolean busy(){return brewing||explosionPending()||v5Fault;}
     public int explosionWarningTicks(){return explosionWarningTicks;}
     public boolean beginExplosionWarning(Player player){
         if(!(level instanceof ServerLevel)||busy()||hasResult()||!ignited()||!hasAnyMaterial())return false;
@@ -133,7 +218,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
     @Override public void onLoad() {
         super.onLoad();structureDirty=true;
         if(level!=null&&level.isClientSide)ClientPacketSink.furnaceLoaded.accept(this);
-        if(level instanceof ServerLevel server)cn.blockforge.generated.generatedmod.network.service.AlchemyService.wakeAt(server,worldPosition);
+        if(level instanceof ServerLevel server){restoreV5();if(!v5Batch())cn.blockforge.generated.generatedmod.network.service.AlchemyService.wakeAt(server,worldPosition);}
     }
     private int[] reservedCounts = new int[MATERIAL_SLOT_COUNT];
     private cn.blockforge.generated.generatedmod.alchemy.auxiliary.AuxiliaryAlchemy.Plan auxiliaryPlan = new cn.blockforge.generated.generatedmod.alchemy.auxiliary.AuxiliaryAlchemy.Plan(java.util.List.of());
@@ -149,7 +234,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
     public long finishTick() { return finishTick; }
     public long visualSeed() { return visualSeed; }
     public int outcome() { return outcome; }
-    public ItemStack completedResult() { return completedResult; }
+    public ItemStack completedResult() { return v5Batch()||sealedV5Result()?completedResult.copy():completedResult; }
     public boolean hasResult() { return !completedResult.isEmpty(); }
     public boolean hasAshResult() { return completedResult.is(WuXingItems.PILL_ASH.get()); }
     public String activeFireId() { return activeFireId; }
@@ -183,6 +268,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
         return true;
     }
     public boolean complete(ItemStack result) {
+        if(v5Batch())return false;
         if (!brewing || hasResult() || result.isEmpty()) return false;
         if (!settleMaterials()) { finishBrewing(false); return false; }
         completedResult=result.copy();
@@ -192,6 +278,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
     }
     /** Actual failure consumes the reserved batch and leaves one collectible ash; cancellation releases it. */
     public boolean failExperiment() {
+        if(v5Batch())return false;
         if (!brewing || hasResult()) return false;
         if(!settleMaterials()){finishBrewing(false);return false;}
         completedResult=new ItemStack(rankedFailure?WuXingItems.WASTE_PILL.get():WuXingItems.PILL_ASH.get());
@@ -240,6 +327,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
     }
 
     public void finishBrewing(boolean completed) {
+        if(v5Batch()){sealV5Batch();return;}
         clearExplosionWarning();
         // Cancellation releases reservations; only successful completion consumes ingredients.
         java.util.Arrays.fill(reservedCounts,0);
@@ -254,7 +342,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
     /** 炼制进度（0-1），供界面进度条使用；未炼制时返回 0。 */
     public float brewingProgress() {
         if (!brewing || level == null || finishTick <= startTick) return 0.0F;
-        float t = (needsSpiritFuel ? poweredTicks : level.getGameTime() - startTick) / (float) (finishTick - startTick);
+        float t = (needsSpiritFuel||v5Batch() ? poweredTicks : level.getGameTime() - startTick) / (float) (finishTick - startTick);
         return Math.max(0.0F, Math.min(1.0F, t));
     }
 
@@ -268,6 +356,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
     /** 客户端持续特效：炼制时炉顶冒出彩色灵光与丹气。 */
     public static void tick(Level level, BlockPos pos, BlockState state, AlchemyFurnaceBlockEntity furnace) {
         if (!level.isClientSide) {
+            if(furnace.v5Batch()||furnace.v5Fault){furnace.tickV5();return;}
             if(furnace.explosionPending()) {
                 if(furnace.explosionWarningTicks==1) {
                     var operator=furnace.explosionOperator==null?null:((ServerLevel)level).getServer().getPlayerList().getPlayer(furnace.explosionOperator);
@@ -296,6 +385,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
     }
 
     private void collectNearby() {
+        if(sealedV5Result())return;
         if (!(level instanceof ServerLevel server)) return;
         var mouth=AlchemyFurnaceVisualLayout.world(worldPosition,AlchemyFurnaceStructure.inwardOf(getBlockState()),AlchemyFurnaceVisualLayout.MOUTH);
         var area=new AABB(mouth,mouth).inflate(AlchemyFurnaceVisualLayout.PICKUP_RADIUS);
@@ -316,6 +406,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
 
     /** Server-only transaction; no creative-mode deletion of uninserted remainder. */
     public int collectResult(Player player){
+        if(sealedV5Result())return collectV5(player);
         if(!(level instanceof ServerLevel)||!stillValid(player)||brewing||!hasResult()||!player.isAlive()||player.isSpectator())return 0;
         int moved=insertResult(player.getInventory().items,player.getInventory().getMaxStackSize());
         if(moved>0){player.getInventory().setChanged();if(!hasResult()){completedResult=ItemStack.EMPTY;completionTick=-1;activeFireId="";outcome=0;}sync();player.containerMenu.broadcastChanges();}
@@ -323,6 +414,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
     }
     /** Explicit UI pickup; preserve the ordinary cursor item and all untransferred remainder. */
     public int collectResultToCursor(Player player,net.minecraft.world.inventory.AbstractContainerMenu menu){
+        if(sealedV5Result())return player.containerMenu==menu?collectV5(player):0;
         if(!(level instanceof ServerLevel)||player.containerMenu!=menu||!stillValid(player)||brewing||!hasResult()||!player.isAlive()||player.isSpectator())return 0;
         ItemStack carried=menu.getCarried();if(!carried.isEmpty()&&!ItemStack.isSameItemSameTags(carried,completedResult))return 0;
         int moved=Math.min(completedResult.getCount(),Math.max(0,completedResult.getMaxStackSize()-carried.getCount()));
@@ -362,6 +454,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
     public CompoundTag getUpdateTag() {
         CompoundTag tag = super.getUpdateTag();
         saveAdditional(tag);
+        tag.remove("V5Ref");
         return tag;
     }
 
@@ -378,6 +471,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
     @Override
     protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
+        if(v5Ref!=null)tag.putUUID("V5Ref",v5Ref);tag.putBoolean("V5Mode",v5Batch());
         tag.putBoolean(BREWING_TAG, brewing);
         tag.putInt("ExplosionWarningTicks",explosionWarningTicks);
         if(explosionOperator!=null)tag.putUUID("ExplosionOperator",explosionOperator);
@@ -400,6 +494,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
+        v5Ref=tag.hasUUID("V5Ref")?tag.getUUID("V5Ref"):null;v5Client=tag.getBoolean("V5Mode");v5=new CompoundTag();v5Fault=false;
         brewing = tag.getBoolean(BREWING_TAG);
         explosionWarningTicks=Math.max(0,Math.min(60,tag.getInt("ExplosionWarningTicks")));
         explosionOperator=tag.hasUUID("ExplosionOperator")?tag.getUUID("ExplosionOperator"):null;
@@ -429,7 +524,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
     @Override public int getContainerSize() { return CONTAINER_SIZE; }
 
     @Override public boolean canPlaceItem(int index, ItemStack stack) {
-        if (busy() || index < 0 || index >= CONTAINER_SIZE) return false;
+        if (inventoryLocked() || index < 0 || index >= CONTAINER_SIZE) return false;
         if (index == IGNITION_SLOT) return !brewing && stack.getCount() == 1
                 && cn.blockforge.generated.generatedmod.fire.FireBottleData.tier(stack) > 0;
         if(index==CORE_SLOT)return stack.getItem() instanceof net.minecraft.world.item.BlockItem item
@@ -445,12 +540,12 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
 
     @Override
     public ItemStack getItem(int index) {
-        return index >= 0 && index < CONTAINER_SIZE ? items.get(index) : ItemStack.EMPTY;
+        return index >= 0 && index < CONTAINER_SIZE ? (v5Batch()?items.get(index).copy():items.get(index)) : ItemStack.EMPTY;
     }
 
     @Override
     public ItemStack removeItem(int index, int count) {
-        if (busy()) return ItemStack.EMPTY;
+        if (inventoryLocked()) return ItemStack.EMPTY;
         if (index < 0 || index >= CONTAINER_SIZE) return ItemStack.EMPTY;
         ItemStack stack = items.get(index);
         if (stack.isEmpty()) return ItemStack.EMPTY;
@@ -461,7 +556,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
 
     @Override
     public ItemStack removeItemNoUpdate(int index) {
-        if (busy()) return ItemStack.EMPTY;
+        if (inventoryLocked()) return ItemStack.EMPTY;
         if (index < 0 || index >= CONTAINER_SIZE) return ItemStack.EMPTY;
         ItemStack stack = items.get(index);
         if (stack.isEmpty()) return ItemStack.EMPTY;
@@ -472,7 +567,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
 
     @Override
     public void setItem(int index, ItemStack stack) {
-        if (busy()) return;
+        if (inventoryLocked()) return;
         if (index < 0 || index >= CONTAINER_SIZE) return;
         items.set(index, stack.isEmpty() ? ItemStack.EMPTY : stack);
         sync();
@@ -487,7 +582,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
 
     @Override
     public void clearContent() {
-        if (busy()) return;
+        if (inventoryLocked()) return;
         for (int slot = 0; slot < CONTAINER_SIZE; slot++) items.set(slot, ItemStack.EMPTY);
         sync();
     }

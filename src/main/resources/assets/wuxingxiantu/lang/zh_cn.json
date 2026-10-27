@@ -2470,5 +2470,6 @@
   "medicine_tier.wuxingxiantu.3": "地阶",
   "medicine_tier.wuxingxiantu.4": "天阶",
   "medicine_tier.wuxingxiantu.5": "仙阶",
-  "knowledge.wuxingxiantu.herb_years": "药龄按实际年份记录，无药材品阶。"
+  "knowledge.wuxingxiantu.herb_years": "药龄按实际年份记录，无药材品阶。",
+  "item.wuxingxiantu.sealed_alchemy_batch": "封存药液（不可服用）"
 }

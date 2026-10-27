@@ -69,6 +69,7 @@ public final class AlchemyService {
                 }
                 boolean free = cn.blockforge.generated.generatedmod.alchemy.FreeAlchemy.ID.equals(packet.recipeId());
                 if(free!=menu.freeMode())return;
+                if(free){furnaceEntity.startV5Batch(player);return;}
                 AlchemyRecipe recipe = free ? cn.blockforge.generated.generatedmod.alchemy.FreeAlchemy.attemptRecipe(furnaceEntity, level)
                         : level.getRecipeManager().getAllRecipesFor(ModRecipes.ALCHEMY_TYPE.get()).stream()
                         .filter(candidate -> candidate.getId().equals(packet.recipeId())).findFirst().orElse(null);
@@ -431,6 +432,7 @@ public final class AlchemyService {
     public static boolean isAlchemyBusy(net.minecraft.world.entity.player.Player player) {
         return player instanceof ServerPlayer server&&CraftingJobs.get(server.server).activeCount(player.getUUID(),
                 CraftingJobs.Kind.ALCHEMY,server.server.overworld().getGameTime())
+                +new cn.blockforge.generated.generatedmod.alchemy.batch.BatchJournal(server.server).activeCount(player.getUUID())
                 >=cn.blockforge.generated.generatedmod.balance.GameplayConfig.MAX_ACTIVE_ALCHEMY_JOBS.get();
     }
     public static boolean hasAlchemyJob(net.minecraft.world.level.Level level,BlockPos pos) {

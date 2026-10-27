@@ -149,7 +149,8 @@ public final class AlchemyFurnaceStructure {
             BlockState state=level.getBlockState(core);
             if (AlchemyFurnaceBlock.isFormed(state)) {
                 level.setBlock(core,state.setValue(AlchemyFurnaceBlock.FORMED,false),Block.UPDATE_ALL);
-                if (level instanceof net.minecraft.server.level.ServerLevel server) Network.cancelAlchemyAt(server,core);
+                if (level instanceof net.minecraft.server.level.ServerLevel server
+                        && (!(level.getBlockEntity(core) instanceof AlchemyFurnaceBlockEntity active)||!active.v5Batch())) Network.cancelAlchemyAt(server,core);
             }
             for (int x=-2;x<=2;x++) for (int z=-2;z<=2;z++) for (int y=0;y<4;y++) {
                 BlockPos pos=core.offset(x,y,z);

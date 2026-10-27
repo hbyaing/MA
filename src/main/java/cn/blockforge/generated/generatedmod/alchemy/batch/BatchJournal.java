@@ -1,0 +1,70 @@
+package cn.blockforge.generated.generatedmod.alchemy.batch;
+
+import net.minecraft.nbt.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.storage.LevelResource;
+import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.file.*;
+import java.util.*;
+
+/** SERVER ONLY. Write-before-publish journal; never put its contents in a block update or item. */
+public final class BatchJournal {
+    public static final int MAX_BYTES=1048576;
+    private final Path root;
+    private final MinecraftServer server;
+    private static final Map<MinecraftServer,Map<UUID,UUID>> ACTIVE=new WeakHashMap<>();
+    public BatchJournal(MinecraftServer server){this.server=server;root=server.getWorldPath(LevelResource.ROOT).resolve("data/alchemy-v5");}
+    private Path batch(UUID id){return root.resolve("batches").resolve(id+".nbt");}
+    private Path position(ServerLevel level,BlockPos pos){
+        return root.resolve("positions").resolve(UUID.nameUUIDFromBytes(level.dimension().location().toString().getBytes(java.nio.charset.StandardCharsets.UTF_8))+"_"+Long.toHexString(pos.asLong())+".nbt");
+    }
+    public CompoundTag read(UUID id){return readFile(batch(id));}
+    public void write(CompoundTag data){V5Batch.validate(data);writeFile(batch(data.getUUID("Id")),data);
+        var cached=ACTIVE.get(server);if(cached!=null&&(!data.getString("State").equals("ACTIVE")||data.getBoolean("Detached")))cached.remove(data.getUUID("Id"));
+    }
+    public CompoundTag at(ServerLevel level,BlockPos pos){var link=readFile(position(level,pos));return link.hasUUID("Id")?read(link.getUUID("Id")):new CompoundTag();}
+    public void link(ServerLevel level,BlockPos pos,UUID id){var tag=new CompoundTag();tag.putUUID("Id",id);writeFile(position(level,pos),tag);
+        var cached=ACTIVE.get(server);if(cached!=null){var doc=read(id);if(doc.getString("State").equals("ACTIVE")&&!doc.getBoolean("Detached"))cached.put(id,doc.getUUID("Owner"));}
+    }
+    public int activeCount(UUID owner){
+        var cached=ACTIVE.get(server);if(cached==null){
+            cached=new HashMap<>();var directory=root.resolve("positions");
+            if(Files.isDirectory(directory))try(var paths=Files.list(directory)){
+                var files=paths.filter(p->p.getFileName().toString().endsWith(".nbt")).limit(4097).toList();if(files.size()>4096)throw new IllegalStateException("Furnace position budget exceeded");
+                for(var file:files){var link=readFile(file);if(!link.hasUUID("Id"))throw new IllegalStateException("Invalid position index");var doc=read(link.getUUID("Id"));
+                    if(doc.getString("State").equals("ACTIVE")&&!doc.getBoolean("Detached"))cached.put(doc.getUUID("Id"),doc.getUUID("Owner"));}
+            }catch(IOException e){throw new IllegalStateException("Cannot rebuild active V5 index",e);}
+            ACTIVE.put(server,cached);
+        }
+        int count=0;for(UUID id:cached.values())if(id.equals(owner))count++;return count;
+    }
+    private Path pending(UUID player){return root.resolve("deliveries").resolve(player+".nbt");}
+    public Set<UUID> pendingFor(UUID player){var result=new LinkedHashSet<UUID>();var tag=readFile(pending(player));
+        for(Tag entry:tag.getList("Ids",Tag.TAG_COMPOUND)){var n=(CompoundTag)entry;if(!n.hasUUID("Id")||!result.add(n.getUUID("Id")))throw new IllegalArgumentException("Invalid delivery index");}
+        if(result.size()>256)throw new IllegalArgumentException("Delivery budget exceeded");return result;
+    }
+    public void pending(UUID player,UUID batch,boolean add){var ids=pendingFor(player);if(add)ids.add(batch);else ids.remove(batch);if(ids.size()>256)throw new IllegalArgumentException("Delivery budget exceeded");
+        var tag=new CompoundTag();var list=new ListTag();for(var id:ids){var n=new CompoundTag();n.putUUID("Id",id);list.add(n);}tag.put("Ids",list);writeFile(pending(player),tag);
+    }
+    private CompoundTag readFile(Path path){
+        if(!Files.exists(path))return new CompoundTag();
+        try{if(Files.size(path)>MAX_BYTES)throw new IOException("Journal byte budget exceeded");
+            try(var input=new DataInputStream(Files.newInputStream(path))){var tag=NbtIo.read(input,new NbtAccounter(MAX_BYTES*4L));if(tag==null||input.read()!=-1)throw new IOException("Invalid/trailing journal data");return tag;}
+        }catch(IOException e){throw new IllegalStateException("Cannot read V5 journal "+path.getFileName(),e);}
+    }
+    private void writeFile(Path path,CompoundTag tag){
+        Path temporary=path.resolveSibling(path.getFileName()+"."+UUID.randomUUID()+".tmp");
+        try{
+            var bytes=new ByteArrayOutputStream();try(var out=new DataOutputStream(bytes)){NbtIo.write(tag,out);}if(bytes.size()>MAX_BYTES)throw new IOException("Journal byte budget exceeded");
+            Files.createDirectories(path.getParent());try(var channel=FileChannel.open(temporary,StandardOpenOption.CREATE_NEW,StandardOpenOption.WRITE)){
+                var data=ByteBuffer.wrap(bytes.toByteArray());while(data.hasRemaining())channel.write(data);channel.force(true);
+            }
+            // No non-atomic fallback: on unsupported filesystems retain the previous journal and stop.
+            Files.move(temporary,path,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);
+        }catch(IOException e){throw new IllegalStateException("Cannot commit V5 journal "+path.getFileName(),e);}
+    }
+}
