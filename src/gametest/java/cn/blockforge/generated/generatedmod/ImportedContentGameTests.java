@@ -116,14 +116,15 @@ public final class ImportedContentGameTests {
         var area=new AABB(pos).inflate(3);
         int first=helper.getLevel().getEntitiesOfClass(ItemEntity.class,area,entity->entity.getItem().is(ImportedContent.LAOYANG_PILL.get())).stream().mapToInt(entity->entity.getItem().getCount()).sum();
         helper.assertTrue(first==1,"Full inventory lost the pill or repeated click bypassed cooldown");
-        // The airborne fixture has no floor; keep the already verified drop local while waiting for the cooldown.
-        for(var item:helper.getLevel().getEntitiesOfClass(ItemEntity.class,area,entity->entity.getItem().is(ImportedContent.LAOYANG_PILL.get()))) {
-            item.setNoGravity(true);item.setDeltaMovement(Vec3.ZERO);
-        }
+        // The first delivery is already asserted. Do not depend on a loose item
+        // surviving nearby concurrent gameplay fixtures for another forty ticks.
+        helper.getLevel().getEntitiesOfClass(ItemEntity.class,area,entity->entity.getItem().is(ImportedContent.LAOYANG_PILL.get())).forEach(ItemEntity::discard);
+        long next=player.getPersistentData().getLong(LaoyangDollBlock.NEXT);
         helper.runAfterDelay(41,()->{
+            helper.assertTrue(helper.getLevel().getGameTime()>=next,"The real server cooldown has not elapsed");
             use(helper,player,pos);
             int count=helper.getLevel().getEntitiesOfClass(ItemEntity.class,area,entity->entity.getItem().is(ImportedContent.LAOYANG_PILL.get())).stream().mapToInt(entity->entity.getItem().getCount()).sum();
-            helper.assertTrue(count==2,"The doll failed to produce its next pill after forty real server ticks");helper.succeed();
+            helper.assertTrue(count==1&&player.getPersistentData().getLong(LaoyangDollBlock.NEXT)==helper.getLevel().getGameTime()+40,"The doll failed to produce its next pill after forty real server ticks");helper.succeed();
         });
     }
     @GameTest(template="empty") public static void secretPillRealUseRetainsBothOriginalLevelTenOutcomes(GameTestHelper helper) {
