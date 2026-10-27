@@ -10,7 +10,6 @@ import net.minecraft.gametest.framework.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.*;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
@@ -103,46 +102,13 @@ public final class ImportedContentGameTests {
         } finally {helper.getLevel().setBlock(pos,Blocks.AIR.defaultBlockState(),3);helper.getLevel().getEntitiesOfClass(ItemEntity.class,new AABB(pos).inflate(2)).forEach(ItemEntity::discard);}
         helper.succeed();
     }
-    @GameTest(template="empty",timeoutTicks=90) public static void dollsKeepDirectionDecorationAndTwoSecondPerPlayerRealDispensing(GameTestHelper helper) {
-        var pos=position(helper,250);helper.getLevel().setBlock(pos,ImportedContent.LAOYANG_DOLL.get().defaultBlockState(),3);
-        var player=new GameTestPlayer(helper.getLevel());player.setPos(pos.getX()+.5,pos.getY()+1,pos.getZ()+.5);
-        player.cleanupAfter(helper,()->{helper.getLevel().setBlock(pos,Blocks.AIR.defaultBlockState(),3);helper.getLevel().getEntitiesOfClass(ItemEntity.class,new AABB(pos).inflate(3),entity->entity.getItem().is(ImportedContent.LAOYANG_PILL.get())).forEach(ItemEntity::discard);});
-        var decorative=ImportedContent.CHENGRAN_DOLL.get().defaultBlockState();
-        var result=decorative.getBlock().use(decorative,helper.getLevel(),pos,player,InteractionHand.MAIN_HAND,hit(pos));
-        helper.assertTrue(result==InteractionResult.PASS&&!player.getPersistentData().contains(LaoyangDollBlock.NEXT),"Chengran decorative doll dispensed a pill");
-        helper.assertTrue(decorative.rotate(Rotation.CLOCKWISE_90).getValue(LaoyangDollBlock.FACING)==Direction.EAST,"Doll facing/rotation lost");
-        for(int i=0;i<player.getInventory().items.size();i++)player.getInventory().items.set(i,new ItemStack(Items.DIRT,64));
-        use(helper,player,pos);use(helper,player,pos);
-        var area=new AABB(pos).inflate(3);
-        int first=helper.getLevel().getEntitiesOfClass(ItemEntity.class,area,entity->entity.getItem().is(ImportedContent.LAOYANG_PILL.get())).stream().mapToInt(entity->entity.getItem().getCount()).sum();
-        helper.assertTrue(first==1,"Full inventory lost the pill or repeated click bypassed cooldown");
-        // The first delivery is already asserted. Do not depend on a loose item
-        // surviving nearby concurrent gameplay fixtures for another forty ticks.
-        helper.getLevel().getEntitiesOfClass(ItemEntity.class,area,entity->entity.getItem().is(ImportedContent.LAOYANG_PILL.get())).forEach(ItemEntity::discard);
-        long next=player.getPersistentData().getLong(LaoyangDollBlock.NEXT);
-        helper.runAfterDelay(41,()->{
-            helper.assertTrue(helper.getLevel().getGameTime()>=next,"The real server cooldown has not elapsed");
-            use(helper,player,pos);
-            int count=helper.getLevel().getEntitiesOfClass(ItemEntity.class,area,entity->entity.getItem().is(ImportedContent.LAOYANG_PILL.get())).stream().mapToInt(entity->entity.getItem().getCount()).sum();
-            helper.assertTrue(count==1&&player.getPersistentData().getLong(LaoyangDollBlock.NEXT)==helper.getLevel().getGameTime()+40,"The doll failed to produce its next pill after forty real server ticks");helper.succeed();
-        });
-    }
-    @GameTest(template="empty") public static void secretPillRealUseRetainsBothOriginalLevelTenOutcomes(GameTestHelper helper) {
-        try(var player=new GameTestPlayer(helper.getLevel())) {
-            for(boolean good:List.of(true,false)) {
-                boolean found=false;
-                for(long seed=0;seed<8192;seed++) {player.getRandom().setSeed(seed);if(player.getRandom().nextBoolean()==good) {player.getRandom().setSeed(seed);found=true;break;}}
-                helper.assertTrue(found,"Could not select the deterministic outcome fixture");player.removeAllEffects();
-                var pill=new ItemStack(ImportedContent.LAOYANG_PILL.get(),2);player.setItemInHand(InteractionHand.MAIN_HAND,pill);
-                pill.getItem().use(helper.getLevel(),player,InteractionHand.MAIN_HAND);
-                helper.assertTrue(player.isUsingItem()&&pill.getUseDuration()==32&&pill.getUseAnimation()==UseAnim.EAT,"Secret pill lost its original eating entry");
-                pill.getItem().finishUsingItem(pill,helper.getLevel(),player);player.stopUsingItem();
-                helper.assertTrue(pill.getCount()==1,"Secret pill did not consume exactly one item");
-                var effect=player.getEffect(good?MobEffects.REGENERATION:MobEffects.POISON);
-                helper.assertTrue(effect!=null&&effect.getAmplifier()==9&&effect.getDuration()==(good?600:200),"Secret pill changed its original X/30s or X/10s result");
-                if(!good)helper.assertTrue(player.hasEffect(MobEffects.CONFUSION)&&player.getEffect(MobEffects.CONFUSION).getDuration()==200,"Negative branch lost its ten seconds of nausea");
-            }
+    @GameTest(template="empty") public static void removedDollsAndPillAreAbsentWhileBathRemains(GameTestHelper helper) {
+        for(String id:List.of("laoyang_doll","chengran_doll","laoyang_secret_pill")) {
+            var key=new ResourceLocation("wuxingxiantu",id);
+            helper.assertTrue(BuiltInRegistries.ITEM.get(key)==Items.AIR,"Removed item still resolves to a usable item: "+id);
+            helper.assertTrue(BuiltInRegistries.BLOCK.get(key)==Blocks.AIR,"Removed block still resolves to a usable block: "+id);
         }
+        helper.assertTrue(BuiltInRegistries.BLOCK.containsKey(new ResourceLocation("wuxingxiantu","spirit_bath")),"Unrelated spirit bath was removed");
         helper.succeed();
     }
 }

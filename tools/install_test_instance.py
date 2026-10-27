@@ -40,11 +40,13 @@ def is_our_mod(path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--jar', type=Path, default=ROOT / 'build/libs/myriad-ascension-0.2.jar')
+    parser.add_argument("--game-dir", type=Path, help="Explicitly authorized Minecraft instance directory")
+    parser.add_argument("--backup-root", type=Path, default=Path("E:/垃圾"))
     args = parser.parse_args()
     source = args.jar.resolve(strict=True)
-    game = GAME.resolve(strict=True)
+    game = (args.game_dir or GAME).resolve(strict=True)
     mods = (game / 'mods').resolve(strict=True)
-    if not (game / 'axolotl_config.json').is_file() or mods.parent != game:
+    if mods.parent != game or (args.game_dir is None and not (game / 'axolotl_config.json').is_file()):
         raise RuntimeError('The authorized AXO instance is unavailable; rediscover it first')
     if not is_our_mod(source):
         raise RuntimeError('Source is not the production wuxingxiantu Mod')
@@ -68,7 +70,7 @@ def main():
         print(json.dumps(record, ensure_ascii=False, indent=2))
         return
     stamp = datetime.now().strftime('%Y-%m-%d/万界仙途自动安装-%H%M%S-') + uuid.uuid4().hex[:8]
-    backup = Path('E:/垃圾') / stamp
+    backup = args.backup_root / stamp
     backup.mkdir(parents=True, exist_ok=False)
     record = {'source': str(source), 'target': str(target), 'sha256': expected,
               'gameDir': str(game), 'backup': str(backup), 'old': [], 'status': 'backed_up'}
