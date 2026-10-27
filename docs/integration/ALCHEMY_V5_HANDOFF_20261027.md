@@ -9,7 +9,7 @@
 - 第04至13项尚未完成。下一步是真实材料/连续年份/环境/异火适配，并加入本次R1月相与蕴月瓶子任务。
 - V5核心尚未由实际炉体调用；游戏仍用legacy炼丹结算。不要把工作台、纯核心或专服核心夹具当成实际炼丹接入。
 
-最新设计：[DESIGN_V5_0_R1.txt](../specifications/alchemy-v5/DESIGN_V5_0_R1.txt)，包含原稿全文和本次追加修订，原始V5.0单独保留。SHA256 `09c47bf089d17d28fd120c13c7e9fca045ce3d3da5f4ec9860a60eeaadcbb0e3`。
+最新设计：[DESIGN_V5_0_R1.txt](../specifications/alchemy-v5/DESIGN_V5_0_R1.txt)，包含原稿全文和本次追加修订，原始V5.0单独保留。SHA256（Git仓库LF字节，换机校验先统一LF） `8350e80da997b007f2c101adca774847ec43fbdd79b86c926c65afcea3e91e39`。
 制作及新增子任务：[ALCHEMY_V5_CHECKLIST.md](ALCHEMY_V5_CHECKLIST.md)。旧物品具体折算仍仅有审阅方案，未批准，不执行破坏性转换。
 
 ## 本次新增设计要点
