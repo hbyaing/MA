@@ -24,10 +24,12 @@ public final class BagScreen extends AbstractContainerScreen<BagMenu> {
         super(menu,inventory,title);imageWidth=300;imageHeight=242;inventoryLabelY=146;
     }
     @Override protected void init() {
+        String query=search==null?"":search.getValue();
         super.init();
         search=new EditBox(font,leftPos+26,topPos+26,86,10,Component.literal("搜索"));
         search.setBordered(false);search.setTextColor(XiantuBagUi.TEXT);search.setTextColorUneditable(XiantuBagUi.MUTED);
         search.setMaxLength(80);search.setHint(Component.literal("名称或物品ID"));
+        search.setValue(query);
         search.setResponder(value->pendingAt=System.currentTimeMillis()+200);addRenderableWidget(search);
         addRenderableWidget(XiantuBagUi.button(Component.literal("分类："+BagFilter.LABELS[category]),button->{
             category=(category+1)%BagFilter.LABELS.length;button.setMessage(Component.literal("分类："+BagFilter.LABELS[category]));sendFilter();

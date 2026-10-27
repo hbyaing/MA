@@ -13,6 +13,7 @@ public final class BalanceRegression {
         require(Math.abs(expected-actual)<.001,message+": expected "+expected+", got "+actual);
     }
     public static void main(String[] args) {
+        ScreenFitRegression.run();
         var flow=new cn.blockforge.generated.generatedmod.client.FlightFlowMotion();
         for(int tick=0;tick<20000;tick++){
             double phase=flow.phase(1),intensity=flow.strength(1);

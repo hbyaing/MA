@@ -36,6 +36,7 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
         imageHeight = AlchemyUiLayout.HEIGHT;
     }
     @Override protected void init() {
+        String query=search==null?"":search.getValue();
         super.init();
         holdingInjection=false;injectionTicks=0;
         rows.clear();
@@ -47,6 +48,7 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
         search.setBordered(false);
         search.setTextColor(TEXT);
         search.setMaxLength(60);
+        search.setValue(query);
         search.setResponder(value -> { page = 0; updateControls(); });
         for (int i = 0; i < 6; i++) {
             final int row = i;
