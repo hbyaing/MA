@@ -1,0 +1,30 @@
+{
+  "status": "design_reference_pending_user_approval",
+  "tool": "built-in image_gen",
+  "runtimeImplemented": false,
+  "review": [
+    "V2 has six research tabs",
+    "One specimen slot, two consumable slots",
+    "Waste/ash/residue shown as a legend",
+    "Known observations separated from hypotheses",
+    "Nine-column, four-row inventory; separate hotbar gap",
+    "Custom ink/gold buttons and slot skins",
+    "Model and UI are concept references, not game screenshots"
+  ],
+  "files": {
+    "concept-v1.png": {
+      "size": [
+        1659,
+        948
+      ],
+      "sha256": "b4c69f13a80492ba7ece0d4a9c9d812ac3c691eb037e97cf468b5d52e2c0d690"
+    },
+    "concept-v2.png": {
+      "size": [
+        1659,
+        948
+      ],
+      "sha256": "b8174fcf01cdbda72083d47e6c2f683a2626c922103c1f1be71529d2ae6ccef6"
+    }
+  }
+}

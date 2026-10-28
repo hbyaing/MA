@@ -354,6 +354,14 @@
       "latestAcceptance": "Step08: real entry allocation/settlement and restart coverage; see ALCHEMY_V5_ENTRIES_20261028.md. Full data coverage and compatibility remain steps12–13."
     },
     {
+      "id": "D31",
+      "topic": "丹道反推研究的游戏入口",
+      "status": "confirmed",
+      "decision": "用户2026-10-28明确：反推及配套研究玩法由新建专用工作方块承载。暂名丹道研析台，鉴定、实验、反推、丹方、谱系、认证共用这一入口；实际炼制继续普通炉/天地为炉，知识与职业复用现有统一框架。",
+      "implementation": "设计阶段；先完成初稿与优化参考图，按AGENTS.md取得用户批准后提取要素与实装。09–11尚未实现，不以概念图冒充游戏接入。",
+      "targetEvidence": "docs/specifications/alchemy-v5/RESEARCH_WORKSTATION_20261028.md"
+    },
+    {
       "id": "D29",
       "topic": "元婴保命与近战被动",
       "status": "confirmed",
