@@ -70,7 +70,7 @@ git clone --branch main https://github.com/hbyaing/Myriad-Ascension.git
 cd Myriad-Ascension
 ```
 
-老 UI 交付基线、新 UI 暂存稿和早期融合快照继续保留在独立分支；未验收暂存稿不替换当前交付界面。
+仓库仅保留最新 `main` 分支。旧开发分支已归档清理；历史版本可通过下方固定提交链接查看，未验收草稿不混入当前源码。
 
 工程使用 **Minecraft 1.20.1 / Forge / JDK 17 / Gradle 8.8**，依赖与验证配置以该分支工程文件为准。
 
@@ -102,13 +102,13 @@ Linux / macOS 使用 `./gradlew`。首次解析依赖需要联网；完整服务
 
 </details>
 
-## 独立保留的开发与备份分支
+## 历史版本记录
 
-| 分支 | 用途 |
+| 历史提交 | 用途 |
 | :-- | :-- |
-| [老 UI 基线](https://github.com/hbyaing/Myriad-Ascension/tree/codex/myriad-ascension-delivery-old-ui) | 原始老 UI 交付基线 |
-| [新 UI 暂存](https://github.com/hbyaing/Myriad-Ascension/tree/codex/myriad-ascension-new-ui) | 独立开发快照，含未验收草稿 |
-| [早期融合快照](https://github.com/hbyaing/Myriad-Ascension/tree/codex/myriad-ascension) | 历史整合内容与追溯 |
+| [老 UI 基线](https://github.com/hbyaing/Myriad-Ascension/tree/ab5825c2d7a35ce72c31b385c94753a26ee2d013) | 原始老 UI 交付基线 |
+| [新 UI 暂存](https://github.com/hbyaing/Myriad-Ascension/tree/7a059c9202997906f038e7b30d598d1f391ead0f) | 独立开发快照，含未验收草稿 |
+| [早期融合快照](https://github.com/hbyaing/Myriad-Ascension/tree/dbe20d199d0648595c3585b3585ed44b034ee262) | 历史整合内容与追溯 |
 
 ## 共创来源
 
