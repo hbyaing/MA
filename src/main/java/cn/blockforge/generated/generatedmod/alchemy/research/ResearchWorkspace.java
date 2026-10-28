@@ -24,6 +24,7 @@ public final class ResearchWorkspace {
             var saved=n.getList("Parents",Tag.TAG_STRING).stream().map(Tag::getAsString).toList();if(parents.isEmpty()||saved.equals(parents))return true;
         }}return false;}
     public Panel view(int page,int selection,boolean analyzed,ItemStack specimen){
+        if(page==5){if(!ResearchMethods.qualified(player))return new Panel("先完成配伍、火候与研究前置","尚未具备认证知识","不阻止合法炼制","",50,51,0);var panel=CertificationPanel.view(player,selection);return message.isBlank()?panel:new Panel(message,panel.known(),panel.pending(),panel.detail(),panel.primary(),panel.secondary(),panel.flags());}
         if(!ResearchMethods.qualified(player))return new Panel(page==1?"":"先理解配伍与火候\n完成真实炼制并研习传承","研究前置尚未满足","不影响既有合法炼制","",page==2?32:page==1?30:40,page==2?38:page==1?31:41,0);
         if(page==1){var point=current(selection);String known=baseline==null?"尚未选择对照基准":"基准："+baseline.toString().substring(0,8);return new Panel(comparison,known,"严格检查已测条件\n两批不证明因果",point==null?"旧记录或缺失数据，不能补造开炉环境。":"本人已测投料、开炉环境和操作指令对照；不比较随机种子。",30,31,methods.learned(player)&&point!=null?1+(baseline!=null?2:0):0);}
         if(page==2){
@@ -54,11 +55,12 @@ public final class ResearchWorkspace {
             case 2->"已测联合点："+node.getCompound("JointPoints").size()+"\n支持批次："+node.getInt("Support")+"\n不符/失败："+node.getInt("Failures")+"\n声明范围仅是假设\n不生成连续有效区域";
             default->"保留全部父源与祖方\n原始基准不可重写\n旧批次仅引用一次\n越出证据域需新实验\n无任何药力衰减惩罚";
         };
-        String detail="根源："+node.getString("Root")+"\n父源："+node.getList("Parents",Tag.TAG_STRING)+"\n观测支持只对应保存的联合点；没有独立验证或认证。\n离散变更路径："+node.getCompound("Path").getCompound("Choices");
-        return new Panel(message.isBlank()?body:message,"所选父源："+parents.size()+"\n认证：尚未进行","改方须有自身证据\n不按品级推算难度",detail,40,41,methods.learned(player)?3:0);
+        String detail="根源："+node.getString("Root")+"\n父源："+node.getList("Parents",Tag.TAG_STRING)+"\n观测支持只对应保存的联合点；独立验证以认证页为准。\n离散变更路径："+node.getCompound("Path").getCompound("Choices");
+        return new Panel(message.isBlank()?body:message,"所选父源："+parents.size()+"\n认证：见认证页","改方须有自身证据\n不按品级推算难度",detail,40,41,methods.learned(player)?3:0);
     }
     public boolean action(int page,int selection,int id,boolean analyzed,ItemStack specimen,boolean supplies){
         if(!ResearchMethods.qualified(player))return false;
+        if(page==5){if(id==53&&Math.floorMod(selection,5)==4){message=AlchemyCertification.promote(player);return true;}boolean done=CertificationPanel.action(player,selection,id);if(id==50&&!done){message="冻结条件尚未满足\n检查知识与本人对照\n同条件协议不能重置";return true;}return done;}
         if(page==2&&id==32){boolean changed=methods.study(player);if(changed){history=null;message="已研习公开研究法\n现在可鉴定样本并反推";}return changed;}
         if(!methods.learned(player))return false;
         if(page==1&&(id==30||id==31)){
@@ -78,6 +80,6 @@ public final class ResearchWorkspace {
             var node=ResearchLineage.save(player,session,c,parents,methods);if(node.isEmpty())return false;message="已保存候选版本\n"+ResearchLineage.status(node)+"\n去谱系页查看净/累计改动";return true;
         }return false;
     }
-    public static String actionLabel(int id){return switch(id){case 30->"选为对照";case 31->"比较两批";case 32->"研习研究法";case 33->"反推候选";case 34->"药龄减20%";case 35->"用量减一件";case 36->"扩展声明";case 37->"恢复原方案";case 38->"保存候选";case 40->"设为父方";case 41->"加入父源";default->"研究";};}
+    public static String actionLabel(int id){return switch(id){case 30->"选为对照";case 31->"比较两批";case 32->"研习研究法";case 33->"反推候选";case 34->"药龄减20%";case 35->"用量减一件";case 36->"扩展声明";case 37->"恢复原方案";case 38->"保存候选";case 40->"设为父方";case 41->"加入父源";case 50->"冻结后续验证";case 51->"提交验证";case 53->"申请晋阶";default->"研究";};}
     private static String scopeText(CompoundTag scope){var s=new StringBuilder();for(String k:new TreeSet<>(scope.getCompound("Minimum").getAllKeys()))if(k.startsWith("age/"))s.append("药龄 ").append(scope.getCompound("Minimum").getLong(k)).append(" 至 ").append(scope.getCompound("Maximum").getLong(k)).append("年\n");return s.toString();}
 }

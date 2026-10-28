@@ -1,0 +1,27 @@
+{
+  "captures": [
+    "empty",
+    "method-unlearned",
+    "candidate-normal",
+    "candidate-hover",
+    "candidate-focus",
+    "candidate-saved-disabled",
+    "lineage-root",
+    "age-hypothesis",
+    "lineage-child",
+    "approved-gui3",
+    "lineage-cumulative",
+    "single-factor-comparison",
+    "knowledge-disabled",
+    "fit-gui4",
+    "fit-gui4-navigation",
+    "cert-freeze-gui4",
+    "cert-collecting-disabled"
+  ],
+  "captureViolations": 0,
+  "frames": 2216,
+  "error": "java.util.concurrent.CompletionException: java.lang.AssertionError: Holdout results: {EffectRanges:{mana:{Maximum:28554L,MaximumDuration:0,Minimum:28554L,MinimumDuration:0}},Environments:0,Fail:30,Formed:30,Incidents:0,Lots:0,Lower:0.0d,Pass:0,Pending:0,TargetGrade:30,TargetType:0}",
+  "passed": false,
+  "resume": false,
+  "blockedGrabs": 2
+}

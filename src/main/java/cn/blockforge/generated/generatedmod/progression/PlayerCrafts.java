@@ -29,7 +29,8 @@ public final class PlayerCrafts extends SavedData {
     public String learnOrPromote(ServerPlayer p,String id){
         if(!valid(id))return "未知技艺";
         var n=profession(p.getUUID(),id);
-        if(!n.getBoolean("Learned")){n.putBoolean("Learned",true);setDirty();return "已习得"+NAMES[java.util.Arrays.asList(IDS).indexOf(id)]+"，制作成功可积累心得。";}
+        if(!n.getBoolean("Learned")){n.putBoolean("Learned",true);setDirty();return id.equals("alchemy")?"已习得炼丹入门；正式品阶需在丹道研析台完成独立认证。":"已习得"+NAMES[java.util.Arrays.asList(IDS).indexOf(id)]+"，制作成功可积累心得。";}
+        if(id.equals("alchemy"))return cn.blockforge.generated.generatedmod.alchemy.research.AlchemyCertification.promote(p);
         int next=Math.max(0,Math.min(8,n.getInt("Rank")))+1;
         if(next>8)return "已臻九品。";
         var d=GeneratedMod.data(p);

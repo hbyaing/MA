@@ -127,7 +127,7 @@ public final class AlchemyFurnaceStructure {
                 level.setBlock(pos,WuXingBlocks.ALCHEMY_FURNACE_PART.get().defaultBlockState()
                         .setValue(AlchemyFurnacePartBlock.SEAL,wanted.isAir()),Block.UPDATE_ALL);
                 if (!(level.getBlockEntity(pos) instanceof AlchemyFurnacePartEntity part)) throw new IllegalStateException("Missing furnace part entity");
-                part.core=core.immutable(); part.original=original; part.originalData=data; part.setChanged();
+                part.core=core.immutable(); part.coreTurn=AlchemyFurnaceCollision.turn(level.getBlockState(core)); part.original=original; part.originalData=data; part.setChanged();
                 level.sendBlockUpdated(pos,part.getBlockState(),part.getBlockState(),Block.UPDATE_CLIENTS);
             }
             if (!AlchemyFurnaceBlock.isFormed(state)) level.setBlock(core,state.setValue(AlchemyFurnaceBlock.FORMED,true),Block.UPDATE_ALL);

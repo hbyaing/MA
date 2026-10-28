@@ -23,7 +23,14 @@ public final class BatchJournal {
         return root.resolve("positions").resolve(UUID.nameUUIDFromBytes(level.dimension().location().toString().getBytes(java.nio.charset.StandardCharsets.UTF_8))+"_"+Long.toHexString(pos.asLong())+".nbt");
     }
     public CompoundTag read(UUID id){return readFile(batch(id));}
-    public void write(CompoundTag data){V5Batch.validate(data);PortableBatch.validate(data);writeFile(batch(data.getUUID("Id")),data);
+    public CompoundTag certification(UUID owner){return readFile(root.resolve("certification").resolve(owner+".nbt"));}
+    public void certification(UUID owner,CompoundTag data){writeFile(root.resolve("certification").resolve(owner+".nbt"),data);}
+    public java.util.List<CompoundTag> ownerHistory(UUID owner){
+        var directory=root.resolve("batches");if(!Files.isDirectory(directory))return java.util.List.of();
+        try(var paths=Files.list(directory)){var files=paths.filter(p->p.getFileName().toString().endsWith(".nbt")).limit(8193).toList();if(files.size()>8192)throw new IllegalStateException("Certification archive budget exceeded; archive review required");var out=new java.util.ArrayList<CompoundTag>();for(var p:files){var n=readFile(p);if(n.hasUUID("Owner")&&n.getUUID("Owner").equals(owner)){V5Batch.validate(n);out.add(n);}}return java.util.List.copyOf(out);}catch(IOException e){throw new IllegalStateException("Cannot audit batch archive",e);}
+    }
+    public void write(CompoundTag data){V5Batch.validate(data);PortableBatch.validate(data);cn.blockforge.generated.generatedmod.alchemy.research.AlchemyCertification.reserve(server,this,data);writeFile(batch(data.getUUID("Id")),data);
+        cn.blockforge.generated.generatedmod.alchemy.research.AlchemyCertification.record(server,this,data);
         cn.blockforge.generated.generatedmod.alchemy.research.ResearchPractice.record(server,data);
         var cached=ACTIVE.get(server);if(cached!=null&&(!data.getString("State").equals("ACTIVE")||data.getBoolean("Detached")))cached.remove(data.getUUID("Id"));
     }

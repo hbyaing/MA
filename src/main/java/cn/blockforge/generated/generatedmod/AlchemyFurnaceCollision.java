@@ -35,10 +35,15 @@ public final class AlchemyFurnaceCollision {
         } catch (Exception e) {throw new ExceptionInInitializerError(e);}
     }
     public static VoxelShape at(BlockGetter level,BlockPos pos,boolean selection) {
-        BlockPos core=level.getBlockEntity(pos) instanceof AlchemyFurnacePartEntity part ? part.core : pos;
-        var state=level.getBlockState(core);
-        int turn=Math.floorMod(Math.round(AlchemyFurnaceVisualLayout.rotation(AlchemyFurnaceStructure.inwardOf(state))/90),4);
-        return CACHE.getOrDefault((selection?"selection":"collision")+":"+turn+":"+(pos.getX()-core.getX())+","+(pos.getY()-core.getY())+","+(pos.getZ()-core.getZ()),Shapes.empty());
+        if(level.getBlockEntity(pos) instanceof AlchemyFurnacePartEntity part){
+            if(part.coreTurn>=0)return shape(pos,part.core,part.coreTurn,selection);
+            // Old/unreceived data: conservative local union. Never dereference a remote core
+            // through a bounded RenderChunkRegion, and never reach into a live ClientLevel.
+            var fallback=Shapes.empty();for(int t=0;t<4;t++)fallback=Shapes.or(fallback,shape(pos,part.core,t,selection));return fallback;
+        }
+        return shape(pos,pos,turn(level.getBlockState(pos)),selection);
     }
+    public static int turn(net.minecraft.world.level.block.state.BlockState state){return Math.floorMod(Math.round(AlchemyFurnaceVisualLayout.rotation(AlchemyFurnaceStructure.inwardOf(state))/90),4);}
+    private static VoxelShape shape(BlockPos pos,BlockPos core,int turn,boolean selection){return CACHE.getOrDefault((selection?"selection":"collision")+":"+turn+":"+(pos.getX()-core.getX())+","+(pos.getY()-core.getY())+","+(pos.getZ()-core.getZ()),Shapes.empty());}
     private AlchemyFurnaceCollision() {}
 }

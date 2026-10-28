@@ -81,6 +81,7 @@ public final class AlchemyFurnacePartBlock extends BaseEntityBlock {
     @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         if (level.isClientSide) return null;
         return (world, pos, current, entity) -> {
+            if(entity instanceof AlchemyFurnacePartEntity legacy&&legacy.coreTurn<0&&world.hasChunkAt(legacy.core)&&AlchemyFurnaceBlock.isFormed(world.getBlockState(legacy.core))){legacy.coreTurn=AlchemyFurnaceCollision.turn(world.getBlockState(legacy.core));legacy.setChanged();world.sendBlockUpdated(pos,current,current,3);}
             if (entity instanceof AlchemyFurnacePartEntity part && (world.getGameTime() + pos.asLong()) % 40 == 0
                     && world.hasChunkAt(part.core) && !AlchemyFurnaceBlock.isFormed(world.getBlockState(part.core))) {
                 AlchemyFurnaceStructure.restore(world, part);

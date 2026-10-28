@@ -584,7 +584,8 @@ if (project.hasProperty('v5BatchCapture')) {
             property 'wuxingxiantu.v5Effects', project.hasProperty('v5EffectsCapture').toString()
             property 'wuxingxiantu.v5Entries', project.hasProperty('v5EntriesCapture').toString()
             property 'wuxingxiantu.v5Research', project.hasProperty('v5ResearchCapture').toString()
-            property 'wuxingxiantu.v5Inference', project.hasProperty('v5InferenceCapture').toString()
+            property 'wuxingxiantu.v5Inference', (project.hasProperty('v5InferenceCapture') || project.hasProperty('v5CertificationCapture')).toString()
+            property 'wuxingxiantu.v5Certification', project.hasProperty('v5CertificationCapture').toString()
             property 'wuxingxiantu.v5Output', project.file('../v5-batch-client-validation').absolutePath
             mods { wuxingxiantu { source sourceSets.main; source sourceSets.v5ClientTest } }
         }

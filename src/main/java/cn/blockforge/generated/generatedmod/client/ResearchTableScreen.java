@@ -16,8 +16,8 @@ public final class ResearchTableScreen extends AbstractContainerScreen<ResearchT
     public ResearchTableScreen(ResearchTableMenu m,Inventory i,Component t){super(m,i,t);imageWidth=440;imageHeight=300;}
     @Override protected void init(){super.init();tabs.clear();
         for(int i=0;i<6;i++){final int page=i;tabs.add(addRenderableWidget(new ResearchTableArt.Button(leftPos+13+i*70,topPos+34,66,17,TABS[i],false,b->action(page))));}
-        inspect=addRenderableWidget(new ResearchTableArt.Button(leftPos+154,topPos+196,110,19,"开始鉴定",true,b->action(menu.page()==1||menu.page()==2||menu.page()==4?menu.primaryAction():menu.page()==3?22:10)));
-        record=addRenderableWidget(new ResearchTableArt.Button(leftPos+275,topPos+196,96,19,"记录结果",false,b->action(menu.page()==1||menu.page()==2||menu.page()==4?menu.secondaryAction():menu.page()==3?23:11)));
+        inspect=addRenderableWidget(new ResearchTableArt.Button(leftPos+154,topPos+196,110,19,"开始鉴定",true,b->action(menu.page()==1||menu.page()==2||menu.page()==4||menu.page()==5?menu.primaryAction():menu.page()==3?22:10)));
+        record=addRenderableWidget(new ResearchTableArt.Button(leftPos+275,topPos+196,96,19,"记录结果",false,b->action(menu.page()==1||menu.page()==2||menu.page()==4||menu.page()==5?menu.secondaryAction():menu.page()==3?23:11)));
         previous=addRenderableWidget(new ResearchTableArt.Button(leftPos+150,topPos+176,36,14,"上页",false,b->action(20)));
         next=addRenderableWidget(new ResearchTableArt.Button(leftPos+240,topPos+176,36,14,"下页",false,b->action(21)));update();
     }
@@ -25,12 +25,13 @@ public final class ResearchTableScreen extends AbstractContainerScreen<ResearchT
     private void update(){for(int i=0;i<tabs.size();i++)tabs.get(i).chosen=menu.page()==i;boolean page=menu.page()==0;inspect.active=page&&menu.unlocked()&&!menu.specimen().isEmpty();record.active=page&&menu.analyzed()&&!menu.recorded()&&menu.supplies()&&menu.records()<64;
         record.setMessage(Component.literal(menu.recorded()?"已记录":"记录结果"));inspect.setMessage(Component.literal("开始鉴定"));
         if(menu.page()==3){inspect.setMessage(Component.literal("研习传承"));record.setMessage(Component.literal(menu.currentTemplateSaved()?"已存模板":"保存模板"));inspect.active=menu.unlocked()&&menu.canStudy();record.active=menu.unlocked()&&menu.canSaveTemplate()&&menu.supplies();}
-        boolean investigation=menu.page()==1||menu.page()==2||menu.page()==4;
+        boolean investigation=menu.page()==1||menu.page()==2||menu.page()==4||menu.page()==5;
         if(investigation){inspect.setMessage(Component.literal(ResearchWorkspace.actionLabel(menu.primaryAction())));record.setMessage(Component.literal(ResearchWorkspace.actionLabel(menu.secondaryAction())));inspect.active=menu.unlocked()&&menu.primaryEnabled();record.active=menu.unlocked()&&menu.secondaryEnabled()&&(menu.secondaryAction()!=38||menu.supplies());}
-        previous.visible=next.visible=menu.page()>=1&&menu.page()<=4;previous.active=next.active=menu.unlocked();
+        previous.visible=next.visible=menu.page()>=1&&menu.page()<=5;previous.active=next.active=menu.unlocked();
         inspect.setTooltip(Tooltip.create(Component.literal(menu.page()==3?"每次学习一层可理解的概念；火候概念需要实际批次。阅读不增加实践经验。":menu.unlocked()?"验证样本凭证，观察已有公开信息；保留样本。":"先学习炼丹入门。")));
         record.setTooltip(Tooltip.create(Component.literal(menu.page()==3?"理解全部前置后，消耗纸墨各1保存带来源版本的未验证模板；重复保存不扣费。":"消耗纸与墨囊各1，保存个人记录；同一样本不重复扣费，不授予经验或认证。")));
-        if(investigation){inspect.setTooltip(Tooltip.create(Component.literal(menu.page()==1?"选本人真实批次作基准；严格检验条件，无法隔离的变化不称单因素。":menu.page()==2?"只使用已知观测和已研习模型；改候选不改实物，实际炼制须在丹炉进行。":"选定父方，下一次保存保留祖方基准与累计路径。")));record.setTooltip(Tooltip.create(Component.literal(menu.page()==1?"比较当前批次与基准，不消耗纸墨；两批不能直接证明因果或统计独立。":menu.page()==2?"消耗纸墨各1保存候选；不授经验、成丹或认证，同一内容重复保存不扣费。":"最多选择两个父源；合并保留两支来源，不复制其成功率或认证。")));}}
+        if(menu.page()==5){inspect.setTooltip(Tooltip.create(Component.literal("冻结后该角色接下来的规定批次全部计入；请先悬停正文查看锁定范围与不可撤回的样本规则。")));record.setTooltip(Tooltip.create(Component.literal("完成规定批次后提交；30批中24批成功不满足95%下界80%的要求。")));}
+        else if(investigation){inspect.setTooltip(Tooltip.create(Component.literal(menu.page()==1?"选本人真实批次作基准；严格检验条件，无法隔离的变化不称单因素。":menu.page()==2?"只使用已知观测和已研习模型；改候选不改实物，实际炼制须在丹炉进行。":"选定父方，下一次保存保留祖方基准与累计路径。")));record.setTooltip(Tooltip.create(Component.literal(menu.page()==1?"比较当前批次与基准，不消耗纸墨；两批不能直接证明因果或统计独立。":menu.page()==2?"消耗纸墨各1保存候选；不授经验、成丹或认证，同一内容重复保存不扣费。":"最多选择两个父源；合并保留两支来源，不复制其成功率或认证。")));}}
     @Override protected void containerTick(){super.containerTick();update();}
     private void label(GuiGraphics g,String s,int x,int y,int color){g.drawString(font,s,leftPos+x,topPos+y,color,false);}
     private void centered(GuiGraphics g,String s,int x,int y,int color){label(g,s,x-font.width(s)/2,y,color);}
@@ -50,7 +51,7 @@ public final class ResearchTableScreen extends AbstractContainerScreen<ResearchT
             case 3->List.of("已掌握传承："+menu.knownFormulas(),"知识与控火技艺分别记录","候选模板将在后续开放");
             case 4->List.of("记录祖方与版本来源","改方需验证有效范围","研究谱系将在后续开放");
             default->List.of("以真实独立批次复验","失败与事故全部计入","独立认证将在后续开放");};
-        boolean research=menu.page()>=1&&menu.page()<=4;
+        boolean research=menu.page()>=1&&menu.page()<=5;
         if(research)compact(g,menu.researchText(0),150,89,124,7);else lines(g,body,150,90,124,0x302C22);
         if(research){compact(g,menu.researchText(1),312,100,103,3,10);compact(g,menu.researchText(2),312,158,103,2);}
         else{lines(g,List.of(observed?"样本已通过凭证检查":"尚未完成样本观察","个人记录："+menu.records()),312,100,103,0x302C22);
@@ -59,5 +60,5 @@ public final class ResearchTableScreen extends AbstractContainerScreen<ResearchT
     }
     @Override protected void renderLabels(GuiGraphics g,int x,int y){}
     @Override public void render(GuiGraphics g,int mx,int my,float partial){renderBackground(g);super.render(g,mx,my,partial);renderTooltip(g,mx,my);
-        if((menu.page()>=1&&menu.page()<=4)&&mx>=leftPos+150&&mx<leftPos+278&&my>=topPos+88&&my<topPos+173){String detail=menu.researchText(0)+"\n"+menu.researchText(3);g.renderComponentTooltip(font,List.of(Component.literal(detail)),mx,my);}}
+        if((menu.page()>=1&&menu.page()<=5)&&mx>=leftPos+150&&mx<leftPos+278&&my>=topPos+88&&my<topPos+173){String detail=menu.researchText(0)+"\n"+menu.researchText(3);g.renderComponentTooltip(font,List.of(Component.literal(detail)),mx,my);}}
 }

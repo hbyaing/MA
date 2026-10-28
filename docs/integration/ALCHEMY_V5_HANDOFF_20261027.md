@@ -69,3 +69,8 @@ V2已获明确批准并实装新工作方块/菜单/六页界面，真实基础�
 ## 2026-10-28 第10项接续
 
 读docs/testing/ALCHEMY_V5_INFERENCE_20261028.md。ResearchEvidence读取本人前128条实践索引与权威批次，只有新ResearchStart完整批次可作严格对照。ResearchMethods绑定公开规则内容，ResearchInference只用授权观测/公开目标，ResearchDifficulty将歧义与操作窗口分开，ResearchLineage在既有PlayerCrafts保存32个以内不可变版本/联合点。协议103，菜单文本每栏640字。不要把观测支持当独立认证/连续有效域，也不要把20%便捷假设步长变成通用降级保证。下一项11留出集/全失败认证账本。后台-Pv5BatchCapture -Pv5InferenceCapture，第二JVM加-Pv5BatchResume；独立research-inference-*存档/research10-qa.json，禁止鼠标捕获。
+
+
+## 2026-10-29 第11项接续
+
+当前唯一上传目标 https://github.com/hbyaing/Myriad-Ascension 的main，按AGENTS安全同步后直接提交主线。第11项及炉体跨区块形状越界修复见 docs/testing/ALCHEMY_V5_CERTIFICATION_20261029.md。认证使用既有PlayerCrafts账户和同一BatchJournal权威凭证扩展，网络104。不要把旧Rank/XP折算成新认证，不要给旧药材补造新来源。12迁移全量覆盖、13完整兼容/故障验收仍待做。最终测试、客户端重启与正式包校验见该规格和对应evidence目录。

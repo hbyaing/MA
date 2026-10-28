@@ -43,7 +43,7 @@ public final class ResearchTableMenu extends AbstractContainerMenu {
         var practice=ResearchPractice.records(p);data.set(57,practice.size());data.set(58,ResearchPractice.diverse(p));data.set(59,FormulaKnowledge.understanding(p).getCompound("Templates").size());data.set(55,0);data.set(56,0);
         data.set(60,0);data.set(62,0);for(int i=0;i<4;i++)text(i,"");if(!FormulaKnowledge.unlocked(p)){text(0,"需要学习炼丹入门");return;}
         ResearchWorkspace.Panel panel=null;
-        if(page()==1||page()==2||page()==4){panel=workspace(p).view(page(),selection,observedServer(),specimen());data.set(54,panel.primary());data.set(61,panel.secondary());data.set(62,panel.flags());
+        if(page()==1||page()==2||page()==4||page()==5){panel=workspace(p).view(page(),selection,observedServer(),specimen());data.set(54,panel.primary());data.set(61,panel.secondary());data.set(62,panel.flags());
             if(page()!=1){text(0,panel.main());text(1,panel.known());text(2,panel.pending());text(3,panel.detail());return;}}
         if(page()==1){
             if(practice.isEmpty()){text(0,"尚无已结算V5批次\n在丹炉进行真实炼制\n失败与事故也会记录");return;}
@@ -77,8 +77,8 @@ public final class ResearchTableMenu extends AbstractContainerMenu {
     @Override public boolean stillValid(Player p){return p.level().isClientSide||p.isAlive()&&!p.isSpectator()&&p.level().getBlockEntity(pos)==table&&table.stillValid(p);}
     @Override public boolean clickMenuButton(Player p,int button){if(p.level().isClientSide||!stillValid(p)||p!=viewer)return false;
         if(button>=0&&button<6){data.set(0,button);if(workspace!=null)workspace.navigate();broadcastChanges();return true;}
-        if((page()>=1&&page()<=4)&&(button==20||button==21)){selection+=button==20?-1:1;if(workspace!=null)workspace.navigate();broadcastChanges();return true;}
-        if(p instanceof net.minecraft.server.level.ServerPlayer researcher&&FormulaKnowledge.unlocked(researcher)&&(page()==1||page()==2||page()==4)){
+        if((page()>=1&&page()<=5)&&(button==20||button==21)){selection+=button==20?-1:1;if(workspace!=null)workspace.navigate();broadcastChanges();return true;}
+        if(p instanceof net.minecraft.server.level.ServerPlayer researcher&&FormulaKnowledge.unlocked(researcher)&&(page()==1||page()==2||page()==4||page()==5)){
             var w=workspace(researcher);var panel=w.view(page(),selection,observedServer(),specimen());int bit=button==panel.primary()?1:button==panel.secondary()?2:0;
             if(bit==0||(panel.flags()&bit)==0||button==38&&!supplies())return false;
             boolean done=w.action(page(),selection,button,observedServer(),specimen(),supplies());

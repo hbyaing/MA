@@ -84,6 +84,7 @@ public class SpiritPlantBlock extends BushBlock implements BonemealableBlock {
         int years=HerbCultivationData.get(params.getLevel()).years(pos);boolean primary=true;
         for(var drop:drops)if(drop.is(asItem())) {
             HerbAge.setYears(drop,primary?HerbAge.boundedYears(def,years):0);
+            HerbAge.newAcquisitionLot(drop);
             if(primary&&HerbCultivationData.get(params.getLevel()).ashUses(pos)>0)
                 drop.getOrCreateTag().putInt(HerbAge.ASH_USES,HerbCultivationData.get(params.getLevel()).ashUses(pos));
             primary=false;

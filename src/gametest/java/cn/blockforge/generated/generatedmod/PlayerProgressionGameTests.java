@@ -17,7 +17,7 @@ public final class PlayerProgressionGameTests {
         var migrated=PlayerCrafts.load(legacy);for(int i=0;i<3;i++)h.assertTrue(migrated.profession(id,PlayerCrafts.IDS[i]).getInt("Rank")==i*4,"Legacy career mapping lost progress");
         var loaded=PlayerCrafts.load(migrated.save(new CompoundTag()));for(int i=0;i<3;i++)h.assertTrue(loaded.profession(id,PlayerCrafts.IDS[i]).getInt("Rank")==i*4,"Rank migrated twice");
         try(var p=player(h,6)){var crafts=PlayerCrafts.get(p.server);for(String career:PlayerCrafts.IDS){crafts.learnOrPromote(p,career);h.assertTrue(PlayerCrafts.bonus(p,career)==1,"Learned profession must start at first rank");var n=crafts.profession(p.getUUID(),career);n.putInt("Xp",100000);n.putInt("BestTier",4);var works=new CompoundTag();for(int j=0;j<12;j++)works.putInt("proof"+j,1);n.put("Works",works);
-            for(int rank=1;rank<=8;rank++){crafts.learnOrPromote(p,career);h.assertTrue(PlayerCrafts.rank(p,career)==rank&&PlayerCrafts.bonus(p,career)==rank+1,"Career skipped or stalled a rank");}
+            if(career.equals("alchemy")){crafts.learnOrPromote(p,career);h.assertTrue(PlayerCrafts.rank(p,career)==0,"XP bypassed alchemy certification");continue;}for(int rank=1;rank<=8;rank++){crafts.learnOrPromote(p,career);h.assertTrue(PlayerCrafts.rank(p,career)==rank&&PlayerCrafts.bonus(p,career)==rank+1,"Career skipped or stalled a rank");}
             crafts.learnOrPromote(p,career);h.assertTrue(PlayerCrafts.rank(p,career)==8,"Rank exceeded ninth");}}
         h.succeed();
     }
@@ -33,7 +33,7 @@ public final class PlayerProgressionGameTests {
     @GameTest(template="empty") public static void allCraftsLearnIndependentlyAndRequirePromotionProof(GameTestHelper h){
         try(var p=player(h,4)){var d=PlayerCrafts.get(p.server);for(var id:PlayerCrafts.IDS)d.learnOrPromote(p,id);
             for(var id:PlayerCrafts.IDS){h.assertTrue(d.profession(p.getUUID(),id).getBoolean("Learned"),"Could not learn independently");d.learnOrPromote(p,id);h.assertTrue(PlayerCrafts.rank(p,id)==0,"Unproven promotion accepted");}
-            var n=d.profession(p.getUUID(),"alchemy");n.putInt("Xp",100);d.receipt(p.getUUID(),"alchemy",new ItemStack(Items.APPLE),0);d.receipt(p.getUUID(),"alchemy",new ItemStack(Items.CARROT),0);d.learnOrPromote(p,"alchemy");h.assertTrue(PlayerCrafts.rank(p,"alchemy")==1,"Valid promotion refused");h.assertTrue(PlayerCrafts.rank(p,"refining")==0,"Cross profession contamination");
+            var n=d.profession(p.getUUID(),"alchemy");n.putInt("Xp",100);d.receipt(p.getUUID(),"alchemy",new ItemStack(Items.APPLE),0);d.receipt(p.getUUID(),"alchemy",new ItemStack(Items.CARROT),0);d.learnOrPromote(p,"alchemy");h.assertTrue(PlayerCrafts.rank(p,"alchemy")==0,"Legacy item receipts bypassed independent certification");h.assertTrue(PlayerCrafts.rank(p,"refining")==0,"Cross profession contamination");
         }h.succeed();
     }
     @GameTest(template="empty") public static void offlineReceiptsPersistAndRepetitionDiminishes(GameTestHelper h){

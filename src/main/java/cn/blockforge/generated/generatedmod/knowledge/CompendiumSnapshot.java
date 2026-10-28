@@ -86,7 +86,7 @@ public final class CompendiumSnapshot {
     private void alchemy(ServerPlayer player) {
         var account=PlayerCrafts.get(player.server).profession(player.getUUID(),"alchemy");
         section("alchemy",text(FormulaKnowledge.unlocked(player)?"alchemy_intro":"alchemy_locked")
-                .append("\n\n").append(profession(account)));
+                .append("\n\n旧制记录（保留）：").append(profession(account)).append("\n正式独立认证：").append(cn.blockforge.generated.generatedmod.alchemy.research.AlchemyCertification.certifiedRank(player)==0?"未认证":cn.blockforge.generated.generatedmod.progression.PlayerCrafts.RANKS[cn.blockforge.generated.generatedmod.alchemy.research.AlchemyCertification.certifiedRank(player)-1]));
         var recipes=player.server.getRecipeManager().getAllRecipesFor(ModRecipes.ALCHEMY_TYPE.get()).stream()
                 .sorted(Comparator.comparing(recipe->recipe.getId().toString())).toList();
         for(PillCatalog pill:PillCatalog.values()) {

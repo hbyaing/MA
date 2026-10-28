@@ -11,7 +11,7 @@ public final class BagInventory {
     private static ItemStack key(ItemStack source) {
         ItemStack result = source.copyWithCount(1);
         if (HerbAge.definition(source) != null && result.hasTag()) {
-            result.getTag().remove(HerbAge.KEY);
+            result.getTag().remove(HerbAge.KEY);result.getTag().remove(HerbAge.LOT);
             if (result.getTag().isEmpty()) result.setTag(null);
         }
         return result;
@@ -21,6 +21,7 @@ public final class BagInventory {
         private final boolean herb;
         private long count;
         private final TreeMap<Integer,Long> years = new TreeMap<>();
+        private final TreeMap<Integer,LinkedHashMap<String,Long>> origins=new TreeMap<>();
         private Entry(ItemStack source) {
             base = key(source);
             herb = HerbAge.definition(source) != null;
@@ -31,38 +32,39 @@ public final class BagInventory {
         }
         private boolean add(ItemStack source,long quantity) {
             if (quantity<=0 || count>Long.MAX_VALUE-quantity) return false;
-            if (herb) years.merge(HerbAge.years(source),quantity,Long::sum);
+            if (herb){int year=HerbAge.years(source);years.merge(year,quantity,Long::sum);String lot=source.hasTag()&&source.getTag().hasUUID(HerbAge.LOT)?source.getTag().getUUID(HerbAge.LOT).toString():"";origins.computeIfAbsent(year,k->new LinkedHashMap<>()).merge(lot,quantity,Long::sum);}
             count += quantity; return true;
         }
         public ItemStack preview(int amount) {
             if (count<=0 || amount<=0) return ItemStack.EMPTY;
             ItemStack stack = base.copy(); long available = count;
             if (herb) {
-                var first = years.firstEntry(); HerbAge.setYears(stack,first.getKey()); available = first.getValue();
+                var first = years.firstEntry(); HerbAge.setYears(stack,first.getKey()); var origin=origins.get(first.getKey()).entrySet().iterator().next();if(!origin.getKey().isEmpty())stack.getOrCreateTag().putUUID(HerbAge.LOT,UUID.fromString(origin.getKey()));available=origin.getValue();
             }
             stack.setCount((int)Math.min(Math.min(amount,stack.getMaxStackSize()),available)); return stack;
         }
         public ItemStack display() { return preview(1); }
         public ItemStack take(int amount) {
             ItemStack stack = preview(amount);
-            if (!stack.isEmpty()) subtract(stack.getCount(),herb?HerbAge.years(stack):0); return stack;
+            if (!stack.isEmpty()) subtract(stack.getCount(),herb?HerbAge.years(stack):0,stack.hasTag()&&stack.getTag().hasUUID(HerbAge.LOT)?stack.getTag().getUUID(HerbAge.LOT).toString():""); return stack;
         }
         public ItemStack takeMatching(ItemStack target,int amount) {
             if (!matches(target) || amount<=0) return ItemStack.EMPTY;
             if (!herb) return take(amount);
             int year = HerbAge.years(target); long available = years.getOrDefault(year,0L);
             if (available<=0) return ItemStack.EMPTY;
-            ItemStack stack = target.copyWithCount((int)Math.min(Math.min(available,amount),target.getMaxStackSize()));
-            subtract(stack.getCount(),year); return stack;
+            var bucket=origins.get(year);String requested=target.hasTag()&&target.getTag().hasUUID(HerbAge.LOT)?target.getTag().getUUID(HerbAge.LOT).toString():bucket.keySet().iterator().next();if(!bucket.containsKey(requested))return ItemStack.EMPTY;ItemStack stack=base.copy();HerbAge.setYears(stack,year);if(!requested.isEmpty())stack.getOrCreateTag().putUUID(HerbAge.LOT,UUID.fromString(requested));stack.setCount((int)Math.min(Math.min(bucket.get(requested),amount),stack.getMaxStackSize()));
+            subtract(stack.getCount(),year,requested); return stack;
         }
-        private void subtract(int amount,int year) {
+        private void subtract(int amount,int year,String lot) {
             count -= amount;
-            if (herb) {long remaining = years.get(year)-amount;if (remaining==0) years.remove(year); else years.put(year,remaining);}
+            if (herb) {var bucket=origins.get(year);long rest=bucket.get(lot)-amount;if(rest==0)bucket.remove(lot);else bucket.put(lot,rest);if(bucket.isEmpty())origins.remove(year);long remaining = years.get(year)-amount;if (remaining==0) years.remove(year); else years.put(year,remaining);}
         }
         private CompoundTag save() {
             var tag = new CompoundTag(); tag.put("base",base.save(new CompoundTag()));
             if (!herb) tag.putLong("count",count);
             else {
+                var sourceLots=new ListTag();for(var entry:origins.entrySet())for(var lot:entry.getValue().entrySet()){var n=new CompoundTag();n.putInt("year",entry.getKey());n.putString("lot",lot.getKey());n.putLong("count",lot.getValue());sourceLots.add(n);}tag.put("origins",sourceLots);
                 tag.putIntArray("years",years.keySet().stream().mapToInt(Integer::intValue).toArray());
                 tag.putLongArray("counts",years.values().stream().mapToLong(Long::longValue).toArray());
             }
@@ -89,7 +91,7 @@ public final class BagInventory {
             CompoundTag tag = list.getCompound(i); ItemStack base = ItemStack.of(tag.getCompound("base"));
             if (base.isEmpty()) continue;
             if (HerbAge.definition(base)==null || !tag.contains("years")) inventory.insertCount(base,tag.getLong("count"));
-            else {
+            else if(tag.contains("origins",Tag.TAG_LIST)){for(var t:tag.getList("origins",Tag.TAG_COMPOUND)){var n=(CompoundTag)t;var stack=base.copy();HerbAge.setYears(stack,n.getInt("year"));try{if(!n.getString("lot").isEmpty())stack.getOrCreateTag().putUUID(HerbAge.LOT,UUID.fromString(n.getString("lot")));}catch(IllegalArgumentException invalid){}inventory.insertCount(stack,n.getLong("count"));}}else {
                 int[] years=tag.getIntArray("years"); long[] counts=tag.getLongArray("counts");
                 for(int n=0;n<Math.min(years.length,counts.length);n++) {
                     ItemStack aged = base.copy(); HerbAge.setYears(aged,years[n]); inventory.insertCount(aged,counts[n]);

@@ -48,3 +48,6 @@
 09基础链路：research.html增加分层研习、硬约束/建议章节、上/下页、模板保存禁用状态和实践摘要预览。正式游戏从服务端按持有传承/概念前置投影，网页仅使用明确标注的示例，不产生经验、认证或游戏物品。游戏数据定义见data/wuxingxiantu/alchemy/research.json，限制见docs/testing/ALCHEMY_V5_KNOWLEDGE_20261028.md。
 
 10：research.html现含研究方法前置、有限候选、药龄/用量提案、声明范围、父源/累计路径及对照交互预览，样例不充当游戏证据。正式游戏详情见docs/testing/ALCHEMY_V5_INFERENCE_20261028.md；独立认证仍为后续11。
+
+
+11：research.html增加认证冻结、手动选择明确演示结果（30成/29成1败/24成6败）、Wilson下界与最终通过/失败预览。网页不产生真实验证批次、凭证或称号；实际游戏协议及持久化见 docs/testing/ALCHEMY_V5_CERTIFICATION_20261029.md。

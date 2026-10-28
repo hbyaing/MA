@@ -1,0 +1,32 @@
+{
+  "blockedGrabs": 2,
+  "captures": [
+    "boundary-negative-grass",
+    "boundary-positive-grass",
+    "empty",
+    "method-unlearned",
+    "candidate-normal",
+    "candidate-hover",
+    "candidate-focus",
+    "candidate-saved-disabled",
+    "lineage-root",
+    "age-hypothesis",
+    "lineage-child",
+    "approved-gui3",
+    "lineage-cumulative",
+    "single-factor-comparison",
+    "knowledge-disabled",
+    "fit-gui4",
+    "fit-gui4-navigation",
+    "cert-freeze-gui4",
+    "cert-freeze-hover",
+    "cert-freeze-focus",
+    "cert-collecting-disabled",
+    "cert-thirty-gui2"
+  ],
+  "captureViolations": 0,
+  "frames": 2370,
+  "error": "java.lang.AssertionError: Certification failed: 恢复基础认证\n最终未通过，保留全部记录\n成功 30 / 失败 0\n待完成：0\n下界：88.6%\n新原料批次：30\n天象组合：1",
+  "passed": false,
+  "resume": false
+}

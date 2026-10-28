@@ -35,7 +35,7 @@ public final class KnowledgeIntegrationGameTests {
         h.assertTrue(row.getInt("Rank")==0,"XP bypassed representative works");
         var works=new CompoundTag();works.putInt("wuxingxiantu:aura_pill/0",1);works.putInt("wuxingxiantu:bigu_pill/0",1);row.put("Works",works);
         saved.learnOrPromote(player,"alchemy");
-        h.assertTrue(row.getInt("Rank")==1,"Ordinary promotion was not available after meeting the real conditions");
+        h.assertTrue(row.getInt("Rank")==0,"Legacy works bypassed independent alchemy certification");row.putInt("Rank",1);
         h.assertTrue(saved.studyAlchemyInheritance(player,1)==100,"The new rank did not receive its own finite allowance");
         row.putInt("Rank",8);
         h.assertTrue(saved.studyAlchemyInheritance(player,3)==0,"Master rank consumed a useless inheritance");
