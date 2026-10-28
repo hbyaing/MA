@@ -41,7 +41,7 @@ public final class AlchemyFurnaceMenu extends AbstractContainerMenu {
     private final AlchemyFurnaceBlockEntity furnace;
     private final int machineSlotCount;
     private final Player viewer;
-    private final net.minecraft.world.inventory.ContainerData viewData = new net.minecraft.world.inventory.SimpleContainerData(19);
+    private final net.minecraft.world.inventory.ContainerData viewData = new net.minecraft.world.inventory.SimpleContainerData(20);
     public boolean formulaUnlocked() { return viewData.get(8)!=0; }
     public boolean knowsFormula(AlchemyRecipe recipe) {
         if(recipe==null)return false;
@@ -56,7 +56,8 @@ public final class AlchemyFurnaceMenu extends AbstractContainerMenu {
     public int v5StructureDamage(){return viewData.get(16);}
     public boolean v5Warming(){return viewData.get(17)!=0;}
     public int v5DeviceWear(){return viewData.get(18);}
-    private int v5RequiredFuel;
+    private int v5RequiredFuel,v5Steps;
+    public int v5Steps(){return viewData.get(19);}
     public int spiritCapacity() { return cn.blockforge.generated.generatedmod.alchemy.AlchemyBalance.fuelCapacity(furnaceTier()); }
     public enum State { SYNCING, MISSING, LOW_TIER, NEED_FIRE, NEED_AURA, BUSY, READY, BREWING, COMPLETE, FAILED, UNFORMED,
         NEED_FORMULA, NEED_REALM, FIRE_UNMASTERED, FIRE_REQUIREMENT, NEED_ALCHEMY, NEED_FUEL, NEED_HERB_AGE, DAMAGED }
@@ -109,7 +110,7 @@ public final class AlchemyFurnaceMenu extends AbstractContainerMenu {
                     AlchemyUiLayout.INVENTORY_COLUMNS[column], HOTBAR_Y));
         }
         if(level instanceof net.minecraft.server.level.ServerLevel server)try{
-            v5RequiredFuel=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.profile(cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.currentProfile(server),cn.blockforge.generated.generatedmod.alchemy.AlchemyBalance.burnPerSecond(furnace.tier())).requiredFuel();
+            var profile=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.profile(cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.currentProfile(server),cn.blockforge.generated.generatedmod.alchemy.AlchemyBalance.burnPerSecond(furnace.tier()));v5RequiredFuel=profile.requiredFuel();v5Steps=profile.steps();
         }catch(RuntimeException e){v5RequiredFuel=Integer.MAX_VALUE;}
         refreshViewData();
         addDataSlots(viewData);
@@ -224,7 +225,7 @@ public final class AlchemyFurnaceMenu extends AbstractContainerMenu {
     private void refreshViewData() {
         if (level == null || level.isClientSide) return;
         viewData.set(14,furnace.v5Warning());viewData.set(15,furnace.v5HeatMode());viewData.set(16,furnace.v5StructureDamage());viewData.set(17,furnace.v5Warming()?1:0);viewData.set(18,furnace.v5DeviceWear());
-        viewData.set(12,v5RequiredFuel&0x7fff);viewData.set(13,v5RequiredFuel>>>15);
+        viewData.set(19,v5Steps);viewData.set(12,v5RequiredFuel&0x7fff);viewData.set(13,v5RequiredFuel>>>15);
         viewData.set(1, furnace.tier());
         viewData.set(2, furnace.ignitionTier());
         viewData.set(3, Math.round(furnace.brewingProgress() * 10000));
@@ -286,8 +287,8 @@ public final class AlchemyFurnaceMenu extends AbstractContainerMenu {
         else if (!furnace.ignited()) state = State.NEED_FIRE;
         else if (!ProgressionGate.canUseFire(viewer, furnace.ignitionTier())) state = State.FIRE_UNMASTERED;
         else if (!match.acceptsFire(furnace.ignitionTier())) state = State.FIRE_REQUIREMENT;
-        else if (data == null || data.wuxingxiantu$getAura() < match.auraCost(data)) state = State.NEED_AURA;
-        else if(furnace.spiritFuel()<10*cn.blockforge.generated.generatedmod.alchemy.AlchemyBalance.burnPerSecond(furnace.tier()))state=State.NEED_FUEL;
+        else if (data == null) state = State.NEED_AURA;
+        else if(furnace.spiritFuel()<v5RequiredFuel)state=State.NEED_FUEL;
         else state = State.READY;
         viewData.set(0, state.ordinal());
     }

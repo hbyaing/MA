@@ -1,0 +1,8 @@
+{
+  "materialCount": 4,
+  "id": "9c08f9b4-4f24-47e8-9fd2-aa1e1b44bc4d",
+  "state": "READY",
+  "coreTick": 21,
+  "publicResult": "{BoundMass:80L,Budget:40L,CompilerVersion:\"v5-effects/1\",Effects:[{Cooldown:60,Cost:29L,Duration:0,Interval:20,MagnitudeMilli:5706L,Module:\"heal\",Realm:0}],EngineVersion:\"alchemy-core/0.1.0\",Family:\"heal\",Grade:7,PolicyHash:\"f03409dd210dea5f2c123c9fcedd0dc913abcc36e07c7b0c1737c1f884d130e0\",Potency:713250,Purity:750736,Quantity:2,ResidueMass:59920L,Schema:1,Score:792566,SourceRules:\"37d43eff99007c8cd864dbabdd905d45fb32ce360e86aaed23e8e1923384ceca\",SourceVersion:\"furnace-effects-3\",Spent:29L,Stability:1000000,Structure:1000000,Toxicity:0}",
+  "entry": "heavenly"
+}

@@ -50,6 +50,23 @@ public final class AlchemyInputs {
         if(mass<1||mass>1000000000)throw new IllegalArgumentException("Invalid reference mass");
         return new Batch(materials,stocks,mass,definitions.hash);
     }
+    /** Non-herbal formula ingredients have finite inert mass, never invented beneficial effects. */
+    public static Batch batchWithInert(List<ItemStack> selected,InputDefinitions definitions){
+        if(selected.isEmpty()||selected.size()>64)throw new IllegalArgumentException("Input slot budget exceeded");
+        var materials=new ArrayList<Material>();var stocks=new TreeMap<String,Long>();long mass=0;
+        for(var stack:selected){if(stack.isEmpty())continue;
+            Material material;
+            if(HerbAge.definition(stack)!=null)material=material(stack,definitions);
+            else{
+                if(stack.getCount()>64||stack.getItem() instanceof cn.blockforge.generated.generatedmod.items.FireSeedItem)throw new IllegalArgumentException("Unsupported formula material");
+                long finite=Math.multiplyExact(definitions.massPerItem,stack.getCount());
+                material=new Material(BuiltInRegistries.ITEM.getKey(stack.getItem()).toString(),stack.getCount(),0,false,Map.of("herb_inert",finite),finite,stack.hasTag()?stack.getTag():new net.minecraft.nbt.CompoundTag());
+            }
+            materials.add(material);mass=Math.addExact(mass,material.referenceMass());material.stocks().forEach((key,value)->stocks.merge(key,value,Math::addExact));
+        }
+        if(mass<1||mass>1000000000)throw new IllegalArgumentException("Invalid reference mass");
+        return new Batch(materials,stocks,mass,definitions.hash);
+    }
     public record Fire(String id,int tier,Map<String,Double> essence){public Fire{essence=Collections.unmodifiableMap(new TreeMap<>(essence));}}
     /** Read existing fire NBT without initializing, rewarding or rerolling a bottle. */
     public static Fire fire(ItemStack stack){

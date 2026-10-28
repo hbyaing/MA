@@ -23,7 +23,7 @@ public final class AlchemyKnowledgeMenuGameTests {
                     h.absolutePos(net.minecraft.core.BlockPos.ZERO),WuXingBlocks.ALCHEMY_FURNACE_LOW.get().defaultBlockState());
             furnace.setLevel(h.getLevel());
             var server=new AlchemyFurnaceMenu(1,player.getInventory(),furnace);
-            int[] packet=new int[19];
+            int[] packet=new int[20];
             server.addSlotListener(new ContainerListener() {
                 public void slotChanged(AbstractContainerMenu menu,int slot,ItemStack stack) {}
                 public void dataChanged(AbstractContainerMenu menu,int index,int value) {packet[index]=(short)value;}
@@ -33,7 +33,8 @@ public final class AlchemyKnowledgeMenuGameTests {
                 var id=net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("wuxingxiantu",learned.id);
                 FormulaKnowledge.learn(player,id,false);server.broadcastChanges();
                 var client=new AlchemyFurnaceMenu(2,player.getInventory(),furnace);
-                for(int i=0;i<packet.length;i++)client.setData(i,packet[i]);
+                client.setData(19,0);for(int i=0;i<packet.length;i++)client.setData(i,packet[i]);
+                h.assertTrue(client.v5Steps()==server.v5Steps()&&client.v5Steps()>0,"Authoritative V5 phase duration lost in menu transport");
                 // Client display must use the transported snapshot, not local persistent data.
                 FormulaKnowledge.reset(player);
                 h.assertTrue(client.formulaUnlocked(),"Unlocked flag lost in transport");

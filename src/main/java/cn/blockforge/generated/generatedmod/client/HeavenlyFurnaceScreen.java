@@ -127,7 +127,7 @@ public final class HeavenlyFurnaceScreen extends Screen {
                 g.drawString(font,alchemy?"万物为铜 · 丹方":"万物为铜 · 器方",x+34,y+19,CultivationUi.MUTED,false);
                 stat(g,x,top+100,70,"所需灵力",Integer.toString(row.getInt("Cost")),CultivationUi.CYAN);
                 stat(g,x+74,top+100,70,"炼制时间",String.format(Locale.ROOT,"%.1f秒",row.getInt("Duration")/20f),CultivationUi.GOLD);
-                stat(g,x+148,top+100,70,alchemy?"废丹率≤":"炼制失败率",row.getInt("Failure")+"%",0xD7A58E);
+                stat(g,x+148,top+100,70,alchemy?"结算规则":"炼制失败率",alchemy?"V5 实算":row.getInt("Failure")+"%",0xD7A58E);
                 g.drawString(font,"炼制用材",x,top+134,CultivationUi.GOLD,false);
                 var ingredients=row.getList("Ingredients",Tag.TAG_COMPOUND);int columns=8;
                 for(int i=0;i<ingredients.size();i++){var item=ItemStack.of(ingredients.getCompound(i));int sx=x+(i%columns)*27,sy=top+148+(i/columns)*21;

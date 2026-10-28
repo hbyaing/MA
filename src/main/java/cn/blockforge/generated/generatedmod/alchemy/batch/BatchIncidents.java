@@ -45,7 +45,7 @@ public final class BatchIncidents {
         var doc=original.copy();var profile=V5Batch.profile(doc.getString("Profile"),doc.getInt("Burn"));var rules=profile.rules();var s=V5Batch.core(doc);
         if(s.status()!=Status.ACTIVE)return original;
         var trajectory=new InputTrajectory(new InputDefinitions(doc.getString("Inputs")),AlchemyInputs.fire(V5Batch.inventory(doc).get(AlchemyFurnaceBlockEntity.IGNITION_SLOT)));
-        var sample=trajectory.sample(level,pos);boolean formed=AlchemyFurnaceBlock.isFormed(level.getBlockState(pos));
+        var sample=trajectory.sample(level,pos);boolean formed=doc.getString("Entry").equals("heavenly")?level.hasChunkAt(pos):AlchemyFurnaceBlock.isFormed(level.getBlockState(pos));
         int process=doc.getInt("ProcessStep"),desired=0,total=0;for(int duration:profile.phases()){total+=duration;if(process<total)break;desired++;}
         boolean warm=doc.getBoolean("Warming");long moon=s.stocks().getOrDefault("moon_essence",0L);
         boolean moonMissing=doc.getBoolean("MoonDependent")&&sample.values().getOrDefault("moon_input_rate",0L)==0;

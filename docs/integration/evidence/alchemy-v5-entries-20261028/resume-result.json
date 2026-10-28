@@ -1,0 +1,16 @@
+{
+  "checkedTicks": 517,
+  "resume": true,
+  "captureViolations": 0,
+  "error": "",
+  "ordinaryGrade": 0,
+  "passed": true,
+  "blockedGrabs": 2,
+  "portableGrade": 7,
+  "captures": [
+    "portable-full-inventory-retained",
+    "portable-durable-inventory"
+  ],
+  "gui3Scale": 0,
+  "portableDoseUsed": true
+}

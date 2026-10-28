@@ -72,18 +72,27 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
             applyV5(doc);nextV5Tick=level.getGameTime()+20;v5Fault=false;sync();
         }catch(RuntimeException e){v5Fault=true;com.mojang.logging.LogUtils.getLogger().error("V5 furnace quarantined; journal retained",e);}
     }
-    public boolean startV5Batch(net.minecraft.server.level.ServerPlayer player){
+    public boolean startV5Batch(net.minecraft.server.level.ServerPlayer player){return startV5Batch(player,null);}
+    public boolean startV5Batch(net.minecraft.server.level.ServerPlayer player,AlchemyRecipe recipe){
         if(!(level instanceof ServerLevel server)||inventoryLocked()||hasResult()||!stillValid(player)||!player.isAlive()||player.isSpectator()
                 ||v5DeviceWear>=1000||!AlchemyFurnaceBlock.isFormed(getBlockState())||!ProgressionGate.canUseAlchemyFurnace(player,tier())||!ignited()
                 ||!ProgressionGate.canUseFire(player,ignitionTier())||!cn.blockforge.generated.generatedmod.alchemy.FormulaKnowledge.unlocked(player)
                 ||Network.hasAlchemyJob(level,worldPosition)||Network.isAlchemyBusy(player))return false;
         try{
-            var doc=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.prepare(this,player);
+            net.minecraft.nbt.CompoundTag doc;
+            if(recipe==null)doc=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.prepare(this,player);
+            else{
+                if(recipe.furnaceTier()>tier()||!ProgressionGate.isAtLeastRealm(player,recipe.minimumRealm())||!recipe.acceptsFire(ignitionTier())||!cn.blockforge.generated.generatedmod.alchemy.FormulaKnowledge.knows(player,recipe.formulaId()))return false;
+                var materialSlots=new net.minecraft.world.SimpleContainer(8);for(int i=0;i<8;i++)materialSlots.setItem(i,items.get(i).copy());
+                int[] used=cn.blockforge.generated.generatedmod.alchemy.HeavenlyFurnace.allocation(recipe,materialSlots);if(used==null)return false;
+                used=cn.blockforge.generated.generatedmod.alchemy.auxiliary.AuxiliaryAlchemy.allocate(materialSlots,used).counts();
+                doc=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.prepare(this,player,used,"ordinary_formula",recipe.getId().toString());
+            }
             var journal=new cn.blockforge.generated.generatedmod.alchemy.batch.BatchJournal(server.getServer());
             journal.write(doc);journal.link(server,worldPosition,doc.getUUID("Id"));applyV5(doc);nextV5Tick=level.getGameTime()+20;sync();
             // Make the removal of original ingredients durable before the batch can progress or be claimed.
             server.getChunkSource().save(true);
-            player.displayClientMessage(net.minecraft.network.chat.Component.literal("V5批次已托管：材料与炉内灵力已锁定，完成后领取封存药液（不可服用）。"),true);return true;
+            player.displayClientMessage(net.minecraft.network.chat.Component.literal("V5批次已托管：材料与炉内灵力已锁定，按真实材料反应结算，完成后领取成丹或副产物。"),true);return true;
         }catch(RuntimeException e){if(v5Ref!=null)v5Fault=true;player.displayClientMessage(net.minecraft.network.chat.Component.literal(v5Ref!=null?"批次已托管但保存确认失败，已暂停，材料保留。":"未能开炉："+e.getMessage()),true);com.mojang.logging.LogUtils.getLogger().warn("V5 start rejected or retained for recovery",e);return false;}
     }
     private void tickV5(){

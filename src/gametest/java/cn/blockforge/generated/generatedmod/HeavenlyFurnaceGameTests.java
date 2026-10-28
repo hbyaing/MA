@@ -39,15 +39,15 @@ public final class HeavenlyFurnaceGameTests {
         int[] used=HeavenlyFurnace.allocation(r,inventory);h.assertTrue(used!=null&&used[1]==2&&used[35]==2,"Overlapping ingredients not reassigned across entire backpack");
         h.assertTrue(inventory.getItem(1).getCount()==2,"Read-only match mutated inventory");inventory.getItem(35).shrink(1);h.assertTrue(HeavenlyFurnace.allocation(r,inventory)==null,"One missing item accepted");h.succeed();
     }
-    @GameTest(template="empty") public static void validStartChargesOnceAndCancellationRefundsExactPreparedItems(GameTestHelper h){
+    @GameTest(template="empty") public static void validStartChargesOnceAndCancellationSealsExactInputs(GameTestHelper h){
         try(var p=player(h)){
             var r=recipe(h);materials(p,r);p.getInventory().getItem(30).getOrCreateTag().putBoolean(HerbPreparation.KEY,true);
             int count=count(p);float mana=GeneratedMod.data(p).wuxingxiantu$getAura();h.assertTrue(HeavenlyFurnace.open(p),"Art did not open");UUID token=token(p);
             h.assertTrue(HeavenlyFurnace.start(p,token,r.getId()),"Valid brew rejected");h.assertTrue(count(p)==0&&HeavenlyFurnace.active(p),"Materials were not escrowed");
             h.assertTrue(GeneratedMod.data(p).wuxingxiantu$getAura()==mana-HeavenlyFurnace.cost(r,GeneratedMod.data(p)),"Mana charged incorrectly");
             h.assertTrue(!HeavenlyFurnace.start(p,token,r.getId()),"Replay started second brew");
-            HeavenlyFurnace.cancel(p);h.assertTrue(count(p)==count&&!HeavenlyFurnace.active(p),"Cancel did not refund exactly once");
-            h.assertTrue(p.getInventory().items.stream().anyMatch(HerbPreparation::prepared),"Prepared herb NBT lost");HeavenlyFurnace.cancel(p);h.assertTrue(count(p)==count,"Repeated cancel duplicated materials");
+            HeavenlyFurnace.cancel(p);h.assertTrue(count(p)==1&&!HeavenlyFurnace.active(p),"Cancel did not settle one finite residue");
+            h.assertTrue(cn.blockforge.generated.generatedmod.alchemy.batch.PortableBatch.current(p).getList("Materials",Tag.TAG_COMPOUND).stream().anyMatch(t->HerbPreparation.prepared(ItemStack.of((CompoundTag)t))),"Prepared provenance lost");HeavenlyFurnace.cancel(p);h.assertTrue(count(p)==1,"Repeated cancel duplicated materials");
         }h.succeed();
     }
     @GameTest(template="empty") public static void confirmationRechecksKnowledgeInventoryManaAndNonce(GameTestHelper h){
@@ -63,21 +63,21 @@ public final class HeavenlyFurnaceGameTests {
     @GameTest(template="empty") public static void completionGivesOneOutcomeAndNeverReturnsConsumedIngredients(GameTestHelper h){
         try(var p=player(h)){
             var r=recipe(h);materials(p,r);HeavenlyFurnace.open(p);h.assertTrue(HeavenlyFurnace.start(p,token(p),r.getId()),"Start failed");
-            var saved=running(p);var expected=ItemStack.of(saved.getCompound("Result"));saved.putLong("Start",h.getLevel().getGameTime()-saved.getInt("Duration"));
-            HeavenlyFurnace.tick(new TickEvent.PlayerTickEvent(TickEvent.Phase.END,p));
+            V5EntryGameTests.completePortable(p);
+            var doc=cn.blockforge.generated.generatedmod.alchemy.batch.PortableBatch.current(p);var expected=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.result(doc);
             h.assertTrue(!HeavenlyFurnace.active(p)&&count(p)==expected.getCount(),"Completion amount incorrect");
-            h.assertTrue(p.getInventory().items.stream().anyMatch(s->ItemStack.isSameItemSameTags(s,expected)),"Outcome grade/NBT changed");
+            h.assertTrue(p.getInventory().items.stream().anyMatch(x->ItemStack.isSameItemSameTags(x,expected)),"Compiled output changed during delivery");
             HeavenlyFurnace.cancel(p);HeavenlyFurnace.tick(new TickEvent.PlayerTickEvent(TickEvent.Phase.END,p));h.assertTrue(count(p)==expected.getCount(),"Completion was replayed or refunded");
         }h.succeed();
     }
     @GameTest(template="empty") public static void walkingAwayAndReloadRecoveryRefundWithoutDuplicating(GameTestHelper h){
         try(var p=player(h)){
             var r=recipe(h);materials(p,r);HeavenlyFurnace.open(p);HeavenlyFurnace.start(p,token(p),r.getId());p.setPos(p.getX()+HeavenlyFurnace.MOVE_RADIUS+1,p.getY(),p.getZ());
-            HeavenlyFurnace.tick(new TickEvent.PlayerTickEvent(TickEvent.Phase.END,p));h.assertTrue(count(p)==5&&!HeavenlyFurnace.active(p),"Leaving cast area did not refund");
+            HeavenlyFurnace.tick(new TickEvent.PlayerTickEvent(TickEvent.Phase.END,p));h.assertTrue(count(p)==1&&!HeavenlyFurnace.active(p),"Leaving cast area did not seal once");
             var escrow=new CompoundTag();var list=new ListTag();var item=new ItemStack(Items.APPLE,3);item.getOrCreateTag().putString("Test","restored");list.add(item.save(new CompoundTag()));escrow.put("Items",list);
             p.getPersistentData().getCompound(net.minecraft.world.entity.player.Player.PERSISTED_NBT_TAG).put(HeavenlyFurnace.ESCROW,escrow);
             HeavenlyFurnace.login(new net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent(p));
-            HeavenlyFurnace.login(new net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent(p));h.assertTrue(count(p)==8,"Reload recovery duplicated or lost materials");
+            HeavenlyFurnace.login(new net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent(p));h.assertTrue(count(p)==4,"Legacy reload recovery duplicated or lost materials");
         }h.succeed();
     }
     @GameTest(template="empty") public static void progressionAndEquippedFireCannotBeBypassed(GameTestHelper h){

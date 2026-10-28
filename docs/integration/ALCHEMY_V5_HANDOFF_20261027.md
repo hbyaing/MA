@@ -53,3 +53,7 @@
 分支 codex/alchemy-v5-effects-20261028，基于第06项e2e3511（PR51）。新V5普通炉批次已实际编译九种有限模块与一至九品，统一物品v5_pill及真实服药/恢复路径完成；网络协议99。旧批次未绑定EffectPolicy继续原结果，不默改旧丹或授予职业称号。详细数据/预算/持久化边界见 docs/testing/ALCHEMY_V5_EFFECTS_20261028.md。下一项08多入口统一，随后09–11知识/研究/认证、12迁移/覆盖/平衡、13完整验收。
 
 能力定义在alchemy/effects.json；批次绑定策略、反应完成快照ReactionCore和公开PillResult，升级编译算法必须保留旧策略解释器或显式迁移，不能同版本改旧结果。服务端DoseIntent+玩家消费凭证确认后才提交DosesUsed；物品公开NBT不是权威。后台实机用 -Pv5BatchCapture -Pv5EffectsCapture，两次JVM第二次加-Pv5BatchResume；真实进食用本测试客户端内部按键状态，不捕获真实鼠标。
+
+## 2026-10-28 第08项接续
+
+新仓库 https://github.com/hbyaing/Myriad-Ascension 的 main 是统一上传目标，完成并验证后合并推送main。第08项将普通炉固定丹方和天地为炉/副药适配到V5Batch，保留旧任务兼容及天地炼器。读 docs/testing/ALCHEMY_V5_ENTRIES_20261028.md；新入口私有元数据Entry/Recipe，天地玩家托管见PortableBatch和BatchJournal.portable，玩家付款凭证确认后才推进；协议100。下一项09丹方/知识/技艺，不把旧方例输出当作新物理成丹承诺。后台验收参数 -Pv5BatchCapture -Pv5EntriesCapture，第二JVM加-Pv5BatchResume，禁止捕获真实鼠标。

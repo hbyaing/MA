@@ -23,7 +23,7 @@ public final class BatchJournal {
         return root.resolve("positions").resolve(UUID.nameUUIDFromBytes(level.dimension().location().toString().getBytes(java.nio.charset.StandardCharsets.UTF_8))+"_"+Long.toHexString(pos.asLong())+".nbt");
     }
     public CompoundTag read(UUID id){return readFile(batch(id));}
-    public void write(CompoundTag data){V5Batch.validate(data);writeFile(batch(data.getUUID("Id")),data);
+    public void write(CompoundTag data){V5Batch.validate(data);PortableBatch.validate(data);writeFile(batch(data.getUUID("Id")),data);
         var cached=ACTIVE.get(server);if(cached!=null&&(!data.getString("State").equals("ACTIVE")||data.getBoolean("Detached")))cached.remove(data.getUUID("Id"));
     }
     public CompoundTag at(ServerLevel level,BlockPos pos){var link=readFile(position(level,pos));return link.hasUUID("Id")?read(link.getUUID("Id")):new CompoundTag();}
@@ -38,9 +38,18 @@ public final class BatchJournal {
                 for(var file:files){var link=readFile(file);if(!link.hasUUID("Id"))throw new IllegalStateException("Invalid position index");var doc=read(link.getUUID("Id"));
                     if(doc.getString("State").equals("ACTIVE")&&!doc.getBoolean("Detached"))cached.put(doc.getUUID("Id"),doc.getUUID("Owner"));}
             }catch(IOException e){throw new IllegalStateException("Cannot rebuild active V5 index",e);}
+            var portable=root.resolve("portable");
+            if(Files.isDirectory(portable))try(var paths=Files.list(portable)){
+                var files=paths.filter(p->p.getFileName().toString().endsWith(".nbt")).limit(4097).toList();if(files.size()>4096)throw new IllegalStateException("Portable index budget exceeded");
+                for(var file:files){var link=readFile(file);if(!link.hasUUID("Id"))throw new IllegalStateException("Invalid portable index");var doc=read(link.getUUID("Id"));if(doc.getString("State").equals("ACTIVE"))cached.put(doc.getUUID("Id"),doc.getUUID("Owner"));}
+            }catch(IOException e){throw new IllegalStateException("Cannot rebuild portable V5 index",e);}
             ACTIVE.put(server,cached);
         }
         int count=0;for(UUID id:cached.values())if(id.equals(owner))count++;return count;
+    }
+    public CompoundTag portable(UUID owner){var link=readFile(root.resolve("portable").resolve(owner+".nbt"));return link.hasUUID("Id")?read(link.getUUID("Id")):new CompoundTag();}
+    public void linkPortable(UUID owner,UUID id){var link=new CompoundTag();link.putUUID("Id",id);writeFile(root.resolve("portable").resolve(owner+".nbt"),link);
+        var cached=ACTIVE.get(server);if(cached!=null){var doc=read(id);if(doc.getString("State").equals("ACTIVE"))cached.put(id,owner);}
     }
     private Path pending(UUID player){return root.resolve("deliveries").resolve(player+".nbt");}
     public Set<UUID> pendingFor(UUID player){var result=new LinkedHashSet<UUID>();var tag=readFile(pending(player));

@@ -1,0 +1,19 @@
+{
+  "blockedGrabs": 4,
+  "passed": true,
+  "ordinaryGrade": 7,
+  "error": "",
+  "captureViolations": 0,
+  "resume": false,
+  "checkedTicks": 957,
+  "captures": [
+    "fixed-formula-ready",
+    "fixed-formula-running",
+    "fixed-formula-compiled",
+    "heavenly-catalogue-gui2",
+    "heavenly-catalogue-gui3",
+    "heavenly-active-before-restart"
+  ],
+  "portableGrade": 0,
+  "gui3Scale": 3
+}

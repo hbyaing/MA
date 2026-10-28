@@ -34,7 +34,7 @@ public final class IntegrationAlchemyGameTests {
         }
     }
     @GameTest(template="empty")
-    public static void realHeavenlyCastRejectsInvalidAuxiliariesAtomicallyAndRefundsOnce(GameTestHelper h){
+    public static void realHeavenlyCastRejectsInvalidAuxiliariesAtomicallyAndSealsOnce(GameTestHelper h){
         try(var p=player(h)){try{
             var r=recipe(h);materials(p,r);var before=snapshot(p);float mana=GeneratedMod.data(p).getCurrentMana();
             h.assertTrue(HeavenlyFurnace.open(p),"Offer unavailable");var token=token(p);
@@ -47,7 +47,7 @@ public final class IntegrationAlchemyGameTests {
             h.assertTrue(ItemStack.matches(p.getInventory().getItem(3),before.get(3)),"Unselected herb consumed");
             var paid=snapshot(p);float charged=GeneratedMod.data(p).getCurrentMana();
             h.assertTrue(!HeavenlyFurnace.start(p,token,r.getId(),new int[]{0,1,2}),"Replayed offer started twice");unchanged(h,p,paid);
-            HeavenlyFurnace.cancel(p);sameContents(h,p,before);HeavenlyFurnace.cancel(p);sameContents(h,p,before);
+            HeavenlyFurnace.cancel(p);var sealed=snapshot(p);h.assertTrue(p.getInventory().items.stream().anyMatch(x->x.is(WuXingItems.ALCHEMY_RESIDUE.get())),"No sealed residue");HeavenlyFurnace.cancel(p);unchanged(h,p,sealed);
             h.assertTrue(GeneratedMod.data(p).getCurrentMana()==charged&&charged<mana,"Cancellation changed the existing spent-mana rule");
         }finally{HeavenlyFurnace.cancel(p);}}h.succeed();
     }
@@ -63,9 +63,10 @@ public final class IntegrationAlchemyGameTests {
             for(int i=0;i<36;i++)p.getInventory().setItem(i,new ItemStack(Items.COBBLESTONE,64));
             HeavenlyFurnace.cancel(p);
             var drops=h.getLevel().getEntitiesOfClass(ItemEntity.class,p.getBoundingBox().inflate(8),e->marker.equals(e.getItem().getOrCreateTag().getString("IntegrationEscrow")));
-            h.assertTrue(drops.stream().mapToInt(e->e.getItem().getCount()).sum()==paid,"Full inventory lost or duplicated reserved items");
-            HeavenlyFurnace.cancel(p);
-            h.assertTrue(h.getLevel().getEntitiesOfClass(ItemEntity.class,p.getBoundingBox().inflate(8),e->marker.equals(e.getItem().getOrCreateTag().getString("IntegrationEscrow"))).stream().mapToInt(e->e.getItem().getCount()).sum()==paid,"Second cancel refunded twice");
+            h.assertTrue(drops.isEmpty(),"V5 cancellation refunded consumed inputs");
+            var doc=cn.blockforge.generated.generatedmod.alchemy.batch.PortableBatch.current(p);h.assertTrue(doc.getString("State").equals("READY"),"Full inventory did not retain sealed result");
+            HeavenlyFurnace.cancel(p);h.assertTrue(cn.blockforge.generated.generatedmod.alchemy.batch.PortableBatch.current(p).getString("State").equals("READY"),"Repeated cancel lost pending result");
+            p.getInventory().setItem(0,ItemStack.EMPTY);HeavenlyFurnace.cancel(p);h.assertTrue(p.getInventory().getItem(0).is(WuXingItems.ALCHEMY_RESIDUE.get()),"Retained result not delivered when space became available");
             drops.forEach(ItemEntity::discard);
         }finally{HeavenlyFurnace.cancel(p);}}h.succeed();
     }

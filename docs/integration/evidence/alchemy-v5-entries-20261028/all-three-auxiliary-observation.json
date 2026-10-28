@@ -1,0 +1,16 @@
+{
+  "observedBatch": "19a57673-be1c-4428-841f-be97299f9fad",
+  "inputs": "aura_pill_low main ingredients, xingchen + hanbing + lingdao; actual ages1500/2500",
+  "state": "READY",
+  "processSteps": 21,
+  "fuelSpent": 28,
+  "structureDamage": 0,
+  "thermalDamage": 0,
+  "grade": 0,
+  "quantity": 0,
+  "residualMass": 80000,
+  "extracted": {
+    "extract_fengrao": 88
+  },
+  "explanation": "Current pinned priority and energy budget extracted only fengrao, which has no registered executable effect. Finite waste is expected; no fabricated ability or forced success. Selection and one-outcome semantics remain covered by GameTests; balance is step12."
+}

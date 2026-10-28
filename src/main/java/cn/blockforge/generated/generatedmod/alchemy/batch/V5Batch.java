@@ -39,38 +39,53 @@ public final class V5Batch {
     public static NonNullList<ItemStack> inventory(CompoundTag doc){var result=NonNullList.withSize(AlchemyFurnaceBlockEntity.CONTAINER_SIZE,ItemStack.EMPTY);ContainerHelper.loadAllItems(doc.getCompound("Inventory"),result);return result;}
     public static void inventory(CompoundTag doc,NonNullList<ItemStack> items){var n=new CompoundTag();ContainerHelper.saveAllItems(n,items);doc.put("Inventory",n);}
     public static CompoundTag prepare(AlchemyFurnaceBlockEntity furnace,ServerPlayer player){
-        var level=(ServerLevel)furnace.getLevel();int burn=cn.blockforge.generated.generatedmod.alchemy.AlchemyBalance.burnPerSecond(furnace.tier());
+        var selected=new int[8];for(int i=0;i<8;i++)selected[i]=furnace.getItem(i).getCount();
+        return prepare(furnace,player,selected,"ordinary_free","");
+    }
+    public static CompoundTag prepare(AlchemyFurnaceBlockEntity furnace,ServerPlayer player,int[] selected,String entry,String recipe){
+        var items=NonNullList.withSize(AlchemyFurnaceBlockEntity.CONTAINER_SIZE,ItemStack.EMPTY);
+        for(int i=0;i<items.size();i++)items.set(i,furnace.getItem(i).copy());
+        return prepare((ServerLevel)furnace.getLevel(),furnace.getBlockPos(),player,furnace.tier(),furnace.v5DeviceWear(),furnace.spiritFuel(),items,selected,entry,recipe);
+    }
+    public static CompoundTag prepare(ServerLevel level,BlockPos pos,ServerPlayer player,int tier,int wear,int fuel,NonNullList<ItemStack> items,int[] selected,String entry,String recipe){
+        return prepare(level,pos,player,tier,wear,fuel,items,selected,entry,recipe,List.of());
+    }
+    public static CompoundTag prepare(ServerLevel level,BlockPos pos,ServerPlayer player,int tier,int wear,int fuel,NonNullList<ItemStack> items,int[] selected,String entry,String recipe,List<ItemStack> additional){
+        if(selected.length!=8||items.size()!=AlchemyFurnaceBlockEntity.CONTAINER_SIZE||!Set.of("ordinary_free","ordinary_formula","heavenly").contains(entry))throw new IllegalArgumentException("Invalid entry adapter");
+        int burn=cn.blockforge.generated.generatedmod.alchemy.AlchemyBalance.burnPerSecond(tier);
         String current=currentProfile(level);var raw=SimulationRuleLoader.document(current);
-        if(raw.has("incidents")){var l=raw.getAsJsonObject("rules").getAsJsonObject("limits");l.addProperty("heatCapacity",Math.max(1,(10+furnace.tier()*5)*(1000-furnace.v5DeviceWear())/1000));l.addProperty("burstPressure",3000+furnace.tier()*1500);current=raw.toString();}
-        var profile=profile(current,burn);if(furnace.spiritFuel()<profile.requiredFuel())throw new IllegalArgumentException("请先注灵，本批次需要储备 "+profile.requiredFuel()+" 点炉内灵力。");
+        if(raw.has("incidents")){var l=raw.getAsJsonObject("rules").getAsJsonObject("limits");l.addProperty("heatCapacity",Math.max(1,(10+tier*5)*(1000-wear)/1000));l.addProperty("burstPressure",3000+tier*1500);current=raw.toString();}
+        var profile=profile(current,burn);if(fuel<profile.requiredFuel())throw new IllegalArgumentException("请先注灵，本批次需要储备 "+profile.requiredFuel()+" 点炉内灵力。");
         var defs=InputDefinitions.current();var after=NonNullList.withSize(AlchemyFurnaceBlockEntity.CONTAINER_SIZE,ItemStack.EMPTY);var herbs=new ArrayList<ItemStack>();
         var original=new CompoundTag();var before=NonNullList.withSize(after.size(),ItemStack.EMPTY);
-        for(int i=0;i<after.size();i++){after.set(i,furnace.getItem(i).copy());before.set(i,furnace.getItem(i).copy());}
+        for(int i=0;i<after.size();i++){after.set(i,items.get(i).copy());before.set(i,items.get(i).copy());}
         ContainerHelper.saveAllItems(original,before);
         var provenance=new ListTag();var moonSources=new CompoundTag();long moon=0;boolean seenBottle=false;
         for(int i=0;i<8;i++){
-            var item=after.get(i);if(item.isEmpty())continue;
+            var item=after.get(i);int count=selected[i];if(count<0||count>item.getCount())throw new IllegalArgumentException("Invalid material reservation");if(count==0)continue;
             if(item.is(WuXingBlocks.MOON_BOTTLE_ITEM.get())){
                 if(seenBottle||item.getCount()!=1)throw new IllegalArgumentException("每批只接入一个蕴月瓶。");seenBottle=true;
                 var be=BlockItem.getBlockEntityData(item);var bottle=MoonBottleData.load(be==null?new CompoundTag():be.getCompound("MoonBottle"));
-                for(var entry:bottle.release(Math.min(MoonBottleData.MAX_RELEASE,bottle.total())).entrySet()){moonSources.putLong(entry.getKey(),entry.getValue());moon+=entry.getValue();}
+                for(var released:bottle.release(Math.min(MoonBottleData.MAX_RELEASE,bottle.total())).entrySet()){moonSources.putLong(released.getKey(),released.getValue());moon+=released.getValue();}
                 var saved=be==null?new CompoundTag():be.copy();saved.put("MoonBottle",bottle.save());item.addTagElement("BlockEntityTag",saved);continue;
             }
-            herbs.add(item.copy());provenance.add(item.save(new CompoundTag()));after.set(i,ItemStack.EMPTY);
+            var paid=item.copyWithCount(count);herbs.add(paid);provenance.add(paid.save(new CompoundTag()));item.shrink(count);
         }
-        var input=AlchemyInputs.batch(herbs,defs);var stocks=new TreeMap<>(input.stocks());if(moon>0)stocks.put("moon_essence",moon);
+        for(var stack:additional){herbs.add(stack.copy());provenance.add(stack.save(new CompoundTag()));}
+        var input=entry.equals("ordinary_free")?AlchemyInputs.batch(herbs,defs):AlchemyInputs.batchWithInert(herbs,defs);var stocks=new TreeMap<>(input.stocks());if(moon>0)stocks.put("moon_essence",moon);
         var fire=AlchemyInputs.fire(after.get(AlchemyFurnaceBlockEntity.IGNITION_SLOT));
-        var trajectory=new InputTrajectory(defs,fire);var sampled=trajectory.sample(level,furnace.getBlockPos());
+        var trajectory=new InputTrajectory(defs,fire);var sampled=trajectory.sample(level,pos);
         UUID id=UUID.randomUUID();var core=AlchemySimulation.begin(profile.rules(),id.toString(),stocks,0,input.referenceMass()+moon,level.random.nextLong(),sampled.values());
-        var doc=new CompoundTag();doc.putInt("Schema",1);doc.putInt("DeviceWear",furnace.v5DeviceWear());doc.putUUID("Id",id);doc.putUUID("Owner",player.getUUID());doc.putString("Dimension",level.dimension().location().toString());doc.putLong("Position",furnace.getBlockPos().asLong());
-        doc.putString("State","ACTIVE");doc.putString("Profile",profile.json());doc.putString("Inputs",defs.document());doc.putString("InputsHash",defs.hash);doc.putInt("Burn",burn);
+        var doc=new CompoundTag();doc.putInt("Schema",1);doc.putInt("DeviceWear",wear);doc.putUUID("Id",id);doc.putUUID("Owner",player.getUUID());doc.putString("Dimension",level.dimension().location().toString());doc.putLong("Position",pos.asLong());
+        doc.putString("Entry",entry);doc.putString("Recipe",recipe);doc.putString("State","ACTIVE");doc.putString("Profile",profile.json());doc.putString("Inputs",defs.document());doc.putString("InputsHash",defs.hash);doc.putInt("Burn",burn);
         doc.putByteArray("Core",SimulationSnapshotCodec.encodeServerSnapshot(profile.rules(),core));doc.put("Original",original);doc.put("Materials",provenance);doc.put("MoonSources",moonSources);
-        doc.putInt("FuelBalance",furnace.spiritFuel()-profile.requiredFuel());doc.putInt("FuelReserved",profile.requiredFuel()-profile.opening());doc.putInt("FuelSpent",profile.opening());doc.putInt("FuelInitial",furnace.spiritFuel());
+        doc.putInt("FuelBalance",fuel-profile.requiredFuel());doc.putInt("FuelReserved",profile.requiredFuel()-profile.opening());doc.putInt("FuelSpent",profile.opening());doc.putInt("FuelInitial",fuel);
         doc.putLong("LastWorldTick",level.getGameTime());doc.putLong("SampleDayTime",sampled.dayTime());doc.putLong("SampleGameTime",sampled.gameTime());inventory(doc,after);if(profile.rules().resources.containsKey(cn.blockforge.generated.generatedmod.alchemy.effects.AbilityCompiler.BOUND))doc.putString("EffectPolicy",cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.current(level));BatchIncidents.initialize(doc);validate(doc);return doc;
     }
     public static Snapshot core(CompoundTag doc){var p=profile(doc.getString("Profile"),doc.getInt("Burn"));return SimulationSnapshotCodec.decodeServerSnapshot(p.rules(),doc.getByteArray("Core"));}
     public static void validate(CompoundTag doc){
         if(doc.getInt("Schema")!=1||!doc.hasUUID("Id")||!doc.hasUUID("Owner")||!Set.of("ACTIVE","READY","DELIVERING","CLAIMED").contains(doc.getString("State")))throw new IllegalArgumentException("Unknown V5 transaction");
+        if(doc.contains("Entry")&&!Set.of("ordinary_free","ordinary_formula","heavenly").contains(doc.getString("Entry")))throw new IllegalArgumentException("Unknown entry adapter");
         if(doc.getString("Profile").length()>262144||doc.getString("Inputs").length()>262144)throw new IllegalArgumentException("Snapshot definition budget exceeded");
         var defs=new InputDefinitions(doc.getString("Inputs"));if(!defs.hash.equals(doc.getString("InputsHash")))throw new IllegalArgumentException("Input definition drift");
         if(doc.getInt("DeviceWear")<0||doc.getInt("DeviceWear")>1000)throw new IllegalArgumentException("Invalid device wear");

@@ -2,6 +2,7 @@ package cn.blockforge.generated.generatedmod.alchemy;
 
 import cn.blockforge.generated.generatedmod.*;
 import cn.blockforge.generated.generatedmod.registry.ModRecipes;
+import cn.blockforge.generated.generatedmod.alchemy.batch.*;
 import cn.blockforge.generated.generatedmod.network.packet.HeavenlyFurnaceStatePacket;
 import net.minecraft.nbt.*;
 import net.minecraft.network.chat.Component;
@@ -36,7 +37,7 @@ public final class HeavenlyFurnace {
     private static final Map<UUID,Offer> OFFERS=new HashMap<>();
     private static final Map<UUID,CompoundTag> RUNNING=new HashMap<>();
     private HeavenlyFurnace() {}
-    public static boolean active(ServerPlayer p){return RUNNING.containsKey(p.getUUID());}
+    public static boolean active(ServerPlayer p){return RUNNING.containsKey(p.getUUID())||PortableBatch.pending(p);}
     public static int furnaceTier(int realm){return realm>=ProgressionGate.SPIRIT_TRANSFORMATION?5:4;}
     public static int duration(AlchemyRecipe r){return GATHER_TICKS+CONDENSE_TICKS+(int)Math.ceil(Math.min(72000,r.cookTime())*1.25);}
     public static int cost(AlchemyRecipe r,CultivationData d){
@@ -71,7 +72,8 @@ public final class HeavenlyFurnace {
         if(r.cookTime()>72000)return "此丹方炼制时间超出神通承载范围。";
         if(!r.acceptsFire(d.wuxingxiantu$getEquippedFire()))return "当前异火不符合此丹方要求。";
         if(allocation(r,p.getInventory())==null)return "背包材料不足。";
-        if(!p.isCreative()&&d.wuxingxiantu$getAura()<cost(r,d))return "灵力不足，需要 "+cost(r,d)+"。";
+        if(Network.isAlchemyBusy(p))return "已有炼丹任务正在进行。";
+        if(!p.isCreative()&&d.wuxingxiantu$getAura()<Math.max(cost(r,d),PortableBatch.fuel(p,r)))return "灵力不足，需要 "+Math.max(cost(r,d),PortableBatch.fuel(p,r))+"。";
         return "";
     }
     public static boolean open(ServerPlayer p){
@@ -84,8 +86,8 @@ public final class HeavenlyFurnace {
             if(PillData.read(r.getResultItem(p.level().registryAccess()))==null)continue;
             if(rows.size()>=512)break;
             var row=new CompoundTag();row.putString("Recipe",r.getId().toString());row.put("Result",r.getResultItem(p.level().registryAccess()).save(new CompoundTag()));
-            row.putString("Reason",recipeGate(p,r));row.putInt("Cost",cost(r,GeneratedMod.data(p)));row.putInt("Duration",duration(r));
-            row.putInt("Failure",AlchemyFailureOdds.percent(r,furnaceTier(GeneratedMod.data(p).wuxingxiantu$getRealm()),GeneratedMod.data(p).wuxingxiantu$getEquippedFire(),false,cn.blockforge.generated.generatedmod.progression.PlayerCrafts.bonus(p,"alchemy")));
+            row.putString("Reason",recipeGate(p,r));row.putInt("Cost",Math.max(cost(r,GeneratedMod.data(p)),PortableBatch.fuel(p,r)));row.putInt("Duration",GATHER_TICKS+V5Batch.profile(V5Batch.currentProfile(p.serverLevel()),AlchemyBalance.burnPerSecond(furnaceTier(GeneratedMod.data(p).wuxingxiantu$getRealm()))).steps()*20);row.putBoolean("V5",true);
+            row.putInt("Failure",-1);
             var ingredients=new ListTag();for(int i=0;i<r.getIngredients().size();i++){
                 var choices=r.getIngredients().get(i).getItems();if(choices.length==0)continue;
                 var sample=choices[0].copy();sample.setCount(r.counts().get(i));ingredients.add(sample.save(new CompoundTag()));
@@ -94,7 +96,7 @@ public final class HeavenlyFurnace {
         for(var r:p.level().getRecipeManager().getAllRecipesFor(ModRecipes.REFINING_TYPE.get()).stream().sorted(Comparator.comparing(x->x.getId().toString())).toList()){
             if(rows.size()>=768)break;
             var row=new CompoundTag();row.putString("Mode","refining");row.putString("Recipe",r.getId().toString());row.put("Result",r.getResultItem(p.level().registryAccess()).save(new CompoundTag()));
-            row.putString("Reason",refiningGate(p,r));row.putInt("Cost",cost(r,p));row.putInt("Duration",duration(r));row.putInt("Failure",0);
+            row.putString("Reason",refiningGate(p,r));row.putInt("Cost",cost(r,p));row.putInt("Duration",GATHER_TICKS+V5Batch.profile(V5Batch.currentProfile(p.serverLevel()),AlchemyBalance.burnPerSecond(furnaceTier(GeneratedMod.data(p).wuxingxiantu$getRealm()))).steps()*20);row.putBoolean("V5",true);row.putInt("Failure",0);
             var ingredients=new ListTag();for(int i=0;i<r.getIngredients().size();i++){var choices=r.getIngredients().get(i).getItems();if(choices.length>0)ingredients.add(choices[0].copyWithCount(r.counts().get(i)).save(new CompoundTag()));}
             row.put("Ingredients",ingredients);rows.add(row);
         }
@@ -116,28 +118,18 @@ public final class HeavenlyFurnace {
         cn.blockforge.generated.generatedmod.alchemy.auxiliary.AuxiliaryAlchemy.Allocation auxiliary;
         try{auxiliary=cn.blockforge.generated.generatedmod.alchemy.auxiliary.AuxiliaryAlchemy.allocate(p.getInventory(),used,auxiliarySlots);}catch(IllegalArgumentException invalid){message(p,"副药选择无效，不能与主药占用同一槽。");return false;}
         used=auxiliary.counts();
-        var saved=new CompoundTag();var items=new ListTag();long herbs=0,prepared=0;
-        for(int i=0;i<used.length;i++)if(used[i]>0){
-            var stack=p.getInventory().getItem(i).copyWithCount(used[i]);items.add(stack.save(new CompoundTag()));
-            if(HerbPreparation.herb(stack)){herbs+=used[i];if(HerbPreparation.prepared(stack))prepared+=used[i];}
-        }
-        int bonus=auxiliary.plan().successBonus()+(herbs==0?0:(int)(HerbPreparation.MAX_BONUS*prepared/herbs))+cn.blockforge.generated.generatedmod.progression.PlayerCrafts.bonus(p,"alchemy");
-        ItemStack result=AlchemyFailureOdds.roll(r,r.getResultItem(p.level().registryAccess()),furnaceTier(d.wuxingxiantu$getRealm()),d.wuxingxiantu$getEquippedFire(),p.getRandom(),bonus);
-        result=cn.blockforge.generated.generatedmod.importedcreatures.BeastMaterialEffects.infuseAlchemy(result,items.stream().map(t->ItemStack.of((CompoundTag)t)).toList());
-        result=cn.blockforge.generated.generatedmod.alchemy.auxiliary.AuxiliaryAlchemy.finish(result,auxiliary.plan());
-        if(result.isEmpty())result=new ItemStack(WuXingItems.PILL_ASH.get());
-        saved.put("Items",items);saved.put("Result",result.save(new CompoundTag()));saved.put("Preview",r.getResultItem(p.level().registryAccess()).save(new CompoundTag()));
-        saved.putDouble("X",origin.x);saved.putDouble("Y",origin.y);saved.putDouble("Z",origin.z);saved.putInt("Fire",d.wuxingxiantu$getEquippedFire());
-        saved.putFloat("Yaw",p.getYRot());
-        saved.putInt("Duration",duration(r));saved.putLong("Start",p.level().getGameTime());saved.putString("Dimension",p.level().dimension().location().toString());saved.putUUID("Owner",p.getUUID());
-        // Persist escrow before leaving this server tick. All validation above is read-only.
-        for(int i=0;i<used.length;i++)if(used[i]>0)p.getInventory().getItem(i).shrink(used[i]);
-        persistent(p).put(ESCROW,saved.copy());RUNNING.put(p.getUUID(),saved);OFFERS.remove(p.getUUID());p.getInventory().setChanged();
-        if(!p.isCreative())d.wuxingxiantu$setAura(d.wuxingxiantu$getAura()-cost(r,d));
-        d.wuxingxiantu$setDivineCooldown(ID,p.level().getGameTime()+DivineArtCatalog.cooldownTicks(ID));
-        GeneratedMod.sync(p);p.inventoryMenu.broadcastChanges();Network.showDivineArtBanner(p,ID);broadcast(p,visual(saved,p.level().getGameTime()));
-        message(p,"天地为炉：材料已入阵，再次发动可收束并返还材料。");return true;
+        var saved=new CompoundTag();var items=new ListTag();
+        for(int i=0;i<used.length;i++)if(used[i]>0)items.add(p.getInventory().getItem(i).copyWithCount(used[i]).save(new CompoundTag()));
+        saved.put("Items",items);saved.put("Preview",r.getResultItem(p.level().registryAccess()).save(new CompoundTag()));
+        saved.putDouble("X",origin.x);saved.putDouble("Y",origin.y);saved.putDouble("Z",origin.z);saved.putFloat("Yaw",p.getYRot());saved.putInt("Fire",d.wuxingxiantu$getEquippedFire());
+        saved.putInt("Duration",GATHER_TICKS+V5Batch.profile(V5Batch.currentProfile(p.serverLevel()),AlchemyBalance.burnPerSecond(furnaceTier(d.wuxingxiantu$getRealm()))).steps()*20);
+        saved.putLong("Start",p.level().getGameTime());saved.putString("Dimension",p.level().dimension().location().toString());saved.putUUID("Owner",p.getUUID());saved.putBoolean("V5",true);
+        try{if(!PortableBatch.start(p,r,used,saved))return false;}
+        catch(RuntimeException failure){message(p,"V5托管未确认，已保留日志待恢复："+failure.getMessage());com.mojang.logging.LogUtils.getLogger().error("Portable V5 admission retained",failure);return false;}
+        RUNNING.put(p.getUUID(),saved);OFFERS.remove(p.getUUID());Network.showDivineArtBanner(p,ID);broadcast(p,visual(saved,p.level().getGameTime()));
+        message(p,"天地为炉：主药副药已托管至V5；收束将结算有限药渣，不返还原料。");return true;
     }
+
     public static int duration(RefiningRecipe r){return GATHER_TICKS+CONDENSE_TICKS+(int)Math.ceil(Math.min(72000,r.craftTime())*1.25);}
     public static int cost(RefiningRecipe r,ServerPlayer p){
         int base=cn.blockforge.generated.generatedmod.progression.PlayerCrafts.refiningCost(r.auraCost(),cn.blockforge.generated.generatedmod.progression.PlayerCrafts.bonus(p,"refining"));
@@ -187,6 +179,11 @@ public final class HeavenlyFurnace {
     public static CompoundTag visual(CompoundTag saved,long now){var tag=visual(saved);tag.putLong("Elapsed",Math.max(0,now-saved.getLong("Start")));return tag;}
     private static void give(ServerPlayer p,ItemStack stack){if(!p.getInventory().add(stack)&&!stack.isEmpty())p.drop(stack,false);}
     public static void cancel(ServerPlayer p){
+        if(PortableBatch.pending(p)){
+            PortableBatch.cancel(p);RUNNING.remove(p.getUUID());OFFERS.remove(p.getUUID());
+            var end=new CompoundTag();end.putString("Kind","end");end.putUUID("Owner",p.getUUID());broadcast(p,end);
+            message(p,PortableBatch.pending(p)?"结算已封存，请腾出背包空位后再次发动领取。":"V5已收束，按守恒结算药渣或成丹，原料不重复返还。");return;
+        }
         RUNNING.remove(p.getUUID());OFFERS.remove(p.getUUID());var root=persistent(p);
         if(!root.contains(ESCROW,Tag.TAG_COMPOUND))return;
         var saved=root.getCompound(ESCROW).copy();root.remove(ESCROW);
@@ -205,7 +202,9 @@ public final class HeavenlyFurnace {
     private static void message(ServerPlayer p,String text){p.displayClientMessage(Component.literal(text),true);}
     @SubscribeEvent public static void tick(TickEvent.PlayerTickEvent e){
         if(e.phase!=TickEvent.Phase.END||!(e.player instanceof ServerPlayer p))return;
-        var saved=RUNNING.get(p.getUUID());if(saved==null)return;
+        var saved=RUNNING.get(p.getUUID());
+        if(saved==null&&p.tickCount%20==0){try{var doc=PortableBatch.restore(p);if(!doc.isEmpty()){saved=doc.getCompound("Visual").copy();RUNNING.put(p.getUUID(),saved);}}catch(RuntimeException failure){com.mojang.logging.LogUtils.getLogger().error("Portable V5 recovery retained",failure);} }
+        if(saved==null)return;
         long elapsed=p.level().getGameTime()-saved.getLong("Start");
         if(!p.isAlive()||p.isSpectator()||!p.level().dimension().location().toString().equals(saved.getString("Dimension"))
                 ||!withinCastingRange(p.position(),new Vec3(saved.getDouble("X"),saved.getDouble("Y"),saved.getDouble("Z")))
@@ -213,13 +212,21 @@ public final class HeavenlyFurnace {
                 ||!ProgressionGate.canUseFire(p,saved.getInt("Fire"))
                 ||!GeneratedMod.data(p).wuxingxiantu$getActiveDivineArt().isBlank()
                 ||GeneratedMod.data(p).wuxingxiantu$getEquippedFire()!=saved.getInt("Fire")) {cancel(p);return;}
+        if(saved.getBoolean("V5")){
+            if(p.tickCount%20!=0)return;
+            try{var doc=PortableBatch.advance(p);if(doc.getString("State").equals("CLAIMED")){
+                RUNNING.remove(p.getUUID());var complete=new CompoundTag();complete.putString("Kind","complete");complete.putUUID("Owner",p.getUUID());complete.put("Result",V5Batch.result(doc).save(new CompoundTag()));broadcast(p,complete);message(p,"V5结算完成："+V5Batch.result(doc).getHoverName().getString());
+            }else if(!doc.getString("State").equals("ACTIVE")){message(p,"V5结果已封存，请腾出一个背包空位领取。");}
+            else broadcast(p,visual(saved,p.level().getGameTime()));
+            }catch(RuntimeException failure){com.mojang.logging.LogUtils.getLogger().error("Portable V5 step retained",failure);}return;
+        }
         if(elapsed>=saved.getInt("Duration")){finish(p,saved);return;}
         if(elapsed%40==0)broadcast(p,visual(saved,p.level().getGameTime()));
     }
-    @SubscribeEvent public static void login(PlayerEvent.PlayerLoggedInEvent e){if(e.getEntity() instanceof ServerPlayer p)cancel(p);}
-    @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent e){if(e.getEntity() instanceof ServerPlayer p)cancel(p);}
+    @SubscribeEvent public static void login(PlayerEvent.PlayerLoggedInEvent e){if(e.getEntity() instanceof ServerPlayer p){if(PortableBatch.pending(p)){try{var doc=PortableBatch.restore(p);if(!doc.isEmpty())RUNNING.put(p.getUUID(),doc.getCompound("Visual").copy());}catch(RuntimeException failure){com.mojang.logging.LogUtils.getLogger().error("Portable login retained",failure);}}else cancel(p);}}
+    @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent e){if(e.getEntity() instanceof ServerPlayer p){if(PortableBatch.pending(p))RUNNING.remove(p.getUUID());else cancel(p);}}
     @SubscribeEvent public static void death(LivingDeathEvent e){if(e.getEntity() instanceof ServerPlayer p)cancel(p);}
-    @SubscribeEvent public static void stopping(ServerStoppingEvent e){for(var p:e.getServer().getPlayerList().getPlayers())cancel(p);RUNNING.clear();OFFERS.clear();}
+    @SubscribeEvent public static void stopping(ServerStoppingEvent e){for(var p:e.getServer().getPlayerList().getPlayers())if(!PortableBatch.pending(p))cancel(p);RUNNING.clear();OFFERS.clear();}
 
     /** Capacitated bipartite matching handles overlapping tags without double-spending stacks. */
     public static int[] allocation(AlchemyRecipe r,Container inventory){

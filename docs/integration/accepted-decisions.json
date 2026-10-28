@@ -104,8 +104,8 @@
       "targetEvidence": "alchemy/PillData.java",
       "status": "confirmed",
       "decision": "2026-10-27 用户以V5.0更新目标：草药无阶级、只保留连续年份，丹药统一一至九品，不叠加旧五丹阶四成色。具体旧物品折算另案审批，未确认前维持旧物品原效果及可读性。",
-      "implementation": "普通实体炉自由模式的新V5批次已编译有限药效并统一一至九品；旧丹/未绑定旧批次维持legacy，不叠加新旧评级，具体旧物品迁移仍待单独批准。",
-      "latestAcceptance": "Step07: see docs/testing/ALCHEMY_V5_EFFECTS_20261028.md; migration and full stage13 acceptance remain pending",
+      "implementation": "普通炉自由/固定丹方、天地为炉及副药的新V5批次共用有限药效与一至九品结算；旧丹/未绑定旧批次维持legacy，不叠加新旧评级；旧物品迁移仍待批准。",
+      "latestAcceptance": "Step08: see docs/testing/ALCHEMY_V5_ENTRIES_20261028.md; migration and complete compatibility/fault matrix remain pending",
       "previousDecisionBeforeV5": "黄玄地天仙丹阶＋下中上极品成色＋五行药性；不叠加一至九品。"
     },
     {
@@ -351,22 +351,22 @@
       "status": "confirmed",
       "decision": "保留三关游标小游戏，奖励与15分钟走火减半统一五行修为结算，服从突破与心魔门槛",
       "relation": "源活跃小游戏补修为和15分钟走火减半，与目标打坐/心魔结算重叠；已逐项询问",
-      "latestAcceptance": "2026-10-21: server regression included; see VALIDATION-STEPS-8-13-20261021.md. Real reconnect/world/client matrix remains separate acceptance."
+      "latestAcceptance": "Step08: real entry allocation/settlement and restart coverage; see ALCHEMY_V5_ENTRIES_20261028.md. Full data coverage and compatibility remain steps12–13."
     },
     {
       "id": "D29",
       "topic": "元婴保命与近战被动",
       "status": "confirmed",
       "decision": "加入元婴致命伤自动遁逃保命，25分钟冷却；伤害与破盾沿用五行，不叠来源被动",
-      "latestAcceptance": "2026-10-21: server regression included; see VALIDATION-STEPS-8-13-20261021.md. Real reconnect/world/client matrix remains separate acceptance."
+      "latestAcceptance": "Step08: real entry allocation/settlement and restart coverage; see ALCHEMY_V5_ENTRIES_20261028.md. Full data coverage and compatibility remain steps12–13."
     },
     {
       "id": "D30",
       "topic": "炼丹副药",
       "status": "confirmed",
       "decision": "保留副药组合，统一五行结算，加入独有冰火毒附击；每角色一株；天地炉明确选择。",
-      "implementation": "已接入旧UI与服务端托管，编译通过后仍需执行入口测试及实机验收。",
-      "latestAcceptance": "2026-10-21: server regression included; see VALIDATION-STEPS-8-13-20261021.md. Real reconnect/world/client matrix remains separate acceptance."
+      "implementation": "第08项保留原副药来源选择与每类一株，天地炉显式选择，投入进入同一V5物理库存，不再额外随机加成功率/产量或旧词条。旧丹既有附击继续兼容；新丹只执行已注册九类模块，冰火毒附击扩展未完成。",
+      "latestAcceptance": "Step08: real entry allocation/settlement and restart coverage; see ALCHEMY_V5_ENTRIES_20261028.md. Full data coverage and compatibility remain steps12–13."
     }
   ],
   "herbCandidates": [
