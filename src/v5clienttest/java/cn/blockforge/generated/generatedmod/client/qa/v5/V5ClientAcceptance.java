@@ -42,13 +42,15 @@ public final class V5ClientAcceptance {
     @SubscribeEvent public static void render(TickEvent.RenderTickEvent event){
         if(event.phase!=TickEvent.Phase.END)return;var mc=Minecraft.getInstance();frames++;
         GLFW.glfwHideWindow(mc.getWindow().getWindow());
-        if(Boolean.getBoolean("wuxingxiantu.v5Research"))ResearchTableAcceptance.render(mc);
+        if(Boolean.getBoolean("wuxingxiantu.v5Inference"))ResearchInferenceAcceptance.render(mc);
+        else if(Boolean.getBoolean("wuxingxiantu.v5Research"))ResearchTableAcceptance.render(mc);
         else if(Boolean.getBoolean("wuxingxiantu.v5Entries"))V5EntryAcceptance.render(mc);
         else if(Boolean.getBoolean("wuxingxiantu.v5Effects"))V5EffectAcceptance.render(mc);
         else if(Boolean.getBoolean("wuxingxiantu.v5Incidents"))V5IncidentAcceptance.render(mc);
         if(mc.mouseHandler.isMouseGrabbed()||GLFW.glfwGetInputMode(mc.getWindow().getWindow(),GLFW.GLFW_CURSOR)!=GLFW.GLFW_CURSOR_NORMAL)violations++;
     }
     @SubscribeEvent public static void tick(TickEvent.ClientTickEvent event){
+        if(Boolean.getBoolean("wuxingxiantu.v5Inference")){ResearchInferenceAcceptance.tick(event);return;}
         if(Boolean.getBoolean("wuxingxiantu.v5Research")){ResearchTableAcceptance.tick(event);return;}
         if(Boolean.getBoolean("wuxingxiantu.v5Entries")){V5EntryAcceptance.tick(event);return;}
         if(Boolean.getBoolean("wuxingxiantu.v5Effects")){V5EffectAcceptance.tick(event);return;}

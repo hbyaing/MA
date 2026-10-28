@@ -1,0 +1,13 @@
+{
+  "resume": true,
+  "passed": true,
+  "error": "",
+  "frames": 484,
+  "captureViolations": 0,
+  "captures": [
+    "restored-root",
+    "restored-cumulative",
+    "approved-gui3"
+  ],
+  "blockedGrabs": 2
+}

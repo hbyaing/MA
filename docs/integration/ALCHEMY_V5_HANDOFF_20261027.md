@@ -65,3 +65,7 @@ V2已获明确批准并实装新工作方块/菜单/六页界面，真实基础�
 ## 2026-10-28 第09项基础链路接续
 
 阅读docs/testing/ALCHEMY_V5_KNOWLEDGE_20261028.md。ResearchCurriculum为服务端受控教学定义，FormulaKnowledge.understanding存既有PlayerPersisted理论与冻结模板，ResearchPractice在BatchJournal终态提交后向既有PlayerCrafts追加前128批展示摘要；不改物理、不授实践XP或认证。三组教学模板不是全部丹方完成映射。协议102；同一研析台后续10反推/自创/谱系、11独立认证，12全量覆盖。后台QA仍用-Pv5BatchCapture -Pv5ResearchCapture及第二JVM-Pv5BatchResume，创建research-knowledge-*独立世界，research09-qa.json控制文件及research-knowledge-client-validation输出；禁止鼠标捕获。
+
+## 2026-10-28 第10项接续
+
+读docs/testing/ALCHEMY_V5_INFERENCE_20261028.md。ResearchEvidence读取本人前128条实践索引与权威批次，只有新ResearchStart完整批次可作严格对照。ResearchMethods绑定公开规则内容，ResearchInference只用授权观测/公开目标，ResearchDifficulty将歧义与操作窗口分开，ResearchLineage在既有PlayerCrafts保存32个以内不可变版本/联合点。协议103，菜单文本每栏640字。不要把观测支持当独立认证/连续有效域，也不要把20%便捷假设步长变成通用降级保证。下一项11留出集/全失败认证账本。后台-Pv5BatchCapture -Pv5InferenceCapture，第二JVM加-Pv5BatchResume；独立research-inference-*存档/research10-qa.json，禁止鼠标捕获。

@@ -38,6 +38,7 @@ public final class BatchIncidents {
             case 247 -> doc.putBoolean("Warming",!doc.getBoolean("Warming"));
             default -> {return original;}
         }
+        if(doc.contains("ResearchStart")){var history=doc.getList("ResearchControls",net.minecraft.nbt.Tag.TAG_COMPOUND);if(history.size()<512){var e=new CompoundTag();e.putInt("Button",button);e.putLong("Step",V5Batch.core(original).tick());e.putInt("Mode",doc.getInt("HeatMode"));e.putBoolean("Warm",doc.getBoolean("Warming"));history.add(e);doc.put("ResearchControls",history);}else doc.putBoolean("ResearchControlsIncomplete",true);}
         doc.putLong("LastControlTick",time);doc.putLong(cooldown,time);validate(doc);return doc;
     }
     public static CompoundTag advance(CompoundTag original,ServerLevel level,BlockPos pos){

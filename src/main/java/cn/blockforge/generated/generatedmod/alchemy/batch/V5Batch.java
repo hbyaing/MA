@@ -80,6 +80,7 @@ public final class V5Batch {
         doc.putString("Entry",entry);doc.putString("Recipe",recipe);doc.putString("State","ACTIVE");doc.putString("Profile",profile.json());doc.putString("Inputs",defs.document());doc.putString("InputsHash",defs.hash);doc.putInt("Burn",burn);
         doc.putByteArray("Core",SimulationSnapshotCodec.encodeServerSnapshot(profile.rules(),core));doc.put("Original",original);doc.put("Materials",provenance);doc.put("MoonSources",moonSources);
         doc.putInt("FuelBalance",fuel-profile.requiredFuel());doc.putInt("FuelReserved",profile.requiredFuel()-profile.opening());doc.putInt("FuelSpent",profile.opening());doc.putInt("FuelInitial",fuel);
+        doc.put("ResearchStart",cn.blockforge.generated.generatedmod.alchemy.research.ResearchEvidence.start(sampled.values(),sampled.dayTime()));
         doc.putLong("LastWorldTick",level.getGameTime());doc.putLong("SampleDayTime",sampled.dayTime());doc.putLong("SampleGameTime",sampled.gameTime());inventory(doc,after);if(profile.rules().resources.containsKey(cn.blockforge.generated.generatedmod.alchemy.effects.AbilityCompiler.BOUND))doc.putString("EffectPolicy",cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.current(level));BatchIncidents.initialize(doc);validate(doc);return doc;
     }
     public static Snapshot core(CompoundTag doc){var p=profile(doc.getString("Profile"),doc.getInt("Burn"));return SimulationSnapshotCodec.decodeServerSnapshot(p.rules(),doc.getByteArray("Core"));}
@@ -110,7 +111,7 @@ public final class V5Batch {
         if(next.status()!=Status.ACTIVE&&next.status()!=Status.PAUSED)ready(doc);validate(doc);return doc;
     }
     public static CompoundTag seal(CompoundTag original){var doc=original.copy();var s=core(doc);var p=profile(doc.getString("Profile"),doc.getInt("Burn"));
-        if(s.status()==Status.ACTIVE)s=AlchemySimulation.step(p.rules(),s,List.of(new Operation(s.lastSequence()+1,s.tick(),Action.ABORT,"",0))).snapshot();
+        if(s.status()==Status.ACTIVE){doc.putBoolean("ResearchStopRequested",true);s=AlchemySimulation.step(p.rules(),s,List.of(new Operation(s.lastSequence()+1,s.tick(),Action.ABORT,"",0))).snapshot();}
         doc.putByteArray("Core",SimulationSnapshotCodec.encodeServerSnapshot(p.rules(),s));ready(doc);validate(doc);return doc;
     }
     static void ready(CompoundTag doc){doc.putString("State","READY");doc.putInt("FuelBalance",doc.getInt("FuelBalance")+doc.getInt("FuelReserved"));doc.putInt("FuelReserved",0);cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.freeze(doc);}

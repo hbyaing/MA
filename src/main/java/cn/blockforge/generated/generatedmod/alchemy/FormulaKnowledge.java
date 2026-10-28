@@ -100,6 +100,10 @@ public final class FormulaKnowledge {
     /** Same persisted knowledge account. Callers receive a copy; only trusted server operations write it. */
     public static CompoundTag understanding(Player p){return saved(p).getCompound("alchemyUnderstanding").copy();}
     public static boolean understands(Player p,String concept){return understanding(p).getCompound("Concepts").contains(concept);}
+    public static boolean studyResearchMethods(ServerPlayer p,String hash,CompoundTag definitions){
+        if(!cn.blockforge.generated.generatedmod.alchemy.research.ResearchMethods.qualified(p)||!hash.matches("[a-f0-9]{64}")||definitions.size()>64)return false;
+        var state=understanding(p);if(state.getString("ResearchMethodHash").equals(hash))return false;state.putString("ResearchMethodHash",hash);state.put("ResearchMethodDefinitions",definitions.copy());saved(p).put("alchemyUnderstanding",state);return true;
+    }
     public static int study(ServerPlayer p,cn.blockforge.generated.generatedmod.alchemy.research.ResearchCurriculum curriculum,
                             cn.blockforge.generated.generatedmod.alchemy.research.ResearchCurriculum.Template template){
         if(!unlocked(p)||!curriculum.templates.contains(template)||!knows(p,ResourceLocation.tryParse(template.formula())))return 0;

@@ -9,8 +9,10 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.*;
 public final class ResearchTableMenu extends AbstractContainerMenu {
     public static final int WIDTH=440,HEIGHT=300;
-    private final Container table;private final Player viewer;private final BlockPos pos;private final ContainerData data=new SimpleContainerData(704);
+    private static final int TEXT_LIMIT=640;
+    private final Container table;private final Player viewer;private final BlockPos pos;private final ContainerData data=new SimpleContainerData(64+4*TEXT_LIMIT);
     private int selection;private ResearchCurriculum curriculum;
+    private ResearchWorkspace workspace;
     private ItemStack inspected=ItemStack.EMPTY;
     public ResearchTableMenu(int id,Inventory inv,ResearchTableEntity table){this(id,inv,table,table.getBlockPos());}
     private ResearchTableMenu(int id,Inventory inv,Container table,BlockPos pos){super(cn.blockforge.generated.generatedmod.registry.ModMenus.ALCHEMY_RESEARCH_TABLE.get(),id);this.table=table;this.viewer=inv.player;this.pos=pos;
@@ -24,9 +26,12 @@ public final class ResearchTableMenu extends AbstractContainerMenu {
     public int page(){return data.get(0);}public boolean analyzed(){return data.get(1)>0;}public boolean recorded(){return data.get(1)==2;}public String lastRecord(){var text=new StringBuilder();for(int i=0;i<Math.min(48,data.get(5));i++)text.append((char)(data.get(6+i)&65535));return text.toString();}public int records(){return data.get(2);}public int knownFormulas(){return data.get(3);}public boolean unlocked(){return data.get(4)==1;}
     public ItemStack specimen(){return table.getItem(0);}public boolean supplies(){return table.getItem(1).is(Items.PAPER)&&table.getItem(2).is(Items.INK_SAC);}
     public boolean canStudy(){return data.get(55)==1;}public boolean canSaveTemplate(){return data.get(56)==1;}public boolean currentTemplateSaved(){return data.get(60)==1;}
+    public int primaryAction(){return data.get(54);}public int secondaryAction(){return data.get(61);}public boolean primaryEnabled(){return (data.get(62)&1)!=0;}public boolean secondaryEnabled(){return (data.get(62)&2)!=0;}
+    private boolean observedServer(){return analyzed()&&!inspected.isEmpty()&&ItemStack.matches(inspected,specimen());}
+    private ResearchWorkspace workspace(net.minecraft.server.level.ServerPlayer p){if(workspace==null)workspace=new ResearchWorkspace(p);return workspace;}
     public int practiceCount(){return data.get(57);}public int diversePractice(){return data.get(58);}public int templateNotes(){return data.get(59);}
-    public String researchText(int field){if(field<0||field>3)return "";var s=new StringBuilder();for(int i=0;i<160;i++){int c=data.get(64+field*160+i)&65535;if(c==0)break;s.append((char)c);}return s.toString();}
-    private void text(int field,String value){for(int i=0;i<160;i++)data.set(64+field*160+i,i<value.length()?value.charAt(i):0);}
+    public String researchText(int field){if(field<0||field>3)return "";var s=new StringBuilder();for(int i=0;i<TEXT_LIMIT;i++){int c=data.get(64+field*TEXT_LIMIT+i)&65535;if(c==0)break;s.append((char)c);}return s.toString();}
+    private void text(int field,String value){for(int i=0;i<TEXT_LIMIT;i++)data.set(64+field*TEXT_LIMIT+i,i<value.length()?value.charAt(i):0);}
     private record Card(ResearchCurriculum.Template template,int section){}
     private java.util.List<Card> cards(net.minecraft.server.level.ServerPlayer p){
         if(curriculum==null)curriculum=ResearchCurriculum.load(p);var cards=new java.util.ArrayList<Card>();
@@ -36,12 +41,16 @@ public final class ResearchTableMenu extends AbstractContainerMenu {
     private void researchRefresh(){
         if(!(viewer instanceof net.minecraft.server.level.ServerPlayer p))return;
         var practice=ResearchPractice.records(p);data.set(57,practice.size());data.set(58,ResearchPractice.diverse(p));data.set(59,FormulaKnowledge.understanding(p).getCompound("Templates").size());data.set(55,0);data.set(56,0);
-        data.set(60,0);for(int i=0;i<4;i++)text(i,"");if(!FormulaKnowledge.unlocked(p)){text(0,"需要学习炼丹入门");return;}
+        data.set(60,0);data.set(62,0);for(int i=0;i<4;i++)text(i,"");if(!FormulaKnowledge.unlocked(p)){text(0,"需要学习炼丹入门");return;}
+        ResearchWorkspace.Panel panel=null;
+        if(page()==1||page()==2||page()==4){panel=workspace(p).view(page(),selection,observedServer(),specimen());data.set(54,panel.primary());data.set(61,panel.secondary());data.set(62,panel.flags());
+            if(page()!=1){text(0,panel.main());text(1,panel.known());text(2,panel.pending());text(3,panel.detail());return;}}
         if(page()==1){
             if(practice.isEmpty()){text(0,"尚无已结算V5批次\n在丹炉进行真实炼制\n失败与事故也会记录");return;}
             var n=practice.getCompound(Math.floorMod(selection,practice.size()));
             text(0,"实践 "+(Math.floorMod(selection,practice.size())+1)+" / "+practice.size()+"\n结果："+ResearchPractice.outcome(n)+"\n逻辑步："+n.getLong("Steps")+"\n耗灵："+n.getInt("Fuel")+"\n结构损伤："+n.getInt("Damage"));
-            text(1,"实践："+practice.size()+" / 128\n差异摘要："+diversePractice());text(2,"含失败，不代表认证\n阅读不增加控火经验");text(3,"批次："+n.getString("Batch").substring(0,8)+"\n前128批展示记录；不作为独立认证样本。\n规则摘要："+n.getString("Rules").substring(0,8));return;
+            text(1,"实践："+practice.size()+" / 128\n差异摘要："+diversePractice());text(2,"含失败，不代表认证\n阅读不增加控火经验");text(3,"批次："+n.getString("Batch").substring(0,8)+"\n前128批展示记录；不作为独立认证样本。\n规则摘要："+n.getString("Rules").substring(0,8));
+            if(panel!=null){if(!panel.main().isBlank())text(0,panel.main());text(1,panel.known());text(2,panel.pending());text(3,panel.detail());}return;
         }
         if(page()!=3)return;var card=selected(p);
         if(card==null){text(0,"尚无对应教学丹方\n先学习金疮、聚灵\n或清心丹方传承");text(2,"其它丹方保留旧知识\n全量映射归第12项");return;}
@@ -63,12 +72,18 @@ public final class ResearchTableMenu extends AbstractContainerMenu {
         text(3,"传承："+t.title()+"\n版本："+t.revision().substring(0,8)+"\n未验证教学模板；不是已认证生产丹方。");
     }
     private static cn.blockforge.generated.generatedmod.alchemy.effects.AbilityCompiler.Kind AbilityCompilerKind(String id){return cn.blockforge.generated.generatedmod.alchemy.effects.AbilityCompiler.Kind.valueOf(id);}
-    private void refresh(){if(viewer.level().isClientSide)return;if(!ItemStack.matches(inspected,specimen())){data.set(1,0);inspected=ItemStack.EMPTY;}var notes=FormulaKnowledge.researchRecords(viewer);data.set(2,notes.size());String last=notes.isEmpty()?"":notes.getCompound(notes.size()-1).getString("Summary");data.set(5,Math.min(48,last.length()));for(int i=0;i<48;i++)data.set(6+i,i<last.length()?last.charAt(i):0);data.set(3,(int)java.util.Arrays.stream(PillCatalog.values()).filter(p->FormulaKnowledge.knows(viewer,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("wuxingxiantu",p.id))).count());data.set(4,FormulaKnowledge.unlocked(viewer)?1:0);}
+    private void refresh(){if(viewer.level().isClientSide)return;if(!ItemStack.matches(inspected,specimen())){data.set(1,0);inspected=ItemStack.EMPTY;if(workspace!=null)workspace.clearTarget();}var notes=FormulaKnowledge.researchRecords(viewer);data.set(2,notes.size());String last=notes.isEmpty()?"":notes.getCompound(notes.size()-1).getString("Summary");data.set(5,Math.min(48,last.length()));for(int i=0;i<48;i++)data.set(6+i,i<last.length()?last.charAt(i):0);data.set(3,(int)java.util.Arrays.stream(PillCatalog.values()).filter(p->FormulaKnowledge.knows(viewer,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("wuxingxiantu",p.id))).count());data.set(4,FormulaKnowledge.unlocked(viewer)?1:0);}
     @Override public void broadcastChanges(){refresh();researchRefresh();super.broadcastChanges();}
     @Override public boolean stillValid(Player p){return p.level().isClientSide||p.isAlive()&&!p.isSpectator()&&p.level().getBlockEntity(pos)==table&&table.stillValid(p);}
     @Override public boolean clickMenuButton(Player p,int button){if(p.level().isClientSide||!stillValid(p)||p!=viewer)return false;
-        if(button>=0&&button<6){data.set(0,button);broadcastChanges();return true;}
-        if((page()==1||page()==3)&&(button==20||button==21)){selection+=button==20?-1:1;broadcastChanges();return true;}
+        if(button>=0&&button<6){data.set(0,button);if(workspace!=null)workspace.navigate();broadcastChanges();return true;}
+        if((page()>=1&&page()<=4)&&(button==20||button==21)){selection+=button==20?-1:1;if(workspace!=null)workspace.navigate();broadcastChanges();return true;}
+        if(p instanceof net.minecraft.server.level.ServerPlayer researcher&&FormulaKnowledge.unlocked(researcher)&&(page()==1||page()==2||page()==4)){
+            var w=workspace(researcher);var panel=w.view(page(),selection,observedServer(),specimen());int bit=button==panel.primary()?1:button==panel.secondary()?2:0;
+            if(bit==0||(panel.flags()&bit)==0||button==38&&!supplies())return false;
+            boolean done=w.action(page(),selection,button,observedServer(),specimen(),supplies());
+            if(done&&button==38){table.removeItem(1,1);table.removeItem(2,1);table.setChanged();}if(done&&button==33)selection=0;broadcastChanges();return done;
+        }
         if(p instanceof net.minecraft.server.level.ServerPlayer student&&FormulaKnowledge.unlocked(student)&&page()==3){
             var card=selected(student);if(card==null)return false;
             if(button==22){boolean changed=FormulaKnowledge.study(student,curriculum,card.template())>0;broadcastChanges();return changed;}

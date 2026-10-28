@@ -165,11 +165,34 @@
     ],
     "pages": [
       1,
-      3
+      2,
+      3,
+      4
     ],
     "skin": "tab_normal",
     "primaryFormulaAction": "study",
     "secondaryFormulaAction": "save-unverified-template",
     "knownTextLineStep": 10
+  },
+  "investigationActions": {
+    "experiment": [
+      "baseline",
+      "compare"
+    ],
+    "reverse": [
+      "public-method",
+      "finite-solve",
+      "age-hypothesis",
+      "count-hypothesis",
+      "declared-scope",
+      "restore",
+      "save-candidate"
+    ],
+    "lineage": [
+      "select-parent",
+      "add-second-parent"
+    ],
+    "protocol": 103,
+    "textPerField": 640
   }
 }

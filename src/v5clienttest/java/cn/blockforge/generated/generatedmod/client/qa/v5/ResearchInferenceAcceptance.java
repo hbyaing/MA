@@ -1,0 +1,89 @@
+package cn.blockforge.generated.generatedmod.client.qa.v5;
+
+import cn.blockforge.generated.generatedmod.*;
+import cn.blockforge.generated.generatedmod.alchemy.*;
+import cn.blockforge.generated.generatedmod.alchemy.batch.*;
+import cn.blockforge.generated.generatedmod.alchemy.research.*;
+import cn.blockforge.generated.generatedmod.client.ResearchTableScreen;
+import cn.blockforge.generated.generatedmod.plants.*;
+import com.google.gson.*;
+import net.minecraft.client.*;
+import net.minecraft.core.*;
+import net.minecraft.world.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.*;
+import net.minecraftforge.event.TickEvent;
+import java.nio.file.*;
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
+
+/** Production batches, native menu input, immutable DAG and a second JVM; no OS pointer injection. */
+final class ResearchInferenceAcceptance {
+    private static final BlockPos TABLE=new BlockPos(0,200,0),FURNACE=new BlockPos(5,200,5);
+    private static final Path OUT=Path.of(System.getProperty("wuxingxiantu.v5Output")).resolveSibling("research-inference-client-validation"),CONTROL=Path.of("research10-qa.json");
+    private static final boolean RESUME=Boolean.getBoolean("wuxingxiantu.v5Resume");private static final long START=System.nanoTime();
+    private static int stage,ticks,frames,violations;private static boolean opened,done;private static JsonObject control;private static CompletableFuture<?> pending;
+    private static final ArrayDeque<String> queued=new ArrayDeque<>();private static final List<String> captures=new ArrayList<>();
+    static void tick(TickEvent.ClientTickEvent e){if(done||e.phase!=TickEvent.Phase.END)return;var mc=Minecraft.getInstance();try{
+        Files.createDirectories(OUT);org.lwjgl.glfw.GLFW.glfwHideWindow(mc.getWindow().getWindow());mc.setWindowActive(true);mc.options.pauseOnLostFocus=false;
+        if(mc.mouseHandler.isMouseGrabbed()||org.lwjgl.glfw.GLFW.glfwGetInputMode(mc.getWindow().getWindow(),org.lwjgl.glfw.GLFW.GLFW_CURSOR)!=org.lwjgl.glfw.GLFW.GLFW_CURSOR_NORMAL)violations++;
+        check((System.nanoTime()-START)/1e9<300,"Timeout stage="+stage);
+        if(!opened&&mc.player!=null)throw new AssertionError("Unrelated client refused");
+        if(!opened&&mc.getOverlay()==null&&(mc.screen instanceof net.minecraft.client.gui.screens.TitleScreen||mc.screen instanceof net.minecraft.client.gui.screens.AccessibilityOnboardingScreen)){
+            opened=true;mc.getWindow().setWindowed(1440,1080);mc.options.guiScale().set(2);mc.resizeDisplay();mc.options.renderDistance().set(2);mc.options.simulationDistance().set(5);mc.options.framerateLimit().set(40);mc.getTutorial().setStep(net.minecraft.client.tutorial.TutorialSteps.NONE);
+            if(RESUME){control=JsonParser.parseString(Files.readString(CONTROL)).getAsJsonObject();String world=control.get("world").getAsString();check(world.startsWith("research-inference-"),"Unrelated save refused");mc.createWorldOpenFlows().loadLevel(new net.minecraft.client.gui.screens.TitleScreen(),world);}
+            else{control=new JsonObject();String world="research-inference-"+System.currentTimeMillis();control.addProperty("world",world);var rules=new GameRules();rules.getRule(GameRules.RULE_DOMOBSPAWNING).set(false,null);rules.getRule(GameRules.RULE_DAYLIGHT).set(false,null);mc.createWorldOpenFlows().createFreshLevel(world,new LevelSettings("Independent research 10 acceptance",GameType.CREATIVE,false,Difficulty.PEACEFUL,true,rules,WorldDataConfiguration.DEFAULT),new net.minecraft.world.level.levelgen.WorldOptions(10219,false,false),net.minecraft.world.level.levelgen.presets.WorldPresets::createNormalWorldDimensions);}
+        }
+        if(mc.player==null||mc.getSingleplayerServer()==null||mc.getOverlay()!=null)return;mc.player.setNoGravity(true);mc.player.getAbilities().flying=true;
+        if(pending!=null){if(!pending.isDone())return;pending.join();pending=null;ticks=0;}ticks++;
+        if(stage==0){if(ticks<35)return;mc.mouseHandler.grabMouse();check(V5ClientAcceptance.blockedGrabs>0&&violations==0,"Pointer guard failed");pending=mc.getSingleplayerServer().submit(()->prepare(mc));stage=1;return;}
+        if(stage==1){if(ticks<15)return;mc.gameMode.useItemOn(mc.player,InteractionHand.MAIN_HAND,new net.minecraft.world.phys.BlockHitResult(TABLE.getCenter(),Direction.UP,TABLE,false));stage=2;ticks=0;return;}
+        if(!(mc.screen instanceof ResearchTableScreen)||!(mc.player.containerMenu instanceof ResearchTableMenu m)){check(ticks<100,"Real table menu not opened");return;}
+        if(stage==2){if(ticks<12)return;check(m.slots.size()==39,"Wrong slots");if(RESUME){pending=mc.getSingleplayerServer().submit(()->verifySaved(mc));action(mc,m,10);stage=80;return;}capture("empty");click(mc,118,281);stage=3;ticks=0;return;}
+        if(stage==3){if(ticks<8)return;check(m.getCarried().is(WuXingItems.V5_PILL.get()),"Sample pickup failed");click(mc,64,88);stage=4;ticks=0;return;}
+        if(stage==4){if(ticks<8)return;check(m.specimen().getCount()==1,"Sample slot failed");if(!m.getCarried().isEmpty())click(mc,118,281);action(mc,m,10);stage=5;ticks=0;return;}
+        if(stage==5){if(ticks<10)return;check(m.analyzed(),"Inspection failed");action(mc,m,2);stage=6;ticks=0;return;}
+        if(stage==6){if(ticks<10)return;check(m.primaryAction()==32&&m.primaryEnabled(),"Method prerequisite state wrong");capture("method-unlearned");action(mc,m,32);stage=7;ticks=0;return;}
+        if(stage==7){if(ticks<10)return;check(m.primaryAction()==33,"Method did not unlock");action(mc,m,33);stage=8;ticks=0;return;}
+        if(stage==8){if(ticks<12)return;check(m.secondaryEnabled(),"No owned empirical candidate");capture("candidate-normal");capture("candidate-hover");var b=mc.screen.children().stream().filter(w->w instanceof net.minecraft.client.gui.components.AbstractWidget a&&a.getMessage().getString().equals("保存候选")).findFirst().orElseThrow();mc.screen.setFocused(b);capture("candidate-focus");action(mc,m,38);stage=9;ticks=0;return;}
+        if(stage==9){if(ticks<10)return;check(!m.secondaryEnabled(),"Duplicate candidate save not disabled");capture("candidate-saved-disabled");action(mc,m,38);pending=mc.getSingleplayerServer().submit(()->{var revisions=ResearchLineage.revisions(player(mc));check(revisions.size()==1&&table(mc).getItem(1).getCount()==5,"Root replay cost/count wrong");control.addProperty("baseAge",revisions.getCompound(0).getCompound("Plan").getCompound("Numbers").getLong("age/0"));control.addProperty("root",revisions.getCompound(0).getString("Id"));});action(mc,m,4);stage=10;return;}
+        if(stage==10){if(ticks<10)return;capture("lineage-root");action(mc,m,40);action(mc,m,2);stage=11;ticks=0;return;}
+        if(stage==11){if(ticks<10)return;click(mc,240,176);stage=12;ticks=0;return;}
+        if(stage==12){if(ticks<10)return;check(m.primaryAction()==34,"Native next-page hitbox failed");action(mc,m,34);stage=13;ticks=0;return;}
+        if(stage==13){if(ticks<10)return;check(m.secondaryEnabled(),"Edited candidate not writable");capture("age-hypothesis");action(mc,m,38);stage=14;ticks=0;return;}
+        if(stage==14){if(ticks<10)return;pending=mc.getSingleplayerServer().submit(()->check(ResearchLineage.revisions(player(mc)).size()==2,"Child revision missing"));action(mc,m,4);action(mc,m,21);action(mc,m,21);action(mc,m,21);stage=15;return;}
+        if(stage==15){if(ticks<10)return;capture("lineage-child");action(mc,m,40);action(mc,m,2);stage=16;ticks=0;return;}
+        if(stage==16){if(ticks<10)return;check(m.primaryAction()==37,"Restore card selection wrong");action(mc,m,37);stage=17;ticks=0;return;}
+        if(stage==17){if(ticks<10)return;action(mc,m,38);stage=18;ticks=0;return;}
+        if(stage==18){if(ticks<10)return;pending=mc.getSingleplayerServer().submit(()->verifySaved(mc));action(mc,m,4);for(int i=0;i<5;i++)action(mc,m,21);stage=19;return;}
+        if(stage==19){if(ticks<10)return;check(m.researchText(0).contains("累计路径"),"Cumulative path page missing");mc.options.guiScale().set(3);mc.resizeDisplay();stage=20;ticks=0;return;}
+        if(stage==20){if(ticks<12)return;capture("approved-gui3");capture("lineage-cumulative");action(mc,m,1);stage=21;ticks=0;return;}
+        if(stage==21){if(ticks<10)return;action(mc,m,30);action(mc,m,21);stage=22;ticks=0;return;}
+        if(stage==22){if(ticks<10)return;action(mc,m,31);stage=23;ticks=0;return;}
+        if(stage==23){if(ticks<12)return;check(m.researchText(0).contains("单因素"),"Controlled age comparison rejected: "+m.researchText(0));capture("single-factor-comparison");action(mc,m,34);pending=mc.getSingleplayerServer().submit(()->{verifySaved(mc);player(mc).getPersistentData().getCompound(net.minecraft.world.entity.player.Player.PERSISTED_NBT_TAG).putBoolean("alchemyUnlocked",false);});stage=24;return;}
+        if(stage==24){if(ticks<12)return;check(!m.unlocked()&&!m.primaryEnabled(),"Revoked knowledge did not disable action");capture("knowledge-disabled");pending=mc.getSingleplayerServer().submit(()->player(mc).getPersistentData().getCompound(net.minecraft.world.entity.player.Player.PERSISTED_NBT_TAG).putBoolean("alchemyUnlocked",true));stage=25;return;}
+        if(stage==25){if(ticks<12)return;mc.getWindow().setWindowed(1920,1440);mc.options.guiScale().set(4);mc.resizeDisplay();action(mc,m,2);stage=26;ticks=0;return;}
+        if(stage==26){if(ticks<12)return;check(mc.getWindow().getGuiScale()==4,"GUI4 not active");capture("fit-gui4");click(mc,240,176);stage=27;ticks=0;return;}
+        if(stage==27){if(ticks<10)return;check(m.primaryAction()==34,"GUI4 native navigation failed");capture("fit-gui4-navigation");pending=mc.getSingleplayerServer().submit(()->{verifySaved(mc);try{Files.writeString(CONTROL,new GsonBuilder().setPrettyPrinting().create().toJson(control));}catch(Exception ex){throw new RuntimeException(ex);}});stage=99;return;}
+        if(stage==80){if(ticks<12)return;check(m.analyzed(),"Resume sample inspection failed");action(mc,m,4);stage=81;ticks=0;return;}
+        if(stage==81){if(ticks<12)return;capture("restored-root");for(int i=0;i<9;i++)action(mc,m,21);mc.options.guiScale().set(3);mc.resizeDisplay();stage=82;ticks=0;return;}
+        if(stage==82){if(ticks<12)return;check(m.researchText(0).contains("累计路径"),"Restored cumulative path missing");capture("restored-cumulative");capture("approved-gui3");stage=99;ticks=0;return;}
+        if(stage==99){if(ticks<10)return;finish(mc,null);}
+    }catch(Throwable ex){com.mojang.logging.LogUtils.getLogger().error("RESEARCH10_ACCEPTANCE",ex);finish(mc,ex.toString());}}
+    private static net.minecraft.server.level.ServerPlayer player(Minecraft mc){return mc.getSingleplayerServer().getPlayerList().getPlayer(mc.player.getUUID());}
+    private static ResearchTableEntity table(Minecraft mc){return (ResearchTableEntity)mc.getSingleplayerServer().overworld().getBlockEntity(TABLE);}
+    private static void prepare(Minecraft mc){var p=player(mc);var level=p.server.overworld();p.setNoGravity(true);p.getAbilities().mayfly=true;p.getAbilities().flying=true;p.onUpdateAbilities();p.teleportTo(level,.5,201,-2.5,0,15);if(RESUME)return;
+        p.setGameMode(GameType.CREATIVE);p.getInventory().clearContent();p.teleportTo(level,5.5,201,2.5,0,0);level.setBlockAndUpdate(FURNACE,WuXingBlocks.ALCHEMY_FURNACE.get().defaultBlockState());CoreStructureBuilder.build(p,FURNACE);AlchemyFurnaceStructure.refreshAround(level,FURNACE);var furnace=(AlchemyFurnaceBlockEntity)level.getBlockEntity(FURNACE);GeneratedMod.data(p).wuxingxiantu$learnFire(1);FormulaKnowledge.unlock(p);
+        for(int i=0;i<3;i++){var saved=furnace.saveWithoutMetadata();saved.putInt("SpiritFuel",furnace.spiritCapacity());furnace.load(saved);var herb=new ItemStack(SpiritPlantRegistry.SPIRIT_SPROUT_GRASS_ITEM.get(),i==2?3:4);HerbAge.setYears(herb,i==1?1200:1500);furnace.setItem(0,herb);furnace.setItem(8,cn.blockforge.generated.generatedmod.fire.FireBottleData.fresh(1));check(furnace.startV5Batch(p),"Cannot start real specimen batch "+i);var doc=furnace.v5ServerRecord();var journal=new BatchJournal(p.server);for(int j=0;j<64&&doc.getString("State").equals("ACTIVE");j++){doc.putLong("LastWorldTick",level.getGameTime()-20);doc=V5Batch.advance(doc,level,FURNACE);journal.write(doc);}furnace.restoreV5();check(furnace.collectResult(p)==1,"Cannot claim specimen "+i);}
+        FormulaKnowledge.learn(p,net.minecraft.resources.ResourceLocation.parse("wuxingxiantu:golden_wound_pill"),false);var curriculum=ResearchCurriculum.load(p);for(int i=0;i<3;i++)FormulaKnowledge.study(p,curriculum,curriculum.templates.get(0));
+        level.setBlockAndUpdate(TABLE,WuXingBlocks.ALCHEMY_RESEARCH_TABLE.get().defaultBlockState());table(mc).setItem(1,new ItemStack(Items.PAPER,6));table(mc).setItem(2,new ItemStack(Items.INK_SAC,6));p.teleportTo(level,.5,201,-2.5,0,15);p.getInventory().selected=0;p.inventoryMenu.broadcastChanges();
+    }
+    private static void verifySaved(Minecraft mc){var p=player(mc);var rows=ResearchLineage.revisions(p);check(rows.size()==3,"Wrong revision count");var root=rows.getCompound(0);var child=rows.getCompound(1);var back=rows.getCompound(2);long age=root.getCompound("Plan").getCompound("Numbers").getLong("age/0");long delta=Math.max(1,age/5);check(ResearchLineage.total(back.getCompound("Net"),"age/")==0&&ResearchLineage.total(back.getCompound("Path"),"age/")==2*delta,"Returned plan washed cumulative path");check(back.getString("Root").equals(root.getString("Id"))&&back.getList("Parents",net.minecraft.nbt.Tag.TAG_STRING).getString(0).equals(child.getString("Id")),"Root/parent persistence wrong");check(table(mc).getItem(1).getCount()==3&&table(mc).getItem(2).getCount()==3&&!table(mc).getItem(0).isEmpty(),"Research costs/specimen wrong");check(ResearchPractice.records(p).size()==3&&!back.getBoolean("Certified"),"Research minted batch or certification");}
+    private static void click(Minecraft mc,int sx,int sy){int x=(mc.getWindow().getGuiScaledWidth()-440)/2+sx+8,y=(mc.getWindow().getGuiScaledHeight()-300)/2+sy+8;mc.screen.mouseClicked(x,y,0);mc.screen.mouseReleased(x,y,0);}
+    private static void action(Minecraft mc,ResearchTableMenu m,int id){mc.gameMode.handleInventoryButtonClick(m.containerId,id);}
+    private static void capture(String name){queued.add(name);}private static void check(boolean b,String s){if(!b)throw new AssertionError(s);}
+    static void render(Minecraft mc){if(done)return;frames++;try{while(!queued.isEmpty()){var name=queued.remove();if(name.equals("candidate-hover")){var g=new net.minecraft.client.gui.GuiGraphics(mc,mc.renderBuffers().bufferSource());mc.screen.render(g,(mc.getWindow().getGuiScaledWidth()-440)/2+320,(mc.getWindow().getGuiScaledHeight()-300)/2+205,0);g.flush();}
+            check(org.lwjgl.opengl.GL11.glGetError()==0,"GL error");try(var image=Screenshot.takeScreenshot(mc.getMainRenderTarget())){image.writeToFile(OUT.resolve(name+".png"));if(name.equals("approved-gui3")){double scale=mc.getWindow().getGuiScale();int x=(image.getWidth()-(int)(440*scale))/2,y=(image.getHeight()-(int)(300*scale))/2;int[][] boxes={{0,0,80,40},{360,0,80,40},{0,260,80,40},{360,260,80,40},{140,55,149,137},{78,219,263,79},{300,78,123,55},{300,136,123,53},{148,174,224,41}};for(int i=0;i<boxes.length;i++){var b=boxes[i];int w=(int)(b[2]*scale),h=(int)(b[3]*scale);try(var crop=new com.mojang.blaze3d.platform.NativeImage(w,h,false)){for(int yy=0;yy<h;yy++)for(int xx=0;xx<w;xx++)crop.setPixelRGBA(xx,yy,image.getPixelRGBA(x+(int)(b[0]*scale)+xx,y+(int)(b[1]*scale)+yy));crop.writeToFile(OUT.resolve("detail-"+i+".png"));}}}}captures.add(name);
+        }}catch(Throwable ex){finish(mc,ex.toString());}}
+    private static void finish(Minecraft mc,String error){if(done)return;done=true;try{Files.createDirectories(OUT);Files.writeString(OUT.resolve(RESUME?"resume-result.json":"start-result.json"),new GsonBuilder().setPrettyPrinting().create().toJson(Map.of("passed",error==null,"resume",RESUME,"captures",captures,"frames",frames,"captureViolations",violations,"blockedGrabs",V5ClientAcceptance.blockedGrabs,"error",error==null?"":error)));}catch(Exception ex){throw new RuntimeException(ex);}mc.stop();}
+}

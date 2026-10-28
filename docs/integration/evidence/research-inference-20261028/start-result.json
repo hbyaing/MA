@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "error": "",
+  "frames": 1539,
+  "captureViolations": 0,
+  "captures": [
+    "empty",
+    "method-unlearned",
+    "candidate-normal",
+    "candidate-hover",
+    "candidate-focus",
+    "candidate-saved-disabled",
+    "lineage-root",
+    "age-hypothesis",
+    "lineage-child",
+    "approved-gui3",
+    "lineage-cumulative",
+    "single-factor-comparison",
+    "knowledge-disabled",
+    "fit-gui4",
+    "fit-gui4-navigation"
+  ],
+  "blockedGrabs": 2,
+  "resume": false
+}
