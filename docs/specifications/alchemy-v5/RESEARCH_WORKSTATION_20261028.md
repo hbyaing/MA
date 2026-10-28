@@ -4,7 +4,7 @@
 
 反推这一系列玩法通过新建的 Minecraft 专用工作方块实现。名称暂定“丹道研析台”，注册ID计划为 `wuxingxiantu:alchemy_research_table`；名称和造型随界面参考一并确认。它负责研究操作，实际炼制继续使用普通炉/天地为炉的V5核心。
 
-本次是实施前设计阶段：本文件与概念图不代表游戏方块、菜单或09–11研究系统已实装，不修改正式JAR及存档。
+用户已于2026-10-28批准附图并要求按图制作UI。本次已实装工作方块、菜单、六页界面与基础公开样本观察/个人记录；完整09–11研究系统尚未完成，不能据此宣称反推、谱系或认证已实现。
 
 ## 一处入口、六个研究页
 
@@ -47,4 +47,8 @@
 
 ## 当前审阅图
 
-[初稿](../../../source-assets/alchemy-research-table-20261028/concept-v1.png) · [优化参考V2](../../../source-assets/alchemy-research-table-20261028/concept-v2.png) · [图稿与生成提示规格](../../../source-assets/alchemy-research-table-20261028/README.md)。V2已核对六页入口、已知/待证区分、单样本与纸墨槽、9×4背包及自绘控件；等待用户确认外观与界面后继续实现。
+[初稿](../../../source-assets/alchemy-research-table-20261028/concept-v1.png) · [优化参考V2](../../../source-assets/alchemy-research-table-20261028/concept-v2.png) · [图稿与生成提示规格](../../../source-assets/alchemy-research-table-20261028/README.md)。V2已核对六页入口、已知/待证区分、单样本与纸墨槽、9×4背包及自绘控件；用户已确认外观与界面，原始图稿保留用于实机对照。
+
+## 已批准后的UI交付
+
+注册ID为 wuxingxiantu:alchemy_research_table；炼丹创造分类与合成配方可获取，右键打开。采用现有ScreenResolutionEvents/ScreenFitPolicy进行窗口适配，全部槽位与鼠标共享原生GUI坐标。纸墨槽为真实物品，基础观察不消耗样本；记录消耗纸/墨囊各1并去重，保存于FormulaKnowledge既有玩家持久化体系，不授予经验或认证。后续页清楚说明尚待开放。详见 ../../testing/RESEARCH_TABLE_UI_20261028.md。

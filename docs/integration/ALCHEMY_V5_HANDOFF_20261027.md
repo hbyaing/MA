@@ -57,3 +57,7 @@
 ## 2026-10-28 第08项接续
 
 新仓库 https://github.com/hbyaing/Myriad-Ascension 的 main 是统一上传目标，完成并验证后合并推送main。第08项将普通炉固定丹方和天地为炉/副药适配到V5Batch，保留旧任务兼容及天地炼器。读 docs/testing/ALCHEMY_V5_ENTRIES_20261028.md；新入口私有元数据Entry/Recipe，天地玩家托管见PortableBatch和BatchJournal.portable，玩家付款凭证确认后才推进；协议100。下一项09丹方/知识/技艺，不把旧方例输出当作新物理成丹承诺。后台验收参数 -Pv5BatchCapture -Pv5EntriesCapture，第二JVM加-Pv5BatchResume，禁止捕获真实鼠标。
+
+## 丹道研析台UI接续（2026-10-28用户批准）
+
+V2已获明确批准并实装新工作方块/菜单/六页界面，真实基础公开样本观察与去重个人记录可用。见docs/testing/RESEARCH_TABLE_UI_20261028.md；协议101，正式研究/知识树/反推/谱系/认证仍按09–11继续，不能把UI交付算作全研究系统完成。原有统一工作台新增research.html。后台参数 -Pv5BatchCapture -Pv5ResearchCapture，第二JVM加-Pv5BatchResume；复用NoGrab，不移动真实鼠标。

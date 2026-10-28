@@ -38,6 +38,8 @@ public final class WuXingBlocks {
     public static final RegistryObject<Block> MOON_BOTTLE=BLOCKS.register("moon_bottle",cn.blockforge.generated.generatedmod.alchemy.inputs.MoonBottleBlock::new);
     public static final RegistryObject<Item> MOON_BOTTLE_ITEM=blockItem("moon_bottle",MOON_BOTTLE,1);
 
+    public static final RegistryObject<Block> ALCHEMY_RESEARCH_TABLE=BLOCKS.register("alchemy_research_table",cn.blockforge.generated.generatedmod.alchemy.research.ResearchTableBlock::new);
+    public static final RegistryObject<Item> ALCHEMY_RESEARCH_TABLE_ITEM=blockItem("alchemy_research_table",ALCHEMY_RESEARCH_TABLE,64);
     public static final RegistryObject<Block> HERB_PROCESSING_TABLE = BLOCKS.register("herb_processing_table",HerbProcessingTableBlock::new);
     public static final RegistryObject<Item> HERB_PROCESSING_TABLE_ITEM = blockItem("herb_processing_table",HERB_PROCESSING_TABLE,64);
 

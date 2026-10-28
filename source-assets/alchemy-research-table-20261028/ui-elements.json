@@ -1,0 +1,153 @@
+{
+  "canvas": [
+    440,
+    300
+  ],
+  "texture": [
+    1519,
+    1035
+  ],
+  "elementRects": {
+    "frame": [
+      0,
+      0,
+      440,
+      300
+    ],
+    "title_banner": [
+      140,
+      1,
+      162,
+      29
+    ],
+    "tab_selected": [
+      13,
+      34,
+      66,
+      17
+    ],
+    "tab_normal": [
+      84,
+      34,
+      65,
+      17
+    ],
+    "sample_panel": [
+      9,
+      56,
+      126,
+      159
+    ],
+    "sample_slot": [
+      52,
+      77,
+      40,
+      39
+    ],
+    "paper_slot": [
+      33,
+      171,
+      30,
+      29
+    ],
+    "ink_slot": [
+      81,
+      171,
+      30,
+      29
+    ],
+    "center_paper": [
+      144,
+      74,
+      142,
+      114
+    ],
+    "known_card": [
+      300,
+      79,
+      123,
+      53
+    ],
+    "hypothesis_card": [
+      300,
+      136,
+      123,
+      46
+    ],
+    "action_primary": [
+      154,
+      196,
+      110,
+      19
+    ],
+    "action_secondary": [
+      275,
+      196,
+      96,
+      19
+    ],
+    "inventory_frame": [
+      78,
+      219,
+      263,
+      71
+    ]
+  },
+  "cornerRects": [
+    [
+      0,
+      0,
+      18,
+      18
+    ],
+    [
+      422,
+      0,
+      18,
+      18
+    ],
+    [
+      0,
+      282,
+      18,
+      18
+    ],
+    [
+      422,
+      282,
+      18,
+      18
+    ]
+  ],
+  "inventoryReconstruction": "Clear generated grid; retain frame corners/edges by UV regions; draw36 separate slots at menu positions. Original generated grid is not reused.",
+  "menuSlots": {
+    "sample": [
+      64,
+      88
+    ],
+    "paper": [
+      40,
+      177
+    ],
+    "ink": [
+      88,
+      177
+    ],
+    "playerFirstX": 118,
+    "playerColumnStep": 20,
+    "playerRows": [
+      225,
+      243,
+      261,
+      281
+    ]
+  },
+  "stateSkins": [
+    "normal",
+    "hover",
+    "keyboard_focus",
+    "disabled",
+    "selected"
+  ],
+  "textAndItems": "All titles, observations, tab/action labels and items are rendered from live code/data; no example stats or item images baked in."
+}

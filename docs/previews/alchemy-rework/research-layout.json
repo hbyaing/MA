@@ -1,0 +1,53 @@
+{
+  "width": 440,
+  "height": 300,
+  "tabs": [
+    13,
+    34,
+    70,
+    66,
+    17
+  ],
+  "sample": [
+    64,
+    88
+  ],
+  "paper": [
+    40,
+    177
+  ],
+  "ink": [
+    88,
+    177
+  ],
+  "inventory": {
+    "x": 118,
+    "columns": 9,
+    "columnStep": 20,
+    "rows": [
+      225,
+      243,
+      261,
+      281
+    ]
+  },
+  "actions": [
+    [
+      154,
+      196,
+      110,
+      19
+    ],
+    [
+      275,
+      196,
+      96,
+      19
+    ]
+  ],
+  "sourcePixels": [
+    1519,
+    1035
+  ],
+  "status": "approved UI; solver/lineage/certification remain later phases"
+}

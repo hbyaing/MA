@@ -89,9 +89,16 @@ public final class FormulaKnowledge {
         CompoundTag original = event.getOriginal().getPersistentData().getCompound(Player.PERSISTED_NBT_TAG);
         CompoundTag target = saved(event.getEntity());
         if (original.contains(KEY)) target.put(KEY, original.getCompound(KEY).copy());
+        if(original.contains("alchemyResearchRecords"))target.put("alchemyResearchRecords",original.getList("alchemyResearchRecords",net.minecraft.nbt.Tag.TAG_COMPOUND).copy());
         target.putInt("alchemyDataVersion", original.getInt("alchemyDataVersion"));
         target.putBoolean(UNLOCKED, original.getBoolean(UNLOCKED));
     }
 
+    public static net.minecraft.nbt.ListTag researchRecords(Player p){return saved(p).getList("alchemyResearchRecords",net.minecraft.nbt.Tag.TAG_COMPOUND).copy();}
+    public static boolean recordResearch(ServerPlayer p,String fingerprint,String summary){
+        if(!unlocked(p)||!fingerprint.matches("[a-f0-9]{64}")||summary.length()>128)return false;
+        var records=researchRecords(p);if(records.size()>=64||records.stream().anyMatch(t->((CompoundTag)t).getString("Fingerprint").equals(fingerprint)))return false;
+        var record=new CompoundTag();record.putString("Fingerprint",fingerprint);record.putString("Summary",summary);records.add(record);saved(p).put("alchemyResearchRecords",records);return true;
+    }
     private FormulaKnowledge() {}
 }

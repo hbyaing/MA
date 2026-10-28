@@ -18,6 +18,7 @@ import net.minecraftforge.registries.RegistryObject;
 public final class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, GeneratedMod.MOD_ID);
+    public static final RegistryObject<BlockEntityType<cn.blockforge.generated.generatedmod.alchemy.research.ResearchTableEntity>> ALCHEMY_RESEARCH_TABLE=BLOCK_ENTITIES.register("alchemy_research_table",()->BlockEntityType.Builder.of(cn.blockforge.generated.generatedmod.alchemy.research.ResearchTableEntity::new,WuXingBlocks.ALCHEMY_RESEARCH_TABLE.get()).build(null));
     public static final RegistryObject<BlockEntityType<cn.blockforge.generated.generatedmod.alchemy.inputs.MoonBottleBlockEntity>> MOON_BOTTLE=
             BLOCK_ENTITIES.register("moon_bottle",()->BlockEntityType.Builder.of(cn.blockforge.generated.generatedmod.alchemy.inputs.MoonBottleBlockEntity::new,WuXingBlocks.MOON_BOTTLE.get()).build(null));
     public static final RegistryObject<BlockEntityType<cn.blockforge.generated.generatedmod.HerbProcessingTableBlockEntity>> HERB_PROCESSING_TABLE=

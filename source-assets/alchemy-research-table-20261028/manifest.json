@@ -1,7 +1,7 @@
 {
-  "status": "design_reference_pending_user_approval",
+  "status": "user_approved_ui_implemented_basic_observation",
   "tool": "built-in image_gen",
-  "runtimeImplemented": false,
+  "runtimeImplemented": true,
   "review": [
     "V2 has six research tabs",
     "One specimen slot, two consumable slots",
@@ -26,5 +26,8 @@
       ],
       "sha256": "b8174fcf01cdbda72083d47e6c2f683a2626c922103c1f1be71529d2ae6ccef6"
     }
-  }
+  },
+  "runtimeScope": "Physical block/menu, six UI pages, authenticated public sample observation and deduplicated personal notes only. Full knowledge/reverse solving/lineage/certification remain09–11.",
+  "approvedReferenceSHA256": "035690a56978ee2add2ecf53e7a31909d6e5aaa78a894b90340184eac1e5987c",
+  "productionTextureSHA256": "0a4a0de764f2bca83e183aeac529e3b97a17772b08ef705b48d752c1c0effb72"
 }

@@ -18,6 +18,7 @@ public final class ModMenus {
             DeferredRegister.create(ForgeRegistries.MENU_TYPES, GeneratedMod.MOD_ID);
     public static final RegistryObject<MenuType<cn.blockforge.generated.generatedmod.crafting.EquipmentWorkstationMenu>> INSCRIPTION_TABLE=MENUS.register("ming_ke_tai",()->IForgeMenuType.create(cn.blockforge.generated.generatedmod.crafting.EquipmentWorkstationMenu::fromNetwork));
     public static final RegistryObject<MenuType<cn.blockforge.generated.generatedmod.crafting.EquipmentWorkstationMenu>> REFORGE_TABLE=MENUS.register("jing_zhu_tai",()->IForgeMenuType.create(cn.blockforge.generated.generatedmod.crafting.EquipmentWorkstationMenu::fromNetwork));
+    public static final RegistryObject<MenuType<cn.blockforge.generated.generatedmod.alchemy.research.ResearchTableMenu>> ALCHEMY_RESEARCH_TABLE=MENUS.register("alchemy_research_table",()->IForgeMenuType.create(cn.blockforge.generated.generatedmod.alchemy.research.ResearchTableMenu::fromNetwork));
     public static final RegistryObject<MenuType<cn.blockforge.generated.generatedmod.HerbProcessingTableMenu>> HERB_PROCESSING_TABLE=MENUS.register(
             "herb_processing_table",()->IForgeMenuType.create(cn.blockforge.generated.generatedmod.HerbProcessingTableMenu::fromNetwork));
     public static final RegistryObject<MenuType<net.minecraft.world.inventory.AnvilMenu>> XUANLING_ANVIL = MENUS.register(
