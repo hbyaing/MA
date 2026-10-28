@@ -61,3 +61,7 @@
 ## 丹道研析台UI接续（2026-10-28用户批准）
 
 V2已获明确批准并实装新工作方块/菜单/六页界面，真实基础公开样本观察与去重个人记录可用。见docs/testing/RESEARCH_TABLE_UI_20261028.md；协议101，正式研究/知识树/反推/谱系/认证仍按09–11继续，不能把UI交付算作全研究系统完成。原有统一工作台新增research.html。后台参数 -Pv5BatchCapture -Pv5ResearchCapture，第二JVM加-Pv5BatchResume；复用NoGrab，不移动真实鼠标。
+
+## 2026-10-28 第09项基础链路接续
+
+阅读docs/testing/ALCHEMY_V5_KNOWLEDGE_20261028.md。ResearchCurriculum为服务端受控教学定义，FormulaKnowledge.understanding存既有PlayerPersisted理论与冻结模板，ResearchPractice在BatchJournal终态提交后向既有PlayerCrafts追加前128批展示摘要；不改物理、不授实践XP或认证。三组教学模板不是全部丹方完成映射。协议102；同一研析台后续10反推/自创/谱系、11独立认证，12全量覆盖。后台QA仍用-Pv5BatchCapture -Pv5ResearchCapture及第二JVM-Pv5BatchResume，创建research-knowledge-*独立世界，research09-qa.json控制文件及research-knowledge-client-validation输出；禁止鼠标捕获。

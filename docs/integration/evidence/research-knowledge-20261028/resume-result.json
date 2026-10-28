@@ -1,0 +1,16 @@
+{
+  "resume": true,
+  "captureViolations": 0,
+  "error": "",
+  "gui4": 0,
+  "gui3": 0,
+  "passed": true,
+  "blockedGrabs": 2,
+  "frames": 203,
+  "captures": [
+    "restored-notes",
+    "restored-template",
+    "approved-gui3",
+    "restored-template-gui4"
+  ]
+}

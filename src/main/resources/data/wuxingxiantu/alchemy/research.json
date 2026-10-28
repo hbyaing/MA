@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "concepts": [
+    {"id":"observation","title":"辨药与证据","requires":[],"practice":0,"explanation":"公开药效是观测证据，不能据此断言原始投料。"},
+    {"id":"conservation","title":"药力守恒","requires":["observation"],"practice":0,"explanation":"产量与药效共用真实药力；堆量不能保证升品。"},
+    {"id":"compatibility","title":"配伍与部分约束","requires":["conservation"],"practice":0,"explanation":"同一目标允许不同材料路线，建议条件须实际试验。"},
+    {"id":"thermal","title":"火候与操作边界","requires":["conservation"],"practice":1,"explanation":"读懂工序不等于控制成功；实际批次包含失败与事故。"}
+  ],
+  "templates": [
+    {"id":"healing_intro","title":"金疮·恢复目标","formula":"wuxingxiantu:golden_wound_pill","module":"heal","minimumMilli":250,"maximumToxicityPpm":1000000,"concepts":["observation","conservation","compatibility","thermal"],"advice":["建议：尝试恢复类药材","年份范围：尚未验证","比例与环境：尚未验证","工序：依实际炉体阶段","风险：热损伤与结构衰减","证据：需真实批次复验"]},
+    {"id":"mana_intro","title":"聚灵·灵力目标","formula":"wuxingxiantu:aura_pill","module":"mana","minimumMilli":250,"maximumToxicityPpm":1000000,"concepts":["observation","conservation","compatibility","thermal"],"advice":["建议：尝试灵力类药材","年份范围：尚未验证","比例与环境：尚未验证","工序：依实际炉体阶段","风险：药力竞争与损失","证据：需真实批次复验"]},
+    {"id":"cleanse_intro","title":"清心·净化目标","formula":"wuxingxiantu:clear_heart_pill","module":"cleanse","minimumMilli":1000,"maximumToxicityPpm":1000000,"concepts":["observation","conservation","compatibility","thermal"],"advice":["建议：尝试清净类药材","年份范围：尚未验证","比例与环境：尚未验证","工序：依实际炉体阶段","风险：毒性与结构衰减","证据：需真实批次复验"]}
+  ]
+}

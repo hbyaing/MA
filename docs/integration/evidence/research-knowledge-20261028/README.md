@@ -1,0 +1,1 @@
+本目录记录09基础链路的实际游戏证据。server-result.json为439项专服测试；start-result.json为24张首轮画面，resume-result.json为最终保存重启/GUI2、3、4复验。选存主要功能画面及detail-0至8原生游戏组件裁图；完整截图留在workspace outputs/research-knowledge-client-validation。生产包与PCL安装SHA见production-jar.json及pcl-installation.json。

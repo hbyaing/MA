@@ -49,5 +49,27 @@
     1519,
     1035
   ],
-  "status": "approved UI; solver/lineage/certification remain later phases"
+  "status": "approved UI; solver/lineage/certification remain later phases",
+  "researchNavigation": {
+    "previous": [
+      150,
+      176,
+      36,
+      14
+    ],
+    "next": [
+      240,
+      176,
+      36,
+      14
+    ],
+    "pages": [
+      1,
+      3
+    ],
+    "skin": "tab_normal",
+    "primaryFormulaAction": "study",
+    "secondaryFormulaAction": "save-unverified-template",
+    "knownTextLineStep": 10
+  }
 }

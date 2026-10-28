@@ -1,0 +1,15 @@
+{
+  "source": "C:\\Users\\Lenovo\\Documents\\Codex\\2026-10-27\\https-github-com-thezinecraftm-rgb-myriad\\outputs\\Myriad-Ascension\\build\\libs\\myriad-ascension-0.2.jar",
+  "target": "E:\\我的世界\\PCL 正式版 2.10.9\\.minecraft\\versions\\1.20.1-Forge_47.4.26\\mods\\myriad-ascension-0.2.jar",
+  "sha256": "1437c43eecdbb9345abf6d0831b46098a749abb3420d5044c8b8217b11071482",
+  "gameDir": "E:\\我的世界\\PCL 正式版 2.10.9\\.minecraft\\versions\\1.20.1-Forge_47.4.26",
+  "backup": "E:\\垃圾\\2026-10-28\\万界仙途自动安装-224149-335988d2",
+  "old": [
+    {
+      "name": "myriad-ascension-0.2.jar",
+      "sha256": "c61bffea5a22f9536166712c3f9f33a41d519886e494ff1a53c5531be6ca7dcb"
+    }
+  ],
+  "status": "installed_on_disk",
+  "runtime": "Restart required if the game had already loaded the previous JAR; no process was stopped."
+}

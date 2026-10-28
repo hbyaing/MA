@@ -29,6 +29,7 @@ public final class FormulaKnowledge {
 
     public static void reset(ServerPlayer player) {
         saved(player).remove(KEY);
+        saved(player).remove("alchemyUnderstanding");
         saved(player).putBoolean(UNLOCKED, false);
     }
 
@@ -90,11 +91,38 @@ public final class FormulaKnowledge {
         CompoundTag target = saved(event.getEntity());
         if (original.contains(KEY)) target.put(KEY, original.getCompound(KEY).copy());
         if(original.contains("alchemyResearchRecords"))target.put("alchemyResearchRecords",original.getList("alchemyResearchRecords",net.minecraft.nbt.Tag.TAG_COMPOUND).copy());
+        if(original.contains("alchemyUnderstanding"))target.put("alchemyUnderstanding",original.getCompound("alchemyUnderstanding").copy());
         target.putInt("alchemyDataVersion", original.getInt("alchemyDataVersion"));
         target.putBoolean(UNLOCKED, original.getBoolean(UNLOCKED));
     }
 
     public static net.minecraft.nbt.ListTag researchRecords(Player p){return saved(p).getList("alchemyResearchRecords",net.minecraft.nbt.Tag.TAG_COMPOUND).copy();}
+    /** Same persisted knowledge account. Callers receive a copy; only trusted server operations write it. */
+    public static CompoundTag understanding(Player p){return saved(p).getCompound("alchemyUnderstanding").copy();}
+    public static boolean understands(Player p,String concept){return understanding(p).getCompound("Concepts").contains(concept);}
+    public static int study(ServerPlayer p,cn.blockforge.generated.generatedmod.alchemy.research.ResearchCurriculum curriculum,
+                            cn.blockforge.generated.generatedmod.alchemy.research.ResearchCurriculum.Template template){
+        if(!unlocked(p)||!curriculum.templates.contains(template)||!knows(p,ResourceLocation.tryParse(template.formula())))return 0;
+        var state=understanding(p);var before=state.getCompound("Concepts");var after=before.copy();int added=0;
+        int practice=cn.blockforge.generated.generatedmod.alchemy.research.ResearchPractice.records(p).size();
+        // One prerequisite layer per reading; copies/renames/source revisions cannot retrain the same concept.
+        for(var node:curriculum.concepts)if(template.concepts().contains(node.id())&&!before.contains(node.id())&&
+                node.requires().stream().allMatch(before::contains)&&practice>=node.practice()){
+            after.putString(node.id(),node.hash());added++;
+        }
+        if(added>0){state.put("Concepts",after);saved(p).put("alchemyUnderstanding",state);}return added;
+    }
+    public static boolean saveTemplate(ServerPlayer p,cn.blockforge.generated.generatedmod.alchemy.research.ResearchCurriculum curriculum,
+                                       cn.blockforge.generated.generatedmod.alchemy.research.ResearchCurriculum.Template template){
+        if(!unlocked(p)||!curriculum.templates.contains(template)||!knows(p,ResourceLocation.tryParse(template.formula()))||
+                !template.concepts().stream().allMatch(id->understands(p,id)))return false;
+        var state=understanding(p);var notes=state.getCompound("Templates");if(notes.size()>=32||notes.contains(template.revision()))return false;
+        var note=new CompoundTag();note.putString("Id",template.id());note.putString("Revision",template.revision());note.putString("Source",template.formula());
+        note.putString("Curriculum",curriculum.hash);note.putString("Status","UNVERIFIED");
+        note.putString("Module",template.module());note.putLong("MinimumMilli",template.minimum());note.putInt("MaximumToxicityPpm",template.toxicity());
+        var advice=new net.minecraft.nbt.ListTag();template.advice().forEach(s->advice.add(net.minecraft.nbt.StringTag.valueOf(s)));note.put("Advice",advice);
+        notes.put(template.revision(),note);state.put("Templates",notes);saved(p).put("alchemyUnderstanding",state);return true;
+    }
     public static boolean recordResearch(ServerPlayer p,String fingerprint,String summary){
         if(!unlocked(p)||!fingerprint.matches("[a-f0-9]{64}")||summary.length()>128)return false;
         var records=researchRecords(p);if(records.size()>=64||records.stream().anyMatch(t->((CompoundTag)t).getString("Fingerprint").equals(fingerprint)))return false;

@@ -24,6 +24,7 @@ public final class BatchJournal {
     }
     public CompoundTag read(UUID id){return readFile(batch(id));}
     public void write(CompoundTag data){V5Batch.validate(data);PortableBatch.validate(data);writeFile(batch(data.getUUID("Id")),data);
+        cn.blockforge.generated.generatedmod.alchemy.research.ResearchPractice.record(server,data);
         var cached=ACTIVE.get(server);if(cached!=null&&(!data.getString("State").equals("ACTIVE")||data.getBoolean("Detached")))cached.remove(data.getUUID("Id"));
     }
     public CompoundTag at(ServerLevel level,BlockPos pos){var link=readFile(position(level,pos));return link.hasUUID("Id")?read(link.getUUID("Id")):new CompoundTag();}
