@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "version": "legacy-import/1",
+  "referenceHealth": 40,
+  "referenceMana": 100,
+  "purity": [
+    550000,
+    700000,
+    850000,
+    980000
+  ],
+  "cooldown": 60
+}

@@ -27,7 +27,7 @@ public final class PillRuntime {
         try{
             if(!p.isAlive()||p.isSpectator()||!stack.hasTag()||!stack.getTag().hasUUID(V5Batch.KEY))return false;
             recover(p);var journal=new BatchJournal(p.server);if(!journal.pendingDoses(p.getUUID()).isEmpty())return false;
-            var d=journal.read(stack.getTag().getUUID(V5Batch.KEY));if(d.isEmpty())return false;V5Batch.validate(d);
+            var d=journal.readDoseAuthority(stack.getTag().getUUID(V5Batch.KEY));if(d.isEmpty())return false;BatchJournal.validateDoseAuthority(d);
             if(!d.getString("State").equals("CLAIMED")||d.contains("DoseIntent")||!PillSnapshot.matches(stack,d))return false;
             var result=PillSnapshot.read(d.getCompound("PillResult"));
             return d.getInt("DosesUsed")<result.quantity()&&now(p)>=p.getPersistentData().getLong(COOLDOWN)&&ProgressionGate.canUseV5Pill(p,result)&&applicable(p,result);
@@ -38,9 +38,9 @@ public final class PillRuntime {
         InteractionHand hand=p.getUsedItemHand();
         if(!p.isUsingItem()||p.getTicksUsingItem()<14||!ItemStack.isSameItemSameTags(p.getUseItem(),stack)||!ItemStack.isSameItemSameTags(p.getItemInHand(hand),stack)||!canUse(p,stack))return p.getItemInHand(hand).copy();
         try{
-            var journal=new BatchJournal(p.server);UUID id=stack.getTag().getUUID(V5Batch.KEY);var doc=journal.read(id);var intent=new CompoundTag();
+            var journal=new BatchJournal(p.server);UUID id=stack.getTag().getUUID(V5Batch.KEY);var doc=journal.readDoseAuthority(id);var intent=new CompoundTag();
             intent.putUUID("Id",UUID.randomUUID());intent.putUUID("Recipient",p.getUUID());intent.putInt("Dose",doc.getInt("DosesUsed")+1);intent.putInt("Slot",hand==InteractionHand.MAIN_HAND?p.getInventory().selected:40);
-            journal.pendingDose(p.getUUID(),id,true);doc.put("DoseIntent",intent);journal.write(doc);complete(p,journal,doc);
+            journal.pendingDose(p.getUUID(),id,true);doc.put("DoseIntent",intent);journal.writeDoseAuthority(doc);complete(p,journal,doc);
         }catch(RuntimeException e){com.mojang.logging.LogUtils.getLogger().error("V5 dose intent retained; retry cannot grant a second dose",e);}
         finally{p.stopUsingItem();Network.stopUsingItem(p,stack.getItem(),0);}
         return p.getItemInHand(hand).copy();
@@ -48,33 +48,34 @@ public final class PillRuntime {
     public static void recover(ServerPlayer p){
         var journal=new BatchJournal(p.server);
         for(UUID id:journal.pendingDoses(p.getUUID())){
-            var doc=journal.read(id);if(doc.contains("DoseIntent")&&doc.getCompound("DoseIntent").hasUUID("Recipient")&&doc.getCompound("DoseIntent").getUUID("Recipient").equals(p.getUUID()))complete(p,journal,doc);
+            var doc=journal.readDoseAuthority(id);if(doc.contains("DoseIntent")&&doc.getCompound("DoseIntent").hasUUID("Recipient")&&doc.getCompound("DoseIntent").getUUID("Recipient").equals(p.getUUID()))complete(p,journal,doc);
             else journal.pendingDose(p.getUUID(),id,false);
         }
     }
     private static void complete(ServerPlayer p,BatchJournal journal,CompoundTag doc){
-        V5Batch.validate(doc);var intent=doc.getCompound("DoseIntent");UUID receipt=intent.getUUID("Id");String key=receipt.toString();
+        BatchJournal.validateDoseAuthority(doc);var intent=doc.getCompound("DoseIntent");UUID receipt=intent.getUUID("Id");String key=receipt.toString();
         var receipts=p.getPersistentData().getCompound(RECEIPTS);if(receipts.size()>256)throw new IllegalArgumentException("Dose receipt budget exceeded");
         if(!receipts.getBoolean(key)){
             if(!p.isAlive()||p.isSpectator())return;
             int slot=intent.getInt("Slot");if(slot<0||slot>=p.getInventory().getContainerSize()||!PillSnapshot.matches(p.getInventory().getItem(slot),doc)){
                 slot=-1;for(int i=0;i<p.getInventory().getContainerSize();i++)if(PillSnapshot.matches(p.getInventory().getItem(i),doc)){slot=i;break;}
             }
-            if(slot<0){doc=doc.copy();doc.remove("DoseIntent");journal.write(doc);journal.pendingDose(p.getUUID(),doc.getUUID("Id"),false);return;}
+            if(slot<0){doc=doc.copy();doc.remove("DoseIntent");journal.writeDoseAuthority(doc);journal.pendingDose(p.getUUID(),doc.getUUID("Id"),false);return;}
             var result=PillSnapshot.read(doc.getCompound("PillResult"));
-            if(!ProgressionGate.canUseV5Pill(p,result)||!applicable(p,result)){var cancelled=doc.copy();cancelled.remove("DoseIntent");journal.write(cancelled);journal.pendingDose(p.getUUID(),doc.getUUID("Id"),false);return;}
+            if(!ProgressionGate.canUseV5Pill(p,result)||!applicable(p,result)&&!PillWorldEffects.hasReceipt(p,receipt)){var cancelled=doc.copy();cancelled.remove("DoseIntent");journal.writeDoseAuthority(cancelled);journal.pendingDose(p.getUUID(),doc.getUUID("Id"),false);return;}
             var remaining=p.getInventory().getItem(slot).copy();remaining.shrink(1);p.getInventory().setItem(slot,remaining);
             // Mark in memory before executing whitelist services; an exception cannot replay a partial application.
             receipts.putBoolean(key,true);p.getPersistentData().put(RECEIPTS,receipts);
-            cn.blockforge.generated.generatedmod.alchemy.PillEffects.applyCompiledDose(p,result);p.getPersistentData().putLong(COOLDOWN,now(p)+result.effects().stream().mapToInt(Spec::cooldown).max().orElse(20));
+            PillWorldEffects.begin(receipt);try{cn.blockforge.generated.generatedmod.alchemy.PillEffects.applyCompiledDose(p,result);}finally{PillWorldEffects.end();}p.getPersistentData().putLong(COOLDOWN,now(p)+result.effects().stream().mapToInt(Spec::cooldown).max().orElse(20));
         }
+        PillWorldEffects.flush(p,receipt);
         p.server.getPlayerList().save(p);
         try{
             var file=p.server.getWorldPath(net.minecraft.world.level.storage.LevelResource.ROOT).resolve("playerdata").resolve(p.getUUID()+".dat").toFile();var saved=NbtIo.readCompressed(file);
             if(saved==null||!saved.getCompound("ForgeData").getCompound(RECEIPTS).getBoolean(key))throw new IllegalStateException("Dose receipt not durable; intent retained");
         }catch(java.io.IOException e){throw new IllegalStateException("Cannot verify saved dose",e);}
-        var ack=doc.copy();ack.putInt("DosesUsed",intent.getInt("Dose"));ack.remove("DoseIntent");journal.write(ack);journal.pendingDose(p.getUUID(),doc.getUUID("Id"),false);
-        receipts.remove(key);p.getPersistentData().put(RECEIPTS,receipts);p.getInventory().setChanged();p.containerMenu.broadcastChanges();GeneratedMod.sync(p);
+        var ack=doc.copy();ack.putInt("DosesUsed",intent.getInt("Dose"));ack.remove("DoseIntent");journal.writeDoseAuthority(ack);journal.pendingDose(p.getUUID(),doc.getUUID("Id"),false);
+        PillWorldEffects.acknowledge(p,receipt);receipts.remove(key);p.getPersistentData().put(RECEIPTS,receipts);p.getInventory().setChanged();p.containerMenu.broadcastChanges();GeneratedMod.sync(p);
     }
     private static boolean applicable(ServerPlayer p,Result r){
         var data=GeneratedMod.data(p);if(data==null)return false;boolean useful=false;long time=now(p);var timed=p.getPersistentData().getCompound(TIMED);
@@ -88,26 +89,29 @@ public final class PillRuntime {
             case cleanse -> useful|=p.hasEffect(MobEffects.POISON)||p.hasEffect(MobEffects.CONFUSION)||p.hasEffect(MobEffects.WEAKNESS);
             case cultivation -> {if(p.isCreative()||!cn.blockforge.generated.generatedmod.mindscape.MindscapeManager.canGain(p,data,false))return false;useful|=data.wuxingxiantu$getCultivation()<CultivationLogic.breakthroughRequirement(data);}
             case minor_breakthrough -> {if(data.wuxingxiantu$getCultivationStage()>=3||data.wuxingxiantu$getCultivation()<CultivationLogic.breakthroughRequirement(data))return false;useful=true;}
+            default -> {if(!ExtendedPillEffects.negative(e.id()))useful|=ExtendedPillEffects.applicable(p,e);}
         }
         return useful;
     }
+    public static boolean activeManaRegeneration(ServerPlayer p){return p.getPersistentData().getCompound(TIMED).getLong("ManaUntil")>now(p);}
     private static final Set<UUID> APPLYING_NATIVE=new HashSet<>();
     public static void schedule(ServerPlayer p,Spec e){
         var timed=p.getPersistentData().getCompound(TIMED);long time=now(p);
         if(e.id()==Kind.regeneration){timed.putLong("RegenMilli",e.magnitudeMilli());timed.putLong("RegenUntil",time+e.duration());timed.putLong("NextPulse",time+20);}
+        else if(e.id()==Kind.mana_regeneration){timed.putLong("ManaMilli",e.magnitudeMilli());timed.putLong("ManaUntil",time+e.duration());timed.putLong("NextManaPulse",time+20);}
         else if(e.id()==Kind.speed){timed.putLong("SpeedMilli",e.magnitudeMilli());timed.putLong("SpeedUntil",time+e.duration());installSpeed(p,e.magnitudeMilli()/1000D);}
         else throw new IllegalArgumentException("Unknown timed module");
         p.getPersistentData().put(TIMED,timed);
     }
     public static void finiteNative(ServerPlayer p,MobEffect effect,int duration,int amp){
-        String prefix=effect==MobEffects.ABSORPTION?"Shield":effect==MobEffects.DAMAGE_RESISTANCE?"Resistance":null;if(prefix==null)throw new IllegalArgumentException("Unknown finite native effect");
+        String prefix=ExtendedPillEffects.nativePrefix(effect);if(prefix==null)throw new IllegalArgumentException("Unknown finite native effect");
         var current=p.getEffect(effect);if(current!=null&&(current.isInfiniteDuration()||current.getAmplifier()>amp||current.getAmplifier()==amp&&current.getDuration()>=duration))return;
         APPLYING_NATIVE.add(p.getUUID());try{p.addEffect(new MobEffectInstance(effect,duration,amp));}finally{APPLYING_NATIVE.remove(p.getUUID());}
         var timed=p.getPersistentData().getCompound(TIMED);timed.putLong(prefix+"Until",now(p)+duration);timed.putInt(prefix+"Amp",amp);p.getPersistentData().put(TIMED,timed);
     }
     @SubscribeEvent public static void externalEffect(net.minecraftforge.event.entity.living.MobEffectEvent.Added e){
         if(e.getEntity() instanceof ServerPlayer p&&!APPLYING_NATIVE.contains(p.getUUID())){
-            var effect=e.getEffectInstance().getEffect();String prefix=effect==MobEffects.ABSORPTION?"Shield":effect==MobEffects.DAMAGE_RESISTANCE?"Resistance":null;
+            var effect=e.getEffectInstance().getEffect();String prefix=ExtendedPillEffects.nativePrefix(effect);
             if(prefix!=null){var timed=p.getPersistentData().getCompound(TIMED);timed.remove(prefix+"Until");timed.remove(prefix+"Amp");p.getPersistentData().put(TIMED,timed);}
         }
     }
@@ -128,6 +132,8 @@ public final class PillRuntime {
         if(regenUntil<time||regenUntil>time+12000||regen<50||regen>4000){timed.remove("RegenMilli");timed.remove("RegenUntil");timed.remove("NextPulse");}
         else if(login)timed.putLong("NextPulse",time+20);
         else if(time>=timed.getLong("NextPulse")){p.heal(regen/1000F);timed.putLong("NextPulse",time+20);}
+        long mana=timed.getLong("ManaMilli"),manaUntil=timed.getLong("ManaUntil");if(manaUntil<time||manaUntil>time+12000||mana<50||mana>20000){timed.remove("ManaMilli");timed.remove("ManaUntil");timed.remove("NextManaPulse");}else if(login)timed.putLong("NextManaPulse",time+20);else if(time>=timed.getLong("NextManaPulse")){CultivationLogic.restoreMana(GeneratedMod.data(p),mana/1000F);timed.putLong("NextManaPulse",time+20);}
+        for(var kind:Kind.values()){var effect=ExtendedPillEffects.nativeEffect(kind);if(effect!=null)nativeExpiry(p,timed,ExtendedPillEffects.nativePrefix(effect),effect,login);}
         nativeExpiry(p,timed,"Shield",MobEffects.ABSORPTION,login);nativeExpiry(p,timed,"Resistance",MobEffects.DAMAGE_RESISTANCE,login);
         p.getPersistentData().put(TIMED,timed);
     }

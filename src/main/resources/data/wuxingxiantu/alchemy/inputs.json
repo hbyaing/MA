@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "massPerItem": 10000,
   "baseActive": 1000,
   "ageActive": 8000,
@@ -62,5 +62,70 @@
     "wuxingxiantu:sun_saint": 7000,
     "wuxingxiantu:nether_void": 8000,
     "wuxingxiantu:nirvana": 9000
+  },
+  "nonHerbal": {
+    "minecraft:amethyst_shard": {
+      "activePerItem": 0,
+      "weights": {}
+    },
+    "minecraft:blaze_powder": {
+      "activePerItem": 0,
+      "weights": {}
+    },
+    "minecraft:feather": {
+      "activePerItem": 0,
+      "weights": {}
+    },
+    "minecraft:ghast_tear": {
+      "activePerItem": 0,
+      "weights": {}
+    },
+    "minecraft:glistering_melon_slice": {
+      "activePerItem": 0,
+      "weights": {}
+    },
+    "minecraft:glowstone_dust": {
+      "activePerItem": 0,
+      "weights": {}
+    },
+    "minecraft:honeycomb": {
+      "activePerItem": 0,
+      "weights": {}
+    },
+    "minecraft:iron_ingot": {
+      "activePerItem": 0,
+      "weights": {}
+    },
+    "minecraft:lapis_lazuli": {
+      "activePerItem": 0,
+      "weights": {}
+    },
+    "minecraft:prismarine_crystals": {
+      "activePerItem": 0,
+      "weights": {}
+    },
+    "minecraft:quartz": {
+      "activePerItem": 0,
+      "weights": {}
+    },
+    "minecraft:redstone": {
+      "activePerItem": 0,
+      "weights": {}
+    },
+    "minecraft:sugar": {
+      "activePerItem": 0,
+      "weights": {}
+    },
+    "minecraft:wheat": {
+      "activePerItem": 0,
+      "weights": {}
+    },
+    "wuxingxiantu:beast_blood": {
+      "activePerItem": 3000,
+      "weights": {
+        "tu": 2,
+        "jianren": 1
+      }
+    }
   }
 }

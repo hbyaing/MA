@@ -42,10 +42,13 @@ public final class LegacyStackMigration {
         if (original == null) return null;
         Alias alias = alias(ResourceLocation.tryParse(original.getString("id")));
         CompoundTag tag = original.getCompound("tag");
-        if (alias == null && !hasRemovedEnchantment(tag)) return original;
+        var key=ResourceLocation.tryParse(original.getString("id"));boolean legacy=alias!=null||key!=null&&key.getNamespace().equals(GeneratedMod.MOD_ID)&&(PillCatalog.byId(key.getPath())!=null||key.getPath().equals("creation_pill"));
+        boolean archive=legacy&&!tag.contains("V5Pill")&&!tag.contains("V5LegacyOriginal");
+        if (alias == null && !hasRemovedEnchantment(tag)&&!archive) return original;
         // Preserve Count, ForgeCaps and all unknown stack fields without mutating the containing save data.
         CompoundTag migrated = original.copy();
         CompoundTag data = migrated.getCompound("tag");
+        if(archive)data.put("V5LegacyOriginal",original.copy());
         if (alias != null) {
             migrated.putString("id", GeneratedMod.MOD_ID + ":" + alias.item());
             if (!data.contains("Grade")) data.putString("Grade", alias.grade());

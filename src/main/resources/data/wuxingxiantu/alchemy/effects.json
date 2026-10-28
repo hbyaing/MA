@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "v5-effects/1",
+  "version": "v5-effects/2",
   "massPerPill": 40,
   "maxYield": 64,
   "modules": [
@@ -130,6 +130,383 @@
       "cooldownTicks": 200,
       "minRealm": 0,
       "activationPpm": 800000
+    },
+    {
+      "id": "bigu",
+      "sources": [
+        "extract_v5_bigu"
+      ],
+      "maxMilli": 1000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 100,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "meridian_repair",
+      "sources": [
+        "extract_v5_meridian_repair"
+      ],
+      "maxMilli": 1000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "gathering",
+      "sources": [
+        "extract_v5_gathering"
+      ],
+      "maxMilli": 3000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 100,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "strength",
+      "sources": [
+        "extract_v5_strength"
+      ],
+      "maxMilli": 3000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 100,
+      "cooldownTicks": 200,
+      "minRealm": 1,
+      "activationPpm": 100000
+    },
+    {
+      "id": "jump",
+      "sources": [
+        "extract_v5_jump"
+      ],
+      "maxMilli": 2000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 100,
+      "cooldownTicks": 200,
+      "minRealm": 1,
+      "activationPpm": 100000
+    },
+    {
+      "id": "water_breathing",
+      "sources": [
+        "extract_v5_water_breathing"
+      ],
+      "maxMilli": 1000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 100,
+      "cooldownTicks": 200,
+      "minRealm": 1,
+      "activationPpm": 100000
+    },
+    {
+      "id": "night_vision",
+      "sources": [
+        "extract_v5_night_vision"
+      ],
+      "maxMilli": 1000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 100,
+      "cooldownTicks": 200,
+      "minRealm": 1,
+      "activationPpm": 100000
+    },
+    {
+      "id": "haste",
+      "sources": [
+        "extract_v5_haste"
+      ],
+      "maxMilli": 2000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 100,
+      "cooldownTicks": 200,
+      "minRealm": 1,
+      "activationPpm": 100000
+    },
+    {
+      "id": "tribulation",
+      "sources": [
+        "extract_v5_tribulation"
+      ],
+      "maxMilli": 3000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 100,
+      "cooldownTicks": 200,
+      "minRealm": 1,
+      "activationPpm": 100000
+    },
+    {
+      "id": "calming",
+      "sources": [
+        "extract_v5_calming"
+      ],
+      "maxMilli": 1000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 2,
+      "activationPpm": 100000
+    },
+    {
+      "id": "root_random",
+      "sources": [
+        "extract_v5_root_random"
+      ],
+      "maxMilli": 4000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "physique_reset",
+      "sources": [
+        "extract_v5_physique_reset"
+      ],
+      "maxMilli": 1000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 3,
+      "activationPpm": 100000
+    },
+    {
+      "id": "mana_regeneration",
+      "sources": [
+        "extract_v5_mana_regeneration"
+      ],
+      "maxMilli": 1000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 100,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "origin_reserve",
+      "sources": [
+        "extract_v5_origin_reserve"
+      ],
+      "maxMilli": 10000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "meridian_expansion",
+      "sources": [
+        "extract_v5_meridian_expansion"
+      ],
+      "maxMilli": 5000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "barrier_preparation",
+      "sources": [
+        "extract_v5_barrier_preparation"
+      ],
+      "maxMilli": 8000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 100,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "root_metal",
+      "sources": [
+        "extract_v5_root_metal"
+      ],
+      "maxMilli": 4000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "root_wood",
+      "sources": [
+        "extract_v5_root_wood"
+      ],
+      "maxMilli": 4000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "root_water",
+      "sources": [
+        "extract_v5_root_water"
+      ],
+      "maxMilli": 4000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "root_fire",
+      "sources": [
+        "extract_v5_root_fire"
+      ],
+      "maxMilli": 4000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "root_earth",
+      "sources": [
+        "extract_v5_root_earth"
+      ],
+      "maxMilli": 4000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "dao_heart_clear",
+      "sources": [
+        "extract_v5_dao_heart_clear"
+      ],
+      "maxMilli": 1000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "frost_strike",
+      "sources": [
+        "extract_v5_frost_strike"
+      ],
+      "maxMilli": 1000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 1,
+      "activationPpm": 100000
+    },
+    {
+      "id": "flame_strike",
+      "sources": [
+        "extract_v5_flame_strike"
+      ],
+      "maxMilli": 1000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 1,
+      "activationPpm": 100000
+    },
+    {
+      "id": "venom_strike",
+      "sources": [
+        "extract_v5_venom_strike"
+      ],
+      "maxMilli": 1000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 1,
+      "activationPpm": 100000
+    },
+    {
+      "id": "invisibility",
+      "sources": [
+        "extract_v5_invisibility"
+      ],
+      "maxMilli": 1000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "luck",
+      "sources": [
+        "extract_v5_luck"
+      ],
+      "maxMilli": 3000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "nutrition",
+      "sources": [
+        "extract_v5_nutrition"
+      ],
+      "maxMilli": 3000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "deep_cleanse",
+      "sources": [
+        "extract_v5_deep_cleanse"
+      ],
+      "maxMilli": 1000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 100000
     }
   ]
 }

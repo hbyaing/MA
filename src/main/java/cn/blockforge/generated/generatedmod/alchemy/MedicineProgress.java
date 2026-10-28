@@ -60,7 +60,9 @@ public final class MedicineProgress {
     /** A preparation cannot start a trial or waive any target requirement. */
     public static void beginTrial(ServerPlayer player){
         var n=state(player);var d=GeneratedMod.data(player);int quality=n.getInt("PreparedBarrier");
-        if(quality<=0||d==null)return;
+        if(d==null)return;
+        if(n.getLong("V5PreparedShield")>0){if(n.getInt("V5PreparedRealm")==d.wuxingxiantu$getRealm())cn.blockforge.generated.generatedmod.alchemy.effects.PillRuntime.finiteNative(player,MobEffects.ABSORPTION,Math.max(20,Math.min(72000,n.getInt("V5PreparedDuration"))),(int)Math.min(5,n.getLong("V5PreparedShield")/4000-1));n.remove("V5PreparedShield");dirty(player);}
+        if(quality<=0)return;
         if(n.getInt("BarrierRealm")==d.wuxingxiantu$getRealm()) {
             int rank=Math.max(1,Math.min(5,n.getInt("PreparedBarrierRank")));
             player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION,1200*rank,Math.min(2,quality-1+(rank-1)/2),false,true,true));
@@ -94,7 +96,7 @@ public final class MedicineProgress {
     }
     @SubscribeEvent public static void death(net.minecraftforge.event.entity.living.LivingDeathEvent event){
         if(!(event.getEntity() instanceof ServerPlayer player))return;
-        var n=state(player);for(String key:java.util.List.of("QiSeconds","RecoverySeconds","OriginPower","PreparedBarrier"))n.remove(key);
+        var n=state(player);for(String key:java.util.List.of("QiSeconds","RecoverySeconds","OriginPower","PreparedBarrier","V5PreparedShield"))n.remove(key);
         dirty(player);
     }
     private MedicineProgress(){}

@@ -92,7 +92,7 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
                         || GeneratedMod.data(minecraft.player)==null
                         || r.minimumRealm()>GeneratedMod.data(minecraft.player).wuxingxiantu$getRealm()
                         || menu.ignited() && !r.acceptsFire(menu.ignitionTier()) ? 1 : 0)
-                .thenComparingInt(r -> r.matches(menu.container(),minecraft.level) ? 0 : 1)
+                .thenComparingInt(r -> r.tryIngredientReservation(menu.container()).isPresent() ? 0 : 1)
                 .thenComparingInt(r -> -PillData.read(result(r)).grade().ordinal())
                 .thenComparingInt(AlchemyRecipe::furnaceTier).thenComparingInt(AlchemyRecipe::cookTime)).toList();
         for (var recipe : candidates) if (kindName(recipe).toLowerCase(Locale.ROOT).contains(query))
@@ -107,8 +107,7 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
         var pill = PillData.read(result(recipe));
         return pill == null ? recipe.getId().toString() : pill.pill().id
                 + (pill.pill() == PillCatalog.ROOT ? ":" + pill.element() : "")
-                + (pill.pill() == PillCatalog.CULTIVATION ? ":" + pill.cultivationTier() : "")
-                + (cn.blockforge.generated.generatedmod.alchemy.MedicineTier.explicit(result(recipe)) ? ":rank"+cn.blockforge.generated.generatedmod.alchemy.MedicineTier.of(result(recipe)) : "");
+                + (pill.pill() == PillCatalog.CULTIVATION ? ":" + pill.cultivationTier() : "");
     }
     private String kindName(AlchemyRecipe recipe) {
         var pill = PillData.read(result(recipe));
@@ -116,9 +115,7 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
         if (pill.pill() == PillCatalog.ROOT) return Component.translatable("pill.wuxingxiantu.root_name",
                 Component.translatable("root.wuxingxiantu." + pill.element().ordinal())).getString();
         String name = Component.translatable("item.wuxingxiantu." + pill.pill().id).getString();
-        if(cn.blockforge.generated.generatedmod.alchemy.MedicineTier.explicit(result(recipe)))
-            name=cn.blockforge.generated.generatedmod.alchemy.MedicineTier.name(cn.blockforge.generated.generatedmod.alchemy.MedicineTier.of(result(recipe))).getString()+name;
-        return pill.pill() == PillCatalog.CULTIVATION ? name + " · " + pill.cultivationTier() + "阶" : name;
+        return pill.pill() == PillCatalog.CULTIVATION ? name + " · " + cn.blockforge.generated.generatedmod.items.CultivationLogic.realmName(pill.cultivationTier()) : name;
     }
     private void switchMode(boolean free) {
         if (menu.isBrewing() || minecraft.gameMode == null) return;
@@ -138,7 +135,7 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
         if(!menu.formulaUnlocked())return "未学炼丹";
         if(recipe.minimumRealm()>data.wuxingxiantu$getRealm())return "境界不足";
         if(!menu.knowsFormula(recipe))return "未学丹方";
-        if(!recipe.matches(menu.container(),minecraft.level))return recipe.tryIngredientReservation(menu.container()).isPresent()?"药龄不足":"材料不足";
+        if(recipe.tryIngredientReservation(menu.container()).isEmpty())return "材料不足";
         if(!menu.ignited()||!recipe.acceptsFire(menu.ignitionTier())||!ProgressionGate.canUseFire(minecraft.player,menu.ignitionTier()))return "异火不符";
         if(!ProgressionGate.canUseAlchemyFurnace(minecraft.player,menu.furnaceTier()))return "境界不足";
         if(menu.spiritFuel()<menu.v5RequiredFuel())return "需先注灵";
@@ -153,15 +150,13 @@ public final class AlchemyScreen extends AbstractContainerScreen<AlchemyFurnaceM
         return Component.translatable("gui.wuxingxiantu.alchemy.state_" + menu.state().name().toLowerCase(Locale.ROOT));
     }
     private List<Component> recipeDetails(AlchemyRecipe recipe) {
-        var lines=new ArrayList<Component>(result(recipe).getTooltipLines(minecraft.player,net.minecraft.world.item.TooltipFlag.Default.NORMAL));
+        var lines=new ArrayList<Component>();lines.add(Component.literal(kindName(recipe)+" · 配伍目标"));lines.add(Component.literal("新丹统一一至九品；药效和品级取决于真实反应，不按旧成色或药阶预定。"));
         lines.add(Component.literal("炼制条件："+recipeAvailability(recipe)).withStyle(net.minecraft.ChatFormatting.GOLD));
         lines.add(Component.literal("炉阶 ≥"+recipe.furnaceTier()+" · 异火 ≥"+recipe.minFireTier()+" · 时间 "+menu.v5Steps()+"秒"));
         lines.add(Component.literal("所需境界："+cn.blockforge.generated.generatedmod.items.CultivationLogic.realmName(
                 Math.max(recipe.minimumRealm(),ProgressionGate.requiredRealmForFurnace(menu.furnaceTier())))));
         if(recipe.requiredFire()>0)lines.add(Component.literal("指定异火："+Component.translatable(ExoticFireColorRegistry.nameKey(recipe.requiredFire())).getString()));
         lines.add(Component.literal("炉内预付："+menu.v5RequiredFuel()+"；最终产物按实际反应结算"));
-        if(cn.blockforge.generated.generatedmod.alchemy.MedicineTier.explicit(result(recipe)))
-            lines.add(Component.literal("实际配方用药须含至少一株达到"+cn.blockforge.generated.generatedmod.alchemy.MedicineTier.name(cn.blockforge.generated.generatedmod.alchemy.MedicineTier.of(result(recipe))).getString()+"药阶的引药。").withStyle(net.minecraft.ChatFormatting.AQUA));
         int[] available=new int[8];
         for(int s=0;s<8;s++) {
             var stack=menu.container().getItem(s);

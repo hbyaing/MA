@@ -21,7 +21,7 @@ public final class AlchemyMaterialTransfer {
             if(recipe==null)return Result.MISSING;
             int[] used=new int[8];
             var bagOrder=new java.util.ArrayList<Integer>();for(int b=0;b<36;b++)bagOrder.add(b);
-            boolean ranked=cn.blockforge.generated.generatedmod.alchemy.MedicineTier.explicit(recipe.getResultItem(net.minecraft.core.RegistryAccess.EMPTY));
+            boolean ranked=!(machine instanceof AlchemyFurnaceBlockEntity)&&cn.blockforge.generated.generatedmod.alchemy.MedicineTier.explicit(recipe.getResultItem(net.minecraft.core.RegistryAccess.EMPTY));
             if(ranked){var originalBag=bag;bagOrder.sort(java.util.Comparator.comparingInt(b->cn.blockforge.generated.generatedmod.plants.HerbAge.years(originalBag[b])));}
             for(int i=0;i<recipe.getIngredients().size();i++) {
                 var ingredient=recipe.getIngredients().get(i);int needed=recipe.counts().get(i);
@@ -39,7 +39,7 @@ public final class AlchemyMaterialTransfer {
                 }
                 if(needed>0)return Result.MISSING;
             }
-            if(recipe.tryReservation(new net.minecraft.world.SimpleContainer(slots)).isEmpty()) {
+            if((machine instanceof AlchemyFurnaceBlockEntity?recipe.tryIngredientReservation(new net.minecraft.world.SimpleContainer(slots)):recipe.tryReservation(new net.minecraft.world.SimpleContainer(slots))).isEmpty()) {
                 if(!ranked)return Result.MISSING;
                 var swap=replaceGuide(slots,bag,recipe,machine);
                 if(swap.result()!=Result.OK)return swap.result();

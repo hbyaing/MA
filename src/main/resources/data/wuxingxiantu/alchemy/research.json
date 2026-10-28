@@ -1,14 +1,620 @@
 {
   "schema": 1,
   "concepts": [
-    {"id":"observation","title":"辨药与证据","requires":[],"practice":0,"explanation":"公开药效是观测证据，不能据此断言原始投料。"},
-    {"id":"conservation","title":"药力守恒","requires":["observation"],"practice":0,"explanation":"产量与药效共用真实药力；堆量不能保证升品。"},
-    {"id":"compatibility","title":"配伍与部分约束","requires":["conservation"],"practice":0,"explanation":"同一目标允许不同材料路线，建议条件须实际试验。"},
-    {"id":"thermal","title":"火候与操作边界","requires":["conservation"],"practice":1,"explanation":"读懂工序不等于控制成功；实际批次包含失败与事故。"}
+    {
+      "id": "observation",
+      "title": "辨药与证据",
+      "requires": [],
+      "practice": 0,
+      "explanation": "公开药效是观测证据，不能据此断言原始投料。"
+    },
+    {
+      "id": "conservation",
+      "title": "药力守恒",
+      "requires": [
+        "observation"
+      ],
+      "practice": 0,
+      "explanation": "产量与药效共用真实药力；堆量不能保证升品。"
+    },
+    {
+      "id": "compatibility",
+      "title": "配伍与部分约束",
+      "requires": [
+        "conservation"
+      ],
+      "practice": 0,
+      "explanation": "同一目标允许不同材料路线，建议条件须实际试验。"
+    },
+    {
+      "id": "thermal",
+      "title": "火候与操作边界",
+      "requires": [
+        "conservation"
+      ],
+      "practice": 1,
+      "explanation": "读懂工序不等于控制成功；实际批次包含失败与事故。"
+    },
+    {
+      "id": "structure",
+      "title": "成丹结构与合成",
+      "requires": [
+        "compatibility",
+        "thermal"
+      ],
+      "practice": 3,
+      "explanation": "合成先消耗真实提取物；连续温窗与资源竞争会改变结构，声明不是必成保证。"
+    },
+    {
+      "id": "specials",
+      "title": "特殊药效与资格",
+      "requires": [
+        "structure"
+      ],
+      "practice": 8,
+      "explanation": "灵根、经脉与渡劫效果服用时仍复核既有资格、次数与状态，不靠品级跳过。"
+    }
   ],
   "templates": [
-    {"id":"healing_intro","title":"金疮·恢复目标","formula":"wuxingxiantu:golden_wound_pill","module":"heal","minimumMilli":250,"maximumToxicityPpm":1000000,"concepts":["observation","conservation","compatibility","thermal"],"advice":["建议：尝试恢复类药材","年份范围：尚未验证","比例与环境：尚未验证","工序：依实际炉体阶段","风险：热损伤与结构衰减","证据：需真实批次复验"]},
-    {"id":"mana_intro","title":"聚灵·灵力目标","formula":"wuxingxiantu:aura_pill","module":"mana","minimumMilli":250,"maximumToxicityPpm":1000000,"concepts":["observation","conservation","compatibility","thermal"],"advice":["建议：尝试灵力类药材","年份范围：尚未验证","比例与环境：尚未验证","工序：依实际炉体阶段","风险：药力竞争与损失","证据：需真实批次复验"]},
-    {"id":"cleanse_intro","title":"清心·净化目标","formula":"wuxingxiantu:clear_heart_pill","module":"cleanse","minimumMilli":1000,"maximumToxicityPpm":1000000,"concepts":["observation","conservation","compatibility","thermal"],"advice":["建议：尝试清净类药材","年份范围：尚未验证","比例与环境：尚未验证","工序：依实际炉体阶段","风险：毒性与结构衰减","证据：需真实批次复验"]}
+    {
+      "id": "healing_intro",
+      "title": "金疮·恢复目标",
+      "formula": "wuxingxiantu:golden_wound_pill",
+      "module": "heal",
+      "minimumMilli": 250,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal"
+      ],
+      "advice": [
+        "建议：尝试恢复类药材",
+        "年份范围：尚未验证",
+        "比例与环境：尚未验证",
+        "工序：依实际炉体阶段",
+        "风险：热损伤与结构衰减",
+        "证据：需真实批次复验"
+      ]
+    },
+    {
+      "id": "mana_intro",
+      "title": "聚灵·灵力目标",
+      "formula": "wuxingxiantu:aura_pill",
+      "module": "mana",
+      "minimumMilli": 250,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal"
+      ],
+      "advice": [
+        "建议：尝试灵力类药材",
+        "年份范围：尚未验证",
+        "比例与环境：尚未验证",
+        "工序：依实际炉体阶段",
+        "风险：药力竞争与损失",
+        "证据：需真实批次复验"
+      ]
+    },
+    {
+      "id": "cleanse_intro",
+      "title": "清心·净化目标",
+      "formula": "wuxingxiantu:clear_heart_pill",
+      "module": "cleanse",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal"
+      ],
+      "advice": [
+        "建议：尝试清净类药材",
+        "年份范围：尚未验证",
+        "比例与环境：尚未验证",
+        "工序：依实际炉体阶段",
+        "风险：毒性与结构衰减",
+        "证据：需真实批次复验"
+      ]
+    },
+    {
+      "id": "catalog_bigu_pill",
+      "title": "辟谷丹",
+      "formula": "wuxingxiantu:bigu_pill",
+      "module": "bigu",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_gathering_pill",
+      "title": "聚灵丹",
+      "formula": "wuxingxiantu:gathering_pill",
+      "module": "gathering",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_foundation_pill",
+      "title": "筑基丹",
+      "formula": "wuxingxiantu:foundation_pill",
+      "module": "root_random",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure",
+        "specials"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_continue_vein_pill",
+      "title": "续脉丹",
+      "formula": "wuxingxiantu:continue_vein_pill",
+      "module": "meridian_repair",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_diamond_body_pill",
+      "title": "金刚丹",
+      "formula": "wuxingxiantu:diamond_body_pill",
+      "module": "shield",
+      "minimumMilli": 4000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_berserk_pill",
+      "title": "狂暴丹",
+      "formula": "wuxingxiantu:berserk_pill",
+      "module": "strength",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_gale_pill",
+      "title": "疾风丹",
+      "formula": "wuxingxiantu:gale_pill",
+      "module": "speed",
+      "minimumMilli": 10,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_profound_water_pill",
+      "title": "玄水丹",
+      "formula": "wuxingxiantu:profound_water_pill",
+      "module": "water_breathing",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_cultivation_pill",
+      "title": "修为丹",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "module": "cultivation",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_breakthrough_pill",
+      "title": "突破丹",
+      "formula": "wuxingxiantu:breakthrough_pill",
+      "module": "minor_breakthrough",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_tribulation_pill",
+      "title": "渡劫丹",
+      "formula": "wuxingxiantu:tribulation_pill",
+      "module": "tribulation",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure",
+        "specials"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_calming_pill",
+      "title": "净神丹",
+      "formula": "wuxingxiantu:calming_pill",
+      "module": "calming",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure",
+        "specials"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_root_awakening_pill",
+      "title": "灵根丹",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "module": "root_metal",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure",
+        "specials"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_physique_reset_pill",
+      "title": "洗髓丹",
+      "formula": "wuxingxiantu:physique_reset_pill",
+      "module": "physique_reset",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure",
+        "specials"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_gather_qi_pill",
+      "title": "聚气丹",
+      "formula": "wuxingxiantu:gather_qi_pill",
+      "module": "mana_regeneration",
+      "minimumMilli": 50,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_origin_condensing_pill",
+      "title": "凝元丹",
+      "formula": "wuxingxiantu:origin_condensing_pill",
+      "module": "origin_reserve",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_meridian_expansion_pill",
+      "title": "拓脉丹",
+      "formula": "wuxingxiantu:meridian_expansion_pill",
+      "module": "meridian_expansion",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure",
+        "specials"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_barrier_preparation_pill",
+      "title": "破境丹",
+      "formula": "wuxingxiantu:barrier_preparation_pill",
+      "module": "barrier_preparation",
+      "minimumMilli": 4000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure",
+        "specials"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_rejuvenation_pill",
+      "title": "回春丹",
+      "formula": "wuxingxiantu:rejuvenation_pill",
+      "module": "regeneration",
+      "minimumMilli": 50,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_root_wood",
+      "title": "木灵根目标",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "module": "root_wood",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure",
+        "specials"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_root_water",
+      "title": "水灵根目标",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "module": "root_water",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure",
+        "specials"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_root_fire",
+      "title": "火灵根目标",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "module": "root_fire",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure",
+        "specials"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    },
+    {
+      "id": "catalog_root_earth",
+      "title": "土灵根目标",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "module": "root_earth",
+      "minimumMilli": 1000,
+      "maximumToxicityPpm": 1000000,
+      "concepts": [
+        "observation",
+        "conservation",
+        "compatibility",
+        "thermal",
+        "structure",
+        "specials"
+      ],
+      "advice": [
+        "使用真实材料药性与已知合成模型",
+        "连续温窗、替代比例需本人实验",
+        "旧配方名称不保证结果或品级",
+        "服用资格仍由既有进度检查"
+      ]
+    }
   ]
 }

@@ -84,7 +84,7 @@ public final class AlchemyFurnaceBlockEntity extends BlockEntity implements Cont
             else{
                 if(recipe.furnaceTier()>tier()||!ProgressionGate.isAtLeastRealm(player,recipe.minimumRealm())||!recipe.acceptsFire(ignitionTier())||!cn.blockforge.generated.generatedmod.alchemy.FormulaKnowledge.knows(player,recipe.formulaId()))return false;
                 var materialSlots=new net.minecraft.world.SimpleContainer(8);for(int i=0;i<8;i++)materialSlots.setItem(i,items.get(i).copy());
-                int[] used=cn.blockforge.generated.generatedmod.alchemy.HeavenlyFurnace.allocation(recipe,materialSlots);if(used==null)return false;
+                int[] used=cn.blockforge.generated.generatedmod.alchemy.HeavenlyFurnace.allocationV5(recipe,materialSlots);if(used==null)return false;
                 used=cn.blockforge.generated.generatedmod.alchemy.auxiliary.AuxiliaryAlchemy.allocate(materialSlots,used).counts();
                 doc=cn.blockforge.generated.generatedmod.alchemy.batch.V5Batch.prepare(this,player,used,"ordinary_formula",recipe.getId().toString());
             }

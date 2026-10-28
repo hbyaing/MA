@@ -23,6 +23,15 @@ public final class BatchJournal {
         return root.resolve("positions").resolve(UUID.nameUUIDFromBytes(level.dimension().location().toString().getBytes(java.nio.charset.StandardCharsets.UTF_8))+"_"+Long.toHexString(pos.asLong())+".nbt");
     }
     public CompoundTag read(UUID id){return readFile(batch(id));}
+    public CompoundTag imported(UUID id){return readFile(root.resolve("imports").resolve(id+".nbt"));}
+    public void imported(UUID id,CompoundTag doc){cn.blockforge.generated.generatedmod.alchemy.effects.LegacyPillImport.validate(doc);if(!doc.getUUID("Id").equals(id))throw new IllegalArgumentException("Import identity");writeFile(root.resolve("imports").resolve(id+".nbt"),doc);}
+    public CompoundTag readDoseAuthority(UUID id){var normal=read(id);var imported=imported(id);if(!normal.isEmpty()&&!imported.isEmpty())throw new IllegalStateException("Ambiguous dose authority");return normal.isEmpty()?imported:normal;}
+    public static void validateDoseAuthority(CompoundTag doc){if(doc.contains("Authority"))cn.blockforge.generated.generatedmod.alchemy.effects.LegacyPillImport.validate(doc);else V5Batch.validate(doc);}
+    public void writeDoseAuthority(CompoundTag doc){if(doc.contains("Authority"))imported(doc.getUUID("Id"),doc);else write(doc);}
+    private Path importIntentPath(UUID owner,int slot){if(slot<0||slot>40)throw new IllegalArgumentException("Inventory slot");return root.resolve("import-intents").resolve(owner+"_"+slot+".nbt");}
+    public CompoundTag importIntent(UUID owner,int slot){return readFile(importIntentPath(owner,slot));}
+    public void importIntent(UUID owner,int slot,CompoundTag intent){writeFile(importIntentPath(owner,slot),intent);}
+    public void clearImportIntent(UUID owner,int slot){try{Files.deleteIfExists(importIntentPath(owner,slot));}catch(IOException error){throw new IllegalStateException("Cannot close import intent",error);}}
     public CompoundTag certification(UUID owner){return readFile(root.resolve("certification").resolve(owner+".nbt"));}
     public void certification(UUID owner,CompoundTag data){writeFile(root.resolve("certification").resolve(owner+".nbt"),data);}
     public java.util.List<CompoundTag> ownerHistory(UUID owner){

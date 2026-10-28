@@ -57,16 +57,14 @@ public final class AuxiliaryAlchemyGameTests {
         var reloaded=AuxiliaryAlchemy.Plan.load(picked.plan().save());h.assertTrue(reloaded.injections().equals(picked.plan().injections()),"Escrow snapshot lost source years or effects");h.succeed();
     }
 
-    @GameTest(template="empty") public static void successfulEatingAppliesFrostButFailedBasePillGrantsNoFreeSecondaryPower(GameTestHelper h){
-        try(var p=player(h)){
-            var batch=AuxiliaryAlchemy.finish(pill(),plan(ItemStack.EMPTY,herb("hanbing",500,1),ItemStack.EMPTY));
-            var remaining=batch.getItem().finishUsingItem(batch,p.level(),p);
-            h.assertTrue(remaining.isEmpty()&&p.hasEffect(MobEffects.DAMAGE_RESISTANCE),"Actual BasePillItem did not apply its paid secondary effect");
-            var enemy=target(h,p,EntityType.ZOMBIE);hit(p,enemy);h.assertTrue(enemy.hasEffect(MobEffects.MOVEMENT_SLOWDOWN),"Actual melee hurt entry did not apply frost");
-            AuxiliaryAlchemyEffects.clear(p);p.removeEffect(MobEffects.DAMAGE_RESISTANCE);GeneratedMod.data(p).wuxingxiantu$setAura(GeneratedMod.data(p).wuxingxiantu$getMaxMana());
-            var failed=AuxiliaryAlchemy.finish(pill(),plan(ItemStack.EMPTY,herb("hanbing",500,1),ItemStack.EMPTY));
-            var kept=failed.getItem().finishUsingItem(failed,p.level(),p);h.assertTrue(kept.getCount()==1&&!p.hasEffect(MobEffects.DAMAGE_RESISTANCE),"A rejected full-mana base pill granted free secondary effects");
-        }h.succeed();
+    @GameTest(template="empty",timeoutTicks=120) public static void successfulImportedEatingKeepsFrostAndExhaustedAuthorityCannotGrantAgain(GameTestHelper h){
+        var p=player(h);var batch=AuxiliaryAlchemy.finish(pill(),plan(ItemStack.EMPTY,herb("hanbing",500,1),ItemStack.EMPTY));
+        AlchemyMigrationGameTests.eatImported(h,p,batch,()->{
+            h.assertTrue(p.getMainHandItem().isEmpty()&&p.hasEffect(MobEffects.DAMAGE_RESISTANCE),"Imported real eating lost paid resistance");
+            var enemy=target(h,p,EntityType.ZOMBIE);hit(p,enemy);h.assertTrue(enemy.hasEffect(MobEffects.MOVEMENT_SLOWDOWN),"Imported frost did not reach existing protected melee service");
+            AuxiliaryAlchemyEffects.clear(p);p.removeEffect(MobEffects.DAMAGE_RESISTANCE);
+            var forged=new ItemStack(WuXingItems.V5_PILL.get());forged.getOrCreateTag().put("V5Pill",new CompoundTag());p.getInventory().setItem(0,forged);var kept=forged.getItem().finishUsingItem(forged,p.level(),p);h.assertTrue(kept.getCount()==1&&!p.hasEffect(MobEffects.DAMAGE_RESISTANCE),"Invalid finish minted secondary power");h.succeed();
+        });
     }
 
     @GameTest(template="empty") public static void uniqueMeleeEffectsProtectPetsServantsNeutralsAndRejectProjectilesAndExpiredState(GameTestHelper h){

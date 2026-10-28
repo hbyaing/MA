@@ -71,7 +71,7 @@ public final class HeavenlyFurnace {
         if(!ProgressionGate.isAtLeastRealm(p,r.minimumRealm())||r.furnaceTier()>furnaceTier(d.wuxingxiantu$getRealm()))return "此丹方超出当前境界可炼范围。";
         if(r.cookTime()>72000)return "此丹方炼制时间超出神通承载范围。";
         if(!r.acceptsFire(d.wuxingxiantu$getEquippedFire()))return "当前异火不符合此丹方要求。";
-        if(allocation(r,p.getInventory())==null)return "背包材料不足。";
+        if(allocationV5(r,p.getInventory())==null)return "背包材料不足。";
         if(Network.isAlchemyBusy(p))return "已有炼丹任务正在进行。";
         if(!p.isCreative()&&d.wuxingxiantu$getAura()<Math.max(cost(r,d),PortableBatch.fuel(p,r)))return "灵力不足，需要 "+Math.max(cost(r,d),PortableBatch.fuel(p,r))+"。";
         return "";
@@ -114,7 +114,7 @@ public final class HeavenlyFurnace {
         Vec3 center=fireballCenter(origin,p.getYRot());
         if(!p.level().hasChunkAt(net.minecraft.core.BlockPos.containing(center))||!p.level().getWorldBorder().isWithinBounds(net.minecraft.core.BlockPos.containing(center))
                 ||!p.level().noCollision(p,new AABB(center.x-1.1,center.y-1.1,center.z-1.1,center.x+1.1,center.y+1.1,center.z+1.1))){message(p,"前方上空空间不足，请面向空旷处施法。");return false;}
-        var d=GeneratedMod.data(p);int[] used=allocation(r,p.getInventory());if(used==null)return false;
+        var d=GeneratedMod.data(p);int[] used=allocationV5(r,p.getInventory());if(used==null)return false;
         cn.blockforge.generated.generatedmod.alchemy.auxiliary.AuxiliaryAlchemy.Allocation auxiliary;
         try{auxiliary=cn.blockforge.generated.generatedmod.alchemy.auxiliary.AuxiliaryAlchemy.allocate(p.getInventory(),used,auxiliarySlots);}catch(IllegalArgumentException invalid){message(p,"副药选择无效，不能与主药占用同一槽。");return false;}
         used=auxiliary.counts();
@@ -229,6 +229,7 @@ public final class HeavenlyFurnace {
     @SubscribeEvent public static void stopping(ServerStoppingEvent e){for(var p:e.getServer().getPlayerList().getPlayers())if(!PortableBatch.pending(p))cancel(p);RUNNING.clear();OFFERS.clear();}
 
     /** Capacitated bipartite matching handles overlapping tags without double-spending stacks. */
+    public static int[] allocationV5(AlchemyRecipe r,Container inventory){return allocation(r.getIngredients(),r.counts(),inventory);}
     public static int[] allocation(AlchemyRecipe r,Container inventory){
         var used=allocation(r.getIngredients(),r.counts(),inventory);
         return used!=null&&MedicineTier.accepts(r.getResultItem(net.minecraft.core.RegistryAccess.EMPTY),inventory,used)?used:null;

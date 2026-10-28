@@ -222,7 +222,7 @@ public final class ProgressionGate {
 
     /** New pill grade is independent of realm; actual module permissions set the minimum. */
     public static int requiredRealmForV5(cn.blockforge.generated.generatedmod.alchemy.effects.AbilityCompiler.Result r){
-        int required=r.realm();for(var e:r.effects())required=Math.max(required,switch(e.id()){case shield,resistance->FOUNDATION;default->QI_CONDENSATION;});return required;
+        int required=r.realm();for(var e:r.effects())required=Math.max(required,switch(e.id()){case shield,resistance,strength,jump,haste,water_breathing,night_vision,tribulation->FOUNDATION;case physique_reset->NASCENT_SOUL;case calming->GOLDEN_CORE;case root_metal,root_wood,root_water,root_fire,root_earth,root_random->requiredRealmForRootQuality((int)(e.magnitudeMilli()/1000));default->QI_CONDENSATION;});return required;
     }
     public static boolean canUseV5Pill(Player player,cn.blockforge.generated.generatedmod.alchemy.effects.AbilityCompiler.Result r){return player!=null&&r!=null&&r.grade()>0&&(bypass(player)||isAtLeastRealm(player,requiredRealmForV5(r)));}
 

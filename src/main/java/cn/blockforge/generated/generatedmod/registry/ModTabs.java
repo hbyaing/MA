@@ -83,7 +83,7 @@ public final class ModTabs {
                         var groups=new java.util.HashMap<RegistryObject<net.minecraft.world.item.Item>,Integer>();
                         WuXingItems.ITEMS.getEntries().stream()
                                 .sorted(java.util.Comparator.comparingInt(entry->groups.computeIfAbsent(entry,ModTabs::displayGroup))).forEach(item -> {
-                            if (WuXingItems.BOSS_TEST_EGGS.contains(item)) return;
+                            if (WuXingItems.BOSS_TEST_EGGS.contains(item)||item==WuXingItems.V5_PILL) return;
                             ItemStack stack = new ItemStack(item.get());
                             if(cn.blockforge.generated.generatedmod.WuXingItemSources.classify(stack)
                                     ==cn.blockforge.generated.generatedmod.WuXingItemSources.Classification.INTERNAL)return;
@@ -101,20 +101,9 @@ public final class ModTabs {
                         });
                         for (var pill : cn.blockforge.generated.generatedmod.alchemy.PillCatalog.values()) {
                             output.accept(cn.blockforge.generated.generatedmod.alchemy.FormulaItem.create(pill));
-                            for (var grade : cn.blockforge.generated.generatedmod.alchemy.PillData.Grade.values()) {
-                                if(pill==cn.blockforge.generated.generatedmod.alchemy.PillCatalog.CALMING&&grade!=cn.blockforge.generated.generatedmod.alchemy.PillData.Grade.LOW)continue;
-                                int elements = pill == cn.blockforge.generated.generatedmod.alchemy.PillCatalog.ROOT ? 5 : 1;
-                                int tiers = pill == cn.blockforge.generated.generatedmod.alchemy.PillCatalog.CULTIVATION ? 9 : 1;
-                                for (int element = 0; element < elements; element++) {
-                                    for (int tier = 0; tier < tiers; tier++) {
-                                        var produced=cn.blockforge.generated.generatedmod.alchemy.PillData.create(pill, grade,
-                                                cn.blockforge.generated.generatedmod.alchemy.PillData.Element.values()[element], tier);
-                                        if(cn.blockforge.generated.generatedmod.alchemy.MedicineTier.imported(pill))
-                                            for(int rank=1;rank<=5;rank++)output.accept(cn.blockforge.generated.generatedmod.alchemy.MedicineTier.set(produced.copy(),rank));
-                                        else output.accept(produced);
-                                    }
-                                }
-                            }
+                            int elements=pill==cn.blockforge.generated.generatedmod.alchemy.PillCatalog.ROOT?5:1;
+                            int realms=pill==cn.blockforge.generated.generatedmod.alchemy.PillCatalog.CULTIVATION?9:1;
+                            for(int element=0;element<elements;element++)for(int realm=0;realm<realms;realm++)output.accept(cn.blockforge.generated.generatedmod.alchemy.PillData.create(pill,cn.blockforge.generated.generatedmod.alchemy.PillData.Grade.LOW,cn.blockforge.generated.generatedmod.alchemy.PillData.Element.values()[element],realm));
                         }
                         cn.blockforge.generated.generatedmod.arts.ImportedSwordArts.ITEMS.getEntries().forEach(item->output.accept(item.get()));
                         output.accept(cn.blockforge.generated.generatedmod.formation.carving.CarvingRegistry.CORE_ITEM.get());

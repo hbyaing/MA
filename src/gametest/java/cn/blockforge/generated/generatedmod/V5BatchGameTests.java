@@ -58,7 +58,7 @@ public final class V5BatchGameTests {
             h.assertTrue(f.furnace.startV5Batch(f.player),"Start failed");var original=f.furnace.v5ServerRecord();var journal=new BatchJournal(h.getLevel().getServer());var id=original.getUUID("Id");
             var invalid=original.copy();invalid.putString("InputsHash","modified");boolean rejected=false;try{journal.write(invalid);}catch(RuntimeException expected){rejected=true;}
             h.assertTrue(rejected&&journal.read(id).equals(original),"Invalid input binding overwrote durable state");
-            invalid=original.copy();invalid.putString("Profile",invalid.getString("Profile").replace("furnace-effects-3","rebound"));rejected=false;
+            invalid=original.copy();invalid.putString("Profile",invalid.getString("Profile").replace("furnace-catalog-5","rebound"));rejected=false;
             try{journal.write(invalid);}catch(RuntimeException expected){rejected=true;}
             h.assertTrue(rejected&&journal.read(id).equals(original),"Rules drift rewrote checkpoint");
             invalid=original.copy();invalid.putInt("Burn",-1);rejected=false;try{journal.write(invalid);}catch(RuntimeException expected){rejected=true;}

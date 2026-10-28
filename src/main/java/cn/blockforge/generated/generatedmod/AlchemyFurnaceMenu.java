@@ -253,7 +253,7 @@ public final class AlchemyFurnaceMenu extends AbstractContainerMenu {
                 break;
             }
             if (chosenRecipe != null) continue;
-            if (!recipe.matches(container, level)) continue;
+            if (!recipe.tryIngredientReservation(container).isPresent()) continue;
             if (recipe.furnaceTier() > furnace.tier()) { higherRecipe = true; continue; }
             match = recipe;
             viewData.set(4, i + 1);
@@ -283,7 +283,7 @@ public final class AlchemyFurnaceMenu extends AbstractContainerMenu {
         else if (match.furnaceTier() > furnace.tier()) state = State.LOW_TIER;
         else if (!ProgressionGate.canUseAlchemyFurnace(viewer, furnace.tier())
                 || !ProgressionGate.isAtLeastRealm(viewer, match.minimumRealm())) state = State.NEED_REALM;
-        else if (!match.matches(container, level)) state = match.tryIngredientReservation(container).isPresent()?State.NEED_HERB_AGE:State.MISSING;
+        else if (match.tryIngredientReservation(container).isEmpty()) state = State.MISSING;
         else if (!furnace.ignited()) state = State.NEED_FIRE;
         else if (!ProgressionGate.canUseFire(viewer, furnace.ignitionTier())) state = State.FIRE_UNMASTERED;
         else if (!match.acceptsFire(furnace.ignitionTier())) state = State.FIRE_REQUIREMENT;

@@ -36,6 +36,8 @@ public final class CreationPillItem extends BasePillItem {
         super(30, 0, properties);
     }
 
+    public boolean grant(Player player,CultivationData data){return applyEffect(player,data);}
+
     @Override
     protected boolean applyEffect(Player player, CultivationData data) {
         // 满配但灵力不足时，仍允许服用以补满灵力；只有确实没有任何收益时才拒绝。

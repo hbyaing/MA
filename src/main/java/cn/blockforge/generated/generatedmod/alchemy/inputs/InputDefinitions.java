@@ -9,6 +9,11 @@ import java.nio.charset.StandardCharsets;
 /** Bounded, immutable data snapshot. Batch owners retain it across resource reloads. */
 @net.minecraftforge.fml.common.Mod.EventBusSubscriber(modid="wuxingxiantu")
 public final class InputDefinitions {
+    public final int schema;
+    public record NonHerbal(long activePerItem,Map<String,Long> weights){}
+    private final Map<String,NonHerbal> nonHerbal;
+    public NonHerbal nonHerbal(String id){return nonHerbal.get(id);}
+    public Set<String> nonHerbalIds(){return nonHerbal.keySet();}
     public final long massPerItem,baseActive,ageActive,ageScale,preparedActive,rainTransmission;
     public final List<Long> moonStrength;
     public final String hash;
@@ -33,8 +38,9 @@ public final class InputDefinitions {
     }
     public InputDefinitions(String json){
         var o=SimulationRuleLoader.document(json);this.document=o.toString();
-        keys(o,"schema","massPerItem","baseActive","ageActive","ageScale","preparedActive","rainTransmission","moonStrength","propertyWeights","species","fireMaximumRates");
-        bounded(o,"schema",1,1);massPerItem=bounded(o,"massPerItem",1,100000);baseActive=bounded(o,"baseActive",0,massPerItem);
+        schema=(int)bounded(o,"schema",1,2);
+        var legacy=o.deepCopy();legacy.remove("nonHerbal");keys(legacy,"schema","massPerItem","baseActive","ageActive","ageScale","preparedActive","rainTransmission","moonStrength","propertyWeights","species","fireMaximumRates");
+        if(schema==1&&o.has("nonHerbal")||schema==2&&!o.has("nonHerbal"))throw new IllegalArgumentException("Input schema mismatch");massPerItem=bounded(o,"massPerItem",1,100000);baseActive=bounded(o,"baseActive",0,massPerItem);
         ageActive=bounded(o,"ageActive",0,massPerItem);ageScale=bounded(o,"ageScale",1,1000000000);preparedActive=bounded(o,"preparedActive",0,massPerItem);
         if(baseActive+ageActive+preparedActive>massPerItem)throw new IllegalArgumentException("Active partition exceeds mass");
         rainTransmission=bounded(o,"rainTransmission",0,1000);
@@ -56,7 +62,8 @@ public final class InputDefinitions {
             long n=integer(entry.getValue());if(n<1||n>1000000000)throw new IllegalArgumentException("Invalid fire rate");rates.put(entry.getKey(),n);
         }
         fireMaximumRates=Collections.unmodifiableMap(rates);
-        try{String canonical=massPerItem+"|"+baseActive+"|"+ageActive+"|"+ageScale+"|"+preparedActive+"|"+rainTransmission+"|"+moonStrength+"|"+propertyWeights+"|"+species+"|"+fireMaximumRates;
+        var extras=new TreeMap<String,NonHerbal>();if(schema==2){var table=o.getAsJsonObject("nonHerbal");if(table.size()>256)throw new IllegalArgumentException("Material registry budget");for(var e:table.entrySet()){var id=net.minecraft.resources.ResourceLocation.tryParse(e.getKey());if(id==null||!id.toString().equals(e.getKey()))throw new IllegalArgumentException("Material ID");var spec=e.getValue().getAsJsonObject();keys(spec,"activePerItem","weights");long active=bounded(spec,"activePerItem",0,massPerItem);var properties=weights(spec.getAsJsonObject("weights"));if(active>0&&properties.isEmpty()||active==0&&!properties.isEmpty())throw new IllegalArgumentException("Material partition mismatch");extras.put(e.getKey(),new NonHerbal(active,properties));}}nonHerbal=Collections.unmodifiableMap(extras);
+        try{String canonical=massPerItem+"|"+baseActive+"|"+ageActive+"|"+ageScale+"|"+preparedActive+"|"+rainTransmission+"|"+moonStrength+"|"+propertyWeights+"|"+species+"|"+fireMaximumRates+(schema==2?"|nonHerbal:"+nonHerbal:"");
             hash=HexFormat.of().formatHex(java.security.MessageDigest.getInstance("SHA-256").digest(canonical.getBytes(StandardCharsets.UTF_8)));
         }catch(java.security.NoSuchAlgorithmException e){throw new IllegalStateException(e);}
     }

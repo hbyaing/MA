@@ -75,14 +75,16 @@ public final class FormulaKnowledge {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         CompoundTag root = saved(player);
         int version = root.getInt("alchemyDataVersion");
-        if (version >= 2) return;
+        if (version >= 3) return;
+        if(!root.contains("V5KnowledgeOriginal")){var backup=new CompoundTag();backup.putInt("Version",version);backup.put("Formulas",root.getCompound(KEY).copy());backup.put("Understanding",root.getCompound("alchemyUnderstanding").copy());root.put("V5KnowledgeOriginal",backup);}
         // Existing knowledge remains usable after upgrading, without granting new recipes.
         if (!root.getCompound(KEY).isEmpty()) root.putBoolean(UNLOCKED, true);
         for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
             var stack = player.getInventory().getItem(slot);
             if (version < 1 && PillData.isLegacy(stack)) player.getInventory().setItem(slot, PillData.normalize(stack));
         }
-        root.putInt("alchemyDataVersion", 2);
+        if(!root.getCompound(KEY).isEmpty()&&!understands(player,"observation")){var curriculum=cn.blockforge.generated.generatedmod.alchemy.research.ResearchCurriculum.load(player);curriculum.available(player).stream().findFirst().ifPresent(template->study(player,curriculum,template));}
+        root.putInt("alchemyDataVersion", 3);
         player.getInventory().setChanged();
     }
 
@@ -90,6 +92,7 @@ public final class FormulaKnowledge {
         CompoundTag original = event.getOriginal().getPersistentData().getCompound(Player.PERSISTED_NBT_TAG);
         CompoundTag target = saved(event.getEntity());
         if (original.contains(KEY)) target.put(KEY, original.getCompound(KEY).copy());
+        if(original.contains("V5KnowledgeOriginal"))target.put("V5KnowledgeOriginal",original.getCompound("V5KnowledgeOriginal").copy());
         if(original.contains("alchemyResearchRecords"))target.put("alchemyResearchRecords",original.getList("alchemyResearchRecords",net.minecraft.nbt.Tag.TAG_COMPOUND).copy());
         if(original.contains("alchemyUnderstanding"))target.put("alchemyUnderstanding",original.getCompound("alchemyUnderstanding").copy());
         target.putInt("alchemyDataVersion", original.getInt("alchemyDataVersion"));
@@ -101,7 +104,7 @@ public final class FormulaKnowledge {
     public static CompoundTag understanding(Player p){return saved(p).getCompound("alchemyUnderstanding").copy();}
     public static boolean understands(Player p,String concept){return understanding(p).getCompound("Concepts").contains(concept);}
     public static boolean studyResearchMethods(ServerPlayer p,String hash,CompoundTag definitions){
-        if(!cn.blockforge.generated.generatedmod.alchemy.research.ResearchMethods.qualified(p)||!hash.matches("[a-f0-9]{64}")||definitions.size()>64)return false;
+        if(!cn.blockforge.generated.generatedmod.alchemy.research.ResearchMethods.qualified(p)||!hash.matches("[a-f0-9]{64}")||definitions.size()>128)return false;
         var state=understanding(p);if(state.getString("ResearchMethodHash").equals(hash))return false;state.putString("ResearchMethodHash",hash);state.put("ResearchMethodDefinitions",definitions.copy());saved(p).put("alchemyUnderstanding",state);return true;
     }
     public static int study(ServerPlayer p,cn.blockforge.generated.generatedmod.alchemy.research.ResearchCurriculum curriculum,

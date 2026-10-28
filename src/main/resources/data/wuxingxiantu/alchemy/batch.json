@@ -11,9 +11,9 @@
   ],
   "rules": {
     "schema": 1,
-    "version": "furnace-effects-3",
+    "version": "furnace-catalog-5",
     "limits": {
-      "maxRules": 64,
+      "maxRules": 128,
       "maxExtent": 1000000,
       "maxSteps": 1024,
       "maxEvents": 1024,
@@ -509,6 +509,209 @@
         "potential": 1,
         "gas": 0,
         "destination": "PILL"
+      },
+      {
+        "id": "extract_v5_bigu",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_meridian_repair",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_gathering",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_strength",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_jump",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_water_breathing",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_night_vision",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_haste",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_tribulation",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_calming",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_root_random",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_physique_reset",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_mana_regeneration",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_origin_reserve",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_meridian_expansion",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_barrier_preparation",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_root_metal",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_root_wood",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_root_water",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_root_fire",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_root_earth",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_dao_heart_clear",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_frost_strike",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_flame_strike",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_venom_strike",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_invisibility",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_luck",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_nutrition",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_v5_deep_cleanse",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
       }
     ],
     "reactions": [
@@ -522,7 +725,7 @@
         "produce": {
           "extract_jin": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -538,7 +741,7 @@
         "produce": {
           "extract_ling": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -554,7 +757,7 @@
         "produce": {
           "extract_mu": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -570,7 +773,7 @@
         "produce": {
           "extract_shui": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -586,7 +789,7 @@
         "produce": {
           "extract_huo": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -602,7 +805,7 @@
         "produce": {
           "extract_tu": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -618,7 +821,7 @@
         "produce": {
           "extract_feng": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -634,7 +837,7 @@
         "produce": {
           "extract_lei": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -650,7 +853,7 @@
         "produce": {
           "extract_yin": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -666,7 +869,7 @@
         "produce": {
           "extract_yang": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -682,7 +885,7 @@
         "produce": {
           "extract_han": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -698,7 +901,7 @@
         "produce": {
           "extract_xue": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -714,7 +917,7 @@
         "produce": {
           "extract_long": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -730,7 +933,7 @@
         "produce": {
           "extract_xing": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -746,7 +949,7 @@
         "produce": {
           "extract_you": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -762,7 +965,7 @@
         "produce": {
           "extract_tiaohe": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -778,7 +981,7 @@
         "produce": {
           "extract_ziyang": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -794,7 +997,7 @@
         "produce": {
           "extract_huifu": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -810,7 +1013,7 @@
         "produce": {
           "extract_qingjing": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -826,7 +1029,7 @@
         "produce": {
           "extract_shenhun": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -842,7 +1045,7 @@
         "produce": {
           "extract_juqi": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -858,7 +1061,7 @@
         "produce": {
           "extract_xiulian": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -874,7 +1077,7 @@
         "produce": {
           "extract_shengji": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -890,7 +1093,7 @@
         "produce": {
           "extract_jingmai": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -906,7 +1109,7 @@
         "produce": {
           "extract_qixue": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -922,7 +1125,7 @@
         "produce": {
           "extract_lianti": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -938,7 +1141,7 @@
         "produce": {
           "extract_jianren": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -954,7 +1157,7 @@
         "produce": {
           "extract_shenfa": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -970,7 +1173,7 @@
         "produce": {
           "extract_cuilian": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -986,7 +1189,7 @@
         "produce": {
           "extract_du": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -1002,7 +1205,7 @@
         "produce": {
           "extract_huan": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -1018,7 +1221,7 @@
         "produce": {
           "extract_yun": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
@@ -1034,11 +1237,1537 @@
         "produce": {
           "extract_fengrao": 1
         },
-        "maximumExtent": 1000,
+        "maximumExtent": 3,
         "energyCost": 1,
         "authorizedPotential": 0,
         "holdSteps": 1,
         "windows": []
+      },
+      {
+        "id": "synthesize_bigu",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_fengrao": 4,
+          "extract_tu": 2
+        },
+        "produce": {
+          "extract_v5_bigu": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 0,
+            "maximum": 8
+          }
+        ]
+      },
+      {
+        "id": "synthesize_meridian_repair",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_jingmai": 4,
+          "extract_huifu": 2
+        },
+        "produce": {
+          "extract_v5_meridian_repair": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 6
+          }
+        ]
+      },
+      {
+        "id": "synthesize_gathering",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_juqi": 4,
+          "extract_tiaohe": 2
+        },
+        "produce": {
+          "extract_v5_gathering": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 6
+          }
+        ]
+      },
+      {
+        "id": "synthesize_strength",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_xue": 4,
+          "extract_yang": 2
+        },
+        "produce": {
+          "extract_v5_strength": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 2,
+            "maximum": 7
+          }
+        ]
+      },
+      {
+        "id": "synthesize_jump",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_feng": 4,
+          "extract_xing": 2
+        },
+        "produce": {
+          "extract_v5_jump": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 6
+          }
+        ]
+      },
+      {
+        "id": "synthesize_water_breathing",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_shui": 4,
+          "extract_han": 2
+        },
+        "produce": {
+          "extract_v5_water_breathing": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 5
+          }
+        ]
+      },
+      {
+        "id": "synthesize_night_vision",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_yin": 4,
+          "extract_shenhun": 2
+        },
+        "produce": {
+          "extract_v5_night_vision": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 5
+          }
+        ]
+      },
+      {
+        "id": "synthesize_haste",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_jin": 4,
+          "extract_feng": 2
+        },
+        "produce": {
+          "extract_v5_haste": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 2,
+            "maximum": 6
+          }
+        ]
+      },
+      {
+        "id": "synthesize_tribulation",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_lei": 4,
+          "extract_xing": 2
+        },
+        "produce": {
+          "extract_v5_tribulation": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 3,
+            "maximum": 6
+          }
+        ]
+      },
+      {
+        "id": "synthesize_calming",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_qingjing": 4,
+          "extract_shenhun": 2
+        },
+        "produce": {
+          "extract_v5_calming": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 4,
+            "maximum": 6
+          }
+        ]
+      },
+      {
+        "id": "synthesize_root_random",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_mu": 2,
+          "extract_shui": 2,
+          "extract_xing": 2,
+          "extract_qingjing": 2
+        },
+        "produce": {
+          "extract_v5_root_random": 8
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 2,
+            "maximum": 5
+          }
+        ]
+      },
+      {
+        "id": "synthesize_physique_reset",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_long": 4,
+          "extract_shengji": 2,
+          "extract_xing": 2
+        },
+        "produce": {
+          "extract_v5_physique_reset": 8
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 3,
+            "maximum": 5
+          }
+        ]
+      },
+      {
+        "id": "synthesize_mana_regeneration",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_ling": 4,
+          "extract_juqi": 2
+        },
+        "produce": {
+          "extract_v5_mana_regeneration": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 6
+          }
+        ]
+      },
+      {
+        "id": "synthesize_origin_reserve",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_xiulian": 4,
+          "extract_xing": 2
+        },
+        "produce": {
+          "extract_v5_origin_reserve": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 2,
+            "maximum": 5
+          }
+        ]
+      },
+      {
+        "id": "synthesize_meridian_expansion",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_jingmai": 4,
+          "extract_ziyang": 2
+        },
+        "produce": {
+          "extract_v5_meridian_expansion": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 2,
+            "maximum": 5
+          }
+        ]
+      },
+      {
+        "id": "synthesize_barrier_preparation",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_jingmai": 4,
+          "extract_qingjing": 2,
+          "extract_xing": 2
+        },
+        "produce": {
+          "extract_v5_barrier_preparation": 8
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 3,
+            "maximum": 5
+          }
+        ]
+      },
+      {
+        "id": "synthesize_root_metal",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_jin": 4,
+          "extract_qingjing": 2,
+          "extract_xing": 2
+        },
+        "produce": {
+          "extract_v5_root_metal": 8
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 2,
+            "maximum": 5
+          }
+        ]
+      },
+      {
+        "id": "synthesize_root_wood",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_mu": 4,
+          "extract_qingjing": 2,
+          "extract_xing": 2
+        },
+        "produce": {
+          "extract_v5_root_wood": 8
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 2,
+            "maximum": 5
+          }
+        ]
+      },
+      {
+        "id": "synthesize_root_water",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_shui": 4,
+          "extract_qingjing": 2,
+          "extract_xing": 2
+        },
+        "produce": {
+          "extract_v5_root_water": 8
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 2,
+            "maximum": 5
+          }
+        ]
+      },
+      {
+        "id": "synthesize_root_fire",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_huo": 4,
+          "extract_qingjing": 2,
+          "extract_xing": 2
+        },
+        "produce": {
+          "extract_v5_root_fire": 8
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 2,
+            "maximum": 5
+          }
+        ]
+      },
+      {
+        "id": "synthesize_root_earth",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_tu": 4,
+          "extract_qingjing": 2,
+          "extract_xing": 2
+        },
+        "produce": {
+          "extract_v5_root_earth": 8
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 2,
+            "maximum": 5
+          }
+        ]
+      },
+      {
+        "id": "synthesize_dao_heart_clear",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_qingjing": 4,
+          "extract_shenhun": 2
+        },
+        "produce": {
+          "extract_v5_dao_heart_clear": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "synthesize_frost_strike",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_han": 4,
+          "extract_shui": 2
+        },
+        "produce": {
+          "extract_v5_frost_strike": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 4,
+            "maximum": 6
+          }
+        ]
+      },
+      {
+        "id": "synthesize_flame_strike",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_huo": 4,
+          "extract_yang": 2
+        },
+        "produce": {
+          "extract_v5_flame_strike": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 5,
+            "maximum": 7
+          }
+        ]
+      },
+      {
+        "id": "synthesize_venom_strike",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_du": 4,
+          "extract_mu": 2
+        },
+        "produce": {
+          "extract_v5_venom_strike": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 2,
+            "maximum": 4
+          }
+        ]
+      },
+      {
+        "id": "synthesize_invisibility",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_huan": 4,
+          "extract_yin": 2
+        },
+        "produce": {
+          "extract_v5_invisibility": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "synthesize_luck",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_yun": 4,
+          "extract_tiaohe": 2
+        },
+        "produce": {
+          "extract_v5_luck": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 2,
+            "maximum": 4
+          }
+        ]
+      },
+      {
+        "id": "synthesize_nutrition",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_fengrao": 4,
+          "extract_ziyang": 2
+        },
+        "produce": {
+          "extract_v5_nutrition": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 0,
+            "maximum": 4
+          }
+        ]
+      },
+      {
+        "id": "synthesize_deep_cleanse",
+        "priority": 1,
+        "phase": "FUSION",
+        "consume": {
+          "extract_qingjing": 4,
+          "extract_ziyang": 2
+        },
+        "produce": {
+          "extract_v5_deep_cleanse": 6
+        },
+        "maximumExtent": 4,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 4
+          }
+        ]
+      },
+      {
+        "id": "clarify_jin",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_jin": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_ling",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_ling": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_mu",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_mu": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_shui",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_shui": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_huo",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_huo": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_tu",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_tu": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_feng",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_feng": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_lei",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_lei": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_yin",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_yin": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_yang",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_yang": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_han",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_han": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_xue",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_xue": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_long",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_long": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_xing",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_xing": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_you",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_you": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_tiaohe",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_tiaohe": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_ziyang",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_ziyang": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_huifu",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_huifu": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_qingjing",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_qingjing": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_shenhun",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_shenhun": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_juqi",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_juqi": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_xiulian",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_xiulian": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_shengji",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_shengji": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_jingmai",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_jingmai": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_qixue",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_qixue": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_lianti",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_lianti": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_jianren",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_jianren": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_shenfa",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_shenfa": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_cuilian",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_cuilian": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_du",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_du": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_huan",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_huan": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_yun",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_yun": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
+      },
+      {
+        "id": "clarify_fengrao",
+        "priority": 2,
+        "phase": "HARMONIZE",
+        "consume": {
+          "herb_fengrao": 1
+        },
+        "produce": {
+          "herb_inert": 1
+        },
+        "maximumExtent": 16384,
+        "energyCost": 0,
+        "authorizedPotential": 0,
+        "holdSteps": 2,
+        "windows": [
+          {
+            "measure": "TEMPERATURE",
+            "key": "",
+            "relativeTo": "",
+            "minimum": 1,
+            "maximum": 3
+          }
+        ]
       }
     ]
   },

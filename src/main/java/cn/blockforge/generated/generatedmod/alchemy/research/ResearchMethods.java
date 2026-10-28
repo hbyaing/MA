@@ -17,7 +17,7 @@ public final class ResearchMethods {
         try(var reader=p.server.getResourceManager().openAsReader(ResourceLocation.parse("wuxingxiantu:alchemy/research-methods.json"))){
             var s=new StringBuilder();char[] b=new char[2048];int n;while((n=reader.read(b))!=-1){s.append(b,0,n);if(s.length()>16384)throw new IllegalArgumentException("Method budget");}
             var root=SimulationRuleLoader.document(s.toString());if(!root.keySet().equals(Set.of("schema","publicRules"))||root.get("schema").getAsBigDecimal().intValueExact()!=1)throw new IllegalArgumentException("Method schema");
-            var ids=new HashSet<String>();for(var e:root.getAsJsonArray("publicRules"))if(!ids.add(e.getAsString())||ids.size()>64)throw new IllegalArgumentException("Duplicate/method budget");
+            var ids=new HashSet<String>();for(var e:root.getAsJsonArray("publicRules"))if(!ids.add(e.getAsString())||ids.size()>128)throw new IllegalArgumentException("Duplicate/method budget");
             var rules=V5Batch.profile(V5Batch.currentProfile(p.serverLevel()),1).rules();definitions=new CompoundTag();for(var r:rules.reactions)if(ids.remove(r.id()))definitions.putString(r.id(),AbilityCompiler.hash(r.toString()));
             if(!ids.isEmpty()||definitions.isEmpty())throw new IllegalArgumentException("Unknown public process");hash=ResearchEvidence.hash(definitions);
         }catch(java.io.IOException e){throw new IllegalStateException("Missing public research methods",e);}

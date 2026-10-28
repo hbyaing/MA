@@ -14,6 +14,7 @@ public final class AlchemyCommands {
     @SubscribeEvent public static void register(RegisterCommandsEvent event) {
         event.getDispatcher().register(Commands.literal("wuxing")
             .then(Commands.literal("alchemy").requires(s -> s.hasPermission(2))
+                .then(Commands.literal("audit").executes(c->{var p=c.getSource().getPlayerOrException();var path=AlchemyCoverage.write(p,true);c.getSource().sendSuccess(()->net.minecraft.network.chat.Component.literal("炼丹全目录审计："+path),false);return 1;}))
                 .then(Commands.argument("player", EntityArgument.player())
                     .then(Commands.literal("unlock").executes(c -> FormulaKnowledge.unlock(EntityArgument.getPlayer(c, "player")) ? 1 : 0))
                     .then(Commands.literal("all").executes(c -> FormulaKnowledge.learnAll(EntityArgument.getPlayer(c, "player"))))

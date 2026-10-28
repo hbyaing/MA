@@ -77,7 +77,7 @@ public final class ImportedCreaturesGameTests {
         } finally {helper.getLevel().setBlock(pos.below(),before,3);helper.getLevel().getServer().setDifficulty(previousDifficulty,true);}
         helper.succeed();
     }
-    @GameTest(template="empty") public static void realBloodRecipesConsumeProvenanceAndPillsDeliverStoneGuard(GameTestHelper helper) {
+    @GameTest(template="empty",timeoutTicks=120) public static void realBloodRecipesConsumeProvenanceAndPillsDeliverStoneGuard(GameTestHelper helper) {
         var recipe=(AlchemyRecipe)helper.getLevel().getRecipeManager().byKey(new ResourceLocation("wuxingxiantu:alchemy_boar_blood_guard")).orElseThrow();
         var input=new SimpleContainer(8);
         for(int i=0;i<recipe.getIngredients().size();i++)input.setItem(i,recipe.getIngredients().get(i).getItems()[0].copyWithCount(recipe.counts().get(i)));
@@ -88,15 +88,10 @@ public final class ImportedCreaturesGameTests {
         var consumed=recipe.consume(input);
         ItemStack pill=BeastMaterialEffects.infuseAlchemy(recipe.assemble(input,helper.getLevel().registryAccess()),consumed);
         helper.assertTrue(input.getItem(2).isEmpty()&&pill.hasTag()&&pill.getTag().contains(BeastMaterialEffects.STONE),"Blood was not consumed into the pill");
-        try(var player=new GameTestPlayer(helper.getLevel())) {
-            GeneratedMod.data(player).wuxingxiantu$setRealm(ProgressionGate.FOUNDATION);
-            FormulaKnowledge.unlock(player);FormulaKnowledge.learn(player,recipe.formulaId(),false);
-            pill.getItem().finishUsingItem(pill,helper.getLevel(),player);
-            var resistance=player.getEffect(net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE);
-            helper.assertTrue(resistance!=null&&resistance.getAmplifier()==1,"Actual pill use lost the source Stone Guard auxiliary");
-            helper.assertTrue(!ImportedCreatures.BLOOD.get().isEdible(),"Raw blood became directly edible");
-        }
-        helper.succeed();
+        var player=new GameTestPlayer(helper.getLevel());var at=helper.absolutePos(new BlockPos(2,4,2));player.setPos(at.getX()+.5,at.getY(),at.getZ()+.5);
+        GeneratedMod.data(player).wuxingxiantu$setRealm(ProgressionGate.FOUNDATION);GeneratedMod.data(player).wuxingxiantu$setAura(0);
+        FormulaKnowledge.unlock(player);FormulaKnowledge.learn(player,recipe.formulaId(),false);
+        AlchemyMigrationGameTests.eatImported(helper,player,pill,()->{var resistance=player.getEffect(net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE);helper.assertTrue(resistance!=null&&resistance.getAmplifier()==1,"Imported eating lost source Stone Guard");helper.assertTrue(!ImportedCreatures.BLOOD.get().isEdible(),"Raw blood became edible");helper.succeed();});
     }
     @GameTest(template="empty") public static void realHideRefiningAddsExistingToughRuneAndActualArmorWithoutLosingOwner(GameTestHelper helper) {
         var recipe=(RefiningRecipe)helper.getLevel().getRecipeManager().byKey(new ResourceLocation("wuxingxiantu:refining_boar_hide_armor")).orElseThrow();

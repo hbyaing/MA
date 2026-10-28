@@ -25,6 +25,7 @@ public final class AlchemyInputs {
     /** Per-herb mass is finite. Age changes active/inert partition; more tags never create mass. */
     public static Material material(ItemStack stack,InputDefinitions definitions){
         var herb=HerbAge.definition(stack);
+        if(!stack.isEmpty()&&herb==null){String id=BuiltInRegistries.ITEM.getKey(stack.getItem()).toString();var spec=definitions.nonHerbal(id);if(spec==null||stack.getCount()>64||stack.getItem() instanceof cn.blockforge.generated.generatedmod.items.FireSeedItem)throw new IllegalArgumentException("Unregistered alchemy material: "+id);long mass=definitions.massPerItem*stack.getCount(),active=Math.min(definitions.massPerItem,spec.activePerItem()*(cn.blockforge.generated.generatedmod.importedcreatures.BeastMaterials.blood(stack)?cn.blockforge.generated.generatedmod.importedcreatures.BeastMaterials.potency(stack):1))*stack.getCount(),total=spec.weights().values().stream().mapToLong(Long::longValue).sum(),allocated=0;var stocks=new TreeMap<String,Long>();for(var e:spec.weights().entrySet()){long amount=active*e.getValue()/total;if(amount>0){stocks.put("herb_"+e.getKey(),amount);allocated+=amount;}}if(mass>allocated)stocks.put("herb_inert",mass-allocated);return new Material(id,stack.getCount(),0,false,stocks,mass,stack.hasTag()?stack.getTag():new net.minecraft.nbt.CompoundTag());}
         if(stack.isEmpty()||herb==null||stack.getCount()>64)throw new IllegalArgumentException("Unsupported material/count");
         if(stack.hasTag()&&stack.getTag().getBoolean(HerbAge.CREATIVE_TEMPLATE))throw new IllegalArgumentException("Unresolved creative template");
         int age=HerbAge.years(stack);boolean prepared=HerbPreparation.prepared(stack);
@@ -56,7 +57,7 @@ public final class AlchemyInputs {
         var materials=new ArrayList<Material>();var stocks=new TreeMap<String,Long>();long mass=0;
         for(var stack:selected){if(stack.isEmpty())continue;
             Material material;
-            if(HerbAge.definition(stack)!=null)material=material(stack,definitions);
+            if(HerbAge.definition(stack)!=null||definitions.schema>=2)material=material(stack,definitions);
             else{
                 if(stack.getCount()>64||stack.getItem() instanceof cn.blockforge.generated.generatedmod.items.FireSeedItem)throw new IllegalArgumentException("Unsupported formula material");
                 long finite=Math.multiplyExact(definitions.massPerItem,stack.getCount());

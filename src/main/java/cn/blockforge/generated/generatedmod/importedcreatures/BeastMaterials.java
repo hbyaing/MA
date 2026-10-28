@@ -6,8 +6,10 @@ import net.minecraft.world.item.ItemStack;
 
 /** Provenance is saved on each stack; source stage 2/5 becomes the target realm 0/1, middle phase. */
 public final class BeastMaterials {
+    public static final String LOT="WuxingMaterialLot";
     public static ItemStack create(boolean blood,boolean king) {
         var stack=new ItemStack((blood?ImportedCreatures.BLOOD:ImportedCreatures.HIDE).get());var n=stack.getOrCreateTag();
+        if(blood)n.putUUID(LOT,java.util.UUID.randomUUID());
         n.putInt("beast_schema",2);n.putString("source_entity","wuxingxiantu:"+(king?"black_boar_king":"black_boar"));
         n.putInt("source_realm",king?ProgressionGate.FOUNDATION:ProgressionGate.QI_CONDENSATION);n.putInt("source_phase",1);
         n.putString("element","earth");n.putInt("potency",king?2:1);n.putString("material_effect",blood?"stone_guard":"tenacity");

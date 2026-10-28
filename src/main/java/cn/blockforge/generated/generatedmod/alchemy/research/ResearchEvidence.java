@@ -48,11 +48,11 @@ public final class ResearchEvidence {
         var numbers=new CompoundTag();var choices=new CompoundTag();choices.putString("dimension",doc.getString("Dimension"));
         numbers.putLong("clock",Math.floorMod(start.getLong("Day"),24000));numbers.putLong("fuel",doc.getInt("FuelInitial"));numbers.putLong("interruption",doc.getLong("InterruptedWorldTicks"));
         for(String key:initial.getAllKeys())if(!key.startsWith("fire_"))numbers.putLong("environment/"+key,initial.getLong(key));
-        var materials=new ArrayList<ItemStack>();for(var t:doc.getList("Materials",Tag.TAG_COMPOUND))materials.add(ItemStack.of((CompoundTag)t));
-        materials.sort(Comparator.comparing((ItemStack s)->BuiltInRegistries.ITEM.getKey(s.getItem()).toString()).thenComparingInt(HerbAge::years).thenComparing(s->HerbPreparation.prepared(s)?1:0));
+        var defs=new InputDefinitions(doc.getString("Inputs"));var materials=new ArrayList<ItemStack>();for(var t:doc.getList("Materials",Tag.TAG_COMPOUND))materials.add(ItemStack.of((CompoundTag)t));
+        materials.sort(Comparator.comparing((ItemStack s)->BuiltInRegistries.ITEM.getKey(s.getItem()).toString()).thenComparingInt(ResearchEvidence::materialYears).thenComparing(s->HerbPreparation.prepared(s)?1:0).thenComparingInt(s->defs.schema>=2?materialPotency(s):1));
         var prototypes=new LinkedHashMap<String,ItemStack>();var totals=new LinkedHashMap<String,Long>();
-        for(var item:materials){String key=BuiltInRegistries.ITEM.getKey(item.getItem())+"/"+HerbAge.years(item)+"/"+HerbPreparation.prepared(item);prototypes.putIfAbsent(key,item);totals.merge(key,(long)item.getCount(),Math::addExact);}
-        int index=0;for(var entry:prototypes.entrySet()){var item=entry.getValue();choices.putString("material/"+index,BuiltInRegistries.ITEM.getKey(item.getItem())+"/"+HerbPreparation.prepared(item));numbers.putLong("count/"+index,totals.get(entry.getKey()));numbers.putLong("age/"+index,HerbAge.years(item));index++;}
+        for(var item:materials){String key=BuiltInRegistries.ITEM.getKey(item.getItem())+"/"+materialYears(item)+"/"+HerbPreparation.prepared(item)+"/"+(defs.schema>=2?materialPotency(item):1);prototypes.putIfAbsent(key,item);totals.merge(key,(long)item.getCount(),Math::addExact);}
+        int index=0;for(var entry:prototypes.entrySet()){var item=entry.getValue();choices.putString("material/"+index,BuiltInRegistries.ITEM.getKey(item.getItem())+"/"+HerbPreparation.prepared(item));numbers.putLong("count/"+index,totals.get(entry.getKey()));numbers.putLong("age/"+index,materialYears(item));numbers.putLong("materialPotency/"+index,defs.schema>=2?materialPotency(item):1);index++;}
         long moon=0;for(String k:doc.getCompound("MoonSources").getAllKeys())moon=Math.addExact(moon,doc.getCompound("MoonSources").getLong(k));numbers.putLong("moon",moon);
         var profile=V5Batch.profile(doc.getString("Profile"),doc.getInt("Burn"));numbers.putLong("device/heatCapacity",profile.rules().limits.heatCapacity());numbers.putLong("device/noise",profile.rules().limits.controlNoise());numbers.putLong("device/pressure",profile.rules().limits.burstPressure());
         var fire=AlchemyInputs.fire(V5Batch.inventory(doc).get(cn.blockforge.generated.generatedmod.AlchemyFurnaceBlockEntity.IGNITION_SLOT));choices.putString("fire",AbilityCompiler.hash(fire.toString()));numbers.putLong("fireTier",fire.tier());
@@ -62,18 +62,20 @@ public final class ResearchEvidence {
         for(var op:core.operations())if(op.action()==AlchemySimulation.Action.ENVIRONMENT&&!op.resource().startsWith("fire_"))programs.computeIfAbsent("environmentProgram/"+op.resource(),k->new StringBuilder()).append(op.tick()).append(':').append(op.amount()).append(';');
         programs.forEach((k,v)->choices.putString(k,v.toString()));var plan=new CompoundTag();plan.put("Numbers",numbers);plan.put("Choices",choices);validatePlan(plan);
         var taught=p.getPersistentData().getCompound(net.minecraft.world.entity.player.Player.PERSISTED_NBT_TAG).getCompound("alchemyUnderstanding").getCompound("ResearchMethodDefinitions");var known=new HashSet<String>();for(var r:profile.rules().reactions)if(publicRules.contains(r.id())&&taught.getString(r.id()).equals(AbilityCompiler.hash(r.toString())))known.add(r.id());
-        var defs=new InputDefinitions(doc.getString("Inputs"));var reachable=new HashSet<>(AlchemyInputs.batchWithInert(materials,defs).stocks().keySet());var applicable=new HashSet<String>();boolean changed;
+        var reachable=new HashSet<>(AlchemyInputs.batchWithInert(materials,defs).stocks().keySet());var applicable=new HashSet<String>();boolean changed;
         do{changed=false;for(var r:profile.rules().reactions)if(known.contains(r.id())&&reachable.containsAll(r.consume().keySet())){applicable.add(r.id());if(reachable.addAll(r.produce().keySet()))changed=true;}}while(changed);
         var projectedRules=new SimulationRules(profile.rules().version,new ArrayList<>(profile.rules().resources.values()),profile.rules().reactions.stream().filter(r->!known.contains(r.id())||applicable.contains(r.id())).toList(),profile.rules().limits);
         var operation=ResearchDifficulty.operation(projectedRules,known,ResearchDifficulty.stageBudgets(profile.phases(),core.operations(),core.tick()),Math.max(1,Math.min(defs.fireMaximumRate(fire.id()),doc.getInt("Burn")*10L)),profile.rules().limits.heatCapacity());
         return new Point(doc.getUUID("Id"),plan,doc.getCompound("PillResult"),operation,context(doc),profile.rules().hash);
     }
+    private static int materialYears(ItemStack item){return HerbAge.definition(item)==null?0:HerbAge.years(item);}
+    private static int materialPotency(ItemStack item){return cn.blockforge.generated.generatedmod.importedcreatures.BeastMaterials.blood(item)?cn.blockforge.generated.generatedmod.importedcreatures.BeastMaterials.potency(item):1;}
     public static List<String> differences(CompoundTag a,CompoundTag b){
         validatePlan(a);validatePlan(b);var result=new ArrayList<String>();for(String kind:List.of("Numbers","Choices")){
             var keys=new TreeSet<>(a.getCompound(kind).getAllKeys());keys.addAll(b.getCompound(kind).getAllKeys());for(String key:keys)if(!Objects.equals(a.getCompound(kind).get(key),b.getCompound(kind).get(key)))result.add(key);
         }return List.copyOf(result);
     }
     public static String compare(Point a,Point b){if(a.batch.equals(b.batch))return "同一批次不能自作对照";if(!a.context.equals(b.context))return "规则或输入定义不同，需复验";var diff=differences(a.plan,b.plan);return diff.isEmpty()?"同条件复现；不代表独立认证":diff.size()==1?"单因素差异："+label(diff.get(0))+"；不能仅凭两批断言因果":"同时变化"+diff.size()+"项，不能作单因素对照";}
-    public static String label(String key){if(key.startsWith("age/"))return "药龄";if(key.startsWith("count/"))return "用量";if(key.startsWith("material/"))return "材料身份/炮制";if(key.startsWith("environment"))return "环境";if(key.startsWith("device/"))return "设备";return switch(key){case "clock"->"开炉时刻";case "heatProgram"->"控火轨迹";case "stageProgram"->"工序轨迹";case "ventProgram"->"泄压轨迹";case "fire","fireTier"->"火种";case "fuel"->"储备灵力";default->"其它条件";};}
+    public static String label(String key){if(key.startsWith("age/"))return "药龄";if(key.startsWith("count/"))return "用量";if(key.startsWith("materialPotency/"))return "材料药性强度";if(key.startsWith("material/"))return "材料身份/炮制";if(key.startsWith("environment"))return "环境";if(key.startsWith("device/"))return "设备";return switch(key){case "clock"->"开炉时刻";case "heatProgram"->"控火轨迹";case "stageProgram"->"工序轨迹";case "ventProgram"->"泄压轨迹";case "fire","fireTier"->"火种";case "fuel"->"储备灵力";default->"其它条件";};}
     private ResearchEvidence(){}
 }

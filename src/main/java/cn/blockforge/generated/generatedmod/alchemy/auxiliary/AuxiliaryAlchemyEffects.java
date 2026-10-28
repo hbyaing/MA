@@ -62,6 +62,7 @@ public final class AuxiliaryAlchemyEffects {
         }
         GeneratedMod.sync(player);
     }
+    public static void applyFrozenStrike(ServerPlayer player,int mask,int duration){if(!player.isAlive()||player.isSpectator()||ParalysisControl.blocked(player))return;var medicine=MedicineProgress.state(player);var previous=medicine.getCompound(STRIKES);long now=player.level().getGameTime();var state=new CompoundTag();state.putInt("Mask",(mask&7)|(previous.getLong("Until")>now?previous.getInt("Mask")&7:0));state.putLong("Until",now+Math.min(7200,Math.max(Math.max(20,duration),Math.max(0,previous.getLong("Until")-now))));state.putString("Dimension",player.level().dimension().location().toString());state.putBoolean("V5",true);medicine.put(STRIKES,state);dirty(player);}
     private static void buff(LivingEntity entity,MobEffect effect,int duration,int amplifier){
         var old=entity.getEffect(effect);if(old!=null&&(old.isInfiniteDuration()||old.getAmplifier()>amplifier||old.getAmplifier()==amplifier&&old.getDuration()>=duration))return;
         entity.addEffect(new MobEffectInstance(effect,Math.min(7200,Math.max(1,duration)),Math.max(0,Math.min(2,amplifier)),false,true,true));
@@ -91,7 +92,7 @@ public final class AuxiliaryAlchemyEffects {
     private static void dirty(ServerPlayer player){PlayerCrafts.get(player.server).setDirty();}
     public static void clear(ServerPlayer player){var state=MedicineProgress.state(player);if(state.contains(STRIKES)){state.remove(STRIKES);dirty(player);}}
     @SubscribeEvent public static void death(LivingDeathEvent event){if(event.getEntity() instanceof ServerPlayer player)clear(player);}
-    @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent event){if(event.getEntity() instanceof ServerPlayer player)clear(player);}
-    @SubscribeEvent public static void login(PlayerEvent.PlayerLoggedInEvent event){if(event.getEntity() instanceof ServerPlayer player)clear(player);}
+    @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent event){if(event.getEntity() instanceof ServerPlayer player&&!MedicineProgress.state(player).getCompound(STRIKES).getBoolean("V5"))clear(player);}
+    @SubscribeEvent public static void login(PlayerEvent.PlayerLoggedInEvent event){if(event.getEntity() instanceof ServerPlayer player&&!MedicineProgress.state(player).getCompound(STRIKES).getBoolean("V5"))clear(player);}
     private AuxiliaryAlchemyEffects(){}
 }

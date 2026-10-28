@@ -126,6 +126,7 @@ public final class PillEffects {
             case cleanse -> {player.removeEffect(MobEffects.POISON);player.removeEffect(MobEffects.CONFUSION);player.removeEffect(MobEffects.WEAKNESS);}
             case cultivation -> CultivationLogic.gainCultivation(player,data,e.magnitudeMilli()/1000);
             case minor_breakthrough -> CultivationLogic.advanceMinorStage(player,data);
+            default -> cn.blockforge.generated.generatedmod.alchemy.effects.ExtendedPillEffects.apply(player,e);
         }
         if(result.toxicity()>0)player.addEffect(new MobEffectInstance(MobEffects.POISON,Math.max(20,result.toxicity()/2000),0));
     }

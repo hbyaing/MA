@@ -11,12 +11,12 @@ import static cn.blockforge.generated.generatedmod.alchemy.simulation.AlchemySim
 public final class AbilityCompiler {
     public static final int PPM=1000000;
     public static final String BOUND="v5_bound_pill";
-    public enum Kind { heal,mana,regeneration,speed,resistance,shield,cleanse,cultivation,minor_breakthrough }
+    public enum Kind { heal,mana,regeneration,speed,resistance,shield,cleanse,cultivation,minor_breakthrough,bigu,meridian_repair,gathering,strength,jump,water_breathing,night_vision,haste,tribulation,calming,root_metal,root_wood,root_water,root_fire,root_earth,root_random,physique_reset,mana_regeneration,origin_reserve,meridian_expansion,barrier_preparation,dao_heart_clear,frost_strike,flame_strike,venom_strike,invisibility,luck,nutrition,confusion,poison,deep_cleanse,creation_blessing }
     public record Definition(Kind id,List<String> sources,long maxMilli,int duration,int interval,long costMilli,int cooldown,int realm,int activation){
         public Definition{sources=List.copyOf(sources);}
     }
     public record Spec(Kind id,long magnitudeMilli,int duration,int interval,long cost,int cooldown,int realm){
-        public Spec{Objects.requireNonNull(id);if(magnitudeMilli<minimum(id)||magnitudeMilli>maximum(id)||duration<0||duration>12000||interval<1||interval>200||cost<1||cost>1000000||cooldown<1||cooldown>1200||realm<0||realm>8)throw new IllegalArgumentException("Invalid effect specification");}
+        public Spec{Objects.requireNonNull(id);if(magnitudeMilli<minimum(id)||magnitudeMilli>maximum(id)||duration<0||duration>72000||interval<1||interval>200||cost<1||cost>1000000||cooldown<1||cooldown>1200||realm<0||realm>8)throw new IllegalArgumentException("Invalid effect specification");}
     }
     public record Result(int grade,int quantity,long boundMass,long residualMass,long budget,long spent,int purity,int stability,int structure,int toxicity,int potency,int score,String policyHash,List<Spec> effects){
         public Result{
@@ -30,21 +30,21 @@ public final class AbilityCompiler {
         public int realm(){return effects.stream().mapToInt(Spec::realm).max().orElse(0);}
     }
     public static final class Policy {
-        public final String json,hash;public final int mass,maxYield;public final List<Definition> modules;
+        public final String json,hash,version;public final int mass,maxYield;public final List<Definition> modules;
         public Policy(String text){
             if(text.length()>32768)throw new IllegalArgumentException("Ability policy byte budget");var root=SimulationRuleLoader.document(text);
-            keys(root,"schema","version","massPerPill","maxYield","modules");if(integer(root,"schema",1,1)!=1||!root.get("version").getAsString().equals("v5-effects/1"))throw new IllegalArgumentException("Unknown compiler version");
+            keys(root,"schema","version","massPerPill","maxYield","modules");version=root.get("version").getAsString();if(integer(root,"schema",1,1)!=1||!Set.of("v5-effects/1","v5-effects/2").contains(version))throw new IllegalArgumentException("Unknown compiler version");
             mass=integer(root,"massPerPill",1,1000000);maxYield=integer(root,"maxYield",1,64);var defs=new ArrayList<Definition>();var seen=new HashSet<Kind>();
             for(var entry:root.getAsJsonArray("modules")){
                 var o=entry.getAsJsonObject();keys(o,"id","sources","maxMilli","durationTicks","intervalTicks","costMilli","cooldownTicks","minRealm","activationPpm");
-                var id=Kind.valueOf(o.get("id").getAsString());if(!seen.add(id))throw new IllegalArgumentException("Duplicate ability");
+                var id=Kind.valueOf(o.get("id").getAsString());if(id==Kind.creation_blessing||version.equals("v5-effects/1")&&id.ordinal()>Kind.minor_breakthrough.ordinal())throw new IllegalArgumentException("Module unavailable in compiler policy");if(!seen.add(id))throw new IllegalArgumentException("Duplicate ability");
                 var sources=new ArrayList<String>();for(var v:o.getAsJsonArray("sources")){String source=v.getAsString();SimulationRules.id(source);if(!source.startsWith("extract_")||sources.contains(source))throw new IllegalArgumentException("Invalid module source");sources.add(source);}
                 if(sources.isEmpty()||sources.size()>16)throw new IllegalArgumentException("Source budget");
                 int duration=integer(o,"durationTicks",0,12000),interval=integer(o,"intervalTicks",1,200);
-                if(timed(id)!=(duration>0)||id==Kind.regeneration&&interval!=20)throw new IllegalArgumentException("Unsupported trigger/duration");
-                defs.add(new Definition(id,sources,integer(o,"maxMilli",(int)minimum(id),(int)maximum(id)),duration,interval,integer(o,"costMilli",1,1000000),integer(o,"cooldownTicks",1,1200),integer(o,"minRealm",0,8),integer(o,"activationPpm",0,PPM)));
+                if(timed(id)!=(duration>0)||(id==Kind.regeneration||id==Kind.mana_regeneration)&&interval!=20)throw new IllegalArgumentException("Unsupported trigger/duration");
+                defs.add(new Definition(id,sources,longInteger(o,"maxMilli",minimum(id),version.equals("v5-effects/1")&&id==Kind.cultivation?100000:maximum(id)),duration,interval,integer(o,"costMilli",1,1000000),integer(o,"cooldownTicks",1,1200),integer(o,"minRealm",0,8),integer(o,"activationPpm",0,PPM)));
             }
-            if(defs.isEmpty()||defs.size()>9)throw new IllegalArgumentException("Ability count budget");modules=List.copyOf(defs);json=root.toString();hash=hash(json);
+            if(defs.isEmpty()||defs.size()>64)throw new IllegalArgumentException("Ability count budget");modules=List.copyOf(defs);json=root.toString();hash=hash(json);
         }
         public void validateResources(SimulationRules rules){for(var resource:rules.resources.values())if(resource.id().startsWith("extract_")&&(resource.mass()!=1||resource.potential()!=1))throw new IllegalArgumentException("Unsupported extract units");for(var d:modules)for(String id:d.sources()){var r=rules.resources.get(id);if(r==null||r.mass()!=1||r.potential()!=1||r.destination()!=SimulationRules.Destination.ACTIVE)throw new IllegalArgumentException("Unsupported ability resource "+id);}var bound=rules.resources.get(BOUND);if(bound==null||bound.mass()!=1||bound.potential()!=1||bound.destination()!=SimulationRules.Destination.PILL)throw new IllegalArgumentException("Missing bound-pill account");}
     }
@@ -62,14 +62,16 @@ public final class AbilityCompiler {
         var credits=new TreeMap<String,Long>();for(var e:s.stocks().entrySet())if(e.getKey().startsWith("extract_"))credits.put(e.getKey(),e.getValue()*policy.mass/Math.max(1,extract));
         double quality=(purity/(double)PPM)*(stability/(double)PPM);long balance=budget;double utility=0;var effects=new ArrayList<Spec>();
         for(var d:policy.modules){
+            if(effects.size()>=9)break;
             long source=0;for(String id:d.sources())source+=s.stocks().getOrDefault(id,0L);int concentration=ratio(source,Math.max(1,extract));if(source==0||concentration<d.activation())continue;
             long desired=(long)StrictMath.floor(d.maxMilli()*(1-StrictMath.exp(-3D*concentration/PPM))*quality);
-            if(d.id()==Kind.cleanse||d.id()==Kind.minor_breakthrough)desired=1000;
+            if(discrete(d.id()))desired=1000;
+            if(d.id().name().startsWith("root_"))desired=Math.min(d.maxMilli(),ceil(desired,1000)*1000);
             int duration=d.duration()==0?0:Math.max(20,(int)(d.duration()*quality));long factor=factor(d.id(),duration,d.interval());
             long sourceCredit=0;for(String id:d.sources())sourceCredit+=credits.getOrDefault(id,0L);
             long affordable=Math.min(balance,sourceCredit)*1000000L/(d.costMilli()*factor);long magnitude=Math.min(desired,affordable);
-            if(d.id()==Kind.shield)magnitude=magnitude/4000*4000;
-            if(d.id()==Kind.resistance||d.id()==Kind.cleanse||d.id()==Kind.minor_breakthrough||d.id()==Kind.cultivation)magnitude=magnitude/1000*1000;
+            if(d.id()==Kind.shield||d.id()==Kind.barrier_preparation)magnitude=magnitude/4000*4000;
+            if(quantized(d.id()))magnitude=magnitude/1000*1000;
             if(magnitude<minimum(d.id()))continue;long cost=ceil(magnitude*d.costMilli()*factor,1000000);
             var spec=new Spec(d.id(),magnitude,duration,d.interval(),cost,d.cooldown(),d.realm());effects.add(spec);balance-=cost;long debit=cost;for(String id:d.sources()){long used=Math.min(debit,credits.getOrDefault(id,0L));credits.put(id,credits.getOrDefault(id,0L)-used);debit-=used;}if(debit!=0)throw new IllegalStateException("Module source double spend");
             double function=magnitude/(double)d.maxMilli();if(d.duration()>0)function*=duration/(double)d.duration();utility=Math.max(utility,Math.min(1,function));
@@ -95,14 +97,17 @@ public final class AbilityCompiler {
         var bound=new Snapshot(source.batchId(),source.rulesHash(),source.tick(),source.phase(),source.status(),"PILLS_BOUND",Map.of(BOUND,result.boundMass()),source.heat(),source.damage(),source.referenceMass(),source.seed(),source.environment(),source.draws(),source.holds(),source.lastSequence(),source.operations(),ledger);
         AlchemySimulation.validate(rules,bound);return bound;
     }
-    public static boolean timed(Kind k){return switch(k){case regeneration,speed,resistance,shield->true;default->false;};}
-    public static long minimum(Kind k){return switch(k){case heal,mana->250;case regeneration->50;case speed->10;case shield->4000;default->1000;};}
-    public static long maximum(Kind k){return switch(k){case heal->24000;case mana->100000;case regeneration->4000;case speed->350;case resistance->3000;case shield->24000;case cultivation->100000;default->1000;};}
-    private static long factor(Kind k,int duration,int interval){return k==Kind.regeneration?Math.max(1,duration/interval):timed(k)?Math.max(1,ceil(duration,20)):1;}
+    public static boolean timed(Kind k){return switch(k){case regeneration,speed,resistance,shield,bigu,gathering,strength,jump,water_breathing,night_vision,haste,tribulation,mana_regeneration,barrier_preparation,frost_strike,flame_strike,venom_strike,invisibility,luck,confusion,poison->true;default->false;};}
+    public static long minimum(Kind k){return switch(k){case heal,mana->250;case regeneration,mana_regeneration->50;case speed->10;case shield,barrier_preparation->4000;default->1000;};}
+    public static long maximum(Kind k){return switch(k){case heal->24000;case mana->100000;case regeneration->4000;case mana_regeneration->20000;case bigu,gathering,strength,jump,haste,tribulation->3000;case luck,nutrition,confusion,poison->3000;case root_metal,root_wood,root_water,root_fire,root_earth,root_random->4000;case origin_reserve->20000000000L;case meridian_expansion->5000;case barrier_preparation->24000;case speed->350;case resistance->3000;case shield->24000;case cultivation->20000000000L;default->1000;};}
+    public static boolean discrete(Kind k){return switch(k){case cleanse,minor_breakthrough,bigu,dao_heart_clear,deep_cleanse,invisibility,frost_strike,flame_strike,venom_strike,meridian_repair,water_breathing,night_vision,calming,physique_reset,creation_blessing->true;default->false;};}
+    public static boolean quantized(Kind k){return k!=Kind.heal&&k!=Kind.mana&&k!=Kind.regeneration&&k!=Kind.mana_regeneration&&k!=Kind.speed&&k!=Kind.shield;}
+    private static long factor(Kind k,int duration,int interval){return (k==Kind.regeneration||k==Kind.mana_regeneration)?Math.max(1,duration/interval):timed(k)?Math.max(1,ceil(duration,20)):1;}
     private static long ceil(long a,long b){return a/b+(a%b==0?0:1);}
     private static int ratio(long a,long b){if(a<0||b<1)throw new IllegalArgumentException("Invalid ratio");return java.math.BigInteger.valueOf(a).multiply(java.math.BigInteger.valueOf(PPM)).divide(java.math.BigInteger.valueOf(b)).min(java.math.BigInteger.valueOf(PPM)).intValueExact();}
     private static int clamp(int n){return Math.max(0,Math.min(PPM,n));}
     public static String hash(String s){try{return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(s.getBytes(StandardCharsets.UTF_8)));}catch(java.security.NoSuchAlgorithmException e){throw new IllegalStateException(e);}}
+    private static long longInteger(JsonObject o,String key,long min,long max){long n=o.get(key).getAsBigDecimal().longValueExact();if(n<min||n>max)throw new IllegalArgumentException("Invalid "+key);return n;}
     private static int integer(JsonObject o,String k,int min,int max){int n=o.get(k).getAsBigDecimal().intValueExact();if(n<min||n>max)throw new IllegalArgumentException("Invalid "+k);return n;}
     private static void keys(JsonObject o,String... keys){if(!o.keySet().equals(Set.of(keys)))throw new IllegalArgumentException("Unknown ability definition fields");}
     private AbilityCompiler(){}

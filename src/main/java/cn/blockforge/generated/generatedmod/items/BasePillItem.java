@@ -40,6 +40,9 @@ public abstract class BasePillItem extends Item {
     @Override
     public final InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
+        if(!level.isClientSide&&player instanceof ServerPlayer server&&!cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.isV5(stack)){
+            try{if(cn.blockforge.generated.generatedmod.alchemy.effects.LegacyPillImport.plan(stack)!=null){cn.blockforge.generated.generatedmod.alchemy.effects.LegacyPillImport.ensure(server,hand==InteractionHand.MAIN_HAND?server.getInventory().selected:40);stack=player.getItemInHand(hand);}}catch(RuntimeException error){player.displayClientMessage(Component.literal("旧丹迁移未完成，原物或迁移凭证已保留。"),true);com.mojang.logging.LogUtils.getLogger().error("Pill import retained",error);return InteractionResultHolder.fail(player.getItemInHand(hand));}
+        }
         if(cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.isV5(stack)){
             if(!level.isClientSide&&(!(player instanceof ServerPlayer server)||!cn.blockforge.generated.generatedmod.alchemy.effects.PillRuntime.canUse(server,stack)))return InteractionResultHolder.fail(stack);
             player.startUsingItem(hand);return InteractionResultHolder.consume(stack);
@@ -84,20 +87,7 @@ public abstract class BasePillItem extends Item {
                 ProgressionGate.deny(player, ProgressionGate.MSG_PILL, ProgressionGate.requiredRealmForPill(stack));
                 return result;
             }
-            if (PillData.read(stack) != null) {
-                if(PillData.read(stack).pill()==cn.blockforge.generated.generatedmod.alchemy.PillCatalog.CULTIVATION
-                        &&!cn.blockforge.generated.generatedmod.mindscape.MindscapeManager.canGain(player,data,true))return result;
-                if (!PillEffects.apply(player, data, stack)) {
-                    player.displayClientMessage(Component.translatable("message.wuxingxiantu.pill_state_invalid"), true);
-                    return result;
-                }
-                cn.blockforge.generated.generatedmod.importedcreatures.BeastMaterialEffects.applyPill(player,stack);
-                cn.blockforge.generated.generatedmod.alchemy.auxiliary.AuxiliaryAlchemyEffects.applyPill(player,stack);
-                result = PillData.normalize(result);
-                if (!player.getAbilities().instabuild) result.shrink(1);
-                if (player instanceof ServerPlayer serverPlayer) GeneratedMod.sync(serverPlayer);
-                return result;
-            }
+            if (PillData.read(stack) != null) {player.displayClientMessage(Component.literal("旧丹须先迁入V5，不能再按旧规则服用。"),true);return result;}
             int manaCost = Math.max(0,
                     Math.round(CultivationLogic.maxAura(data) * manaCostPercent / 100.0F));
             if (data.wuxingxiantu$getAura() < manaCost || !applyEffect(player, data)) return result;
@@ -178,34 +168,13 @@ public abstract class BasePillItem extends Item {
 
     @Override public Component getName(ItemStack stack) {
         if(cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.isV5(stack))return cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.name(stack);
-        PillData.View view = PillData.read(stack);
-        return view == null ? super.getName(stack) : cn.blockforge.generated.generatedmod.alchemy.MedicineTier.explicit(stack)
-                ? Component.translatable("pill.wuxingxiantu.ranked_name",cn.blockforge.generated.generatedmod.alchemy.MedicineTier.name(cn.blockforge.generated.generatedmod.alchemy.MedicineTier.of(stack)),PillData.name(view))
-                : PillData.name(view);
+        try{var preview=cn.blockforge.generated.generatedmod.alchemy.effects.LegacyPillImport.preview(stack);if(!preview.isEmpty())return cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.name(preview);}catch(RuntimeException ignored){return Component.literal("待处理旧丹（原数据保留）");}return super.getName(stack);
     }
 
     @Override public void appendHoverText(ItemStack stack, Level level, java.util.List<Component> lines,
                                          net.minecraft.world.item.TooltipFlag flag) {
         super.appendHoverText(stack, level, lines, flag);
         if(cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.isV5(stack)){cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.tooltip(stack,lines);return;}
-        PillData.View view = PillData.read(stack);
-        if (view == null) return;
-        if(cn.blockforge.generated.generatedmod.alchemy.MedicineTier.explicit(stack))lines.add(Component.translatable(
-                "pill.wuxingxiantu.medicine_tier",cn.blockforge.generated.generatedmod.alchemy.MedicineTier.name(cn.blockforge.generated.generatedmod.alchemy.MedicineTier.of(stack)))
-                .withStyle(net.minecraft.ChatFormatting.GOLD));
-        lines.add(Component.translatable("pill.wuxingxiantu.quality",
-                view.pill()==cn.blockforge.generated.generatedmod.alchemy.PillCatalog.CALMING?Component.translatable("quality.wuxingxiantu.special"):
-                Component.translatable("quality.wuxingxiantu." + view.grade().ordinal())).withStyle(style->style.withColor(
-                view.pill()==cn.blockforge.generated.generatedmod.alchemy.PillCatalog.CALMING?0xC99CEB:cn.blockforge.generated.generatedmod.text.ItemTextPalette.pillGrade(view.grade().ordinal()))));
-        lines.add(Component.translatable("pill.wuxingxiantu.effect." + view.pill().id, view.grade().value())
-                .withStyle(net.minecraft.ChatFormatting.AQUA));
-        lines.add(Component.translatable("pill.wuxingxiantu.requirement",
-                CultivationLogic.realmName(ProgressionGate.requiredRealmForPill(stack))).withStyle(net.minecraft.ChatFormatting.GOLD));
-        if (view.pill() == cn.blockforge.generated.generatedmod.alchemy.PillCatalog.CULTIVATION) {
-            lines.add(Component.literal("修为增加：" + cn.blockforge.generated.generatedmod.alchemy.AlchemyBalance.cultivationGain(view.cultivationTier(),view.grade().value()))
-                    .withStyle(net.minecraft.ChatFormatting.AQUA));
-            lines.add(Component.translatable("pill.wuxingxiantu.cultivation_tier", CultivationLogic.realmName(view.cultivationTier()))
-                    .withStyle(net.minecraft.ChatFormatting.GOLD));
-        }
+        try{var preview=cn.blockforge.generated.generatedmod.alchemy.effects.LegacyPillImport.preview(stack);if(!preview.isEmpty()){cn.blockforge.generated.generatedmod.alchemy.effects.PillSnapshot.tooltip(preview,lines);lines.add(Component.literal("旧丹将一次性迁入V5；原始数据存档，数量保留。"));}}catch(RuntimeException error){lines.add(Component.literal("迁移数据异常，保留原物并停止服用。"));}
     }
 }
