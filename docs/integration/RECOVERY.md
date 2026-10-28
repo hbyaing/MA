@@ -5,7 +5,7 @@
 本次将三个原提交的**完全相同源码树**导入仓库已有main历史之后，形成无缺失父对象的可克隆分支。源码导入提交的SHA改变，源文件及原树SHA保持一致；逐项对应见 acceptance-baseline.json。原始进度包不删除、不覆盖，不宣称补齐了不存在的历史。
 
 ```sh
-git clone --branch codex/myriad-ascension-delivery-old-ui https://github.com/thezinecraftm-rgb/Myriad-Ascension.git
+git clone --branch codex/myriad-ascension-delivery-old-ui https://github.com/hbyaing/Myriad-Ascension.git
 cd Myriad-Ascension
 ```
 
@@ -21,3 +21,7 @@ cd Myriad-Ascension
 此前已核对原包SHA256并执行git bundle verify，但没有完成独立目录实际clone。因此“可直接完整恢复”的表述过强，应以实际克隆结果为准。原包的校验通过记录与缺失父提交问题同时保留，不用新包掩盖或删除问题。
 
 验收层次分别记录：1.文件SHA256；2.bundle声明校验；3.独立空目录普通clone；4.克隆后git fsck；5.各分支源码树一致性。前两项不能替代后三项。
+
+## 2026-10-28 仓库迁移
+
+原仓库不可用后，源码迁至 https://github.com/hbyaing/Myriad-Ascension 。本地主线及可用历史分支保留原提交，最新炼丹 V5 第 07 项（accd114）包含于新主线。历史文档中的旧 PR、Release 链接作为历史记录保留，不能据此认定旧附件已恢复。详见 [迁移记录](REPOSITORY_MIGRATION_20261028.md)。
