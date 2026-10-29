@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "sha256": "5cda7c09908d8ff75f9f888d72342708ec898752bee35567cc36fcdb69da3274",
+  "bytes": 87688495,
+  "crc": "passed",
+  "qaClassesExcluded": true,
+  "gameTestFixturesExcluded": true,
+  "artifact": "Myriad-Ascension-1.20.1-alchemy-v5-12.jar"
+}

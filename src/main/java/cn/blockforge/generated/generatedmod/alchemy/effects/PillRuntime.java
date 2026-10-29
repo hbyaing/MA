@@ -132,7 +132,7 @@ public final class PillRuntime {
         if(regenUntil<time||regenUntil>time+12000||regen<50||regen>4000){timed.remove("RegenMilli");timed.remove("RegenUntil");timed.remove("NextPulse");}
         else if(login)timed.putLong("NextPulse",time+20);
         else if(time>=timed.getLong("NextPulse")){p.heal(regen/1000F);timed.putLong("NextPulse",time+20);}
-        long mana=timed.getLong("ManaMilli"),manaUntil=timed.getLong("ManaUntil");if(manaUntil<time||manaUntil>time+12000||mana<50||mana>20000){timed.remove("ManaMilli");timed.remove("ManaUntil");timed.remove("NextManaPulse");}else if(login)timed.putLong("NextManaPulse",time+20);else if(time>=timed.getLong("NextManaPulse")){CultivationLogic.restoreMana(GeneratedMod.data(p),mana/1000F);timed.putLong("NextManaPulse",time+20);}
+        long mana=timed.getLong("ManaMilli"),manaUntil=timed.getLong("ManaUntil");if(manaUntil<time||manaUntil>time+72000||mana<50||mana>20000){timed.remove("ManaMilli");timed.remove("ManaUntil");timed.remove("NextManaPulse");}else if(login)timed.putLong("NextManaPulse",time+20);else if(time>=timed.getLong("NextManaPulse")){CultivationLogic.restoreMana(GeneratedMod.data(p),mana/1000F);timed.putLong("NextManaPulse",time+20);}
         for(var kind:Kind.values()){var effect=ExtendedPillEffects.nativeEffect(kind);if(effect!=null)nativeExpiry(p,timed,ExtendedPillEffects.nativePrefix(effect),effect,login);}
         nativeExpiry(p,timed,"Shield",MobEffects.ABSORPTION,login);nativeExpiry(p,timed,"Resistance",MobEffects.DAMAGE_RESISTANCE,login);
         p.getPersistentData().put(TIMED,timed);

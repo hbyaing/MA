@@ -1,0 +1,5077 @@
+{
+  "schema": 1,
+  "kind": "registered-catalog-and-reference-simulation",
+  "inputHash": "5b14377f20eb3694c42f371be0ed74c95a6c22b98fa19b2baac481dc04055639",
+  "policyHash": "05a0204211954d4bd747ce6061b4ba7cf33d4ad46defb8f4e2ac0e7d76373ce6",
+  "herbs": [
+    {
+      "id": "wuxingxiantu:spirit_sprout_grass",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 9001,
+            "herb_ling": 333,
+            "herb_mu": 333,
+            "herb_tiaohe": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 8500,
+            "herb_ling": 500,
+            "herb_mu": 500,
+            "herb_tiaohe": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 8275,
+            "herb_ling": 575,
+            "herb_mu": 575,
+            "herb_tiaohe": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 7774,
+            "herb_ling": 742,
+            "herb_mu": 742,
+            "herb_tiaohe": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 4201,
+            "herb_ling": 1933,
+            "herb_mu": 1933,
+            "herb_tiaohe": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 3700,
+            "herb_ling": 2100,
+            "herb_mu": 2100,
+            "herb_tiaohe": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 2068,
+            "herb_ling": 2644,
+            "herb_mu": 2644,
+            "herb_tiaohe": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 1567,
+            "herb_ling": 2811,
+            "herb_mu": 2811,
+            "herb_tiaohe": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 1003,
+            "herb_ling": 2999,
+            "herb_mu": 2999,
+            "herb_tiaohe": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 502,
+            "herb_ling": 3166,
+            "herb_mu": 3166,
+            "herb_tiaohe": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:dew_drop_flower",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_huifu": 333,
+            "herb_inert": 9001,
+            "herb_shui": 333,
+            "herb_ziyang": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_huifu": 500,
+            "herb_inert": 8500,
+            "herb_shui": 500,
+            "herb_ziyang": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_huifu": 575,
+            "herb_inert": 8275,
+            "herb_shui": 575,
+            "herb_ziyang": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_huifu": 742,
+            "herb_inert": 7774,
+            "herb_shui": 742,
+            "herb_ziyang": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_huifu": 1933,
+            "herb_inert": 4201,
+            "herb_shui": 1933,
+            "herb_ziyang": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_huifu": 2100,
+            "herb_inert": 3700,
+            "herb_shui": 2100,
+            "herb_ziyang": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_huifu": 2644,
+            "herb_inert": 2068,
+            "herb_shui": 2644,
+            "herb_ziyang": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_huifu": 2811,
+            "herb_inert": 1567,
+            "herb_shui": 2811,
+            "herb_ziyang": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_huifu": 2999,
+            "herb_inert": 1003,
+            "herb_shui": 2999,
+            "herb_ziyang": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_huifu": 3166,
+            "herb_inert": 502,
+            "herb_shui": 3166,
+            "herb_ziyang": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:clear_heart_lotus",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 9001,
+            "herb_qingjing": 333,
+            "herb_shenhun": 333,
+            "herb_shui": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 8500,
+            "herb_qingjing": 500,
+            "herb_shenhun": 500,
+            "herb_shui": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 8275,
+            "herb_qingjing": 575,
+            "herb_shenhun": 575,
+            "herb_shui": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 7774,
+            "herb_qingjing": 742,
+            "herb_shenhun": 742,
+            "herb_shui": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 4201,
+            "herb_qingjing": 1933,
+            "herb_shenhun": 1933,
+            "herb_shui": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 3700,
+            "herb_qingjing": 2100,
+            "herb_shenhun": 2100,
+            "herb_shui": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 2068,
+            "herb_qingjing": 2644,
+            "herb_shenhun": 2644,
+            "herb_shui": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 1567,
+            "herb_qingjing": 2811,
+            "herb_shenhun": 2811,
+            "herb_shui": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 1003,
+            "herb_qingjing": 2999,
+            "herb_shenhun": 2999,
+            "herb_shui": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 502,
+            "herb_qingjing": 3166,
+            "herb_shenhun": 3166,
+            "herb_shui": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:spirit_ginseng",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 9000,
+            "herb_juqi": 250,
+            "herb_ling": 250,
+            "herb_mu": 250,
+            "herb_xiulian": 250
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 8500,
+            "herb_juqi": 375,
+            "herb_ling": 375,
+            "herb_mu": 375,
+            "herb_xiulian": 375
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 8276,
+            "herb_juqi": 431,
+            "herb_ling": 431,
+            "herb_mu": 431,
+            "herb_xiulian": 431
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 7776,
+            "herb_juqi": 556,
+            "herb_ling": 556,
+            "herb_mu": 556,
+            "herb_xiulian": 556
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 4200,
+            "herb_juqi": 1450,
+            "herb_ling": 1450,
+            "herb_mu": 1450,
+            "herb_xiulian": 1450
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 3700,
+            "herb_juqi": 1575,
+            "herb_ling": 1575,
+            "herb_mu": 1575,
+            "herb_xiulian": 1575
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 2068,
+            "herb_juqi": 1983,
+            "herb_ling": 1983,
+            "herb_mu": 1983,
+            "herb_xiulian": 1983
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 1568,
+            "herb_juqi": 2108,
+            "herb_ling": 2108,
+            "herb_mu": 2108,
+            "herb_xiulian": 2108
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 1004,
+            "herb_juqi": 2249,
+            "herb_ling": 2249,
+            "herb_mu": 2249,
+            "herb_xiulian": 2249
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 504,
+            "herb_juqi": 2374,
+            "herb_ling": 2374,
+            "herb_mu": 2374,
+            "herb_xiulian": 2374
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:red_sun_grass",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_huo": 333,
+            "herb_inert": 9001,
+            "herb_lianti": 333,
+            "herb_yang": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_huo": 500,
+            "herb_inert": 8500,
+            "herb_lianti": 500,
+            "herb_yang": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_huo": 575,
+            "herb_inert": 8275,
+            "herb_lianti": 575,
+            "herb_yang": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_huo": 742,
+            "herb_inert": 7774,
+            "herb_lianti": 742,
+            "herb_yang": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_huo": 1933,
+            "herb_inert": 4201,
+            "herb_lianti": 1933,
+            "herb_yang": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_huo": 2100,
+            "herb_inert": 3700,
+            "herb_lianti": 2100,
+            "herb_yang": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_huo": 2644,
+            "herb_inert": 2068,
+            "herb_lianti": 2644,
+            "herb_yang": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_huo": 2811,
+            "herb_inert": 1567,
+            "herb_lianti": 2811,
+            "herb_yang": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_huo": 2999,
+            "herb_inert": 1003,
+            "herb_lianti": 2999,
+            "herb_yang": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_huo": 3166,
+            "herb_inert": 502,
+            "herb_lianti": 3166,
+            "herb_yang": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:vein_mending_vine",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 9001,
+            "herb_jingmai": 333,
+            "herb_mu": 333,
+            "herb_shengji": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 8500,
+            "herb_jingmai": 500,
+            "herb_mu": 500,
+            "herb_shengji": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 8275,
+            "herb_jingmai": 575,
+            "herb_mu": 575,
+            "herb_shengji": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 7774,
+            "herb_jingmai": 742,
+            "herb_mu": 742,
+            "herb_shengji": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 4201,
+            "herb_jingmai": 1933,
+            "herb_mu": 1933,
+            "herb_shengji": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 3700,
+            "herb_jingmai": 2100,
+            "herb_mu": 2100,
+            "herb_shengji": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 2068,
+            "herb_jingmai": 2644,
+            "herb_mu": 2644,
+            "herb_shengji": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 1567,
+            "herb_jingmai": 2811,
+            "herb_mu": 2811,
+            "herb_shengji": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 1003,
+            "herb_jingmai": 2999,
+            "herb_mu": 2999,
+            "herb_shengji": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 502,
+            "herb_jingmai": 3166,
+            "herb_mu": 3166,
+            "herb_shengji": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:blood_spirit_flower",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_huo": 333,
+            "herb_inert": 9001,
+            "herb_qixue": 333,
+            "herb_xue": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_huo": 500,
+            "herb_inert": 8500,
+            "herb_qixue": 500,
+            "herb_xue": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_huo": 575,
+            "herb_inert": 8275,
+            "herb_qixue": 575,
+            "herb_xue": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_huo": 742,
+            "herb_inert": 7774,
+            "herb_qixue": 742,
+            "herb_xue": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_huo": 1933,
+            "herb_inert": 4201,
+            "herb_qixue": 1933,
+            "herb_xue": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_huo": 2100,
+            "herb_inert": 3700,
+            "herb_qixue": 2100,
+            "herb_xue": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_huo": 2644,
+            "herb_inert": 2068,
+            "herb_qixue": 2644,
+            "herb_xue": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_huo": 2811,
+            "herb_inert": 1567,
+            "herb_qixue": 2811,
+            "herb_xue": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_huo": 2999,
+            "herb_inert": 1003,
+            "herb_qixue": 2999,
+            "herb_xue": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_huo": 3166,
+            "herb_inert": 502,
+            "herb_qixue": 3166,
+            "herb_xue": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:adamantine_vine",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 9000,
+            "herb_jianren": 250,
+            "herb_jin": 250,
+            "herb_lianti": 250,
+            "herb_tu": 250
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 8500,
+            "herb_jianren": 375,
+            "herb_jin": 375,
+            "herb_lianti": 375,
+            "herb_tu": 375
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 8276,
+            "herb_jianren": 431,
+            "herb_jin": 431,
+            "herb_lianti": 431,
+            "herb_tu": 431
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 7776,
+            "herb_jianren": 556,
+            "herb_jin": 556,
+            "herb_lianti": 556,
+            "herb_tu": 556
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 4200,
+            "herb_jianren": 1450,
+            "herb_jin": 1450,
+            "herb_lianti": 1450,
+            "herb_tu": 1450
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 3700,
+            "herb_jianren": 1575,
+            "herb_jin": 1575,
+            "herb_lianti": 1575,
+            "herb_tu": 1575
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 2068,
+            "herb_jianren": 1983,
+            "herb_jin": 1983,
+            "herb_lianti": 1983,
+            "herb_tu": 1983
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 1568,
+            "herb_jianren": 2108,
+            "herb_jin": 2108,
+            "herb_lianti": 2108,
+            "herb_tu": 2108
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 1004,
+            "herb_jianren": 2249,
+            "herb_jin": 2249,
+            "herb_lianti": 2249,
+            "herb_tu": 2249
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 504,
+            "herb_jianren": 2374,
+            "herb_jin": 2374,
+            "herb_lianti": 2374,
+            "herb_tu": 2374
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:gale_grass",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_feng": 333,
+            "herb_inert": 9001,
+            "herb_mu": 333,
+            "herb_shenfa": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_feng": 500,
+            "herb_inert": 8500,
+            "herb_mu": 500,
+            "herb_shenfa": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_feng": 575,
+            "herb_inert": 8275,
+            "herb_mu": 575,
+            "herb_shenfa": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_feng": 742,
+            "herb_inert": 7774,
+            "herb_mu": 742,
+            "herb_shenfa": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_feng": 1933,
+            "herb_inert": 4201,
+            "herb_mu": 1933,
+            "herb_shenfa": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_feng": 2100,
+            "herb_inert": 3700,
+            "herb_mu": 2100,
+            "herb_shenfa": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_feng": 2644,
+            "herb_inert": 2068,
+            "herb_mu": 2644,
+            "herb_shenfa": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_feng": 2811,
+            "herb_inert": 1567,
+            "herb_mu": 2811,
+            "herb_shenfa": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_feng": 2999,
+            "herb_inert": 1003,
+            "herb_mu": 2999,
+            "herb_shenfa": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_feng": 3166,
+            "herb_inert": 502,
+            "herb_mu": 3166,
+            "herb_shenfa": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:dark_water_weed",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_han": 333,
+            "herb_inert": 9001,
+            "herb_shui": 333,
+            "herb_yin": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_han": 500,
+            "herb_inert": 8500,
+            "herb_shui": 500,
+            "herb_yin": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_han": 575,
+            "herb_inert": 8275,
+            "herb_shui": 575,
+            "herb_yin": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_han": 742,
+            "herb_inert": 7774,
+            "herb_shui": 742,
+            "herb_yin": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_han": 1933,
+            "herb_inert": 4201,
+            "herb_shui": 1933,
+            "herb_yin": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_han": 2100,
+            "herb_inert": 3700,
+            "herb_shui": 2100,
+            "herb_yin": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_han": 2644,
+            "herb_inert": 2068,
+            "herb_shui": 2644,
+            "herb_yin": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_han": 2811,
+            "herb_inert": 1567,
+            "herb_shui": 2811,
+            "herb_yin": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_han": 2999,
+            "herb_inert": 1003,
+            "herb_shui": 2999,
+            "herb_yin": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_han": 3166,
+            "herb_inert": 502,
+            "herb_shui": 3166,
+            "herb_yin": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:thunder_vein_grass",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_cuilian": 333,
+            "herb_inert": 9001,
+            "herb_lei": 333,
+            "herb_yang": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_cuilian": 500,
+            "herb_inert": 8500,
+            "herb_lei": 500,
+            "herb_yang": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_cuilian": 575,
+            "herb_inert": 8275,
+            "herb_lei": 575,
+            "herb_yang": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_cuilian": 742,
+            "herb_inert": 7774,
+            "herb_lei": 742,
+            "herb_yang": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_cuilian": 1933,
+            "herb_inert": 4201,
+            "herb_lei": 1933,
+            "herb_yang": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_cuilian": 2100,
+            "herb_inert": 3700,
+            "herb_lei": 2100,
+            "herb_yang": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_cuilian": 2644,
+            "herb_inert": 2068,
+            "herb_lei": 2644,
+            "herb_yang": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_cuilian": 2811,
+            "herb_inert": 1567,
+            "herb_lei": 2811,
+            "herb_yang": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_cuilian": 2999,
+            "herb_inert": 1003,
+            "herb_lei": 2999,
+            "herb_yang": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_cuilian": 3166,
+            "herb_inert": 502,
+            "herb_lei": 3166,
+            "herb_yang": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:starlight_flower",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 9001,
+            "herb_ling": 333,
+            "herb_shenhun": 333,
+            "herb_xing": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 8500,
+            "herb_ling": 500,
+            "herb_shenhun": 500,
+            "herb_xing": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 8275,
+            "herb_ling": 575,
+            "herb_shenhun": 575,
+            "herb_xing": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 7774,
+            "herb_ling": 742,
+            "herb_shenhun": 742,
+            "herb_xing": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 4201,
+            "herb_ling": 1933,
+            "herb_shenhun": 1933,
+            "herb_xing": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 3700,
+            "herb_ling": 2100,
+            "herb_shenhun": 2100,
+            "herb_xing": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 2068,
+            "herb_ling": 2644,
+            "herb_shenhun": 2644,
+            "herb_xing": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 1567,
+            "herb_ling": 2811,
+            "herb_shenhun": 2811,
+            "herb_xing": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 1003,
+            "herb_ling": 2999,
+            "herb_shenhun": 2999,
+            "herb_xing": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 502,
+            "herb_ling": 3166,
+            "herb_shenhun": 3166,
+            "herb_xing": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:dragon_scale_grass",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 9000,
+            "herb_lianti": 250,
+            "herb_ling": 250,
+            "herb_long": 250,
+            "herb_shengji": 250
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 8500,
+            "herb_lianti": 375,
+            "herb_ling": 375,
+            "herb_long": 375,
+            "herb_shengji": 375
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 8276,
+            "herb_lianti": 431,
+            "herb_ling": 431,
+            "herb_long": 431,
+            "herb_shengji": 431
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 7776,
+            "herb_lianti": 556,
+            "herb_ling": 556,
+            "herb_long": 556,
+            "herb_shengji": 556
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 4200,
+            "herb_lianti": 1450,
+            "herb_ling": 1450,
+            "herb_long": 1450,
+            "herb_shengji": 1450
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 3700,
+            "herb_lianti": 1575,
+            "herb_ling": 1575,
+            "herb_long": 1575,
+            "herb_shengji": 1575
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 2068,
+            "herb_lianti": 1983,
+            "herb_ling": 1983,
+            "herb_long": 1983,
+            "herb_shengji": 1983
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 1568,
+            "herb_lianti": 2108,
+            "herb_ling": 2108,
+            "herb_long": 2108,
+            "herb_shengji": 2108
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 1004,
+            "herb_lianti": 2249,
+            "herb_ling": 2249,
+            "herb_long": 2249,
+            "herb_shengji": 2249
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 504,
+            "herb_lianti": 2374,
+            "herb_ling": 2374,
+            "herb_long": 2374,
+            "herb_shengji": 2374
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:glowing_blue_mushroom",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 9001,
+            "herb_shenhun": 333,
+            "herb_yin": 333,
+            "herb_you": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 8500,
+            "herb_shenhun": 500,
+            "herb_yin": 500,
+            "herb_you": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 8275,
+            "herb_shenhun": 575,
+            "herb_yin": 575,
+            "herb_you": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 7774,
+            "herb_shenhun": 742,
+            "herb_yin": 742,
+            "herb_you": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 4201,
+            "herb_shenhun": 1933,
+            "herb_yin": 1933,
+            "herb_you": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 3700,
+            "herb_shenhun": 2100,
+            "herb_yin": 2100,
+            "herb_you": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 2068,
+            "herb_shenhun": 2644,
+            "herb_yin": 2644,
+            "herb_you": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 1567,
+            "herb_shenhun": 2811,
+            "herb_yin": 2811,
+            "herb_you": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 1003,
+            "herb_shenhun": 2999,
+            "herb_yin": 2999,
+            "herb_you": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 502,
+            "herb_shenhun": 3166,
+            "herb_yin": 3166,
+            "herb_you": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_juling",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 9001,
+            "herb_juqi": 333,
+            "herb_ling": 333,
+            "herb_mu": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 8500,
+            "herb_juqi": 500,
+            "herb_ling": 500,
+            "herb_mu": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 8275,
+            "herb_juqi": 575,
+            "herb_ling": 575,
+            "herb_mu": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 7774,
+            "herb_juqi": 742,
+            "herb_ling": 742,
+            "herb_mu": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 4201,
+            "herb_juqi": 1933,
+            "herb_ling": 1933,
+            "herb_mu": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 3700,
+            "herb_juqi": 2100,
+            "herb_ling": 2100,
+            "herb_mu": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 2068,
+            "herb_juqi": 2644,
+            "herb_ling": 2644,
+            "herb_mu": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 1567,
+            "herb_juqi": 2811,
+            "herb_ling": 2811,
+            "herb_mu": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 1003,
+            "herb_juqi": 2999,
+            "herb_ling": 2999,
+            "herb_mu": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 502,
+            "herb_juqi": 3166,
+            "herb_ling": 3166,
+            "herb_mu": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_huayuan",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 9001,
+            "herb_ling": 333,
+            "herb_tiaohe": 333,
+            "herb_xiulian": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 8500,
+            "herb_ling": 500,
+            "herb_tiaohe": 500,
+            "herb_xiulian": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 8275,
+            "herb_ling": 575,
+            "herb_tiaohe": 575,
+            "herb_xiulian": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 7774,
+            "herb_ling": 742,
+            "herb_tiaohe": 742,
+            "herb_xiulian": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 4201,
+            "herb_ling": 1933,
+            "herb_tiaohe": 1933,
+            "herb_xiulian": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 3700,
+            "herb_ling": 2100,
+            "herb_tiaohe": 2100,
+            "herb_xiulian": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 2068,
+            "herb_ling": 2644,
+            "herb_tiaohe": 2644,
+            "herb_xiulian": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 1567,
+            "herb_ling": 2811,
+            "herb_tiaohe": 2811,
+            "herb_xiulian": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 1003,
+            "herb_ling": 2999,
+            "herb_tiaohe": 2999,
+            "herb_xiulian": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 502,
+            "herb_ling": 3166,
+            "herb_tiaohe": 3166,
+            "herb_xiulian": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_xisui",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 9001,
+            "herb_jingmai": 333,
+            "herb_mu": 333,
+            "herb_qingjing": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 8500,
+            "herb_jingmai": 500,
+            "herb_mu": 500,
+            "herb_qingjing": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 8275,
+            "herb_jingmai": 575,
+            "herb_mu": 575,
+            "herb_qingjing": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 7774,
+            "herb_jingmai": 742,
+            "herb_mu": 742,
+            "herb_qingjing": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 4201,
+            "herb_jingmai": 1933,
+            "herb_mu": 1933,
+            "herb_qingjing": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 3700,
+            "herb_jingmai": 2100,
+            "herb_mu": 2100,
+            "herb_qingjing": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 2068,
+            "herb_jingmai": 2644,
+            "herb_mu": 2644,
+            "herb_qingjing": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 1567,
+            "herb_jingmai": 2811,
+            "herb_mu": 2811,
+            "herb_qingjing": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 1003,
+            "herb_jingmai": 2999,
+            "herb_mu": 2999,
+            "herb_qingjing": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 502,
+            "herb_jingmai": 3166,
+            "herb_mu": 3166,
+            "herb_qingjing": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_pozhang",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 9001,
+            "herb_ling": 333,
+            "herb_xiulian": 333,
+            "herb_yang": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 8500,
+            "herb_ling": 500,
+            "herb_xiulian": 500,
+            "herb_yang": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 8275,
+            "herb_ling": 575,
+            "herb_xiulian": 575,
+            "herb_yang": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 7774,
+            "herb_ling": 742,
+            "herb_xiulian": 742,
+            "herb_yang": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 4201,
+            "herb_ling": 1933,
+            "herb_xiulian": 1933,
+            "herb_yang": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 3700,
+            "herb_ling": 2100,
+            "herb_xiulian": 2100,
+            "herb_yang": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 2068,
+            "herb_ling": 2644,
+            "herb_xiulian": 2644,
+            "herb_yang": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 1567,
+            "herb_ling": 2811,
+            "herb_xiulian": 2811,
+            "herb_yang": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 1003,
+            "herb_ling": 2999,
+            "herb_xiulian": 2999,
+            "herb_yang": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 502,
+            "herb_ling": 3166,
+            "herb_xiulian": 3166,
+            "herb_yang": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_huichun",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_huifu": 333,
+            "herb_inert": 9001,
+            "herb_mu": 333,
+            "herb_shengji": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_huifu": 500,
+            "herb_inert": 8500,
+            "herb_mu": 500,
+            "herb_shengji": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_huifu": 575,
+            "herb_inert": 8275,
+            "herb_mu": 575,
+            "herb_shengji": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_huifu": 742,
+            "herb_inert": 7774,
+            "herb_mu": 742,
+            "herb_shengji": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_huifu": 1933,
+            "herb_inert": 4201,
+            "herb_mu": 1933,
+            "herb_shengji": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_huifu": 2100,
+            "herb_inert": 3700,
+            "herb_mu": 2100,
+            "herb_shengji": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_huifu": 2644,
+            "herb_inert": 2068,
+            "herb_mu": 2644,
+            "herb_shengji": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_huifu": 2811,
+            "herb_inert": 1567,
+            "herb_mu": 2811,
+            "herb_shengji": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_huifu": 2999,
+            "herb_inert": 1003,
+            "herb_mu": 2999,
+            "herb_shengji": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_huifu": 3166,
+            "herb_inert": 502,
+            "herb_mu": 3166,
+            "herb_shengji": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_xingchen",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 9001,
+            "herb_qingjing": 333,
+            "herb_tiaohe": 333,
+            "herb_xing": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 8500,
+            "herb_qingjing": 500,
+            "herb_tiaohe": 500,
+            "herb_xing": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 8275,
+            "herb_qingjing": 575,
+            "herb_tiaohe": 575,
+            "herb_xing": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 7774,
+            "herb_qingjing": 742,
+            "herb_tiaohe": 742,
+            "herb_xing": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 4201,
+            "herb_qingjing": 1933,
+            "herb_tiaohe": 1933,
+            "herb_xing": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 3700,
+            "herb_qingjing": 2100,
+            "herb_tiaohe": 2100,
+            "herb_xing": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 2068,
+            "herb_qingjing": 2644,
+            "herb_tiaohe": 2644,
+            "herb_xing": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 1567,
+            "herb_qingjing": 2811,
+            "herb_tiaohe": 2811,
+            "herb_xing": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 1003,
+            "herb_qingjing": 2999,
+            "herb_tiaohe": 2999,
+            "herb_xing": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 502,
+            "herb_qingjing": 3166,
+            "herb_tiaohe": 3166,
+            "herb_xing": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_tianji",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 9001,
+            "herb_ling": 333,
+            "herb_shenhun": 333,
+            "herb_yun": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 8500,
+            "herb_ling": 500,
+            "herb_shenhun": 500,
+            "herb_yun": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 8275,
+            "herb_ling": 575,
+            "herb_shenhun": 575,
+            "herb_yun": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 7774,
+            "herb_ling": 742,
+            "herb_shenhun": 742,
+            "herb_yun": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 4201,
+            "herb_ling": 1933,
+            "herb_shenhun": 1933,
+            "herb_yun": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 3700,
+            "herb_ling": 2100,
+            "herb_shenhun": 2100,
+            "herb_yun": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 2068,
+            "herb_ling": 2644,
+            "herb_shenhun": 2644,
+            "herb_yun": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 1567,
+            "herb_ling": 2811,
+            "herb_shenhun": 2811,
+            "herb_yun": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 1003,
+            "herb_ling": 2999,
+            "herb_shenhun": 2999,
+            "herb_yun": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 502,
+            "herb_ling": 3166,
+            "herb_shenhun": 3166,
+            "herb_yun": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_huanling",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_huan": 333,
+            "herb_inert": 9001,
+            "herb_shenhun": 333,
+            "herb_yin": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_huan": 500,
+            "herb_inert": 8500,
+            "herb_shenhun": 500,
+            "herb_yin": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_huan": 575,
+            "herb_inert": 8275,
+            "herb_shenhun": 575,
+            "herb_yin": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_huan": 742,
+            "herb_inert": 7774,
+            "herb_shenhun": 742,
+            "herb_yin": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_huan": 1933,
+            "herb_inert": 4201,
+            "herb_shenhun": 1933,
+            "herb_yin": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_huan": 2100,
+            "herb_inert": 3700,
+            "herb_shenhun": 2100,
+            "herb_yin": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_huan": 2644,
+            "herb_inert": 2068,
+            "herb_shenhun": 2644,
+            "herb_yin": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_huan": 2811,
+            "herb_inert": 1567,
+            "herb_shenhun": 2811,
+            "herb_yin": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_huan": 2999,
+            "herb_inert": 1003,
+            "herb_shenhun": 2999,
+            "herb_yin": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_huan": 3166,
+            "herb_inert": 502,
+            "herb_shenhun": 3166,
+            "herb_yin": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_fengling",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_fengrao": 333,
+            "herb_inert": 9001,
+            "herb_mu": 333,
+            "herb_ziyang": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_fengrao": 500,
+            "herb_inert": 8500,
+            "herb_mu": 500,
+            "herb_ziyang": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_fengrao": 575,
+            "herb_inert": 8275,
+            "herb_mu": 575,
+            "herb_ziyang": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_fengrao": 742,
+            "herb_inert": 7774,
+            "herb_mu": 742,
+            "herb_ziyang": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_fengrao": 1933,
+            "herb_inert": 4201,
+            "herb_mu": 1933,
+            "herb_ziyang": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_fengrao": 2100,
+            "herb_inert": 3700,
+            "herb_mu": 2100,
+            "herb_ziyang": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_fengrao": 2644,
+            "herb_inert": 2068,
+            "herb_mu": 2644,
+            "herb_ziyang": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_fengrao": 2811,
+            "herb_inert": 1567,
+            "herb_mu": 2811,
+            "herb_ziyang": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_fengrao": 2999,
+            "herb_inert": 1003,
+            "herb_mu": 2999,
+            "herb_ziyang": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_fengrao": 3166,
+            "herb_inert": 502,
+            "herb_mu": 3166,
+            "herb_ziyang": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_hanbing",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_han": 333,
+            "herb_inert": 9001,
+            "herb_shui": 333,
+            "herb_yin": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_han": 500,
+            "herb_inert": 8500,
+            "herb_shui": 500,
+            "herb_yin": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_han": 575,
+            "herb_inert": 8275,
+            "herb_shui": 575,
+            "herb_yin": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_han": 742,
+            "herb_inert": 7774,
+            "herb_shui": 742,
+            "herb_yin": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_han": 1933,
+            "herb_inert": 4201,
+            "herb_shui": 1933,
+            "herb_yin": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_han": 2100,
+            "herb_inert": 3700,
+            "herb_shui": 2100,
+            "herb_yin": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_han": 2644,
+            "herb_inert": 2068,
+            "herb_shui": 2644,
+            "herb_yin": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_han": 2811,
+            "herb_inert": 1567,
+            "herb_shui": 2811,
+            "herb_yin": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_han": 2999,
+            "herb_inert": 1003,
+            "herb_shui": 2999,
+            "herb_yin": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_han": 3166,
+            "herb_inert": 502,
+            "herb_shui": 3166,
+            "herb_yin": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_lieyang",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_huo": 333,
+            "herb_inert": 9001,
+            "herb_lianti": 333,
+            "herb_yang": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_huo": 500,
+            "herb_inert": 8500,
+            "herb_lianti": 500,
+            "herb_yang": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_huo": 575,
+            "herb_inert": 8275,
+            "herb_lianti": 575,
+            "herb_yang": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_huo": 742,
+            "herb_inert": 7774,
+            "herb_lianti": 742,
+            "herb_yang": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_huo": 1933,
+            "herb_inert": 4201,
+            "herb_lianti": 1933,
+            "herb_yang": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_huo": 2100,
+            "herb_inert": 3700,
+            "herb_lianti": 2100,
+            "herb_yang": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_huo": 2644,
+            "herb_inert": 2068,
+            "herb_lianti": 2644,
+            "herb_yang": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_huo": 2811,
+            "herb_inert": 1567,
+            "herb_lianti": 2811,
+            "herb_yang": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_huo": 2999,
+            "herb_inert": 1003,
+            "herb_lianti": 2999,
+            "herb_yang": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_huo": 3166,
+            "herb_inert": 502,
+            "herb_lianti": 3166,
+            "herb_yang": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_jingang",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_cuilian": 333,
+            "herb_inert": 9001,
+            "herb_jianren": 333,
+            "herb_jin": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_cuilian": 500,
+            "herb_inert": 8500,
+            "herb_jianren": 500,
+            "herb_jin": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_cuilian": 575,
+            "herb_inert": 8275,
+            "herb_jianren": 575,
+            "herb_jin": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_cuilian": 742,
+            "herb_inert": 7774,
+            "herb_jianren": 742,
+            "herb_jin": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_cuilian": 1933,
+            "herb_inert": 4201,
+            "herb_jianren": 1933,
+            "herb_jin": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_cuilian": 2100,
+            "herb_inert": 3700,
+            "herb_jianren": 2100,
+            "herb_jin": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_cuilian": 2644,
+            "herb_inert": 2068,
+            "herb_jianren": 2644,
+            "herb_jin": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_cuilian": 2811,
+            "herb_inert": 1567,
+            "herb_jianren": 2811,
+            "herb_jin": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_cuilian": 2999,
+            "herb_inert": 1003,
+            "herb_jianren": 2999,
+            "herb_jin": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_cuilian": 3166,
+            "herb_inert": 502,
+            "herb_jianren": 3166,
+            "herb_jin": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_duzhen",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_du": 333,
+            "herb_inert": 9001,
+            "herb_mu": 333,
+            "herb_yin": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_du": 500,
+            "herb_inert": 8500,
+            "herb_mu": 500,
+            "herb_yin": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_du": 575,
+            "herb_inert": 8275,
+            "herb_mu": 575,
+            "herb_yin": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_du": 742,
+            "herb_inert": 7774,
+            "herb_mu": 742,
+            "herb_yin": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_du": 1933,
+            "herb_inert": 4201,
+            "herb_mu": 1933,
+            "herb_yin": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_du": 2100,
+            "herb_inert": 3700,
+            "herb_mu": 2100,
+            "herb_yin": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_du": 2644,
+            "herb_inert": 2068,
+            "herb_mu": 2644,
+            "herb_yin": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_du": 2811,
+            "herb_inert": 1567,
+            "herb_mu": 2811,
+            "herb_yin": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_du": 2999,
+            "herb_inert": 1003,
+            "herb_mu": 2999,
+            "herb_yin": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_du": 3166,
+            "herb_inert": 502,
+            "herb_mu": 3166,
+            "herb_yin": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_jifeng",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_feng": 333,
+            "herb_inert": 9001,
+            "herb_shenfa": 333,
+            "herb_tiaohe": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_feng": 500,
+            "herb_inert": 8500,
+            "herb_shenfa": 500,
+            "herb_tiaohe": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_feng": 575,
+            "herb_inert": 8275,
+            "herb_shenfa": 575,
+            "herb_tiaohe": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_feng": 742,
+            "herb_inert": 7774,
+            "herb_shenfa": 742,
+            "herb_tiaohe": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_feng": 1933,
+            "herb_inert": 4201,
+            "herb_shenfa": 1933,
+            "herb_tiaohe": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_feng": 2100,
+            "herb_inert": 3700,
+            "herb_shenfa": 2100,
+            "herb_tiaohe": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_feng": 2644,
+            "herb_inert": 2068,
+            "herb_shenfa": 2644,
+            "herb_tiaohe": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_feng": 2811,
+            "herb_inert": 1567,
+            "herb_shenfa": 2811,
+            "herb_tiaohe": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_feng": 2999,
+            "herb_inert": 1003,
+            "herb_shenfa": 2999,
+            "herb_tiaohe": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_feng": 3166,
+            "herb_inert": 502,
+            "herb_shenfa": 3166,
+            "herb_tiaohe": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_lingzhi",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 9001,
+            "herb_mu": 333,
+            "herb_shengji": 333,
+            "herb_ziyang": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 8500,
+            "herb_mu": 500,
+            "herb_shengji": 500,
+            "herb_ziyang": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 8275,
+            "herb_mu": 575,
+            "herb_shengji": 575,
+            "herb_ziyang": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 7774,
+            "herb_mu": 742,
+            "herb_shengji": 742,
+            "herb_ziyang": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 4201,
+            "herb_mu": 1933,
+            "herb_shengji": 1933,
+            "herb_ziyang": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 3700,
+            "herb_mu": 2100,
+            "herb_shengji": 2100,
+            "herb_ziyang": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 2068,
+            "herb_mu": 2644,
+            "herb_shengji": 2644,
+            "herb_ziyang": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 1567,
+            "herb_mu": 2811,
+            "herb_shengji": 2811,
+            "herb_ziyang": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 1003,
+            "herb_mu": 2999,
+            "herb_shengji": 2999,
+            "herb_ziyang": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 502,
+            "herb_mu": 3166,
+            "herb_shengji": 3166,
+            "herb_ziyang": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_leiteng",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_cuilian": 333,
+            "herb_inert": 9001,
+            "herb_lei": 333,
+            "herb_mu": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_cuilian": 500,
+            "herb_inert": 8500,
+            "herb_lei": 500,
+            "herb_mu": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_cuilian": 575,
+            "herb_inert": 8275,
+            "herb_lei": 575,
+            "herb_mu": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_cuilian": 742,
+            "herb_inert": 7774,
+            "herb_lei": 742,
+            "herb_mu": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_cuilian": 1933,
+            "herb_inert": 4201,
+            "herb_lei": 1933,
+            "herb_mu": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_cuilian": 2100,
+            "herb_inert": 3700,
+            "herb_lei": 2100,
+            "herb_mu": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_cuilian": 2644,
+            "herb_inert": 2068,
+            "herb_lei": 2644,
+            "herb_mu": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_cuilian": 2811,
+            "herb_inert": 1567,
+            "herb_lei": 2811,
+            "herb_mu": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_cuilian": 2999,
+            "herb_inert": 1003,
+            "herb_lei": 2999,
+            "herb_mu": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_cuilian": 3166,
+            "herb_inert": 502,
+            "herb_lei": 3166,
+            "herb_mu": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_yanjia",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 9001,
+            "herb_jianren": 333,
+            "herb_lianti": 333,
+            "herb_tu": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 8500,
+            "herb_jianren": 500,
+            "herb_lianti": 500,
+            "herb_tu": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 8275,
+            "herb_jianren": 575,
+            "herb_lianti": 575,
+            "herb_tu": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 7774,
+            "herb_jianren": 742,
+            "herb_lianti": 742,
+            "herb_tu": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 4201,
+            "herb_jianren": 1933,
+            "herb_lianti": 1933,
+            "herb_tu": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 3700,
+            "herb_jianren": 2100,
+            "herb_lianti": 2100,
+            "herb_tu": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 2068,
+            "herb_jianren": 2644,
+            "herb_lianti": 2644,
+            "herb_tu": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 1567,
+            "herb_jianren": 2811,
+            "herb_lianti": 2811,
+            "herb_tu": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_inert": 1003,
+            "herb_jianren": 2999,
+            "herb_lianti": 2999,
+            "herb_tu": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_inert": 502,
+            "herb_jianren": 3166,
+            "herb_lianti": 3166,
+            "herb_tu": 3166
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuxingxiantu:herb_lingdao",
+      "samples": [
+        {
+          "years": 0,
+          "prepared": false,
+          "stocks": {
+            "herb_fengrao": 333,
+            "herb_inert": 9001,
+            "herb_mu": 333,
+            "herb_ziyang": 333
+          }
+        },
+        {
+          "years": 0,
+          "prepared": true,
+          "stocks": {
+            "herb_fengrao": 500,
+            "herb_inert": 8500,
+            "herb_mu": 500,
+            "herb_ziyang": 500
+          }
+        },
+        {
+          "years": 100,
+          "prepared": false,
+          "stocks": {
+            "herb_fengrao": 575,
+            "herb_inert": 8275,
+            "herb_mu": 575,
+            "herb_ziyang": 575
+          }
+        },
+        {
+          "years": 100,
+          "prepared": true,
+          "stocks": {
+            "herb_fengrao": 742,
+            "herb_inert": 7774,
+            "herb_mu": 742,
+            "herb_ziyang": 742
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": false,
+          "stocks": {
+            "herb_fengrao": 1933,
+            "herb_inert": 4201,
+            "herb_mu": 1933,
+            "herb_ziyang": 1933
+          }
+        },
+        {
+          "years": 1500,
+          "prepared": true,
+          "stocks": {
+            "herb_fengrao": 2100,
+            "herb_inert": 3700,
+            "herb_mu": 2100,
+            "herb_ziyang": 2100
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": false,
+          "stocks": {
+            "herb_fengrao": 2644,
+            "herb_inert": 2068,
+            "herb_mu": 2644,
+            "herb_ziyang": 2644
+          }
+        },
+        {
+          "years": 6500,
+          "prepared": true,
+          "stocks": {
+            "herb_fengrao": 2811,
+            "herb_inert": 1567,
+            "herb_mu": 2811,
+            "herb_ziyang": 2811
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": false,
+          "stocks": {
+            "herb_fengrao": 2999,
+            "herb_inert": 1003,
+            "herb_mu": 2999,
+            "herb_ziyang": 2999
+          }
+        },
+        {
+          "years": 1000000000,
+          "prepared": true,
+          "stocks": {
+            "herb_fengrao": 3166,
+            "herb_inert": 502,
+            "herb_mu": 3166,
+            "herb_ziyang": 3166
+          }
+        }
+      ]
+    }
+  ],
+  "nonHerbal": [
+    {
+      "id": "minecraft:amethyst_shard",
+      "stocks": {
+        "herb_inert": 10000
+      }
+    },
+    {
+      "id": "minecraft:blaze_powder",
+      "stocks": {
+        "herb_inert": 10000
+      }
+    },
+    {
+      "id": "minecraft:feather",
+      "stocks": {
+        "herb_inert": 10000
+      }
+    },
+    {
+      "id": "minecraft:ghast_tear",
+      "stocks": {
+        "herb_inert": 10000
+      }
+    },
+    {
+      "id": "minecraft:glistering_melon_slice",
+      "stocks": {
+        "herb_inert": 10000
+      }
+    },
+    {
+      "id": "minecraft:glowstone_dust",
+      "stocks": {
+        "herb_inert": 10000
+      }
+    },
+    {
+      "id": "minecraft:honeycomb",
+      "stocks": {
+        "herb_inert": 10000
+      }
+    },
+    {
+      "id": "minecraft:iron_ingot",
+      "stocks": {
+        "herb_inert": 10000
+      }
+    },
+    {
+      "id": "minecraft:lapis_lazuli",
+      "stocks": {
+        "herb_inert": 10000
+      }
+    },
+    {
+      "id": "minecraft:prismarine_crystals",
+      "stocks": {
+        "herb_inert": 10000
+      }
+    },
+    {
+      "id": "minecraft:quartz",
+      "stocks": {
+        "herb_inert": 10000
+      }
+    },
+    {
+      "id": "minecraft:redstone",
+      "stocks": {
+        "herb_inert": 10000
+      }
+    },
+    {
+      "id": "minecraft:sugar",
+      "stocks": {
+        "herb_inert": 10000
+      }
+    },
+    {
+      "id": "minecraft:wheat",
+      "stocks": {
+        "herb_inert": 10000
+      }
+    },
+    {
+      "id": "wuxingxiantu:beast_blood",
+      "stocks": {
+        "herb_inert": 7000,
+        "herb_jianren": 1000,
+        "herb_tu": 2000
+      }
+    }
+  ],
+  "fires": [
+    {
+      "id": "wuxingxiantu:red_flow",
+      "rate": 1000,
+      "tier": 1
+    },
+    {
+      "id": "wuxingxiantu:molten_gold",
+      "rate": 2000,
+      "tier": 2
+    },
+    {
+      "id": "wuxingxiantu:cold_ash",
+      "rate": 3000,
+      "tier": 3
+    },
+    {
+      "id": "wuxingxiantu:azure_wood",
+      "rate": 4000,
+      "tier": 4
+    },
+    {
+      "id": "wuxingxiantu:cobalt_sea",
+      "rate": 5000,
+      "tier": 5
+    },
+    {
+      "id": "wuxingxiantu:violet_thunder",
+      "rate": 6000,
+      "tier": 6
+    },
+    {
+      "id": "wuxingxiantu:sun_saint",
+      "rate": 7000,
+      "tier": 7
+    },
+    {
+      "id": "wuxingxiantu:nether_void",
+      "rate": 8000,
+      "tier": 8
+    },
+    {
+      "id": "wuxingxiantu:nirvana",
+      "rate": 9000,
+      "tier": 9
+    }
+  ],
+  "devices": [
+    {
+      "tier": 0,
+      "capacity": 120,
+      "prepaid": 28,
+      "heatCapacity": 10,
+      "pressureLimit": 3000
+    },
+    {
+      "tier": 1,
+      "capacity": 180,
+      "prepaid": 28,
+      "heatCapacity": 15,
+      "pressureLimit": 4500
+    },
+    {
+      "tier": 2,
+      "capacity": 240,
+      "prepaid": 28,
+      "heatCapacity": 20,
+      "pressureLimit": 6000
+    },
+    {
+      "tier": 3,
+      "capacity": 600,
+      "prepaid": 46,
+      "heatCapacity": 25,
+      "pressureLimit": 7500
+    },
+    {
+      "tier": 4,
+      "capacity": 2880,
+      "prepaid": 154,
+      "heatCapacity": 30,
+      "pressureLimit": 9000
+    },
+    {
+      "tier": 5,
+      "capacity": 10500,
+      "prepaid": 460,
+      "heatCapacity": 35,
+      "pressureLimit": 10500
+    }
+  ],
+  "recipes": [
+    {
+      "id": "wuxingxiantu:alchemy_aura_pill_high",
+      "formula": "wuxingxiantu:aura_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_sprout_grass",
+        "wuxingxiantu:dew_drop_flower",
+        "minecraft:redstone",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_aura_pill_low",
+      "formula": "wuxingxiantu:aura_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_sprout_grass",
+        "wuxingxiantu:dew_drop_flower",
+        "minecraft:redstone"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_aura_pill_mid",
+      "formula": "wuxingxiantu:aura_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_sprout_grass",
+        "wuxingxiantu:dew_drop_flower",
+        "minecraft:redstone"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_aura_pill_perfect",
+      "formula": "wuxingxiantu:aura_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_sprout_grass",
+        "wuxingxiantu:dew_drop_flower",
+        "minecraft:redstone",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_berserk_pill_high",
+      "formula": "wuxingxiantu:berserk_pill",
+      "ingredients": [
+        "wuxingxiantu:blood_spirit_flower",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:blaze_powder",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_berserk_pill_low",
+      "formula": "wuxingxiantu:berserk_pill",
+      "ingredients": [
+        "wuxingxiantu:blood_spirit_flower",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:blaze_powder"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_berserk_pill_mid",
+      "formula": "wuxingxiantu:berserk_pill",
+      "ingredients": [
+        "wuxingxiantu:blood_spirit_flower",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:blaze_powder"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_berserk_pill_perfect",
+      "formula": "wuxingxiantu:berserk_pill",
+      "ingredients": [
+        "wuxingxiantu:blood_spirit_flower",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:blaze_powder",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_bigu_pill_high",
+      "formula": "wuxingxiantu:bigu_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_sprout_grass",
+        "minecraft:wheat",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_bigu_pill_low",
+      "formula": "wuxingxiantu:bigu_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_sprout_grass",
+        "minecraft:wheat"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_bigu_pill_mid",
+      "formula": "wuxingxiantu:bigu_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_sprout_grass",
+        "minecraft:wheat"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_bigu_pill_perfect",
+      "formula": "wuxingxiantu:bigu_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_sprout_grass",
+        "minecraft:wheat",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_boar_blood_guard",
+      "formula": "wuxingxiantu:diamond_body_pill",
+      "ingredients": [
+        "wuxingxiantu:adamantine_vine",
+        "wuxingxiantu:red_sun_grass",
+        "wuxingxiantu:beast_blood",
+        "minecraft:iron_ingot"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_calming_pill",
+      "formula": "wuxingxiantu:calming_pill",
+      "ingredients": [
+        "wuxingxiantu:clear_heart_lotus",
+        "wuxingxiantu:glowing_blue_mushroom",
+        "wuxingxiantu:starlight_flower",
+        "minecraft:glowstone_dust"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_clear_heart_pill_high",
+      "formula": "wuxingxiantu:clear_heart_pill",
+      "ingredients": [
+        "wuxingxiantu:clear_heart_lotus",
+        "wuxingxiantu:glowing_blue_mushroom",
+        "minecraft:sugar",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_clear_heart_pill_low",
+      "formula": "wuxingxiantu:clear_heart_pill",
+      "ingredients": [
+        "wuxingxiantu:clear_heart_lotus",
+        "wuxingxiantu:glowing_blue_mushroom",
+        "minecraft:sugar"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_clear_heart_pill_mid",
+      "formula": "wuxingxiantu:clear_heart_pill",
+      "ingredients": [
+        "wuxingxiantu:clear_heart_lotus",
+        "wuxingxiantu:glowing_blue_mushroom",
+        "minecraft:sugar"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_clear_heart_pill_perfect",
+      "formula": "wuxingxiantu:clear_heart_pill",
+      "ingredients": [
+        "wuxingxiantu:clear_heart_lotus",
+        "wuxingxiantu:glowing_blue_mushroom",
+        "minecraft:sugar",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_continue_vein_pill_high",
+      "formula": "wuxingxiantu:continue_vein_pill",
+      "ingredients": [
+        "wuxingxiantu:vein_mending_vine",
+        "wuxingxiantu:dew_drop_flower",
+        "wuxingxiantu:blood_spirit_flower",
+        "minecraft:honeycomb",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_continue_vein_pill_low",
+      "formula": "wuxingxiantu:continue_vein_pill",
+      "ingredients": [
+        "wuxingxiantu:vein_mending_vine",
+        "wuxingxiantu:dew_drop_flower",
+        "wuxingxiantu:blood_spirit_flower",
+        "minecraft:honeycomb"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_continue_vein_pill_mid",
+      "formula": "wuxingxiantu:continue_vein_pill",
+      "ingredients": [
+        "wuxingxiantu:vein_mending_vine",
+        "wuxingxiantu:dew_drop_flower",
+        "wuxingxiantu:blood_spirit_flower",
+        "minecraft:honeycomb"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_continue_vein_pill_perfect",
+      "formula": "wuxingxiantu:continue_vein_pill",
+      "ingredients": [
+        "wuxingxiantu:vein_mending_vine",
+        "wuxingxiantu:dew_drop_flower",
+        "wuxingxiantu:blood_spirit_flower",
+        "minecraft:honeycomb",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_high_tier_0",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_high_tier_1",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_high_tier_2",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_high_tier_3",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_high_tier_4",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_high_tier_5",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_high_tier_6",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_high_tier_7",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_high_tier_8",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_low_tier_0",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_low_tier_1",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_low_tier_2",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_low_tier_3",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_low_tier_4",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_low_tier_5",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_low_tier_6",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_low_tier_7",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_low_tier_8",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_mid_tier_0",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_mid_tier_1",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_mid_tier_2",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_mid_tier_3",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_mid_tier_4",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_mid_tier_5",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_mid_tier_6",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_mid_tier_7",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_mid_tier_8",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_perfect_tier_0",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_perfect_tier_1",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_perfect_tier_2",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_perfect_tier_3",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_perfect_tier_4",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_perfect_tier_5",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_perfect_tier_6",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_perfect_tier_7",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_cultivation_pill_perfect_tier_8",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:lapis_lazuli",
+        "wuxingxiantu:starlight_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_diamond_body_pill_high",
+      "formula": "wuxingxiantu:diamond_body_pill",
+      "ingredients": [
+        "wuxingxiantu:adamantine_vine",
+        "wuxingxiantu:red_sun_grass",
+        "wuxingxiantu:blood_spirit_flower",
+        "minecraft:iron_ingot",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_diamond_body_pill_low",
+      "formula": "wuxingxiantu:diamond_body_pill",
+      "ingredients": [
+        "wuxingxiantu:adamantine_vine",
+        "wuxingxiantu:red_sun_grass",
+        "wuxingxiantu:blood_spirit_flower",
+        "minecraft:iron_ingot"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_diamond_body_pill_mid",
+      "formula": "wuxingxiantu:diamond_body_pill",
+      "ingredients": [
+        "wuxingxiantu:adamantine_vine",
+        "wuxingxiantu:red_sun_grass",
+        "wuxingxiantu:blood_spirit_flower",
+        "minecraft:iron_ingot"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_diamond_body_pill_perfect",
+      "formula": "wuxingxiantu:diamond_body_pill",
+      "ingredients": [
+        "wuxingxiantu:adamantine_vine",
+        "wuxingxiantu:red_sun_grass",
+        "wuxingxiantu:blood_spirit_flower",
+        "minecraft:iron_ingot",
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:dragon_scale_grass"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_foundation_pill_high",
+      "formula": "wuxingxiantu:foundation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:dew_drop_flower",
+        "minecraft:amethyst_shard"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_foundation_pill_low",
+      "formula": "wuxingxiantu:foundation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:dew_drop_flower",
+        "minecraft:amethyst_shard"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_foundation_pill_mid",
+      "formula": "wuxingxiantu:foundation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:dew_drop_flower",
+        "minecraft:amethyst_shard"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_foundation_pill_perfect",
+      "formula": "wuxingxiantu:foundation_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:dew_drop_flower",
+        "minecraft:amethyst_shard"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_gale_pill_high",
+      "formula": "wuxingxiantu:gale_pill",
+      "ingredients": [
+        "wuxingxiantu:gale_grass",
+        "wuxingxiantu:spirit_sprout_grass",
+        "minecraft:feather",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_gale_pill_low",
+      "formula": "wuxingxiantu:gale_pill",
+      "ingredients": [
+        "wuxingxiantu:gale_grass",
+        "wuxingxiantu:spirit_sprout_grass",
+        "minecraft:feather"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_gale_pill_mid",
+      "formula": "wuxingxiantu:gale_pill",
+      "ingredients": [
+        "wuxingxiantu:gale_grass",
+        "wuxingxiantu:spirit_sprout_grass",
+        "minecraft:feather"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_gale_pill_perfect",
+      "formula": "wuxingxiantu:gale_pill",
+      "ingredients": [
+        "wuxingxiantu:gale_grass",
+        "wuxingxiantu:spirit_sprout_grass",
+        "minecraft:feather",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_gathering_pill_high",
+      "formula": "wuxingxiantu:gathering_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:spirit_sprout_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_gathering_pill_low",
+      "formula": "wuxingxiantu:gathering_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:spirit_sprout_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_gathering_pill_mid",
+      "formula": "wuxingxiantu:gathering_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:spirit_sprout_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_gathering_pill_perfect",
+      "formula": "wuxingxiantu:gathering_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:spirit_sprout_grass",
+        "minecraft:lapis_lazuli"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_golden_wound_pill_high",
+      "formula": "wuxingxiantu:golden_wound_pill",
+      "ingredients": [
+        "wuxingxiantu:dew_drop_flower",
+        "wuxingxiantu:spirit_sprout_grass",
+        "minecraft:glistering_melon_slice",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_golden_wound_pill_low",
+      "formula": "wuxingxiantu:golden_wound_pill",
+      "ingredients": [
+        "wuxingxiantu:dew_drop_flower",
+        "wuxingxiantu:spirit_sprout_grass",
+        "minecraft:glistering_melon_slice"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_golden_wound_pill_mid",
+      "formula": "wuxingxiantu:golden_wound_pill",
+      "ingredients": [
+        "wuxingxiantu:dew_drop_flower",
+        "wuxingxiantu:spirit_sprout_grass",
+        "minecraft:glistering_melon_slice"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_golden_wound_pill_perfect",
+      "formula": "wuxingxiantu:golden_wound_pill",
+      "ingredients": [
+        "wuxingxiantu:dew_drop_flower",
+        "wuxingxiantu:spirit_sprout_grass",
+        "minecraft:glistering_melon_slice",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_king_blood_guard",
+      "formula": "wuxingxiantu:diamond_body_pill",
+      "ingredients": [
+        "wuxingxiantu:adamantine_vine",
+        "wuxingxiantu:red_sun_grass",
+        "wuxingxiantu:beast_blood",
+        "minecraft:iron_ingot"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_physique_reset_pill_high",
+      "formula": "wuxingxiantu:physique_reset_pill",
+      "ingredients": [
+        "wuxingxiantu:dragon_scale_grass",
+        "wuxingxiantu:adamantine_vine",
+        "wuxingxiantu:blood_spirit_flower",
+        "wuxingxiantu:vein_mending_vine",
+        "minecraft:ghast_tear",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_physique_reset_pill_low",
+      "formula": "wuxingxiantu:physique_reset_pill",
+      "ingredients": [
+        "wuxingxiantu:dragon_scale_grass",
+        "wuxingxiantu:adamantine_vine",
+        "wuxingxiantu:blood_spirit_flower",
+        "wuxingxiantu:vein_mending_vine",
+        "minecraft:ghast_tear"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_physique_reset_pill_mid",
+      "formula": "wuxingxiantu:physique_reset_pill",
+      "ingredients": [
+        "wuxingxiantu:dragon_scale_grass",
+        "wuxingxiantu:adamantine_vine",
+        "wuxingxiantu:blood_spirit_flower",
+        "wuxingxiantu:vein_mending_vine",
+        "minecraft:ghast_tear"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_physique_reset_pill_perfect",
+      "formula": "wuxingxiantu:physique_reset_pill",
+      "ingredients": [
+        "wuxingxiantu:dragon_scale_grass",
+        "wuxingxiantu:adamantine_vine",
+        "wuxingxiantu:blood_spirit_flower",
+        "wuxingxiantu:vein_mending_vine",
+        "minecraft:ghast_tear",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_profound_water_pill_high",
+      "formula": "wuxingxiantu:profound_water_pill",
+      "ingredients": [
+        "wuxingxiantu:dark_water_weed",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:prismarine_crystals",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_profound_water_pill_low",
+      "formula": "wuxingxiantu:profound_water_pill",
+      "ingredients": [
+        "wuxingxiantu:dark_water_weed",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:prismarine_crystals"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_profound_water_pill_mid",
+      "formula": "wuxingxiantu:profound_water_pill",
+      "ingredients": [
+        "wuxingxiantu:dark_water_weed",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:prismarine_crystals"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_profound_water_pill_perfect",
+      "formula": "wuxingxiantu:profound_water_pill",
+      "ingredients": [
+        "wuxingxiantu:dark_water_weed",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:prismarine_crystals",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_earth_high",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:vein_mending_vine"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_earth_low",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:vein_mending_vine"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_earth_mid",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:vein_mending_vine"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_earth_perfect",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:vein_mending_vine"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_fire_high",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:red_sun_grass"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_fire_low",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:red_sun_grass"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_fire_mid",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:red_sun_grass"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_fire_perfect",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:red_sun_grass"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_gold_high",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:adamantine_vine"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_gold_low",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:adamantine_vine"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_gold_mid",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:adamantine_vine"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_gold_perfect",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:adamantine_vine"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_water_high",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:dark_water_weed"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_water_low",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:dark_water_weed"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_water_mid",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:dark_water_weed"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_water_perfect",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:dark_water_weed"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_wood_high",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:gale_grass"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_wood_low",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:gale_grass"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_wood_mid",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:gale_grass"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_root_wood_perfect",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:gale_grass"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_tribulation_pill_high",
+      "formula": "wuxingxiantu:tribulation_pill",
+      "ingredients": [
+        "wuxingxiantu:thunder_vein_grass",
+        "wuxingxiantu:adamantine_vine",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:quartz",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_tribulation_pill_low",
+      "formula": "wuxingxiantu:tribulation_pill",
+      "ingredients": [
+        "wuxingxiantu:thunder_vein_grass",
+        "wuxingxiantu:adamantine_vine",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:quartz"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_tribulation_pill_mid",
+      "formula": "wuxingxiantu:tribulation_pill",
+      "ingredients": [
+        "wuxingxiantu:thunder_vein_grass",
+        "wuxingxiantu:adamantine_vine",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:quartz"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:alchemy_tribulation_pill_perfect",
+      "formula": "wuxingxiantu:tribulation_pill",
+      "ingredients": [
+        "wuxingxiantu:thunder_vein_grass",
+        "wuxingxiantu:adamantine_vine",
+        "wuxingxiantu:clear_heart_lotus",
+        "minecraft:quartz",
+        "wuxingxiantu:spirit_ginseng"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:breakthrough_pill_high",
+      "formula": "wuxingxiantu:breakthrough_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:vein_mending_vine",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:amethyst_shard"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:breakthrough_pill_low",
+      "formula": "wuxingxiantu:breakthrough_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:vein_mending_vine",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:amethyst_shard"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:breakthrough_pill_mid",
+      "formula": "wuxingxiantu:breakthrough_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:vein_mending_vine",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:amethyst_shard"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:breakthrough_pill_perfect",
+      "formula": "wuxingxiantu:breakthrough_pill",
+      "ingredients": [
+        "wuxingxiantu:spirit_ginseng",
+        "wuxingxiantu:vein_mending_vine",
+        "wuxingxiantu:red_sun_grass",
+        "minecraft:amethyst_shard",
+        "wuxingxiantu:dragon_scale_grass"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_barrier_preparation_pill_tier_1",
+      "formula": "wuxingxiantu:barrier_preparation_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_pozhang",
+        "wuxingxiantu:herb_pozhang",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_barrier_preparation_pill_tier_2",
+      "formula": "wuxingxiantu:barrier_preparation_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_pozhang",
+        "wuxingxiantu:herb_pozhang",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_barrier_preparation_pill_tier_3",
+      "formula": "wuxingxiantu:barrier_preparation_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_pozhang",
+        "wuxingxiantu:herb_pozhang",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_barrier_preparation_pill_tier_4",
+      "formula": "wuxingxiantu:barrier_preparation_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_pozhang",
+        "wuxingxiantu:herb_xingchen",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_barrier_preparation_pill_tier_5",
+      "formula": "wuxingxiantu:barrier_preparation_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_pozhang",
+        "wuxingxiantu:herb_xingchen",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_gather_qi_pill_tier_1",
+      "formula": "wuxingxiantu:gather_qi_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_juling",
+        "wuxingxiantu:herb_juling",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_gather_qi_pill_tier_2",
+      "formula": "wuxingxiantu:gather_qi_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_juling",
+        "wuxingxiantu:herb_juling",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_gather_qi_pill_tier_3",
+      "formula": "wuxingxiantu:gather_qi_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_juling",
+        "wuxingxiantu:herb_juling",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_gather_qi_pill_tier_4",
+      "formula": "wuxingxiantu:gather_qi_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_juling",
+        "wuxingxiantu:herb_xingchen",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_gather_qi_pill_tier_5",
+      "formula": "wuxingxiantu:gather_qi_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_juling",
+        "wuxingxiantu:herb_xingchen",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_meridian_expansion_pill_tier_1",
+      "formula": "wuxingxiantu:meridian_expansion_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_xisui",
+        "wuxingxiantu:herb_xisui",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_meridian_expansion_pill_tier_2",
+      "formula": "wuxingxiantu:meridian_expansion_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_xisui",
+        "wuxingxiantu:herb_xisui",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_meridian_expansion_pill_tier_3",
+      "formula": "wuxingxiantu:meridian_expansion_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_xisui",
+        "wuxingxiantu:herb_xisui",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_meridian_expansion_pill_tier_4",
+      "formula": "wuxingxiantu:meridian_expansion_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_xisui",
+        "wuxingxiantu:herb_xingchen",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_meridian_expansion_pill_tier_5",
+      "formula": "wuxingxiantu:meridian_expansion_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_xisui",
+        "wuxingxiantu:herb_xingchen",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_origin_condensing_pill_tier_1",
+      "formula": "wuxingxiantu:origin_condensing_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_huayuan",
+        "wuxingxiantu:herb_huayuan",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_origin_condensing_pill_tier_2",
+      "formula": "wuxingxiantu:origin_condensing_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_huayuan",
+        "wuxingxiantu:herb_huayuan",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_origin_condensing_pill_tier_3",
+      "formula": "wuxingxiantu:origin_condensing_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_huayuan",
+        "wuxingxiantu:herb_huayuan",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_origin_condensing_pill_tier_4",
+      "formula": "wuxingxiantu:origin_condensing_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_huayuan",
+        "wuxingxiantu:herb_xingchen",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_origin_condensing_pill_tier_5",
+      "formula": "wuxingxiantu:origin_condensing_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_huayuan",
+        "wuxingxiantu:herb_xingchen",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_rejuvenation_pill_tier_1",
+      "formula": "wuxingxiantu:rejuvenation_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_huichun",
+        "wuxingxiantu:herb_huichun",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_rejuvenation_pill_tier_2",
+      "formula": "wuxingxiantu:rejuvenation_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_huichun",
+        "wuxingxiantu:herb_huichun",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_rejuvenation_pill_tier_3",
+      "formula": "wuxingxiantu:rejuvenation_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_huichun",
+        "wuxingxiantu:herb_huichun",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_rejuvenation_pill_tier_4",
+      "formula": "wuxingxiantu:rejuvenation_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_huichun",
+        "wuxingxiantu:herb_xingchen",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    },
+    {
+      "id": "wuxingxiantu:myriad_rejuvenation_pill_tier_5",
+      "formula": "wuxingxiantu:rejuvenation_pill",
+      "ingredients": [
+        "wuxingxiantu:herb_huichun",
+        "wuxingxiantu:herb_xingchen",
+        "wuxingxiantu:dew_drop_flower"
+      ]
+    }
+  ],
+  "templates": [
+    {
+      "id": "healing_intro",
+      "formula": "wuxingxiantu:golden_wound_pill",
+      "module": "heal"
+    },
+    {
+      "id": "mana_intro",
+      "formula": "wuxingxiantu:aura_pill",
+      "module": "mana"
+    },
+    {
+      "id": "cleanse_intro",
+      "formula": "wuxingxiantu:clear_heart_pill",
+      "module": "cleanse"
+    },
+    {
+      "id": "catalog_bigu_pill",
+      "formula": "wuxingxiantu:bigu_pill",
+      "module": "bigu"
+    },
+    {
+      "id": "catalog_gathering_pill",
+      "formula": "wuxingxiantu:gathering_pill",
+      "module": "gathering"
+    },
+    {
+      "id": "catalog_foundation_pill",
+      "formula": "wuxingxiantu:foundation_pill",
+      "module": "root_random"
+    },
+    {
+      "id": "catalog_continue_vein_pill",
+      "formula": "wuxingxiantu:continue_vein_pill",
+      "module": "meridian_repair"
+    },
+    {
+      "id": "catalog_diamond_body_pill",
+      "formula": "wuxingxiantu:diamond_body_pill",
+      "module": "shield"
+    },
+    {
+      "id": "catalog_berserk_pill",
+      "formula": "wuxingxiantu:berserk_pill",
+      "module": "strength"
+    },
+    {
+      "id": "catalog_gale_pill",
+      "formula": "wuxingxiantu:gale_pill",
+      "module": "speed"
+    },
+    {
+      "id": "catalog_profound_water_pill",
+      "formula": "wuxingxiantu:profound_water_pill",
+      "module": "water_breathing"
+    },
+    {
+      "id": "catalog_cultivation_pill",
+      "formula": "wuxingxiantu:cultivation_pill",
+      "module": "cultivation"
+    },
+    {
+      "id": "catalog_breakthrough_pill",
+      "formula": "wuxingxiantu:breakthrough_pill",
+      "module": "minor_breakthrough"
+    },
+    {
+      "id": "catalog_tribulation_pill",
+      "formula": "wuxingxiantu:tribulation_pill",
+      "module": "tribulation"
+    },
+    {
+      "id": "catalog_calming_pill",
+      "formula": "wuxingxiantu:calming_pill",
+      "module": "calming"
+    },
+    {
+      "id": "catalog_root_awakening_pill",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "module": "root_metal"
+    },
+    {
+      "id": "catalog_physique_reset_pill",
+      "formula": "wuxingxiantu:physique_reset_pill",
+      "module": "physique_reset"
+    },
+    {
+      "id": "catalog_gather_qi_pill",
+      "formula": "wuxingxiantu:gather_qi_pill",
+      "module": "mana_regeneration"
+    },
+    {
+      "id": "catalog_origin_condensing_pill",
+      "formula": "wuxingxiantu:origin_condensing_pill",
+      "module": "origin_reserve"
+    },
+    {
+      "id": "catalog_meridian_expansion_pill",
+      "formula": "wuxingxiantu:meridian_expansion_pill",
+      "module": "meridian_expansion"
+    },
+    {
+      "id": "catalog_barrier_preparation_pill",
+      "formula": "wuxingxiantu:barrier_preparation_pill",
+      "module": "barrier_preparation"
+    },
+    {
+      "id": "catalog_rejuvenation_pill",
+      "formula": "wuxingxiantu:rejuvenation_pill",
+      "module": "regeneration"
+    },
+    {
+      "id": "catalog_root_wood",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "module": "root_wood"
+    },
+    {
+      "id": "catalog_root_water",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "module": "root_water"
+    },
+    {
+      "id": "catalog_root_fire",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "module": "root_fire"
+    },
+    {
+      "id": "catalog_root_earth",
+      "formula": "wuxingxiantu:root_awakening_pill",
+      "module": "root_earth"
+    }
+  ],
+  "referenceP50Micros": 923,
+  "referenceP95Micros": 1223,
+  "referenceP99Micros": 1727,
+  "errors": [],
+  "passed": true,
+  "herbCount": 32,
+  "nonHerbalCount": 15,
+  "recipeCount": 140,
+  "pillCount": 22,
+  "templateCount": 26,
+  "reactionCount": 95,
+  "moduleCount": 38,
+  "elapsedMillis": 11252
+}

@@ -27,7 +27,8 @@ public final class ExtendedPillEffects {
             case meridian_repair->d.wuxingxiantu$getMeridianStatus()!=0||p.hasEffect(MobEffects.WEAKNESS)||p.hasEffect(ModEffects.MERIDIAN_DAMAGED.get())||p.hasEffect(ModEffects.MERIDIAN_SHATTERED.get());
             case calming->{var next=MindscapeProgression.chooseNext(p);yield !d.wuxingxiantu$isDaoHeartUnstable()&&p.level().dimension()!=MindscapeManager.DIMENSION&&!d.wuxingxiantu$getMindscapeData().hasUUID("session")&&(next!=null&&next.requiredRealm()<=d.wuxingxiantu$getRealm()||d.wuxingxiantu$getMindscapeData().getBoolean("final_completed"));}
             case root_random->{boolean useful=false;for(int i=0;i<5;i++)useful|=d.wuxingxiantu$getRootQuality(i)<e.magnitudeMilli()/1000;yield useful;}
-            case physique_reset,creation_blessing,frost_strike,flame_strike,venom_strike->true;
+            case physique_reset,frost_strike,flame_strike,venom_strike->true;
+            case creation_blessing->((CreationPillItem)WuXingItems.CREATION_PILL.get()).canBenefit(p,d);
             case nutrition->p.getFoodData().getFoodLevel()<20||p.getFoodData().getSaturationLevel()<20;
             case deep_cleanse->List.of(MobEffects.POISON,MobEffects.CONFUSION,MobEffects.HUNGER,MobEffects.WITHER,MobEffects.MOVEMENT_SLOWDOWN,MobEffects.DIG_SLOWDOWN,MobEffects.WEAKNESS,MobEffects.BLINDNESS).stream().anyMatch(p::hasEffect);
             case mana_regeneration->!PillRuntime.activeManaRegeneration(p);

@@ -1,16 +1,16 @@
 # 换电脑接续：自由炼丹V5
 
-仓库：https://github.com/thezinecraftm-rgb/Myriad-Ascension.git，默认分支 main。先读根 AGENTS.md，检查分支/远程/未提交修改，fetch 后安全同步最新 main，再开功能分支。不能直接覆盖已有工作；不要使用 reset --hard 或强推。
+仓库：https://github.com/hbyaing/Myriad-Ascension.git，默认分支 main。先读根 AGENTS.md，检查分支/远程/未提交修改，fetch 后安全同步最新 main，最终合并上传main。不能直接覆盖已有工作；不要使用 reset --hard 或强推。
 
 ## 当前进度
 
 - 第01项规范/基线完成；第02项实际原料观察面板完成，完整V5面板待后续。
 - 第03项纯反应核心完成：提交 `2a11c5e`，PR47已合并，合并提交 `b65be8051d1f477ac64fae2565001bd2643f7463`。
-- 第04项已实现真实输入、环境/异火轨迹、药材去品阶与创造模板规则、基础蕴月瓶；验证和限制见 docs/testing/ALCHEMY_V5_INPUTS_20261027.md。第05项进度见文末；第06项进度见文末；第07项进度见文末；08至13项尚未完成。
+- 第04项已实现真实输入、环境/异火轨迹、药材去品阶与创造模板规则、基础蕴月瓶；验证和限制见 docs/testing/ALCHEMY_V5_INPUTS_20261027.md。第05项进度见文末；第06项进度见文末；第07项进度见文末；08至11已完成各项切片；12继续统一迁移与全目录覆盖，13仍待制作。
 - 第05项已将普通实体炉自由模式接入V5；固定丹方/天地为炉等待08统一。不要把工作台、纯核心或专服核心夹具当成实际炼丹接入。
 
 最新设计：[DESIGN_V5_0_R1.txt](../specifications/alchemy-v5/DESIGN_V5_0_R1.txt)，包含原稿全文和本次追加修订，原始V5.0单独保留。SHA256（Git仓库LF字节，换机校验先统一LF） `8350e80da997b007f2c101adca774847ec43fbdd79b86c926c65afcea3e91e39`。
-制作及新增子任务：[ALCHEMY_V5_CHECKLIST.md](ALCHEMY_V5_CHECKLIST.md)。旧物品具体折算仍仅有审阅方案，未批准，不执行破坏性转换。
+制作及新增子任务：[ALCHEMY_V5_CHECKLIST.md](ALCHEMY_V5_CHECKLIST.md)。用户2026-10-29已批准全部旧丹迁入V5、删除阶级并用一至九品；现行协议见 docs/testing/ALCHEMY_V5_MIGRATION_20261029.md，原始数据须保留备份。
 
 ## 本次新增设计要点
 
@@ -74,3 +74,10 @@ V2已获明确批准并实装新工作方块/菜单/六页界面，真实基础�
 ## 2026-10-29 第11项接续
 
 当前唯一上传目标 https://github.com/hbyaing/Myriad-Ascension 的main，按AGENTS安全同步后直接提交主线。第11项及炉体跨区块形状越界修复见 docs/testing/ALCHEMY_V5_CERTIFICATION_20261029.md。认证使用既有PlayerCrafts账户和同一BatchJournal权威凭证扩展，网络104。不要把旧Rank/XP折算成新认证，不要给旧药材补造新来源。12迁移全量覆盖、13完整兼容/故障验收仍待做。最终测试、客户端重启与正式包校验见该规格和对应evidence目录。
+
+
+## 2026-10-29 第12项完成接续
+
+旧丹统一V5一至九品，不再保留并行旧丹结算。读 docs/testing/ALCHEMY_V5_MIGRATION_20261029.md 及 evidence/alchemy-migration-20261029/validation.json。网络105；旧V5效果策略1和输入schema1继续按冻结定义读取，新规则不回灌旧成丹。全目录与680映射、475项完整专服、12项隔离迁移专项、后台独立客户端重启与实际消费通过，捕获违规0。
+
+生产包SHA256 `5cda7c09908d8ff75f9f888d72342708ec898752bee35567cc36fcdb69da3274`，已安装到 E:/我的世界/PCL 正式版 2.10.9/.minecraft/versions/1.20.1-Forge_47.4.26/mods；其他7个模组JAR哈希未变，需重启加载。QA类与迁移测试资源均不在正式包内。主线仍为 hbyaing/Myriad-Ascension 的main；39fbddf是本项提前上传的开发检查点，最终状态见包含本记录的提交。下一项13尚未开始。

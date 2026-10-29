@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "serverGameTests": 475,
+  "migrationOnlyTests": 12,
+  "pureCoreChecks": 388,
+  "referenceSimulations": 13824,
+  "legacyMappings": 680,
+  "clientScreenshots": 15,
+  "independentDetailCrops": 10,
+  "clientCaptureViolations": 0,
+  "clientRestartPassed": true,
+  "adminNoBenefitPassed": true,
+  "networkProtocol": 105,
+  "jarSha256": "5cda7c09908d8ff75f9f888d72342708ec898752bee35567cc36fcdb69da3274",
+  "installation": "installed_on_disk_restart_required",
+  "otherJarsUnchanged": 7,
+  "gameTestNamespace": "wuxingxiantu_alchemymigration",
+  "commands": [
+    "gradlew verifyFull --offline -PpythonExecutable=<Python3>",
+    "gradlew runGameTestServer -PalchemyMigrationOnly --offline",
+    "gradlew runClient -Pv5BatchCapture -Pv5MigrationCapture --offline",
+    "gradlew runClient -Pv5BatchCapture -Pv5MigrationCapture -Pv5BatchResume --offline"
+  ],
+  "pending": "Step 13 multiplayer, optional JEI, external shaders, natural full-night and extreme fault/rollback combinations."
+}

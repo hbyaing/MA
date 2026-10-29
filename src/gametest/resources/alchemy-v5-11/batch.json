@@ -1,0 +1,1056 @@
+{
+  "schema": 1,
+  "openingFuel": 10,
+  "phaseSteps": [
+    3,
+    6,
+    3,
+    3,
+    3,
+    3
+  ],
+  "rules": {
+    "schema": 1,
+    "version": "furnace-effects-3",
+    "limits": {
+      "maxRules": 64,
+      "maxExtent": 1000000,
+      "maxSteps": 1024,
+      "maxEvents": 1024,
+      "maxStockUnits": 1000000000,
+      "maxExternalPerEvent": 1000000000,
+      "heatCapacity": 10,
+      "coolingDivisor": 20,
+      "damageTemperature": 8,
+      "maximumDamage": 1200,
+      "burstPressure": 3000,
+      "controlNoise": 0
+    },
+    "resources": [
+      {
+        "id": "herb_inert",
+        "mass": 1,
+        "potential": 0,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "moon_essence",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_jin",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_jin",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_ling",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_ling",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_mu",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_mu",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_shui",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_shui",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_huo",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_huo",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_tu",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_tu",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_feng",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_feng",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_lei",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_lei",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_yin",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_yin",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_yang",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_yang",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_han",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_han",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_xue",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_xue",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_long",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_long",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_xing",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_xing",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_you",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_you",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_tiaohe",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_tiaohe",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_ziyang",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_ziyang",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_huifu",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_huifu",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_qingjing",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_qingjing",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_shenhun",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_shenhun",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_juqi",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_juqi",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_xiulian",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_xiulian",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_shengji",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_shengji",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_jingmai",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_jingmai",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_qixue",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_qixue",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_lianti",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_lianti",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_jianren",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_jianren",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_shenfa",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_shenfa",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_cuilian",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_cuilian",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_du",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_du",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_huan",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_huan",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_yun",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_yun",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "herb_fengrao",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "extract_fengrao",
+        "mass": 1,
+        "potential": 1,
+        "gas": 1,
+        "destination": "ACTIVE"
+      },
+      {
+        "id": "v5_bound_pill",
+        "mass": 1,
+        "potential": 1,
+        "gas": 0,
+        "destination": "PILL"
+      }
+    ],
+    "reactions": [
+      {
+        "id": "extract_jin",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_jin": 1
+        },
+        "produce": {
+          "extract_jin": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_ling",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_ling": 1
+        },
+        "produce": {
+          "extract_ling": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_mu",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_mu": 1
+        },
+        "produce": {
+          "extract_mu": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_shui",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_shui": 1
+        },
+        "produce": {
+          "extract_shui": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_huo",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_huo": 1
+        },
+        "produce": {
+          "extract_huo": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_tu",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_tu": 1
+        },
+        "produce": {
+          "extract_tu": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_feng",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_feng": 1
+        },
+        "produce": {
+          "extract_feng": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_lei",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_lei": 1
+        },
+        "produce": {
+          "extract_lei": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_yin",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_yin": 1
+        },
+        "produce": {
+          "extract_yin": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_yang",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_yang": 1
+        },
+        "produce": {
+          "extract_yang": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_han",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_han": 1
+        },
+        "produce": {
+          "extract_han": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_xue",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_xue": 1
+        },
+        "produce": {
+          "extract_xue": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_long",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_long": 1
+        },
+        "produce": {
+          "extract_long": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_xing",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_xing": 1
+        },
+        "produce": {
+          "extract_xing": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_you",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_you": 1
+        },
+        "produce": {
+          "extract_you": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_tiaohe",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_tiaohe": 1
+        },
+        "produce": {
+          "extract_tiaohe": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_ziyang",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_ziyang": 1
+        },
+        "produce": {
+          "extract_ziyang": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_huifu",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_huifu": 1
+        },
+        "produce": {
+          "extract_huifu": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_qingjing",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_qingjing": 1
+        },
+        "produce": {
+          "extract_qingjing": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_shenhun",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_shenhun": 1
+        },
+        "produce": {
+          "extract_shenhun": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_juqi",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_juqi": 1
+        },
+        "produce": {
+          "extract_juqi": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_xiulian",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_xiulian": 1
+        },
+        "produce": {
+          "extract_xiulian": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_shengji",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_shengji": 1
+        },
+        "produce": {
+          "extract_shengji": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_jingmai",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_jingmai": 1
+        },
+        "produce": {
+          "extract_jingmai": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_qixue",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_qixue": 1
+        },
+        "produce": {
+          "extract_qixue": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_lianti",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_lianti": 1
+        },
+        "produce": {
+          "extract_lianti": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_jianren",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_jianren": 1
+        },
+        "produce": {
+          "extract_jianren": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_shenfa",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_shenfa": 1
+        },
+        "produce": {
+          "extract_shenfa": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_cuilian",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_cuilian": 1
+        },
+        "produce": {
+          "extract_cuilian": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_du",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_du": 1
+        },
+        "produce": {
+          "extract_du": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_huan",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_huan": 1
+        },
+        "produce": {
+          "extract_huan": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_yun",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_yun": 1
+        },
+        "produce": {
+          "extract_yun": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      },
+      {
+        "id": "extract_fengrao",
+        "priority": 0,
+        "phase": "EXTRACTION",
+        "consume": {
+          "herb_fengrao": 1
+        },
+        "produce": {
+          "extract_fengrao": 1
+        },
+        "maximumExtent": 1000,
+        "energyCost": 1,
+        "authorizedPotential": 0,
+        "holdSteps": 1,
+        "windows": []
+      }
+    ]
+  },
+  "incidents": {
+    "schema": 1,
+    "warningPercent": 50,
+    "structureFailure": 1000,
+    "structureLoss": 200,
+    "moonLoss": 60,
+    "warmFuel": 1,
+    "warmMoon": 1,
+    "ventDivisor": 4,
+    "minimumCondensedPotential": 1
+  }
+}

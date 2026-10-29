@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "productionInterface": "AlchemyScreen 420x320, existing approved art",
+  "states": [
+    "normal",
+    "recipe-hover",
+    "keyboard-focus",
+    "missing-ingredients-disabled"
+  ],
+  "guiScales": [
+    2,
+    3,
+    4
+  ],
+  "independentCrops": [
+    "top-left",
+    "top-right",
+    "bottom-left",
+    "bottom-right",
+    "recipe-list",
+    "title",
+    "top-edge",
+    "bottom-edge",
+    "left-edge",
+    "right-edge"
+  ],
+  "review": "Screens and independent crops visually inspected. Golden custom controls retained; no old medicinal tier or quality in migrated pill tooltip. Capture timing corrected before these final images.",
+  "webPreview": "Unified launcher HTTP served migration note and measured summary; webpage remains a demonstration."
+}

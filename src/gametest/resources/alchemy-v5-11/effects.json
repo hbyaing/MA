@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "version": "v5-effects/1",
+  "massPerPill": 40,
+  "maxYield": 64,
+  "modules": [
+    {
+      "id": "heal",
+      "sources": [
+        "extract_mu",
+        "extract_huifu",
+        "extract_shengji",
+        "extract_qixue",
+        "extract_xue"
+      ],
+      "maxMilli": 8000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 5000,
+      "cooldownTicks": 60,
+      "minRealm": 0,
+      "activationPpm": 0
+    },
+    {
+      "id": "mana",
+      "sources": [
+        "extract_ling",
+        "extract_juqi"
+      ],
+      "maxMilli": 40000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 60,
+      "minRealm": 0,
+      "activationPpm": 0
+    },
+    {
+      "id": "regeneration",
+      "sources": [
+        "extract_ziyang"
+      ],
+      "maxMilli": 1000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 5000,
+      "cooldownTicks": 100,
+      "minRealm": 0,
+      "activationPpm": 0
+    },
+    {
+      "id": "speed",
+      "sources": [
+        "extract_feng",
+        "extract_shenfa"
+      ],
+      "maxMilli": 250,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 10000,
+      "cooldownTicks": 100,
+      "minRealm": 0,
+      "activationPpm": 0
+    },
+    {
+      "id": "resistance",
+      "sources": [
+        "extract_tu",
+        "extract_jianren",
+        "extract_lianti"
+      ],
+      "maxMilli": 2000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 3000,
+      "cooldownTicks": 100,
+      "minRealm": 1,
+      "activationPpm": 200000
+    },
+    {
+      "id": "shield",
+      "sources": [
+        "extract_jin",
+        "extract_cuilian"
+      ],
+      "maxMilli": 8000,
+      "durationTicks": 200,
+      "intervalTicks": 20,
+      "costMilli": 500,
+      "cooldownTicks": 100,
+      "minRealm": 1,
+      "activationPpm": 200000
+    },
+    {
+      "id": "cleanse",
+      "sources": [
+        "extract_qingjing"
+      ],
+      "maxMilli": 1000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 10000,
+      "cooldownTicks": 100,
+      "minRealm": 0,
+      "activationPpm": 200000
+    },
+    {
+      "id": "cultivation",
+      "sources": [
+        "extract_xiulian",
+        "extract_shenhun"
+      ],
+      "maxMilli": 10000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 1000,
+      "cooldownTicks": 100,
+      "minRealm": 0,
+      "activationPpm": 100000
+    },
+    {
+      "id": "minor_breakthrough",
+      "sources": [
+        "extract_jingmai"
+      ],
+      "maxMilli": 1000,
+      "durationTicks": 0,
+      "intervalTicks": 20,
+      "costMilli": 40000,
+      "cooldownTicks": 200,
+      "minRealm": 0,
+      "activationPpm": 800000
+    }
+  ]
+}

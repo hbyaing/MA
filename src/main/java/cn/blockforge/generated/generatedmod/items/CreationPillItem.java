@@ -37,12 +37,12 @@ public final class CreationPillItem extends BasePillItem {
     }
 
     public boolean grant(Player player,CultivationData data){return applyEffect(player,data);}
+    public boolean canBenefit(Player player,CultivationData data){return !isFullyEnlightened(player,data)||!data.wuxingxiantu$hasCreationBlessing()||data.wuxingxiantu$getCurrentMana()<CultivationLogic.maxAura(data);}
 
     @Override
     protected boolean applyEffect(Player player, CultivationData data) {
         // 满配但灵力不足时，仍允许服用以补满灵力；只有确实没有任何收益时才拒绝。
-        if (isFullyEnlightened(player, data) && data.wuxingxiantu$hasCreationBlessing()
-                && data.wuxingxiantu$getCurrentMana() >= CultivationLogic.maxAura(data)) {
+        if (!canBenefit(player,data)) {
             player.displayClientMessage(
                     Component.translatable("message.wuxingxiantu.creation_pill_no_change"), true);
             return false;
@@ -159,7 +159,7 @@ public final class CreationPillItem extends BasePillItem {
         if (data.wuxingxiantu$getRealm() != MAX_REALM || data.wuxingxiantu$getCultivationStage() != MAX_STAGE) return false;
         if (data.wuxingxiantu$getCultivation() < CultivationLogic.breakthroughRequirement(data)) return false;
         for (ArtCatalog.Entry entry : ArtCatalog.ENTRIES) {
-            if (!data.wuxingxiantu$hasLearnedArt(entry.id())) return false;
+            if (cn.blockforge.generated.generatedmod.yujian.SwordTechniqueRegistry.isTechnique(entry.id()) ? !data.wuxingxiantu$knowsSwordTechnique(entry.id()) : !data.wuxingxiantu$hasLearnedArt(entry.id())) return false;
             if (data.wuxingxiantu$getArtMastery(entry.id()) < MAX_MASTERY) return false;
         }
         for (String id : DivineArtCatalog.ids()) if (!data.wuxingxiantu$hasLearnedDivineArt(id)) return false;
@@ -170,7 +170,7 @@ public final class CreationPillItem extends BasePillItem {
         for (int i = 0; i < 5; i++) if (data.wuxingxiantu$getRootQuality(i) < MAX_ROOT_QUALITY) return false;
         if (data.wuxingxiantu$getMerit() != Long.MAX_VALUE
                 || data.wuxingxiantu$getYinShenPurity() < 100) return false;
-        if(!java.util.Arrays.asList(data.wuxingxiantu$getPossessedForms()).containsAll(cn.blockforge.generated.generatedmod.boss.combat.BossPlayerSkills.FORMS))return false;
+        if(!java.util.Arrays.asList(data.wuxingxiantu$getPossessedForms()).containsAll(cn.blockforge.generated.generatedmod.boss.combat.BossPlayerSkills.FORMS.stream().filter(TransformAbilityRegistry::isValidFormId).toList()))return false;
         long now = player.level().getGameTime();
         for (String id : DivineArtCatalog.ids()) if (data.wuxingxiantu$getDivineCooldown(id) > now) return false;
         for (int slot = 0; slot < 8; slot++) if (data.wuxingxiantu$getArtCooldown(slot) > now) return false;

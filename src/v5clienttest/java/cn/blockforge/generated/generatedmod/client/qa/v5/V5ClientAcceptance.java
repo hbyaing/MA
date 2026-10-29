@@ -39,6 +39,7 @@ public final class V5ClientAcceptance {
     private static JsonObject control;
     private static CompoundTag ready;
     private static final List<String> captures=new ArrayList<>();
+    @SubscribeEvent public static void screen(net.minecraftforge.client.event.ScreenEvent.Render.Post event){if(Boolean.getBoolean("wuxingxiantu.v5Migration"))AlchemyMigrationAcceptance.decorate(event);}
     @SubscribeEvent public static void render(TickEvent.RenderTickEvent event){
         if(event.phase!=TickEvent.Phase.END)return;var mc=Minecraft.getInstance();frames++;
         GLFW.glfwHideWindow(mc.getWindow().getWindow());

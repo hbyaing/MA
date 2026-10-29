@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "kind": "registered-catalog-and-reference-simulation",
+  "inputHash": "5b14377f20eb3694c42f371be0ed74c95a6c22b98fa19b2baac481dc04055639",
+  "policyHash": "05a0204211954d4bd747ce6061b4ba7cf33d4ad46defb8f4e2ac0e7d76373ce6",
+  "referenceP50Micros": 923,
+  "referenceP95Micros": 1223,
+  "referenceP99Micros": 1727,
+  "passed": true,
+  "herbCount": 32,
+  "nonHerbalCount": 15,
+  "recipeCount": 140,
+  "pillCount": 22,
+  "templateCount": 26,
+  "reactionCount": 95,
+  "moduleCount": 38,
+  "elapsedMillis": 11252,
+  "simulationCount": 13824,
+  "importMappingCount": 680,
+  "gradeDistribution": {
+    "0": 5748,
+    "4": 84,
+    "5": 634,
+    "6": 3412,
+    "7": 1406,
+    "8": 1892,
+    "9": 648
+  },
+  "boundary": "Reference simulation, not player outcome probability or certification evidence."
+}
