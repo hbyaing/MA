@@ -11,7 +11,7 @@
 ![Java 17](https://img.shields.io/badge/Java-17-537e91?style=flat-square)
 ![开发进度快照](https://img.shields.io/badge/阶段-开发进度快照-9a6c48?style=flat-square)
 
-[源码入口](https://github.com/hbyaing/Myriad-Ascension/tree/main) · [下载与恢复](https://github.com/hbyaing/Myriad-Ascension/releases) · [融合进度](https://github.com/hbyaing/Myriad-Ascension/blob/main/docs/integration/CHECKLIST-16.md) · [反馈问题](https://github.com/hbyaing/Myriad-Ascension/issues)
+[源码入口](https://github.com/hbyaing/MA/tree/main) · [下载与恢复](https://github.com/hbyaing/MA/releases) · [融合进度](https://github.com/hbyaing/MA/blob/main/docs/integration/CHECKLIST-16.md) · [反馈问题](https://github.com/hbyaing/MA/issues)
 
 </div>
 
@@ -47,7 +47,7 @@
 
 历史测试结果只对应报告中的固定代码阶段，**不代表其后的所有改动已通过同一轮验证**。近期界面改动已编译打包，实机体验由测试反馈继续完善。
 
-[查看完整 16 项清单 →](https://github.com/hbyaing/Myriad-Ascension/blob/main/docs/integration/CHECKLIST-16.md)
+[查看完整 16 项清单 →](https://github.com/hbyaing/MA/blob/main/docs/integration/CHECKLIST-16.md)
 
 ## 炼丹 V5 最新进展（2026-10-28）
 
@@ -59,15 +59,15 @@
 
 ### 想体验游戏
 
-新仓库目前以源码恢复为主，旧仓库的 Release 页面与附件不会随 Git 提交自动迁移。可按下方步骤自行构建；后续游戏包请前往 [Releases](https://github.com/hbyaing/Myriad-Ascension/releases) 查看附件类型、版本和依赖说明。**恢复 bundle、交接 ZIP 与可安装 JAR 用途不同**；客户端与服务端应使用相同版本。当前下载内容仍按开发快照对待。
+新仓库目前以源码恢复为主，旧仓库的 Release 页面与附件不会随 Git 提交自动迁移。可按下方步骤自行构建；后续游戏包请前往 [Releases](https://github.com/hbyaing/MA/releases) 查看附件类型、版本和依赖说明。**恢复 bundle、交接 ZIP 与可安装 JAR 用途不同**；客户端与服务端应使用相同版本。当前下载内容仍按开发快照对待。
 
 ### 想阅读或参与开发
 
 默认分支包含当前整合源码与近期背包、创造模式适配，可直接克隆：
 
 ```bash
-git clone --branch main https://github.com/hbyaing/Myriad-Ascension.git
-cd Myriad-Ascension
+git clone --branch main https://github.com/hbyaing/MA.git
+cd MA
 ```
 
 仓库仅保留最新 `main` 分支。旧开发分支已归档清理；历史版本可通过下方固定提交链接查看，未验收草稿不混入当前源码。
@@ -87,10 +87,10 @@ Linux / macOS 使用 `./gradlew`。首次解析依赖需要联网；完整服务
 
 ## 协作与资料
 
-- [项目协作规则](https://github.com/hbyaing/Myriad-Ascension/blob/main/AGENTS.md)：功能分支与 PR 协作，保留他人改动，禁止强制覆盖。
-- [已确认融合方案](https://github.com/hbyaing/Myriad-Ascension/blob/main/docs/integration/accepted-decisions.json)：重复玩法先确认取舍，不另建重复账户。
-- [内容覆盖账本](https://github.com/hbyaing/Myriad-Ascension/blob/main/SOURCE_CONTENT_COVERAGE.md)：追踪来源内容与融合范围。
-- [恢复与分支说明](https://github.com/hbyaing/Myriad-Ascension/blob/main/docs/integration/RECOVERY.md)：老 UI 交付线、新 UI 暂存线与原始备份分别保留。
+- [项目协作规则](https://github.com/hbyaing/MA/blob/main/AGENTS.md)：安全同步并合并上传 main，保留他人改动，禁止强制覆盖。
+- [已确认融合方案](https://github.com/hbyaing/MA/blob/main/docs/integration/accepted-decisions.json)：重复玩法先确认取舍，不另建重复账户。
+- [内容覆盖账本](https://github.com/hbyaing/MA/blob/main/SOURCE_CONTENT_COVERAGE.md)：追踪来源内容与融合范围。
+- [恢复与分支说明](https://github.com/hbyaing/MA/blob/main/docs/integration/RECOVERY.md)：老 UI 交付线、新 UI 暂存线与原始备份分别保留。
 - [原始交接记录](NEXT_STEPS.md) · [原始恢复说明](FULL_RESTORE.md)：保留历史记录；最新阶段状态以融合清单和对应报告为准。
 
 <details>
@@ -106,9 +106,9 @@ Linux / macOS 使用 `./gradlew`。首次解析依赖需要联网；完整服务
 
 | 历史提交 | 用途 |
 | :-- | :-- |
-| [老 UI 基线](https://github.com/hbyaing/Myriad-Ascension/tree/ab5825c2d7a35ce72c31b385c94753a26ee2d013) | 原始老 UI 交付基线 |
-| [新 UI 暂存](https://github.com/hbyaing/Myriad-Ascension/tree/7a059c9202997906f038e7b30d598d1f391ead0f) | 独立开发快照，含未验收草稿 |
-| [早期融合快照](https://github.com/hbyaing/Myriad-Ascension/tree/dbe20d199d0648595c3585b3585ed44b034ee262) | 历史整合内容与追溯 |
+| [老 UI 基线](https://github.com/hbyaing/MA/tree/ab5825c2d7a35ce72c31b385c94753a26ee2d013) | 原始老 UI 交付基线 |
+| [新 UI 暂存](https://github.com/hbyaing/MA/tree/7a059c9202997906f038e7b30d598d1f391ead0f) | 独立开发快照，含未验收草稿 |
+| [早期融合快照](https://github.com/hbyaing/MA/tree/dbe20d199d0648595c3585b3585ed44b034ee262) | 历史整合内容与追溯 |
 
 ## 共创来源
 

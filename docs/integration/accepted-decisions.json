@@ -445,5 +445,12 @@
     "status": "authorized implementation target, not complete",
     "migration": "2026-10-29 user explicitly directs all old pills into V5; remove old medicinal tiers/quality presentation and active settlement; use unified grades 1–9, keep quantities and original backups, one-time deterministic conversion, no rerolls or automatic certification",
     "extensibility": "User requires data-defined parameter/tag display with typed source and budget, separate presence/strength; allowlisted behavior registry, no arbitrary scripts"
+  },
+  "repositoryPublication": {
+    "confirmedDate": "2026-10-29",
+    "repository": "https://github.com/hbyaing/MA",
+    "branch": "main",
+    "scope": "All subsequent updates; safely merge remote main and push without force. Supersedes previous repository destinations.",
+    "previousRepository": "https://github.com/hbyaing/Myriad-Ascension"
   }
 }

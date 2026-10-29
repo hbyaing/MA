@@ -1,6 +1,6 @@
 # 换电脑接续：自由炼丹V5
 
-仓库：https://github.com/hbyaing/Myriad-Ascension.git，默认分支 main。先读根 AGENTS.md，检查分支/远程/未提交修改，fetch 后安全同步最新 main，最终合并上传main。不能直接覆盖已有工作；不要使用 reset --hard 或强推。
+仓库：https://github.com/hbyaing/MA.git，默认分支 main。先读根 AGENTS.md，检查分支/远程/未提交修改，fetch 后安全同步最新 main，最终合并上传main。不能直接覆盖已有工作；不要使用 reset --hard 或强推。
 
 ## 当前进度
 
@@ -80,4 +80,9 @@ V2已获明确批准并实装新工作方块/菜单/六页界面，真实基础�
 
 旧丹统一V5一至九品，不再保留并行旧丹结算。读 docs/testing/ALCHEMY_V5_MIGRATION_20261029.md 及 evidence/alchemy-migration-20261029/validation.json。网络105；旧V5效果策略1和输入schema1继续按冻结定义读取，新规则不回灌旧成丹。全目录与680映射、475项完整专服、12项隔离迁移专项、后台独立客户端重启与实际消费通过，捕获违规0。
 
-生产包SHA256 `5cda7c09908d8ff75f9f888d72342708ec898752bee35567cc36fcdb69da3274`，已安装到 E:/我的世界/PCL 正式版 2.10.9/.minecraft/versions/1.20.1-Forge_47.4.26/mods；其他7个模组JAR哈希未变，需重启加载。QA类与迁移测试资源均不在正式包内。主线仍为 hbyaing/Myriad-Ascension 的main；39fbddf是本项提前上传的开发检查点，最终状态见包含本记录的提交。下一项13尚未开始。
+生产包SHA256 `5cda7c09908d8ff75f9f888d72342708ec898752bee35567cc36fcdb69da3274`，已安装到 E:/我的世界/PCL 正式版 2.10.9/.minecraft/versions/1.20.1-Forge_47.4.26/mods；其他7个模组JAR哈希未变，需重启加载。QA类与迁移测试资源均不在正式包内。后续主线为 hbyaing/MA 的main；39fbddf是本项提前上传的开发检查点，最终状态见包含本记录的提交。下一项13尚未开始。
+
+
+## 2026-10-29 最新上传约定
+
+用户指定后续所有更新统一上传 https://github.com/hbyaing/MA 的main，覆盖本文件历史章节中的旧地址。origin已切换新地址；旧仓库远程仅保留历史引用，不再推送。开始及最终上传前安全同步，保留其他协作者提交，禁止强推。
